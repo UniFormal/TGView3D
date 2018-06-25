@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.XR;
 
 public class ReadJSON : MonoBehaviour {
@@ -382,11 +383,27 @@ public class ReadJSON : MonoBehaviour {
         //Debug.Log(testTex.width + " " + testTex.height);
     }
 
+
+    class PData
+    {
+        public string format = "TeX";
+        public string math = "b + y = \\sqrt{f} = \\sum_n^5 {x}";
+        public bool svg = true;
+        public bool mml = false;
+        public bool png = false;
+        public bool speakText = true;
+        public string speakRuleset = "mathspeak";
+        public string speakStyle = "default";
+        public int ex = 6;
+        public int width = 1000000;
+        public bool linebreaks = false;
+    };
+
+
+
     void Start()
     {
         TextPrefab = (GameObject)Resources.Load("nodeText");
-
-
 
 
         XRSettings.enabled = false;
@@ -400,13 +417,51 @@ public class ReadJSON : MonoBehaviour {
         WWW www = new WWW(url);
 
         StartCoroutine(WaitForRequest(www));
-        
+
+        PData data = new PData();
+
+        StartCoroutine(TestRequest(data));
 
 
 
     }
-  
-    IEnumerator WaitForRequest(WWW www)
+
+
+
+    IEnumerator TestRequest(PData pdata)
+    {
+        /*List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
+        formData.Add(new MultipartFormDataSection("field1=foo&field2=bar"));
+        formData.Add(new MultipartFormFileSection("my file data", "myfile.txt"));*/
+
+        string formData = JsonUtility.ToJson(pdata);
+
+        var data = System.Text.Encoding.UTF8.GetBytes(formData);
+
+
+        Debug.Log(formData);
+        var www = new UnityWebRequest("http://localhost:8003");
+        www.method = "POST";
+        www.uploadHandler = new UploadHandlerRaw(data);
+        www.downloadHandler = new DownloadHandlerBuffer();
+
+       // UnityWebRequest www = UnityWebRequest.Post("http://localhost:8003", (formData));
+        yield return www.SendWebRequest();
+
+        if (www.isNetworkError || www.isHttpError)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+            Debug.Log(www.downloadHandler.text);
+            Debug.Log("Request upload complete!");
+        }
+    }
+
+
+
+IEnumerator WaitForRequest(WWW www)
     {
         yield return www;
 
@@ -428,12 +483,12 @@ public class ReadJSON : MonoBehaviour {
 
             for (int i = 0; i < graph.nodes.Count; i++)
             {
-                if (i < 20) Debug.Log(graph.nodes[i].style);
+                //if (i < 20) Debug.Log(graph.nodes[i].style);
                 if (graph.nodes[i].style == "graphmeta")
                 {
                     graph.nodes.RemoveAt(i);
                     i--;
-                    Debug.Log("removed at " + i);
+                   // Debug.Log("removed at " + i);
                 }
             }
 
@@ -448,13 +503,13 @@ public class ReadJSON : MonoBehaviour {
             for (int i = 0; i < graph.edges.Count; i++)
             {
 
-                if (i < 20) Debug.Log(graph.edges[i].style);
+               // if (i < 20) Debug.Log(graph.edges[i].style);
 
                 if (graph.edges[i].style == "graphmeta")
                 {
                     graph.edges.RemoveAt(i);
                     i--;
-                    Debug.Log("removed edge at " + i);
+                    //Debug.Log("removed edge at " + i);
                 }
                 else
                 {

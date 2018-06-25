@@ -293,7 +293,7 @@ MonoBehaviour:
   mat: {fileID: 2100000, guid: f73207ad5363bdb4194c901a41ed995e, type: 2}
   texMat: {fileID: 0}
   testTex: {fileID: 0}
-  url: http://neuralocean.de/graph/test/nasa.json
+  url: http://neuralocean.de/graph/test/mathshit.json
   vol: 100
 --- !u!4 &1165595084
 Transform:
