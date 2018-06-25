@@ -160,7 +160,7 @@ public class ReadJSON : MonoBehaviour {
 
         for (var i = 0; i < iterations; i++)
         {
-            if (i % 100 == 0)
+            if (i % 100 == 1)
             {
                 Debug.Log("Beautify Layout: Iteration " + i + " of " + iterations + "...");
             }

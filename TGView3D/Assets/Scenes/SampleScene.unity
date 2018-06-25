@@ -220,7 +220,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 2000
+  far clip plane: 5000
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -293,7 +293,7 @@ MonoBehaviour:
   mat: {fileID: 2100000, guid: f73207ad5363bdb4194c901a41ed995e, type: 2}
   texMat: {fileID: 0}
   testTex: {fileID: 0}
-  url: http://neuralocean.de/graph/test/mathshit.json
+  url: http://neuralocean.de/graph/test/nasa.json
   vol: 100
 --- !u!4 &1165595084
 Transform:
