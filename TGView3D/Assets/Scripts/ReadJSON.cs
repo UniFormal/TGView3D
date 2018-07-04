@@ -28,12 +28,13 @@ public class ReadJSON : MonoBehaviour {
     float energy = 1000000f;
     float step = 30.0f;// initialStep;
     int success = 0;
+    bool flat = false;
+
+    float sliceWidth = 0;
 
 
 
-
-
-    [System.Serializable]
+[System.Serializable]
     private class MyWrapper
     {
         public List<MyNode> nodes;
@@ -62,6 +63,7 @@ public class ReadJSON : MonoBehaviour {
         public List<int> edgeIndicesIn = new List<int>();
         public List<int> connectedNodes = new List<int>();
         public int graphNumber;
+        public int height = 0;
 
 
 
@@ -420,7 +422,7 @@ public class ReadJSON : MonoBehaviour {
 
         PData data = new PData();
 
-        StartCoroutine(TestRequest(data));
+        //StartCoroutine(TestRequest(data));
 
 
 
@@ -481,16 +483,7 @@ IEnumerator WaitForRequest(WWW www)
             nodes = new Dictionary<string, int>();
 
 
-            for (int i = 0; i < graph.nodes.Count; i++)
-            {
-                //if (i < 20) Debug.Log(graph.nodes[i].style);
-                if (graph.nodes[i].style == "graphmeta")
-                {
-                    graph.nodes.RemoveAt(i);
-                    i--;
-                   // Debug.Log("removed at " + i);
-                }
-            }
+
 
 
             for (int i = 0; i < graph.nodes.Count; i++)
@@ -499,19 +492,17 @@ IEnumerator WaitForRequest(WWW www)
 
             }
 
-            Debug.Log(graph.edges.Count);
+  
             for (int i = 0; i < graph.edges.Count; i++)
             {
-
-               // if (i < 20) Debug.Log(graph.edges[i].style);
 
                 if (graph.edges[i].style == "graphmeta")
                 {
                     graph.edges.RemoveAt(i);
                     i--;
-                    //Debug.Log("removed edge at " + i);
-                }
-                else
+
+                } else
+
                 {
                     ProcessNode(graph.edges[i].from, nodes.Count, true);
                     ProcessNode(graph.edges[i].to, nodes.Count, true);
@@ -520,90 +511,121 @@ IEnumerator WaitForRequest(WWW www)
                     {
                         MyNode source = graph.nodes[nodes[graph.edges[i].from]];
                         MyNode target = graph.nodes[nodes[graph.edges[i].to]];
-                        source.edgeIndicesIn.Add(i);
-                        target.edgeIndicesOut.Add(i);
+                        source.edgeIndicesOut.Add(i);
+                        target.edgeIndicesIn.Add(i);
 
                         source.connectedNodes.Add(nodes[graph.edges[i].to]);
                         target.connectedNodes.Add(nodes[graph.edges[i].from]);
                     }
 
                 }
+            }
 
 
+            identifySubgraphs();
+            SolveUsingForces(30, 40f, true);
 
+            List<int> rootIndices = new List<int>();
+            bool[] visited = new bool[graph.nodes.Count];
+            float maxConnections = 0;
+            for (int i = 0; i < graph.nodes.Count; i++)
+            {
+                /*
+                string to = "";
+                for(int j=0; j< graph.nodes[i].edgeIndicesIn.Count; j++)
+                {
+                    to += graph.nodes[nodes[graph.edges[graph.nodes[i].edgeIndicesIn[j]].from]].label+", ";
+                }
+                Debug.Log(graph.nodes[i].label + "<-" + to);
 
+                string from = "";
+                for (int j = 0; j < graph.nodes[i].edgeIndicesOut.Count; j++)
+                {
+                    from += graph.nodes[nodes[graph.edges[graph.nodes[i].edgeIndicesOut[j]].to]].label + ", ";
+                }
+                Debug.Log(graph.nodes[i].label + "->" + from);
 
-
+                //*/
+                if (graph.nodes[i].edgeIndicesIn.Count == 0) rootIndices.Add(i);
+              
+                maxConnections = Mathf.Max(graph.nodes[i].connectedNodes.Count,maxConnections);
 
             }
 
-            identifySubgraphs();
-            SolveUsingForces(1, 4f, true);
+            Debug.Log("#root nodes: " + rootIndices.Count);
 
-            /*
-           LineRenderer lr= graph.edges[i].line.AddComponent<LineRenderer>();
-           lr.SetPositions(new Vector3[]{source.pos, target.pos});
-           lr.startWidth = lr.endWidth = 0.03f;
-           //graph.edges[i].line.transform.GetComponent<Renderer>().material = mat;
-           lr.transform.parent = this.transform;
-           lr.material = mat;*/
+            float maxHeight = 0;
+   
+
+            for (int i = 0; i < rootIndices.Count; i++)
+            {
+                for (int j = 0; j < graph.nodes.Count; j++)
+                {
+                    visited[j] = false;
+                }
+                int curHeight = 1;
+                Stack<int> nodeIndexStack = new Stack<int>();
+                nodeIndexStack.Push(rootIndices[i]);
+                Stack<int> heightStack = new Stack<int>();
+                heightStack.Push(curHeight);
+                visited[rootIndices[i]] = true;
+
+                while (nodeIndexStack.Count> 0)
+                {
+                    int curIndex = nodeIndexStack.Pop();
+                    curHeight = heightStack.Pop();
+                    maxHeight = Mathf.Max(curHeight, maxHeight);
+                    MyNode curNode = graph.nodes[curIndex];
+
+                    for(int j=0; j < curNode.edgeIndicesOut.Count; j++)
+                    {
+                        
+                        int childNodeIndex = nodes[graph.edges[curNode.edgeIndicesOut[j]].to];
+                        graph.nodes[childNodeIndex].height = Mathf.Max(curHeight, graph.nodes[childNodeIndex].height);
+                        if (!visited[childNodeIndex])
+                        {
+                            visited[childNodeIndex] = true;
+                            nodeIndexStack.Push(childNodeIndex);
+                            heightStack.Push(curHeight+1);
+                        }
+                    }
+
+                }
+            
+            }
+            sliceWidth = vol / maxHeight;
+            Debug.Log("maxHeight: "+maxHeight);
+;
+
+            for (int i = 0; i < graph.nodes.Count; i++)
+            {
+                var node = graph.nodes[i];
+
+                var y = node.height * sliceWidth;
+
+              /*  float x =(maxConnections/10- node.connectedNodes.Count)*20 ;
+                if (x < -vol) x = 0;
+
+                if (i % 2 == 0) x *= -1;*/
+
+                Vector3 pos = new Vector3(node.pos.x,y,node.pos.z);
+
+                node.pos = pos;
+                node.nodeObject.transform.position = pos;
+
+ 
+
+            }
+          
 
 
-            /* for (int i = 0; i < graph.edges.Count; i++)
-             {
+     
 
-                 MyNode source = graph.nodes[nodes[graph.edges[i].from]];
-                 MyNode target = graph.nodes[nodes[graph.edges[i].to]];
-
-
-
-
-                 GameObject line = new GameObject();
-                 MeshRenderer mr= line.AddComponent<MeshRenderer>();
-                 MeshFilter mf= line.AddComponent<MeshFilter>();
-                 Mesh mesh = new Mesh();
-
-                 Vector3[] vertices = new Vector3[8];
-                 int[] triangles = new int[12];
-
-                 Vector3 dir = target.pos - source.pos;
-
-                 Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized;
-
-
-                 vertices[0] =  source.pos - offset; 
-                 vertices[2] =  source.pos + offset;
-                 vertices[1] =  target.pos - offset;
-                 vertices[3] =  target.pos + offset;
-
-                 vertices[4] = source.pos - offset;
-                 vertices[6] = source.pos + offset;
-                 vertices[5] = target.pos - offset;
-                 vertices[7] = target.pos + offset;
-
-                 triangles[0] = 0;
-                 triangles[1] = 1;
-                 triangles[2] = 2;
-                 triangles[3] = 2;
-                 triangles[4] = 3;
-                 triangles[5] = 1;
-
-
-                 mesh.vertices = vertices;
-                 mesh.triangles = triangles;
-
-                 mr.material = mat;
-                 mf.mesh = mesh;
-
-                 line.transform.parent = this.transform;
-                 graph.edges[i].line = line;
-
-             */
 
 
             Vector3[] vertices = new Vector3[4*graph.edges.Count];
             int[] triangles = new int[6* graph.edges.Count];
-           line = new GameObject();
+            line = new GameObject();
             MeshRenderer mr = line.AddComponent<MeshRenderer>();
             MeshFilter mf = line.AddComponent<MeshFilter>();
             Mesh mesh = new Mesh();
@@ -632,9 +654,6 @@ IEnumerator WaitForRequest(WWW www)
                     triangles[5 + i * 6] = 1 + i * 4;
                 }
 
-               
-
-
             }
 
             mesh.vertices = vertices;
@@ -649,95 +668,43 @@ IEnumerator WaitForRequest(WWW www)
 
 
         }
-        else
-        {
-            Debug.Log("WWW Error: " + www.error);
-
-            int num = 1000;
-            line = new GameObject();
-            MeshRenderer mr = line.AddComponent<MeshRenderer>();
-            MeshFilter mf = line.AddComponent<MeshFilter>();
-            Mesh mesh = new Mesh();
-            Vector3[] vertices = new Vector3[4*num];
-            int[] triangles = new int[6*num];
-            for (int i = 0; i <num; i++)
-            {
-                Vector3 sourcepos = Random.insideUnitSphere * vol;
-                Vector3 targetpos = Random.insideUnitSphere * vol;
-
-                vertices[0 + 4 * i] = sourcepos - new Vector3(0, 0.5f, 0);
-                vertices[2 + 4 * i] = sourcepos + new Vector3(0, 0.5f, 0);
-                vertices[1 + 4 * i] = targetpos - new Vector3(0, 0.5f, 0);
-                vertices[3 + 4 * i] = targetpos + new Vector3(0, 0.5f, 0);
-
-                triangles[0 + 6 * i] = 0 + 4 * i;
-                triangles[1 + 6 * i] = 1 + 4 * i;
-                triangles[2 + 6 * i] = 2 + 4 * i;
-                triangles[3 + 6 * i] = 2 + 4 * i;
-                triangles[4 + 6 * i] = 3 + 4 * i;
-                triangles[5 + 6 * i] = 1 + 4 * i;
-
-                /*
-                GameObject line = new GameObject();
-                MeshRenderer mr = line.AddComponent<MeshRenderer>();
-                MeshFilter mf = line.AddComponent<MeshFilter>();
-                Mesh mesh = new Mesh();
-
-                Vector3 sourcepos = Random.insideUnitSphere * vol;
-                Vector3 targetpos = Random.insideUnitSphere * vol;
-
-                Vector3[] vertices = new Vector3[4];
-                int[] triangles = new int[6];
-
-                vertices[0] = sourcepos - new Vector3(0, 0.5f, 0);
-                vertices[2] = sourcepos + new Vector3(0, 0.5f, 0);
-                vertices[1] = targetpos - new Vector3(0, 0.5f, 0);
-                vertices[3] = targetpos + new Vector3(0, 0.5f, 0);
-
-                triangles[0] = 0;
-                triangles[1] = 1;
-                triangles[2] = 2;
-                triangles[3] = 2;
-                triangles[4] = 3;
-                triangles[5] = 1;
+        else Debug.Log("WWW Error: " + www.error);
 
 
-                mesh.vertices = vertices;
-                mesh.triangles = triangles;
-
-                mr.material = mat;
-                mf.mesh = mesh;
-
-                line.transform.parent = this.transform;
-                */
-
-            }
-            mesh.vertices = vertices;
-            mesh.triangles = triangles;
-
-            mr.material = mat;
-            mf.mesh = mesh;
-
-            line.transform.parent = this.transform;
-
-        }
     }
 
     void Update()
     {
       
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown("space"))
         {
 
             if (!init) return;
 
-           
 
-            SolveUsingForces(1, 8f, false);
+
+
+            if (flat)
+            {
+                for (int i = 0; i < graph.nodes.Count; i++)
+                {
+                    var node = graph.nodes[i];
+                    node.nodeObject.transform.position = new Vector3(node.pos.x, node.pos.y, node.pos.z);
+                }
+                flat = false;
+            }
+            else
+            {
+                for (int i = 0; i < graph.nodes.Count; i++)
+                {
+                    var node = graph.nodes[i];
+                    node.nodeObject.transform.position = new Vector3(node.pos.x, node.pos.y, 0);
+                }
+                flat = true;
+            }
 
             Mesh mesh = line.GetComponent<MeshFilter>().mesh;
 
-            
 
 
             Vector3[] vertices = mesh.vertices;
@@ -747,21 +714,20 @@ IEnumerator WaitForRequest(WWW www)
                 if (nodes.ContainsKey(graph.edges[i].from) && nodes.ContainsKey(graph.edges[i].to))
                 {
 
-                    MyNode source = graph.nodes[nodes[graph.edges[i].from]];
-                    MyNode target = graph.nodes[nodes[graph.edges[i].to]];
+                    var sourcePos = graph.nodes[nodes[graph.edges[i].from]].nodeObject.transform.position;
+                    var targetPos = graph.nodes[nodes[graph.edges[i].to]].nodeObject.transform.position;
 
-
-                    Vector3 dir = target.pos - source.pos;
+                    Vector3 dir = targetPos - sourcePos;
                     Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * 0.5f;
 
 
-                    vertices[0 + 4 * i] = source.pos - offset;
-                    vertices[2 + 4 * i] = source.pos + offset;
-                    vertices[1 + 4 * i] = target.pos - offset;
-                    vertices[3 + 4 * i] = target.pos + offset;
+                    vertices[0 + 4 * i] = sourcePos - offset;
+                    vertices[2 + 4 * i] = sourcePos + offset;
+                    vertices[1 + 4 * i] = targetPos - offset;
+                    vertices[3 + 4 * i] = targetPos + offset;
 
                     mesh.vertices = vertices;
-                   
+
 
                 }
 
@@ -770,28 +736,16 @@ IEnumerator WaitForRequest(WWW www)
             mesh.RecalculateBounds();
 
 
-            // Graphics.DrawMesh(mesh, Vector3.zero, Quaternion.identity, mat, 0);
 
-            /*   Camera.main.transform.rotation = InputTracking.GetLocalRotation(XRNode.CenterEye);
-          Vector3 dir = Camera.main.transform.forward.normalized*10;
-         this.transform.position-= dir;
-          for (int n = 0; n < graph.nodes.Count; n++)
-          {
-              int randInd = n;
-              for (int i = 0; i < graph.nodes[randInd].edgeIndicesOut.Count; i++)
-              {
-                  LineRenderer lr = graph.edges[graph.nodes[randInd].edgeIndicesOut[i]].line.GetComponent<LineRenderer>();
-                  lr.SetPosition(1, lr.GetPosition(1)-dir);
-              }
-              for (int i = 0; i < graph.nodes[randInd].edgeIndicesIn.Count; i++)
-              {
-                  LineRenderer lr = graph.edges[graph.nodes[randInd].edgeIndicesIn[i]].line.GetComponent<LineRenderer>();
-                  lr.SetPosition(0, lr.GetPosition(0) - dir);
-              }
 
-          }*/
+            /* SolveUsingForces(1, 8f, false);
+
+
+
+          
+             */
         }
-        }
+    }
 
 
 
