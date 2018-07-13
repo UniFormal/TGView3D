@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.XR;
 
 public class FlyCamera : MonoBehaviour
 {
@@ -92,5 +93,9 @@ public class FlyCamera : MonoBehaviour
         }
 
         return p_Velocity;
+    }
+    private void Start()
+    {
+         XRSettings.enabled = false;
     }
 }
