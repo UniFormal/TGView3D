@@ -12,11 +12,11 @@
 \begin{document}
 \maketitle
 
-Representing mathematical knowledge efficiently is a difficult task due to its inherent complexity. Modular representations like OMDoc/MMT~\cite{Kohlhase:OMDoc1.2,RabKoh:WSMSML13} orgainze it into  theories with 
+Representing mathematical knowledge efficiently is a difficult task due to its inherent complexity.
+Modular representation formats like OMDoc/MMT~\cite{Kohlhase:OMDoc1.2,RabKoh:WSMSML13} orgainze it into theories with truth-preserving inclusions and interpretations (morphisms).
+To help users understand the global and local strucutre of such representations and libaries, we have experimented with visualizing the theory graphs in the TGView~\cite{RupKohMue:fitgv17} system. But the sheer size of theory graph -- they can contain thousands of nodes and an order of magnitude more edges -- complicates the use if no other processing is done before.
 
-Individual theories and their direct neighborhood as well as the global structure need to be highlighted in some way. A possible solution for this problem are theory graphs; however, there is no inherent layout and the sheer size of a graph complicates the use if no other processing is done before.
-
-For this reason, we propose an interactive virtual reality theory-graph viewer. This system follows TGView~\cite{RupKohMue:fitgv17}, an already existing 2D-theory-graph viewer. This tool allows switching between several layouts such as a hierarchical or a force-directed one. Furthermore, nodes can be moved manually and different visual highlighting options are available.
+To cope with this, we propose an interactive virtual reality theory-graph viewer: TGView3D. This system follows TGView~\cite{RupKohMue:fitgv17}, an already existing 2D-theory-graph viewer. This tool allows switching between several layouts such as a hierarchical or a force-directed one. Furthermore, nodes can be moved manually and different visual highlighting options are available.
 
 Adding the depth as a third dimension to this concept helps to further organize the theory graph, as effectively more space is generated. Additionally, this offers an inherent way of filtering the information. Since it is possible to freely navigate through the 3D-graph, the user can easily focus on the current visible slice.
 
