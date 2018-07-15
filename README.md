@@ -5,3 +5,7 @@ It is intended to be used with VR Hardware, to offer an immersive experience of 
 In order to visualize the complex theory graphs efficiently, different layouts and highlighting settings will be developed.
 
 
+![alt text](https://raw.githubusercontent.com/UniFormal/TGView3D/master/cicm18-demo/galaxyfaraway.png)
+![alt text](https://raw.githubusercontent.com/UniFormal/TGView3D/master/cicm18-demo/part.png)
+![alt text](https://raw.githubusercontent.com/UniFormal/TGView3D/master/cicm18-demo/tractor.png)
+![alt text](https://raw.githubusercontent.com/UniFormal/TGView3D/master/cicm18-demo/grab.png)
