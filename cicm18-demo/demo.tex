@@ -1,5 +1,9 @@
 \documentclass{llncs}
 \usepackage[style=alphabetic,backend=bibtex]{biblatex}
+\usepackage{graphicx}
+
+
+
 \addbibresource{kwarc.bib}
 
 \title{Demo: TGView3D for Immersive Theory Graph Exploration}
@@ -19,6 +23,37 @@ Adding the depth as a third dimension to this concept helps to further organize 
 
 Porting the system to virtual reality is the logical consequence. The first advantage is the extremely wide field of view. In combination with the headtracking, this allows for a natural exploration of the represented knowledge. Secondly, special controllers simulate functions of the human hand, e.g. grabbing and pointing, which offer intuitive ways of interaction in the three-dimensional world. Last, the immersive experience of virtual reality stronger stimulates brain areas involved in spatial cognition compared to traditional computer graphics. This could possibly help finding certain patterns in the graph.
 
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth ]{galaxyfaraway}
+    \caption{The graph is positioned in the 3D space. Possibly, further graphs can be placed in relation to each other.}
+    \label{fig:sample_figure}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth ]{part}
+    \caption{The user can move freely through the world. This allows inspecting parts of the graph in detail. The edges have a color gradient according to their directions.}
+    \label{fig:sample_figure}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth ]{tractor}
+    \caption{Nodes can be dragged towards the user with the help of a tractor beam.}
+    \label{fig:sample_figure}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth ]{grab}
+    \caption{If they are close enough, they land in the hands of the user and can be dragged to another place}
+    \label{fig:sample_figure}
+\end{figure}
+
 In order to optimize the 3D-viewer we will tailor current functionalities toward the
 requirements of a virtual reality application, create specialized graph layout algorithms
 and find smart ways of presenting the relevant pieces of information. By doing this, we
@@ -26,7 +61,8 @@ hope to not only create a system that can present theory graphs in a structured 
 intuitive way, but also aid mathematicians in discovering new theories from the presented
 knowledge.
 
-The TGView3D system is written in the unity3D framework (\url{https://unity3d.com/}) and the code is available at \url{https://github.com/UniFormal/TGView3D}.
+The TGView3D system is written in the unity3D framework (\url{https://unity3d.com/}) and the code is available at \url{https://github.com/UniFormal/TGView3D} under the GPLv3 license.
+The graph viewer is supposed to work on a regular monitor as well as the Oculus Rift. Unity builds will be released, as soon as the prototypes are fully stable.
 
 \printbibliography
 \end{document}
