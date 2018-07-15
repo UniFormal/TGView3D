@@ -34,3 +34,15 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+# LaTeX stuff:
+auto
+*.aux
+*.log
+*.toc
+*.pdf
+*.bbl
+*.blg
+*-blx.bib
+*.run.xml
+*.synctex.gz
