@@ -46,3 +46,4 @@ auto
 *-blx.bib
 *.run.xml
 *.synctex.gz
+.DS_Store
