@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1004068825275064}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 1.1, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 0}
@@ -91,13 +91,13 @@ TextMesh:
   m_Anchor: 4
   m_Alignment: 0
   m_TabSize: 4
-  m_FontSize: 100
+  m_FontSize: 80
   m_FontStyle: 1
   m_RichText: 1
   m_Font: {fileID: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4287542967
+    rgba: 4288796118
 --- !u!114 &114243510907841606
 MonoBehaviour:
   m_ObjectHideFlags: 1

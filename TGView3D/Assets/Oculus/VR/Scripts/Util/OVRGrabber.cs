@@ -257,8 +257,12 @@ public class OVRGrabber : MonoBehaviour
             m_lastPos = transform.position;
             m_lastRot = transform.rotation;
 
+         
+
+            
+
             // Set up offsets for grabbed object desired position relative to hand.
-            if(m_grabbedObj.snapPosition)
+            if (m_grabbedObj.snapPosition)
             {
                 m_grabbedObjectPosOff = m_gripTransform.localPosition;
                 if(m_grabbedObj.snapOffset)
@@ -323,7 +327,7 @@ public class OVRGrabber : MonoBehaviour
         }
     }
 
-    protected void GrabEnd()
+    protected virtual void GrabEnd()
     {
         if (m_grabbedObj != null)
         {
@@ -337,6 +341,7 @@ public class OVRGrabber : MonoBehaviour
 
             GrabbableRelease(linearVelocity, angularVelocity);
         }
+      
 
         // Re-enable grab volumes to allow overlap events
         GrabVolumeEnable(true);

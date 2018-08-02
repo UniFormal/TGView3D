@@ -12,15 +12,13 @@ namespace TGraph
     public class ReadJSON : MonoBehaviour
     {
 
-        public MyWrapper graph;
-        public Dictionary<string, int> nodes;
+        public MyGraph graph;
         bool init = false;
         public Material mat;
         public Material lineMat;
+        public GameObject grabbable;
         // public Material texMat;
         //public Texture2D testTex;
-        public GameObject grabbable;
-
 
 
         //private MeshRenderer mr;
@@ -30,30 +28,31 @@ namespace TGraph
         public string url = "http://neuralocean.de/graph/test/nasa.json";
         public int vol = 100;
         GameObject TextPrefab;
-        GameObject line;
+       
 
         float energy = 1000000f;
-        float step = 30.0f;// initialStep;
+        float step = 30f;// initialStep;
         int success = 0;
         bool flat = false;
-        Mesh lineMesh;
         float sliceWidth = 0;
 
 
 
 
         [System.Serializable]
-        public class MyWrapper
+        public class MyGraph
         {
             public List<MyNode> nodes;
+            public Dictionary<string, int> nodeDict;
             public List<MyEdge> edges;
             public List<MyEdge> tmpEdges;
+            public List<MyNode> selectedNodes;
             public GameObject edgeObject;
-            public float lineWidth = 0.02f;
+            public float lineWidth = 0.002f;
 
-            public static MyWrapper CreateFromJSON(string jsonString)
+            public static MyGraph CreateFromJSON(string jsonString)
             {
-                return JsonUtility.FromJson<MyWrapper>(jsonString);
+                return JsonUtility.FromJson<MyGraph>(jsonString);
             }
 
 
@@ -74,7 +73,9 @@ namespace TGraph
             public List<int> edgeIndicesIn = new List<int>();
             public List<int> connectedNodes = new List<int>();
             public int graphNumber;
-            public int height = 0;
+            public float height = 0;
+            public float weight = 0;
+            public GameObject nodeEdgeObject;
 
 
 
@@ -133,7 +134,7 @@ namespace TGraph
 
                         graph.nodes[currNode].graphNumber = graphNumber;
                         graph.nodes[currNode].nodeObject.GetComponent<MeshRenderer>().sharedMaterial = curMaterial;
-                        graph.nodes[currNode].nodeObject.GetComponent<MeshRenderer>().material.color = randColor;
+                        graph.nodes[currNode].nodeObject.GetComponent<MeshRenderer>().sharedMaterial.color = randColor;
 
                         for (var j = 0; j < graph.nodes[currNode].connectedNodes.Count; j++)
                         {
@@ -150,13 +151,132 @@ namespace TGraph
                     graphNumber++;
                     curMaterial = new Material(curMaterial);
                     randColor = Random.ColorHSV();
-                    Debug.Log(randColor);
+       
                 }
             }
             Debug.Log(graphNumber - 1);
-
+        
 
         }
+
+        void buildHierarchy()
+        {
+            float maxHeight = -10;
+            float minHeight = 10;
+
+            for (int n = 0; n < 2; n++)
+            {
+                List<int> rootIndices = new List<int>();
+                bool[] visited = new bool[graph.nodes.Count];
+                float maxConnections = 0;
+                for (int i = 0; i < graph.nodes.Count; i++)
+                {
+                    if (n == 0)
+                    {
+                        if (graph.nodes[i].edgeIndicesOut.Count == 0) rootIndices.Add(i);
+                    }
+                    else
+                    {
+                        if (graph.nodes[i].edgeIndicesIn.Count == 0) rootIndices.Add(i);
+                    }
+                    maxConnections = Mathf.Max(graph.nodes[i].connectedNodes.Count, maxConnections);
+
+                }
+
+                Debug.Log("#root nodes: " + rootIndices.Count);
+
+
+                for (int i = 0; i < rootIndices.Count; i++)
+                {
+                    for (int j = 0; j < graph.nodes.Count; j++)
+                    {
+                        visited[j] = false;
+                    }
+                    float curHeight = 0;
+                    Stack<int> nodeIndexStack = new Stack<int>();
+                    nodeIndexStack.Push(rootIndices[i]);
+                    Stack<float> heightStack = new Stack<float>();
+                    heightStack.Push(curHeight);
+                    visited[rootIndices[i]] = true;
+
+                    while (nodeIndexStack.Count > 0)
+                    {
+                        int curIndex = nodeIndexStack.Pop();
+                        curHeight = heightStack.Pop();
+                        maxHeight = Mathf.Max(curHeight, maxHeight);
+                        minHeight = Mathf.Min(curHeight, minHeight);
+
+
+
+                        MyNode curNode = graph.nodes[curIndex];
+
+                        int childCount;
+                        if (n == 0) childCount = curNode.edgeIndicesIn.Count;
+                        else childCount = curNode.edgeIndicesOut.Count;
+
+                        for (int j = 0; j < childCount; j++)
+                        {
+
+                            int childNodeIndex;
+                            if (n == 0)
+                            {
+                                childNodeIndex = graph.nodeDict[graph.edges[curNode.edgeIndicesIn[j]].from];
+                                // graph.nodes[childNodeIndex].height -=curHeight;
+                                graph.nodes[childNodeIndex].weight = Mathf.Max(curHeight, graph.nodes[childNodeIndex].weight);//+= curHeight;
+                            }
+                            else
+                            {
+                                childNodeIndex = graph.nodeDict[graph.edges[curNode.edgeIndicesOut[j]].to];
+                                graph.nodes[childNodeIndex].height = Mathf.Max(curHeight, graph.nodes[childNodeIndex].height);//+= curHeight;
+                            }
+
+
+                            if (!visited[childNodeIndex])
+                            {
+                                visited[childNodeIndex] = true;
+                                nodeIndexStack.Push(childNodeIndex);
+                                if (n == 0) heightStack.Push(curHeight + 1);
+                                else heightStack.Push(curHeight + 1);
+                            }
+                        }
+
+                    }
+                }
+            }
+
+            sliceWidth = 0.02f;
+            sliceWidth = Mathf.Max(0.1f, 5.0f*maxHeight/ Mathf.Sqrt(graph.nodes.Count));
+
+            //Debug.Log("maxHeight: " + maxHeight);
+            ;
+
+            for (int i = 0; i < graph.nodes.Count; i++)
+            {
+                var node = graph.nodes[i];
+
+                //Debug.Log(node.label + " " + node.height);
+                var y = (node.height - 0.5f * node.weight) * sliceWidth;
+
+                /*  float x =(maxConnections/10- node.connectedNodes.Count)*20 ;
+                  if (x < -vol) x = 0;
+
+                  if (i % 2 == 0) x *= -1;*/
+
+                // y = Mathf.Sign(y) * (Mathf.Sqrt(Mathf.Sqrt(Mathf.Abs(y * graph.nodes.Count / 100))));
+
+                Vector3 pos = new Vector3(node.pos.x, y * Mathf.Max(1, (graph.nodes.Count / 200.0f)), node.pos.z) / Mathf.Max(1, (graph.nodes.Count / 200.0f));
+
+
+
+                node.pos = pos;
+                node.nodeObject.transform.position = pos;
+
+
+
+            }
+        }
+
+
         // Function to calculate forces driven layout
         // ported from Marcel's Javascript versions
         void SolveUsingForces(int iterations, float spacingValue, bool resetForcesFixed = false, bool usingMinMax = false, float currTemperature = 0.9f, float initialStep = 3.0f)
@@ -274,7 +394,71 @@ namespace TGraph
 
         }
 
+        public static GameObject BuildEdges(List <MyEdge> edges, MyGraph graph, Dictionary<string, int> nodes, Material lineMat)
+        {
 
+            Vector3[] vertices = new Vector3[4 * edges.Count];
+            int[] triangles = new int[2 * 6 * edges.Count];
+            Color[] vertexColors = new Color[4 * edges.Count];
+            GameObject line = new GameObject();
+            MeshRenderer mr = line.AddComponent<MeshRenderer>();
+            MeshFilter mf = line.AddComponent<MeshFilter>();
+            Mesh mesh = new Mesh();
+
+
+            for (int i = 0; i < edges.Count; i++)
+            {
+                if (nodes.ContainsKey(edges[i].from) && nodes.ContainsKey(edges[i].to))
+                {
+                    MyNode source = graph.nodes[nodes[edges[i].from]];
+                    MyNode target = graph.nodes[nodes[edges[i].to]];
+
+                    Vector3 dir = target.pos - source.pos;
+
+                    Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * graph.lineWidth;
+
+                    vertices[0 + i * 4] = source.pos - offset;
+                    vertices[1 + i * 4] = target.pos - offset;
+                    vertices[2 + i * 4] = source.pos + offset;
+                    vertices[3 + i * 4] = target.pos + offset;
+
+
+                    vertexColors[0 + i * 4] = new Color(0, 255, 0);
+                    vertexColors[1 + i * 4] = new Color(0, 255, 20);
+                    vertexColors[2 + i * 4] = new Color(0, 255, 0);
+                    vertexColors[3 + i * 4] = new Color(0, 255, 20);
+
+                    triangles[0 + i * 12] = 0 + i * 4;
+                    triangles[1 + i * 12] = 1 + i * 4;
+                    triangles[2 + i * 12] = 2 + i * 4;
+                    triangles[3 + i * 12] = 2 + i * 4;
+                    triangles[4 + i * 12] = 1 + i * 4;
+                    triangles[5 + i * 12] = 3 + i * 4;
+
+                    triangles[6 + i * 12] = 3 + i * 4;
+                    triangles[7 + i * 12] = 1 + i * 4;
+                    triangles[8 + i * 12] = 2 + i * 4;
+                    triangles[9 + i * 12] = 2 + i * 4;
+                    triangles[10 + i * 12] = 1 + i * 4;
+                    triangles[11 + i * 12] = 0 + i * 4;
+
+                }
+
+            }
+
+            mesh.vertices = vertices;
+            mesh.triangles = triangles;
+            mesh.colors = vertexColors;
+
+            mr.sharedMaterial = lineMat;
+            mf.sharedMesh = mesh;
+
+
+            mesh.RecalculateBounds();
+
+            return line;
+
+        }
 
 
 
@@ -338,13 +522,13 @@ namespace TGraph
             Vector3 pos = Random.insideUnitSphere * vol;
 
 
-            GenLabel(node.transform, graph.nodes[nodes[name]].label);
+            GenLabel(node.transform, graph.nodes[graph.nodeDict[name]].label);
 
 
             node.transform.position = pos;
             //node.transform.GetComponent<Renderer>().sharedMaterial = mat;
-            graph.nodes[nodes[name]].pos = pos;
-            graph.nodes[nodes[name]].nodeObject = node;
+            graph.nodes[graph.nodeDict[name]].pos = pos;
+            graph.nodes[graph.nodeDict[name]].nodeObject = node;
             node.transform.parent = this.transform;
             //node.transform.localScale = new Vector3(20, 20, 20);
 
@@ -369,11 +553,11 @@ namespace TGraph
 
 
 
-            if (nodes.ContainsKey(name)) return;
+            if (graph.nodeDict.ContainsKey(name)) return;
 
 
             //dictionary for converting name to true id
-            nodes.Add(name, id);
+            graph.nodeDict.Add(name, id);
 
 
 
@@ -421,13 +605,14 @@ namespace TGraph
             Camera camera = Camera.main;
             float[] distances = new float[32];
 
-            camera.farClipPlane = 500;
-            distances[18] = 10;
+            camera.farClipPlane = 10;
+            distances[18] = 5;
             camera.layerCullDistances = distances;
             camera.layerCullSpherical = true;
             //camera.clearFlags = CameraClearFlags.SolidColor;
             //camera.backgroundColor = new Color(0.7f, 0.8f, 0.7f); 
 
+           // XRSettings.enabled=false;
 
             Debug.Log(Application.persistentDataPath);
             //url = "file:///" + Application.persistentDataPath + "/nasa.json";
@@ -495,12 +680,12 @@ namespace TGraph
             if (www.error == null)
             {
                 Debug.Log("WWW Ok!: " + www.text);
-                graph = MyWrapper.CreateFromJSON(www.text);
+                graph = MyGraph.CreateFromJSON(www.text);
 
 
                 //Debug.Log(graph.nodes.Count);
 
-                nodes = new Dictionary<string, int>();
+                graph.nodeDict = new Dictionary<string, int>();
 
 
 
@@ -508,7 +693,7 @@ namespace TGraph
 
                 for (int i = 0; i < graph.nodes.Count; i++)
                 {
-                    ProcessNode(graph.nodes[i].id, nodes.Count, false);
+                    ProcessNode(graph.nodes[i].id, graph.nodeDict.Count, false);
 
                 }
 
@@ -525,18 +710,18 @@ namespace TGraph
                     else
 
                     {
-                        ProcessNode(graph.edges[i].from, nodes.Count, true);
-                        ProcessNode(graph.edges[i].to, nodes.Count, true);
+                        ProcessNode(graph.edges[i].from, graph.nodeDict.Count, true);
+                        ProcessNode(graph.edges[i].to, graph.nodeDict.Count, true);
 
-                        if (nodes.ContainsKey(graph.edges[i].from) && nodes.ContainsKey(graph.edges[i].to))
+                        if (graph.nodeDict.ContainsKey(graph.edges[i].from) && graph.nodeDict.ContainsKey(graph.edges[i].to))
                         {
-                            MyNode source = graph.nodes[nodes[graph.edges[i].from]];
-                            MyNode target = graph.nodes[nodes[graph.edges[i].to]];
+                            MyNode source = graph.nodes[graph.nodeDict[graph.edges[i].from]];
+                            MyNode target = graph.nodes[graph.nodeDict[graph.edges[i].to]];
                             source.edgeIndicesOut.Add(i);
                             target.edgeIndicesIn.Add(i);
 
-                            source.connectedNodes.Add(nodes[graph.edges[i].to]);
-                            target.connectedNodes.Add(nodes[graph.edges[i].from]);
+                            source.connectedNodes.Add(graph.nodeDict[graph.edges[i].to]);
+                            target.connectedNodes.Add(graph.nodeDict[graph.edges[i].from]);
                         }
 
                     }
@@ -544,167 +729,24 @@ namespace TGraph
 
 
                 identifySubgraphs();
-                SolveUsingForces(100, 0.13f, true, false);
 
-                List<int> rootIndices = new List<int>();
-                bool[] visited = new bool[graph.nodes.Count];
-                float maxConnections = 0;
-                for (int i = 0; i < graph.nodes.Count; i++)
-                {
-                    /*
-                    string to = "";
-                    for(int j=0; j< graph.nodes[i].edgeIndicesIn.Count; j++)
-                    {
-                        to += graph.nodes[nodes[graph.edges[graph.nodes[i].edgeIndicesIn[j]].from]].label+", ";
-                    }
-                    Debug.Log(graph.nodes[i].label + "<-" + to);
-
-                    string from = "";
-                    for (int j = 0; j < graph.nodes[i].edgeIndicesOut.Count; j++)
-                    {
-                        from += graph.nodes[nodes[graph.edges[graph.nodes[i].edgeIndicesOut[j]].to]].label + ", ";
-                    }
-                    Debug.Log(graph.nodes[i].label + "->" + from);
-
-                    //*/
-                    if (graph.nodes[i].edgeIndicesIn.Count == 0) rootIndices.Add(i);
-
-                    maxConnections = Mathf.Max(graph.nodes[i].connectedNodes.Count, maxConnections);
-
-                }
-
-                Debug.Log("#root nodes: " + rootIndices.Count);
-
-                float maxHeight = 0;
-                for (int i = 0; i < rootIndices.Count; i++)
-                {
-                    for (int j = 0; j < graph.nodes.Count; j++)
-                    {
-                        visited[j] = false;
-                    }
-                    int curHeight = 1;
-                    Stack<int> nodeIndexStack = new Stack<int>();
-                    nodeIndexStack.Push(rootIndices[i]);
-                    Stack<int> heightStack = new Stack<int>();
-                    heightStack.Push(curHeight);
-                    visited[rootIndices[i]] = true;
-
-                    while (nodeIndexStack.Count > 0)
-                    {
-                        int curIndex = nodeIndexStack.Pop();
-                        curHeight = heightStack.Pop();
-                        maxHeight = Mathf.Max(curHeight, maxHeight);
-                        MyNode curNode = graph.nodes[curIndex];
-
-                        for (int j = 0; j < curNode.edgeIndicesOut.Count; j++)
-                        {
-
-                            int childNodeIndex = nodes[graph.edges[curNode.edgeIndicesOut[j]].to];
-                            graph.nodes[childNodeIndex].height = Mathf.Max(curHeight, graph.nodes[childNodeIndex].height);
-                            if (!visited[childNodeIndex])
-                            {
-                                visited[childNodeIndex] = true;
-                                nodeIndexStack.Push(childNodeIndex);
-                                heightStack.Push(curHeight + 1);
-                            }
-                        }
-
-                    }
-                }
-
-                sliceWidth = Mathf.Max(0.1f, 0.01f * graph.nodes.Count / maxHeight);
-                Debug.Log("maxHeight: " + maxHeight);
-                ;
+                SolveUsingForces(100, 0.13f); 
+                buildHierarchy();
+                //SolveUsingForces(100, 0.13f);
+               // buildHierarchy();
 
                 for (int i = 0; i < graph.nodes.Count; i++)
                 {
                     var node = graph.nodes[i];
-
-                    var y = node.height * sliceWidth;
-
-                    /*  float x =(maxConnections/10- node.connectedNodes.Count)*20 ;
-                      if (x < -vol) x = 0;
-
-                      if (i % 2 == 0) x *= -1;*/
-
-                    Vector3 pos = new Vector3(node.pos.x, y * graph.nodes.Count / 100, node.pos.z) / (graph.nodes.Count / 100);
-
-
+                    Vector3 pos = new Vector3(node.pos.x, node.pos.y, node.pos.z) /10f;
 
                     node.pos = pos;
                     node.nodeObject.transform.position = pos;
-
-
-
                 }
 
-
-
-
-
-                Vector3[] vertices = new Vector3[4 * graph.edges.Count];
-                int[] triangles = new int[2 * 6 * graph.edges.Count];
-                Color[] vertexColors = new Color[4 * graph.edges.Count];
-                line = new GameObject();
-                MeshRenderer mr = line.AddComponent<MeshRenderer>();
-                MeshFilter mf = line.AddComponent<MeshFilter>();
-                Mesh mesh = new Mesh();
-
-                var edges = graph.tmpEdges;
-
-                for (int i = 0; i < edges.Count; i++)
-                {
-                    if (nodes.ContainsKey(edges[i].from) && nodes.ContainsKey(edges[i].to))
-                    {
-                        MyNode source = graph.nodes[nodes[edges[i].from]];
-                        MyNode target = graph.nodes[nodes[edges[i].to]];
-
-                        Vector3 dir = target.pos - source.pos;
-
-                        Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * graph.lineWidth;
-
-                        vertices[0 + i * 4] = source.pos - offset;
-                        vertices[1 + i * 4] = target.pos - offset;
-                        vertices[2 + i * 4] = source.pos + offset;
-                        vertices[3 + i * 4] = target.pos + offset;
-
-
-                        vertexColors[0 + i * 4] = Color.red;
-                        vertexColors[1 + i * 4] = Color.green;
-                        vertexColors[2 + i * 4] = Color.red;
-                        vertexColors[3 + i * 4] = Color.green;
-
-                        triangles[0 + i * 12] = 0 + i * 4;
-                        triangles[1 + i * 12] = 1 + i * 4;
-                        triangles[2 + i * 12] = 2 + i * 4;
-                        triangles[3 + i * 12] = 2 + i * 4;
-                        triangles[4 + i * 12] = 1 + i * 4;
-                        triangles[5 + i * 12] = 3 + i * 4;
-
-                        triangles[6 + i * 12] = 3 + i * 4;
-                        triangles[7 + i * 12] = 1 + i * 4;
-                        triangles[8 + i * 12] = 2 + i * 4;
-                        triangles[9 + i * 12] = 2 + i * 4;
-                        triangles[10 + i * 12] = 1 + i * 4;
-                        triangles[11 + i * 12] = 0 + i * 4;
-
-                    }
-
-                }
-
-                mesh.vertices = vertices;
-                mesh.triangles = triangles;
-                mesh.colors = vertexColors;
-
-                mr.sharedMaterial = lineMat;
-                mf.mesh = mesh;
-
-                line.transform.parent = this.transform;
-                graph.edgeObject = line;
+                graph.edgeObject =BuildEdges(graph.edges, graph, graph.nodeDict, lineMat);
 
                 init = true;
-                lineMesh = mf.mesh;
-                mesh.RecalculateBounds();
 
 
             }
@@ -716,49 +758,87 @@ namespace TGraph
         void Update()
         {
 
+            
 
             if (!init) return;
 
 
-            Mesh mesh = lineMesh;
-            Vector3[] vertices = mesh.vertices;
+           // bool changed = false;
 
-            bool changed = false;
-
-            // if (OVRInput.Get(OVRInput.Button.Two))
+            /*if (Input.GetKeyDown(KeyCode.Space))
             {
-                var edges = graph.tmpEdges;
-                Debug.Log(edges.Count);
-                if (edges.Count > 100) return;
-                for (int i = 0; i <edges.Count; i++)
+                Debug.Log("space");
+                SolveUsingForces(2, 0.13f);
+
+            }
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+
+                for (int i = 0; i < graph.nodes.Count; i++)
                 {
-                    var sourcePos = graph.nodes[nodes[edges[i].from]].nodeObject.transform.position;
-                    var targetPos = graph.nodes[nodes[edges[i].to]].nodeObject.transform.position;
+                    var node = graph.nodes[i];
 
-                    //Debug.Log(sourcePos + " vs " + graph.nodes[nodes[edges[i].from]].pos);
-                    //Debug.Log(targetPos + " vs2 " + graph.nodes[nodes[edges[i].to]].pos);
 
-                   // if (sourcePos != graph.nodes[nodes[edges[i].from]].pos || targetPos != graph.nodes[nodes[edges[i].to]].pos)
+
+                    Vector3 pos = new Vector3(node.pos.x / 4.0f, node.pos.y, node.pos.z / 4.0f);
+
+
+
+                    node.pos = pos;
+                    node.nodeObject.transform.position = pos;
+                }
+            }*/
+            // if (OVRInput.Get(OVRInput.Button.Two)|| Input.GetKey(KeyCode.Return))
+       
+            {
+
+
+          
+
+          
+                foreach (MyNode node in graph.selectedNodes)
+                {
+                    var edges = new List<MyEdge>();
+                    foreach (int idx in node.edgeIndicesIn)
                     {
-                        Debug.Log("work");
-                        Vector3 dir = targetPos - sourcePos;
-                        Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * graph.lineWidth;
-
-                        vertices[0 + 4 * i] = sourcePos - offset;
-                        vertices[2 + 4 * i] = sourcePos + offset;
-
-                        vertices[1 + 4 * i] = targetPos - offset;
-                        vertices[3 + 4 * i] = targetPos + offset;
-
-                        changed = true;
+                        edges.Add(graph.edges[idx]);
+                    }
+                    foreach (int idx in node.edgeIndicesOut)
+                    {            
+                        edges.Add(graph.edges[idx]);
                     }
 
+                    Mesh mesh = node.nodeEdgeObject.GetComponent<MeshFilter>().sharedMesh;
+                    Vector3[] vertices = mesh.vertices;
+               
+                    for (int i = 0; i < edges.Count; i++)
+                    {
+                        var sourcePos = graph.nodes[graph.nodeDict[edges[i].from]].nodeObject.transform.position;
+                        var targetPos = graph.nodes[graph.nodeDict[edges[i].to]].nodeObject.transform.position;
+
+                        //if (sourcePos != graph.nodes[graph.nodeDict[edges[i].from]].pos || targetPos != graph.nodes[graph.nodeDict[edges[i].to]].pos)
+                        {
+                            // Debug.Log("work");
+                            Vector3 dir = targetPos - sourcePos;
+                            Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * graph.lineWidth;
+
+                            vertices[0 + 4 * i] = sourcePos - offset;
+                            vertices[2 + 4 * i] = sourcePos + offset;
+
+                            vertices[1 + 4 * i] = targetPos - offset;
+                            vertices[3 + 4 * i] = targetPos + offset;
+
+                            //changed = true;
+                        }
+
+                    }
+                    //if (changed)
+                    {
+                        mesh.vertices = vertices;
+                        mesh.RecalculateBounds();
+                    }
                 }
-                if (changed)
-                {
-                    mesh.vertices = vertices;
-                    mesh.RecalculateBounds();
-                }
+
             }
 
 
@@ -828,3 +908,19 @@ namespace TGraph
     }
 
 }
+
+/*
+              string to = "";
+              for(int j=0; j< graph.nodes[i].edgeIndicesIn.Count; j++)
+              {
+                  to += graph.nodes[nodes[graph.edges[graph.nodes[i].edgeIndicesIn[j]].from]].label+", ";
+              }
+              Debug.Log(graph.nodes[i].label + "<-" + to);
+
+              string from = "";
+              for (int j = 0; j < graph.nodes[i].edgeIndicesOut.Count; j++)
+              {
+                  from += graph.nodes[nodes[graph.edges[graph.nodes[i].edgeIndicesOut[j]].to]].label + ", ";
+              }
+              Debug.Log(graph.nodes[i].label + "->" + from);
+*/
