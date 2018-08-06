@@ -1,0 +1,3 @@
+This scene illustrates different ways creating surface detail by allowing you to toggle various techniques to get a sense of how well they work in VR. A typical approach is a normal map, but this may work less well in VR due to stereo depth cues conflicting with the shading cue. 
+
+Note that parallax mapping and displacement shaders introduce significant aliasing and so are generally undesirable in VR.

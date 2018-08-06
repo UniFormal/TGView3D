@@ -1,0 +1,25 @@
+This scene demonstrates basic forms of movement and allows you to experience the effect on comfort of a variety of mechanisms and settings.
+
+<title>Movement</title>
+Close this UI and use <ONLY_RIFT>WASD (keyboard) or </ONLY_RIFT>the left thumb stick (gamepad) to move about. <ONLY_RIFT>Mouse left and right or use</ONLY_RIFT><ONLY_GEARVR>Use</ONLY_GEARVR> the right thumbstick to rotate your view. Use <ONLY_RIFT>Q and E or </ONLY_RIFT>gamepad bumpers to rotate left or right in discrete steps.
+
+<title>HMD Controls Yaw</title>
+When unchecked, you will always move forward in the direction your “body” is facing, which is only rotated by the controls mentioned above. This allows you to look around while moving without changing your direction of travel. Check to always move in the direction you are looking.
+
+<title>Show Direction</title>
+Check to see a simple world-space indicator of the body's current direction. This makes it easier to tell which way the “body” is facing with "HMD Controls Yaw" unchecked. 
+
+<title>Snap Yaw</title>
+When checked, mouse/stick rotation occurs in discrete steps, as with the gamepad bumpers or Q&E key control. This can be more comfortable. Step size is controlled by the "Rotation Snap" slider (see below).
+
+<title>Walk Speed</title>
+Sets walking speed, where 1 is a typical human walking speed. Values much higher may be uncomfortable.
+
+<title>Rotation Rate</title>
+A rotation multiplier for the <ONLY_RIFT>mouse and </ONLY_RIFT>right thumb stick. <ONLY_RIFT>When "Snap Mouse Yaw" is checked, this controls how quickly mouse movement triggers the next step of rotation. </ONLY_RIFT>Beware: high values can be very uncomfortable.
+
+<title>Rotation Snap Size</title>
+Sets the number of degrees in rotation from gamepad bumpers<ONLY_RIFT> or Q&E keys, and size of a rotation step when "Snap Mouse Yaw" is enabled</ONLY_RIFT>. Small values allow the player to keep a sense of direction, but larger values allow the player to more quickly change direction. Large values also have the downside that players have less precision in their orientation; combining large steps with "HMD Controls Yaw" gives precision and quick direction changes, but may be less comfortable.
+
+<title>Rotation Snap Speed</title>
+Sets step rotations to animate at the specified value (0 = instantaneous). Animated rotations can make it easier to maintain a sense of direction, but may affect comfort.

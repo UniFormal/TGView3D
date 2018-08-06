@@ -1,0 +1,7 @@
+This scene builds on the ideas in the Pointers scene. You should review that scene first.
+
+In this scene rather than using a gamepad button to interact with UI components, simply looking at an item for enough time will trigger that UI interaction.
+
+<title>Activation dwell time</title>
+This value determines how many seconds you need to look at a UI element for before it activates.
+

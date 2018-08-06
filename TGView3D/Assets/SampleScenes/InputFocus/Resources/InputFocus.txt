@@ -1,0 +1,4 @@
+This scene demonstrates how to handle inputFocus
+
+[InputFocus] When input focus is lost, the application is in the background should hide any input representations such as hands.
+The application should pause while still drawing, avoid drawing near-field graphics so they don't visually fight with Dash.

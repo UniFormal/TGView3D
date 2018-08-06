@@ -1,0 +1,1 @@
+This panel is used for configuring some of the parameters that control teleport behaviors. Note that there are many more options available for tuning than are exposed by this panel. These can be configured in the Unity editor inspector panels, such as input button assignments and other details. Please refer to the included documentation for more details. 

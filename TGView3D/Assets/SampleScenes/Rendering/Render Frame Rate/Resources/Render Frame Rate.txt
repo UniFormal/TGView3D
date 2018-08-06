@@ -1,0 +1,10 @@
+This sample demonstrates how the rendering frame rate can be changed independent of the actual frame rate. Missing frames are filled by Asynchronous Timewarp (ATW). This smoothes out directional head tracking, but will make the edges of the field of vision appear to stutter. It also does not help with gaze cursors, or in cases where the camera is moving.
+
+<title>Render Frame Rate</title>
+Change the rate at which new frames are rendered by the game engine. Skipped frames will be filled in by ATW.
+
+<title>Chromatic Aberration Correction</title>
+Turns on or off the chromatic aberration correction which increases rendering load, but reduces the color fringing that can be seen at the edges of the field of vision.
+
+<title>Monoscopic Rendering</title>
+Turns on or off monoscopic rendering, where only one view is rendered and used for both eyes. This reduces rendering load but will eliminate perception of depth through stereoscopy.

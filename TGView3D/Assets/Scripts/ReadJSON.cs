@@ -1,6 +1,7 @@
 ﻿
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.XR;
@@ -49,6 +50,7 @@ namespace TGraph
             public List<MyNode> selectedNodes;
             public GameObject edgeObject;
             public float lineWidth = 0.002f;
+            public List<int> removeList;
 
             public static MyGraph CreateFromJSON(string jsonString)
             {
@@ -76,6 +78,8 @@ namespace TGraph
             public float height = 0;
             public float weight = 0;
             public GameObject nodeEdgeObject;
+            public GameObject labelObject;
+            public bool selected = false;
 
 
 
@@ -394,12 +398,65 @@ namespace TGraph
 
         }
 
+        public static void setTriangles(int i, int[] triangles)
+        {
+            triangles[0 + i * 24] = 0 + i * 8;
+            triangles[1 + i * 24] = 1 + i * 8;
+            triangles[2 + i * 24] = 2 + i * 8;
+            triangles[3 + i * 24] = 2 + i * 8;
+            triangles[4 + i * 24] = 1 + i * 8;
+            triangles[5 + i * 24] = 3 + i * 8;
+
+            triangles[6 + i * 24] = 3 + i * 8;
+            triangles[7 + i * 24] = 7 + i * 8;
+            triangles[8 + i * 24] = 2 + i * 8;
+            triangles[9 + i * 24] = 2 + i * 8;
+            triangles[10 + i * 24] = 7 + i * 8;
+            triangles[11 + i * 24] = 6 + i * 8;
+
+
+            triangles[12 + 0 + i * 24] = 6 + i * 8;
+            triangles[12 + 1 + i * 24] = 7 + i * 8;
+            triangles[12 + 2 + i * 24] = 4 + i * 8;
+            triangles[12 + 3 + i * 24] = 4 + i * 8;
+            triangles[12 + 4 + i * 24] = 7 + i * 8;
+            triangles[12 + 5 + i * 24] = 5 + i * 8;
+
+            triangles[12 + 6 + i * 24] = 5 + i * 8;
+            triangles[12 + 7 + i * 24] = 1 + i * 8;
+            triangles[12 + 8 + i * 24] = 4 + i * 8;
+            triangles[12 + 9 + i * 24] = 4 + i * 8;
+            triangles[12 + 10 + i * 24] = 1 + i * 8;
+            triangles[12 + 11 + i * 24] = 0 + i * 8;
+        }
+
+
+        public static void createEdge(int i, Vector3[] vertices, Vector3 sourcePos, Vector3 targetPos, Vector3 offset, Vector3 offsetOrtho)
+        {
+            vertices[0 + i * 8] = sourcePos + offset + offsetOrtho;
+            vertices[1 + i * 8] = targetPos + offset + offsetOrtho;
+
+            vertices[2 + i * 8] = sourcePos + offset - offsetOrtho;
+            vertices[3 + i * 8] = targetPos + offset - offsetOrtho;
+
+
+            vertices[4 + i * 8] = sourcePos - offset + offsetOrtho;
+            vertices[5 + i * 8] = targetPos - offset + offsetOrtho;
+
+            vertices[6 + i * 8] = sourcePos - offset - offsetOrtho;
+            vertices[7 + i * 8] = targetPos - offset - offsetOrtho;
+
+
+
+
+        }
+
         public static GameObject BuildEdges(List <MyEdge> edges, MyGraph graph, Dictionary<string, int> nodes, Material lineMat)
         {
 
-            Vector3[] vertices = new Vector3[4 * edges.Count];
-            int[] triangles = new int[2 * 6 * edges.Count];
-            Color[] vertexColors = new Color[4 * edges.Count];
+            Vector3[] vertices = new Vector3[2*4 * edges.Count];
+            int[] triangles = new int[2*2 * 6 * edges.Count];
+            Color[] vertexColors = new Color[2*4 * edges.Count];
             GameObject line = new GameObject();
             MeshRenderer mr = line.AddComponent<MeshRenderer>();
             MeshFilter mf = line.AddComponent<MeshFilter>();
@@ -416,31 +473,16 @@ namespace TGraph
                     Vector3 dir = target.pos - source.pos;
 
                     Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * graph.lineWidth;
+                    Vector3 offsetOrtho = Vector3.Cross(dir, Vector3.right).normalized * graph.lineWidth;
 
-                    vertices[0 + i * 4] = source.pos - offset;
-                    vertices[1 + i * 4] = target.pos - offset;
-                    vertices[2 + i * 4] = source.pos + offset;
-                    vertices[3 + i * 4] = target.pos + offset;
+                    vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = new Color(0, 255, 0);
+                    vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = new Color(0, 255, 20);
+
+                    createEdge(i,vertices, source.pos,target.pos, offset, offsetOrtho);
+                    setTriangles(i, triangles);
+                    
 
 
-                    vertexColors[0 + i * 4] = new Color(0, 255, 0);
-                    vertexColors[1 + i * 4] = new Color(0, 255, 20);
-                    vertexColors[2 + i * 4] = new Color(0, 255, 0);
-                    vertexColors[3 + i * 4] = new Color(0, 255, 20);
-
-                    triangles[0 + i * 12] = 0 + i * 4;
-                    triangles[1 + i * 12] = 1 + i * 4;
-                    triangles[2 + i * 12] = 2 + i * 4;
-                    triangles[3 + i * 12] = 2 + i * 4;
-                    triangles[4 + i * 12] = 1 + i * 4;
-                    triangles[5 + i * 12] = 3 + i * 4;
-
-                    triangles[6 + i * 12] = 3 + i * 4;
-                    triangles[7 + i * 12] = 1 + i * 4;
-                    triangles[8 + i * 12] = 2 + i * 4;
-                    triangles[9 + i * 12] = 2 + i * 4;
-                    triangles[10 + i * 12] = 1 + i * 4;
-                    triangles[11 + i * 12] = 0 + i * 4;
 
                 }
 
@@ -463,7 +505,7 @@ namespace TGraph
 
 
 
-        void GenLabel(Transform parent, string label)
+        void GenLabel(Transform parent, MyNode node)
         {
 
             /*
@@ -505,7 +547,9 @@ namespace TGraph
 
             GameObject text = GameObject.Instantiate(TextPrefab);
             text.transform.parent = parent;
-            text.GetComponent<TextMesh>().text = label;
+            text.GetComponent<TextMesh>().text = node.label;
+            node.labelObject = text;
+            
 
 
         }
@@ -522,7 +566,7 @@ namespace TGraph
             Vector3 pos = Random.insideUnitSphere * vol;
 
 
-            GenLabel(node.transform, graph.nodes[graph.nodeDict[name]].label);
+            GenLabel(node.transform, graph.nodes[graph.nodeDict[name]]);
 
 
             node.transform.position = pos;
@@ -605,8 +649,8 @@ namespace TGraph
             Camera camera = Camera.main;
             float[] distances = new float[32];
 
-            camera.farClipPlane = 10;
-            distances[18] = 5;
+            camera.farClipPlane = 18;
+            distances[18] = 6;
             camera.layerCullDistances = distances;
             camera.layerCullSpherical = true;
             //camera.clearFlags = CameraClearFlags.SolidColor;
@@ -738,7 +782,7 @@ namespace TGraph
                 for (int i = 0; i < graph.nodes.Count; i++)
                 {
                     var node = graph.nodes[i];
-                    Vector3 pos = new Vector3(node.pos.x, node.pos.y, node.pos.z) /10f;
+                    Vector3 pos = new Vector3(node.pos.x, node.pos.y, node.pos.z) /6f;
 
                     node.pos = pos;
                     node.nodeObject.transform.position = pos;
@@ -762,8 +806,29 @@ namespace TGraph
 
             if (!init) return;
 
+            if (OVRInput.GetDown(OVRInput.Button.One) || OVRInput.GetDown(OVRInput.Button.Two) )
+            {
+                if (Camera.main.farClipPlane==18) Camera.main.farClipPlane = 100;
+                else Camera.main.farClipPlane = 18;
 
-           // bool changed = false;
+            }
+            if (OVRInput.GetDown(OVRInput.Button.Three) || OVRInput.GetDown(OVRInput.Button.Four) )
+            {
+
+                /* if(graph==null) graph = GameObject.Find("Nodes").GetComponent<TGraph.ReadJSON>().graph;
+                 if (graph.edgeObject.activeInHierarchy)
+                 {
+                     graph.edgeObject.SetActive(false);
+                 }
+                 else
+                 {
+                     graph.edgeObject.SetActive(true);
+                 }*/
+                graph.edgeObject.SetActive(!graph.edgeObject.activeSelf);
+            }
+
+
+            // bool changed = false;
 
             /*if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -789,7 +854,7 @@ namespace TGraph
                 }
             }*/
             // if (OVRInput.Get(OVRInput.Button.Two)|| Input.GetKey(KeyCode.Return))
-       
+
             {
 
 
@@ -798,35 +863,28 @@ namespace TGraph
           
                 foreach (MyNode node in graph.selectedNodes)
                 {
-                    var edges = new List<MyEdge>();
-                    foreach (int idx in node.edgeIndicesIn)
-                    {
-                        edges.Add(graph.edges[idx]);
-                    }
-                    foreach (int idx in node.edgeIndicesOut)
-                    {            
-                        edges.Add(graph.edges[idx]);
-                    }
-
+                    List<int> edgeIndices = node.edgeIndicesIn.Union<int>(node.edgeIndicesOut).ToList<int>();
+           
                     Mesh mesh = node.nodeEdgeObject.GetComponent<MeshFilter>().sharedMesh;
+                    Mesh bigMesh = graph.edgeObject.GetComponent<MeshFilter>().sharedMesh;
                     Vector3[] vertices = mesh.vertices;
-               
-                    for (int i = 0; i < edges.Count; i++)
+                    Vector3[] bigVertices = bigMesh.vertices;
+
+                    for (int i = 0; i < edgeIndices.Count; i++)
                     {
-                        var sourcePos = graph.nodes[graph.nodeDict[edges[i].from]].nodeObject.transform.position;
-                        var targetPos = graph.nodes[graph.nodeDict[edges[i].to]].nodeObject.transform.position;
+                        var sourcePos = graph.nodes[graph.nodeDict[graph.edges[edgeIndices[i]].from]].nodeObject.transform.position;
+                        var targetPos = graph.nodes[graph.nodeDict[graph.edges[edgeIndices[i]].to]].nodeObject.transform.position;
 
                         //if (sourcePos != graph.nodes[graph.nodeDict[edges[i].from]].pos || targetPos != graph.nodes[graph.nodeDict[edges[i].to]].pos)
                         {
                             // Debug.Log("work");
                             Vector3 dir = targetPos - sourcePos;
                             Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * graph.lineWidth;
+                            Vector3 offsetOrtho = Vector3.Cross(dir, Vector3.right).normalized * graph.lineWidth;
 
-                            vertices[0 + 4 * i] = sourcePos - offset;
-                            vertices[2 + 4 * i] = sourcePos + offset;
+                            createEdge(i, vertices, sourcePos, targetPos, offset, offsetOrtho);
+                            createEdge(edgeIndices[i], bigVertices, sourcePos, targetPos, offset, offsetOrtho);
 
-                            vertices[1 + 4 * i] = targetPos - offset;
-                            vertices[3 + 4 * i] = targetPos + offset;
 
                             //changed = true;
                         }
@@ -835,6 +893,7 @@ namespace TGraph
                     //if (changed)
                     {
                         mesh.vertices = vertices;
+                        bigMesh.vertices = bigVertices;
                         mesh.RecalculateBounds();
                     }
                 }

@@ -1,0 +1,2 @@
+These buttons will configure the OVRLocomotionTeleport and supporting objects to demonstrate common configurations of locomotion and teleport behaviors.
+

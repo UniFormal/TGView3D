@@ -1,0 +1,17 @@
+The camera constraints affect what happens when the HMD is moved. The constraint system is designed to adjust the character controller to match the position and height of the HMD. 
+
+If there is something that prevents the character controller from reaching the player's position, the system can respond by either fading to black or blocking the camera movement. 
+
+Fading out is generally the preferred technique for resolving collisions of the camera with the world, because blocking movement introduces an uncomfortable disparity between where the person has actually moved their head and their virtual position. 
+
+Disabling the camera constraint entirely is the worst option because then the HMD will not match the character controller position, which causes many problems with expected player movement and rotation behavior. 
+
+The Dynamic Height toggle will cause the Player Controller to constantly update the height of the character controller to match the HMD's height off the ground, which can be used to enable level designs which require ducking to pass through specific areas.
+
+Enable Fadeout: Controls if the screen fades out when the HMD is moved into world geometry. 
+
+Enable Camera Collision: Controls if the camera will be prevented from moving into world geometry. 
+
+Enable Camera Constraint: Do not update the character controller to match the HMD position at all.
+
+Enable Dynamic Height: Adjust the character capsule to match the HMD's height off the ground.

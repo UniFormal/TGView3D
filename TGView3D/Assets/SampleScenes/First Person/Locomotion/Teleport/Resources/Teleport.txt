@@ -1,0 +1,13 @@
+This scene demostrates a teleport locomotion scheme, which avoids the risk of motion sickness.
+
+To move around the scene look directly at one of the glowing teleport points and press A on the gamepad. You will be moved instantly to that location.
+
+<title>Allow Rotation</title>
+If this is enabled you have the opportunity to rotate an avatar which depicts where you will be after teleportation. While holding the A button down use the left thumbstick to select you desired orientation before releasing the A button.
+
+<title>Correct For Head Rotation</title>
+When this is set to 0 the avatar position indicator shows where you will be looking after teleporting <i>after</i> you turn your head back to face forward. This is useful because you can choose where you will be looking while in a comfortable position. The downside to this is that immediately after jumping you will not be looking where your the position indicator showed you will be looking.
+
+When set to 1 your current head rotation is fully accounted for so after teleporting you will be looking where the indicator showed. The downside to this is you will need to keep your neck twisted to stay looking in this new direction. As you perform multiple teleports these twists can accumulate.
+
+Setting this slider part way between this two extremes should provide a compromise solution.

@@ -1,0 +1,2 @@
+<title>Input Tester</title>
+The scene is included to assist with testing input devices. All current axis values are displayed on the right panel. Currently-pressed buttons are shown at the top of the panel.

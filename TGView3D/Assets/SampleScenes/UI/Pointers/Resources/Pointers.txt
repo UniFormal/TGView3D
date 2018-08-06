@@ -1,0 +1,20 @@
+This scene explores how UI elements can be embedded in a scene. Use the gaze pointer to interact with the three UI panels.<ONLY_RIFT> Two panels include mouse pointers that you can control with your mouse while looking at that panel. Input will revert to the gaze pointer from the mouse after a few seconds idle. </ONLY_RIFT>
+
+To toggle the lever, gaze-select the red nob on top and <ONLY_RIFT>press the space bar or </ONLY_RIFT><ONLY_GEARVR>tap the touchpad or press the </ONLY_GEARVR>A button on your gamepad. 
+
+<title>Gaze Pointer Controls:</title>
+
+<title>Hide By Default</title>
+Enable to hide the gaze pointer when not looking at gaze-interactable panels.
+
+<ONLY_RIFT><title>Show Ghost When Mouse is Active</title>
+If you move the mouse when looking at a panel with a mouse pointer then the gaze pointer becomes inactive. If this is on then a ghost image of the gaze pointer remains.
+
+</ONLY_RIFT><title>Physics Gaze Control</title>
+Control how the gaze pointer interacts with physics objects in the scene (i.e., the lever).
+
+<title>Sphere Test</title>
+When enabled, a spherecast is used to determine the cursor display depth instead of a raycast.  This reduces conflicting depth cues near object boundaries.
+
+<title>Match Normal</title>
+When on the gaze cursor will align itself so that its normal is aligned with the normal of the surface you are looking at.

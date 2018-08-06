@@ -1,0 +1,22 @@
+<ONLY_RIFT>This scene shows how OVROverlay can improve UI image quality and anti-aliasing. 
+
+Press any key to cycle between 
+[World Geometry Quad mode] and [OVROverlay Quad mode] 
+to see the difference in clarity. 
+
+Close this Inspector to launch the scene. 
+</ONLY_RIFT>
+<ONLY_GEARVR>This scene shows how OVROverlay can improve UI image quality and anti-aliasing. 
+
+Close this Inspector to launch the scene. 
+
+Press any gamepad key and the scene will automatically 
+cycle through several modes in this order:
+[World Geometry Quad Mode] 
+[OVROverlay Quad Mode]
+[World Geometry Cylinder Mode]
+[OVROverlay Cylinder Mode], 
+Notice the difference in clarity. 
+</ONLY_GEARVR>
+
+

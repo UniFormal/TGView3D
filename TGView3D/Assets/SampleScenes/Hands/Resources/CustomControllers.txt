@@ -1,0 +1,3 @@
+This scene demonstrates the custom controller models and animations.
+
+The easiest way to get high quality hands and controllers into your app is to use the Avatar SDK. See the samples in the Avatar SDK for an easy way to add hands and/or controllers, including animations of the hands using the controllers.

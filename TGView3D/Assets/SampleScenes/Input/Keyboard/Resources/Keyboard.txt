@@ -1,0 +1,2 @@
+<ONLY_RIFT>This scene illustrates how much easier it is to type in VR when you can see a virtual keyboard. Type with an actual keyboard to see the keys on virtual keyboard below the center panel light up. You can also select keys with the gaze pointer.
+</ONLY_RIFT><ONLY_GEARVR>This scene shows one way to allow users to enter text without a physical keyboard. Use the gaze pointer and the Gear VR touchpad or A button on a gamepad to enter text</ONLY_GEARVR>

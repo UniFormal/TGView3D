@@ -1,0 +1,3 @@
+This scene demonstrates custom hand models, materials, and animations.
+
+The easiest way to get quality hands into your app is to use the Avatar SDK. If your model or animation requirements rule that out, this sample is a good place to start.

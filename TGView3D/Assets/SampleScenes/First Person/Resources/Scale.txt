@@ -1,0 +1,13 @@
+This sample demonstrates how various scales in VR interact. Two important scale factors are the ratio between real-world IPD and in-game IPD; and the ratio between real-world head movement and in-game head movement. These ratios can be changed but should always be equal. In this scene they are both controlled by the "Tracking and IPD" slider. The other two scales we look at are walk speed and height. Scaling all three together will result in the most natural experience.
+
+<title>Player Height</title>
+Sets player height in world units. This scales the Player Controller, effectively scaling the size of the player collider and the eye height. Increasing this without increasing "Tracking and IPD" will make you feel as if you are on stilts.
+
+<title>Tracking and IPD</title>
+This effectively controls the mapping between world units and game units for player eye movement and position. A factor of 1.0 means 1 meter in the real-world corresponds to 1 unit in VR. Increasing this without increasing "Player Height" will make you feel like most of your body is below the ground.
+
+<title>Walk Speed</title>
+How fast the player moves around the world. Not changing this as you change the above two values will make your walk speed feel unnaturally slow or fast.
+
+<title>Scale Together</title>
+When checked moving one slider above will move all the other sliders to the same value. Scaling all 3 values together keeps the player's position and movement self-consistent, and it is the virtual world which feels a different size.

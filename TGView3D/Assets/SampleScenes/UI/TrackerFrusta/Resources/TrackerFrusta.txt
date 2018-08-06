@@ -1,0 +1,5 @@
+Tiny sample to let you view estimated sensor tracking bounds. Note that these are simply estimates, and tracking may continue beyond or stop short of some of these bounds in some conditions.
+
+<title>Controls:</title>
+<title>Solid Frusta</title>
+Show solid frustum bounds in addition to lines.

@@ -130,7 +130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &99586141
 AudioListener:
   m_ObjectHideFlags: 0
@@ -216,7 +216,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &128627484
 Transform:
   m_ObjectHideFlags: 0
@@ -881,6 +881,7 @@ MonoBehaviour:
     selectedNodes: []
     edgeObject: {fileID: 0}
     lineWidth: 0.02
+    removeList: 
   mat: {fileID: 2100000, guid: f73207ad5363bdb4194c901a41ed995e, type: 2}
   lineMat: {fileID: 2100000, guid: 492e279603edb21439d3524b472130c3, type: 2}
   grabbable: {fileID: 149070, guid: ceed2905feb0b114582b3ee7989983ea, type: 2}

@@ -392,13 +392,16 @@ public class OVRPlayerController : MonoBehaviour
                 GameObject.Find("RCone").GetComponent<MeshRenderer>().enabled = true;
             }
 
-            if (OVRInput.GetDown(OVRInput.Button.Four))
+            if (OVRInput.GetDown(OVRInput.Button.One)|| OVRInput.GetDown(OVRInput.Button.Two) || OVRInput.GetDown(OVRInput.Button.Three) || OVRInput.GetDown(OVRInput.Button.Four ))
             {
                
-                Debug.Log(Application.dataPath + "/" + UnityEngine.Random.Range(0,100) + ".png");
-                ScreenCapture.CaptureScreenshot(Application.dataPath+"/"+ UnityEngine.Random.Range(0, 100) + ".png",4);
+               /* Debug.Log(Application.dataPath + "/" + UnityEngine.Random.Range(0,100) + ".png");
+                ScreenCapture.CaptureScreenshot(Application.dataPath+"/"+ UnityEngine.Random.Range(0, 100) + ".png",4);*/
+
 
             }
+
+       
 
 
             if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))

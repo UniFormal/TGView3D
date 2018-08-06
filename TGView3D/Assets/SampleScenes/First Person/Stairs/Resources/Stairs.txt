@@ -1,0 +1,24 @@
+First person movement is often uncomfortable in VR, but walking up and down stairs can be particularly bad. This scene allows you to explore various factors that affect this comfort, and also demonstrates an elevator which is preferable in most cases.
+
+<title>Warning: This scene illustrates how stairs can be uncomfortable in VR.  Spending too long in this scene may make you uncomfortable!</title>
+
+<title>Step Width,Height,Depth</title>
+Sets physical dimensions of each step
+
+<title>Step Angle</title>
+You can also change how steep the steps are by modifying the angle (in degrees) directly. The Step Depth slider will change accordingly.
+
+<title>Step Contrast</title>
+Sets brightness contrast between the horizontal and vertical faces of the steps. In general, higher contrast leads to more vection, which leads to discomfort.
+
+<title>Smooth Step Colliders</title>
+Enable to replace step colliders with a smooth ramp. Having your colliders match every step detail will result in bumpy unpleasant movement.
+ 
+<title>Left Wall / Right Wall</title>
+Controls whether the left and right walls of the central staircase are visible or hidden. Walls in close proximity tend to lead to more vection.
+
+<title>Floor-only elevator</title>
+Toggles visible walls on the elevator. Elevator walls block visual movement cues, resulting in a high level of comfort.
+
+<title>Elevator speed</title>
+Higher speeds will be less comfortable, when the user can see out of the elevator.

@@ -1,0 +1,3 @@
+This scene illustrates one possible implementation of a mirror effect. This mirror is simply a hole through to another copy of the geometry of the room where a head model is constantly updated with a mirror transform of the tracked head position. Care must be taken with this technique to ensure the lighting is correct in the reflected half of the room.
+
+A more expensive alternative is to render to texture from the point of view of a camera with a position equal to the position of the current camera, reflected by the mirror plane.

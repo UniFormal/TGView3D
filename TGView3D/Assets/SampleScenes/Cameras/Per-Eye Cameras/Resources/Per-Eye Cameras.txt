@@ -1,0 +1,1 @@
+This scene illustrates how different cameras can be used for each eye for a specific object. This can be used for things like showing stereo photos and videos.

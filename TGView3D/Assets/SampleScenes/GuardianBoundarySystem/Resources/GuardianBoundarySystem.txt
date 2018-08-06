@@ -1,0 +1,5 @@
+This sample demonstrates some less common uses of the boundary system and recentering:
+* Guardian bounds drawn. Both the rectangular play area, and the complete bounds.
+* Use of tracking space node to prevent yaw change with reorient (optional).
+* Set boundary color.
+* Red boxes move at runtime to keep them inside the user's play area. Note difference between red boxes (kept inside guardian bounds) and gray boxes (maintain world position as normal).

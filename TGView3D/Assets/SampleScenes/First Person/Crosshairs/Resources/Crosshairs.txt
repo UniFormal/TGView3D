@@ -1,0 +1,26 @@
+This sample illustrates how to use crosshairs to aim a weapon in VR, and different ways they can be configured. Key concepts include position and relative scale of the crosshairs within the scene. 
+
+<title>Crosshair auto depth</title>
+Enable to set the crosshair to jump to the depth of the object you're looking at. 
+
+<title>Crosshair depth</title>
+Sets the depth at which the crosshair will be fixed when “Crosshair auto depth” is disabled.
+
+<title>Crosshair auto scale</title>
+When crosshair auto depth is enabled, auto-scale is usually best, because it maintains the same the same angular size for the user.
+
+<title>Crosshair size degrees</title>
+Sets the angular size in degrees that auto-scale will apply to your crosshair.
+
+<title>Bullet Speed</title>
+Sets the projectile speed. Slow projectiles affected by gravity may not hit their target when the crosshairs point directly at it. If this is likely to frequently occurs in your game, consider placing the crosshair at a fixed depth rather than dynamically moving it.
+
+<title>Auto Fire</title>
+When checked, holding the button down will fire continuously.
+
+<title>Gravity affected</title>
+Projectiles not affected by gravity are easier to aim. See “Bullet Speed” above.
+
+<title>Aim at crosshair</title>
+Checked: Bullets move towards and through crosshair. 
+Unchecked: Bullets move in same direction as direction of crosshair from viewer.

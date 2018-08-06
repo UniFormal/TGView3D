@@ -1,0 +1,1 @@
+This sample shows how switching from one camera to another can be implemented. Press L/R, use the Touch index triggers, or tap the touchpad to switch between the 4 different camera rigs placed in this scene.
