@@ -48,7 +48,7 @@ namespace TGraph
             public List<MyEdge> edges;
             public List<MyEdge> tmpEdges;
             public int handIndex = 0;
-            public MyNode[] selectedNodes;
+            public List<int> selectedNodes;
             public GameObject edgeObject;
             public float lineWidth = 0.0025f;
             //public List<int> removeList;
@@ -82,6 +82,7 @@ namespace TGraph
             public GameObject nodeEdgeObject;
             public GameObject labelObject;
             public bool selected = false;
+            public int nr;
 
 
 
@@ -690,7 +691,7 @@ namespace TGraph
         void Awake()
         {
             TextPrefab = (GameObject)Resources.Load("nodeText");
-            graph.selectedNodes = new MyNode[2];
+
             Camera camera = Camera.main;
             float[] distances = new float[32];
 
@@ -784,6 +785,7 @@ namespace TGraph
 
                 for (int i = 0; i < graph.nodes.Count; i++)
                 {
+                    graph.nodes[i].nr = i;
                     ProcessNode(graph.nodes[i].id, graph.nodeDict.Count, false);
 
                 }
@@ -908,8 +910,11 @@ namespace TGraph
           
 
           
-                foreach (MyNode node in graph.selectedNodes)
+                foreach (int n in graph.selectedNodes)
                 {
+                    if (n<0) continue;
+                    var node = graph.nodes[n];
+                  
                     List<int> edgeIndices = node.edgeIndicesIn.Union<int>(node.edgeIndicesOut).ToList<int>();
            
                     Mesh mesh = node.nodeEdgeObject.GetComponent<MeshFilter>().sharedMesh;
