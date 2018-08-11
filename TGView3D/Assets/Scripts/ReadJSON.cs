@@ -400,34 +400,76 @@ namespace TGraph
 
         public static void setTriangles(int i, int[] triangles)
         {
-            triangles[0 + i * 24] = 0 + i * 8;
-            triangles[1 + i * 24] = 1 + i * 8;
-            triangles[2 + i * 24] = 2 + i * 8;
-            triangles[3 + i * 24] = 2 + i * 8;
-            triangles[4 + i * 24] = 1 + i * 8;
-            triangles[5 + i * 24] = 3 + i * 8;
 
-            triangles[6 + i * 24] = 3 + i * 8;
-            triangles[7 + i * 24] = 7 + i * 8;
-            triangles[8 + i * 24] = 2 + i * 8;
-            triangles[9 + i * 24] = 2 + i * 8;
-            triangles[10 + i * 24] = 7 + i * 8;
-            triangles[11 + i * 24] = 6 + i * 8;
+            int n = 48;
 
 
-            triangles[12 + 0 + i * 24] = 6 + i * 8;
-            triangles[12 + 1 + i * 24] = 7 + i * 8;
-            triangles[12 + 2 + i * 24] = 4 + i * 8;
-            triangles[12 + 3 + i * 24] = 4 + i * 8;
-            triangles[12 + 4 + i * 24] = 7 + i * 8;
-            triangles[12 + 5 + i * 24] = 5 + i * 8;
+            triangles[0 + i * n] = 0 + i * 8;
+            triangles[1 + i * n] = 1 + i * 8;
+            triangles[2 + i * n] = 2 + i * 8;
+            triangles[3 + i * n] = 2 + i * 8;
+            triangles[4 + i * n] = 1 + i * 8;
+            triangles[5 + i * n] = 3 + i * 8;
 
-            triangles[12 + 6 + i * 24] = 5 + i * 8;
-            triangles[12 + 7 + i * 24] = 1 + i * 8;
-            triangles[12 + 8 + i * 24] = 4 + i * 8;
-            triangles[12 + 9 + i * 24] = 4 + i * 8;
-            triangles[12 + 10 + i * 24] = 1 + i * 8;
-            triangles[12 + 11 + i * 24] = 0 + i * 8;
+            triangles[6 + i * n] = 3 + i * 8;
+            triangles[7 + i * n] = 7 + i * 8;
+            triangles[8 + i * n] = 2 + i * 8;
+            triangles[9 + i * n] = 2 + i * 8;
+            triangles[10 + i * n] = 7 + i * 8;
+            triangles[11 + i * n] = 6 + i * 8;
+
+
+            triangles[12 + 0 + i * n] = 6 + i * 8;
+            triangles[12 + 1 + i * n] = 7 + i * 8;
+            triangles[12 + 2 + i * n] = 4 + i * 8;
+            triangles[12 + 3 + i * n] = 4 + i * 8;
+            triangles[12 + 4 + i * n] = 7 + i * 8;
+            triangles[12 + 5 + i * n] = 5 + i * 8;
+
+            triangles[12 + 6 + i * n] = 5 + i * 8;
+            triangles[12 + 7 + i * n] = 1 + i * 8;
+            triangles[12 + 8 + i * n] = 4 + i * 8;
+            triangles[12 + 9 + i * n] = 4 + i * 8;
+            triangles[12 + 10 + i * n] = 1 + i * 8;
+            triangles[12 + 11 + i * n] = 0 + i * 8;
+
+
+
+
+            triangles[24+ 0 + i * n] = 0 + i * 8;
+            triangles[24 + 1 + i * n] = 2 + i * 8;
+            triangles[24 + 2 + i * n] = 1 + i * 8;
+            triangles[24 + 3 + i * n] = 1 + i * 8;
+            triangles[24 + 4 + i * n] = 2 + i * 8;
+            triangles[24 + 5 + i * n] = 3 + i * 8;
+
+            triangles[24 + 6 + i * n] = 3 + i * 8;
+            triangles[24 + 7 + i * n] = 2 + i * 8;
+            triangles[24 + 8 + i * n] = 7 + i * 8;
+            triangles[24 + 9 + i * n] = 7 + i * 8;
+            triangles[24 + 10 + i * n] = 2 + i * 8;
+            triangles[24 + 11 + i * n] = 6 + i * 8;
+
+
+            triangles[24 + 12 + 0 + i * n] = 6 + i * 8;
+            triangles[24 + 12 + 1 + i * n] = 4 + i * 8;
+            triangles[24 + 12 + 2 + i * n] = 7 + i * 8;
+            triangles[24 + 12 + 3 + i * n] = 7 + i * 8;
+            triangles[24 + 12 + 4 + i * n] = 4 + i * 8;
+            triangles[24 + 12 + 5 + i * n] = 5 + i * 8;
+
+            triangles[24 + 12 + 6 + i * n] = 5 + i * 8;
+            triangles[24 + 12 + 7 + i * n] = 4 + i * 8;
+            triangles[24 + 12 + 8 + i * n] = 1 + i * 8;
+            triangles[24 + 12 + 9 + i * n] = 1 + i * 8;
+            triangles[24 + 12 + 10 + i * n] = 4 + i * 8;
+            triangles[24 + 12 + 11 + i * n] = 0 + i * 8;
+
+
+
+
+
+
         }
 
 
