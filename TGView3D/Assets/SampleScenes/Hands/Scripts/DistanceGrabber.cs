@@ -209,7 +209,9 @@ namespace OVRTouchSample
                         graph.nodes[nidx].labelObject.GetComponent<TextMesh>().color = new Color(0.87f, 0.87f, 0.7f);
                     }
                     graph.selectedNodes.Remove(graph.nodes[idx]);
-                    GameObject.Destroy(graph.nodes[idx].nodeEdgeObject);
+
+                    if (!graph.selectedNodes.Contains(graph.nodes[idx]))
+                        GameObject.Destroy(graph.nodes[idx].nodeEdgeObject);
                     
                     removeIdx = -1;
                 }
