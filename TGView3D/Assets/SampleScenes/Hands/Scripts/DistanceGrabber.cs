@@ -208,44 +208,43 @@ namespace OVRTouchSample
                         graph.nodes[nidx].labelObject.layer = 18;
                         graph.nodes[nidx].labelObject.GetComponent<TextMesh>().color = new Color(0.87f, 0.87f, 0.7f);
                     }
-                    GameObject.Destroy(graph.nodes[idx].nodeEdgeObject);
                     graph.selectedNodes.Remove(graph.nodes[idx]);
+                    GameObject.Destroy(graph.nodes[idx].nodeEdgeObject);
+                    
                     removeIdx = -1;
                 }
 
 
 
-               // if (!graph.selectedNodes.Contains(graph.nodes[closestGrabbable.transform.GetSiblingIndex()]))
-                
-                
-               
-                   
-
-
-
-                var edges = new List<TGraph.ReadJSON.MyEdge>();
-               // foreach (TGraph.ReadJSON.MyNode node in graph.selectedNodes)
-                {
-                    TGraph.ReadJSON.MyNode node = graph.nodes[closestGrabbable.transform.GetSiblingIndex()];
-
-                    node.labelObject.GetComponent<TextMesh>().color = new Color(0.6f, 0.6f, 0.05f);
-                    foreach ( int nidx in node.connectedNodes)
+              if (!graph.selectedNodes.Contains(graph.nodes[closestGrabbable.transform.GetSiblingIndex()]))
+              {
+                    var edges = new List<TGraph.ReadJSON.MyEdge>();
+                    // foreach (TGraph.ReadJSON.MyNode node in graph.selectedNodes)
                     {
-                        graph.nodes[nidx].labelObject.layer = 0;
-                        graph.nodes[nidx].labelObject.GetComponent<TextMesh>().color = new Color(0.6f, 0.6f, 0.05f);
+                        TGraph.ReadJSON.MyNode node = graph.nodes[closestGrabbable.transform.GetSiblingIndex()];
+
+                        node.labelObject.GetComponent<TextMesh>().color = new Color(0.6f, 0.6f, 0.05f);
+                        foreach (int nidx in node.connectedNodes)
+                        {
+                            graph.nodes[nidx].labelObject.layer = 0;
+                            graph.nodes[nidx].labelObject.GetComponent<TextMesh>().color = new Color(0.6f, 0.6f, 0.05f);
+                        }
+                        foreach (int idx in node.edgeIndicesIn)
+                        {
+                            edges.Add(graph.edges[idx]);
+                        }
+                        foreach (int idx in node.edgeIndicesOut)
+                        {
+                            edges.Add(graph.edges[idx]);
+                        }
                     }
-                    foreach (int idx in node.edgeIndicesIn)
-                    {
-                        edges.Add(graph.edges[idx]);
-                    }
-                    foreach (int idx in node.edgeIndicesOut)
-                    {
-                        edges.Add(graph.edges[idx]);
-                    }
+
+                    graph.nodes[closestGrabbable.transform.GetSiblingIndex()].nodeEdgeObject = TGraph.ReadJSON.BuildEdges(edges, graph, graph.nodeDict, graph.edgeObject.GetComponent<MeshRenderer>().sharedMaterial);
+                    graph.selectedNodes.Add(graph.nodes[closestGrabbable.transform.GetSiblingIndex()]);
                 }
-
-                graph.nodes[closestGrabbable.transform.GetSiblingIndex()].nodeEdgeObject= TGraph.ReadJSON.BuildEdges(edges, graph, graph.nodeDict, graph.edgeObject.GetComponent<MeshRenderer>().sharedMaterial);
-                graph.selectedNodes.Add(graph.nodes[closestGrabbable.transform.GetSiblingIndex()]);
+                
+          
+              
 
 
                 m_grabbedObj.GrabBegin(this, closestGrabbableCollider);
