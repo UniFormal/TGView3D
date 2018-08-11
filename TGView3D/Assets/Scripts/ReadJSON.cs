@@ -659,7 +659,7 @@ namespace TGraph
            // XRSettings.enabled=false;
 
             Debug.Log(Application.persistentDataPath);
-            //url = "file:///" + Application.persistentDataPath + "/nasa.json";
+            url = "file:///" + Application.persistentDataPath + "/nasa.json";
 
             Debug.Log(url);
 
