@@ -47,7 +47,7 @@ namespace TGraph
             public Dictionary<string, int> nodeDict;
             public List<MyEdge> edges;
             public List<MyEdge> tmpEdges;
-            public List<MyNode> selectedNodes;
+            public SyncList<MyNode> selectedNodes;
             public GameObject edgeObject;
             public float lineWidth = 0.0025f;
             public List<int> removeList;
