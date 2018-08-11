@@ -49,7 +49,7 @@ namespace TGraph
             public List<MyEdge> tmpEdges;
             public List<MyNode> selectedNodes;
             public GameObject edgeObject;
-            public float lineWidth = 0.002f;
+            public float lineWidth = 0.0025f;
             public List<int> removeList;
 
             public static MyGraph CreateFromJSON(string jsonString)
@@ -473,11 +473,12 @@ namespace TGraph
                     Vector3 dir = target.pos - source.pos;
 
                     Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * graph.lineWidth;
-                    Vector3 offsetOrtho = Vector3.Cross(dir, Vector3.right).normalized * graph.lineWidth;
+                    Vector3 offsetOrtho = Vector3.Cross(dir, offset).normalized * graph.lineWidth;
 
                     vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = new Color(0, 255, 0);
                     vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = new Color(0, 255, 20);
 
+                
                     createEdge(i,vertices, source.pos,target.pos, offset, offsetOrtho);
                     setTriangles(i, triangles);
                     
@@ -659,13 +660,15 @@ namespace TGraph
            // XRSettings.enabled=false;
 
             Debug.Log(Application.persistentDataPath);
-            url = "file:///" + Application.persistentDataPath + "/nasa.json";
+           
 
             Debug.Log(url);
 
             float time = Time.realtimeSinceStartup;
 
             WWW www = new WWW(url);
+
+            if(www.error!= null) url = "file:///" + Application.persistentDataPath + "/nasa.json";
 
             StartCoroutine(WaitForRequest(www));
 
