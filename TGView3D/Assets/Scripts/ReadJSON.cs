@@ -47,10 +47,12 @@ namespace TGraph
             public Dictionary<string, int> nodeDict;
             public List<MyEdge> edges;
             public List<MyEdge> tmpEdges;
-            public List<MyNode> selectedNodes;
+            public int handIndex = 0;
+            public MyNode[] selectedNodes;
             public GameObject edgeObject;
             public float lineWidth = 0.0025f;
-            public List<int> removeList;
+            //public List<int> removeList;
+           
 
             public static MyGraph CreateFromJSON(string jsonString)
             {
@@ -688,7 +690,7 @@ namespace TGraph
         void Awake()
         {
             TextPrefab = (GameObject)Resources.Load("nodeText");
-
+            graph.selectedNodes = new MyNode[2];
             Camera camera = Camera.main;
             float[] distances = new float[32];
 
