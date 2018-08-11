@@ -87,13 +87,13 @@ namespace OVRTouchSample
         OVRCameraRig m_camera;
         private TGraph.ReadJSON.MyGraph graph;
 
-        int removeIdx=-1;
+        List<int> removeList;
        
 
         protected override void Start()
         {
-           
 
+            removeList = new List<int>();
             base.Start();
 
             // Set up our max grab distance to be based on the player's max grab distance.
@@ -159,7 +159,7 @@ namespace OVRTouchSample
           
 
 
-                removeIdx=m_grabbedObj.transform.GetSiblingIndex();
+                removeList.Add(m_grabbedObj.transform.GetSiblingIndex());
            
                     
 
@@ -198,22 +198,27 @@ namespace OVRTouchSample
                 m_grabbedObj.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 if(graph==null) graph = GameObject.Find("Nodes").GetComponent<TGraph.ReadJSON>().graph;
 
-                
-                if(removeIdx>=0)
+                for (int i = 0; i < removeList.Count; i++)
                 {
-                    int idx = removeIdx;
-                    graph.nodes[idx].labelObject.GetComponent<TextMesh>().color = new Color(0.87f, 0.87f, 0.7f);
-                    foreach (int nidx in graph.nodes[idx].connectedNodes)
-                    {
-                        graph.nodes[nidx].labelObject.layer = 18;
-                        graph.nodes[nidx].labelObject.GetComponent<TextMesh>().color = new Color(0.87f, 0.87f, 0.7f);
-                    }
+                    int idx = removeList[i];
+           
                     graph.selectedNodes.Remove(graph.nodes[idx]);
 
                     if (!graph.selectedNodes.Contains(graph.nodes[idx]))
+                    {
+                        graph.nodes[idx].labelObject.GetComponent<TextMesh>().color = new Color(0.87f, 0.87f, 0.7f);
+                        foreach (int nidx in graph.nodes[idx].connectedNodes)
+                        {
+                            graph.nodes[nidx].labelObject.layer = 18;
+                            graph.nodes[nidx].labelObject.GetComponent<TextMesh>().color = new Color(0.87f, 0.87f, 0.7f);
+                        }
                         GameObject.Destroy(graph.nodes[idx].nodeEdgeObject);
-                    
-                    removeIdx = -1;
+                    }
+
+
+                    removeList.Remove(idx);
+                    i--;
+                   
                 }
 
 

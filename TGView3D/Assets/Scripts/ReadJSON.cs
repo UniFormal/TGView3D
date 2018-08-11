@@ -47,7 +47,7 @@ namespace TGraph
             public Dictionary<string, int> nodeDict;
             public List<MyEdge> edges;
             public List<MyEdge> tmpEdges;
-            public SyncList<MyNode> selectedNodes;
+            public List<MyNode> selectedNodes;
             public GameObject edgeObject;
             public float lineWidth = 0.0025f;
             public List<int> removeList;
@@ -497,7 +497,7 @@ namespace TGraph
         {
 
             Vector3[] vertices = new Vector3[2*4 * edges.Count];
-            int[] triangles = new int[2*2 * 6 * edges.Count];
+            int[] triangles = new int[2*2*2 * 6 * edges.Count];
             Color[] vertexColors = new Color[2*4 * edges.Count];
             GameObject line = new GameObject();
             MeshRenderer mr = line.AddComponent<MeshRenderer>();
@@ -925,7 +925,7 @@ namespace TGraph
                             // Debug.Log("work");
                             Vector3 dir = targetPos - sourcePos;
                             Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * graph.lineWidth;
-                            Vector3 offsetOrtho = Vector3.Cross(dir, Vector3.right).normalized * graph.lineWidth;
+                            Vector3 offsetOrtho = Vector3.Cross(dir, offset).normalized * graph.lineWidth;
 
                             createEdge(i, vertices, sourcePos, targetPos, offset, offsetOrtho);
                             createEdge(edgeIndices[i], bigVertices, sourcePos, targetPos, offset, offsetOrtho);
