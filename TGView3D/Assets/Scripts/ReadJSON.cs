@@ -50,7 +50,7 @@ namespace TGraph
             public int handIndex = 0;
             public List<int> selectedNodes;
             public GameObject edgeObject;
-            public float lineWidth = 0.0025f;
+            public float lineWidth = 0.003f;
             //public List<int> removeList;
            
 
@@ -695,7 +695,7 @@ namespace TGraph
             Camera camera = Camera.main;
             float[] distances = new float[32];
 
-            camera.farClipPlane = 18;
+            camera.farClipPlane = 12;
             distances[18] = 6;
             camera.layerCullDistances = distances;
             camera.layerCullSpherical = true;
@@ -710,11 +710,11 @@ namespace TGraph
             Debug.Log(url);
 
             float time = Time.realtimeSinceStartup;
-
+            url = "file:///" + Application.persistentDataPath + "/nasa.json";
             WWW www = new WWW(url);
 
-            if(www.error!= null) url = "file:///" + Application.persistentDataPath + "/nasa.json";
-
+               
+           
             StartCoroutine(WaitForRequest(www));
 
             PData data = new PData();
@@ -823,28 +823,33 @@ namespace TGraph
 
                 identifySubgraphs();
 
-                SolveUsingForces(100, 0.13f); 
+                SolveUsingForces(20, 0.13f);
                 buildHierarchy();
                 //SolveUsingForces(100, 0.13f);
-               // buildHierarchy();
+                // buildHierarchy();
 
                 for (int i = 0; i < graph.nodes.Count; i++)
                 {
                     var node = graph.nodes[i];
-                    Vector3 pos = new Vector3(node.pos.x, node.pos.y, node.pos.z) /6f;
+                    Vector3 pos = new Vector3(node.pos.x, node.pos.y, node.pos.z) / 4f;
 
                     node.pos = pos;
                     node.nodeObject.transform.position = pos;
                 }
 
-                graph.edgeObject =BuildEdges(graph.edges, graph, graph.nodeDict, lineMat);
+                graph.edgeObject = BuildEdges(graph.edges, graph, graph.nodeDict, lineMat);
 
                 init = true;
 
 
             }
-            else Debug.Log("WWW Error: " + www.error);
-
+            else
+            {
+                Debug.Log("WWW Error: " + www.error);
+                url = "file:///" + Application.persistentDataPath + "/nasa.json";
+                www = new WWW(url);
+                StartCoroutine(WaitForRequest(www));
+            }
 
         }
 
@@ -857,8 +862,8 @@ namespace TGraph
 
             if (OVRInput.GetDown(OVRInput.Button.One) || OVRInput.GetDown(OVRInput.Button.Two) )
             {
-                if (Camera.main.farClipPlane==18) Camera.main.farClipPlane = 100;
-                else Camera.main.farClipPlane = 18;
+                if (Camera.main.farClipPlane==12) Camera.main.farClipPlane = 100;
+                else Camera.main.farClipPlane = 12;
 
             }
             if (OVRInput.GetDown(OVRInput.Button.Three) || OVRInput.GetDown(OVRInput.Button.Four) )

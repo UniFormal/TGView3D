@@ -212,6 +212,7 @@ namespace OVRTouchSample
                 {
                     var graphNode = graph.nodes[graph.selectedNodes[handIndex]];
                     graphNode.labelObject.GetComponent<TextMesh>().color = new Color(0.87f, 0.87f, 0.7f);
+                    graphNode.labelObject.layer = 18;
                     foreach (int nidx in graphNode.connectedNodes)
                     {
                         graph.nodes[nidx].labelObject.layer = 18;
@@ -235,6 +236,7 @@ namespace OVRTouchSample
                   
                     var edges = new List<TGraph.ReadJSON.MyEdge>();
                     node.labelObject.GetComponent<TextMesh>().color = new Color(0.6f, 0.6f, 0.05f);
+                    node.labelObject.layer = 0;
                     foreach (int nidx in node.connectedNodes)
                     {
                         graph.nodes[nidx].labelObject.layer = 0;
