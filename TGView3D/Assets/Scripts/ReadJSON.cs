@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.XR;
+using TMPro;
 
 namespace TGraph
 {
@@ -695,7 +696,7 @@ namespace TGraph
             Camera camera = Camera.main;
             float[] distances = new float[32];
 
-            camera.farClipPlane = 12;
+            //camera.farClipPlane = 12;
             distances[18] = 6;
             camera.layerCullDistances = distances;
             camera.layerCullSpherical = true;
@@ -710,7 +711,7 @@ namespace TGraph
             Debug.Log(url);
 
             float time = Time.realtimeSinceStartup;
-            url = "file:///" + Application.persistentDataPath + "/nasa.json";
+          //  url = "file:///" + Application.persistentDataPath + "/nasa.json";
             WWW www = new WWW(url);
 
                
@@ -798,10 +799,10 @@ namespace TGraph
                     {
                         graph.edges.RemoveAt(i);
                         i--;
-
+                    
                     }
                     else
-
+                    
                     {
                         ProcessNode(graph.edges[i].from, graph.nodeDict.Count, true);
                         ProcessNode(graph.edges[i].to, graph.nodeDict.Count, true);
@@ -850,6 +851,8 @@ namespace TGraph
                 www = new WWW(url);
                 StartCoroutine(WaitForRequest(www));
             }
+
+            this.GetComponent<GlobalAlignText>().childCount = this.transform.childCount;
 
         }
 
