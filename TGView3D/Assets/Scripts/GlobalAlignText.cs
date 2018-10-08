@@ -20,8 +20,8 @@ public class GlobalAlignText : MonoBehaviour {
         Vector3 camPos = Camera.main.transform.position;
         for (int i=0; i < childCount; i++)
         {
-            Transform t = this.transform.GetChild(i);
-            t.localRotation = Quaternion.LookRotation(t.position -camPos);
+            Transform t = this.transform.GetChild(i).GetChild(0);
+            t.rotation = Quaternion.LookRotation(t.position -camPos);
         }
         
 

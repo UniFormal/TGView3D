@@ -250,10 +250,9 @@ namespace TGraph
 
         }
 
-        public static GameObject BuildEdges(ref MyGraph graph, Material lineMat)
+        public static GameObject BuildEdges(List<MyEdge> edges, ref MyGraph graph, Material lineMat)
         {
 
-            var edges = graph.edges;
             var nodes = graph.nodeDict;
             Vector3[] vertices = new Vector3[2*4 * edges.Count];
             int[] triangles = new int[2*2*2 * 6 * edges.Count];
@@ -286,9 +285,9 @@ namespace TGraph
 
             
 
-                    if(edges[i].label!=null)
+                    if(edges[i].label!=null&& edges[i].label!= "")
                     {
-                        edges[i].labelObject = GenLabel(target.nodeObject.transform, edges[i].label);
+                        edges[i].labelObject = GenLabel(target.nodeObject.transform.GetChild(0), edges[i].label);
                        
                         Debug.Log(edges[i].label);
                     }
@@ -325,10 +324,10 @@ namespace TGraph
         public static GameObject GenLabel(Transform parent, string label)
         {
             GameObject text = (GameObject)Instantiate(Resources.Load("nodeText"));
-            Debug.Log(parent.gameObject);
+         
             text.transform.parent = parent;
             text.GetComponent<TextMesh>().text = label;
-            text.transform.localPosition = Vector3.zero + new Vector3(0, -parent.childCount + 1, 0); 
+            text.transform.localPosition = Vector3.zero + new Vector3(0, -parent.childCount + 1, 5f); 
             text.name = label;
 
             return text;
@@ -474,13 +473,13 @@ namespace TGraph
                     if (graph.nodeDict.ContainsKey(graph.edges[i].from) && graph.nodeDict.ContainsKey(graph.edges[i].to))
                     {
 
-                    /* if (graph.edges[i].style != "graphinclude" && graph.edges[i].style != "include")
+                     if (graph.edges[i].style != "graphinclude" && graph.edges[i].style != "include")
                     {
-                         //graph.edges.RemoveAt(i);
-                         //i--;
+                         graph.edges.RemoveAt(i);
+                         i--;
 
                     }
-                    else*/
+                    else
 
                     {
                         MyNode source = graph.nodes[graph.nodeDict[graph.edges[i].from]];
@@ -615,6 +614,8 @@ namespace TGraph
                 graph = MyGraph.CreateFromJSON(www.text);
                 GlobalVariables.Graph = graph;
                 GlobalVariables.Vol = vol;
+
+             
                 graph.colorDict = new Dictionary<string, Color>();
                 graph.colorDict.Add("include", new Color(0, 255, 0));
                 graph.colorDict.Add("meta", new Color(255, 0, 0));
@@ -650,7 +651,7 @@ namespace TGraph
                     node.nodeObject.transform.localPosition = pos;
                 }
 
-                graph.edgeObject = BuildEdges(ref graph, lineMat);
+                graph.edgeObject = BuildEdges(graph.edges, ref graph, lineMat);
 
                 GlobalVariables.Init = true;
                 this.GetComponent<Interaction>().enabled = true;
@@ -662,10 +663,75 @@ namespace TGraph
 
         }
 
-        
+        private void UpdatePosition()
+        {
+
+            foreach (int n in graph.selectedNodes)
+            {
+                if (n < 0) continue;
+                var node = graph.nodes[n];
+
+                List<int> edgeIndices = node.edgeIndicesIn.Union<int>(node.edgeIndicesOut).ToList<int>();
+
+                Mesh mesh = node.nodeEdgeObject.GetComponent<MeshFilter>().sharedMesh;
+                Mesh bigMesh = graph.edgeObject.GetComponent<MeshFilter>().sharedMesh;
+                Vector3[] vertices = mesh.vertices;
+                Vector3[] bigVertices = bigMesh.vertices;
+
+                Debug.Log(bigVertices.Length);
+
+                for (int i = 0; i < edgeIndices.Count; i++)
+                {
+                    var sourcePos = graph.nodes[graph.nodeDict[graph.edges[edgeIndices[i]].from]].nodeObject.transform.localPosition;
+                    var targetPos = graph.nodes[graph.nodeDict[graph.edges[edgeIndices[i]].to]].nodeObject.transform.localPosition;
+
+                    //if (sourcePos != graph.nodes[graph.nodeDict[edges[i].from]].pos || targetPos != graph.nodes[graph.nodeDict[edges[i].to]].pos)
+                    {
+                        // Debug.Log("work");
+                        Vector3 dir = targetPos - sourcePos;
+                        Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * graph.lineWidth;
+                        Vector3 offsetOrtho = Vector3.Cross(dir, offset).normalized * graph.lineWidth;
+                        ReadJSON.createEdge(i, vertices, sourcePos, targetPos, offset, offsetOrtho);
+                        ReadJSON.createEdge(edgeIndices[i], bigVertices, sourcePos, targetPos, offset, offsetOrtho);
+                        //changed = true;
+                    }
+
+                }
+                //if (changed)
+                {
+                    mesh.vertices = vertices;
+                    bigMesh.vertices = bigVertices;
+                    mesh.RecalculateBounds();
+                }
+            }
+        }
 
 
+        // Update is called once per frame
+        void Update()
+        {
+
+            if (OVRInput.GetDown(OVRInput.Button.One) || OVRInput.GetDown(OVRInput.Button.Two))
+            {
+                if (Camera.main.farClipPlane == 12) Camera.main.farClipPlane = 100;
+                else Camera.main.farClipPlane = 12;
+            }
+            if (OVRInput.GetDown(OVRInput.Button.Three) || OVRInput.GetDown(OVRInput.Button.Four))
+            {
+                graph.edgeObject.SetActive(!graph.edgeObject.activeSelf);
+            }
+            // if(Input.GetKeyDown(KeyCode.Space)) Layouts.SolveUsingForces(1, 0.13f);
+
+            UpdatePosition();
+
+
+        }
     }
 
+
 }
+
+
+
+
 

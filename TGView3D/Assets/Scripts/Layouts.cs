@@ -19,7 +19,7 @@ namespace TGraph
             for (var i = 0; i < graph.nodes.Count; i++)
             {
                 float angle = (float)i / graph.nodes.Count*2*Mathf.PI ;
-                Debug.Log(angle);
+               // Debug.Log(angle);
                 Vector3 pos = vol/10*new Vector3(Mathf.Sin(angle),0,Mathf.Cos(angle));
                 graph.nodes[i].pos = pos;
                 graph.nodes[i].nodeObject.transform.position = pos;
