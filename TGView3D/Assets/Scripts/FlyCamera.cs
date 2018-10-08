@@ -96,6 +96,7 @@ public class FlyCamera : MonoBehaviour
     }
     private void Start()
     {
+        GameObject.Find("VR").SetActive(false);
          XRSettings.enabled = false;
     }
 }

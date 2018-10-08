@@ -197,7 +197,7 @@ namespace OVRTouchSample
                 m_grabbedObj.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 if (graph == null)
                 {
-                    graph = GameObject.Find("Nodes").GetComponent<TGraph.ReadJSON>().graph;
+                    graph = TGraph.GlobalVariables.Graph;
                     if (graph.selectedNodes == null) graph.selectedNodes = new List<int>();
                     graph.selectedNodes.Add(-1);
                     graph.selectedNodes.Add(-1);
@@ -252,7 +252,7 @@ namespace OVRTouchSample
                     }
 
 
-                    graph.nodes[closestGrabbable.transform.GetSiblingIndex()].nodeEdgeObject = TGraph.ReadJSON.BuildEdges(edges, graph, graph.nodeDict, graph.edgeObject.GetComponent<MeshRenderer>().sharedMaterial);
+                    graph.nodes[closestGrabbable.transform.GetSiblingIndex()].nodeEdgeObject = TGraph.ReadJSON.BuildEdges(ref graph, graph.edgeObject.GetComponent<MeshRenderer>().sharedMaterial);
                     graph.selectedNodes[handIndex] = (closestGrabbable.transform.GetSiblingIndex());
 
                 }else
