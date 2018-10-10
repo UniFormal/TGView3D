@@ -13,7 +13,7 @@ public class VdmDesktopManager : MonoBehaviour {
     public static bool ActionInThisFrame = false;
     
     [Tooltip("Keyboard key to show/drag/hide")]
-    public KeyCode KeyboardShow = KeyCode.LeftControl;
+    public OVRInput.Button KeyboardShow = OVRInput.Button.PrimaryThumbstick;
     [Tooltip("Keyboard key to zoom")]
     public KeyCode KeyboardZoom = KeyCode.LeftAlt;
 
@@ -226,11 +226,12 @@ public class VdmDesktopManager : MonoBehaviour {
 
         int nScreen = DesktopCapturePlugin_GetNDesks();
         int iScreenIndex = 0;
-        for (int s = 0; s < nScreen; s++)
+
+        for (int s = 0; s <nScreen; s++)
         {
             GameObject monitor = GameObject.Instantiate(monitorBase);
 
-            if ((MultiMonitorScreen != 0) && (MultiMonitorScreen != (s + 1)))
+            if ((MultiMonitorScreen != 0) && (MultiMonitorScreen != (s+1 )))
                 continue;
 
             monitor.name = "Monitor " + (s+1).ToString();
@@ -284,25 +285,25 @@ public class VdmDesktopManager : MonoBehaviour {
 
         ActionInThisFrame = false;
 
-        if (UnityEngine.XR.XRSettings.eyeTextureResolutionScale != RenderScale)
-            UnityEngine.XR.XRSettings.eyeTextureResolutionScale = RenderScale;
+       // if (UnityEngine.XR.XRSettings.eyeTextureResolutionScale != RenderScale)
+       //     UnityEngine.XR.XRSettings.eyeTextureResolutionScale = RenderScale;
 
         needReinit = DesktopCapturePlugin_GetNeedReInit();
         
 
-        if (needReinit > 1000)
-            ReInit();
+        if (needReinit > 1000)   ReInit();
 
         if(Input.GetKeyDown(KeyCode.R))
         {
             UnityEngine.XR.InputTracking.Recenter();    
         }
 
-        foreach (VdmDesktop monitor in Monitors)
+       // foreach (VdmDesktop monitor in Monitors)
         {
-            monitor.HideLine();
+            
+            Monitors[1].HideLine();
 
-            monitor.CheckKeyboardAndMouse();                
+            Monitors[1].CheckKeyboardAndMouse();                
             
 #if VDM_SteamVR
             foreach (SteamVR_TrackedObject controller in Controllers)
@@ -408,20 +409,25 @@ public class VdmDesktopManager : MonoBehaviour {
     }
 
     private void ReInit()
-    {
+    { 
         DesktopCapturePlugin_Initialize();
-        
-        foreach (VdmDesktop winDesk in Monitors)
-        {
-            int screen = winDesk.Screen;
-            int width = DesktopCapturePlugin_GetWidth(screen);
-            int height = DesktopCapturePlugin_GetHeight(screen);
-            var tex = new Texture2D(width, height, TextureFormat.BGRA32, false, LinearColorSpace);
 
-            DesktopCapturePlugin_SetTexturePtr(screen, tex.GetNativeTexturePtr());
-            
-            winDesk.ReInit(tex, width, height);                        
+        foreach (VdmDesktop winDesk in Monitors)
+
+        {
+           
+            {
+                int screen = winDesk.Screen;
+                int width = DesktopCapturePlugin_GetWidth(screen);
+                int height = DesktopCapturePlugin_GetHeight(screen);
+                var tex = new Texture2D(width, height, TextureFormat.BGRA32, false, LinearColorSpace);
+
+                DesktopCapturePlugin_SetTexturePtr(screen, tex.GetNativeTexturePtr());
+
+                winDesk.ReInit(tex, width, height);
+            }
         }
+      
     }
 
 #if VDM_SteamVR

@@ -534,12 +534,12 @@ namespace TGraph
 
             Debug.Log(url);
             //float time = Time.realtimeSinceStartup;
-            url = "file:///" + Application.dataPath +
-               // "/HOLLight_archive.json"
-               // "/krmt.json"
-                  "/nasa.json"
-                ;
-
+            /*   url = "file:///" + Application.dataPath +
+                  // "/HOLLight_archive.json"
+                  // "/krmt.json"
+                     "/nasa.json"
+                   ;
+                   */
 
             WWW www = new WWW(url);
 
@@ -678,7 +678,7 @@ namespace TGraph
                 Vector3[] vertices = mesh.vertices;
                 Vector3[] bigVertices = bigMesh.vertices;
 
-                Debug.Log(bigVertices.Length);
+               
 
                 for (int i = 0; i < edgeIndices.Count; i++)
                 {

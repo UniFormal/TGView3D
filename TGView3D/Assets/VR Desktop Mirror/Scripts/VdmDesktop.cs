@@ -74,6 +74,7 @@ public class VdmDesktop : MonoBehaviour
 
     public void Update()
     {
+
         bool skip = false;
         if (Visible() == false)
             skip = true;
@@ -149,10 +150,25 @@ public class VdmDesktop : MonoBehaviour
 
     public void CheckKeyboardAndMouse()
     {
-   if (Input.GetKeyDown(m_manager.KeyboardShow)) Application.OpenURL("www.google.com");
+        
 
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick))
+        {
+          
+            if (TGraph.GlobalVariables.Graph.selectedNodes.Count > 0)
+            {
+                Debug.Log("link:" + TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.selectedNodes[0]].url);
+                Application.OpenURL("https://mmt.mathhub.info" + TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.selectedNodes[0]].url);
+            }
+               
+          
+               
+    
 
-        if (Input.GetKeyDown(m_manager.KeyboardShow))
+        }
+           
+
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick))
         {
             VdmDesktopManager.ActionInThisFrame = true;
 
@@ -160,12 +176,13 @@ public class VdmDesktop : MonoBehaviour
 
             if (Visible() == false)
             {
+              
                 Show();
                 m_lastShowClickStart -= 10; // Avoid quick show/close
             }
         }
          
-        if (Input.GetKey(m_manager.KeyboardShow))
+        if (OVRInput.Get(OVRInput.Button.PrimaryThumbstick))
         {
             VdmDesktopManager.ActionInThisFrame = true;
 
@@ -177,7 +194,7 @@ public class VdmDesktop : MonoBehaviour
             m_rotationNormal = Camera.main.transform.rotation;            
         }
 
-        if (Input.GetKeyUp(m_manager.KeyboardShow)) 
+        if (OVRInput.GetUp(OVRInput.Button.PrimaryThumbstick)) 
         {
             VdmDesktopManager.ActionInThisFrame = true;
 
@@ -292,7 +309,7 @@ public class VdmDesktop : MonoBehaviour
                     //if (m_manager.EnableZoom)
                     if(m_manager.ViveZoom != VdmDesktopManager.ViveButton.None)
                     {
-                        if(input.GetPressDown(MyButtonToViveButton(m_manager.ViveZoom)))
+                        if(OVRInput.GetPressDown(MyButtonToViveButton(m_manager.ViveZoom)))
                         {
                             VdmDesktopManager.ActionInThisFrame = true;
 
@@ -309,7 +326,7 @@ public class VdmDesktop : MonoBehaviour
 
                             ZoomIn();
                         }
-                        if (input.GetPressUp(MyButtonToViveButton(m_manager.ViveZoom)))
+                        if (OVRInput.GetPressUp(MyButtonToViveButton(m_manager.ViveZoom)))
                         {
                             VdmDesktopManager.ActionInThisFrame = true;
 
@@ -320,14 +337,14 @@ public class VdmDesktop : MonoBehaviour
 
                 if (m_manager.ViveLeftClick != VdmDesktopManager.ViveButton.None)
                 {
-                    if (input.GetPressDown(MyButtonToViveButton(m_manager.ViveLeftClick)))
+                    if (OVRInput.GetPressDown(MyButtonToViveButton(m_manager.ViveLeftClick)))
                     {
                         m_lastLeftTriggerClick = Time.time;
                         m_manager.SimulateMouseLeftDown();
                         VdmDesktopManager.ActionInThisFrame = true;
                     }
 
-                    if (input.GetPressUp(MyButtonToViveButton(m_manager.ViveLeftClick)))
+                    if (OVRInput.GetPressUp(MyButtonToViveButton(m_manager.ViveLeftClick)))
                     {
                         if (m_lastLeftTriggerClick != 0)
                         {
@@ -340,14 +357,14 @@ public class VdmDesktop : MonoBehaviour
     
                 if (m_manager.ViveTouchPadForClick)
                 {
-                    if (input.GetPressDown(SteamVR_Controller.ButtonMask.Touchpad) && (input.GetAxis(Valve.VR.EVRButtonId.k_EButton_Axis0).x < -0.2f))
+                    if (OVRInput.GetPressDown(SteamVR_Controller.ButtonMask.Touchpad) && (OVRInput.GetAxis(Valve.VR.EVRButtonId.k_EButton_Axis0).x < -0.2f))
                     {
                         m_lastLeftTouchClick = Time.time;
                         m_manager.SimulateMouseLeftDown();
                         VdmDesktopManager.ActionInThisFrame = true;
                     }
 
-                    if (input.GetPressDown(SteamVR_Controller.ButtonMask.Touchpad) && (input.GetAxis(Valve.VR.EVRButtonId.k_EButton_Axis0).x > -0.2f))
+                    if (OVRInput.GetPressDown(SteamVR_Controller.ButtonMask.Touchpad) && (OVRInput.GetAxis(Valve.VR.EVRButtonId.k_EButton_Axis0).x > -0.2f))
                     {
                         m_lastRightTouchClick = Time.time;
                         m_manager.SimulateMouseRightDown();
@@ -356,7 +373,7 @@ public class VdmDesktop : MonoBehaviour
                 }
                 if (m_lastLeftTouchClick != 0)
                 {
-                    if (input.GetPressUp(SteamVR_Controller.ButtonMask.Touchpad))
+                    if (OVRInput.GetPressUp(SteamVR_Controller.ButtonMask.Touchpad))
                     {
                         m_manager.SimulateMouseLeftUp();
                         m_lastLeftTouchClick = 0;
@@ -366,7 +383,7 @@ public class VdmDesktop : MonoBehaviour
 
                 if (m_lastRightTouchClick != 0)
                 {
-                    if (input.GetPressUp(SteamVR_Controller.ButtonMask.Touchpad))
+                    if (OVRInput.GetPressUp(SteamVR_Controller.ButtonMask.Touchpad))
                     {
                         m_manager.SimulateMouseRightUp();
                         m_lastRightTouchClick = 0;
@@ -380,7 +397,7 @@ public class VdmDesktop : MonoBehaviour
         
         if( (Visible() == false) || (hitScreen) )
         {
-            if (input.GetPressDown(MyButtonToViveButton(m_manager.ViveShow)))
+            if (OVRInput.GetPressDown(MyButtonToViveButton(m_manager.ViveShow)))
             {
                 if (m_lastShowClick == 0)
                 {
@@ -405,7 +422,7 @@ public class VdmDesktop : MonoBehaviour
             }
         }
 
-        if (input.GetPressUp(MyButtonToViveButton(m_manager.ViveShow)))
+        if (OVRInput.GetPressUp(MyButtonToViveButton(m_manager.ViveShow)))
         {
             if (m_lastShowClick != 0)
             {
