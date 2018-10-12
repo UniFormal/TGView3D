@@ -254,8 +254,10 @@ namespace OVRTouchSample
 
                     graph.nodes[closestGrabbable.transform.GetSiblingIndex()].nodeEdgeObject = TGraph.ReadJSON.BuildEdges(edges,ref graph, graph.edgeObject.GetComponent<MeshRenderer>().sharedMaterial);
                     graph.selectedNodes[handIndex] = (closestGrabbable.transform.GetSiblingIndex());
+                    graph.latestSelection = closestGrabbable.transform.GetSiblingIndex();
 
-                }else
+                }
+                else
                 {
                     graph.selectedNodes[handIndex] = graph.nodes[graph.selectedNodes[(handIndex + 1) % 2]].nr;
                     graph.selectedNodes[(handIndex + 1) % 2] = -1 ;

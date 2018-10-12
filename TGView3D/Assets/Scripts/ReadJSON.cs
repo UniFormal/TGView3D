@@ -40,6 +40,7 @@ namespace TGraph
             public List<MyEdge> tmpEdges;
             public int handIndex = 0;
             public List<int> selectedNodes;
+            public int latestSelection;
             public GameObject edgeObject;
             public float lineWidth = 0.003f;
             //public List<int> removeList;
@@ -522,7 +523,7 @@ namespace TGraph
             float[] distances = new float[32];
 
             //camera.farClipPlane = 12;
-            distances[18] = 6;
+            distances[18] = 8;
             camera.layerCullDistances = distances;
             camera.layerCullSpherical = true;
             //camera.clearFlags = CameraClearFlags.SolidColor;
