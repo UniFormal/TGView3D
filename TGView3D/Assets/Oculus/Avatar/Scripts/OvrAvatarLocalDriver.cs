@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System;
 using System.Collections.Generic;
@@ -6,12 +6,10 @@ using Oculus.Avatar;
 
 public class OvrAvatarLocalDriver : OvrAvatarDriver {
 
-    private const float mobileBaseHeadHeight = 1.7f;
-
     ControllerPose GetMalibuControllerPose(OVRInput.Controller controller)
     {
         ovrAvatarButton buttons = 0;
-        if (OVRInput.Get(OVRInput.Button.One, controller)) buttons |= ovrAvatarButton.One;
+        if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger, controller)) buttons |= ovrAvatarButton.One;
 
         return new ControllerPose
         {
@@ -59,9 +57,6 @@ public class OvrAvatarLocalDriver : OvrAvatarDriver {
         Vector3 headPos = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.CenterEye);
 #else
         Vector3 headPos = UnityEngine.VR.InputTracking.GetLocalPosition(UnityEngine.VR.VRNode.CenterEye);
-#endif
-#if UNITY_ANDROID && !UNITY_EDITOR
-        headPos.y += mobileBaseHeadHeight;
 #endif
 
         if (GetIsTrackedRemote())

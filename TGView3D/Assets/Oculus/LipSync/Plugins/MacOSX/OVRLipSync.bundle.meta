@@ -1,8 +1,7 @@
 fileFormatVersion: 2
-guid: bf929c1879ad88d4f9738e1e8fcdb6bd
-folderAsset: yes
-timeCreated: 1498786081
-licenseType: Pro
+guid: 79c2e7f7b1a214443ab64ef151d6bd36
+timeCreated: 1529454298
+licenseType: Store
 PluginImporter:
   serializedVersion: 2
   iconMap: {}
@@ -21,7 +20,7 @@ PluginImporter:
           Exclude Linux: 1
           Exclude Linux64: 1
           Exclude LinuxUniversal: 1
-          Exclude OSXIntel: 0
+          Exclude OSXIntel: 1
           Exclude OSXIntel64: 0
           Exclude OSXUniversal: 0
           Exclude Win: 1
@@ -32,7 +31,7 @@ PluginImporter:
       second:
         enabled: 0
         settings:
-          CPU: AnyCPU
+          CPU: x86_64
           OS: OSX
     data:
       first:
@@ -53,7 +52,9 @@ PluginImporter:
       second:
         enabled: 1
         settings:
+          CPU: x86_64
           DefaultValueInitialized: true
+          OS: OSX
     data:
       first:
         Facebook: Win
@@ -84,11 +85,18 @@ PluginImporter:
           CPU: x86_64
     data:
       first:
+        Standalone: LinuxUniversal
+      second:
+        enabled: 0
+        settings:
+          CPU: None
+    data:
+      first:
         Standalone: OSXIntel
       second:
-        enabled: 1
+        enabled: 0
         settings:
-          CPU: AnyCPU
+          CPU: None
     data:
       first:
         Standalone: OSXIntel64
@@ -101,7 +109,8 @@ PluginImporter:
         Standalone: OSXUniversal
       second:
         enabled: 1
-        settings: {}
+        settings:
+          CPU: x86_64
     data:
       first:
         Standalone: Win

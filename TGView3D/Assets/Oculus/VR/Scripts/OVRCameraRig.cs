@@ -1,9 +1,9 @@
 /************************************************************************************
 
-Copyright   :   Copyright 2017 Oculus VR, LLC. All Rights reserved.
+Copyright   :   Copyright (c) Facebook Technologies, LLC and its affiliates. All rights reserved.
 
-Licensed under the Oculus VR Rift SDK License Version 3.4.1 (the "License");
-you may not use the Oculus VR Rift SDK except in compliance with the License,
+Licensed under the Oculus SDK License Version 3.4.1 (the "License");
+you may not use the Oculus SDK except in compliance with the License,
 which is provided at the time of installation or download, or which
 otherwise accompanies this software in either electronic or hard copy form.
 
@@ -11,7 +11,7 @@ You may obtain a copy of the License at
 
 https://developer.oculus.com/licenses/sdk-3.4.1
 
-Unless required by applicable law or agreed to in writing, the Oculus VR SDK
+Unless required by applicable law or agreed to in writing, the Oculus SDK
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
@@ -23,6 +23,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+#if UNITY_2017_2_OR_NEWER
+using InputTracking = UnityEngine.XR.InputTracking;
+using Node = UnityEngine.XR.XRNode;
+#else
+using InputTracking = UnityEngine.VR.InputTracking;
+using Node = UnityEngine.VR.VRNode;
+#endif
 
 /// <summary>
 /// A head-tracked stereoscopic virtual reality camera rig.
@@ -136,34 +144,29 @@ public class OVRCameraRig : MonoBehaviour
 		}
 
 		bool monoscopic = OVRManager.instance.monoscopic;
+		bool hmdPresent = OVRNodeStateProperties.IsHmdPresent();
 
 		OVRPose tracker = OVRManager.tracker.GetPose();
 
 		trackerAnchor.localRotation = tracker.orientation;
-#if UNITY_2017_2_OR_NEWER
-		centerEyeAnchor.localRotation = UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.CenterEye);
-		leftEyeAnchor.localRotation = monoscopic ? centerEyeAnchor.localRotation : UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.LeftEye);
-		rightEyeAnchor.localRotation = monoscopic ? centerEyeAnchor.localRotation : UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.RightEye);
-#else
-		centerEyeAnchor.localRotation = UnityEngine.VR.InputTracking.GetLocalRotation(UnityEngine.VR.VRNode.CenterEye);
-		leftEyeAnchor.localRotation = monoscopic ? centerEyeAnchor.localRotation : UnityEngine.VR.InputTracking.GetLocalRotation(UnityEngine.VR.VRNode.LeftEye);
-		rightEyeAnchor.localRotation = monoscopic ? centerEyeAnchor.localRotation : UnityEngine.VR.InputTracking.GetLocalRotation(UnityEngine.VR.VRNode.RightEye);
-#endif
-		leftHandAnchor.localRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.LTouch);
-		rightHandAnchor.localRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch);
+
+		Quaternion emulatedRotation = Quaternion.Euler(-OVRManager.instance.headPoseRelativeOffsetRotation.x, -OVRManager.instance.headPoseRelativeOffsetRotation.y, OVRManager.instance.headPoseRelativeOffsetRotation.z);
+
+		centerEyeAnchor.localRotation = hmdPresent ? InputTracking.GetLocalRotation(Node.CenterEye) : emulatedRotation;
+		leftEyeAnchor.localRotation = (!hmdPresent || monoscopic) ? centerEyeAnchor.localRotation : InputTracking.GetLocalRotation(Node.LeftEye);
+		rightEyeAnchor.localRotation = (!hmdPresent || monoscopic) ? centerEyeAnchor.localRotation : InputTracking.GetLocalRotation(Node.RightEye);
+
+		leftHandAnchor.localRotation = InputTracking.GetLocalRotation(Node.LeftHand);
+		rightHandAnchor.localRotation = InputTracking.GetLocalRotation(Node.RightHand);
 
 		trackerAnchor.localPosition = tracker.position;
-#if UNITY_2017_2_OR_NEWER
-		centerEyeAnchor.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.CenterEye);
-		leftEyeAnchor.localPosition = monoscopic ? centerEyeAnchor.localPosition : UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.LeftEye);
-		rightEyeAnchor.localPosition = monoscopic ? centerEyeAnchor.localPosition : UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.RightEye);
-#else
-		centerEyeAnchor.localPosition = UnityEngine.VR.InputTracking.GetLocalPosition(UnityEngine.VR.VRNode.CenterEye);
-		leftEyeAnchor.localPosition = monoscopic ? centerEyeAnchor.localPosition : UnityEngine.VR.InputTracking.GetLocalPosition(UnityEngine.VR.VRNode.LeftEye);
-		rightEyeAnchor.localPosition = monoscopic ? centerEyeAnchor.localPosition : UnityEngine.VR.InputTracking.GetLocalPosition(UnityEngine.VR.VRNode.RightEye);
-#endif
-		leftHandAnchor.localPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.LTouch);
-		rightHandAnchor.localPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch);
+
+		centerEyeAnchor.localPosition = hmdPresent ? InputTracking.GetLocalPosition(Node.CenterEye) : OVRManager.instance.headPoseRelativeOffsetTranslation;
+		leftEyeAnchor.localPosition = (!hmdPresent || monoscopic) ? centerEyeAnchor.localPosition : InputTracking.GetLocalPosition(Node.LeftEye);
+		rightEyeAnchor.localPosition = (!hmdPresent || monoscopic) ? centerEyeAnchor.localPosition : InputTracking.GetLocalPosition(Node.RightEye);
+
+		leftHandAnchor.localPosition = InputTracking.GetLocalPosition(Node.LeftHand);
+		rightHandAnchor.localPosition = InputTracking.GetLocalPosition(Node.RightHand);
 
 		RaiseUpdatedAnchorsEvent();
 	}
@@ -293,13 +296,9 @@ public class OVRCameraRig : MonoBehaviour
 		// The ideal approach would be using UnityEngine.VR.VRNode.TrackingReference, then we would not have to depend on the OVRCameraRig. Unfortunately, it is not available in Unity 5.4.3
 
 		OVRPose headPose;
-#if UNITY_2017_2_OR_NEWER
-		headPose.position = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.Head);
-		headPose.orientation = UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.Head);
-#else
-		headPose.position = UnityEngine.VR.InputTracking.GetLocalPosition(UnityEngine.VR.VRNode.Head);
-		headPose.orientation = UnityEngine.VR.InputTracking.GetLocalRotation(UnityEngine.VR.VRNode.Head);
-#endif
+
+		headPose.position = InputTracking.GetLocalPosition(Node.Head);
+		headPose.orientation = InputTracking.GetLocalRotation(Node.Head);
 
 		OVRPose invHeadPose = headPose.Inverse();
 		Matrix4x4 invHeadMatrix = Matrix4x4.TRS(invHeadPose.position, invHeadPose.orientation, Vector3.one);

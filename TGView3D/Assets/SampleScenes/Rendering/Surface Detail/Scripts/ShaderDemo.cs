@@ -25,7 +25,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
-public class ShaderDemo : OVRDiscomfortWarningSource 
+public class ShaderDemo //: OVRDiscomfortWarningSource 
 {
     List<GameObject> Objects;
     List<Texture> BumpTextures;
@@ -141,13 +141,13 @@ public class ShaderDemo : OVRDiscomfortWarningSource
             }
         }
     }
-
+    /*
     override public IEnumerable<OVRDiscomfortWarning.DiscomfortWarning> GetWarnings()
     {
         if (SpecularOn)
         {
             yield return new OVRDiscomfortWarning.DiscomfortWarning(OVRDiscomfortWarning.DiscomfortWarningType.Aliasing);
         }
-    }
+    }*/
   
 }

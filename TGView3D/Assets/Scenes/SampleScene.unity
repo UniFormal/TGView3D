@@ -183,7 +183,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 160720292}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df8e1d778abf442e4bec449c360e9e1c, type: 3}
   m_Name: 
@@ -382,11 +382,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e933e81d3c20c74ea6fdc708a67e3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  queueAhead: 0
+  queueAhead: 1
   useRecommendedMSAALevel: 0
   _monoscopic: 0
   enableAdaptiveResolution: 0
-  minRenderScale: 2
+  minRenderScale: 0.5
   maxRenderScale: 2
   expandMixedRealityCapturePropertySheet: 0
   enableMixedReality: 0
@@ -516,12 +516,12 @@ GameObject:
   - component: {fileID: 1034633539}
   - component: {fileID: 1034633538}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: DebugCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1034633538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -904,6 +904,7 @@ MonoBehaviour:
     tmpEdges: []
     handIndex: 0
     selectedNodes: 
+    latestSelection: 0
     edgeObject: {fileID: 0}
     lineWidth: 0.02
   mat: {fileID: 2100000, guid: f73207ad5363bdb4194c901a41ed995e, type: 2}
@@ -1176,11 +1177,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11408976, guid: 3908c3789f003564ba882cd413134aeb, type: 2}
       propertyPath: RenderScale
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11408976, guid: 3908c3789f003564ba882cd413134aeb, type: 2}
       propertyPath: EnableHackUnityBug
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11408976, guid: 3908c3789f003564ba882cd413134aeb, type: 2}
       propertyPath: MultiMonitorPositionOffset.x
@@ -1197,6 +1198,10 @@ Prefab:
     - target: {fileID: 137954, guid: 3908c3789f003564ba882cd413134aeb, type: 2}
       propertyPath: m_Layer
       value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 137954, guid: 3908c3789f003564ba882cd413134aeb, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3908c3789f003564ba882cd413134aeb, type: 2}

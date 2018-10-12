@@ -1,9 +1,9 @@
 /************************************************************************************
 
-Copyright   :   Copyright 2017 Oculus VR, LLC. All Rights reserved.
+Copyright   :   Copyright (c) Facebook Technologies, LLC and its affiliates. All rights reserved.
 
-Licensed under the Oculus VR Rift SDK License Version 3.4.1 (the "License");
-you may not use the Oculus VR Rift SDK except in compliance with the License,
+Licensed under the Oculus SDK License Version 3.4.1 (the "License");
+you may not use the Oculus SDK except in compliance with the License,
 which is provided at the time of installation or download, or which
 otherwise accompanies this software in either electronic or hard copy form.
 
@@ -11,7 +11,7 @@ You may obtain a copy of the License at
 
 https://developer.oculus.com/licenses/sdk-3.4.1
 
-Unless required by applicable law or agreed to in writing, the Oculus VR SDK
+Unless required by applicable law or agreed to in writing, the Oculus SDK
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
@@ -227,6 +227,11 @@ public class OVRLint : EditorWindow
 
 	static void CheckStaticCommonIssues()
 	{
+		if (OVRManager.IsUnityAlphaOrBetaVersion())
+		{
+			AddFix("General", OVRManager.UnityAlphaOrBetaVersionWarningMessage, null, null);
+		}
+
 		if (QualitySettings.anisotropicFiltering != AnisotropicFiltering.Enable && QualitySettings.anisotropicFiltering != AnisotropicFiltering.ForceEnable)
 		{
 			AddFix("Optimize Aniso", "Anisotropic filtering is recommended for optimal image sharpness and GPU performance.", delegate (UnityEngine.Object obj, bool last, int selected)
@@ -277,6 +282,34 @@ public class OVRLint : EditorWindow
 #endif
 			}, null, "Fix");
 		}
+
+#if UNITY_ANDROID
+		if (!PlayerSettings.use32BitDisplayBuffer)
+		{
+			AddFix("Optimize Display Buffer Format", "We recommend to enable use32BitDisplayBuffer.", delegate (UnityEngine.Object obj, bool last, int selected)
+			{
+				PlayerSettings.use32BitDisplayBuffer = true;
+			}, null, "Fix");
+		}
+#endif
+
+#if UNITY_2017_3_OR_NEWER && !UNITY_ANDROID
+		if (!PlayerSettings.VROculus.dashSupport)
+		{
+			AddFix("Enable Dash Integration", "We recommend to enable Dash Integration for better user experience.", delegate (UnityEngine.Object obj, bool last, int selected)
+			{
+				PlayerSettings.VROculus.dashSupport = true;
+			}, null, "Fix");
+		}
+
+		if (!PlayerSettings.VROculus.sharedDepthBuffer)
+		{
+			AddFix("Enable Depth Buffer Sharing", "We recommend to enable Depth Buffer Sharing for better user experience on Oculus Dash.", delegate (UnityEngine.Object obj, bool last, int selected)
+			{
+				PlayerSettings.VROculus.sharedDepthBuffer = true;
+			}, null, "Fix");
+		}
+#endif
 
 		BuildTargetGroup target = EditorUserBuildSettings.selectedBuildTargetGroup;
 		var tier = UnityEngine.Rendering.GraphicsTier.Tier1;

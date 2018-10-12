@@ -1,9 +1,9 @@
 /************************************************************************************
 
-Copyright   :   Copyright 2017 Oculus VR, LLC. All Rights reserved.
+Copyright   :   Copyright (c) Facebook Technologies, LLC and its affiliates. All rights reserved.
 
-Licensed under the Oculus VR Rift SDK License Version 3.4.1 (the "License");
-you may not use the Oculus VR Rift SDK except in compliance with the License,
+Licensed under the Oculus SDK License Version 3.4.1 (the "License");
+you may not use the Oculus SDK except in compliance with the License,
 which is provided at the time of installation or download, or which
 otherwise accompanies this software in either electronic or hard copy form.
 
@@ -11,7 +11,7 @@ You may obtain a copy of the License at
 
 https://developer.oculus.com/licenses/sdk-3.4.1
 
-Unless required by applicable law or agreed to in writing, the Oculus VR SDK
+Unless required by applicable law or agreed to in writing, the Oculus SDK
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
@@ -24,6 +24,22 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
+#if UNITY_2017_2_OR_NEWER
+using InputTracking = UnityEngine.XR.InputTracking;
+using Node = UnityEngine.XR.XRNode;
+using NodeState = UnityEngine.XR.XRNodeState;
+using Device = UnityEngine.XR.XRDevice;
+#elif UNITY_2017_1_OR_NEWER
+using InputTracking = UnityEngine.VR.InputTracking;
+using Node = UnityEngine.VR.VRNode;
+using NodeState = UnityEngine.VR.VRNodeState;
+using Device = UnityEngine.VR.VRDevice;
+#else
+using InputTracking = UnityEngine.VR.InputTracking;
+using Node = UnityEngine.VR.VRNode;
+using Device = UnityEngine.VR.VRDevice;
+#endif
+
 /// <summary>
 /// Miscellaneous extension methods that any script can use.
 /// </summary>
@@ -35,13 +51,9 @@ public static class OVRExtensions
 	public static OVRPose ToTrackingSpacePose(this Transform transform, Camera camera)
 	{
 		OVRPose headPose;
-#if UNITY_2017_2_OR_NEWER
-		headPose.position = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.Head);
-		headPose.orientation = UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.Head);
-#else
-		headPose.position = UnityEngine.VR.InputTracking.GetLocalPosition(UnityEngine.VR.VRNode.Head);
-		headPose.orientation = UnityEngine.VR.InputTracking.GetLocalRotation(UnityEngine.VR.VRNode.Head);
-#endif
+
+		headPose.position = InputTracking.GetLocalPosition(Node.Head);
+		headPose.orientation = InputTracking.GetLocalRotation(Node.Head);
 
 		var ret = headPose * transform.ToHeadSpacePose(camera);
 
@@ -55,13 +67,9 @@ public static class OVRExtensions
 	public static OVRPose ToWorldSpacePose(OVRPose trackingSpacePose)
 	{
 		OVRPose headPose;
-#if UNITY_2017_2_OR_NEWER
-		headPose.position = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.Head);
-		headPose.orientation = UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.Head);
-#else
-		headPose.position = UnityEngine.VR.InputTracking.GetLocalPosition(UnityEngine.VR.VRNode.Head);
-		headPose.orientation = UnityEngine.VR.InputTracking.GetLocalRotation(UnityEngine.VR.VRNode.Head);
-#endif
+
+		headPose.position = InputTracking.GetLocalPosition(Node.Head);
+		headPose.orientation = InputTracking.GetLocalRotation(Node.Head);
 
 		// Transform from tracking-Space to head-Space
 		OVRPose poseInHeadSpace = headPose.Inverse() * trackingSpacePose;
@@ -175,6 +183,129 @@ public static class OVRExtensions
 	{
 		return new OVRPlugin.Quatf() { x = -q.x, y = -q.y, z = q.z, w = q.w };
 	}
+}
+
+//4 types of node state properties that can be queried with UnityEngine.XR
+public enum NodeStatePropertyType
+{
+	Acceleration,
+	AngularAcceleration,
+	Velocity,
+	AngularVelocity,
+}
+
+public static class OVRNodeStateProperties
+{
+#if UNITY_2017_1_OR_NEWER
+	private static List<NodeState> nodeStateList = new List<NodeState>();
+#endif
+
+	public static bool IsHmdPresent()
+	{
+		return Device.isPresent;
+	}
+
+	public static Vector3 GetNodeStateProperty(Node nodeType, NodeStatePropertyType propertyType, OVRPlugin.Node ovrpNodeType, OVRPlugin.Step stepType)
+	{
+		switch (propertyType)
+		{
+			case NodeStatePropertyType.Acceleration:
+#if UNITY_2017_1_OR_NEWER
+				return GetUnityXRNodeState(nodeType, NodeStatePropertyType.Acceleration);
+#else
+				return OVRPlugin.GetNodeAcceleration(ovrpNodeType, stepType).FromFlippedZVector3f();
+#endif
+
+			case NodeStatePropertyType.AngularAcceleration:
+#if UNITY_2017_2_OR_NEWER
+				return GetUnityXRNodeState(nodeType, NodeStatePropertyType.AngularAcceleration);
+#else
+				return OVRPlugin.GetNodeAngularAcceleration(ovrpNodeType, stepType).FromFlippedZVector3f() * Mathf.Rad2Deg;
+#endif
+
+			case NodeStatePropertyType.Velocity:
+#if UNITY_2017_1_OR_NEWER
+				return GetUnityXRNodeState(nodeType, NodeStatePropertyType.Velocity);
+#else
+				return OVRPlugin.GetNodeVelocity(ovrpNodeType, stepType).FromFlippedZVector3f();
+#endif
+
+			case NodeStatePropertyType.AngularVelocity:
+#if UNITY_2017_2_OR_NEWER
+				return GetUnityXRNodeState(nodeType, NodeStatePropertyType.AngularVelocity);
+#else
+			return OVRPlugin.GetNodeAngularVelocity(ovrpNodeType, stepType).FromFlippedZVector3f() * Mathf.Rad2Deg;
+#endif
+
+		}
+		return Vector3.zero;
+	}
+
+
+#if UNITY_2017_1_OR_NEWER
+	private static Vector3 GetUnityXRNodeState(Node nodeType, NodeStatePropertyType propertyType)
+	{
+		InputTracking.GetNodeStates(nodeStateList);
+
+		if (nodeStateList.Count == 0)
+			return Vector3.zero;
+
+		bool nodeStateFound = false;
+		NodeState requestedNodeState = nodeStateList[0];
+
+		for (int i = 0; i < nodeStateList.Count; i++)
+		{
+			if (nodeStateList[i].nodeType == nodeType)
+			{
+				requestedNodeState = nodeStateList[i];
+				nodeStateFound = true;
+				break;
+			}
+		}
+
+		if (!nodeStateFound)
+			return Vector3.zero;
+
+		Vector3 retVec;
+		if (propertyType == NodeStatePropertyType.Acceleration)
+		{
+			if (requestedNodeState.TryGetAcceleration(out retVec))
+			{
+				return retVec;
+			}
+		}
+		else if (propertyType == NodeStatePropertyType.AngularAcceleration)
+		{
+#if UNITY_2017_2_OR_NEWER
+			if (requestedNodeState.TryGetAngularAcceleration(out retVec))
+			{
+				retVec = retVec * Mathf.Rad2Deg;
+				return retVec;
+			}
+#endif
+		}
+		else if (propertyType == NodeStatePropertyType.Velocity)
+		{
+			if (requestedNodeState.TryGetVelocity(out retVec))
+			{
+				return retVec;
+			}
+		}
+		else if (propertyType == NodeStatePropertyType.AngularVelocity)
+		{
+#if UNITY_2017_2_OR_NEWER
+			if (requestedNodeState.TryGetAngularVelocity(out retVec))
+			{
+				retVec = retVec * Mathf.Rad2Deg;
+				return retVec;
+			}
+#endif
+		}
+
+		return Vector3.zero;
+	}
+#endif
+
 }
 
 /// <summary>

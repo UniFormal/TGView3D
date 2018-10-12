@@ -666,10 +666,12 @@ namespace TGraph
 
         private void UpdatePosition()
         {
-
+            
             foreach (int n in graph.selectedNodes)
             {
+                
                 if (n < 0) continue;
+                bool changed = false;
                 var node = graph.nodes[n];
 
                 List<int> edgeIndices = node.edgeIndicesIn.Union<int>(node.edgeIndicesOut).ToList<int>();
@@ -686,7 +688,7 @@ namespace TGraph
                     var sourcePos = graph.nodes[graph.nodeDict[graph.edges[edgeIndices[i]].from]].nodeObject.transform.localPosition;
                     var targetPos = graph.nodes[graph.nodeDict[graph.edges[edgeIndices[i]].to]].nodeObject.transform.localPosition;
 
-                    //if (sourcePos != graph.nodes[graph.nodeDict[edges[i].from]].pos || targetPos != graph.nodes[graph.nodeDict[edges[i].to]].pos)
+                    if (sourcePos != graph.nodes[graph.nodeDict[graph.edges[i].from]].pos || targetPos != graph.nodes[graph.nodeDict[graph.edges[i].to]].pos)
                     {
                         // Debug.Log("work");
                         Vector3 dir = targetPos - sourcePos;
@@ -694,11 +696,11 @@ namespace TGraph
                         Vector3 offsetOrtho = Vector3.Cross(dir, offset).normalized * graph.lineWidth;
                         ReadJSON.createEdge(i, vertices, sourcePos, targetPos, offset, offsetOrtho);
                         ReadJSON.createEdge(edgeIndices[i], bigVertices, sourcePos, targetPos, offset, offsetOrtho);
-                        //changed = true;
+                        changed = true;
                     }
 
                 }
-                //if (changed)
+                if (changed)
                 {
                     mesh.vertices = vertices;
                     bigMesh.vertices = bigVertices;

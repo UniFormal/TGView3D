@@ -12,6 +12,8 @@ namespace Oculus.Platform
     private bool isUnityEditorSettingsExpanded;
     private bool isBuildSettingsExpanded;
 
+    private WWW getAccessTokenRequest;
+
     private void OnEnable()
     {
       isUnityEditorSettingsExpanded = PlatformSettings.UseStandalonePlatform;
@@ -74,16 +76,25 @@ namespace Oculus.Platform
       {
         GUIHelper.HInset(6, () =>
         {
-          if (PlatformSettings.UseStandalonePlatform &&
+          bool HasTestAccessToken = !String.IsNullOrEmpty(StandalonePlatformSettings.OculusPlatformTestUserAccessToken);
+          if (PlatformSettings.UseStandalonePlatform)
+          {
+            if (!HasTestAccessToken && 
             (String.IsNullOrEmpty(StandalonePlatformSettings.OculusPlatformTestUserEmail) ||
             String.IsNullOrEmpty(StandalonePlatformSettings.OculusPlatformTestUserPassword)))
-          {
-            EditorGUILayout.HelpBox("Please enter a valid user credentials.", MessageType.Error);
+            {
+              EditorGUILayout.HelpBox("Please enter a valid user credentials.", MessageType.Error);
+            }
+            else
+            {
+              var msg = "The Unity editor will use the supplied test user credentials and operate in standalone mode.  Some user data will be mocked.";
+              EditorGUILayout.HelpBox(msg, MessageType.Info);
+            }
           }
           else
           {
-            var msg = "The Unity editor will use the supplied test user credentials and operate in standalone mode.  Some user data will be mocked.";
-            EditorGUILayout.HelpBox(msg,  MessageType.Info);
+            var msg = "The Unity editor will use the user credentials from the Oculus application.";
+            EditorGUILayout.HelpBox(msg, MessageType.Info);
           }
 
           var useStandaloneLabel = "Use Standalone Platform [?]";
@@ -94,17 +105,50 @@ namespace Oculus.Platform
 
           GUI.enabled = PlatformSettings.UseStandalonePlatform;
 
-          var emailLabel = "Test User Email: ";
-          var emailHint = "Test users can be configured at " +
-            "https://dashboard.oculus.com/organizations/<your org ID>/testusers " +
-            "however any valid Oculus account email may be used.";
-          StandalonePlatformSettings.OculusPlatformTestUserEmail =
-            MakeTextBox(new GUIContent(emailLabel, emailHint), StandalonePlatformSettings.OculusPlatformTestUserEmail);
+          if (!HasTestAccessToken)
+          {
+            var emailLabel = "Test User Email: ";
+            var emailHint = "Test users can be configured at " +
+              "https://dashboard.oculus.com/organizations/<your org ID>/testusers " +
+              "however any valid Oculus account email may be used.";
+            StandalonePlatformSettings.OculusPlatformTestUserEmail =
+              MakeTextBox(new GUIContent(emailLabel, emailHint), StandalonePlatformSettings.OculusPlatformTestUserEmail);
 
-          var passwdLabel = "Test User Password: ";
-          var passwdHint = "Password associated with the email address.";
-          StandalonePlatformSettings.OculusPlatformTestUserPassword =
-            MakePasswordBox(new GUIContent(passwdLabel, passwdHint), StandalonePlatformSettings.OculusPlatformTestUserPassword);
+            var passwdLabel = "Test User Password: ";
+            var passwdHint = "Password associated with the email address.";
+            StandalonePlatformSettings.OculusPlatformTestUserPassword =
+              MakePasswordBox(new GUIContent(passwdLabel, passwdHint), StandalonePlatformSettings.OculusPlatformTestUserPassword);
+
+            var isLoggingIn = (getAccessTokenRequest != null);
+            var loginLabel = (!isLoggingIn) ? "Login" : "Logging in...";
+
+            GUI.enabled = !isLoggingIn;
+            if (GUILayout.Button(loginLabel))
+            {
+              WWWForm form = new WWWForm();
+              var headers = form.headers;
+              headers.Add("Authorization", "Bearer OC|1141595335965881|");
+              form.AddField("email", StandalonePlatformSettings.OculusPlatformTestUserEmail);
+              form.AddField("password", StandalonePlatformSettings.OculusPlatformTestUserPassword);
+
+              // Start the WWW request to get the access token
+              getAccessTokenRequest = new WWW("https://graph.oculus.com/login", form.data, headers);
+              EditorApplication.update += GetAccessToken;
+            }
+            GUI.enabled = true;
+          }
+          else
+          {
+            var loggedInMsg = "Currently using the credentials associated with " + StandalonePlatformSettings.OculusPlatformTestUserEmail;
+            EditorGUILayout.HelpBox(loggedInMsg, MessageType.Info);
+
+            var logoutLabel = "Clear Credentials";
+
+            if (GUILayout.Button(logoutLabel))
+            {
+              StandalonePlatformSettings.OculusPlatformTestUserAccessToken = "";
+            }
+          }
 
           GUI.enabled = true;
         });
@@ -142,6 +186,27 @@ namespace Oculus.Platform
         });
       }
       EditorGUILayout.Separator();
+    }
+
+    // Asyncronously fetch the access token with the given credentials
+    private void GetAccessToken()
+    {
+      if (getAccessTokenRequest != null && getAccessTokenRequest.isDone)
+      {
+
+        // Clear the password
+        StandalonePlatformSettings.OculusPlatformTestUserPassword = "";
+
+        if (String.IsNullOrEmpty(getAccessTokenRequest.error))
+        {
+          var Response = JsonUtility.FromJson<OculusStandalonePlatformResponse>(getAccessTokenRequest.text);
+          StandalonePlatformSettings.OculusPlatformTestUserAccessToken = Response.access_token;
+        }
+        
+        GUI.changed = true;
+        EditorApplication.update -= GetAccessToken;
+        getAccessTokenRequest = null;
+      }
     }
 
     private string MakeTextBox(GUIContent label, string variable)

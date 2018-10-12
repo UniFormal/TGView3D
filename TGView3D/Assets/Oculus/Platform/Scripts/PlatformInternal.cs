@@ -42,11 +42,17 @@ namespace Oculus.Platform
       Room_GetSocialRooms                           = 0x61881D76,
       SystemPermissions_GetStatus                   = 0x1D6A2C09,
       SystemPermissions_LaunchDeeplink              = 0x1A5A8431,
+      User_CancelRecordingForReportFlow             = 0x03E0D149,
+      User_GetLinkedAccounts                        = 0x5793F456,
       User_LaunchBlockFlow                          = 0x6FD62528,
       User_LaunchReportFlow                         = 0x5662A011,
+      User_LaunchUnblockFlow                        = 0x14A22A97,
       User_NewEntitledTestUser                      = 0x11741F03,
       User_NewTestUser                              = 0x36E84F8C,
-      User_NewTestUserFriends                       = 0x1ED726C7
+      User_NewTestUserFriends                       = 0x1ED726C7,
+      User_StartRecordingForReportFlow              = 0x6C6E33E3,
+      User_StopRecordingAndLaunchReportFlow         = 0x60788C8B,
+      User_StopRecordingAndLaunchReportFlow2        = 0x19C2B32B
     };
 
     public static void CrashApplication() {
@@ -58,16 +64,32 @@ namespace Oculus.Platform
       Message message = null;
       switch ((PlatformInternal.MessageTypeInternal)messageType)
       {
+        case MessageTypeInternal.User_StartRecordingForReportFlow:
+          message = new MessageWithAbuseReportRecording(messageHandle);
+          break;
+
         case MessageTypeInternal.Application_ExecuteCoordinatedLaunch:
         case MessageTypeInternal.Livestreaming_StopPartyStream:
         case MessageTypeInternal.Livestreaming_UpdateMicStatus:
         case MessageTypeInternal.Party_Leave:
-        case MessageTypeInternal.User_LaunchBlockFlow:
+        case MessageTypeInternal.User_CancelRecordingForReportFlow:
           message = new Message(messageHandle);
           break;
 
         case MessageTypeInternal.Application_GetInstalledApplications:
           message = new MessageWithInstalledApplicationList(messageHandle);
+          break;
+
+        case MessageTypeInternal.User_LaunchBlockFlow:
+          message = new MessageWithLaunchBlockFlowResult(messageHandle);
+          break;
+
+        case MessageTypeInternal.User_LaunchUnblockFlow:
+          message = new MessageWithLaunchUnblockFlowResult(messageHandle);
+          break;
+
+        case MessageTypeInternal.User_GetLinkedAccounts:
+          message = new MessageWithLinkedAccountList(messageHandle);
           break;
 
         case MessageTypeInternal.Livestreaming_IsAllowedForApplication:
@@ -130,6 +152,8 @@ namespace Oculus.Platform
           break;
 
         case MessageTypeInternal.User_LaunchReportFlow:
+        case MessageTypeInternal.User_StopRecordingAndLaunchReportFlow:
+        case MessageTypeInternal.User_StopRecordingAndLaunchReportFlow2:
           message = new MessageWithUserReportID(messageHandle);
           break;
 

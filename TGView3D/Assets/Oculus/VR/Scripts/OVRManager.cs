@@ -1,9 +1,9 @@
 /************************************************************************************
 
-Copyright   :   Copyright 2017 Oculus VR, LLC. All Rights reserved.
+Copyright   :   Copyright (c) Facebook Technologies, LLC and its affiliates. All rights reserved.
 
-Licensed under the Oculus VR Rift SDK License Version 3.4.1 (the "License");
-you may not use the Oculus VR Rift SDK except in compliance with the License,
+Licensed under the Oculus SDK License Version 3.4.1 (the "License");
+you may not use the Oculus SDK except in compliance with the License,
 which is provided at the time of installation or download, or which
 otherwise accompanies this software in either electronic or hard copy form.
 
@@ -11,7 +11,7 @@ You may obtain a copy of the License at
 
 https://developer.oculus.com/licenses/sdk-3.4.1
 
-Unless required by applicable law or agreed to in writing, the Oculus VR SDK
+Unless required by applicable law or agreed to in writing, the Oculus SDK
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
@@ -174,7 +174,7 @@ public class OVRManager : MonoBehaviour
 			if (!_isHmdPresentCached)
 			{
 				_isHmdPresentCached = true;
-				_isHmdPresent = OVRPlugin.hmdPresent;
+				_isHmdPresent = OVRNodeStateProperties.IsHmdPresent();
 			}
 
 			return _isHmdPresent;
@@ -336,6 +336,60 @@ public class OVRManager : MonoBehaviour
 	[RangeAttribute(0.5f, 2.0f)]
 	[Tooltip("Max RenderScale the app can reach under adaptive resolution mode")]
 	public float maxRenderScale = 1.0f;
+
+	/// <summary>
+	/// Set the relative offset rotation of head poses
+	/// </summary>
+	[SerializeField]
+	[Tooltip("Set the relative offset rotation of head poses")]
+	private Vector3 _headPoseRelativeOffsetRotation;
+	public Vector3 headPoseRelativeOffsetRotation
+	{
+		get
+		{
+			return _headPoseRelativeOffsetRotation;
+		}
+		set
+		{
+			OVRPlugin.Quatf rotation;
+			OVRPlugin.Vector3f translation;
+			if (OVRPlugin.GetHeadPoseModifier(out rotation, out translation))
+			{
+				Quaternion finalRotation = Quaternion.Euler(value);
+				rotation = finalRotation.ToQuatf();
+				OVRPlugin.SetHeadPoseModifier(ref rotation, ref translation);
+			}
+			_headPoseRelativeOffsetRotation = value;
+		}
+	}
+
+	/// <summary>
+	/// Set the relative offset translation of head poses
+	/// </summary>
+	[SerializeField]
+	[Tooltip("Set the relative offset translation of head poses")]
+	private Vector3 _headPoseRelativeOffsetTranslation;
+	public Vector3 headPoseRelativeOffsetTranslation
+	{
+		get
+		{
+			return _headPoseRelativeOffsetTranslation;
+		}
+		set
+		{
+			OVRPlugin.Quatf rotation;
+			OVRPlugin.Vector3f translation;
+			if (OVRPlugin.GetHeadPoseModifier(out rotation, out translation))
+			{
+				if (translation.FromFlippedZVector3f() != value)
+				{
+					translation = value.ToFlippedZVector3f();
+					OVRPlugin.SetHeadPoseModifier(ref rotation, ref translation);
+				}
+			}
+			_headPoseRelativeOffsetTranslation = value;
+		}
+	}
 
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
 	/// <summary>
@@ -786,7 +840,33 @@ public class OVRManager : MonoBehaviour
 	[Tooltip("If true, the Reset View in the universal menu will cause the pose to be reset. This should generally be enabled for applications with a stationary position in the virtual world and will allow the View Reset command to place the person back to a predefined location (such as a cockpit seat). Set this to false if you have a locomotion system because resetting the view would effectively teleport the player to potentially invalid locations.")]
     public bool AllowRecenter = true;
 
-    /// <summary>
+	[SerializeField]
+	[Tooltip("Specifies HMD recentering behavior when controller recenter is performed. True recenters the HMD as well, false does not.")]
+	private bool _reorientHMDOnControllerRecenter = true;
+	/// <summary>
+	/// Defines the recentering mode specified in the tooltip above.
+	/// </summary>
+	public bool reorientHMDOnControllerRecenter
+	{
+		get
+		{
+			if (!isHmdPresent)
+				return false;
+
+			return OVRPlugin.GetReorientHMDOnControllerRecenter();
+		}
+
+		set
+		{
+			if (!isHmdPresent)
+				return;
+
+			OVRPlugin.SetReorientHMDOnControllerRecenter(value);
+
+		}
+	}
+
+	/// <summary>
 	/// True if the current platform supports virtual reality.
 	/// </summary>
 	public bool isSupportedPlatform { get; private set; }
@@ -894,6 +974,24 @@ public class OVRManager : MonoBehaviour
 	}
 #endif
 
+	internal static bool IsUnityAlphaOrBetaVersion()
+	{
+		string ver = Application.unityVersion;
+		int pos = ver.Length - 1;
+		
+		while (pos >= 0 && ver[pos] >= '0' && ver[pos] <= '9')
+		{
+			--pos;
+		}
+
+		if (pos >= 0 && (ver[pos] == 'a' || ver[pos] == 'b'))
+			return true;
+
+		return false;
+	}
+
+	internal static string UnityAlphaOrBetaVersionWarningMessage = "WARNING: It's not recommended to use Unity alpha/beta release in Oculus development. Use a stable release if you encounter any issue.";
+
 #region Unity Messages
 
 	private void Awake()
@@ -913,6 +1011,13 @@ public class OVRManager : MonoBehaviour
 				  "OVRPlugin v" + OVRPlugin.version + ", " +
 				  "SDK v" + OVRPlugin.nativeSDKVersion + ".");
 
+#if !UNITY_EDITOR
+		if (IsUnityAlphaOrBetaVersion())
+		{
+			Debug.LogWarning(UnityAlphaOrBetaVersionWarningMessage);
+		}
+#endif
+
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
 		var supportedTypes =
 			UnityEngine.Rendering.GraphicsDeviceType.Direct3D11.ToString() + ", " +
@@ -924,12 +1029,19 @@ public class OVRManager : MonoBehaviour
 
 		// Detect whether this platform is a supported platform
 		RuntimePlatform currPlatform = Application.platform;
-		isSupportedPlatform |= currPlatform == RuntimePlatform.Android;
-		//isSupportedPlatform |= currPlatform == RuntimePlatform.LinuxPlayer;
-		isSupportedPlatform |= currPlatform == RuntimePlatform.OSXEditor;
-		isSupportedPlatform |= currPlatform == RuntimePlatform.OSXPlayer;
-		isSupportedPlatform |= currPlatform == RuntimePlatform.WindowsEditor;
-		isSupportedPlatform |= currPlatform == RuntimePlatform.WindowsPlayer;
+		if (currPlatform == RuntimePlatform.Android ||
+			// currPlatform == RuntimePlatform.LinuxPlayer ||
+			currPlatform == RuntimePlatform.OSXEditor ||
+			currPlatform == RuntimePlatform.OSXPlayer ||
+			currPlatform == RuntimePlatform.WindowsEditor ||
+			currPlatform == RuntimePlatform.WindowsPlayer)
+		{
+			isSupportedPlatform = true;
+		}
+		else
+		{
+			isSupportedPlatform = false;
+		}
 		if (!isSupportedPlatform)
 		{
 			Debug.LogWarning("This platform is unsupported");
@@ -1023,6 +1135,8 @@ public class OVRManager : MonoBehaviour
 			tracker = new OVRTracker();
 		if (boundary == null)
 			boundary = new OVRBoundary();
+
+		reorientHMDOnControllerRecenter = _reorientHMDOnControllerRecenter;
 	}
 
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
@@ -1042,7 +1156,7 @@ public class OVRManager : MonoBehaviour
 		if (OVRPlugin.shouldQuit)
 			Application.Quit();
 
-        if (AllowRecenter && OVRPlugin.shouldRecenter)
+		if (AllowRecenter && OVRPlugin.shouldRecenter)
 		{
 			OVRManager.display.RecenterPose();
 		}
@@ -1058,7 +1172,7 @@ public class OVRManager : MonoBehaviour
 
 		// Dispatch HMD events.
 
-		isHmdPresent = OVRPlugin.hmdPresent;
+		isHmdPresent = OVRNodeStateProperties.IsHmdPresent();
 
 		if (useRecommendedMSAALevel && QualitySettings.antiAliasing != display.recommendedMSAALevel)
 		{
@@ -1072,6 +1186,16 @@ public class OVRManager : MonoBehaviour
 		if (monoscopic != _monoscopic)
 		{
 			monoscopic = _monoscopic;
+		}
+
+		if (headPoseRelativeOffsetRotation != _headPoseRelativeOffsetRotation)
+		{
+			headPoseRelativeOffsetRotation = _headPoseRelativeOffsetRotation;
+		}
+
+		if (headPoseRelativeOffsetTranslation != _headPoseRelativeOffsetTranslation)
+		{
+			headPoseRelativeOffsetTranslation = _headPoseRelativeOffsetTranslation;
 		}
 
 		if (_wasHmdPresent && !isHmdPresent)

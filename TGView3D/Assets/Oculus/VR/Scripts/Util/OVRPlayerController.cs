@@ -1,9 +1,9 @@
 /************************************************************************************
 
-Copyright   :   Copyright 2017 Oculus VR, LLC. All Rights reserved.
+Copyright   :   Copyright (c) Facebook Technologies, LLC and its affiliates. All rights reserved.
 
-Licensed under the Oculus VR Rift SDK License Version 3.4.1 (the "License");
-you may not use the Oculus VR Rift SDK except in compliance with the License,
+Licensed under the Oculus SDK License Version 3.4.1 (the "License");
+you may not use the Oculus SDK except in compliance with the License,
 which is provided at the time of installation or download, or which
 otherwise accompanies this software in either electronic or hard copy form.
 
@@ -11,7 +11,7 @@ You may obtain a copy of the License at
 
 https://developer.oculus.com/licenses/sdk-3.4.1
 
-Unless required by applicable law or agreed to in writing, the Oculus VR SDK
+Unless required by applicable law or agreed to in writing, the Oculus SDK
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
@@ -163,7 +163,6 @@ public class OVRPlayerController : MonoBehaviour
 	void Awake()
 	{
 		Controller = gameObject.GetComponent<CharacterController>();
-        Controller.detectCollisions = false;
 
 		if(Controller == null)
 			Debug.LogWarning("OVRPlayerController: No CharacterController attached.");
@@ -260,7 +259,7 @@ public class OVRPlayerController : MonoBehaviour
 		float motorDamp = (1.0f + (Damping * SimulationRate * Time.deltaTime));
 
 		MoveThrottle.x /= motorDamp;
-        MoveThrottle.y /= motorDamp;
+		MoveThrottle.y = (MoveThrottle.y > 0.0f) ? (MoveThrottle.y / motorDamp) : MoveThrottle.y;
 		MoveThrottle.z /= motorDamp;
 
 		moveDirection += MoveThrottle * SimulationRate * Time.deltaTime;
@@ -271,15 +270,14 @@ public class OVRPlayerController : MonoBehaviour
 		else
 			FallSpeed += ((Physics.gravity.y * (GravityModifier * 0.002f)) * SimulationRate * Time.deltaTime);
 
-        FallSpeed = 0;
 		moveDirection.y += FallSpeed * SimulationRate * Time.deltaTime;
 
 
 		if (Controller.isGrounded && MoveThrottle.y <= transform.lossyScale.y * 0.001f)
 		{
 			// Offset correction for uneven ground
-		//	float bumpUpOffset = Mathf.Max(Controller.stepOffset, new Vector3(moveDirection.x, 0, moveDirection.z).magnitude);
-		//	moveDirection -= bumpUpOffset * Vector3.up;
+			//float bumpUpOffset = Mathf.Max(Controller.stepOffset, new Vector3(moveDirection.x, 0, moveDirection.z).magnitude);
+			//moveDirection -= bumpUpOffset * Vector3.up;
 		}
 
 		if (PreCharacterMove != null)
@@ -353,20 +351,19 @@ public class OVRPlayerController : MonoBehaviour
 			ortEuler.z = ortEuler.x = 0f;
 			ort = Quaternion.Euler(ortEuler);
 
-			/*if (moveForward)
-				MoveThrottle += ort * (transform.lossyScale.z * moveInfluence * Camera.main.transform.forward);
+            /*
+			if (moveForward)
+				MoveThrottle += ort * (transform.lossyScale.z * moveInfluence * Vector3.forward);
 			if (moveBack)
-				MoveThrottle += ort * (transform.lossyScale.z * moveInfluence * BackAndSideDampen * -Camera.main.transform.forward);
+				MoveThrottle += ort * (transform.lossyScale.z * moveInfluence * BackAndSideDampen * Vector3.back);
 			if (moveLeft)
-				MoveThrottle += ort * (transform.lossyScale.x * moveInfluence * BackAndSideDampen * -Camera.main.transform.right);
+				MoveThrottle += ort * (transform.lossyScale.x * moveInfluence * BackAndSideDampen * Vector3.left);
 			if (moveRight)
-				MoveThrottle += ort * (transform.lossyScale.x * moveInfluence * BackAndSideDampen * Camera.main.transform.right);
+				MoveThrottle += ort * (transform.lossyScale.x * moveInfluence * BackAndSideDampen * Vector3.right);
 
     */
 
 			moveInfluence = Acceleration * 0.1f * MoveScale * MoveScaleMultiplier;
-
-       
 
 #if !UNITY_ANDROID // LeftTrigger not avail on Android game pad
 			moveInfluence *= 1.0f + OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger);
@@ -381,8 +378,8 @@ public class OVRPlayerController : MonoBehaviour
 				primaryAxis.x = Mathf.Round(primaryAxis.x * FixedSpeedSteps) / FixedSpeedSteps;
 			}
 
-           
-            if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger)){
+            if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))
+            {
                 GameObject.Find("LCone").GetComponent<MeshRenderer>().enabled = true;
             }
 
@@ -392,47 +389,44 @@ public class OVRPlayerController : MonoBehaviour
                 GameObject.Find("RCone").GetComponent<MeshRenderer>().enabled = true;
             }
 
-            if (OVRInput.GetDown(OVRInput.Button.One)|| OVRInput.GetDown(OVRInput.Button.Two) || OVRInput.GetDown(OVRInput.Button.Three) || OVRInput.GetDown(OVRInput.Button.Four ))
+            if (OVRInput.GetDown(OVRInput.Button.One) || OVRInput.GetDown(OVRInput.Button.Two) || OVRInput.GetDown(OVRInput.Button.Three) || OVRInput.GetDown(OVRInput.Button.Four))
             {
-               
-               /* Debug.Log(Application.dataPath + "/" + UnityEngine.Random.Range(0,100) + ".png");
-                ScreenCapture.CaptureScreenshot(Application.dataPath+"/"+ UnityEngine.Random.Range(0, 100) + ".png",4);*/
+
+                /* Debug.Log(Application.dataPath + "/" + UnityEngine.Random.Range(0,100) + ".png");
+                 ScreenCapture.CaptureScreenshot(Application.dataPath+"/"+ UnityEngine.Random.Range(0, 100) + ".png",4);*/
 
 
             }
 
-       
+
 
 
             if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
             {
-                
-                MoveThrottle +=  0.1f* moveInfluence *Vector3.up;
-            
+
+                MoveThrottle += 0.1f * moveInfluence * Vector3.up;
+
             }
             if (OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger))
             {
-                MoveThrottle -= 0.1f*moveInfluence * Vector3.up;
+                MoveThrottle -= 0.1f * moveInfluence * Vector3.up;
             }
 
 
             if (primaryAxis.y > 0.0f)
-                MoveThrottle += ort * (primaryAxis.y * transform.lossyScale.z * moveInfluence * (Quaternion.Inverse(transform.rotation) * Camera.main.transform.forward));
-            
-            
+				MoveThrottle += ort * (primaryAxis.y * transform.lossyScale.z * moveInfluence * Vector3.forward);
+
 			if (primaryAxis.y < 0.0f)
 				MoveThrottle += ort * (Mathf.Abs(primaryAxis.y) * transform.lossyScale.z * moveInfluence *
-									   BackAndSideDampen * (Quaternion.Inverse(transform.rotation) * - Camera.main.transform.forward));
+									   BackAndSideDampen * Vector3.back);
 
 			if (primaryAxis.x < 0.0f)
 				MoveThrottle += ort * (Mathf.Abs(primaryAxis.x) * transform.lossyScale.x * moveInfluence *
-									   BackAndSideDampen * (Quaternion.Inverse(transform.rotation) *- Camera.main.transform.right));
+									   BackAndSideDampen * Vector3.left);
 
 			if (primaryAxis.x > 0.0f)
 				MoveThrottle += ort * (primaryAxis.x * transform.lossyScale.x * moveInfluence * BackAndSideDampen *
-                                       (Quaternion.Inverse(transform.rotation)* Camera.main.transform.right));
-
-
+									   Vector3.right);
 		}
 
 		if (EnableRotation)
@@ -457,11 +451,9 @@ public class OVRPlayerController : MonoBehaviour
 			euler.y += buttonRotation;
 			buttonRotation = 0f;
 
-            
-
 
 #if !UNITY_ANDROID || UNITY_EDITOR
-            if (!SkipMouseRotation)
+			if (!SkipMouseRotation)
 				euler.y += Input.GetAxis("Mouse X") * rotateInfluence * 3.25f;
 #endif
 

@@ -25,7 +25,7 @@ public class MultiCameraSample : MonoBehaviour {
 
 	public OVRCameraRig[]	cameraControllers = new OVRCameraRig[0];
 	public int				currentController = 0;
-    private OVRHarness      harness;
+    /*private OVRHarness      harness;
 
 	/// <summary>
 	/// Initialize
@@ -94,5 +94,5 @@ public class MultiCameraSample : MonoBehaviour {
 			}
 			UpdateCameraControllers();
 		}
-	}
+	}*/
 }

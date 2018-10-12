@@ -35,9 +35,7 @@ public class OculusSpatializerUnity : MonoBehaviour
     public float maxWallDistance = 50.0f;
     public int rayCacheSize = 512;
 
-    // Debug parameters
     public bool dynamicReflectionsEnabled = true;
-    public bool legacyReverb = false;
 
     AudioRaycastCallback _raycastCallback; // cache an instance of the delegate so the GC doesn't nuke it!
 
@@ -45,7 +43,6 @@ public class OculusSpatializerUnity : MonoBehaviour
     float particleOffset = 0.1f;
 
     GameObject room;
-    GameObject[] walls = new GameObject[6];
     Renderer[] wallRenderer = new Renderer[6];
 
     float[] dims = new float[3] { 1.0f, 1.0f, 1.0f };
@@ -78,31 +75,29 @@ public class OculusSpatializerUnity : MonoBehaviour
     void Start()
     {
         _raycastCallback = new AudioRaycastCallback(AudioRaycast);
-        OSP_Unity_AssignRayCastCallback(_raycastCallback, System.IntPtr.Zero);
+        OSP_Unity_AssignRaycastCallback(_raycastCallback, System.IntPtr.Zero);
     }
 
     void OnDestroy()
     {
-        OSP_Unity_AssignRayCastCallback(System.IntPtr.Zero, System.IntPtr.Zero);
+        OSP_Unity_AssignRaycastCallback(System.IntPtr.Zero, System.IntPtr.Zero);
     }
 
     void Update()
     {
         if (dynamicReflectionsEnabled)
         {
-            OSP_Unity_AssignRayCastCallback(_raycastCallback, System.IntPtr.Zero);
+            OSP_Unity_AssignRaycastCallback(_raycastCallback, System.IntPtr.Zero);
         }
         else
         {
-            OSP_Unity_AssignRayCastCallback(System.IntPtr.Zero, System.IntPtr.Zero);
+            OSP_Unity_AssignRaycastCallback(System.IntPtr.Zero, System.IntPtr.Zero);
         }
 
         OSP_Unity_SetDynamicRoomRaysPerSecond(raysPerSecond);
         OSP_Unity_SetDynamicRoomInterpSpeed(roomInterpSpeed);
         OSP_Unity_SetDynamicRoomMaxWallDistance(maxWallDistance);
         OSP_Unity_SetDynamicRoomRaysRayCacheSize(rayCacheSize);
-
-        OSP_Unity_UseLegacyReverb(legacyReverb);
 
         gLayerMask = layerMask;
         OSP_Unity_UpdateRoomModel(1.0f);
@@ -330,9 +325,9 @@ public class OculusSpatializerUnity : MonoBehaviour
 	private const string strOSP = "AudioPluginOculusSpatializer";
 
     [DllImport(strOSP)]
-    private static extern int OSP_Unity_AssignRayCastCallback(System.MulticastDelegate callback, System.IntPtr data);
+    private static extern int OSP_Unity_AssignRaycastCallback(System.MulticastDelegate callback, System.IntPtr data);
     [DllImport(strOSP)]
-    private static extern int OSP_Unity_AssignRayCastCallback(System.IntPtr callback, System.IntPtr data);
+    private static extern int OSP_Unity_AssignRaycastCallback(System.IntPtr callback, System.IntPtr data);
 
     [DllImport(strOSP)]
     private static extern int OSP_Unity_SetDynamicRoomRaysPerSecond(int RaysPerSecond);
@@ -348,6 +343,4 @@ public class OculusSpatializerUnity : MonoBehaviour
     private static extern int OSP_Unity_GetRoomDimensions(float[] roomDimensions, float[] reflectionsCoefs, out Vector3 position);
     [DllImport(strOSP)]
     private static extern int OSP_Unity_GetRaycastHits(Vector3[] points, Vector3[] normals, int length);
-    [DllImport(strOSP)]
-    private static extern int OSP_Unity_UseLegacyReverb(bool enable); 
 }
