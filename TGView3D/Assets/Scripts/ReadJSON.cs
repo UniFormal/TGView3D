@@ -40,8 +40,10 @@ namespace TGraph
             public List<MyEdge> tmpEdges;
             public int handIndex = 0;
             public List<int> selectedNodes;
+            public List<int> movingNodes;
             public int latestSelection;
             public GameObject edgeObject;
+            public List<int> badHack;
             public float lineWidth = 0.003f;
             //public List<int> removeList;
             public Dictionary<string, Color> colorDict;
@@ -278,7 +280,7 @@ namespace TGraph
 
                     //Debug.Log(edges[i].style);
                     vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = graph.colorDict[edges[i].style];
-                    vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = graph.colorDict[edges[i].style]+ new Color(0,0,20);
+                    vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = graph.colorDict[edges[i].style]+ new Color(0,0,5);
 
                     //creates square tubes by setting vertices manually
                     createEdge(i,vertices, source.pos,target.pos, offset, offsetOrtho);
@@ -474,13 +476,13 @@ namespace TGraph
                     if (graph.nodeDict.ContainsKey(graph.edges[i].from) && graph.nodeDict.ContainsKey(graph.edges[i].to))
                     {
 
-                     if (graph.edges[i].style != "graphinclude" && graph.edges[i].style != "include")
+                  /*   if (graph.edges[i].style != "graphinclude" && graph.edges[i].style != "include")
                     {
-                         graph.edges.RemoveAt(i);
-                         i--;
+                        // graph.edges.RemoveAt(i);
+                        // i--;
 
                     }
-                    else
+                    else*/
 
                     {
                         MyNode source = graph.nodes[graph.nodeDict[graph.edges[i].from]];
@@ -517,13 +519,14 @@ namespace TGraph
 
         void Awake()
         {
-          
 
+ 
+            
             Camera camera = Camera.main;
             float[] distances = new float[32];
 
             //camera.farClipPlane = 12;
-            distances[18] = 8;
+            distances[18] = 10;
             camera.layerCullDistances = distances;
             camera.layerCullSpherical = true;
             //camera.clearFlags = CameraClearFlags.SolidColor;
@@ -598,7 +601,34 @@ namespace TGraph
             }
         }
 
+        /*IEnumerator Lay()
+        {
 
+            yield return StartCoroutine(Layouts.SolveUsingForces(25, 0.13f));
+
+            if (GlobalVariables.Solved)
+            {
+
+                Layouts.BuildHierarchy();
+
+                graph.badHack = new List<int>();
+                for (int i = 0; i < graph.nodes.Count; i++)
+                {
+                    var node = graph.nodes[i];
+
+                    Vector3 pos = new Vector3(node.pos.x, node.pos.y, node.pos.z) / 4f;
+                    graph.badHack.Add(i);
+                    node.pos = pos;
+                    node.nodeObject.transform.localPosition = pos;
+                }
+
+                graph.edgeObject = BuildEdges(graph.edges, ref graph, lineMat);
+
+                GlobalVariables.Init = true;
+                this.GetComponent<Interaction>().enabled = true;
+
+            }
+        }*/
 
         IEnumerator ProcessJSON(WWW www)
         {
@@ -616,7 +646,11 @@ namespace TGraph
                 GlobalVariables.Graph = graph;
                 GlobalVariables.Vol = vol;
 
-             
+                graph.movingNodes = new List<int>();
+                graph.selectedNodes = new List<int>();
+                graph.selectedNodes.Add(-1);
+                graph.selectedNodes.Add(-1);
+
                 graph.colorDict = new Dictionary<string, Color>();
                 graph.colorDict.Add("include", new Color(0, 255, 0));
                 graph.colorDict.Add("meta", new Color(255, 0, 0));
@@ -640,23 +674,34 @@ namespace TGraph
                 ProcessEdges();
                 identifySubgraphs();
                 Layouts.Spiral();
+                //StartCoroutine(Lay());
+
                 Layouts.SolveUsingForces(25, 0.13f);
-                Layouts.BuildHierarchy();
 
-                for (int i = 0; i < graph.nodes.Count; i++)
                 {
-                    var node = graph.nodes[i];
-                    Vector3 pos = new Vector3(node.pos.x, node.pos.y, node.pos.z) / 4f;
 
-                    node.pos = pos;
-                    node.nodeObject.transform.localPosition = pos;
+                    Layouts.BuildHierarchy();
+
+                    graph.badHack = new List<int>();
+                    for (int i = 0; i < graph.nodes.Count; i++)
+                    {
+                        var node = graph.nodes[i];
+
+                        Vector3 pos = new Vector3(node.pos.x, node.pos.y, node.pos.z) / 4f;
+                        graph.badHack.Add(i);
+                        node.pos = pos;
+                        node.nodeObject.transform.localPosition = pos;
+                    }
+
+                    graph.edgeObject = BuildEdges(graph.edges, ref graph, lineMat);
+
+                    GlobalVariables.Init = true;
+                    this.GetComponent<Interaction>().enabled = true;
+
                 }
 
-                graph.edgeObject = BuildEdges(graph.edges, ref graph, lineMat);
 
-                GlobalVariables.Init = true;
-                this.GetComponent<Interaction>().enabled = true;
-
+                GlobalVariables.Solved = true;
 
             }
 
@@ -664,49 +709,106 @@ namespace TGraph
 
         }
 
-        private void UpdatePosition()
+        private void UpdatePosition(List<int> nodes)
         {
-            
-            foreach (int n in graph.selectedNodes)
-            {
-                
-                if (n < 0) continue;
-                bool changed = false;
-                var node = graph.nodes[n];
+           
+                foreach (int n in nodes)
+                {
 
+                    if (n == -1) continue;
+                    var node = graph.nodes[n];
+
+                    List<int> edgeIndices = node.edgeIndicesIn.Union<int>(node.edgeIndicesOut).ToList<int>();
+
+                    Mesh mesh = node.nodeEdgeObject.GetComponent<MeshFilter>().sharedMesh;
+                    Mesh bigMesh = graph.edgeObject.GetComponent<MeshFilter>().sharedMesh;
+                    Vector3[] vertices = mesh.vertices;
+                    Vector3[] bigVertices = bigMesh.vertices;
+
+
+
+                    for (int i = 0; i < edgeIndices.Count; i++)
+                    {
+                        var sourcePos = graph.nodes[graph.nodeDict[graph.edges[edgeIndices[i]].from]].nodeObject.transform.localPosition;
+                        var targetPos = graph.nodes[graph.nodeDict[graph.edges[edgeIndices[i]].to]].nodeObject.transform.localPosition;
+
+                        //if (sourcePos != graph.nodes[graph.nodeDict[graph.edges[i].from]].pos || targetPos != graph.nodes[graph.nodeDict[graph.edges[i].to]].pos)
+                        {
+                            // Debug.Log("work");
+                            Vector3 dir = targetPos - sourcePos;
+                            Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * graph.lineWidth;
+                            Vector3 offsetOrtho = Vector3.Cross(dir, offset).normalized * graph.lineWidth;
+                            ReadJSON.createEdge(i, vertices, sourcePos, targetPos, offset, offsetOrtho);
+                            ReadJSON.createEdge(edgeIndices[i], bigVertices, sourcePos, targetPos, offset, offsetOrtho);
+                            //  changed = true;
+                        }
+
+                    }
+                    //  if (changed)
+                    {
+                        mesh.vertices = vertices;
+                        bigMesh.vertices = bigVertices;
+                        mesh.RecalculateBounds();
+                        bigMesh.RecalculateBounds();
+                    }
+                }
+            
+      
+        }
+
+        IEnumerator RecalculateLayout()
+        {
+
+       
+
+            var time = Time.realtimeSinceStartup;
+            Layouts.Spiral();
+
+            //StartCoroutine(Layouts.SolveUsingForces(25, 0.13f));
+
+            Layouts.SolveUsingForces(45, 0.13f);
+            Layouts.BuildHierarchy();
+            Mesh bigMesh = graph.edgeObject.GetComponent<MeshFilter>().sharedMesh;
+
+            Vector3[] bigVertices = bigMesh.vertices;
+
+            foreach (MyNode node in graph.nodes)
+            {
+                Vector3 pos = new Vector3(node.pos.x, node.pos.y, node.pos.z) / 4f;
+
+                node.pos = pos;
+                node.nodeObject.transform.localPosition = pos;
+                
+           
                 List<int> edgeIndices = node.edgeIndicesIn.Union<int>(node.edgeIndicesOut).ToList<int>();
 
-                Mesh mesh = node.nodeEdgeObject.GetComponent<MeshFilter>().sharedMesh;
-                Mesh bigMesh = graph.edgeObject.GetComponent<MeshFilter>().sharedMesh;
-                Vector3[] vertices = mesh.vertices;
-                Vector3[] bigVertices = bigMesh.vertices;
-
-               
 
                 for (int i = 0; i < edgeIndices.Count; i++)
                 {
                     var sourcePos = graph.nodes[graph.nodeDict[graph.edges[edgeIndices[i]].from]].nodeObject.transform.localPosition;
                     var targetPos = graph.nodes[graph.nodeDict[graph.edges[edgeIndices[i]].to]].nodeObject.transform.localPosition;
 
-                    if (sourcePos != graph.nodes[graph.nodeDict[graph.edges[i].from]].pos || targetPos != graph.nodes[graph.nodeDict[graph.edges[i].to]].pos)
+                    //if (sourcePos != graph.nodes[graph.nodeDict[graph.edges[i].from]].pos || targetPos != graph.nodes[graph.nodeDict[graph.edges[i].to]].pos)
                     {
                         // Debug.Log("work");
                         Vector3 dir = targetPos - sourcePos;
                         Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * graph.lineWidth;
                         Vector3 offsetOrtho = Vector3.Cross(dir, offset).normalized * graph.lineWidth;
-                        ReadJSON.createEdge(i, vertices, sourcePos, targetPos, offset, offsetOrtho);
+
                         ReadJSON.createEdge(edgeIndices[i], bigVertices, sourcePos, targetPos, offset, offsetOrtho);
-                        changed = true;
+                        //  changed = true;
                     }
 
                 }
-                if (changed)
-                {
-                    mesh.vertices = vertices;
-                    bigMesh.vertices = bigVertices;
-                    mesh.RecalculateBounds();
-                }
+                
+                yield return null;
             }
+
+            bigMesh.vertices = bigVertices;
+            bigMesh.RecalculateBounds();
+
+            Debug.Log(Time.realtimeSinceStartup - time);
+            GlobalVariables.Solved = true;
         }
 
 
@@ -723,10 +825,22 @@ namespace TGraph
             {
                 graph.edgeObject.SetActive(!graph.edgeObject.activeSelf);
             }
-            // if(Input.GetKeyDown(KeyCode.Space)) Layouts.SolveUsingForces(1, 0.13f);
 
-            UpdatePosition();
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (GlobalVariables.Solved == true)
+                {
+                    GlobalVariables.Solved = false;
+                    StartCoroutine(RecalculateLayout());
+                }
+                
 
+            }
+
+            if (graph.movingNodes.Count > 0)
+            {
+                UpdatePosition(graph.selectedNodes);
+            }
 
         }
     }

@@ -13,6 +13,7 @@ public class VdmDesktop : MonoBehaviour
     [HideInInspector]
     public int ScreenIndex = 0;
 
+
     [DllImport("user32.dll")]
     static extern void mouse_event(int dwFlags, int dx, int dy,
                       int dwData, int dwExtraInfo);
@@ -48,7 +49,7 @@ public class VdmDesktop : MonoBehaviour
     private bool m_controllerAttach = false; //mine
     private bool m_zoom = false;
     private bool m_zoomWithFollowCursor = false;
-
+    private int curSelection = -1;
 
     private Vector3 m_positionNormal;
     private Quaternion m_rotationNormal;
@@ -154,29 +155,19 @@ public class VdmDesktop : MonoBehaviour
 
         if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick))
         {
-          
-            if (TGraph.GlobalVariables.Graph.selectedNodes.Count > 0)
-            {
-                Debug.Log("link:" + TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].url);
-                Application.OpenURL("https://mmt.mathhub.info" + TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].url);
-            }
-               
-          
-               
-    
-
-        }
-           
-
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick))
-        {
             VdmDesktopManager.ActionInThisFrame = true;
 
             m_lastShowClickStart = Time.time;
 
             if (Visible() == false)
             {
-              
+                if (TGraph.GlobalVariables.Graph.selectedNodes.Count > 0 && TGraph.GlobalVariables.Graph.latestSelection!= curSelection )
+                {
+                    curSelection = TGraph.GlobalVariables.Graph.latestSelection;
+                  //  Debug.Log("link:" + TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].url);
+                    Application.OpenURL("https://mmt.mathhub.info" + TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].url);
+                }
+
                 Show();
                 m_lastShowClickStart -= 10; // Avoid quick show/close
             }

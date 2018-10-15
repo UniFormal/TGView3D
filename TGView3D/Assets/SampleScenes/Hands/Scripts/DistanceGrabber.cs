@@ -157,11 +157,8 @@ namespace OVRTouchSample
             {
                 m_grabbedObj.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
-          
-               // removeList.Add(m_grabbedObj.transform.GetSiblingIndex());
+                graph.movingNodes.Remove(m_grabbedObj.transform.GetSiblingIndex());
            
-                    
-
                 OVRPose localPose = new OVRPose { position = OVRInput.GetLocalControllerPosition(m_controller), orientation = OVRInput.GetLocalControllerRotation(m_controller) };
                 OVRPose offsetPose = new OVRPose { position = m_anchorOffsetPosition, orientation = m_anchorOffsetRotation };
                 localPose = localPose * offsetPose;
@@ -198,15 +195,11 @@ namespace OVRTouchSample
                 if (graph == null)
                 {
                     graph = TGraph.GlobalVariables.Graph;
-                    if (graph.selectedNodes == null) graph.selectedNodes = new List<int>();
-                    graph.selectedNodes.Add(-1);
-                    graph.selectedNodes.Add(-1);
                     handIndex = graph.handIndex;
                     graph.handIndex++;
                 }
 
 
-                
 
                 if (graph.selectedNodes[handIndex] != -1)
                 {
@@ -255,6 +248,7 @@ namespace OVRTouchSample
                     graph.nodes[closestGrabbable.transform.GetSiblingIndex()].nodeEdgeObject = TGraph.ReadJSON.BuildEdges(edges,ref graph, graph.edgeObject.GetComponent<MeshRenderer>().sharedMaterial);
                     graph.selectedNodes[handIndex] = (closestGrabbable.transform.GetSiblingIndex());
                     graph.latestSelection = closestGrabbable.transform.GetSiblingIndex();
+        
 
                 }
                 else
@@ -323,7 +317,7 @@ namespace OVRTouchSample
 
 
 
-
+                graph.movingNodes.Add(closestGrabbable.transform.GetSiblingIndex());
 
                 m_grabbedObj.GrabBegin(this, closestGrabbableCollider);
 

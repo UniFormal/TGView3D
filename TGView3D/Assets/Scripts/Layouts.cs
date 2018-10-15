@@ -7,8 +7,7 @@ namespace TGraph
     {
 
 
-        static float energy = 1000000f;
-        static float step = 30f;// initialStep;
+
         static int success = 0;
         static bool flat = false;
         static float sliceWidth = 0;
@@ -148,7 +147,10 @@ namespace TGraph
 
         // Function to calculate forces driven layout
         // ported from Marcel's Javascript versions
-        public static void SolveUsingForces(int iterations, float spacingValue, bool resetForcesFixed = false, bool usingMinMax = false, float currTemperature = 0.9f, float initialStep = 3.0f)
+        public static 
+            //IEnumerator 
+            void
+            SolveUsingForces(int iterations, float spacingValue, bool resetForcesFixed = false, bool usingMinMax = false, float currTemperature = 0.9f, float initialStep = 3.0f)
         {
             if (resetForcesFixed == true)
             {
@@ -159,7 +161,8 @@ namespace TGraph
                 }
             }
 
-
+            float energy = 1000000f;
+            float step = 30f;// initialStep;
 
 
             for (var i = 0; i < iterations; i++)
@@ -242,6 +245,8 @@ namespace TGraph
                     }
                     n.nodeObject.transform.position = n.pos;
 
+
+
                 }
                 // Reduce the temperature as the layout approaches a better configuration
 
@@ -259,8 +264,10 @@ namespace TGraph
                     success = 0;
                     step *= currTemperature;
                 }
+              //  yield return null;
             }
 
+       
         }
     }
 }
