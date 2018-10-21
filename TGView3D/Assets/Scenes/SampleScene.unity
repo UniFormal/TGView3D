@@ -915,6 +915,11 @@ MonoBehaviour:
   mat: {fileID: 2100000, guid: f73207ad5363bdb4194c901a41ed995e, type: 2}
   lineMat: {fileID: 2100000, guid: 492e279603edb21439d3524b472130c3, type: 2}
   grabbable: {fileID: 149070, guid: ceed2905feb0b114582b3ee7989983ea, type: 2}
+  onlyInclude: 0
+  buildHierarchy: 1
+  globalWeight: 1
+  iterations: 100
+  spaceScale: 1
   url: http://neuralocean.de/graph/test/nasa.json
   vol: 100
 --- !u!4 &1165595084
@@ -1279,7 +1284,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 137954, guid: 3908c3789f003564ba882cd413134aeb, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3908c3789f003564ba882cd413134aeb, type: 2}

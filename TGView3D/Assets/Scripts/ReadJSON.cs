@@ -18,11 +18,16 @@ namespace TGraph
         public Material mat;
         public Material lineMat;
         public GameObject grabbable;
+        public bool onlyInclude = false;
+        public bool buildHierarchy = true;
         // public Material texMat;
         //public Texture2D testTex;
         //private MeshRenderer mr;
-       // private GameObject TextPrefab;
+        // private GameObject TextPrefab;
+        public float globalWeight;
 
+        public int iterations = 25;
+        public float spaceScale = 1;
 
 
         public string url = "http://neuralocean.de/graph/test/nasa.json";
@@ -71,6 +76,9 @@ namespace TGraph
             public List<int> edgeIndicesOut = new List<int>();
             public List<int> edgeIndicesIn = new List<int>();
             public List<int> connectedNodes = new List<int>();
+            public List<float> weights = new List<float>();
+            public List<float> inWeights = new List<float>();
+            public List<float> outWeights = new List<float>();
             public int graphNumber;
             public float height = 0;
             public float weight = 0;
@@ -476,14 +484,14 @@ namespace TGraph
                     if (graph.nodeDict.ContainsKey(graph.edges[i].from) && graph.nodeDict.ContainsKey(graph.edges[i].to))
                     {
 
-                    if (graph.edges[i].style != "graphinclude" && graph.edges[i].style != "include")
+                    if (onlyInclude&&graph.edges[i].style != "graphinclude" && graph.edges[i].style != "include")
                     {
                          graph.edges.RemoveAt(i);
                          i--;
 
                     }
                     else
-
+                    
                     {
                         MyNode source = graph.nodes[graph.nodeDict[graph.edges[i].from]];
                         MyNode target = graph.nodes[graph.nodeDict[graph.edges[i].to]];
@@ -492,6 +500,17 @@ namespace TGraph
 
                         source.connectedNodes.Add(graph.nodeDict[graph.edges[i].to]);
                         target.connectedNodes.Add(graph.nodeDict[graph.edges[i].from]);
+                        float weight = 1;
+                        if (graph.edges[i].style != "graphinclude" && graph.edges[i].style != "include")
+                        {
+                            weight = 0.8f;
+                            if (graph.edges[i].style == "graphmeta" || graph.edges[i].style =="meta")
+                                weight = 0.2f;
+                        }
+                        source.weights.Add(weight);
+                        target.weights.Add(weight);
+                        source.outWeights.Add(weight);
+                        target.inWeights.Add(weight);
                     }
 
                 }
@@ -538,12 +557,13 @@ namespace TGraph
 
             // Debug.Log(url);
             //float time = Time.realtimeSinceStartup;
-            /*   url = "file:///" + Application.dataPath +
-                  // "/HOLLight_archive.json"
-                  // "/krmt.json"
-                     "/nasa.json"
+              url = "file:///" + Application.dataPath +
+                   "/HOLLight_archive.json"
+                  //"/krmt.json"
+                    // "/nasa.json"
+                  // "smglom_archive.json"
                    ;
-                   */
+                   
 
             WWW www =  new WWW(url);
 
@@ -676,11 +696,11 @@ namespace TGraph
                 Layouts.Spiral();
                 //StartCoroutine(Lay());
 
-                Layouts.SolveUsingForces(25, 0.13f);
+              //  Layouts.SolveUsingForces(iterations, 0.13f, useWeights: true, globalWeight: globalWeight);
 
                 {
 
-                    Layouts.BuildHierarchy();
+                    //Layouts.BuildHierarchy();
 
                     graph.badHack = new List<int>();
                     for (int i = 0; i < graph.nodes.Count; i++)
@@ -759,22 +779,37 @@ namespace TGraph
         IEnumerator RecalculateLayout()
         {
 
-       
 
+            yield return null;
             var time = Time.realtimeSinceStartup;
             Layouts.Spiral();
 
             //StartCoroutine(Layouts.SolveUsingForces(25, 0.13f));
 
-            Layouts.SolveUsingForces(45, 0.13f);
-            Layouts.BuildHierarchy();
+            Layouts.SolveUsingForces(iterations, 0.13f,useWeights:true, globalWeight:globalWeight);
+            if(buildHierarchy)Layouts.BuildHierarchy();
+
+          
+
+          
+
             Mesh bigMesh = graph.edgeObject.GetComponent<MeshFilter>().sharedMesh;
 
             Vector3[] bigVertices = bigMesh.vertices;
+            Vector3 avgPos = Vector3.zero;
+            foreach (MyNode node in graph.nodes)
+            {
+                avgPos += node.pos;
+            }
+            avgPos /= graph.nodes.Count;
+            foreach (MyNode node in graph.nodes)
+            {
+                node.pos-=avgPos;
+            }
 
             foreach (MyNode node in graph.nodes)
             {
-                Vector3 pos = new Vector3(node.pos.x, node.pos.y, node.pos.z) / 4f;
+                Vector3 pos = new Vector3(node.pos.x, node.pos.y, node.pos.z) / spaceScale;
 
                 node.pos = pos;
                 node.nodeObject.transform.localPosition = pos;
@@ -801,7 +836,7 @@ namespace TGraph
 
                 }
                 
-                yield return null;
+               
             }
 
             bigMesh.vertices = bigVertices;
@@ -815,7 +850,7 @@ namespace TGraph
         // Update is called once per frame
         void Update()
         {
-
+/*
             if (OVRInput.GetDown(OVRInput.Button.One) || OVRInput.GetDown(OVRInput.Button.Two))
             {
                 if (Camera.main.farClipPlane == 12) Camera.main.farClipPlane = 100;
@@ -824,14 +859,17 @@ namespace TGraph
             if (OVRInput.GetDown(OVRInput.Button.Three) || OVRInput.GetDown(OVRInput.Button.Four))
             {
                 graph.edgeObject.SetActive(!graph.edgeObject.activeSelf);
-            }
+            }*/
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                Debug.Log(GlobalVariables.Solved);
                 if (GlobalVariables.Solved == true)
                 {
                     GlobalVariables.Solved = false;
                     StartCoroutine(RecalculateLayout());
+                    globalWeight = globalWeight- 0.1f;
+                    if (globalWeight < 0) globalWeight = 1;
                 }
                 
 

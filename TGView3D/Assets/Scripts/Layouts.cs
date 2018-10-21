@@ -17,9 +17,9 @@ namespace TGraph
         public static void Spiral(){
             for (var i = 0; i < graph.nodes.Count; i++)
             {
-                float angle = (float)i / graph.nodes.Count*2*Mathf.PI ;
+                float angle = (float)i*10.0f / graph.nodes.Count*2*Mathf.PI ;
                // Debug.Log(angle);
-                Vector3 pos = vol/10*new Vector3(Mathf.Sin(angle),0,Mathf.Cos(angle));
+                Vector3 pos = vol*(float)i/(float)graph.nodes.Count/10*new Vector3(Mathf.Sin(angle),0,Mathf.Cos(angle));
                 graph.nodes[i].pos = pos;
                 graph.nodes[i].nodeObject.transform.position = pos;
             }
@@ -60,7 +60,7 @@ namespace TGraph
                     {
                         visited[j] = false;
                     }
-                    float curHeight = 0;
+                    float curHeight = 1;
                     Stack<int> nodeIndexStack = new Stack<int>();
                     nodeIndexStack.Push(rootIndices[i]);
                     Stack<float> heightStack = new Stack<float>();
@@ -73,8 +73,6 @@ namespace TGraph
                         curHeight = heightStack.Pop();
                         maxHeight = Mathf.Max(curHeight, maxHeight);
                         minHeight = Mathf.Min(curHeight, minHeight);
-
-
 
                         ReadJSON.MyNode curNode = graph.nodes[curIndex];
 
@@ -103,8 +101,8 @@ namespace TGraph
                             {
                                 visited[childNodeIndex] = true;
                                 nodeIndexStack.Push(childNodeIndex);
-                                if (n == 0) heightStack.Push(curHeight + 1);
-                                else heightStack.Push(curHeight + 1);
+                                if (n == 0) heightStack.Push(curHeight + 1*curNode.inWeights[j]);
+                                else heightStack.Push(curHeight + 1*curNode.outWeights[j]);
                             }
                         }
 
@@ -112,9 +110,10 @@ namespace TGraph
                 }
             }
 
-            sliceWidth = 0.02f;
-            sliceWidth = Mathf.Max(0.1f, 5.0f * maxHeight / Mathf.Sqrt(graph.nodes.Count));
+            sliceWidth = 0.2f;
+           // sliceWidth = Mathf.Max(0.1f, 5.0f * maxHeight / Mathf.Sqrt(graph.nodes.Count));
 
+          
             //Debug.Log("maxHeight: " + maxHeight);
 
 
@@ -123,8 +122,10 @@ namespace TGraph
                 var node = graph.nodes[i];
 
                 //Debug.Log(node.label + " " + node.height);
-                var y = (node.height - 0.5f * node.weight) * sliceWidth;
+                  var y = (node.height - 0.8f * node.weight) * sliceWidth;
 
+                //var y = node.weight + node.height;
+                Debug.Log(i + " weight: " + node.weight + " height: " + node.height+" y " + y * Mathf.Max(1, (graph.nodes.Count / 200.0f)));
                 /*  float x =(maxConnections/10- node.connectedNodes.Count)*20 ;
                   if (x < -vol) x = 0;
 
@@ -150,7 +151,7 @@ namespace TGraph
         public static 
             //IEnumerator 
             void
-            SolveUsingForces(int iterations, float spacingValue, bool resetForcesFixed = false, bool usingMinMax = false, float currTemperature = 0.9f, float initialStep = 3.0f)
+            SolveUsingForces(int iterations, float spacingValue, bool resetForcesFixed = false, bool usingMinMax = false, float currTemperature = 0.9f, float initialStep = 3.0f, float globalWeight = 1.0f, bool useWeights=false)
         {
             if (resetForcesFixed == true)
             {
@@ -200,7 +201,7 @@ namespace TGraph
                                 //var lengthDiff = Mathf.Sqrt(differenceNodesX * differenceNodesX + differenceNodesY * differenceNodesY) + 0.001;
 
                                 var lengthDiff = Mathf.Sqrt(differenceNodesX * differenceNodesX + differenceNodesY * differenceNodesY + differenceNodesZ * differenceNodesZ) + 0.0001f;
-                                var repulsiveForce = -(kSquared / lengthDiff);
+                                var repulsiveForce = -(kSquared / lengthDiff)*0.2f;
 
                                 n.disp.x += (differenceNodesX / lengthDiff) * repulsiveForce;
                                 n.disp.y += (differenceNodesY / lengthDiff) * repulsiveForce;
@@ -218,7 +219,11 @@ namespace TGraph
 
                             var lengthDiff = Mathf.Sqrt(differenceNodesX * differenceNodesX + differenceNodesY * differenceNodesY + differenceNodesZ * differenceNodesZ) + 0.0001f;
                             var attractiveForce = (lengthDiff * lengthDiff / kVal);
-
+                            if (useWeights)
+                            {
+                                if(n.weights[k]<=.9f) attractiveForce *= n.weights[k]* globalWeight;
+                                if (n.weights[k] <= .1f) attractiveForce =0;
+                            }
                             n.disp.x += (differenceNodesX / lengthDiff) * attractiveForce;
                             n.disp.y += (differenceNodesY / lengthDiff) * attractiveForce;
                             n.disp.z += (differenceNodesZ / lengthDiff) * attractiveForce;
