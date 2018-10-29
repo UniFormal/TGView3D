@@ -20,6 +20,7 @@ namespace TGraph
         public GameObject grabbable;
         public bool onlyInclude = false;
         public bool buildHierarchy = true;
+        public bool normalize = false;
         // public Material texMat;
         //public Texture2D testTex;
         //private MeshRenderer mr;
@@ -166,7 +167,8 @@ namespace TGraph
        
                 }
             }
-            Debug.Log(graphNumber - 1);
+            Debug.Log("subgraphs found: "+ (graphNumber - 1));
+            foreach (var n in countNodesInGraph) Debug.Log(n);
         
         }
 
@@ -288,7 +290,7 @@ namespace TGraph
 
                     //Debug.Log(edges[i].style);
                     vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = graph.colorDict[edges[i].style];
-                    vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = graph.colorDict[edges[i].style]+ new Color(0,0,5);
+                    vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = graph.colorDict[edges[i].style]+ new Color(0,0,255);
 
                     //creates square tubes by setting vertices manually
                     createEdge(i,vertices, source.pos,target.pos, offset, offsetOrtho);
@@ -558,10 +560,10 @@ namespace TGraph
             // Debug.Log(url);
             //float time = Time.realtimeSinceStartup;
               url = "file:///" + Application.dataPath +
-                   "/HOLLight_archive.json"
+                   //"/HOLLight_archive.json"
                   //"/krmt.json"
-                    // "/nasa.json"
-                  // "smglom_archive.json"
+                    "/nasa.json"
+                   //"/smglom_archive.json"
                    ;
                    
 
@@ -692,26 +694,18 @@ namespace TGraph
              
 
                 ProcessEdges();
-                identifySubgraphs();
+              //  identifySubgraphs();
                 Layouts.Spiral();
                 //StartCoroutine(Lay());
-
-              //  Layouts.SolveUsingForces(iterations, 0.13f, useWeights: true, globalWeight: globalWeight);
+                Layouts.BuildHierarchy();
+                Layouts.SolveUsingForces(iterations, 0.13f, useWeights: true, globalWeight: globalWeight);
 
                 {
 
-                    //Layouts.BuildHierarchy();
+                   
 
-                    graph.badHack = new List<int>();
-                    for (int i = 0; i < graph.nodes.Count; i++)
-                    {
-                        var node = graph.nodes[i];
-
-                        Vector3 pos = new Vector3(node.pos.x, node.pos.y, node.pos.z) / 4f;
-                        graph.badHack.Add(i);
-                        node.pos = pos;
-                        node.nodeObject.transform.localPosition = pos;
-                    }
+                    
+                    Layouts.Normalize(spaceScale);
 
                     graph.edgeObject = BuildEdges(graph.edges, ref graph, lineMat);
 
@@ -782,7 +776,7 @@ namespace TGraph
 
             yield return null;
             var time = Time.realtimeSinceStartup;
-            Layouts.Spiral();
+           // Layouts.Spiral();
 
             //StartCoroutine(Layouts.SolveUsingForces(25, 0.13f));
 
@@ -790,30 +784,15 @@ namespace TGraph
             if(buildHierarchy)Layouts.BuildHierarchy();
 
           
-
-          
-
             Mesh bigMesh = graph.edgeObject.GetComponent<MeshFilter>().sharedMesh;
 
             Vector3[] bigVertices = bigMesh.vertices;
-            Vector3 avgPos = Vector3.zero;
-            foreach (MyNode node in graph.nodes)
-            {
-                avgPos += node.pos;
-            }
-            avgPos /= graph.nodes.Count;
-            foreach (MyNode node in graph.nodes)
-            {
-                node.pos-=avgPos;
-            }
+
+            if(normalize) Layouts.Normalize(spaceScale);
 
             foreach (MyNode node in graph.nodes)
             {
-                Vector3 pos = new Vector3(node.pos.x, node.pos.y, node.pos.z) / spaceScale;
 
-                node.pos = pos;
-                node.nodeObject.transform.localPosition = pos;
-                
            
                 List<int> edgeIndices = node.edgeIndicesIn.Union<int>(node.edgeIndicesOut).ToList<int>();
 
@@ -868,12 +847,13 @@ namespace TGraph
                 {
                     GlobalVariables.Solved = false;
                     StartCoroutine(RecalculateLayout());
-                    globalWeight = globalWeight- 0.1f;
-                    if (globalWeight < 0) globalWeight = 1;
+                   // globalWeight = globalWeight- 0.1f;
+                   // if (globalWeight < 0) globalWeight = 1;
                 }
                 
 
             }
+   
 
             if (graph.movingNodes.Count > 0)
             {

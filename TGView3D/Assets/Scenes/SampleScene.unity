@@ -916,9 +916,10 @@ MonoBehaviour:
   lineMat: {fileID: 2100000, guid: 492e279603edb21439d3524b472130c3, type: 2}
   grabbable: {fileID: 149070, guid: ceed2905feb0b114582b3ee7989983ea, type: 2}
   onlyInclude: 0
-  buildHierarchy: 1
+  buildHierarchy: 0
+  normalize: 1
   globalWeight: 1
-  iterations: 100
+  iterations: 200
   spaceScale: 1
   url: http://neuralocean.de/graph/test/nasa.json
   vol: 100
