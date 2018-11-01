@@ -65,7 +65,7 @@ namespace OVRTouchSample
 
             // Collision starts disabled. We'll enable it for certain cases such as making a fist.
             m_colliders = this.GetComponentsInChildren<Collider>().Where(childCollider => !childCollider.isTrigger).ToArray();
-            CollisionEnable(false);
+           // CollisionEnable(false);
 
             // Get animator layer indices by name, for later use switching between hand visuals
             m_animLayerIndexPoint = m_animator.GetLayerIndex(ANIM_LAYER_NAME_POINT);
@@ -86,8 +86,10 @@ namespace OVRTouchSample
 
             float flex = OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, m_controller);
 
-            bool collisionEnabled = m_grabber.grabbedObject == null && flex >= THRESH_COLLISION_FLEX;
+          /*  bool collisionEnabled = m_grabber.grabbedObject == null && flex >= THRESH_COLLISION_FLEX;
             CollisionEnable(collisionEnabled);
+
+            Debug.Log(m_collisionEnabled);*/
 
             UpdateAnimStates();
         }

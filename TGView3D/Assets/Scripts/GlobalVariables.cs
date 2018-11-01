@@ -10,6 +10,7 @@ namespace TGraph
         public static bool Solved = false;
         public static int Vol;
         public static bool Init;
+        public static UnityEngine.EventSystems.EventSystem EventSystem;
     }
    
 

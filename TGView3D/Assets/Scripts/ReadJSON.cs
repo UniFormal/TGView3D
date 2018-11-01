@@ -21,6 +21,7 @@ namespace TGraph
         public bool onlyInclude = false;
         public bool buildHierarchy = true;
         public bool normalize = false;
+        public GameObject EventSystem;
         // public Material texMat;
         //public Texture2D testTex;
         //private MeshRenderer mr;
@@ -302,7 +303,7 @@ namespace TGraph
                     {
                         edges[i].labelObject = GenLabel(target.nodeObject.transform.GetChild(0), edges[i].label);
                        
-                        Debug.Log(edges[i].label);
+                      //  Debug.Log(edges[i].label);
                     }
                     /*
                     if (edges[i].clickText != null)
@@ -538,11 +539,11 @@ namespace TGraph
 
 
 
-        void Awake()
+        void Start()
         {
 
- 
-            
+
+            GlobalVariables.EventSystem = EventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>();
             Camera camera = Camera.main;
             float[] distances = new float[32];
 
@@ -561,8 +562,8 @@ namespace TGraph
             //float time = Time.realtimeSinceStartup;
               url = "file:///" + Application.dataPath +
                    //"/HOLLight_archive.json"
-                  //"/krmt.json"
-                    "/nasa.json"
+                  "/krmt.json"
+                    //"/nasa.json"
                    //"/smglom_archive.json"
                    ;
                    
@@ -575,7 +576,6 @@ namespace TGraph
 
 
   
-
 
 
         }
@@ -694,7 +694,7 @@ namespace TGraph
              
 
                 ProcessEdges();
-              //  identifySubgraphs();
+                identifySubgraphs();
                 Layouts.Spiral();
                 //StartCoroutine(Lay());
                 Layouts.BuildHierarchy();
