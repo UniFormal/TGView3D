@@ -37,7 +37,7 @@ namespace TGraph
 
      
 
-
+        //TODO: throw out ugly indexing!!!!!
         [System.Serializable]
         public class MyGraph
         {
@@ -46,9 +46,14 @@ namespace TGraph
             public List<MyEdge> edges;
             public List<MyEdge> tmpEdges;
             public int handIndex = 0;
+
+            //use object references instead?
             public List<int> selectedNodes;
             public List<int> movingNodes;
-            public int latestSelection;
+            public int latestSelection= -1;
+            public int currentTarget = -1;
+
+
             public GameObject edgeObject;
             public List<int> badHack;
             public float lineWidth = 0.003f;
@@ -75,9 +80,13 @@ namespace TGraph
             public Vector3 disp;
             public GameObject nodeObject;
             public bool forcesFixed;
+
+            //use object references instead?
             public List<int> edgeIndicesOut = new List<int>();
             public List<int> edgeIndicesIn = new List<int>();
             public List<int> connectedNodes = new List<int>();
+
+
             public List<float> weights = new List<float>();
             public List<float> inWeights = new List<float>();
             public List<float> outWeights = new List<float>();
@@ -259,10 +268,12 @@ namespace TGraph
             vertices[6 + i * 8] = sourcePos - offset - offsetOrtho;
             vertices[7 + i * 8] = targetPos - offset - offsetOrtho;
 
-
-
-
         }
+
+
+
+
+
 
         public static GameObject BuildEdges(List<MyEdge> edges, ref MyGraph graph, Material lineMat)
         {
@@ -272,6 +283,7 @@ namespace TGraph
             int[] triangles = new int[2*2*2 * 6 * edges.Count];
             Color[] vertexColors = new Color[2*4 * edges.Count];
             GameObject line = new GameObject();
+
             MeshRenderer mr = line.AddComponent<MeshRenderer>();
             MeshFilter mf = line.AddComponent<MeshFilter>();
             Mesh mesh = new Mesh();
@@ -561,8 +573,8 @@ namespace TGraph
             // Debug.Log(url);
             //float time = Time.realtimeSinceStartup;
               url = "file:///" + Application.dataPath +
-                   //"/HOLLight_archive.json"
-                  "/krmt.json"
+                   "/HOLLight_archive.json"
+                  //"/krmt.json"
                     //"/nasa.json"
                    //"/smglom_archive.json"
                    ;
@@ -708,6 +720,7 @@ namespace TGraph
                     Layouts.Normalize(spaceScale);
 
                     graph.edgeObject = BuildEdges(graph.edges, ref graph, lineMat);
+                    graph.edgeObject.transform.parent = transform.parent;
 
                     GlobalVariables.Init = true;
                     this.GetComponent<Interaction>().enabled = true;
@@ -723,52 +736,127 @@ namespace TGraph
 
         }
 
-        private void UpdatePosition(List<int> nodes)
+
+        public static void UpdateEdgesLite(ref MyNode node, ReadJSON.MyGraph graph)
+        {
+        
+
+            Mesh bigMesh = graph.edgeObject.GetComponent<MeshFilter>().sharedMesh;
+            Vector3[] bigVertices = bigMesh.vertices;
+
+
+            Vector3 targetPos = node.nodeObject.transform.localPosition;
+            Vector3 sourcePos;
+
+            for (int i = 0; i < node.edgeIndicesIn.Count; i++)
+            {
+                sourcePos = graph.nodes[graph.nodeDict[graph.edges[node.edgeIndicesIn[i]].from]].nodeObject.transform.localPosition;
+
+                Vector3 dir = targetPos - sourcePos;
+                Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * graph.lineWidth;
+                Vector3 offsetOrtho = Vector3.Cross(dir, offset).normalized * graph.lineWidth;
+                ReadJSON.createEdge(node.edgeIndicesIn[i], bigVertices, sourcePos, targetPos, offset, offsetOrtho);
+            }
+
+            sourcePos = targetPos;
+            for (int i = 0; i < node.edgeIndicesOut.Count; i++)
+            {
+                targetPos = graph.nodes[graph.nodeDict[graph.edges[node.edgeIndicesOut[i]].to]].nodeObject.transform.localPosition;
+ 
+                Vector3 dir = targetPos - sourcePos;
+                Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * graph.lineWidth;
+                Vector3 offsetOrtho = Vector3.Cross(dir, offset).normalized * graph.lineWidth;
+                ReadJSON.createEdge(node.edgeIndicesOut[i], bigVertices, sourcePos, targetPos, offset, offsetOrtho);
+            }
+
+            bigMesh.vertices = bigVertices;
+            bigMesh.RecalculateBounds();
+        }
+
+
+
+        private void UpdateEdgesFull(ref MyNode node)
+        {
+            
+            Mesh mesh = node.nodeEdgeObject.GetComponent<MeshFilter>().sharedMesh;
+            Vector3[]vertices = mesh.vertices;
+
+            Mesh bigMesh = graph.edgeObject.GetComponent<MeshFilter>().sharedMesh;
+            Vector3[] bigVertices = bigMesh.vertices;
+
+
+            Vector3 targetPos = node.nodeObject.transform.localPosition;
+            Vector3 sourcePos;
+
+            for (int i = 0; i < node.edgeIndicesIn.Count; i++)
+            {
+                sourcePos = graph.nodes[graph.nodeDict[graph.edges[node.edgeIndicesIn[i]].from]].nodeObject.transform.localPosition;
+
+                Vector3 dir = targetPos - sourcePos;
+                Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * graph.lineWidth;
+                Vector3 offsetOrtho = Vector3.Cross(dir, offset).normalized * graph.lineWidth;
+
+                ReadJSON.createEdge(node.edgeIndicesIn[i], bigVertices, sourcePos, targetPos, offset, offsetOrtho);
+                ReadJSON.createEdge(i, vertices, sourcePos, targetPos, offset, offsetOrtho);
+            }
+
+            sourcePos = targetPos;
+            for (int i = 0; i < node.edgeIndicesOut.Count; i++)
+            {
+
+                targetPos = graph.nodes[graph.nodeDict[graph.edges[node.edgeIndicesOut[i]].to]].nodeObject.transform.localPosition;
+
+                Vector3 dir = targetPos - sourcePos;
+                Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * graph.lineWidth;
+                Vector3 offsetOrtho = Vector3.Cross(dir, offset).normalized * graph.lineWidth;
+
+                ReadJSON.createEdge(node.edgeIndicesOut[i], bigVertices, sourcePos, targetPos, offset, offsetOrtho);
+                ReadJSON.createEdge(i+node.edgeIndicesIn.Count, vertices, sourcePos, targetPos, offset, offsetOrtho);
+            }
+
+
+            mesh.vertices = vertices;
+            mesh.RecalculateBounds();
+
+            bigMesh.vertices = bigVertices;
+            bigMesh.RecalculateBounds();
+        }
+
+        //if not known if selected EdgeObjects are active
+        private void UpdateEdges(ref MyNode node)
         {
            
-                foreach (int n in nodes)
-                {
-
-                    if (n == -1) continue;
-                    var node = graph.nodes[n];
-
-                    List<int> edgeIndices = node.edgeIndicesIn.Union<int>(node.edgeIndicesOut).ToList<int>();
-
-                    Mesh mesh = node.nodeEdgeObject.GetComponent<MeshFilter>().sharedMesh;
-                    Mesh bigMesh = graph.edgeObject.GetComponent<MeshFilter>().sharedMesh;
-                    Vector3[] vertices = mesh.vertices;
-                    Vector3[] bigVertices = bigMesh.vertices;
-
-
-
-                    for (int i = 0; i < edgeIndices.Count; i++)
-                    {
-                        var sourcePos = graph.nodes[graph.nodeDict[graph.edges[edgeIndices[i]].from]].nodeObject.transform.localPosition;
-                        var targetPos = graph.nodes[graph.nodeDict[graph.edges[edgeIndices[i]].to]].nodeObject.transform.localPosition;
-
-                        //if (sourcePos != graph.nodes[graph.nodeDict[graph.edges[i].from]].pos || targetPos != graph.nodes[graph.nodeDict[graph.edges[i].to]].pos)
-                        {
-                            // Debug.Log("work");
-                            Vector3 dir = targetPos - sourcePos;
-                            Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * graph.lineWidth;
-                            Vector3 offsetOrtho = Vector3.Cross(dir, offset).normalized * graph.lineWidth;
-                            ReadJSON.createEdge(i, vertices, sourcePos, targetPos, offset, offsetOrtho);
-                            ReadJSON.createEdge(edgeIndices[i], bigVertices, sourcePos, targetPos, offset, offsetOrtho);
-                            //  changed = true;
-                        }
-
-                    }
-                    //  if (changed)
-                    {
-                        mesh.vertices = vertices;
-                        bigMesh.vertices = bigVertices;
-                        mesh.RecalculateBounds();
-                        bigMesh.RecalculateBounds();
-                    }
-                }
-            
-      
+            if (node.nodeEdgeObject != null)
+            {
+                UpdateEdgesFull(ref node);
+            }
+            else
+            {
+                UpdateEdgesLite(ref node, graph);
+            }
         }
+    
+        private void UpdateMoving()
+        {
+            foreach (int n in graph.movingNodes)
+            {
+                if (n == -1) continue; //TODO: change this
+                var node = graph.nodes[n];
+                UpdateEdgesFull(ref node);
+            }
+        }
+
+        private void UpdateSelected()
+        {
+            foreach (int n in graph.selectedNodes)
+            {
+                if (n == -1) continue; //TODO: change this
+                var node = graph.nodes[n];
+                UpdateEdgesFull(ref node);
+            }
+        }
+
+
 
         IEnumerator RecalculateLayout()
         {
@@ -780,15 +868,15 @@ namespace TGraph
 
             //StartCoroutine(Layouts.SolveUsingForces(25, 0.13f));
 
-            Layouts.SolveUsingForces(iterations, 0.13f,useWeights:true, globalWeight:globalWeight);
-            if(buildHierarchy)Layouts.BuildHierarchy();
+            //Layouts.SolveUsingForces(iterations, 0.13f,useWeights:true, globalWeight:globalWeight);
+            //if(buildHierarchy)Layouts.BuildHierarchy();
 
           
             Mesh bigMesh = graph.edgeObject.GetComponent<MeshFilter>().sharedMesh;
 
             Vector3[] bigVertices = bigMesh.vertices;
 
-            if(normalize) Layouts.Normalize(spaceScale);
+           // if(normalize) Layouts.Normalize(spaceScale);
 
             foreach (MyNode node in graph.nodes)
             {
@@ -821,7 +909,7 @@ namespace TGraph
             bigMesh.vertices = bigVertices;
             bigMesh.RecalculateBounds();
 
-            Debug.Log(Time.realtimeSinceStartup - time);
+         //   Debug.Log(Time.realtimeSinceStartup - time);
             GlobalVariables.Solved = true;
         }
 
@@ -829,17 +917,18 @@ namespace TGraph
         // Update is called once per frame
         void Update()
         {
-/*
-            if (OVRInput.GetDown(OVRInput.Button.One) || OVRInput.GetDown(OVRInput.Button.Two))
-            {
-                if (Camera.main.farClipPlane == 12) Camera.main.farClipPlane = 100;
-                else Camera.main.farClipPlane = 12;
-            }
-            if (OVRInput.GetDown(OVRInput.Button.Three) || OVRInput.GetDown(OVRInput.Button.Four))
-            {
-                graph.edgeObject.SetActive(!graph.edgeObject.activeSelf);
-            }*/
+            /*
+                        if (OVRInput.GetDown(OVRInput.Button.One) || OVRInput.GetDown(OVRInput.Button.Two))
+                        {
+                            if (Camera.main.farClipPlane == 12) Camera.main.farClipPlane = 100;
+                            else Camera.main.farClipPlane = 12;
+                        }
+                        if (OVRInput.GetDown(OVRInput.Button.Three) || OVRInput.GetDown(OVRInput.Button.Four))
+                        {
+                            graph.edgeObject.SetActive(!graph.edgeObject.activeSelf);
+                        }*/
 
+            /*
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Debug.Log(GlobalVariables.Solved);
@@ -852,12 +941,25 @@ namespace TGraph
                 }
                 
 
-            }
+            }*/
    
+
+            if (GlobalVariables.Recalculate)
+            {
+                // StopCoroutine(RecalculateLayout());
+                //StartCoroutine(RecalculateLayout());
+
+                UpdateSelected();
+               
+                GlobalVariables.Recalculate = false;
+
+            }
+
 
             if (graph.movingNodes.Count > 0)
             {
-                UpdatePosition(graph.selectedNodes);
+                UpdateMoving();
+
             }
 
         }

@@ -381,7 +381,7 @@ public class OVRPlayerController : MonoBehaviour
                 primaryAxis.x = Mathf.Round(primaryAxis.x * FixedSpeedSteps) / FixedSpeedSteps;
             }
 
-
+            
             if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))
             {
                 GameObject.Find("LCone").GetComponent<MeshRenderer>().enabled = true;
@@ -404,18 +404,21 @@ public class OVRPlayerController : MonoBehaviour
 
 
 
-
-            if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
+            if (TGraph.GlobalVariables.JetPack)
             {
+                if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
+                {
 
-                MoveThrottle += 0.1f * moveInfluence * Vector3.up;
+                    MoveThrottle += 0.1f * moveInfluence * Vector3.up;
 
+                }
+                if (OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger))
+                {
+                    MoveThrottle -= 0.1f * moveInfluence * Vector3.up;
+                }
             }
-            if (OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger))
-            {
-                MoveThrottle -= 0.1f * moveInfluence * Vector3.up;
-            }
-
+      
+            
 
             if (primaryAxis.y > 0.0f)
                 MoveThrottle += ort * (primaryAxis.y * transform.lossyScale.z * moveInfluence * (Quaternion.Inverse(transform.rotation) * Camera.main.transform.forward));
@@ -466,6 +469,7 @@ public class OVRPlayerController : MonoBehaviour
                 euler.y += Input.GetAxis("Mouse X") * rotateInfluence * 3.25f;
 #endif
 
+            /*
             if (SnapRotation)
             {
 
@@ -495,10 +499,13 @@ public class OVRPlayerController : MonoBehaviour
                 Vector2 secondaryAxis = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick);
                 euler.y += secondaryAxis.x * rotateInfluence;
             }
-
+            */
             transform.rotation = Quaternion.Euler(euler);
         }
     }
+
+
+
 
 
     /// <summary>

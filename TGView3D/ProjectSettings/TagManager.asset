@@ -25,7 +25,7 @@ TagManager:
   - Gazable
   - Player
   - LitStairs1
-  - LitStairs2
+  - Hand
   - Wall
   - TeleportPoints
   - DemoUI

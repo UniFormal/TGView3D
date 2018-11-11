@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace TGraph
@@ -78,6 +79,17 @@ namespace TGraph
         {
             float maxHeight = -10;
             float minHeight = 10;
+            Color[] vertices;
+            if (graph.edgeObject == null)
+            {
+                vertices = new Color[graph.edges.Count * 8];
+                for (int i = 0; i < vertices.Length; ++i)
+                {
+                    vertices[i] = Color.red;
+                }
+            }
+            else
+                vertices = graph.edgeObject.GetComponent<MeshFilter>().mesh.colors;
 
             for (int n = 0; n < 1; n++)
             {
@@ -127,6 +139,8 @@ namespace TGraph
                         if (n == 0) childCount = curNode.edgeIndicesIn.Count;
                         else childCount = curNode.edgeIndicesOut.Count;
 
+                        int edgeIndex;
+                            
                         for (int j = 0; j < childCount; j++)
                         {
 
@@ -136,20 +150,24 @@ namespace TGraph
                                 childNodeIndex = graph.nodeDict[graph.edges[curNode.edgeIndicesIn[j]].from];
                                 // graph.nodes[childNodeIndex].height -=curHeight;
                                 graph.nodes[childNodeIndex].weight = Mathf.Max(curHeight, graph.nodes[childNodeIndex].weight);//+= curHeight;
+                                edgeIndex = curNode.edgeIndicesIn[j];
+
+
                             }
                             else
                             {
                                 childNodeIndex = graph.nodeDict[graph.edges[curNode.edgeIndicesOut[j]].to];
                                 graph.nodes[childNodeIndex].height = Mathf.Max(curHeight, graph.nodes[childNodeIndex].height);//+= curHeight;
+                                edgeIndex = curNode.edgeIndicesOut[j];
                             }
 
 
-                            if (!visited[childNodeIndex])
+                            if (!visited[childNodeIndex] && vertices[edgeIndex*8].a!=0)
                             {
                                 visited[childNodeIndex] = true;
                                 nodeIndexStack.Push(childNodeIndex);
                                 if (n == 0) heightStack.Push(curHeight + curNode.inWeights[j]);
-                                else heightStack.Push(curHeight + 0*curNode.outWeights[j]);
+                                else heightStack.Push(curHeight + curNode.outWeights[j]);
                             }
                         }
 
@@ -209,7 +227,19 @@ namespace TGraph
                     var n = graph.nodes[j];
                     n.forcesFixed = false;
                 }
-            }*/
+ a           }*/
+            Color[] vertices;
+            if (graph.edgeObject == null)
+            {
+                vertices = new Color[graph.edges.Count * 8];
+                for (int i = 0; i < vertices.Length; ++i)
+                {
+                    vertices[i] = Color.red;
+                }
+            }
+            else
+                vertices = graph.edgeObject.GetComponent<MeshFilter>().mesh.colors;
+
 
             if (reset)
             {
@@ -265,8 +295,11 @@ namespace TGraph
                         }
 
                         // calculate local (spring) forces
+                        List<int> edgeIndices = n.edgeIndicesIn.Concat<int>(n.edgeIndicesOut).ToList<int>();
                         for (var k = 0; k < n.connectedNodes.Count; k++)
                         {
+                           // Debug.Log(vertices.Length + " " + edgeIndices[k] * 8 + " " + edgeIndices.Count + " " + n.connectedNodes.Count + " " + k+" "+vertices[edgeIndices[k] * 8].a);
+                            if (vertices[edgeIndices[k] * 8].a == 0) continue;
                             var u = graph.nodes[n.connectedNodes[k]];
                             var differenceNodesX = u.pos.x - n.pos.x;
                           //  var differenceNodesY = 0;// u.pos.y - n.pos.y;

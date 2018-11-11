@@ -11,6 +11,8 @@ namespace TGraph
         public static int Vol;
         public static bool Init;
         public static UnityEngine.EventSystems.EventSystem EventSystem;
+        public static bool JetPack = false;
+        public static bool Recalculate = false;
     }
    
 

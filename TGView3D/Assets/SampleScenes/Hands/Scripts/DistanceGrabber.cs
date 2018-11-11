@@ -31,9 +31,13 @@ namespace OVRTouchSample
     /// 
 
 
+
     [RequireComponent(typeof(Rigidbody))]
     public class DistanceGrabber : OVRGrabber
     {
+
+
+
         // Radius of sphere used in spherecast from hand along forward ray to find target object.
         [SerializeField]
         float m_spherecastRadius;
@@ -67,7 +71,7 @@ namespace OVRTouchSample
 
         // Objects can be distance grabbed up to this distance from the hand.
         [SerializeField]
-        float m_maxGrabDistance;
+        public float m_maxGrabDistance;
 
         // Only allow grabbing objects in this layer.
         [SerializeField]
@@ -77,7 +81,7 @@ namespace OVRTouchSample
 
         [SerializeField]
         GameObject m_player;
-        DistanceGrabber m_otherHand;
+        public DistanceGrabber m_otherHand;
 
         protected DistanceGrabbable m_target;
         // Tracked separately from m_target, because we support child colliders of a DistanceGrabbable.
@@ -87,14 +91,20 @@ namespace OVRTouchSample
         OVRCameraRig m_camera;
         private TGraph.ReadJSON.MyGraph graph;
 
-        List<int> removeList;
+      
         private int handIndex = 0;
-       
+        public delegate void SelectedChange();
+        public static event SelectedChange OnSelectionChanged;
+        private bool ReadyToSnapTurn;
+        Color baseColor = Color.white;
+        Color selectedColor = Color.cyan;
+        Color connectedColor = Color.yellow;
+        Color targetColor = Color.red;
 
         protected override void Start()
         {
 
-            removeList = new List<int>();
+            
             base.Start();
 
             // Set up our max grab distance to be based on the player's max grab distance.
@@ -145,10 +155,82 @@ namespace OVRTouchSample
                 }
             }
 
+            /*
+            if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickLeft) )
+            {
+
+                if (ReadyToSnapTurn)
+                {
+                    if (graph.currentTarget != -1 && graph.currentTarget != graph.nodes[graph.latestSelection].connectedNodes.Count)
+                         graph.nodes[graph.nodes[graph.latestSelection].connectedNodes[graph.currentTarget]].nodeObject.GetComponent<MeshRenderer>().material.color = connectedColor;
+                    graph.currentTarget = (graph.currentTarget - 1) % (graph.nodes[graph.latestSelection].connectedNodes.Count + 1);
+                    if (OnSelectionChanged != null)
+                        OnSelectionChanged();
+                    ReadyToSnapTurn = false;
+
+                }
+
+                if (graph.currentTarget == graph.nodes[graph.latestSelection].connectedNodes.Count)
+                {
+                    m_camera.transform.rotation = Quaternion.identity;
+                }
+                else
+                {
+                    graph.nodes[graph.nodes[graph.latestSelection].connectedNodes[graph.currentTarget]].nodeObject.GetComponent<MeshRenderer>().material.color = targetColor;
+                    Vector3 relativePos = graph.nodes[graph.nodes[graph.latestSelection].connectedNodes[graph.currentTarget]].pos - m_camera.transform.position;
+                    relativePos.y = 0;
+                    Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
+                    m_camera.transform.rotation = rotation;
+                }
+
+
+
+            }
+            else*/
+            if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickRight) && graph!=null &&graph.latestSelection == graph.selectedNodes[handIndex])
+            {
+
+                if (ReadyToSnapTurn)
+                {
+
+                    Debug.Log(graph.currentTarget);
+                    Debug.Log(graph.latestSelection);
+                    Debug.Log(graph.nodes[graph.latestSelection].connectedNodes.Count);
+                    if (graph.currentTarget != -1 && graph.currentTarget != graph.nodes[graph.latestSelection].connectedNodes.Count)
+                        graph.nodes[graph.nodes[graph.latestSelection].connectedNodes[graph.currentTarget]].labelObject.GetComponent<TextMesh>().color =connectedColor;
+                    graph.currentTarget = (graph.currentTarget + 1) % (graph.nodes[graph.latestSelection].connectedNodes.Count+1);
+                    if (OnSelectionChanged != null)
+                        OnSelectionChanged();
+                    ReadyToSnapTurn = false;
+                   
+                }
+
+                if (graph.currentTarget == graph.nodes[graph.latestSelection].connectedNodes.Count)
+                {
+                    m_camera.transform.rotation = Quaternion.identity;
+                }
+                else
+                {
+                    graph.nodes[graph.nodes[graph.latestSelection].connectedNodes[graph.currentTarget]].labelObject.GetComponent<TextMesh>().color = targetColor;
+                    Vector3 relativePos = graph.nodes[graph.nodes[graph.latestSelection].connectedNodes[graph.currentTarget]].pos - m_camera.transform.position;
+                    Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
+                    rotation.eulerAngles = new Vector3(0, rotation.eulerAngles.y, 0);
+                    m_camera.transform.localRotation = rotation;
+                }
+            }
+
+            else
+            {
+                ReadyToSnapTurn = true;
+            }
+
+            
 
 
 
         }
+
+
 
 
         protected override void GrabEnd()
@@ -200,18 +282,20 @@ namespace OVRTouchSample
                 }
 
 
-
+                //current Selection exists
                 if (graph.selectedNodes[handIndex] != -1)
                 {
                     var graphNode = graph.nodes[graph.selectedNodes[handIndex]];
-                    graphNode.labelObject.GetComponent<TextMesh>().color = new Color(0.87f, 0.87f, 0.7f);
+               
+                    graphNode.labelObject.GetComponent<TextMesh>().color = baseColor;
                     graphNode.labelObject.layer = 18;
                     foreach (int nidx in graphNode.connectedNodes)
                     {
                         graph.nodes[nidx].labelObject.layer = 18;
-                        graph.nodes[nidx].labelObject.GetComponent<TextMesh>().color = new Color(0.87f, 0.87f, 0.7f);
+                        graph.nodes[nidx].labelObject.GetComponent<TextMesh>().color = baseColor;
                     }
                     GameObject.Destroy(graphNode.nodeEdgeObject);
+                    graphNode.nodeEdgeObject = null;
                 }
 
 
@@ -220,20 +304,19 @@ namespace OVRTouchSample
                 TGraph.ReadJSON.MyNode node = graph.nodes[closestGrabbable.transform.GetSiblingIndex()];
 
 
-                Debug.Log(closestGrabbable.transform.GetSiblingIndex() + " other has"+ graph.selectedNodes[(handIndex + 1) % 2]);
+               // Debug.Log(closestGrabbable.transform.GetSiblingIndex() + " other has"+ graph.selectedNodes[(handIndex + 1) % 2]);
                 
 
                 if (closestGrabbable.transform.GetSiblingIndex() != graph.selectedNodes[(handIndex + 1) % 2] )
                 {
 
-                  
                     var edges = new List<TGraph.ReadJSON.MyEdge>();
-                    node.labelObject.GetComponent<TextMesh>().color = new Color(0.6f, 0.6f, 0.05f);
+                    node.labelObject.GetComponent<TextMesh>().color = selectedColor;
                     node.labelObject.layer = 0;
                     foreach (int nidx in node.connectedNodes)
                     {
                         graph.nodes[nidx].labelObject.layer = 0;
-                        graph.nodes[nidx].labelObject.GetComponent<TextMesh>().color = new Color(0.6f, 0.6f, 0.05f);
+                        graph.nodes[nidx].labelObject.GetComponent<TextMesh>().color = connectedColor;
                     }
                     foreach (int idx in node.edgeIndicesIn)
                     {
@@ -248,7 +331,11 @@ namespace OVRTouchSample
                     graph.nodes[closestGrabbable.transform.GetSiblingIndex()].nodeEdgeObject = TGraph.ReadJSON.BuildEdges(edges,ref graph, graph.edgeObject.GetComponent<MeshRenderer>().sharedMaterial);
                     graph.selectedNodes[handIndex] = (closestGrabbable.transform.GetSiblingIndex());
                     graph.latestSelection = closestGrabbable.transform.GetSiblingIndex();
-        
+                    graph.currentTarget = -1;
+
+                    if (OnSelectionChanged!= null)
+                        OnSelectionChanged();
+
 
                 }
                 else

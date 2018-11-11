@@ -132,7 +132,7 @@ namespace OVRTouchSample
                     }
                 }
 
-                CollisionEnable(false);
+//                CollisionEnable(false);
 
                 m_restoreOnInputAcquired = true;
             }
