@@ -578,20 +578,18 @@ namespace TGraph
                     //"/nasa.json"
                    //"/smglom_archive.json"
                    ;
-                   
 
-            WWW www =  new WWW(url);
-
-
-
-            StartCoroutine(ProcessJSON(www));
-
-
-  
-
+            GlobalVariables.Url = url;
+            LoadGraph();
 
         }
 
+        public void LoadGraph()
+        {
+            url = GlobalVariables.Url;
+            WWW www = new WWW(url);
+            StartCoroutine(ProcessJSON(www));
+        }
 
 
         IEnumerator TestRequest(PData pdata, int i)
@@ -703,41 +701,28 @@ namespace TGraph
                 graph.nodeDict = new Dictionary<string, int>();
 
                 ProcessNodes();
-             
-
                 ProcessEdges();
                 identifySubgraphs();
-                Layouts.Spiral();
-                //StartCoroutine(Lay());
-                Layouts.BuildHierarchy();
-                Layouts.SolveUsingForces(iterations, 0.13f, useWeights: true, globalWeight: globalWeight);
 
-                {
+                Layouts.BaseLayout(iterations, globalWeight, spaceScale);
 
-                   
-
-                    
-                    Layouts.Normalize(spaceScale);
-
-                    graph.edgeObject = BuildEdges(graph.edges, ref graph, lineMat);
-                    graph.edgeObject.transform.parent = transform.parent;
-
-                    GlobalVariables.Init = true;
-                    this.GetComponent<Interaction>().enabled = true;
-
-                }
-
+                graph.edgeObject = BuildEdges(graph.edges, ref graph, lineMat);
+                graph.edgeObject.transform.parent = transform.parent;
 
                 GlobalVariables.Solved = true;
 
+
+                this.GetComponent<Interaction>().enabled = true;
+                GlobalVariables.Init = true;
+                this.GetComponent<GlobalAlignText>().childCount = this.transform.childCount;
             }
 
-            this.GetComponent<GlobalAlignText>().childCount = this.transform.childCount;
+
 
         }
 
 
-        public static void UpdateEdgesLite(ref MyNode node, ReadJSON.MyGraph graph)
+        public static void UpdateEdgesLite( MyNode node, ReadJSON.MyGraph graph)
         {
         
 
@@ -775,7 +760,7 @@ namespace TGraph
 
 
 
-        private void UpdateEdgesFull(ref MyNode node)
+        private void UpdateEdgesFull(MyNode node)
         {
             
             Mesh mesh = node.nodeEdgeObject.GetComponent<MeshFilter>().sharedMesh;
@@ -823,16 +808,16 @@ namespace TGraph
         }
 
         //if not known if selected EdgeObjects are active
-        private void UpdateEdges(ref MyNode node)
+        private void UpdateEdges( MyNode node)
         {
            
             if (node.nodeEdgeObject != null)
             {
-                UpdateEdgesFull(ref node);
+                UpdateEdgesFull(node);
             }
             else
             {
-                UpdateEdgesLite(ref node, graph);
+                UpdateEdgesLite(node, graph);
             }
         }
     
@@ -842,7 +827,7 @@ namespace TGraph
             {
                 if (n == -1) continue; //TODO: change this
                 var node = graph.nodes[n];
-                UpdateEdgesFull(ref node);
+                UpdateEdgesFull(node);
             }
         }
 
@@ -852,12 +837,27 @@ namespace TGraph
             {
                 if (n == -1) continue; //TODO: change this
                 var node = graph.nodes[n];
-                UpdateEdgesFull(ref node);
+                UpdateEdgesFull(node);
+            }
+        }
+
+        public void RecalculateLayout()
+        {
+            StartCoroutine(RLCoroutine());
+        }
+
+        IEnumerator RLCoroutine()
+        {
+          
+            Layouts.BaseLayout(iterations, globalWeight, spaceScale);
+            foreach (MyNode node in graph.nodes) {
+                UpdateEdges(node);
+                yield return null;
             }
         }
 
 
-
+/*
         IEnumerator RecalculateLayout()
         {
 
@@ -912,7 +912,7 @@ namespace TGraph
          //   Debug.Log(Time.realtimeSinceStartup - time);
             GlobalVariables.Solved = true;
         }
-
+*/
 
         // Update is called once per frame
         void Update()

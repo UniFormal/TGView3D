@@ -24,9 +24,16 @@ namespace TGraph
                // Debug.Log(angle);
                 Vector3 pos = graph.nodes.Count*(float)i/(float)graph.nodes.Count/10*new Vector3(Mathf.Sin(angle),0,Mathf.Cos(angle));
                 graph.nodes[i].pos = pos;
-                graph.nodes[i].nodeObject.transform.position = pos;
+                graph.nodes[i].nodeObject.transform.localPosition = pos;
             }
 
+        }
+        public static void BaseLayout(int iterations, float globalWeight, float spaceScale)
+        {
+            Layouts.Spiral();
+           // Layouts.BuildHierarchy();
+            Layouts.SolveUsingForces(iterations, 0.13f, useWeights: true, globalWeight: globalWeight);
+            Layouts.Normalize(spaceScale);
         }
 
         public static void Normalize(float spaceScale)
@@ -98,6 +105,7 @@ namespace TGraph
                 float maxConnections = 0;
                 for (int i = 0; i < graph.nodes.Count; i++)
                 {
+                    graph.nodes[i].weight = graph.nodes[i].height = 0;
                     if (n == 0)
                     {
                         if (graph.nodes[i].edgeIndicesOut.Count == 0) rootIndices.Add(i);
@@ -143,6 +151,12 @@ namespace TGraph
                             
                         for (int j = 0; j < childCount; j++)
                         {
+                            if (n == 0)
+                                edgeIndex = curNode.edgeIndicesIn[j];
+                            else
+                                edgeIndex = curNode.edgeIndicesOut[j];
+
+                            if (vertices[edgeIndex * 8].a == 0) continue;
 
                             int childNodeIndex;
                             if (n == 0)
@@ -150,7 +164,7 @@ namespace TGraph
                                 childNodeIndex = graph.nodeDict[graph.edges[curNode.edgeIndicesIn[j]].from];
                                 // graph.nodes[childNodeIndex].height -=curHeight;
                                 graph.nodes[childNodeIndex].weight = Mathf.Max(curHeight, graph.nodes[childNodeIndex].weight);//+= curHeight;
-                                edgeIndex = curNode.edgeIndicesIn[j];
+                              
 
 
                             }
@@ -158,11 +172,11 @@ namespace TGraph
                             {
                                 childNodeIndex = graph.nodeDict[graph.edges[curNode.edgeIndicesOut[j]].to];
                                 graph.nodes[childNodeIndex].height = Mathf.Max(curHeight, graph.nodes[childNodeIndex].height);//+= curHeight;
-                                edgeIndex = curNode.edgeIndicesOut[j];
+                              
                             }
 
 
-                            if (!visited[childNodeIndex] && vertices[edgeIndex*8].a!=0)
+                            if (!visited[childNodeIndex])
                             {
                                 visited[childNodeIndex] = true;
                                 nodeIndexStack.Push(childNodeIndex);
@@ -204,7 +218,7 @@ namespace TGraph
 
 
                 node.pos = pos;
-                node.nodeObject.transform.position = pos;
+                node.nodeObject.transform.localPosition = pos;
 
 
 
@@ -241,7 +255,7 @@ namespace TGraph
                 vertices = graph.edgeObject.GetComponent<MeshFilter>().mesh.colors;
 
 
-            if (reset)
+           // if (reset)
             {
                 energy = 1000000f;
                 step = 30f;// initialStep;
@@ -332,7 +346,7 @@ namespace TGraph
     
                         energy += dispLength * dispLength;
                     }
-                    n.nodeObject.transform.position = n.pos;
+                    n.nodeObject.transform.localPosition = n.pos;
 
 
 

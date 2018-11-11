@@ -40,17 +40,20 @@ public class Gestures : MonoBehaviour {
             CurScale = GraphParent.transform.localScale;
             CurRot = GraphParent.transform.localEulerAngles;
             CurPos = GraphParent.transform.localPosition;
+            Manipulated = false;
 
         }
         if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
         {
+            Manipulated = false;
             CurScale = GraphParent.transform.localScale;
             CurRot = GraphParent.transform.localEulerAngles;
             CurPos = GraphParent.transform.localPosition;
             RightStart = RightHand.position;
             AvgStart = (LeftStart + RightStart) / 2;
             StartDist = Vector3.Magnitude(LeftStart - RightStart);
-            if (graph == null)
+
+          //  if (graph == null)
             {
                 graph = TGraph.GlobalVariables.Graph;
                 nodeCount = graph.nodes.Count;
@@ -79,8 +82,8 @@ public class Gestures : MonoBehaviour {
                 }
                 for (int k = 0; k < vertexCount/8; ++k)
                 {
-                    Vector3 offset = -.5f*(1-factor)*( vertexCopies[2 + e] - vertexCopies[0 + e]);
-                    Vector3 offsetOrtho = -.5f*(1-factor)*(vertexCopies[4 + e] - vertexCopies[0 + e]);
+                    Vector3 offset = -.5f*(1-factor)*( vertexCopies[4 + e] - vertexCopies[0 + e]);
+                    Vector3 offsetOrtho = -.5f*(1-factor)*(vertexCopies[2 + e] - vertexCopies[0 + e]);
 
                     vertices[0 + e] = vertexCopies[0 + e] * factor + offset + offsetOrtho;
                     vertices[1 + e] = vertexCopies[1 + e] * factor + offset + offsetOrtho;
@@ -97,8 +100,6 @@ public class Gestures : MonoBehaviour {
                     e = (e + 8) % vertexCount;
                 }
 
-               
-             
                 mesh.vertices = vertices;
                 mesh.RecalculateBounds();
                 Manipulated = true;
@@ -106,8 +107,8 @@ public class Gestures : MonoBehaviour {
 
             }
         }
-        /*
-        else if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
+        
+        else if (!Manipulated&&OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
         {
             GraphParent.transform.localPosition = CurPos + (LeftHand.transform.position - LeftStart) * 100;
 
@@ -116,7 +117,7 @@ public class Gestures : MonoBehaviour {
                 CurPos = GraphParent.transform.localPosition;
             }
         }
-        else if (OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger))
+        else if (!Manipulated&&OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger))
         {
 
             var yRot = CurRot.y;
@@ -135,7 +136,7 @@ public class Gestures : MonoBehaviour {
                 CurRot = GraphParent.transform.localEulerAngles;
             }
 
-        }*/
+        }
 
         if (Manipulated&&(OVRInput.GetUp(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.GetUp(OVRInput.Button.SecondaryIndexTrigger)))
         {
@@ -156,8 +157,7 @@ public class Gestures : MonoBehaviour {
 
             for (int i = 0; i < nodeCount; ++i)
             {
-
-                graph.nodes[i].pos = graph.nodes[i].nodeObject.transform.position;
+                graph.nodes[i].pos = graph.nodes[i].nodeObject.transform.localPosition;
             }
 
             

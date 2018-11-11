@@ -429,7 +429,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Option A
+  m_Text: nasa
 --- !u!222 &151369707
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -829,11 +829,11 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Option A
+    - m_Text: nasa
       m_Image: {fileID: 0}
-    - m_Text: Option B
+    - m_Text: HOLLight_archive
       m_Image: {fileID: 0}
-    - m_Text: Option C
+    - m_Text: krmt
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3793,6 +3793,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 457650195}
     m_Modifications:
+    - target: {fileID: 114947049218739636, guid: f3d3e866a6503ba49aaa00d2edc4f454,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 224103564724131564, guid: f3d3e866a6503ba49aaa00d2edc4f454,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -3883,9 +3888,51 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114947049218739636, guid: f3d3e866a6503ba49aaa00d2edc4f454,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114947049218739636, guid: f3d3e866a6503ba49aaa00d2edc4f454,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114947049218739636, guid: f3d3e866a6503ba49aaa00d2edc4f454,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1165595083}
+    - target: {fileID: 114947049218739636, guid: f3d3e866a6503ba49aaa00d2edc4f454,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RecalculateLayout
+      objectReference: {fileID: 0}
+    - target: {fileID: 114947049218739636, guid: f3d3e866a6503ba49aaa00d2edc4f454,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3d3e866a6503ba49aaa00d2edc4f454, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1489840945 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1600210377848170, guid: f3d3e866a6503ba49aaa00d2edc4f454,
+    type: 2}
+  m_PrefabInternal: {fileID: 1489840944}
+--- !u!65 &1489840946
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1489840945}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 171.4313, y: 30, z: 0.32640505}
+  m_Center: {x: -0.4272909, y: 0.0000034924603, z: 0.13307968}
 --- !u!1 &1510864285
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,6 +20,9 @@ public class UIInteracton : MonoBehaviour {
         Edgeticked["alignment"] = true;
     }
 
+
+
+
     private void OnTriggerEnter(Collider other)
     {
 
@@ -27,6 +30,7 @@ public class UIInteracton : MonoBehaviour {
 
        // Debug.Log("enter"+ other.gameObject.name);
         Toggle t = other.GetComponent<Toggle>();
+ 
         if (t != null&& outside)
         {
         
@@ -53,8 +57,8 @@ public class UIInteracton : MonoBehaviour {
                
             }        
           
-
         }
+
 
         Dropdown d = other.GetComponent<Dropdown>();
         if (d != null && outside)
@@ -82,6 +86,11 @@ public class UIInteracton : MonoBehaviour {
         
     }
 
+    public void ChangeUrl(Dropdown d)
+    {
+        GlobalVariables.Url = "file:///" + Application.dataPath + "/" + d.captionText.text + ".json";
+        Debug.Log(GlobalVariables.Url);
+    }
 
     public void ChangeClipPlane(){
         if (Camera.main.farClipPlane == 12) Camera.main.farClipPlane = 100;
