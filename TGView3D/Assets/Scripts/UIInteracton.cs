@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TGraph;
 using UnityEngine;
 using UnityEngine.EventSystems;
+
 using UnityEngine.UI;
 
 public class UIInteracton : MonoBehaviour {
@@ -89,7 +90,7 @@ public class UIInteracton : MonoBehaviour {
     public void ChangeUrl(Dropdown d)
     {
         GlobalVariables.Url = "file:///" + Application.dataPath + "/" + d.captionText.text + ".json";
-        Debug.Log(GlobalVariables.Url);
+        GlobalVariables.SelectionIndex = d.value;
     }
 
     public void ChangeClipPlane(){

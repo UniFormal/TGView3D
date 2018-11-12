@@ -110,7 +110,7 @@ public class Gestures : MonoBehaviour {
         
         else if (!Manipulated&&OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
         {
-            GraphParent.transform.localPosition = CurPos + (LeftHand.transform.position - LeftStart) * 100;
+            GraphParent.transform.localPosition = CurPos + (LeftHand.transform.position - LeftStart) * 30;
 
             if (OVRInput.GetUp(OVRInput.Button.PrimaryIndexTrigger))
             {

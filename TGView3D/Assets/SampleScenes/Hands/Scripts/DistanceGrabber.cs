@@ -212,7 +212,7 @@ namespace OVRTouchSample
                 else
                 {
                     graph.nodes[graph.nodes[graph.latestSelection].connectedNodes[graph.currentTarget]].labelObject.GetComponent<TextMesh>().color = targetColor;
-                    Vector3 relativePos = graph.nodes[graph.nodes[graph.latestSelection].connectedNodes[graph.currentTarget]].pos - m_camera.transform.position;
+                    Vector3 relativePos = graph.nodes[graph.nodes[graph.latestSelection].connectedNodes[graph.currentTarget]].nodeObject.transform.position - m_camera.transform.position;
                     Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
                     rotation.eulerAngles = new Vector3(0, rotation.eulerAngles.y, 0);
                     m_camera.transform.localRotation = rotation;

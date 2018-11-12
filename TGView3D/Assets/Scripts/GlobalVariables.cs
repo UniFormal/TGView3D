@@ -14,6 +14,7 @@ namespace TGraph
         public static bool JetPack = false;
         public static bool Recalculate = false;
         public static string Url = "";
+        public static int SelectionIndex = 0;
     }
    
 

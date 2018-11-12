@@ -16,19 +16,24 @@ public class TextUpdater : MonoBehaviour {
         EdgeInfo = texts[2];
         OVRTouchSample.DistanceGrabber.OnSelectionChanged += UpdateText;
 	}
-	
-	// Update is called once per frame
 
+    // Update is called once per frame
+    private void OnDisable()
+    {
+        OVRTouchSample.DistanceGrabber.OnSelectionChanged -= UpdateText;
+    }
 
 
     private void UpdateText()
     {
+
         Origin.text = TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].label;
-        if (TGraph.GlobalVariables.Graph.currentTarget >= 0 && TGraph.GlobalVariables.Graph.currentTarget != TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].connectedNodes.Count)
-            Target.text = TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].connectedNodes[TGraph.GlobalVariables.Graph.currentTarget]].label;
-        else
-            Target.text = "-";
-       // Debug.Log(TGraph.GlobalVariables.Graph.edges[TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].edgeIndicesOut[0]]);
+        
+      if (TGraph.GlobalVariables.Graph.currentTarget >= 0 && TGraph.GlobalVariables.Graph.currentTarget != TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].connectedNodes.Count)
+          Target.text = TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].connectedNodes[TGraph.GlobalVariables.Graph.currentTarget]].label;
+      else
+          Target.text = "-";
+        // Debug.Log(TGraph.GlobalVariables.Graph.edges[TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].edgeIndicesOut[0]]);
     }
 
 }

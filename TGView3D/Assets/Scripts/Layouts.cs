@@ -13,9 +13,16 @@ namespace TGraph
         static int success = 0;
         static bool flat = false;
         static float sliceWidth = 0;
-        public static ReadJSON.MyGraph graph = GlobalVariables.Graph;
+        public static ReadJSON.MyGraph graph;
         static float energy = 1000000f;
         static float step = 30f;// initialStep;
+
+        public static void Init()
+        {
+           graph = GlobalVariables.Graph;
+        }
+
+
 
         public static void Spiral(){
             for (var i = 0; i < graph.nodes.Count; i++)
@@ -30,10 +37,11 @@ namespace TGraph
         }
         public static void BaseLayout(int iterations, float globalWeight, float spaceScale)
         {
-            Layouts.Spiral();
-           // Layouts.BuildHierarchy();
-            Layouts.SolveUsingForces(iterations, 0.13f, useWeights: true, globalWeight: globalWeight);
-            Layouts.Normalize(spaceScale);
+            Init();
+            Spiral();
+            BuildHierarchy();
+            SolveUsingForces(iterations, 1.13f, useWeights: true, globalWeight: globalWeight);
+            Normalize(spaceScale);
         }
 
         public static void Normalize(float spaceScale)

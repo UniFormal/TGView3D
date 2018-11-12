@@ -6,6 +6,8 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.XR;
 using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace TGraph
 {
@@ -30,9 +32,10 @@ namespace TGraph
 
         public int iterations = 25;
         public float spaceScale = 1;
+        public GameObject UrlSelect;
 
 
-        public string url = "http://neuralocean.de/graph/test/nasa.json";
+        public string url;//"http://neuralocean.de/graph/test/nasa.json";
         public int vol = 100;
 
      
@@ -572,24 +575,18 @@ namespace TGraph
 
             // Debug.Log(url);
             //float time = Time.realtimeSinceStartup;
-              url = "file:///" + Application.dataPath +
-                   "/HOLLight_archive.json"
+            /* url = "file:///" + Application.dataPath +
+                   //"/HOLLight_archive.json"
                   //"/krmt.json"
-                    //"/nasa.json"
+                    "/nasa.json"
                    //"/smglom_archive.json"
                    ;
-
-            GlobalVariables.Url = url;
-            LoadGraph();
+        */  UrlSelect.GetComponent<Dropdown>().value = GlobalVariables.SelectionIndex;
+            GlobalVariables.Url = "file:///" + Application.dataPath + "/" + UrlSelect.GetComponent<Dropdown>().captionText.text + ".json";
 
         }
 
-        public void LoadGraph()
-        {
-            url = GlobalVariables.Url;
-            WWW www = new WWW(url);
-            StartCoroutine(ProcessJSON(www));
-        }
+
 
 
         IEnumerator TestRequest(PData pdata, int i)
@@ -673,7 +670,7 @@ namespace TGraph
             // check for errors
            if (www.error == null)
             {
-            //    Debug.Log("WWW Ok!: " + www.text);
+                //Debug.Log("WWW Ok!: " + www.text);
                 graph = MyGraph.CreateFromJSON(www.text);
                 GlobalVariables.Graph = graph;
                 GlobalVariables.Vol = vol;
@@ -713,6 +710,7 @@ namespace TGraph
 
 
                 this.GetComponent<Interaction>().enabled = true;
+
                 GlobalVariables.Init = true;
                 this.GetComponent<GlobalAlignText>().childCount = this.transform.childCount;
             }
@@ -840,10 +838,34 @@ namespace TGraph
                 UpdateEdgesFull(node);
             }
         }
-
+        public void LoadGraph()
+        {
+            Debug.Log("load " + GlobalVariables.Url);
+          
+            url = GlobalVariables.Url;
+            WWW www = new WWW(url);
+            StartCoroutine(ProcessJSON(www));
+        }
         public void RecalculateLayout()
         {
-            StartCoroutine(RLCoroutine());
+            Debug.Log(url + " " + GlobalVariables.Url);
+            if (!GlobalVariables.Init) 
+            {
+                LoadGraph();
+            }
+            else if (url != GlobalVariables.Url)
+            {
+                Debug.Log("reload");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                GlobalVariables.Init = false;
+
+            }
+            else
+            {
+                Debug.Log(url + " ................ " + GlobalVariables.Url);
+                StartCoroutine(RLCoroutine());
+            }
+           
         }
 
         IEnumerator RLCoroutine()
