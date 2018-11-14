@@ -6,6 +6,9 @@ public class Stabilizer : MonoBehaviour {
 
     Vector3 oldPos;
     Vector3 oldRot;
+
+    public bool Stabilize;
+
 	// Use this for initialization
 	void Start () {
         oldPos = transform.localPosition;
@@ -14,21 +17,27 @@ public class Stabilizer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        if (Vector3.Magnitude(oldPos - transform.localPosition) < 0.00001f)
+        if (Stabilize)
         {
-            transform.localPosition = oldPos;
-        }
-      
+            if (Vector3.Magnitude(oldPos - transform.localPosition) < 0.00001f)
+            {
+                transform.localPosition = oldPos;
+            }
+
             oldPos = transform.localPosition;
-       
 
-        if (Vector3.Angle(oldRot, transform.localEulerAngles) < .01f)
-        {
-            transform.localEulerAngles = oldRot;
-        }
-      
+
+            if (Vector3.Angle(oldRot, transform.localEulerAngles) < .01f)
+            {
+                transform.localEulerAngles = oldRot;
+            }
+
             oldRot = transform.localEulerAngles;
+        }
+        if (OVRInput.Get(OVRInput.Button.SecondaryThumbstick))
+        {
+            transform.GetChild(0).gameObject.SetActive(!transform.GetChild(0).gameObject.activeSelf);
+        }
         
 
     }

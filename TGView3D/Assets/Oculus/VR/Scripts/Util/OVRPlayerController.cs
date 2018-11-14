@@ -382,16 +382,7 @@ public class OVRPlayerController : MonoBehaviour
             }
 
             
-            if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))
-            {
-                GameObject.Find("LCone").GetComponent<MeshRenderer>().enabled = true;
-            }
-
-
-            if (OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger))
-            {
-                GameObject.Find("RCone").GetComponent<MeshRenderer>().enabled = true;
-            }
+ 
 
             if (OVRInput.GetDown(OVRInput.Button.One) || OVRInput.GetDown(OVRInput.Button.Two) || OVRInput.GetDown(OVRInput.Button.Three) || OVRInput.GetDown(OVRInput.Button.Four))
             {

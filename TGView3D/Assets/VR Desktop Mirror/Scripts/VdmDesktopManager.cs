@@ -17,6 +17,8 @@ public class VdmDesktopManager : MonoBehaviour {
     [Tooltip("Keyboard key to zoom")]
     public KeyCode KeyboardZoom = KeyCode.LeftAlt;
 
+    public GameObject monitor;
+
 #if VDM_SteamVR
 
     public enum ViveButton
@@ -221,21 +223,22 @@ public class VdmDesktopManager : MonoBehaviour {
 
         ReInit();
 
-        GameObject monitorBase = transform.GetChild(0).gameObject;
-        monitorBase.SetActive(false);
+     //   GameObject monitorBase = transform.GetChild(0).gameObject;
+      //  monitorBase.SetActive(false);
 
         int nScreen = DesktopCapturePlugin_GetNDesks();
         int iScreenIndex = 0;
 
-        for (int s = 0; s <nScreen; s++)
+        //for (int s = 0; s <nScreen; s++)
+        int s = 0;
         {
-            GameObject monitor = GameObject.Instantiate(monitorBase);
+         //   GameObject monitor = GameObject.Instantiate(monitorBase);
 
-            if ((MultiMonitorScreen != 0) && (MultiMonitorScreen != (s+1 )))
-                continue;
+          //  if ((MultiMonitorScreen != 0) && (MultiMonitorScreen != (s+1 )))
+           //     continue;
 
-            monitor.name = "Monitor " + (s+1).ToString();
-            VdmDesktop desk = monitor.AddComponent<VdmDesktop>();
+          //  monitor.name = "Monitor " + (s+1).ToString();
+            VdmDesktop desk = monitor.GetComponent<VdmDesktop>();
             desk.Screen = s;
             desk.ScreenIndex = iScreenIndex;
             iScreenIndex++;
@@ -301,9 +304,9 @@ public class VdmDesktopManager : MonoBehaviour {
        // foreach (VdmDesktop monitor in Monitors)
         {
             
-            Monitors[1].HideLine();
+            Monitors[0].HideLine();
 
-            Monitors[1].CheckKeyboardAndMouse();                
+            Monitors[0].CheckKeyboardAndMouse();                
             
 #if VDM_SteamVR
             foreach (SteamVR_TrackedObject controller in Controllers)

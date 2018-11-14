@@ -5,6 +5,7 @@ using System;
 using System.Collections;
 using System.Runtime.InteropServices;
 using System.Xml;
+using UnityEngine.UI;
 
 public class VdmDesktop : MonoBehaviour
 {
@@ -149,10 +150,47 @@ public class VdmDesktop : MonoBehaviour
         return (m_renderer.enabled);
     }
 
+
+
+    private void OpenPage(string url)
+    {
+        VdmDesktopManager.ActionInThisFrame = true;
+
+        if (Visible() == false)
+        {
+            if (TGraph.GlobalVariables.Graph.selectedNodes.Count > 0 && TGraph.GlobalVariables.Graph.latestSelection != curSelection)
+            {
+                curSelection = TGraph.GlobalVariables.Graph.latestSelection;
+                  Debug.Log("link:" + TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].url);
+                Application.OpenURL("https://mmt.mathhub.info" + url);
+            }
+
+            Show();
+
+            m_manager.KeyboardDistance += Input.GetAxisRaw("Mouse ScrollWheel");
+            m_manager.KeyboardDistance = Mathf.Clamp(m_manager.KeyboardDistance, 0.2f, 100);
+
+            m_positionNormal = Camera.main.transform.position + Camera.main.transform.rotation * new Vector3(0, 0, m_manager.KeyboardDistance);
+            m_positionNormal += m_manager.MultiMonitorPositionOffset * ScreenIndex;
+            m_rotationNormal = Camera.main.transform.rotation;
+
+        }
+    }
+
+    public void OpenTarget()
+    {
+        OpenPage(TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.currentTarget].url);
+    }
+
+    public void OpenOrigin()
+    {
+        OpenPage(TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].url);
+    }
+
     public void CheckKeyboardAndMouse()
     {
         
-
+        /*
         if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick))
         {
             VdmDesktopManager.ActionInThisFrame = true;
@@ -184,7 +222,7 @@ public class VdmDesktop : MonoBehaviour
             m_positionNormal += m_manager.MultiMonitorPositionOffset * ScreenIndex;
             m_rotationNormal = Camera.main.transform.rotation;            
         }
-
+        
         if (OVRInput.GetUp(OVRInput.Button.PrimaryThumbstick)) 
         {
             VdmDesktopManager.ActionInThisFrame = true;
@@ -196,7 +234,7 @@ public class VdmDesktop : MonoBehaviour
                 Hide();
             }
             
-        }
+        }*/
 
         if (m_manager.KeyboardZoom != KeyCode.None)
         {

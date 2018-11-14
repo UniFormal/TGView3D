@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +14,7 @@ public class TextUpdater : MonoBehaviour {
         Text[] texts = GetComponentsInChildren<Text>();
         Origin = texts[0];
         Target = texts[1];
-        EdgeInfo = texts[2];
+        EdgeInfo = texts[3];
         OVRTouchSample.DistanceGrabber.OnSelectionChanged += UpdateText;
 	}
 
@@ -26,13 +27,21 @@ public class TextUpdater : MonoBehaviour {
 
     private void UpdateText()
     {
+        var node = TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection];
+        Origin.text = node.label;
+        List <int> edgeIndices = node.edgeIndicesIn.Concat<int>(node.edgeIndicesOut).ToList<int>();
 
-        Origin.text = TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].label;
-        
-      if (TGraph.GlobalVariables.Graph.currentTarget >= 0 && TGraph.GlobalVariables.Graph.currentTarget != TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].connectedNodes.Count)
-          Target.text = TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].connectedNodes[TGraph.GlobalVariables.Graph.currentTarget]].label;
-      else
-          Target.text = "-";
+        if (TGraph.GlobalVariables.Graph.currentTarget >= 0 && TGraph.GlobalVariables.Graph.currentTarget != node.connectedNodes.Count)
+        {
+            Target.text = TGraph.GlobalVariables.Graph.nodes[node.connectedNodes[TGraph.GlobalVariables.Graph.currentTarget]].label;
+            EdgeInfo.text = TGraph.GlobalVariables.Graph.edges[edgeIndices[TGraph.GlobalVariables.Graph.currentTarget]].label;
+        }
+
+        else
+        {
+            Target.text = EdgeInfo.text= "-";
+        }
+            
         // Debug.Log(TGraph.GlobalVariables.Graph.edges[TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].edgeIndicesOut[0]]);
     }
 

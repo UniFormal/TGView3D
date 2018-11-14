@@ -32,6 +32,19 @@ public class Gestures : MonoBehaviour {
     void Update()
     {
 
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))
+        {
+            if(TGraph.GlobalVariables.Beam)
+                GameObject.Find("LCone").GetComponent<MeshRenderer>().enabled = true;
+        }
+
+
+        if (OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger))
+        {
+            if (TGraph.GlobalVariables.Beam)
+                GameObject.Find("RCone").GetComponent<MeshRenderer>().enabled = true;
+        }
+
         if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
         {
             LeftStart = LeftHand.position;
@@ -99,7 +112,7 @@ public class Gestures : MonoBehaviour {
 
                     e = (e + 8) % vertexCount;
                 }
-
+                //bug here
                 mesh.vertices = vertices;
                 mesh.RecalculateBounds();
                 Manipulated = true;

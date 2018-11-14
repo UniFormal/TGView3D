@@ -300,18 +300,18 @@ namespace TGraph
                             if (u.graphNumber == n.graphNumber && n != u && (u.edgeIndicesIn != null || u.edgeIndicesOut != null))
                             {
                                 var differenceNodesX = u.pos.x - n.pos.x;
-                              //  var differenceNodesY = 0;// u.pos.y - n.pos.y;
+                                var differenceNodesY =  u.pos.y - n.pos.y;
                                 var differenceNodesZ = u.pos.z - n.pos.z;
 
                                 //var lengthDiff = Mathf.Sqrt(differenceNodesX * differenceNodesX + differenceNodesY * differenceNodesY) + 0.001;
 
                                 var lengthDiff = Mathf.Sqrt(differenceNodesX * differenceNodesX +
-                                   // differenceNodesY * differenceNodesY +
+                                   differenceNodesY * differenceNodesY +
                                     differenceNodesZ * differenceNodesZ) + 0.0001f;
                                 var repulsiveForce = -(kSquared / lengthDiff);
 
                                 n.disp.x += (differenceNodesX / lengthDiff) * repulsiveForce;
-                              //  n.disp.y += (differenceNodesY / lengthDiff) * repulsiveForce;
+                                n.disp.y += (differenceNodesY / lengthDiff) * repulsiveForce;
                                 n.disp.z += (differenceNodesZ / lengthDiff) * repulsiveForce;
                             }
                         }
@@ -324,11 +324,11 @@ namespace TGraph
                             if (vertices[edgeIndices[k] * 8].a == 0) continue;
                             var u = graph.nodes[n.connectedNodes[k]];
                             var differenceNodesX = u.pos.x - n.pos.x;
-                          //  var differenceNodesY = 0;// u.pos.y - n.pos.y;
+                            var differenceNodesY = 0;// u.pos.y - n.pos.y;
                             var differenceNodesZ = u.pos.z - n.pos.z;
 
                             var lengthDiff = Mathf.Sqrt(differenceNodesX * differenceNodesX +
-                               // differenceNodesY * differenceNodesY +
+                                differenceNodesY * differenceNodesY +
                                 differenceNodesZ * differenceNodesZ) + 0.0001f;
                             var attractiveForce = (lengthDiff * lengthDiff / kVal);
                             if (useWeights)
@@ -337,7 +337,7 @@ namespace TGraph
                                 if (n.weights[k] <= .1f) attractiveForce =0;
                             }
                             n.disp.x += (differenceNodesX / lengthDiff) * attractiveForce;
-                          //  n.disp.y += (differenceNodesY / lengthDiff) * attractiveForce;
+                            n.disp.y += (differenceNodesY / lengthDiff) * attractiveForce;
                             n.disp.z += (differenceNodesZ / lengthDiff) * attractiveForce;
                         }
 
@@ -348,7 +348,7 @@ namespace TGraph
 
                         var dispLength = Mathf.Sqrt(n.disp.x * n.disp.x + n.disp.y * n.disp.y + n.disp.z * n.disp.z) + 0.0001f;
                         n.pos.x = ((n.pos.x + (n.disp.x / dispLength) * step));
-                     //   n.pos.y = ((n.pos.y + (n.disp.y / dispLength) * step));
+                        n.pos.y = ((n.pos.y + 0.01f* (n.disp.y / dispLength) * step));
                         n.pos.z = ((n.pos.z + (n.disp.z / dispLength) * step));
 
     

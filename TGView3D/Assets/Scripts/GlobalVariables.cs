@@ -12,6 +12,7 @@ namespace TGraph
         public static bool Init;
         public static UnityEngine.EventSystems.EventSystem EventSystem;
         public static bool JetPack = false;
+        public static bool Beam = true;
         public static bool Recalculate = false;
         public static string Url = "";
         public static int SelectionIndex = 0;

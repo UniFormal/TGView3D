@@ -83,8 +83,7 @@ public class UIInteracton : MonoBehaviour {
     {
 
         outside = true;
-       
-        
+
     }
 
     public void ChangeUrl(Dropdown d)
@@ -109,22 +108,12 @@ public class UIInteracton : MonoBehaviour {
     public void EnableBeam()
     {
         var grabbers = transform.parent.GetComponentsInChildren<DistanceGrabber>();
-        
+        //TODO: better solution
+        GameObject.Find("LCone").GetComponent<MeshRenderer>().enabled = GameObject.Find("RCone").GetComponent<MeshRenderer>().enabled =
+        GameObject.Find("LCone").GetComponent<MeshCollider>().enabled = GameObject.Find("RCone").GetComponent<MeshCollider>().enabled = 
+            !GameObject.Find("RCone").GetComponent<MeshCollider>().enabled;
 
-        if (grabbers[0].m_maxGrabDistance == 0)
-        {
-            grabbers[0].m_maxGrabDistance = 10;
-            grabbers[1].m_maxGrabDistance = 10;
-
-        }
-        else
-        {
-            GameObject.Find("LCone").GetComponent<MeshRenderer>().enabled = false;
-            GameObject.Find("RCone").GetComponent<MeshRenderer>().enabled = false;
-            grabbers[0].m_maxGrabDistance = 0;
-            grabbers[1].m_maxGrabDistance = 0;
-        }
-
+        GlobalVariables.Beam = !GlobalVariables.Beam;
     }
 
     public void EnableEdgeType(string type)
