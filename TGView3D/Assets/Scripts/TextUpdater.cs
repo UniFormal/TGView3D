@@ -14,7 +14,7 @@ public class TextUpdater : MonoBehaviour {
         Text[] texts = GetComponentsInChildren<Text>();
         Origin = texts[0];
         Target = texts[1];
-        EdgeInfo = texts[3];
+        EdgeInfo = texts[2];
         OVRTouchSample.DistanceGrabber.OnSelectionChanged += UpdateText;
 	}
 
@@ -35,6 +35,7 @@ public class TextUpdater : MonoBehaviour {
         {
             Target.text = TGraph.GlobalVariables.Graph.nodes[node.connectedNodes[TGraph.GlobalVariables.Graph.currentTarget]].label;
             EdgeInfo.text = TGraph.GlobalVariables.Graph.edges[edgeIndices[TGraph.GlobalVariables.Graph.currentTarget]].label;
+          //  Debug.Log(edgeIndices[TGraph.GlobalVariables.Graph.currentTarget]);
         }
 
         else

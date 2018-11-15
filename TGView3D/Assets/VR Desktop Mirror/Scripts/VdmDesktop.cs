@@ -13,7 +13,7 @@ public class VdmDesktop : MonoBehaviour
     public int Screen = 0;
     [HideInInspector]
     public int ScreenIndex = 0;
-
+    public GameObject RayShooter;
 
     [DllImport("user32.dll")]
     static extern void mouse_event(int dwFlags, int dx, int dy,
@@ -150,7 +150,39 @@ public class VdmDesktop : MonoBehaviour
         return (m_renderer.enabled);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("collide");
+        RaycastHit[] rcasts = Physics.RaycastAll(RayShooter.transform.position,  collision.contacts[0].point- RayShooter.transform.position);
+        VdmDesktopManager.ActionInThisFrame = true;
+        foreach (RaycastHit rcast in rcasts)
+        {
+            if (rcast.transform.gameObject.name != "Monitor") continue;
+            Debug.Log(rcast.textureCoord + " " + RayShooter.transform.position + " " + collision.contacts[0].point + " " + rcast.point + " " + rcast.transform.gameObject.name);
 
+
+            float dx = m_manager.GetScreenWidth(Screen);
+            float dy = m_manager.GetScreenHeight(Screen);
+
+            float vx = rcast.textureCoord.x;
+            float vy = rcast.textureCoord.y;
+
+            vy = 1 - vy;
+
+            float x = (vx * dx);
+            float y = (vy * dy);
+
+            int iX = (int)x;
+            int iY = (int)y;
+
+            m_manager.SetCursorPos(iX, iY);
+            m_manager.SimulateMouseLeftDown();
+            m_manager.SimulateMouseLeftUp();
+            VdmDesktopManager.ActionInThisFrame = true;
+        }
+           
+
+    }
 
     private void OpenPage(string url)
     {
@@ -158,22 +190,33 @@ public class VdmDesktop : MonoBehaviour
 
         if (Visible() == false)
         {
+         
             if (TGraph.GlobalVariables.Graph.selectedNodes.Count > 0 && TGraph.GlobalVariables.Graph.latestSelection != curSelection)
             {
                 curSelection = TGraph.GlobalVariables.Graph.latestSelection;
                   Debug.Log("link:" + TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].url);
                 Application.OpenURL("https://mmt.mathhub.info" + url);
+           
+
+                m_manager.KeyboardDistance += Input.GetAxisRaw("Mouse ScrollWheel");
+                m_manager.KeyboardDistance = Mathf.Clamp(m_manager.KeyboardDistance, 0.2f, 100);
+
+                m_positionNormal = Camera.main.transform.position + Camera.main.transform.rotation * new Vector3(0, 0, m_manager.KeyboardDistance);
+                m_positionNormal += m_manager.MultiMonitorPositionOffset * ScreenIndex;
+                m_rotationNormal = Camera.main.transform.rotation;
             }
-
             Show();
-
-            m_manager.KeyboardDistance += Input.GetAxisRaw("Mouse ScrollWheel");
-            m_manager.KeyboardDistance = Mathf.Clamp(m_manager.KeyboardDistance, 0.2f, 100);
-
-            m_positionNormal = Camera.main.transform.position + Camera.main.transform.rotation * new Vector3(0, 0, m_manager.KeyboardDistance);
-            m_positionNormal += m_manager.MultiMonitorPositionOffset * ScreenIndex;
-            m_rotationNormal = Camera.main.transform.rotation;
-
+        }
+        else
+        {
+            if (TGraph.GlobalVariables.Graph.selectedNodes.Count > 0 && TGraph.GlobalVariables.Graph.latestSelection == curSelection)
+            {
+                Hide();
+            }
+            else
+            {
+                Application.OpenURL("https://mmt.mathhub.info" + url);
+            }
         }
     }
 

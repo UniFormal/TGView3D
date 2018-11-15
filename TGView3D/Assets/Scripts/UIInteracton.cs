@@ -24,6 +24,7 @@ public class UIInteracton : MonoBehaviour {
 
 
 
+
     private void OnTriggerEnter(Collider other)
     {
 

@@ -27,6 +27,7 @@ public class Gestures : MonoBehaviour {
     Mesh mesh;
     Vector3[] vertices;
     Vector3[] vertexCopies;
+
     // Update is called once per frame
     float factor;
     void Update()
@@ -55,6 +56,8 @@ public class Gestures : MonoBehaviour {
             CurPos = GraphParent.transform.localPosition;
             Manipulated = false;
 
+          
+
         }
         if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
         {
@@ -74,6 +77,7 @@ public class Gestures : MonoBehaviour {
                 vertexCount = mesh.vertexCount;
                 vertices = mesh.vertices;
                 vertexCopies = (Vector3[])vertices.Clone();
+           
             }
 
 
@@ -137,7 +141,11 @@ public class Gestures : MonoBehaviour {
 
             if (yRot < 0) yRot = 360 + yRot;
 
-            var newYRot = (yRot + 360 * (-RightHand.position.x + RightStart.x) / StartDist) % 360;
+
+            var a = RightStart - GraphParent.transform.position;
+            var b = RightHand.transform.position - GraphParent.transform.position;
+
+            var newYRot = (yRot + 50*Vector3.SignedAngle(a,b,Vector3.up) )% 360;
 
             if (newYRot < 0) newYRot = 360 + newYRot;
 

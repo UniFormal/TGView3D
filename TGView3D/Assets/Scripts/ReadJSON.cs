@@ -313,7 +313,7 @@ namespace TGraph
                     setTriangles(i, triangles);
 
             
-
+                    /*
                     if(edges[i].label!=null&& edges[i].label!= "")
                     {
                         edges[i].labelObject = GenLabel(target.nodeObject.transform.GetChild(0), edges[i].label);
@@ -671,8 +671,8 @@ namespace TGraph
            if (www.error == null)
             {
                 //Debug.Log("WWW Ok!: " + www.text);
-                graph = MyGraph.CreateFromJSON(www.text);
-                GlobalVariables.Graph = graph;
+                GlobalVariables.Graph = MyGraph.CreateFromJSON(www.text);
+                graph = GlobalVariables.Graph;
                 GlobalVariables.Vol = vol;
 
                 graph.movingNodes = new List<int>();
@@ -821,12 +821,7 @@ namespace TGraph
     
         private void UpdateMoving()
         {
-            foreach (int n in graph.movingNodes)
-            {
-                if (n == -1) continue; //TODO: change this
-                var node = graph.nodes[n];
-                UpdateEdgesFull(node);
-            }
+            UpdateSelected();
         }
 
         private void UpdateSelected()
@@ -835,6 +830,7 @@ namespace TGraph
             {
                 if (n == -1) continue; //TODO: change this
                 var node = graph.nodes[n];
+                node.pos = node.nodeObject.transform.localPosition;
                 UpdateEdgesFull(node);
             }
         }
@@ -870,12 +866,19 @@ namespace TGraph
 
         IEnumerator RLCoroutine()
         {
-          
+        
             Layouts.BaseLayout(iterations, globalWeight, spaceScale);
+            int k = 0;
             foreach (MyNode node in graph.nodes) {
                 UpdateEdges(node);
-                yield return null;
+                k++;
+                if (k == 100)
+                {
+                    k = 0;
+                    yield return null;
+                }
             }
+            yield return null;
         }
 
 
