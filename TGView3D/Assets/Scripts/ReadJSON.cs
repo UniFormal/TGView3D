@@ -821,7 +821,14 @@ namespace TGraph
     
         private void UpdateMoving()
         {
-            UpdateSelected();
+            foreach (int n in graph.selectedNodes)
+            {
+                if (n == -1) continue; //TODO: change this
+                var node = graph.nodes[n];
+                GlobalVariables.Graph.nodes[n].pos = node.nodeObject.transform.localPosition;
+             //   Debug.Log(node.nodeObject.transform.localPosition);
+                UpdateEdgesFull(node);
+            }
         }
 
         private void UpdateSelected()
@@ -829,8 +836,7 @@ namespace TGraph
             foreach (int n in graph.selectedNodes)
             {
                 if (n == -1) continue; //TODO: change this
-                var node = graph.nodes[n];
-                node.pos = node.nodeObject.transform.localPosition;
+                var node =graph.nodes[n];
                 UpdateEdgesFull(node);
             }
         }

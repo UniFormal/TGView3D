@@ -28,8 +28,87 @@ public class Gestures : MonoBehaviour {
     Vector3[] vertices;
     Vector3[] vertexCopies;
 
+    float StartAngle;
+
     // Update is called once per frame
     float factor;
+
+
+    private void Rescale()
+    {
+
+        CurDist = Vector3.Magnitude(LeftHand.position - RightHand.position);
+        factor = CurDist / StartDist;
+        for (int i = 0; i < nodeCount; ++i)
+        {
+            var node = graph.nodes[j];
+            graph.nodes[j].nodeObject.transform.localPosition = factor * node.pos;
+            j = (j + 1) % nodeCount;
+        }
+        for (int k = 0; k < vertexCount / 8; ++k)
+        {
+            Vector3 offset = -.5f * (1 - factor) * (vertexCopies[4 + e] - vertexCopies[0 + e]);
+            Vector3 offsetOrtho = -.5f * (1 - factor) * (vertexCopies[2 + e] - vertexCopies[0 + e]);
+
+            vertices[0 + e] = vertexCopies[0 + e] * factor + offset + offsetOrtho;
+            vertices[1 + e] = vertexCopies[1 + e] * factor + offset + offsetOrtho;
+
+            vertices[2 + e] = vertexCopies[2 + e] * factor + offset - offsetOrtho;
+            vertices[3 + e] = vertexCopies[3 + e] * factor + offset - offsetOrtho;
+
+            vertices[4 + e] = vertexCopies[4 + e] * factor - offset + offsetOrtho;
+            vertices[5 + e] = vertexCopies[5 + e] * factor - offset + offsetOrtho;
+
+            vertices[6 + e] = vertexCopies[6 + e] * factor - offset - offsetOrtho;
+            vertices[7 + e] = vertexCopies[7 + e] * factor - offset - offsetOrtho;
+
+            e = (e + 8) % vertexCount;
+        }
+        mesh.vertices = vertices;
+        mesh.RecalculateBounds();
+        Manipulated = true;
+        TGraph.GlobalVariables.Recalculate = true;
+    }
+
+    private void Rescale(int dim)
+    {
+
+        CurDist = Vector3.Magnitude(LeftHand.position - RightHand.position);
+        factor = CurDist / StartDist;
+        for (int i = 0; i < nodeCount; ++i)
+        {
+            var node = graph.nodes[j];
+            var pos = NodeParent.GetChild(j).transform.localPosition;
+            pos[dim] = factor * node.pos[dim];
+            NodeParent.GetChild(j).transform.localPosition = pos;
+            j = (j + 1) % nodeCount;
+        }
+        for (int k = 0; k < vertexCount / 8; ++k)
+        {
+            float offset = -.5f * (1 - factor) * (vertexCopies[4 + e][dim] - vertexCopies[0 + e][dim]);
+            float offsetOrtho = -.5f * (1 - factor) * (vertexCopies[2 + e][dim] - vertexCopies[0 + e][dim]);
+
+            vertices[0 + e][dim] = vertexCopies[0 + e][dim] * factor + offset + offsetOrtho;
+            vertices[1 + e][dim] = vertexCopies[1 + e][dim] * factor + offset + offsetOrtho;
+
+            vertices[2 + e][dim] = vertexCopies[2 + e][dim] * factor + offset - offsetOrtho;
+            vertices[3 + e][dim] = vertexCopies[3 + e][dim] * factor + offset - offsetOrtho;
+
+            vertices[4 + e][dim] = vertexCopies[4 + e][dim] * factor - offset + offsetOrtho;
+            vertices[5 + e][dim] = vertexCopies[5 + e][dim] * factor - offset + offsetOrtho;
+
+            vertices[6 + e][dim] = vertexCopies[6 + e][dim] * factor - offset - offsetOrtho;
+            vertices[7 + e][dim] = vertexCopies[7 + e][dim] * factor - offset - offsetOrtho;
+
+            e = (e + 8) % vertexCount;
+        }
+        mesh.vertices = vertices;
+        mesh.RecalculateBounds();
+        Manipulated = true;
+        TGraph.GlobalVariables.Recalculate = true;
+    }
+
+
     void Update()
     {
 
@@ -61,6 +140,17 @@ public class Gestures : MonoBehaviour {
         }
         if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
         {
+
+            //  if (graph == null)
+            {
+                graph = TGraph.GlobalVariables.Graph;
+                nodeCount = graph.nodes.Count;
+                mesh = graph.edgeObject.GetComponent<MeshFilter>().sharedMesh;
+                vertexCount = mesh.vertexCount;
+                vertices = mesh.vertices;
+                vertexCopies = (Vector3[])vertices.Clone();
+
+            }
             Manipulated = false;
             CurScale = GraphParent.transform.localScale;
             CurRot = GraphParent.transform.localEulerAngles;
@@ -69,59 +159,27 @@ public class Gestures : MonoBehaviour {
             AvgStart = (LeftStart + RightStart) / 2;
             StartDist = Vector3.Magnitude(LeftStart - RightStart);
 
-          //  if (graph == null)
-            {
-                graph = TGraph.GlobalVariables.Graph;
-                nodeCount = graph.nodes.Count;
-                mesh = graph.edgeObject.GetComponent<MeshFilter>().sharedMesh;
-                vertexCount = mesh.vertexCount;
-                vertices = mesh.vertices;
-                vertexCopies = (Vector3[])vertices.Clone();
-           
-            }
-
+            var a = RightStart - GraphParent.transform.position;
+            var b = RightHand.position - GraphParent.transform.position;
+            StartAngle = Vector3.SignedAngle(a, b, Vector3.up);
 
         }
      
     
         if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)&& OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger)){
 
+
             if (StartDist>=0.01f)
             {
-                CurDist = Vector3.Magnitude(LeftHand.position - RightHand.position);
-                //GraphParent.transform.localScale =curDist  / StartDist * CurScale;
-                factor = CurDist / StartDist;
-                for (int i = 0; i < nodeCount; ++i)
+                float angle = Vector3.Angle(Vector3.up, RightStart - LeftStart);
+                if (angle > 90) angle = 180 - angle;
+                if (angle <= 25) Rescale(1);
+                else if (angle <= 65) Rescale();
+                else
                 {
-                    var node = graph.nodes[j];
-                    NodeParent.GetChild(j).transform.localPosition = factor * node.pos;
-                    j = (j + 1) % nodeCount;
+                    Rescale(0);
+                    Rescale(2);
                 }
-                for (int k = 0; k < vertexCount/8; ++k)
-                {
-                    Vector3 offset = -.5f*(1-factor)*( vertexCopies[4 + e] - vertexCopies[0 + e]);
-                    Vector3 offsetOrtho = -.5f*(1-factor)*(vertexCopies[2 + e] - vertexCopies[0 + e]);
-
-                    vertices[0 + e] = vertexCopies[0 + e] * factor + offset + offsetOrtho;
-                    vertices[1 + e] = vertexCopies[1 + e] * factor + offset + offsetOrtho;
-
-                    vertices[2 + e ] = vertexCopies[2 + e] * factor + offset - offsetOrtho;
-                    vertices[3 + e] = vertexCopies[3 + e] * factor + offset - offsetOrtho;
-
-                    vertices[4 + e] = vertexCopies[4 + e] * factor - offset + offsetOrtho;
-                    vertices[5 + e] = vertexCopies[5 + e] * factor - offset + offsetOrtho;
-
-                    vertices[6 + e] = vertexCopies[6 + e] * factor - offset - offsetOrtho;
-                    vertices[7 + e] = vertexCopies[7 + e] * factor - offset - offsetOrtho;
-
-                    e = (e + 8) % vertexCount;
-                }
-                //bug here
-                mesh.vertices = vertices;
-                mesh.RecalculateBounds();
-                Manipulated = true;
-                TGraph.GlobalVariables.Recalculate = true;
-
             }
         }
         
@@ -139,18 +197,22 @@ public class Gestures : MonoBehaviour {
 
             var yRot = CurRot.y;
 
-            if (yRot < 0) yRot = 360 + yRot;
+
+            //if (yRot < 0) yRot = 360 + yRot;
 
 
             var a = RightStart - GraphParent.transform.position;
-            var b = RightHand.transform.position - GraphParent.transform.position;
+            var b = RightHand.position - GraphParent.transform.position;
+            var perp = Vector3.Cross(a, Vector3.up);
+            b = Vector3.Project(perp, b);
 
             var newYRot = (yRot + 50*Vector3.SignedAngle(a,b,Vector3.up) )% 360;
+
 
             if (newYRot < 0) newYRot = 360 + newYRot;
 
             GraphParent.transform.localEulerAngles = new Vector3(0, newYRot, 0);
-
+            Debug.Log(CurRot.y + " new: " + newYRot+a+" "+b+" dangle "+( 50 * Vector3.SignedAngle(a, b, Vector3.up)));
 
             if (OVRInput.GetUp(OVRInput.Button.SecondaryIndexTrigger))
             {
