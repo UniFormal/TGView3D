@@ -2638,7 +2638,7 @@ Prefab:
     - target: {fileID: 114947049218739636, guid: f3d3e866a6503ba49aaa00d2edc4f454,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224103564724131564, guid: f3d3e866a6503ba49aaa00d2edc4f454,
         type: 2}
@@ -2763,7 +2763,7 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 599444382}
+      objectReference: {fileID: 1988737264}
     - target: {fileID: 114947049218739636, guid: f3d3e866a6503ba49aaa00d2edc4f454,
         type: 2}
       propertyPath: m_Colors.m_PressedColor.r
@@ -2782,7 +2782,7 @@ Prefab:
     - target: {fileID: 114947049218739636, guid: f3d3e866a6503ba49aaa00d2edc4f454,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: EnableDesktop
+      value: OpenOrigin
       objectReference: {fileID: 0}
     - target: {fileID: 114947049218739636, guid: f3d3e866a6503ba49aaa00d2edc4f454,
         type: 2}
@@ -5528,6 +5528,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8915714b15785d4ebfbe108f661e09c, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1809455633 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1000012435011492, guid: c851dc68baae3964fb16a001e7333995,
+    type: 2}
+  m_PrefabInternal: {fileID: 1111250402}
 --- !u!1 &1811901308
 GameObject:
   m_ObjectHideFlags: 0
@@ -5760,6 +5765,7 @@ MonoBehaviour:
   Screen: 0
   ScreenIndex: 0
   RayShooter: {fileID: 1617276857}
+  RayPiercer: {fileID: 1809455633}
 --- !u!1 &2115091839
 GameObject:
   m_ObjectHideFlags: 0
