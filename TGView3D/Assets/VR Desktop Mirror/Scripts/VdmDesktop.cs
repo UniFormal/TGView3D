@@ -14,6 +14,7 @@ public class VdmDesktop : MonoBehaviour
     [HideInInspector]
     public int ScreenIndex = 0;
     public GameObject RayShooter;
+    public GameObject RayPiercer;
 
     [DllImport("user32.dll")]
     static extern void mouse_event(int dwFlags, int dx, int dy,
@@ -50,7 +51,7 @@ public class VdmDesktop : MonoBehaviour
     private bool m_controllerAttach = false; //mine
     private bool m_zoom = false;
     private bool m_zoomWithFollowCursor = false;
-    private int curSelection = -1;
+    private string curSelection = "";
 
     private Vector3 m_positionNormal;
     private Quaternion m_rotationNormal;
@@ -62,13 +63,13 @@ public class VdmDesktop : MonoBehaviour
     // Keyboard and Mouse
     private float m_lastShowClickStart = 0;
 
-    void Start()
+    void Awake()
     {
         m_manager = transform.parent.GetComponent<VdmDesktopManager>();
         m_line = GetComponent<LineRenderer>();
         m_renderer = GetComponent<Renderer>();
         m_collider = GetComponent<MeshCollider>();
-
+        HideLine();
         m_manager.Connect(this);
 
         Hide();
@@ -155,6 +156,7 @@ public class VdmDesktop : MonoBehaviour
         Debug.Log("collide");
         RaycastHit[] rcasts = Physics.RaycastAll(RayShooter.transform.position,  collision.contacts[0].point- RayShooter.transform.position);
         VdmDesktopManager.ActionInThisFrame = true;
+
         foreach (RaycastHit rcast in rcasts)
         {
             if (rcast.transform.gameObject.name != "Monitor") continue;
@@ -186,14 +188,15 @@ public class VdmDesktop : MonoBehaviour
 
     private void OpenPage(string url)
     {
-        VdmDesktopManager.ActionInThisFrame = true;
+        this.transform.parent.gameObject.SetActive(true);
+      
 
         if (Visible() == false)
         {
          
-            if (TGraph.GlobalVariables.Graph.selectedNodes.Count > 0 && TGraph.GlobalVariables.Graph.latestSelection != curSelection)
+            if (TGraph.GlobalVariables.Graph.selectedNodes.Count > 0 && url != curSelection)
             {
-                curSelection = TGraph.GlobalVariables.Graph.latestSelection;
+                curSelection = url;
                   Debug.Log("link:" + TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].url);
                 Application.OpenURL("https://mmt.mathhub.info" + url);
            
@@ -206,28 +209,36 @@ public class VdmDesktop : MonoBehaviour
                 m_rotationNormal = Camera.main.transform.rotation;
             }
             Show();
+            VdmDesktopManager.ActionInThisFrame = true;
         }
         else
         {
-            if (TGraph.GlobalVariables.Graph.selectedNodes.Count > 0 && TGraph.GlobalVariables.Graph.latestSelection == curSelection)
+            if (TGraph.GlobalVariables.Graph.selectedNodes.Count > 0 && url == curSelection)
             {
                 Hide();
+ 
+                this.transform.parent.gameObject.SetActive(false);
             }
             else
             {
                 Application.OpenURL("https://mmt.mathhub.info" + url);
+                curSelection = url;
+                VdmDesktopManager.ActionInThisFrame = true;
             }
         }
     }
 
     public void OpenTarget()
     {
-        OpenPage(TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.currentTarget].url);
+        if(TGraph.GlobalVariables.Graph!=null)
+            OpenPage(TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.currentTarget].url);
     }
 
     public void OpenOrigin()
+
     {
-        OpenPage(TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].url);
+        if (TGraph.GlobalVariables.Graph != null)
+            OpenPage(TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].url);
     }
 
     public void CheckKeyboardAndMouse()

@@ -217,7 +217,7 @@ public class VdmDesktopManager : MonoBehaviour {
     private bool m_forceMouseTrail = false; // Otherwise cursor is not visible
 
     // Use this for initialization
-    IEnumerator Start () {
+    private void Start () {
 
         Instance = this;
 
@@ -247,7 +247,7 @@ public class VdmDesktopManager : MonoBehaviour {
             monitor.SetActive(true);
         }
 
-        yield return new WaitForSeconds(1);
+        //yield return new WaitForSeconds(.1f);
 
 #if VDM_SteamVR
         RefreshControllers();
@@ -291,22 +291,21 @@ public class VdmDesktopManager : MonoBehaviour {
        // if (UnityEngine.XR.XRSettings.eyeTextureResolutionScale != RenderScale)
        //     UnityEngine.XR.XRSettings.eyeTextureResolutionScale = RenderScale;
 
-        needReinit = DesktopCapturePlugin_GetNeedReInit();
+      //  needReinit = DesktopCapturePlugin_GetNeedReInit();
         
 
-        if (needReinit > 1000)   ReInit();
+    //    if (needReinit > 1000)   ReInit();
 
         if(Input.GetKeyDown(KeyCode.R))
         {
             UnityEngine.XR.InputTracking.Recenter();    
         }
 
-       // foreach (VdmDesktop monitor in Monitors)
+        foreach (VdmDesktop monitor in Monitors)
         {
             
-            Monitors[0].HideLine();
-
-            Monitors[0].CheckKeyboardAndMouse();                
+           //monitor.HideLine();
+           monitor.CheckKeyboardAndMouse();                
             
 #if VDM_SteamVR
             foreach (SteamVR_TrackedObject controller in Controllers)

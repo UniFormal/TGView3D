@@ -7,11 +7,12 @@ using UnityEngine.EventSystems;
 
 using UnityEngine.UI;
 
+
 public class UIInteracton : MonoBehaviour {
 
     bool outside = true;
     Dictionary<string,bool> Edgeticked;
-
+    public GameObject Desktop;
     private void Start()
     {
         Edgeticked = new Dictionary<string, bool>();
@@ -22,7 +23,10 @@ public class UIInteracton : MonoBehaviour {
     }
 
 
-
+    public void EnableDesktop()
+    {
+       Desktop.SetActive(true);
+    }
 
 
     private void OnTriggerEnter(Collider other)
@@ -31,6 +35,9 @@ public class UIInteracton : MonoBehaviour {
         // this.GetComponent<Button>().Select();
 
        // Debug.Log("enter"+ other.gameObject.name);
+
+
+
         Toggle t = other.GetComponent<Toggle>();
  
         if (t != null&& outside)
@@ -89,8 +96,9 @@ public class UIInteracton : MonoBehaviour {
 
     public void ChangeUrl(Dropdown d)
     {
-        GlobalVariables.Url = "file:///" + Application.dataPath + "/" + d.captionText.text + ".json";
+      //  GlobalVariables.Url = "file:///" + Application.dataPath + "/" + d.captionText.text + ".json";
         GlobalVariables.SelectionIndex = d.value;
+
     }
 
     public void ChangeClipPlane(){
@@ -120,7 +128,7 @@ public class UIInteracton : MonoBehaviour {
     public void EnableEdgeType(string type)
     {
 
-        var graph = GlobalVariables.Graph;  
+        var graph = GlobalVariables.Graph;
         var edges = graph.edges;
         var mesh = graph.edgeObject.GetComponent<MeshFilter>().mesh;
         Color[] vertexColors = mesh.colors;

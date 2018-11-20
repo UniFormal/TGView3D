@@ -33,11 +33,11 @@ namespace TGraph
         public int iterations = 25;
         public float spaceScale = 1;
         public GameObject UrlSelect;
-
+        int si = 0;
 
         public string url;//"http://neuralocean.de/graph/test/nasa.json";
         public int vol = 100;
-
+        public TextAsset[] GraphFiles;
      
 
         //TODO: throw out ugly indexing!!!!!
@@ -561,7 +561,7 @@ namespace TGraph
             GlobalVariables.EventSystem = EventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>();
             Camera camera = Camera.main;
             float[] distances = new float[32];
-
+            GlobalVariables.Beam = true;
             //camera.farClipPlane = 12;
             distances[18] = 10;
             camera.layerCullDistances = distances;
@@ -575,15 +575,16 @@ namespace TGraph
 
             // Debug.Log(url);
             //float time = Time.realtimeSinceStartup;
-            /* url = "file:///" + Application.dataPath +
+            /* url = "file:///" + 
+             * th +
                    //"/HOLLight_archive.json"
                   //"/krmt.json"
                     "/nasa.json"
                    //"/smglom_archive.json"
                    ;
         */  UrlSelect.GetComponent<Dropdown>().value = GlobalVariables.SelectionIndex;
-            GlobalVariables.Url = "file:///" + Application.dataPath + "/" + UrlSelect.GetComponent<Dropdown>().captionText.text + ".json";
-
+          //  GlobalVariables.Url = "file:///" + Application.dataPath + "/" + UrlSelect.GetComponent<Dropdown>().captionText.text + ".json";
+           
         }
 
 
@@ -658,7 +659,55 @@ namespace TGraph
 
             }
         }*/
+       
+        public void ProcessAsset()
+        {
 
+            Debug.Log(GlobalVariables.SelectionIndex);
+            var json = GraphFiles[GlobalVariables.SelectionIndex].text;//;
+            GlobalVariables.Graph = MyGraph.CreateFromJSON(json);
+            graph = GlobalVariables.Graph;
+            GlobalVariables.Vol = vol;
+
+            graph.movingNodes = new List<int>();
+            graph.selectedNodes = new List<int>();
+            graph.selectedNodes.Add(-1);
+            graph.selectedNodes.Add(-1);
+
+            graph.colorDict = new Dictionary<string, Color>();
+            graph.colorDict.Add("include", new Color(0, 255, 0));
+            graph.colorDict.Add("meta", new Color(255, 0, 0));
+            graph.colorDict.Add("alignment", new Color(120, 120, 0));
+            graph.colorDict.Add("view", new Color(0, 0, 255));
+            graph.colorDict.Add("structure", new Color(0, 120, 120));
+
+            graph.colorDict.Add("graphinclude", new Color(0, 255, 0));
+            graph.colorDict.Add("graphmeta", new Color(255, 0, 0));
+            graph.colorDict.Add("graphalignment", new Color(120, 120, 0));
+            graph.colorDict.Add("graphview", new Color(0, 0, 255));
+            graph.colorDict.Add("graphstructure", new Color(0, 120, 120));
+
+            //Debug.Log(graph.nodes.Count);
+
+            graph.nodeDict = new Dictionary<string, int>();
+
+            ProcessNodes();
+            ProcessEdges();
+            identifySubgraphs();
+
+            Layouts.BaseLayout(iterations, globalWeight, spaceScale);
+
+            graph.edgeObject = BuildEdges(graph.edges, ref graph, lineMat);
+            graph.edgeObject.transform.parent = transform.parent;
+
+            GlobalVariables.Solved = true;
+
+
+            this.GetComponent<Interaction>().enabled = true;
+
+            GlobalVariables.Init = true;
+            this.GetComponent<GlobalAlignText>().childCount = this.transform.childCount;
+        }
         IEnumerator ProcessJSON(WWW www)
         {
             yield return www;
@@ -671,7 +720,8 @@ namespace TGraph
            if (www.error == null)
             {
                 //Debug.Log("WWW Ok!: " + www.text);
-                GlobalVariables.Graph = MyGraph.CreateFromJSON(www.text);
+                var json = www.text;
+                GlobalVariables.Graph = MyGraph.CreateFromJSON(json);
                 graph = GlobalVariables.Graph;
                 GlobalVariables.Vol = vol;
 
@@ -845,8 +895,12 @@ namespace TGraph
             Debug.Log("load " + GlobalVariables.Url);
           
             url = GlobalVariables.Url;
-            WWW www = new WWW(url);
-            StartCoroutine(ProcessJSON(www));
+            si = GlobalVariables.SelectionIndex;
+            GlobalVariables.CurrentFile = GraphFiles[GlobalVariables.SelectionIndex];
+          //  WWW www = null;//
+            new WWW(url);
+
+            ProcessAsset();
         }
         public void RecalculateLayout()
         {
@@ -855,7 +909,7 @@ namespace TGraph
             {
                 LoadGraph();
             }
-            else if (url != GlobalVariables.Url)
+            else if (si != GlobalVariables.SelectionIndex )
             {
                 Debug.Log("reload");
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

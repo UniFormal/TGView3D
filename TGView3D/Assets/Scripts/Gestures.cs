@@ -203,8 +203,10 @@ public class Gestures : MonoBehaviour {
 
             var a = RightStart - GraphParent.transform.position;
             var b = RightHand.position - GraphParent.transform.position;
-            var perp = Vector3.Cross(a, Vector3.up);
-            b = Vector3.Project(perp, b);
+            //var perp = Vector3.Cross(a, Vector3.up);
+            //b = Vector3.Project(perp, b);
+            a.y = 0;
+            b.y = 0;
 
             var newYRot = (yRot + 50*Vector3.SignedAngle(a,b,Vector3.up) )% 360;
 
@@ -212,7 +214,7 @@ public class Gestures : MonoBehaviour {
             if (newYRot < 0) newYRot = 360 + newYRot;
 
             GraphParent.transform.localEulerAngles = new Vector3(0, newYRot, 0);
-            Debug.Log(CurRot.y + " new: " + newYRot+a+" "+b+" dangle "+( 50 * Vector3.SignedAngle(a, b, Vector3.up)));
+           // Debug.Log(CurRot.y + " new: " + newYRot+a+" "+b+" dangle "+( 50 * Vector3.SignedAngle(a, b, Vector3.up)));
 
             if (OVRInput.GetUp(OVRInput.Button.SecondaryIndexTrigger))
             {
