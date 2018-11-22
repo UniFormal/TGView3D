@@ -981,7 +981,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 265131993}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ab775d4872861d45911b4ad238ba292, type: 3}
   m_Name: 
@@ -4076,6 +4076,10 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11408976, guid: 3908c3789f003564ba882cd413134aeb, type: 2}
+      propertyPath: KeyboardZoomDistance
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3908c3789f003564ba882cd413134aeb, type: 2}
   m_IsPrefabAsset: 0
@@ -4290,8 +4294,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 171.4313, y: 30, z: 0.32640505}
-  m_Center: {x: -0.4272909, y: 0.0000034924603, z: 0.1530797}
+  m_Size: {x: 171.4313, y: 30, z: 0.32664555}
+  m_Center: {x: -0.4272909, y: 0.0000035688658, z: 0.15295944}
 --- !u!1 &1510864285
 GameObject:
   m_ObjectHideFlags: 0

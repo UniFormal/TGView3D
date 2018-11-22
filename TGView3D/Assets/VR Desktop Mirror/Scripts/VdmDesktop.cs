@@ -189,7 +189,7 @@ public class VdmDesktop : MonoBehaviour
     private void OpenPage(string url)
     {
         this.transform.parent.gameObject.SetActive(true);
-      
+        VdmDesktopManager.ActionInThisFrame = true;
 
         if (Visible() == false)
         {
@@ -197,7 +197,7 @@ public class VdmDesktop : MonoBehaviour
             if (TGraph.GlobalVariables.Graph.selectedNodes.Count > 0 && url != curSelection)
             {
                 curSelection = url;
-                  Debug.Log("link:" + TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].url);
+                 Debug.Log("link:" + url);
                 Application.OpenURL("https://mmt.mathhub.info" + url);
            
 
@@ -216,8 +216,8 @@ public class VdmDesktop : MonoBehaviour
             if (TGraph.GlobalVariables.Graph.selectedNodes.Count > 0 && url == curSelection)
             {
                 Hide();
- 
-                this.transform.parent.gameObject.SetActive(false);
+              //  m_manager.needReinit = 2000;
+               // this.transform.parent.gameObject.SetActive(false);
             }
             else
             {
@@ -230,13 +230,15 @@ public class VdmDesktop : MonoBehaviour
 
     public void OpenTarget()
     {
+        Debug.Log("target");
         if(TGraph.GlobalVariables.Graph!=null)
-            OpenPage(TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.currentTarget].url);
+            OpenPage(TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].connectedNodes[TGraph.GlobalVariables.Graph.currentTarget]].url);
     }
 
     public void OpenOrigin()
 
     {
+        Debug.Log("origin");
         if (TGraph.GlobalVariables.Graph != null)
             OpenPage(TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].url);
     }

@@ -13,8 +13,10 @@ public class UIInteracton : MonoBehaviour {
     bool outside = true;
     Dictionary<string,bool> Edgeticked;
     public GameObject Desktop;
+
     private void Start()
     {
+       
         Edgeticked = new Dictionary<string, bool>();
         Edgeticked["meta"] = true;
         Edgeticked["view"] = true;
@@ -27,6 +29,11 @@ public class UIInteracton : MonoBehaviour {
     {
        Desktop.SetActive(true);
     }
+
+
+
+
+
 
 
     private void OnTriggerEnter(Collider other)

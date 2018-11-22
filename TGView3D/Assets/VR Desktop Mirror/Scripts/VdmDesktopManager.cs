@@ -203,7 +203,7 @@ public class VdmDesktopManager : MonoBehaviour {
     public const uint SPI_GETMOUSETRAILS = 0x005E;
 
 
-    private static int needReinit = 0;
+    public static int needReinit = 0;
 
 #if VDM_SteamVR
     // Don't worry!
@@ -291,10 +291,10 @@ public class VdmDesktopManager : MonoBehaviour {
        // if (UnityEngine.XR.XRSettings.eyeTextureResolutionScale != RenderScale)
        //     UnityEngine.XR.XRSettings.eyeTextureResolutionScale = RenderScale;
 
-      //  needReinit = DesktopCapturePlugin_GetNeedReInit();
+      // needReinit = DesktopCapturePlugin_GetNeedReInit();
         
 
-    //    if (needReinit > 1000)   ReInit();
+      // if (needReinit > 1000)   ReInit();
 
         if(Input.GetKeyDown(KeyCode.R))
         {
@@ -413,7 +413,7 @@ public class VdmDesktopManager : MonoBehaviour {
     private void ReInit()
     { 
         DesktopCapturePlugin_Initialize();
-
+     //   needReinit = 0;
         foreach (VdmDesktop winDesk in Monitors)
 
         {

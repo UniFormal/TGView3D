@@ -34,7 +34,7 @@ public class Stabilizer : MonoBehaviour {
 
             oldRot = transform.localEulerAngles;
         }
-        if (OVRInput.Get(OVRInput.Button.SecondaryThumbstick))
+        if (OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick))
         {
             transform.GetChild(0).gameObject.SetActive(!transform.GetChild(0).gameObject.activeSelf);
         }

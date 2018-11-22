@@ -155,47 +155,47 @@ namespace OVRTouchSample
                 }
             }
 
-            /*
-            if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickLeft) )
+            
+            if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickLeft) && graph != null && graph.latestSelection == graph.selectedNodes[handIndex])
             {
 
                 if (ReadyToSnapTurn)
                 {
+                //    Debug.Log(graph.currentTarget+ "  "+ graph.latestSelection);
+
                     if (graph.currentTarget != -1 && graph.currentTarget != graph.nodes[graph.latestSelection].connectedNodes.Count)
-                         graph.nodes[graph.nodes[graph.latestSelection].connectedNodes[graph.currentTarget]].nodeObject.GetComponent<MeshRenderer>().material.color = connectedColor;
-                    graph.currentTarget = (graph.currentTarget - 1) % (graph.nodes[graph.latestSelection].connectedNodes.Count + 1);
+                        graph.nodes[graph.nodes[graph.latestSelection].connectedNodes[graph.currentTarget]].labelObject.GetComponent<TextMesh>().color =connectedColor;
+                    graph.currentTarget = (graph.currentTarget - 1) % (graph.nodes[graph.latestSelection].connectedNodes.Count+1);
+                    if (graph.currentTarget == -2) graph.currentTarget = graph.nodes[graph.latestSelection].connectedNodes.Count - 1;
                     if (OnSelectionChanged != null)
                         OnSelectionChanged();
                     ReadyToSnapTurn = false;
-
+                   
                 }
 
-                if (graph.currentTarget == graph.nodes[graph.latestSelection].connectedNodes.Count)
+                if (graph.currentTarget == -1|| graph.currentTarget == graph.nodes[graph.latestSelection].connectedNodes.Count)
                 {
                     m_camera.transform.rotation = Quaternion.identity;
                 }
                 else
                 {
-                    graph.nodes[graph.nodes[graph.latestSelection].connectedNodes[graph.currentTarget]].nodeObject.GetComponent<MeshRenderer>().material.color = targetColor;
-                    Vector3 relativePos = graph.nodes[graph.nodes[graph.latestSelection].connectedNodes[graph.currentTarget]].pos - m_camera.transform.position;
-                    relativePos.y = 0;
+                 //   Debug.Log(graph.currentTarget + "  " + graph.latestSelection);
+                    graph.nodes[graph.nodes[graph.latestSelection].connectedNodes[graph.currentTarget]].labelObject.GetComponent<TextMesh>().color = targetColor;
+                    Vector3 relativePos = graph.nodes[graph.nodes[graph.latestSelection].connectedNodes[graph.currentTarget]].nodeObject.transform.position - m_camera.transform.position;
                     Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
-                    m_camera.transform.rotation = rotation;
+                    rotation.eulerAngles = new Vector3(0, rotation.eulerAngles.y, 0);
+                    m_camera.transform.localRotation = rotation;
+                    m_camera.transform.Rotate(new Vector3(0, -Camera.main.transform.localEulerAngles.y, 0));
                 }
-
-
-
             }
-            else*/
+            else
             if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickRight) && graph!=null &&graph.latestSelection == graph.selectedNodes[handIndex])
             {
 
                 if (ReadyToSnapTurn)
                 {
 
-                    Debug.Log(graph.currentTarget);
-                    Debug.Log(graph.latestSelection);
-                    Debug.Log(graph.nodes[graph.latestSelection].connectedNodes.Count);
+    
                     if (graph.currentTarget != -1 && graph.currentTarget != graph.nodes[graph.latestSelection].connectedNodes.Count)
                         graph.nodes[graph.nodes[graph.latestSelection].connectedNodes[graph.currentTarget]].labelObject.GetComponent<TextMesh>().color =connectedColor;
                     graph.currentTarget = (graph.currentTarget + 1) % (graph.nodes[graph.latestSelection].connectedNodes.Count+1);
@@ -205,7 +205,7 @@ namespace OVRTouchSample
                    
                 }
 
-                if (graph.currentTarget == graph.nodes[graph.latestSelection].connectedNodes.Count)
+                if (graph.currentTarget == -1 || graph.currentTarget == graph.nodes[graph.latestSelection].connectedNodes.Count)
                 {
                     m_camera.transform.rotation = Quaternion.identity;
                 }
@@ -216,6 +216,7 @@ namespace OVRTouchSample
                     Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
                     rotation.eulerAngles = new Vector3(0, rotation.eulerAngles.y, 0);
                     m_camera.transform.localRotation = rotation;
+                    m_camera.transform.Rotate(new Vector3(0, -Camera.main.transform.localEulerAngles.y, 0));
                 }
             }
 
