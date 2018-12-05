@@ -148,6 +148,38 @@
          "label":"FOLSemantics",
          "url":"/?http://mathhub.info/Teaching/KRMT?FOLSemantics"
       },
+	        {
+         "id":"http://mathhub.info/Teaching/KRMT?FOLSemantics",
+         "style":"include",
+         "from":"http://mathhub.info/Teaching/KRMT?FOLSyntax",
+         "to":"http://mathhub.info/Teaching/KRMT?FOModels",
+         "label":"FOLSemantics",
+         "url":"/?http://mathhub.info/Teaching/KRMT?FOLSemantics"
+      },
+	  	       {
+         "id":"http://mathhub.info/Teaching/KRMT?FOLSemantics",
+         "style":"meta",
+         "from":"http://mathhub.info/Teaching/KRMT?FOLSyntax",
+         "to":"http://mathhub.info/Teaching/KRMT?FOModels",
+         "label":"FOLSemantics",
+         "url":"/?http://mathhub.info/Teaching/KRMT?FOLSemantics"
+      },
+	        {
+         "id":"http://mathhub.info/Teaching/KRMT?FOLSemantics",
+         "style":"structure",
+         "from":"http://mathhub.info/Teaching/KRMT?FOLSyntax",
+         "to":"http://mathhub.info/Teaching/KRMT?FOModels",
+         "label":"FOLSemantics",
+         "url":"/?http://mathhub.info/Teaching/KRMT?FOLSemantics"
+      },
+	        {
+         "id":"http://mathhub.info/Teaching/KRMT?FOLSemantics",
+         "style":"alignment",
+         "from":"http://mathhub.info/Teaching/KRMT?FOLSyntax",
+         "to":"http://mathhub.info/Teaching/KRMT?FOModels",
+         "label":"FOLSemantics",
+         "url":"/?http://mathhub.info/Teaching/KRMT?FOLSemantics"
+      },
       {
          "id":"http://mathhub.info/Teaching/KRMT?NatPlusIsMonoid",
          "style":"view",
