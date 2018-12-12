@@ -148,38 +148,6 @@
          "label":"FOLSemantics",
          "url":"/?http://mathhub.info/Teaching/KRMT?FOLSemantics"
       },
-	        {
-         "id":"http://mathhub.info/Teaching/KRMT?FOLSemantics",
-         "style":"include",
-         "from":"http://mathhub.info/Teaching/KRMT?FOLSyntax",
-         "to":"http://mathhub.info/Teaching/KRMT?FOModels",
-         "label":"FOLSemantics",
-         "url":"/?http://mathhub.info/Teaching/KRMT?FOLSemantics"
-      },
-	  	       {
-         "id":"http://mathhub.info/Teaching/KRMT?FOLSemantics",
-         "style":"meta",
-         "from":"http://mathhub.info/Teaching/KRMT?FOLSyntax",
-         "to":"http://mathhub.info/Teaching/KRMT?FOModels",
-         "label":"FOLSemantics",
-         "url":"/?http://mathhub.info/Teaching/KRMT?FOLSemantics"
-      },
-	        {
-         "id":"http://mathhub.info/Teaching/KRMT?FOLSemantics",
-         "style":"structure",
-         "from":"http://mathhub.info/Teaching/KRMT?FOLSyntax",
-         "to":"http://mathhub.info/Teaching/KRMT?FOModels",
-         "label":"FOLSemantics",
-         "url":"/?http://mathhub.info/Teaching/KRMT?FOLSemantics"
-      },
-	        {
-         "id":"http://mathhub.info/Teaching/KRMT?FOLSemantics",
-         "style":"alignment",
-         "from":"http://mathhub.info/Teaching/KRMT?FOLSyntax",
-         "to":"http://mathhub.info/Teaching/KRMT?FOModels",
-         "label":"FOLSemantics",
-         "url":"/?http://mathhub.info/Teaching/KRMT?FOLSemantics"
-      },
       {
          "id":"http://mathhub.info/Teaching/KRMT?NatPlusIsMonoid",
          "style":"view",
@@ -203,6 +171,29 @@
          "to":"http://mathhub.info/Teaching/KRMT?Monoid",
          "label":"opposite",
          "url":"/?http://mathhub.info/Teaching/KRMT?opposite"
+      },      {
+         "id":"http://mathhub.info/Teaching/KRMT?propsemantics",
+         "style":"view",
+         "from":"http://mathhub.info/Teaching/KRMT?PropLogSyntax",
+         "to":"http://mathhub.info/Teaching/KRMT?Booleans",
+         "label":"propsemantics",
+         "url":"/?http://mathhub.info/Teaching/KRMT?propsemantics"
+      },
+      {
+         "id":"http://mathhub.info/Teaching/KRMT?self_dual",
+         "style":"view",
+         "from":"http://mathhub.info/Teaching/KRMT?Magma",
+         "to":"http://mathhub.info/Teaching/KRMT?Magma",
+         "label":"self_dual",
+         "url":"/?http://mathhub.info/Teaching/KRMT?self_dual"
+      },
+      {
+         "id":"http://mathhub.info/Teaching/KRMT?semantics",
+         "style":"view",
+         "from":"http://mathhub.info/Teaching/KRMT?PropLogSyntax",
+         "to":"http://mathhub.info/Teaching/KRMT?Booleans",
+         "label":"semantics",
+         "url":"/?http://mathhub.info/Teaching/KRMT?semantics"
       },
       {
          "id":"http://mathhub.info/Teaching/KRMT?propsemantics",

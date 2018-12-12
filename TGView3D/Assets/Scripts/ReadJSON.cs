@@ -8,6 +8,8 @@ using UnityEngine.XR;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Unity.Collections;
+using Unity.Jobs;
 
 namespace TGraph
 {
@@ -34,7 +36,7 @@ namespace TGraph
         public float spaceScale = 1;
         public GameObject UrlSelect;
         int si = 0;
-
+        public int subNode = 400;
         public string url;//"http://neuralocean.de/graph/test/nasa.json";
         public int vol = 100;
         public TextAsset[] GraphFiles;
@@ -45,6 +47,8 @@ namespace TGraph
         public class MyGraph
         {
             public List<MyNode> nodes;
+            public NativeArray<Vector3> Disps;
+            public NativeArray<Vector3> Positions;
             public Dictionary<string, int> nodeDict;
             public List<MyEdge> edges;
             public List<MyEdge> tmpEdges;
@@ -115,7 +119,7 @@ namespace TGraph
             public string label;
             public string url;
             public string clickText;
-            public int localIdx = 0;
+            public float localIdx = 0;
             public GameObject line;
             public GameObject labelObject;
             //public List<MyNestedObject> nestedObjects;
@@ -135,7 +139,7 @@ namespace TGraph
         List<int> countNodesInGraph = new List<int>();
         void identifySubgraphs()
         {
-            Debug.Log("Identify Subgraphs... " + graph.nodes.Count);
+            Debug.Log("Identify Subgraphs... for node count of" + graph.nodes.Count);
             for (var i = 0; i < graph.nodes.Count; i++)
             {
                 graph.nodes[i].graphNumber = -1;
@@ -186,7 +190,44 @@ namespace TGraph
 
         }
 
+        void CalculateSubgraph(int nid)
+        {
+            var node = graph.nodes[nid];
+            Debug.Log(node.label);
+            List<int> edgesIn = new List<int>();
+            List<int> edgesOut = new List<int>();
 
+
+            foreach (int idx in node.edgeIndicesIn)
+            {
+                edgesIn.Add(idx);
+            }
+            for(int i = 0;i<edgesIn.Count;++i)
+            {
+                int idxIn = edgesIn[i];
+                foreach (int idx in graph.nodes[graph.nodeDict[graph.edges[idxIn].from]].edgeIndicesIn)
+                    edgesIn.Add(idx);
+            }
+
+            foreach (int idx in node.edgeIndicesOut)
+            {
+                edgesOut.Add(idx);
+            }
+            for (int i = 0; i < edgesOut.Count; ++i)
+            {
+                int idxOut = edgesOut[i];
+                foreach (int idx in graph.nodes[graph.nodeDict[graph.edges[idxOut].to]].edgeIndicesOut)
+                    edgesIn.Add(idx);
+            }
+
+            List<int> edges = (edgesIn.Concat<int>(edgesOut).ToList<int>());
+
+            var nodeEdgeObject = TGraph.ReadJSON.BuildEdges(edges, ref graph, graph.edgeObject.GetComponent<MeshRenderer>().sharedMaterial);
+            nodeEdgeObject.transform.localPosition = Vector3.zero;
+            nodeEdgeObject.transform.localEulerAngles = Vector3.zero;
+            nodeEdgeObject.name = "subgraph";
+
+        }
 
 
         public static void SetTriangles(int i, int[] triangles)
@@ -260,11 +301,7 @@ namespace TGraph
         }
 
 
-
-
-
-
-        public static GameObject BuildEdges(List<MyEdge> edges, ref MyGraph graph, Material lineMat)
+        public static GameObject BuildEdges(List<int> edges, ref MyGraph graph, Material lineMat)
         {
 
             var nodes = graph.nodeDict;
@@ -306,6 +343,121 @@ namespace TGraph
 
             for (int i = 0; i < edges.Count; i++)
             {
+                if (nodes.ContainsKey(graph.edges[edges[i]].from) && nodes.ContainsKey(graph.edges[edges[i]].to))
+                {
+                    MyNode source = graph.nodes[nodes[graph.edges[edges[i]].from]];
+                    MyNode target = graph.nodes[nodes[graph.edges[edges[i]].to]];
+
+                    Vector3 dir = target.pos - source.pos;
+
+                    Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * graph.lineWidth;
+                    Vector3 offsetOrtho = Vector3.Cross(dir, offset).normalized * graph.lineWidth;
+
+                    //random
+                    /*float a = Random.value < .5 ? 1 : -1;
+                    float b = Random.value < .5 ? 1 : -1;
+                   
+                    float alpha = Random.Range(0f, 1f);
+                    Vector3 next = 7*(alpha * (a*offset - b*offsetOrtho) + offsetOrtho);
+                    */
+
+                    Vector3 next = 10 * (Quaternion.AngleAxis(360 * graph.edges[edges[i]].localIdx, dir) * offsetOrtho);
+                    if(graph.edges[edges[i]].localIdx==0) next *= 0;
+
+
+                    vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = graph.colorDict[graph.edges[edges[i]].style];
+                    vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = graph.colorDict[graph.edges[edges[i]].style] + new Color(0, 0, 255);
+
+                    //creates square tubes by setting vertices manually
+
+                    if (graph.edges[edges[i]].localIdx > 0)
+                        Debug.Log(graph.edges[edges[i]].localIdx + " " + next * 100 + graph.edges[edges[i]].from);
+                    /*
+                    if (graph.edges[edges[i]].localIdx > 0)
+                        createEdge(i, vertices, source.pos+next, target.pos+next, offset, offsetOrtho);
+                    else*/
+                    createEdge(i, vertices, source.pos + next, target.pos + next, offset, offsetOrtho);
+                    SetTriangles(i, triangles);
+
+
+                    /*
+                    if(graph.edges[edges[i]].label!=null&& graph.edges[edges[i]].label!= "")
+                    {
+                        graph.edges[edges[i]].labelObject = GenLabel(target.nodeObject.transform.GetChild(0), graph.edges[edges[i]].label);
+                       
+                      //  Debug.Log(graph.edges[edges[i]].label);
+                    }
+                    /*
+                    if (edges[i].clickText != null)
+                    {
+                        edges[i].labelObject = GenLabel(target.nodeObject.transform, edges[i].clickText);
+                       // edges[i].labelObject.transform.position -= new Vector3(0, -1, 0);
+                        Debug.Log(edges[i].clickText);
+                    }*/
+
+
+                }
+
+            }
+
+            mesh.vertices = vertices;
+            mesh.triangles = triangles;
+            mesh.colors = vertexColors;
+
+            mr.sharedMaterial = lineMat;
+            mf.sharedMesh = mesh;
+
+            mesh.RecalculateBounds();
+
+            return line;
+
+        }
+
+    
+
+
+        public static GameObject BuildEdges(List<MyEdge> edges, ref MyGraph graph, Material lineMat)
+        {
+
+            var nodes = graph.nodeDict;
+            int tubeCount = edges.Count;
+            int controlPoints = 1;
+            int polyType = 4;
+
+            /* foreach (var edge in graph.edges)
+             {
+                 //not straight => more tubes
+                 if (edge.localIdx > 0)
+                     tubeCount +=controlPoints;
+
+             }
+             int[] prefixSumArray = new int[tubeCount];
+             prefixSumArray[0] = 0;
+
+             for (int i = 0; i < tubeCount; i++)
+             {
+                 int edgeTubeCount = 1;
+                 if (graph.edges[i].localIdx > 0)
+                     edgeTubeCount = 1 + controlPoints;
+                 prefixSumArray[i + 1] = prefixSumArray[i] + edgeTubeCount;
+             }
+             */
+
+            Vector3[] vertices = new Vector3[2 * polyType * tubeCount];
+            Color[] vertexColors = new Color[2 * polyType * tubeCount];
+
+            int[] triangles = new int[polyType * 6 * tubeCount];
+
+            GameObject line = new GameObject();
+
+            MeshRenderer mr = line.AddComponent<MeshRenderer>();
+            MeshFilter mf = line.AddComponent<MeshFilter>();
+            Mesh mesh = new Mesh();
+          //  Debug.Log(triangles.Length);
+
+
+            for (int i = 0; i < edges.Count; i++)
+            {
                 if (nodes.ContainsKey(edges[i].from) && nodes.ContainsKey(edges[i].to))
                 {
                     MyNode source = graph.nodes[nodes[edges[i].from]];
@@ -316,25 +468,29 @@ namespace TGraph
                     Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * graph.lineWidth;
                     Vector3 offsetOrtho = Vector3.Cross(dir, offset).normalized * graph.lineWidth;
 
-                    float a = Random.value < .5 ? 1 : -1;
+                    //random
+                    /*float a = Random.value < .5 ? 1 : -1;
                     float b = Random.value < .5 ? 1 : -1;
                    
                     float alpha = Random.Range(0f, 1f);
                     Vector3 next = 7*(alpha * (a*offset - b*offsetOrtho) + offsetOrtho);
+                    */
 
-
+                    Vector3 next = 7 * (Quaternion.AngleAxis(360 * edges[i].localIdx, dir) * offset);
+                    if (edges[i].localIdx <= 0)next *= 0;
                     //Debug.Log(edges[i].style);
                     vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = graph.colorDict[edges[i].style];
                     vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = graph.colorDict[edges[i].style] + new Color(0, 0, 255);
 
                     //creates square tubes by setting vertices manually
 
-                    if (edges[i].localIdx > 0)
-                        Debug.Log(edges[i].id);
+                  //  if (edges[i].localIdx > 0)
+                   //     Debug.Log(edges[i].localIdx+" "+next * 100+edges[i].from);
+                    /*
                     if (edges[i].localIdx > 0)
                         createEdge(i, vertices, source.pos+next, target.pos+next, offset, offsetOrtho);
-                    else
-                        createEdge(i, vertices, source.pos, target.pos, offset, offsetOrtho);
+                    else*/
+                        createEdge(i, vertices, source.pos+next, target.pos+next, offset, offsetOrtho);
                     SetTriangles(i, triangles);
 
 
@@ -364,7 +520,6 @@ namespace TGraph
 
             mr.sharedMaterial = lineMat;
             mf.sharedMesh = mesh;
-
 
             mesh.RecalculateBounds();
 
@@ -496,7 +651,7 @@ namespace TGraph
                     //tmpMathMLs.Add(graph.nodes[i].mathml);
                     PData data = new PData();
                     data.math = graph.nodes[i].mathml;
-                    StartCoroutine(TestRequest(data, i));
+                   // StartCoroutine(TestRequest(data, i));
                 }
 
             }
@@ -570,9 +725,21 @@ namespace TGraph
                      nodeEdgePairs[i]=new Vector2Int(edgeIndices[i], node.connectedNodes[i]);
                  }*/
 
-                var duplicates = node.connectedNodes
-                .Select((t, i) => new { Index = i, Text = t })
-                .GroupBy(g => g.Text)
+                List<int> connectedNodes = new List<int>();
+
+                foreach(int eidx in node.edgeIndicesIn)
+                {
+                    connectedNodes.Add(graph.nodeDict[graph.edges[eidx].from]);
+                }
+                foreach (int eidx in node.edgeIndicesOut)
+                {
+                    connectedNodes.Add(graph.nodeDict[graph.edges[eidx].to]);
+                }
+
+                //multiple edges between same two nodes
+                var duplicates = connectedNodes//node.connectedNodes
+                .Select((t, i) => new { Index = i, Nid = t })
+                .GroupBy(g => g.Nid)
                 .Where(g => g.Count() > 1);
 
                 foreach (var duplicateGroup in duplicates)
@@ -581,31 +748,44 @@ namespace TGraph
                     int k = 0;
                     foreach (var duplicate in duplicateGroup)
                     {
-                        if(node.nr!=duplicate.Text)
-                            graph.edges[edgeIndices[duplicate.Index]].localIdx = k++;
+                        if(node.nr!=duplicate.Nid&& graph.edges[edgeIndices[duplicate.Index]].localIdx==0)
+                          //  graph.edges[edgeIndices[duplicate.Index]].localIdx =
+                                k++;
                     
                     }
-                }
-                var idx = 0;
+                    float dnum = k;
 
+                    k = 1;
+                    foreach (var duplicate in duplicateGroup)
+                    {
+                        if (node.nr != duplicate.Nid && graph.edges[edgeIndices[duplicate.Index]].localIdx == 0)
+                        {
+                            graph.edges[edgeIndices[duplicate.Index]].localIdx = k++/dnum;
+
+                           
+                        }
+                        Debug.Log(node.label +" "+graph.nodes[duplicate.Nid].label + " " + duplicate.Index + " " + graph.edges[edgeIndices[duplicate.Index]].localIdx + " " + graph.edges[edgeIndices[duplicate.Index]].from + " " + graph.edges[edgeIndices[duplicate.Index]].to);
+
+
+                    }
+                }
+
+                //loops
+                /*
+                var idx = 0;
                 int same = -1;
+                var count = node.connectedNodes.Count(item => item ==node.nr);
                 while (idx != -1)
-                {
-                    
+                {                 
                     idx = node.connectedNodes.IndexOf(node.nr,idx);
                     if (idx != -1)
                     {
-                        /*  string cn = "";
-                          foreach (int n in node.connectedNodes)
-                              cn += " " + n;
-                          Debug.Log(cn);*/
-                        Debug.Log(same);
-                        graph.edges[edgeIndices[idx]].localIdx = same--;
-                        idx++;
-                      
-                    }
-                }
 
+                        graph.edges[edgeIndices[idx]].localIdx = (same--/count);
+                        idx++;
+                    }
+                }*/
+         
             }
 
 
@@ -662,7 +842,7 @@ namespace TGraph
         */  UrlSelect.GetComponent<Dropdown>().value = GlobalVariables.SelectionIndex;
             //  GlobalVariables.Url = "file:///" + Application.dataPath + "/" + UrlSelect.GetComponent<Dropdown>().captionText.text + ".json";
 
-            LoadGraph();
+           
         }
 
 
@@ -738,9 +918,28 @@ namespace TGraph
             }
         }*/
 
+        private IEnumerator FinishInit( JobHandle handle, float time)
+        {
+            yield return new WaitUntil(() => handle.IsCompleted);
+            handle.Complete();
+            Layouts.Normalize(spaceScale);
+            Debug.Log("wtf");
+            graph.edgeObject = BuildEdges(graph.edges, ref graph, lineMat);
+            graph.edgeObject.transform.parent = transform.parent;
+            graph.edgeObject.name = "EdgeMesh";
+            GlobalVariables.Solved = true;
+            this.GetComponent<Interaction>().enabled = true;
+            GlobalVariables.Init = true;
+            this.GetComponent<GlobalAlignText>().childCount = this.transform.childCount;
+            graph.Positions.Dispose();
+            graph.Disps.Dispose();
+            Debug.Log("Finished init " + (Time.realtimeSinceStartup - time));
+        }
+
         public void ProcessAsset()
         {
 
+            var time = Time.realtimeSinceStartup;
             Debug.Log(GlobalVariables.SelectionIndex);
             var json = GraphFiles[GlobalVariables.SelectionIndex+2].text;//;
             GlobalVariables.Graph = MyGraph.CreateFromJSON(json);
@@ -768,24 +967,23 @@ namespace TGraph
             //Debug.Log(graph.nodes.Count);
 
             graph.nodeDict = new Dictionary<string, int>();
+            Debug.Log(Time.realtimeSinceStartup - time);
 
             ProcessNodes();
             ProcessEdges();
-
+            Debug.Log(Time.realtimeSinceStartup - time);
+            graph.Disps = new NativeArray<Vector3>(graph.nodes.Count,Allocator.Persistent);
+            graph.Positions = new NativeArray<Vector3>(graph.nodes.Count, Allocator.Persistent);
             identifySubgraphs();
 
-            Layouts.BaseLayout(iterations, globalWeight, spaceScale);
+            var handle = Layouts.BaseLayout(iterations, globalWeight, spaceScale);
 
-            graph.edgeObject = BuildEdges(graph.edges, ref graph, lineMat);
-            graph.edgeObject.transform.parent = transform.parent;
-
-            GlobalVariables.Solved = true;
+            StartCoroutine(FinishInit(handle, time));
 
 
-            this.GetComponent<Interaction>().enabled = true;
+    
 
-            GlobalVariables.Init = true;
-            this.GetComponent<GlobalAlignText>().childCount = this.transform.childCount;
+
         }
         IEnumerator ProcessJSON(WWW www)
         {
@@ -977,7 +1175,6 @@ namespace TGraph
             si = GlobalVariables.SelectionIndex;
             GlobalVariables.CurrentFile = GraphFiles[GlobalVariables.SelectionIndex];
 
-
             ProcessAsset();
         }
         public void RecalculateLayout()
@@ -1106,7 +1303,15 @@ namespace TGraph
                 
 
             }*/
+            if(Input.GetKeyDown(KeyCode.RightShift))
+                CalculateSubgraph(subNode);
 
+            if (Input.GetKeyDown(KeyCode.KeypadEnter))
+            {
+                Debug.Log("enter");
+                LoadGraph();
+            }
+               
 
             if (GlobalVariables.Recalculate)
             {
