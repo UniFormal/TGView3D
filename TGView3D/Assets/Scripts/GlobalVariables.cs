@@ -10,6 +10,7 @@ namespace TGraph
         public static bool Solved = false;
         public static int Vol;
         public static bool Init;
+        public static bool Reload = false;
         public static UnityEngine.EventSystems.EventSystem EventSystem;
         public static bool JetPack = false;
         public static bool Beam = true;

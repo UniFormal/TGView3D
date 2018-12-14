@@ -52,6 +52,7 @@ namespace TGraph
             public Dictionary<string, int> nodeDict;
             public List<MyEdge> edges;
             public List<MyEdge> tmpEdges;
+            public List<int> subEdges;
             public int handIndex = 0;
 
             //use object references instead?
@@ -59,9 +60,10 @@ namespace TGraph
             public List<int> movingNodes;
             public int latestSelection = -1;
             public int currentTarget = -1;
-
+            public int subGraphOrign = -1;
 
             public GameObject edgeObject;
+            public GameObject subObject;
             public List<int> badHack;
             public float lineWidth = 0.003f;
             //public List<int> removeList;
@@ -122,6 +124,8 @@ namespace TGraph
             public float localIdx = 0;
             public GameObject line;
             public GameObject labelObject;
+            public Color col;
+            public bool active = true;
             //public List<MyNestedObject> nestedObjects;
 
 
@@ -190,42 +194,99 @@ namespace TGraph
 
         }
 
-        void CalculateSubgraph(int nid)
+        public void CalculateSubgraph()
         {
-            var node = graph.nodes[nid];
-            Debug.Log(node.label);
-            List<int> edgesIn = new List<int>();
-            List<int> edgesOut = new List<int>();
-
-
-            foreach (int idx in node.edgeIndicesIn)
+            Debug.Log(graph.nodes.Count + " looking for " + graph.latestSelection);
+            if (graph.latestSelection >= graph.nodes.Count||graph.latestSelection==-1)
+                return;
+            var node = graph.nodes[graph.latestSelection];
+     
+            //deactivate
+            if (graph.subGraphOrign == graph.latestSelection)
             {
-                edgesIn.Add(idx);
+                GameObject.Destroy(graph.subObject);
+                GameObject.Destroy(node.nodeObject.transform.GetChild(1).gameObject);
+
+                graph.subGraphOrign = -1;
+                graph.edgeObject.SetActive(true);
             }
-            for(int i = 0;i<edgesIn.Count;++i)
+            else
             {
-                int idxIn = edgesIn[i];
-                foreach (int idx in graph.nodes[graph.nodeDict[graph.edges[idxIn].from]].edgeIndicesIn)
+                if(graph.subObject!=null)
+                    GameObject.Destroy(graph.subObject);
+
+                graph.edgeObject.SetActive(false);
+                graph.subGraphOrign = node.nr;
+                Debug.Log(node.label);
+                List<int> edgesIn = new List<int>();
+                List<int> edgesOut = new List<int>();
+                bool[] visited = new bool[graph.nodes.Count];
+
+                for (int n = 0; n < graph.nodes.Count; n++)
+                {
+                    visited[n] = false;
+                }
+
+                foreach (int idx in node.edgeIndicesIn)
+                {
                     edgesIn.Add(idx);
-            }
+                }
+                for (int i = 0; i < edgesIn.Count; ++i)
+                {
+                    int idxIn = edgesIn[i];
+                    foreach (int idx in graph.nodes[graph.nodeDict[graph.edges[idxIn].from]].edgeIndicesIn)
+                    {
+                        
+                        if (!visited[graph.nodeDict[graph.edges[idx].from]])
+                        {
+                            edgesIn.Add(idx);
+                            visited[graph.nodeDict[graph.edges[idx].from]] = true;
+                        }
+                   
+                    }
 
-            foreach (int idx in node.edgeIndicesOut)
-            {
-                edgesOut.Add(idx);
-            }
-            for (int i = 0; i < edgesOut.Count; ++i)
-            {
-                int idxOut = edgesOut[i];
-                foreach (int idx in graph.nodes[graph.nodeDict[graph.edges[idxOut].to]].edgeIndicesOut)
-                    edgesIn.Add(idx);
-            }
 
-            List<int> edges = (edgesIn.Concat<int>(edgesOut).ToList<int>());
+                }
 
-            var nodeEdgeObject = TGraph.ReadJSON.BuildEdges(edges, ref graph, graph.edgeObject.GetComponent<MeshRenderer>().sharedMaterial);
-            nodeEdgeObject.transform.localPosition = Vector3.zero;
-            nodeEdgeObject.transform.localEulerAngles = Vector3.zero;
-            nodeEdgeObject.name = "subgraph";
+                foreach (int idx in node.edgeIndicesOut)
+                {
+                    edgesOut.Add(idx);
+                }
+                for (int i = 0; i < edgesOut.Count; ++i)
+                {
+                    int idxOut = edgesOut[i];
+                    foreach (int idx in graph.nodes[graph.nodeDict[graph.edges[idxOut].to]].edgeIndicesOut)
+                    {
+                       
+                        if (!visited[graph.nodeDict[graph.edges[idx].to]])
+                        {
+                            edgesOut.Add(idx);
+                            visited[graph.nodeDict[graph.edges[idx].to]] = true;
+                        }
+
+                    }
+
+                }
+
+                List<int> edgeIndices = (edgesIn.Concat<int>(edgesOut).ToList<int>());
+                List<MyEdge> edges = new List<MyEdge>();
+                foreach (int eidx in edgeIndices)
+                    edges.Add(graph.edges[eidx]);
+
+                graph.subEdges = edgeIndices;
+                graph.subObject = TGraph.ReadJSON.BuildEdges(edges, ref graph, graph.edgeObject.GetComponent<MeshRenderer>().sharedMaterial);
+  
+                graph.subObject.name = "subgraph";
+                graph.subObject.transform.parent = this.transform.parent;
+                graph.subObject.transform.localPosition = Vector3.zero;
+                graph.subObject.transform.localEulerAngles = Vector3.zero;
+                GameObject Aura = Instantiate(Resources.Load("Aura")) as GameObject;
+                Aura.transform.parent = node.nodeObject.transform;
+                Aura.transform.position = node.pos;
+
+            }
+           
+         
 
         }
 
@@ -301,117 +362,7 @@ namespace TGraph
         }
 
 
-        public static GameObject BuildEdges(List<int> edges, ref MyGraph graph, Material lineMat)
-        {
-
-            var nodes = graph.nodeDict;
-            int tubeCount = edges.Count;
-            int controlPoints = 1;
-            int polyType = 4;
-
-            /* foreach (var edge in graph.edges)
-             {
-                 //not straight => more tubes
-                 if (edge.localIdx > 0)
-                     tubeCount +=controlPoints;
-
-             }
-             int[] prefixSumArray = new int[tubeCount];
-             prefixSumArray[0] = 0;
-
-             for (int i = 0; i < tubeCount; i++)
-             {
-                 int edgeTubeCount = 1;
-                 if (graph.edges[i].localIdx > 0)
-                     edgeTubeCount = 1 + controlPoints;
-                 prefixSumArray[i + 1] = prefixSumArray[i] + edgeTubeCount;
-             }
-             */
-
-            Vector3[] vertices = new Vector3[2 * polyType * tubeCount];
-            Color[] vertexColors = new Color[2 * polyType * tubeCount];
-
-            int[] triangles = new int[polyType * 6 * tubeCount];
-
-            GameObject line = new GameObject();
-
-            MeshRenderer mr = line.AddComponent<MeshRenderer>();
-            MeshFilter mf = line.AddComponent<MeshFilter>();
-            Mesh mesh = new Mesh();
-            Debug.Log(triangles.Length);
-
-
-            for (int i = 0; i < edges.Count; i++)
-            {
-                if (nodes.ContainsKey(graph.edges[edges[i]].from) && nodes.ContainsKey(graph.edges[edges[i]].to))
-                {
-                    MyNode source = graph.nodes[nodes[graph.edges[edges[i]].from]];
-                    MyNode target = graph.nodes[nodes[graph.edges[edges[i]].to]];
-
-                    Vector3 dir = target.pos - source.pos;
-
-                    Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * graph.lineWidth;
-                    Vector3 offsetOrtho = Vector3.Cross(dir, offset).normalized * graph.lineWidth;
-
-                    //random
-                    /*float a = Random.value < .5 ? 1 : -1;
-                    float b = Random.value < .5 ? 1 : -1;
-                   
-                    float alpha = Random.Range(0f, 1f);
-                    Vector3 next = 7*(alpha * (a*offset - b*offsetOrtho) + offsetOrtho);
-                    */
-
-                    Vector3 next = 10 * (Quaternion.AngleAxis(360 * graph.edges[edges[i]].localIdx, dir) * offsetOrtho);
-                    if(graph.edges[edges[i]].localIdx==0) next *= 0;
-
-
-                    vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = graph.colorDict[graph.edges[edges[i]].style];
-                    vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = graph.colorDict[graph.edges[edges[i]].style] + new Color(0, 0, 255);
-
-                    //creates square tubes by setting vertices manually
-
-                    if (graph.edges[edges[i]].localIdx > 0)
-                        Debug.Log(graph.edges[edges[i]].localIdx + " " + next * 100 + graph.edges[edges[i]].from);
-                    /*
-                    if (graph.edges[edges[i]].localIdx > 0)
-                        createEdge(i, vertices, source.pos+next, target.pos+next, offset, offsetOrtho);
-                    else*/
-                    createEdge(i, vertices, source.pos + next, target.pos + next, offset, offsetOrtho);
-                    SetTriangles(i, triangles);
-
-
-                    /*
-                    if(graph.edges[edges[i]].label!=null&& graph.edges[edges[i]].label!= "")
-                    {
-                        graph.edges[edges[i]].labelObject = GenLabel(target.nodeObject.transform.GetChild(0), graph.edges[edges[i]].label);
-                       
-                      //  Debug.Log(graph.edges[edges[i]].label);
-                    }
-                    /*
-                    if (edges[i].clickText != null)
-                    {
-                        edges[i].labelObject = GenLabel(target.nodeObject.transform, edges[i].clickText);
-                       // edges[i].labelObject.transform.position -= new Vector3(0, -1, 0);
-                        Debug.Log(edges[i].clickText);
-                    }*/
-
-
-                }
-
-            }
-
-            mesh.vertices = vertices;
-            mesh.triangles = triangles;
-            mesh.colors = vertexColors;
-
-            mr.sharedMaterial = lineMat;
-            mf.sharedMesh = mesh;
-
-            mesh.RecalculateBounds();
-
-            return line;
-
-        }
+        
 
     
 
@@ -696,8 +647,6 @@ namespace TGraph
                         source.edgeIndicesOut.Add(i);
                         target.edgeIndicesIn.Add(i);
 
-                        source.connectedNodes.Add(graph.nodeDict[graph.edges[i].to]);
-                        target.connectedNodes.Add(graph.nodeDict[graph.edges[i].from]);
                         float weight = 1;
                         if (graph.edges[i].style != "graphinclude" && graph.edges[i].style != "include")
                         {
@@ -711,7 +660,7 @@ namespace TGraph
                         target.inWeights.Add(weight);
                     }
 
-                }
+                } 
             }
 
             foreach (MyNode node in graph.nodes)
@@ -725,19 +674,18 @@ namespace TGraph
                      nodeEdgePairs[i]=new Vector2Int(edgeIndices[i], node.connectedNodes[i]);
                  }*/
 
-                List<int> connectedNodes = new List<int>();
-
+         
                 foreach(int eidx in node.edgeIndicesIn)
                 {
-                    connectedNodes.Add(graph.nodeDict[graph.edges[eidx].from]);
+                    node.connectedNodes.Add(graph.nodeDict[graph.edges[eidx].from]);
                 }
                 foreach (int eidx in node.edgeIndicesOut)
                 {
-                    connectedNodes.Add(graph.nodeDict[graph.edges[eidx].to]);
+                    node.connectedNodes.Add(graph.nodeDict[graph.edges[eidx].to]);
                 }
 
                 //multiple edges between same two nodes
-                var duplicates = connectedNodes//node.connectedNodes
+                var duplicates = node.connectedNodes
                 .Select((t, i) => new { Index = i, Nid = t })
                 .GroupBy(g => g.Nid)
                 .Where(g => g.Count() > 1);
@@ -840,8 +788,9 @@ namespace TGraph
                    //"/smglom_archive.json"
                    ;
         */  UrlSelect.GetComponent<Dropdown>().value = GlobalVariables.SelectionIndex;
+            Debug.Log(GlobalVariables.SelectionIndex + " found after start");
             //  GlobalVariables.Url = "file:///" + Application.dataPath + "/" + UrlSelect.GetComponent<Dropdown>().captionText.text + ".json";
-
+            if (GlobalVariables.Reload&&!GlobalVariables.Init) LoadGraph();
            
         }
 
@@ -918,12 +867,24 @@ namespace TGraph
             }
         }*/
 
+        private IEnumerator FinishUpdate(JobHandle handle)
+        {
+            yield return new WaitUntil(() => handle.IsCompleted);
+            handle.Complete();
+            Layouts.Normalize(spaceScale);
+            foreach (MyNode node in graph.nodes)
+            {
+                UpdateEdges(node);
+            }
+            Debug.Log("update fin");
+        }
+
+
         private IEnumerator FinishInit( JobHandle handle, float time)
         {
             yield return new WaitUntil(() => handle.IsCompleted);
             handle.Complete();
             Layouts.Normalize(spaceScale);
-            Debug.Log("wtf");
             graph.edgeObject = BuildEdges(graph.edges, ref graph, lineMat);
             graph.edgeObject.transform.parent = transform.parent;
             graph.edgeObject.name = "EdgeMesh";
@@ -931,8 +892,8 @@ namespace TGraph
             this.GetComponent<Interaction>().enabled = true;
             GlobalVariables.Init = true;
             this.GetComponent<GlobalAlignText>().childCount = this.transform.childCount;
-            graph.Positions.Dispose();
-            graph.Disps.Dispose();
+       //     graph.Positions.Dispose();
+        //    graph.Disps.Dispose();
             Debug.Log("Finished init " + (Time.realtimeSinceStartup - time));
         }
 
@@ -941,7 +902,8 @@ namespace TGraph
 
             var time = Time.realtimeSinceStartup;
             Debug.Log(GlobalVariables.SelectionIndex);
-            var json = GraphFiles[GlobalVariables.SelectionIndex+2].text;//;
+           
+            var json = GraphFiles[GlobalVariables.SelectionIndex].text;//;
             GlobalVariables.Graph = MyGraph.CreateFromJSON(json);
             graph = GlobalVariables.Graph;
             GlobalVariables.Vol = vol;
@@ -972,8 +934,8 @@ namespace TGraph
             ProcessNodes();
             ProcessEdges();
             Debug.Log(Time.realtimeSinceStartup - time);
-            graph.Disps = new NativeArray<Vector3>(graph.nodes.Count,Allocator.Persistent);
-            graph.Positions = new NativeArray<Vector3>(graph.nodes.Count, Allocator.Persistent);
+            //graph.Disps = new NativeArray<Vector3>(graph.nodes.Count,Allocator.Persistent);
+            //graph.Positions = new NativeArray<Vector3>(graph.nodes.Count, Allocator.Persistent);
             identifySubgraphs();
 
             var handle = Layouts.BaseLayout(iterations, globalWeight, spaceScale);
@@ -1091,6 +1053,8 @@ namespace TGraph
             Mesh mesh = node.nodeEdgeObject.GetComponent<MeshFilter>().sharedMesh;
             Vector3[] vertices = mesh.vertices;
 
+   
+
             Mesh bigMesh = graph.edgeObject.GetComponent<MeshFilter>().sharedMesh;
             Vector3[] bigVertices = bigMesh.vertices;
 
@@ -1130,6 +1094,27 @@ namespace TGraph
 
             bigMesh.vertices = bigVertices;
             bigMesh.RecalculateBounds();
+
+            if (graph.subObject != null)
+            {
+
+                Mesh subMesh = graph.subObject.GetComponent<MeshFilter>().sharedMesh;
+           
+                Vector3[] subVertices = subMesh.vertices;
+                int k = 0;
+                foreach (int eid in graph.subEdges)
+                {
+                    for(int v = 0; v < 8; v++)
+                    {
+                        subVertices[k++] = bigVertices[eid * 8+v];
+                    }
+                    
+                }
+                subMesh.vertices = subVertices;
+                subMesh.RecalculateBounds();
+            }
+ 
+
         }
 
         //if not known if selected EdgeObjects are active
@@ -1177,24 +1162,49 @@ namespace TGraph
 
             ProcessAsset();
         }
+
+      
+        public void ChangeID(InputField f)
+        {
+            int result = 0;
+            if (System.Int32.TryParse(f.text, out result))
+            {
+                
+                graph.latestSelection = result;
+            }
+            
+        }
+
+
         public void RecalculateLayout()
         {
-            Debug.Log(url + " " + GlobalVariables.Url);
+           // Debug.Log(url + " " + GlobalVariables.Url);
             if (!GlobalVariables.Init)
             {
                 LoadGraph();
             }
             else if (si != GlobalVariables.SelectionIndex)
             {
-                Debug.Log("reload");
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                Debug.Log("new graph, reload scene");
+             //   graph.Positions.Dispose();
+              //  graph.Disps.Dispose();
                 GlobalVariables.Init = false;
+                GlobalVariables.Reload = true;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
+                Debug.Log("after reload");
+               //  LoadGraph();
             }
             else
             {
-                Debug.Log(url + " ................ " + GlobalVariables.Url);
-                StartCoroutine(RLCoroutine());
+                //Debug.Log(url + " ................ " + GlobalVariables.Url);
+
+                // StartCoroutine(RLCoroutine());
+                Debug.Log("update layout");
+                var handle = Layouts.BaseLayout(iterations, globalWeight, spaceScale);
+                StartCoroutine(FinishUpdate(handle));
+
+           
             }
 
         }
@@ -1202,7 +1212,12 @@ namespace TGraph
         IEnumerator RLCoroutine()
         {
 
-            Layouts.BaseLayout(iterations, globalWeight, spaceScale);
+
+            var handle = Layouts.BaseLayout(iterations, globalWeight, spaceScale);
+
+            StartCoroutine(FinishInit(handle, 0));
+
+            //Layouts.BaseLayout(iterations, globalWeight, spaceScale);
             int k = 0;
             foreach (MyNode node in graph.nodes)
             {
@@ -1214,7 +1229,9 @@ namespace TGraph
                     yield return null;
                 }
             }
+            Debug.Log("update fin");
             yield return null;
+
         }
 
 
@@ -1304,7 +1321,7 @@ namespace TGraph
 
             }*/
             if(Input.GetKeyDown(KeyCode.RightShift))
-                CalculateSubgraph(subNode);
+                CalculateSubgraph();
 
             if (Input.GetKeyDown(KeyCode.KeypadEnter))
             {

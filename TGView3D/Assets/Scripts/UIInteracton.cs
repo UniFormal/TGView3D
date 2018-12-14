@@ -105,6 +105,7 @@ public class UIInteracton : MonoBehaviour {
     {
       //  GlobalVariables.Url = "file:///" + Application.dataPath + "/" + d.captionText.text + ".json";
         GlobalVariables.SelectionIndex = d.value;
+        Debug.Log(d.value);
 
     }
 
@@ -147,7 +148,11 @@ public class UIInteracton : MonoBehaviour {
 
               
                 if (edges[i].style == type)
+                {
+                    edges[i].active = false;
                     vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = new Color(0, 0, 0, 0);
+                }
+                   
 
             }
             Edgeticked[type] = false;
@@ -157,9 +162,10 @@ public class UIInteracton : MonoBehaviour {
         {
             for (int i = 0; i < edges.Count; i++)
             {
-
+               
                 if (edges[i].style == type)
                 {
+                    edges[i].active = true;
                     vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = graph.colorDict[type];
                     vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = graph.colorDict[type] + new Color(0, 0, 255);
                 }

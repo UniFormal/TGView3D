@@ -11,13 +11,11 @@ namespace TGraph
     {
 
 
-
-        static int success = 0;
         static bool flat = false;
         static float sliceWidth = 0;
         public static ReadJSON.MyGraph graph;
-        static float energy = 1000000f;
-        static float step = 30f;// initialStep;
+        static float energy;
+        static float step;// initialStep;
         static float maxHeight = -10;
         static float minHeight = 10;
 
@@ -25,9 +23,6 @@ namespace TGraph
         {
             graph = GlobalVariables.Graph;
         }
-
-
-
 
 
         public static void Spiral()
@@ -48,6 +43,9 @@ namespace TGraph
             Spiral();
             NativeArray<float> Energies = new NativeArray<float>(graph.nodes.Count, Allocator.Persistent);
             float energyBefore = 0;
+            energy = 1000000f;
+            step = 30f;// initialStep;
+            int success = 0;
             var jt = new JobTest(iterations, 0.0213f, Energies, useWeights: true, globalWeight: globalWeight);
             NativeArray<JobHandle> handles = new NativeArray<JobHandle>(iterations, Allocator.Persistent);
             BuildHierarchy();
@@ -89,25 +87,25 @@ namespace TGraph
 
         public static void Normalize(float spaceScale)
         {
-            float forceCeiling = float.MinValue;
-            float forceFloor = float.MaxValue;
-   
+                float forceCeiling = float.MinValue;
+           float forceFloor = float.MaxValue;
+
 
             foreach (ReadJSON.MyNode node in graph.nodes)
-            {
-                if (node.weight == -1)
-                {
-                    forceCeiling = Mathf.Max(forceCeiling, node.pos.y);
-                    forceFloor = Mathf.Min(forceFloor, node.pos.y);
-                }
-      
-            }
-   
+           {
+               if (node.weight == -1)
+               {
+                   forceCeiling = Mathf.Max(forceCeiling, node.pos.y);
+                   forceFloor = Mathf.Min(forceFloor, node.pos.y);
+               }
 
-            foreach (ReadJSON.MyNode node in graph.nodes)
-            {
-                if (node.weight == -1) node.pos.y /= (forceCeiling - forceFloor) / maxHeight;
-            }
+           }
+
+
+           foreach (ReadJSON.MyNode node in graph.nodes)
+           {
+               if (node.weight == -1) node.pos.y /= (forceCeiling - forceFloor) / maxHeight;
+           }
 
 
 
@@ -325,14 +323,14 @@ namespace TGraph
   
             NativeArray<float> Energies;
             // Color[] vertexColors;
-            int i;
+         
             float kSquared;
             float kVal;
            // Color[] vertexColors;
 
             public JobTest(int iterations, float spacingValue, NativeArray<float> Energies, float currTemperature = 0.9f, float initialStep = 3.0f, float globalWeight = 1.0f, bool useWeights = true)
             {
-                i = 0;
+               
                 this.iterations = iterations;
                 this.spacingValue = spacingValue;
                 this.currTemperature = currTemperature;
@@ -340,10 +338,7 @@ namespace TGraph
                 this.globalWeight = globalWeight;
                 this.useWeights = useWeights;
                 this.Energies = Energies;
-                energy = 1000000f;
-                step = 30f;// initialStep;
 
-            
                /*  {
                      vertexColors = new Color[10000 * 8];
                      for (int i = 0; i < vertexColors.Length; ++i)
@@ -430,8 +425,11 @@ namespace TGraph
                             for (var k = 0; k < n.connectedNodes.Count; k++)
                             {
                                 // Debug.Log(vertexColors.Length + " " + edgeIndices[k] * 8 + " " + edgeIndices.Count + " " + n.connectedNodes.Count + " " + k+" "+vertexColors[edgeIndices[k] * 8].a);
-                                 if (graph.edgeObject!=null&&graph.edgeObject.GetComponent<MeshFilter>().mesh.colors[edgeIndices[k] * 8].a == 0) continue;
+                                //    if (graph.edgeObject!=null&&graph.edgeObject.GetComponent<MeshFilter>().mesh.colors[edgeIndices[k] * 8].a == 0) continue;
+                             
                                 var u = graph.nodes[n.connectedNodes[k]];
+                                if (!graph.edges[edgeIndices[k]].active)
+                                    continue;
                                 var differenceNodesX = u.pos.x - n.pos.x;
                                 var differenceNodesY = u.pos.y - n.pos.y;
                                 var differenceNodesZ = u.pos.z - n.pos.z;
@@ -456,8 +454,7 @@ namespace TGraph
 
                             var dispLength = Mathf.Sqrt(n.disp.x * n.disp.x + n.disp.y * n.disp.y + n.disp.z * n.disp.z) + 0.0001f;
                             n.pos.x = ((n.pos.x + (n.disp.x / dispLength) * step));
-     
-                         if(n.weight==-1)   n.pos.y = ((n.pos.y +  (n.disp.y / dispLength) * step));
+                            if(n.weight==-1)   n.pos.y = ((n.pos.y +  (n.disp.y / dispLength) * step));
                             n.pos.z = ((n.pos.z + (n.disp.z / dispLength) * step));
 
                             Energies[j] = dispLength * dispLength;
