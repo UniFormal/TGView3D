@@ -283,6 +283,8 @@ namespace TGraph
                 GameObject Aura = Instantiate(Resources.Load("Aura")) as GameObject;
                 Aura.transform.parent = node.nodeObject.transform;
                 Aura.transform.position = node.pos;
+                
+                Camera.main.transform.LookAt(node.pos);
 
             }
            
@@ -1159,7 +1161,7 @@ namespace TGraph
             url = GlobalVariables.Url;
             si = GlobalVariables.SelectionIndex;
             GlobalVariables.CurrentFile = GraphFiles[GlobalVariables.SelectionIndex];
-
+            GameObject.Find("UIDropdown").GetComponent<Dropdown>().value = si;
             ProcessAsset();
         }
 

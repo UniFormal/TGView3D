@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4885129305233404}
   - component: {fileID: 33108303749164918}
   - component: {fileID: 23965127605348644}
+  - component: {fileID: 114187449745760412}
   m_Layer: 0
   m_Name: Aura
   m_TagString: Untagged
@@ -83,3 +84,14 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1446183652138266}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114187449745760412
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1446183652138266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da4d3336518bcbc46af30bb63b1fc132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

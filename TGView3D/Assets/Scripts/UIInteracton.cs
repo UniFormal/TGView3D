@@ -13,6 +13,7 @@ public class UIInteracton : MonoBehaviour {
     bool outside = true;
     Dictionary<string,bool> Edgeticked;
     public GameObject Desktop;
+    public GameObject UIOverlay;
 
     private void Start()
     {
@@ -120,8 +121,16 @@ public class UIInteracton : MonoBehaviour {
         var graph = GlobalVariables.Graph;
         graph.edgeObject.SetActive(!graph.edgeObject.activeSelf);
     }
-    
-          
+    public void EnableUI()
+    {
+        Debug.Log(0);
+        if (UIOverlay.GetComponent<RectTransform>().localScale.x == 1)
+            UIOverlay.GetComponent<RectTransform>().localScale = Vector3.zero;
+        else
+            UIOverlay.GetComponent<RectTransform>().localScale = Vector3.one;
+    }
+
+
     public void EnableBeam()
     {
         var grabbers = transform.parent.GetComponentsInChildren<DistanceGrabber>();

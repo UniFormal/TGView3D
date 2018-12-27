@@ -153,6 +153,12 @@ namespace TGraph
 
         }
 
+        public static void BuildHierarchyPath()
+        {
+
+        }
+
+
         public static void BuildHierarchy()
         {
 
@@ -218,7 +224,7 @@ namespace TGraph
                     {
 
                         int curIndex = nodeIndexStack.Pop();
-                        visited[curIndex] = true;
+                      //  visited[curIndex] = true;
                         curHeight = heightStack.Pop();
                         maxHeight = Mathf.Max(curHeight, maxHeight);
                         minHeight = Mathf.Min(curHeight, minHeight);
@@ -245,20 +251,24 @@ namespace TGraph
                             {
                                 childNodeIndex = graph.nodeDict[graph.edges[curNode.edgeIndicesIn[j]].from];
                                 // graph.nodes[childNodeIndex].height -=curHeight;
-                                graph.nodes[childNodeIndex].weight = Mathf.Max(curHeight, graph.nodes[childNodeIndex].weight);//+= curHeight;
-
+                                if (graph.nodes[childNodeIndex].weight < curHeight)
+                                    graph.nodes[childNodeIndex].weight = curHeight;// Mathf.Max(curHeight, graph.nodes[childNodeIndex].weight);//+= curHeight;
+                                else
+                                    continue;
 
 
                             }
                             else
                             {
                                 childNodeIndex = graph.nodeDict[graph.edges[curNode.edgeIndicesOut[j]].to];
-                                graph.nodes[childNodeIndex].height = Mathf.Max(curHeight, graph.nodes[childNodeIndex].height);//+= curHeight;
-
+                                if (graph.nodes[childNodeIndex].height < curHeight)
+                                    graph.nodes[childNodeIndex].height = curHeight;//Mathf.Max(curHeight, graph.nodes[childNodeIndex].height);//+= curHeight;
+                                else
+                                    continue;
                             }
 
 
-                            if (!visited[childNodeIndex])
+                           // if (!visited[childNodeIndex])
                             
                             {
                                 
