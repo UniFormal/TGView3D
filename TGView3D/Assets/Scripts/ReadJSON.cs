@@ -793,7 +793,19 @@ namespace TGraph
             Debug.Log(GlobalVariables.SelectionIndex + " found after start");
             //  GlobalVariables.Url = "file:///" + Application.dataPath + "/" + UrlSelect.GetComponent<Dropdown>().captionText.text + ".json";
             if (GlobalVariables.Reload&&!GlobalVariables.Init) LoadGraph();
-           
+
+
+#if UNITY_WEBGL
+            Debug.Log("################################################");
+            int pm = Application.absoluteURL.IndexOf("?");
+            if (pm != -1)
+            {
+                GlobalVariables.Url = Application.absoluteURL.Split("?"[0])[1];
+            }
+#endif
+
+
+
         }
 
 
@@ -882,7 +894,7 @@ namespace TGraph
         }
 
 
-        private IEnumerator FinishInit( JobHandle handle, float time)
+        private IEnumerator FinishInit(JobHandle handle, float time)
         {
             yield return new WaitUntil(() => handle.IsCompleted);
             handle.Complete();
@@ -943,10 +955,6 @@ namespace TGraph
             var handle = Layouts.BaseLayout(iterations, globalWeight, spaceScale);
 
             StartCoroutine(FinishInit(handle, time));
-
-
-    
-
 
         }
         IEnumerator ProcessJSON(WWW www)
@@ -1162,7 +1170,13 @@ namespace TGraph
             si = GlobalVariables.SelectionIndex;
             GlobalVariables.CurrentFile = GraphFiles[GlobalVariables.SelectionIndex];
             GameObject.Find("UIDropdown").GetComponent<Dropdown>().value = si;
-            ProcessAsset();
+
+            if (url != "")
+            {
+                WWW jsonUrl = new WWW(url);
+                ProcessJSON(jsonUrl);
+            }else
+                ProcessAsset();
         }
 
       
@@ -1180,7 +1194,7 @@ namespace TGraph
 
         public void RecalculateLayout()
         {
-           // Debug.Log(url + " " + GlobalVariables.Url);
+            Debug.Log(url + " " + GlobalVariables.Url);
             if (!GlobalVariables.Init)
             {
                 LoadGraph();

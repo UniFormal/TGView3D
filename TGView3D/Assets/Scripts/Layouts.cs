@@ -297,7 +297,7 @@ namespace TGraph
                 //var y = (node.height - 0.8f * node.weight) * sliceWidth;
 
 
-                var y = node.weight; //;+ node.height;* Mathf.Max(1, (graph.nodes.Count / 200.0f)
+                var y = node.weight;//-0.1f*node.height; //;+ node.height;* Mathf.Max(1, (graph.nodes.Count / 200.0f)
                                      //  Debug.Log(y + " " + node.label);
                                      // Debug.Log(i + " weight: " + node.weight + " height: " + node.height+" y " + y * Mathf.Max(1, (graph.nodes.Count / 200.0f)));
                                      /*  float x =(maxConnections/10- node.connectedNodes.Count)*20 ;
