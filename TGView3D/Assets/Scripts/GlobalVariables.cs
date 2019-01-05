@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace TGraph
 {
@@ -18,6 +19,9 @@ namespace TGraph
         public static string Url = "";
         public static int SelectionIndex = 0;
         public static TextAsset CurrentFile;
+        public static Text Percent;
+
+        
     }
    
 

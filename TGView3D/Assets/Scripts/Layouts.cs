@@ -4,6 +4,7 @@ using System.Linq;
 using Unity.Collections;
 using Unity.Jobs;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace TGraph
 {
@@ -15,9 +16,12 @@ namespace TGraph
         static float sliceWidth = 0;
         public static ReadJSON.MyGraph graph;
         static float energy;
+        static float energyBefore;
+        static int success;
         static float step;// initialStep;
         static float maxHeight = -10;
         static float minHeight = 10;
+        static float currTemperature;
 
         public static void Init()
         {
@@ -37,49 +41,44 @@ namespace TGraph
             }
 
         }
-        public static JobHandle BaseLayout(int iterations, float globalWeight, float spaceScale)
+        public static JobHandle BaseLayout(int iterations, float globalWeight, float spaceScale, NativeArray<float> Energies)
         {
+      
             Init();
             Spiral();
-            NativeArray<float> Energies = new NativeArray<float>(graph.nodes.Count, Allocator.Persistent);
-            float energyBefore = 0;
-            energy = 1000000f;
-            step = 30f;// initialStep;
-            int success = 0;
-            var jt = new JobTest(iterations, 0.0213f, Energies, useWeights: true, globalWeight: globalWeight);
-            NativeArray<JobHandle> handles = new NativeArray<JobHandle>(iterations, Allocator.Persistent);
             BuildHierarchy();
 
-            var handle = jt.Schedule(graph.nodes.Count, 1);
-            handle.Complete();
-            for (int i = 1; i < iterations; ++i)
-            {
-                energyBefore = energy;
-                energy = Energies.Sum();
-               // Debug.Log(energy);
-                if (energy < energyBefore)
-                {
-                    success++;
-                    if (success >= 5)
-                    {
-                        success = 0;
-                        step /= jt.currTemperature;
-                    }
-                }
-                else
-                {
-                    success = 0;
-                    step *= jt.currTemperature;
-                }
-                energyBefore = energy;
-                handles[i] = handle;
-                handle = jt.Schedule(graph.nodes.Count, 1, handles[i - 1]);
-                handle.Complete();
-                // Reduce the temperature as the layout approaches a better configuration
 
+            currTemperature = 0.9f;
+            energyBefore = 0;
+            energy = 1000000f;
+            step = 30f;// initialStep;
+            success = 0;
+            var jt = new JobTest(iterations, 0.0213f, Energies, useWeights: true, globalWeight: globalWeight);
+            var updateEnergies = new UpdateEnergies(Energies);
+            NativeArray<JobHandle> handles = new NativeArray<JobHandle>(iterations*2, Allocator.Persistent);
+
+            var handle = jt.Schedule();
+            //var handle = jt.Schedule(graph.nodes.Count, Mathf.Max(iterations*graph.nodes.Count/(100*100),1));
+            for (int i = 1; i < iterations*2; i+=2)
+            {
+                //handle.Complete();
+
+
+                handles[i-1] = handle;
+                handle = jt.Schedule(handles[i-1]);
+                handles[i] = handle;
+                handle = updateEnergies.Schedule(handles[i]);
+                
+               
+               // Reduce the temperature as the layout approaches a better configuration
             }
+
+            JobHandle.ScheduleBatchedJobs();
+      
+            // handle.Complete();
             handles.Dispose();
-            Energies.Dispose();
+            //Energies.Dispose();
             //handle.Complete();
             //Normalize(spaceScale); //done outside
             return handle;
@@ -87,44 +86,75 @@ namespace TGraph
 
         public static void Normalize(float spaceScale)
         {
-                float forceCeiling = float.MinValue;
-           float forceFloor = float.MaxValue;
+        
+         float forceCeiling = float.MinValue;
+         float forceFloor = float.MaxValue;
 
+
+         foreach (ReadJSON.MyNode node in graph.nodes)
+         {
+            
+             if (node.weight == -1)//||node.height==-1)
+             {
+                 forceCeiling = Mathf.Max(forceCeiling, node.pos.y);
+                 forceFloor = Mathf.Min(forceFloor, node.pos.y);
+             }
+         }
+
+        foreach (ReadJSON.MyNode node in graph.nodes)
+        {
+            if (node.weight == -1) node.pos.y /= (forceCeiling - forceFloor) / maxHeight;
+        }
+
+            /*
+
+             Vector3 avgPos = Vector3.zero;
+             foreach (ReadJSON.MyNode node in graph.nodes)
+             {
+                 avgPos += node.pos;
+             }
+             avgPos /= graph.nodes.Count;
+             foreach (ReadJSON.MyNode node in graph.nodes)
+             {
+                 node.pos -= avgPos;
+             }*/
 
             foreach (ReadJSON.MyNode node in graph.nodes)
-           {
-               if (node.weight == -1)
-               {
-                   forceCeiling = Mathf.Max(forceCeiling, node.pos.y);
-                   forceFloor = Mathf.Min(forceFloor, node.pos.y);
-               }
-
-           }
-
-
-           foreach (ReadJSON.MyNode node in graph.nodes)
-           {
-               if (node.weight == -1) node.pos.y /= (forceCeiling - forceFloor) / maxHeight;
-           }
+            {
+                foreach(int edge in node.edgeIndicesIn)
+                {
+                    if(graph.edges[edge].style=="include")
+                        if (graph.nodes[graph.nodeDict[graph.edges[edge].from]].pos.y < node.pos.y)
+                        {
+                            Debug.Log("Height Violation");
+                        }
+                        else
+                        {
+                            Debug.Log("Consistent Height");
+                        }
+                }
+                /*
+                foreach (int edge in node.edgeIndicesOut)
+                {
+                    if (graph.edges[edge].style == "include")
+                        if (graph.nodes[graph.nodeDict[graph.edges[edge].to]].pos.y > node.pos.y)
+                        {
+                            Debug.Log("Height Violation2");
+                        }
+                        else
+                        {
+                            Debug.Log("Consistent Height2");
+                        }
+                }*/
+            }
 
 
 
             Vector3 maxVec = Vector3.one * float.MinValue;
             Vector3 minVec = Vector3.one * float.MaxValue;
-
-            Vector3 avgPos = Vector3.zero;
-            foreach (ReadJSON.MyNode node in graph.nodes)
-            {
-                avgPos += node.pos;
-            }
-            avgPos /= graph.nodes.Count;
-            foreach (ReadJSON.MyNode node in graph.nodes)
-            {
-                node.pos -= avgPos;
-            }
-
             for (int i = 0; i < graph.nodes.Count; i++)
             {
+                
                 var node = graph.nodes[i];
                 maxVec = Vector3.Max(node.pos, maxVec);
                 minVec = Vector3.Min(node.pos, minVec);
@@ -148,7 +178,7 @@ namespace TGraph
                 node.pos = pos;
                 node.nodeObject.transform.localPosition = pos;
             }
-            avgPos = Vector3.zero;
+         //   avgPos = Vector3.zero;
 
 
         }
@@ -174,17 +204,20 @@ namespace TGraph
             else
                 vertexColors = graph.edgeObject.GetComponent<MeshFilter>().mesh.colors;
 
-            for (int n = 0; n < 1; n++)
+            for (int n = 0; n <1; n++)
             {
+
                 List<int> rootIndices = new List<int>();
                 bool[] visited = new bool[graph.nodes.Count];
                 float maxConnections = 0;
                 for (int i = 0; i < graph.nodes.Count; i++)
                 {
-                    graph.nodes[i].weight = graph.nodes[i].height = -1;
+                  
                     if (n == 0)
                     {
-                       
+                        
+                        graph.nodes[i].weight = graph.nodes[i].height = -1;
+   
                         // if (graph.nodes[i].edgeIndicesOut.Count == 1&&graph.nodes[i].edgeIndicesOut[0]==graph.nodes[i].nr)
                         if (graph.nodes[i].edgeIndicesOut.Where(idx => graph.edges[idx].style=="include").ToList().Count ==0
                             && graph.nodes[i].edgeIndicesIn.Where(idx => graph.edges[idx].style == "include").ToList().Count >0)
@@ -197,7 +230,14 @@ namespace TGraph
                     }
                     else
                     {
-                        if (graph.nodes[i].edgeIndicesIn.Count == 0) rootIndices.Add(i);
+                        // if (graph.nodes[i].edgeIndicesIn.Count == 0) rootIndices.Add(i);
+                        if (graph.nodes[i].edgeIndicesIn.Where(idx => graph.edges[idx].style == "include").ToList().Count == 0
+                         && graph.nodes[i].edgeIndicesOut.Where(idx => graph.edges[idx].style == "include").ToList().Count > 0)
+                        {
+                            rootIndices.Add(i);
+                            graph.nodes[i].weight = graph.nodes[i].height = 0;
+                            // Debug.Log(graph.nodes[i].label);
+                        }
                     }
                     maxConnections = Mathf.Max(graph.nodes[i].connectedNodes.Count, maxConnections);
 
@@ -297,16 +337,17 @@ namespace TGraph
                 //var y = (node.height - 0.8f * node.weight) * sliceWidth;
 
 
-                var y = node.weight;//-0.1f*node.height; //;+ node.height;* Mathf.Max(1, (graph.nodes.Count / 200.0f)
-                                     //  Debug.Log(y + " " + node.label);
-                                     // Debug.Log(i + " weight: " + node.weight + " height: " + node.height+" y " + y * Mathf.Max(1, (graph.nodes.Count / 200.0f)));
-                                     /*  float x =(maxConnections/10- node.connectedNodes.Count)*20 ;
-                                       if (x < -vol) x = 0;
+                var y = node.weight;//-node.height;//-0.1f*node.height; //;+ node.height;* Mathf.Max(1, (graph.nodes.Count / 200.0f)
+                                                //  Debug.Log(y + " " + node.label);
+                                                // Debug.Log(i + " weight: " + node.weight + " height: " + node.height+" y " + y * Mathf.Max(1, (graph.nodes.Count / 200.0f)));
+                                                /*  float x =(maxConnections/10- node.connectedNodes.Count)*20 ;
+                                                  if (x < -vol) x = 0;
 
-                                       if (i % 2 == 0) x *= -1;*/
+                                                  if (i % 2 == 0) x *= -1;*/
+              //  if (node.weight == -1|| node.height==-1) y = -1;
 
                 // y = Mathf.Sign(y) * (Mathf.Sqrt(Mathf.Sqrt(Mathf.Abs(y * graph.nodes.Count / 100))));
-
+               // Debug.Log(node.weight + " " + node.height + " " + y);
                 Vector3 pos = new Vector3(node.pos.x, y, node.pos.z);// / Mathf.Max(1, (graph.nodes.Count / 200.0f));
 
 
@@ -319,15 +360,52 @@ namespace TGraph
             }
         }
 
+        public struct UpdateEnergies : IJob
+        {
+            NativeArray<float> Energies;
+           // float energyBefore;
+            //int success;
 
+            public UpdateEnergies(NativeArray<float> Energies)
+            {
+                this.Energies = Energies;
+            }
+            
+            public void Execute()
+            {
+
+                graph.fin++;
+                energyBefore = energy;
+                energy = Energies.Sum();
+                // Debug.Log(energy);
+                if (energy < energyBefore)
+                {
+                    success++;
+                    if (success >= 5)
+                    {
+                        success = 0;
+                        step /= currTemperature;
+                    }
+               
+
+
+                }
+                else
+                {
+                    success = 0;
+                    step *= currTemperature;
+                }
+                energyBefore = energy;
+            }
+
+        }
         // Function to calculate forces driven layout
         // ported from Marcel's Javascript versions
-        public struct JobTest : IJobParallelFor
+        public struct JobTest : IJob//ParallelFor
         {
             private bool useWeights;
             private int iterations;
             private float spacingValue;
-            public float currTemperature;
             private float initialStep;
             private float globalWeight;
   
@@ -338,12 +416,12 @@ namespace TGraph
             float kVal;
            // Color[] vertexColors;
 
-            public JobTest(int iterations, float spacingValue, NativeArray<float> Energies, float currTemperature = 0.9f, float initialStep = 3.0f, float globalWeight = 1.0f, bool useWeights = true)
+            public JobTest(int iterations, float spacingValue, NativeArray<float> Energies, float initialStep = 3.0f, float globalWeight = 1.0f, bool useWeights = true)
             {
                
                 this.iterations = iterations;
                 this.spacingValue = spacingValue;
-                this.currTemperature = currTemperature;
+                //Here:middle node
                 this.initialStep = initialStep;
                 this.globalWeight = globalWeight;
                 this.useWeights = useWeights;
@@ -370,7 +448,7 @@ namespace TGraph
             }
 
 
-            public void Execute(int j)
+            public void Execute()
             {
                 /*
                 if (resetForcesFixed == true)
@@ -397,7 +475,7 @@ namespace TGraph
                      }*/
 
 
-                    //                    for (var j = 0; j < graph.nodes.Count; j++)
+                    for (var j = 0; j < graph.nodes.Count; j++)
                     {
                         //int j = index;
                         var n = graph.nodes[j];
@@ -457,6 +535,17 @@ namespace TGraph
                                 n.disp.y += (differenceNodesY / lengthDiff) * attractiveForce;
                                 n.disp.z += (differenceNodesZ / lengthDiff) * attractiveForce;
                             }
+                          //  if (n.weight != -1)
+                            {
+                                var upos = Vector3.zero;
+                         if (n.weight != -1)
+                                upos+= new Vector3(n.pos.x, n.weight,n.pos.z);
+                                var diffVec = upos - n.pos;
+                                var lD= diffVec.magnitude + 0.0001f;
+                                var aF = (lD * lD / kVal);
+                                n.disp  += (diffVec/ lD) * aF;
+                            }
+
 
 
 
@@ -464,7 +553,9 @@ namespace TGraph
 
                             var dispLength = Mathf.Sqrt(n.disp.x * n.disp.x + n.disp.y * n.disp.y + n.disp.z * n.disp.z) + 0.0001f;
                             n.pos.x = ((n.pos.x + (n.disp.x / dispLength) * step));
-                            if(n.weight==-1)   n.pos.y = ((n.pos.y +  (n.disp.y / dispLength) * step));
+                            if(n.weight==-1)//||n.height==-1)
+                                n.pos.y = ((n.pos.y +  (n.disp.y / dispLength) * step));
+
                             n.pos.z = ((n.pos.z + (n.disp.z / dispLength) * step));
 
                             Energies[j] = dispLength * dispLength;
@@ -474,7 +565,7 @@ namespace TGraph
 
                     //  yield return null;
                 }
-
+               
 
             }
         }
