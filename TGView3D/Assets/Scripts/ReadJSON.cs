@@ -162,7 +162,7 @@ namespace TGraph
             Material curMaterial = mat;
             var nodesToCheck = new Stack<int>();
             var graphNumber = 1;
-            Color randColor = Color.blue;
+            Color randColor = Color.green;
             for (var i = 0; i < graph.nodes.Count; i++)
             {
                 var n = graph.nodes[i];
@@ -177,7 +177,10 @@ namespace TGraph
                         countNodesInGraph[countNodesInGraph.Count - 1]++;
 
                         var currNode = nodesToCheck.Pop();
-
+                        if (graph.nodes[currNode].nodeObject == null)
+                        {
+                            Debug.Log(currNode + " " + graph.nodes[currNode].id + " " + graph.nodes[currNode].label);
+                        }
                         graph.nodes[currNode].graphNumber = graphNumber;
                         graph.nodes[currNode].nodeObject.GetComponent<MeshRenderer>().sharedMaterial = curMaterial;
                         graph.nodes[currNode].nodeObject.GetComponent<MeshRenderer>().sharedMaterial.color = randColor;
@@ -554,6 +557,7 @@ namespace TGraph
             Vector3 pos = Random.insideUnitSphere * vol;
 
             var node = graph.nodes[graph.nodeDict[name]];
+           // Debug.Log(node.label+" "+name);
             node.labelObject = GenLabel(nodeObject.transform, node.label);
             nodeObject.name = node.label;
 
@@ -580,10 +584,10 @@ namespace TGraph
          }*/
 
 
-        void ProcessNode(string name, int id, bool fromEdge)
+        bool ProcessNode(string name, int id, bool fromEdge)
         {
 
-            if (graph.nodeDict.ContainsKey(name)) return;
+            if (graph.nodeDict.ContainsKey(name)) return false;
 
 
             //dictionary for converting name to true id
@@ -594,15 +598,18 @@ namespace TGraph
             if (fromEdge)
             {
                 //Add Nodes that are not already present in orginal data
-
+                //TODO: use label of id
                 MyNode tmp = new MyNode();
                 tmp.id = name;
                 tmp.label = name;
+                tmp.nr = graph.nodes.Count;
                 graph.nodes.Add(tmp);
+                Debug.Log(name + "  " + tmp.nr);
             }
             // graph.nodes[id].edgeIndicesIn = new List<int>();
 
             RandomSphere(name);
+            return true;
 
         }
         void ProcessNodes()
@@ -626,10 +633,9 @@ namespace TGraph
 
             for (int i = 0; i < graph.nodes.Count; i++)
             {
-
-                graph.nodes[i].nr = i;
-                ProcessNode(graph.nodes[i].id, graph.nodeDict.Count, false);
-
+                //check not required
+                if(ProcessNode(graph.nodes[i].id, graph.nodeDict.Count, false))
+                    graph.nodes[i].nr = i;
             }
         }
 
@@ -776,6 +782,7 @@ namespace TGraph
         void Start()
         {
 
+
             GlobalVariables.Percent = Percent.GetComponent<Text>();
             GlobalVariables.EventSystem = EventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>();
             Camera camera = Camera.main;
@@ -801,7 +808,8 @@ namespace TGraph
                     "/nasa.json"
                    //"/smglom_archive.json"
                    ;
-        */  UrlSelect.GetComponent<Dropdown>().value = GlobalVariables.SelectionIndex;
+        */ // if(UrlSelect.GetComponent<Dropdown>().value != GlobalVariables.SelectionIndex)
+             //   UrlSelect.GetComponent<Dropdown>().value = GlobalVariables.SelectionIndex;
             Debug.Log(GlobalVariables.SelectionIndex + " found as index after start");
             //  GlobalVariables.Url = "file:///" + Application.dataPath + "/" + UrlSelect.GetComponent<Dropdown>().captionText.text + ".json";
             if (GlobalVariables.Reload&&!GlobalVariables.Init) LoadGraph();
@@ -920,24 +928,8 @@ namespace TGraph
             {
                 //GlobalVariables.Percent.text = ((float)(100.0f * (graph.fin)*2 / iterations)).ToString();
                 GlobalVariables.Percent.text = graph.fin.ToString();
-                /*    var avgPos = Vector3.zero;
-                foreach (ReadJSON.MyNode node in graph.nodes)
-                  {
-                      avgPos += node.pos;
-                  }
-                  avgPos /= graph.nodes.Count;
-                  foreach (ReadJSON.MyNode node in graph.nodes)
-                  {
-                      node.pos -= avgPos;
-                      node.nodeObject.transform.localPosition = node.pos;
-                  }*/
-                foreach (ReadJSON.MyNode node in graph.nodes)
-                  {
-
-                    //  node.nodeObject.transform.localPosition/=10;
-                    node.nodeObject.transform.localPosition = node.pos;
-                  }
-                yield return  new WaitForSeconds(.05f); 
+               if(graph.fin>1) Layouts.Normalize(spaceScale,true);
+                yield return  new WaitForSeconds(.1f); 
             }
             GlobalVariables.Percent.text = "";
             Debug.Log("continue");
@@ -966,7 +958,13 @@ namespace TGraph
             var json = GraphFiles[GlobalVariables.SelectionIndex].text;//;
             GlobalVariables.Graph = MyGraph.CreateFromJSON(json);
             graph = GlobalVariables.Graph;
+            graph.nodes = graph.nodes
+            .GroupBy(customer => customer.id)
+            .Select(group => group.First()).ToList();
             GlobalVariables.Vol = vol;
+
+            Debug.Log(graph.nodes.Count + " " + graph.edges.Count);
+        
 
             graph.movingNodes = new List<int>();
             graph.selectedNodes = new List<int>();
@@ -1046,7 +1044,7 @@ namespace TGraph
 
                 ProcessNodes();
                 ProcessEdges();
-                identifySubgraphs();
+               // identifySubgraphs();
 
                 //Layouts.BaseLayout(iterations, globalWeight, spaceScale);
 

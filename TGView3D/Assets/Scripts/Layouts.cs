@@ -84,27 +84,27 @@ namespace TGraph
             return handle;
         }
 
-        public static void Normalize(float spaceScale)
+        public static void Normalize(float spaceScale, bool temp=false)
         {
         
-         float forceCeiling = float.MinValue;
-         float forceFloor = float.MaxValue;
+             float forceCeiling = float.MinValue;
+             float forceFloor = float.MaxValue;
 
 
-         foreach (ReadJSON.MyNode node in graph.nodes)
-         {
-            
-             if (node.weight == -1)//||node.height==-1)
+             foreach (ReadJSON.MyNode node in graph.nodes)
              {
-                 forceCeiling = Mathf.Max(forceCeiling, node.pos.y);
-                 forceFloor = Mathf.Min(forceFloor, node.pos.y);
+            
+                 if (node.weight == -1)//||node.height==-1)
+                 {
+                     forceCeiling = Mathf.Max(forceCeiling, node.pos.y);
+                     forceFloor = Mathf.Min(forceFloor, node.pos.y);
+                 }
              }
-         }
 
-        foreach (ReadJSON.MyNode node in graph.nodes)
-        {
-            if (node.weight == -1) node.pos.y /= (forceCeiling - forceFloor) / maxHeight;
-        }
+            foreach (ReadJSON.MyNode node in graph.nodes)
+            {
+                if (node.weight == -1) node.pos.y /= (forceCeiling - forceFloor) / maxHeight;
+            }
 
             /*
 
@@ -118,36 +118,39 @@ namespace TGraph
              {
                  node.pos -= avgPos;
              }*/
-
-            foreach (ReadJSON.MyNode node in graph.nodes)
+            if (!temp)
             {
-                foreach(int edge in node.edgeIndicesIn)
+                foreach (ReadJSON.MyNode node in graph.nodes)
                 {
-                    if(graph.edges[edge].style=="include")
-                        if (graph.nodes[graph.nodeDict[graph.edges[edge].from]].pos.y < node.pos.y)
-                        {
-                            Debug.Log("Height Violation");
-                        }
-                        else
-                        {
-                            Debug.Log("Consistent Height");
-                        }
+                    foreach (int edge in node.edgeIndicesIn)
+                    {
+                        if (graph.edges[edge].style == "include")
+                            if (graph.nodes[graph.nodeDict[graph.edges[edge].from]].pos.y < node.pos.y)
+                            {
+                              //  Debug.Log(node.id + " " + graph.edges[edge].from);
+                                Debug.Log("Height Violation");
+                            }
+                            else
+                            {
+                                Debug.Log("Consistent Height");
+                            }
+                    }
+                    /*
+                    foreach (int edge in node.edgeIndicesOut)
+                    {
+                        if (graph.edges[edge].style == "include")
+                            if (graph.nodes[graph.nodeDict[graph.edges[edge].to]].pos.y > node.pos.y)
+                            {
+                                Debug.Log("Height Violation2");
+                            }
+                            else
+                            {
+                                Debug.Log("Consistent Height2");
+                            }
+                    }*/
                 }
-                /*
-                foreach (int edge in node.edgeIndicesOut)
-                {
-                    if (graph.edges[edge].style == "include")
-                        if (graph.nodes[graph.nodeDict[graph.edges[edge].to]].pos.y > node.pos.y)
-                        {
-                            Debug.Log("Height Violation2");
-                        }
-                        else
-                        {
-                            Debug.Log("Consistent Height2");
-                        }
-                }*/
             }
-
+   
 
 
             Vector3 maxVec = Vector3.one * float.MinValue;
@@ -161,21 +164,20 @@ namespace TGraph
             }
 
             Vector3 scaleVec = (maxVec - minVec);
-            Debug.Log("beforeScale:" + maxVec + " " + minVec);
+           
 
             if (scaleVec.y == 0) scaleVec.y++;
-            Vector3 realScale = spaceScale * Vector3.Scale(new Vector3(1f / scaleVec.x, .5f / scaleVec.y, 1f / scaleVec.z),
+            Vector3 realScale = 30*spaceScale/(Mathf.Pow(graph.nodes.Count,1f/3f)) * Vector3.Scale(new Vector3(1f / scaleVec.x, .5f / scaleVec.y, 1f / scaleVec.z),
                 Vector3.one * (Mathf.Pow(graph.nodes.Count, 1f / 2f)));
 
-
-            Debug.Log("scale: " + realScale);
+           // Debug.Log("beforeScale:" + maxVec + " " + minVec);
+           // Debug.Log("scale: " + realScale);
 
             for (int i = 0; i < graph.nodes.Count; i++)
             {
                 var node = graph.nodes[i];
-
                 Vector3 pos = Vector3.Scale(node.pos, realScale);
-                node.pos = pos;
+                if(!temp) node.pos = pos;
                 node.nodeObject.transform.localPosition = pos;
             }
          //   avgPos = Vector3.zero;
@@ -204,7 +206,7 @@ namespace TGraph
             else
                 vertexColors = graph.edgeObject.GetComponent<MeshFilter>().mesh.colors;
 
-            for (int n = 0; n <1; n++)
+            for (int n = 0; n <2; n++)
             {
 
                 List<int> rootIndices = new List<int>();
@@ -243,9 +245,9 @@ namespace TGraph
 
                 }
 
-                Debug.Log("#root nodes: " + rootIndices.Count);
-
-
+                Debug.Log(rootIndices.Count);
+                //  rootIndices = rootIndices.GetRange(0, Mathf.Min(rootIndices.Count,200));
+               // if (rootIndices.Count > 200) continue;
                 for (int i = 0; i < rootIndices.Count; i++)
                 {
                     for (int j = 0; j < graph.nodes.Count; j++)
@@ -337,14 +339,14 @@ namespace TGraph
                 //var y = (node.height - 0.8f * node.weight) * sliceWidth;
 
 
-                var y = node.weight;//-node.height;//-0.1f*node.height; //;+ node.height;* Mathf.Max(1, (graph.nodes.Count / 200.0f)
+                var y = node.weight-node.height;//-0.1f*node.height; //;+ node.height;* Mathf.Max(1, (graph.nodes.Count / 200.0f)
                                                 //  Debug.Log(y + " " + node.label);
                                                 // Debug.Log(i + " weight: " + node.weight + " height: " + node.height+" y " + y * Mathf.Max(1, (graph.nodes.Count / 200.0f)));
                                                 /*  float x =(maxConnections/10- node.connectedNodes.Count)*20 ;
                                                   if (x < -vol) x = 0;
 
                                                   if (i % 2 == 0) x *= -1;*/
-              //  if (node.weight == -1|| node.height==-1) y = -1;
+                 if (node.weight == -1|| node.height==-1) y = -1;
 
                 // y = Mathf.Sign(y) * (Mathf.Sqrt(Mathf.Sqrt(Mathf.Abs(y * graph.nodes.Count / 100))));
                // Debug.Log(node.weight + " " + node.height + " " + y);
@@ -538,8 +540,7 @@ namespace TGraph
                           //  if (n.weight != -1)
                             {
                                 var upos = Vector3.zero;
-                         if (n.weight != -1)
-                                upos+= new Vector3(n.pos.x, n.weight,n.pos.z);
+                       //   if (n.weight != -1) upos+= new Vector3(n.pos.x, n.weight,n.pos.z);
                                 var diffVec = upos - n.pos;
                                 var lD= diffVec.magnitude + 0.0001f;
                                 var aF = (lD * lD / kVal);

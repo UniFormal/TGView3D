@@ -144,7 +144,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000009536743}
+  m_AnchoredPosition: {x: 0, y: -0.0000019073486}
   m_SizeDelta: {x: 0, y: 28}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1001 &49963241
@@ -3278,7 +3278,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000020980835}
+  m_AnchoredPosition: {x: 0, y: 0.000022888184}
   m_SizeDelta: {x: 0, y: 28}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &834032964
@@ -4323,7 +4323,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 12
+  far clip plane: 100
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -5372,13 +5372,13 @@ MonoBehaviour:
   mat: {fileID: 2100000, guid: f73207ad5363bdb4194c901a41ed995e, type: 2}
   lineMat: {fileID: 2100000, guid: 492e279603edb21439d3524b472130c3, type: 2}
   grabbable: {fileID: 149070, guid: ceed2905feb0b114582b3ee7989983ea, type: 2}
-  onlyInclude: 1
+  onlyInclude: 0
   buildHierarchy: 0
   normalize: 1
   EventSystem: {fileID: 869398359}
   globalWeight: 0.2
   iterations: 100
-  spaceScale: 0.3
+  spaceScale: 0.5
   UrlSelect: {fileID: 221538338}
   subNode: 201
   url: http://neuralocean.de/graph/test/nasa.json
@@ -5387,6 +5387,8 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 3bb269bc4fd0e834d8fb6826bf4835c2, type: 3}
   - {fileID: 4900000, guid: b7eaaac9c910835438cd1d14d13def01, type: 3}
   - {fileID: 4900000, guid: 12503b97939ee0c47abeec47ec829620, type: 3}
+  - {fileID: 4900000, guid: c0adb735b6ee4cc429bd7afc46995a2b, type: 3}
+  - {fileID: 4900000, guid: 4196252c25b75e7478bc42062fe5b39c, type: 3}
 --- !u!4 &1165595084
 Transform:
   m_ObjectHideFlags: 0
@@ -5524,6 +5526,10 @@ MonoBehaviour:
     - m_Text: HOLLight_archive
       m_Image: {fileID: 0}
     - m_Text: krmt
+      m_Image: {fileID: 0}
+    - m_Text: ODK_archive
+      m_Image: {fileID: 0}
+    - m_Text: smglom_archive
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8995,7 +9001,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 131972493}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999999
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9162,7 +9168,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 992251400}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.8133335
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
