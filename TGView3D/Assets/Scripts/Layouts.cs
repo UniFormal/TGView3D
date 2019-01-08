@@ -33,9 +33,10 @@ namespace TGraph
         {
             for (var i = 0; i < graph.nodes.Count; i++)
             {
-                float angle = (float)i * 10.0f / graph.nodes.Count * 2 * Mathf.PI;
+                var y = graph.nodes[i].nodeObject.transform.localPosition.y;
+                float angle = (float)(10*i)%graph.nodes.Count() * 10.0f / graph.nodes.Count * 2 * Mathf.PI;
                 // Debug.Log(angle);
-                Vector3 pos = graph.nodes.Count * (float)i / (float)graph.nodes.Count / 10 * new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle));
+                Vector3 pos = graph.nodes.Count * (float)i / (float)graph.nodes.Count / 10 * new Vector3(Mathf.Sin(angle), y, Mathf.Cos(angle));
                 graph.nodes[i].pos = pos;
                 graph.nodes[i].nodeObject.transform.localPosition = pos;
             }
@@ -46,6 +47,7 @@ namespace TGraph
       
             Init();
             Spiral();
+            if(graph.edges.Count>4000)return new JobHandle();
             BuildHierarchy();
 
 
@@ -54,7 +56,7 @@ namespace TGraph
             energy = 1000000f;
             step = 30f;// initialStep;
             success = 0;
-            var jt = new JobTest(iterations, 0.0213f, Energies, useWeights: true, globalWeight: globalWeight);
+            var jt = new JobTest(iterations, 2f*0.0213f, Energies, useWeights: true, globalWeight: globalWeight);
             var updateEnergies = new UpdateEnergies(Energies);
             NativeArray<JobHandle> handles = new NativeArray<JobHandle>(iterations*2, Allocator.Persistent);
 
@@ -170,7 +172,7 @@ namespace TGraph
            
 
             if (scaleVec.y == 0) scaleVec.y++;
-            Vector3 realScale = 30*spaceScale/(Mathf.Pow(graph.nodes.Count,1f/3f)) * Vector3.Scale(new Vector3(1f / scaleVec.x, .5f / scaleVec.y, 1f / scaleVec.z),
+            Vector3 realScale = 10*spaceScale/(Mathf.Pow(graph.nodes.Count,1f/3f)) * Vector3.Scale(new Vector3(1f / scaleVec.x, .5f / scaleVec.y, 1f / scaleVec.z),
                 Vector3.one * (Mathf.Pow(graph.nodes.Count, 1f / 2f)));
 
            // Debug.Log("beforeScale:" + maxVec + " " + minVec);

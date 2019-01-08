@@ -226,8 +226,12 @@ namespace TGraph
             }
             else
             {
-                if(graph.subObject!=null)
+                if (graph.subObject != null)
+                {
                     GameObject.Destroy(graph.subObject);
+                    GameObject.Destroy(node.nodeObject.transform.GetChild(1).gameObject);
+                }
+                   
 
                 graph.edgeObject.SetActive(false);
                 graph.subGraphOrign = node.nr;
@@ -816,7 +820,7 @@ namespace TGraph
 
 
 #if UNITY_WEBGL
-            Debug.Log("################################################");
+            Debug.Log("#################WEBGLBUILD###############################");
             int pm = Application.absoluteURL.IndexOf("?");
             if (pm != -1)
             {
@@ -954,14 +958,21 @@ namespace TGraph
         //TODO: change
         IEnumerator ProcessJSON(WWW www)
         {
-            yield return www;
+            Debug.Log(www);
+            if (www == null)
+            {
+                yield return null;
+            }
+                
+            else
+                yield return www;
 
             var time = Time.realtimeSinceStartup;
             Debug.Log(GlobalVariables.SelectionIndex);
             //Debug.Log(www.text);
             string json = GraphFiles[GlobalVariables.SelectionIndex].text;//;
             // check for errors
-            if (www.error == null)
+            if (www!=null&&www.error == null)
             {
                 //Debug.Log("WWW Ok!: " + www.text);
                 json = www.text;
@@ -1169,7 +1180,8 @@ namespace TGraph
             GlobalVariables.CurrentFile = GraphFiles[GlobalVariables.SelectionIndex];
             GameObject.Find("UIDropdown").GetComponent<Dropdown>().value = si;
             WWW jsonUrl = new WWW(url);
-            ProcessJSON(jsonUrl);
+            if (url == "") jsonUrl = null;
+            StartCoroutine(ProcessJSON(jsonUrl));
   
         }
 
