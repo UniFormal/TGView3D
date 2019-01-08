@@ -821,6 +821,7 @@ namespace TGraph
             if (pm != -1)
             {
                 GlobalVariables.Url = Application.absoluteURL.Split("?"[0])[1];
+                Debug.Log(GlobalVariables.Url);
             }
 #endif
 
@@ -949,13 +950,24 @@ namespace TGraph
         }
 
      
-        public void ProcessAsset()
+    
+        //TODO: change
+        IEnumerator ProcessJSON(WWW www)
         {
+            yield return www;
 
             var time = Time.realtimeSinceStartup;
             Debug.Log(GlobalVariables.SelectionIndex);
+            //Debug.Log(www.text);
+            string json = GraphFiles[GlobalVariables.SelectionIndex].text;//;
+            // check for errors
+            if (www.error == null)
+            {
+                //Debug.Log("WWW Ok!: " + www.text);
+                json = www.text;
+
+            }
            
-            var json = GraphFiles[GlobalVariables.SelectionIndex].text;//;
             GlobalVariables.Graph = MyGraph.CreateFromJSON(json);
             graph = GlobalVariables.Graph;
             graph.nodes = graph.nodes
@@ -964,7 +976,7 @@ namespace TGraph
             GlobalVariables.Vol = vol;
 
             Debug.Log(graph.nodes.Count + " " + graph.edges.Count);
-        
+
 
             graph.movingNodes = new List<int>();
             graph.selectedNodes = new List<int>();
@@ -987,11 +999,11 @@ namespace TGraph
             //Debug.Log(graph.nodes.Count);
 
             graph.nodeDict = new Dictionary<string, int>();
-            Debug.Log("setup time "+(Time.realtimeSinceStartup - time));
+            Debug.Log("setup time " + (Time.realtimeSinceStartup - time));
 
             ProcessNodes();
             ProcessEdges();
-      
+
             //graph.Disps = new NativeArray<Vector3>(graph.nodes.Count,Allocator.Persistent);
             //graph.Positions = new NativeArray<Vector3>(graph.nodes.Count, Allocator.Persistent);
             identifySubgraphs();
@@ -999,70 +1011,10 @@ namespace TGraph
 
             StartCoroutine(FinishInit(time));
 
-          
-
-        }
-        //TODO: change
-        IEnumerator ProcessJSON(WWW www)
-        {
-            yield return www;
 
 
-            //Debug.Log(www.text);
 
-
-            // check for errors
-            if (www.error == null)
-            {
-                //Debug.Log("WWW Ok!: " + www.text);
-                var json = www.text;
-                GlobalVariables.Graph = MyGraph.CreateFromJSON(json);
-                graph = GlobalVariables.Graph;
-                GlobalVariables.Vol = vol;
-
-                graph.movingNodes = new List<int>();
-                graph.selectedNodes = new List<int>();
-                graph.selectedNodes.Add(-1);
-                graph.selectedNodes.Add(-1);
-
-                graph.colorDict = new Dictionary<string, Color>();
-                graph.colorDict.Add("include", new Color(0, 255, 0));
-                graph.colorDict.Add("meta", new Color(255, 0, 0));
-                graph.colorDict.Add("alignment", new Color(120, 120, 0));
-                graph.colorDict.Add("view", new Color(0, 0, 255));
-                graph.colorDict.Add("structure", new Color(0, 120, 120));
-
-                graph.colorDict.Add("graphinclude", new Color(0, 255, 0));
-                graph.colorDict.Add("graphmeta", new Color(255, 0, 0));
-                graph.colorDict.Add("graphalignment", new Color(120, 120, 0));
-                graph.colorDict.Add("graphview", new Color(0, 0, 255));
-                graph.colorDict.Add("graphstructure", new Color(0, 120, 120));
-
-                //Debug.Log(graph.nodes.Count);
-
-                graph.nodeDict = new Dictionary<string, int>();
-
-                ProcessNodes();
-                ProcessEdges();
-               // identifySubgraphs();
-
-                //Layouts.BaseLayout(iterations, globalWeight, spaceScale);
-
-                graph.edgeObject = BuildEdges(graph.edges, ref graph, lineMat);
-                graph.edgeObject.transform.parent = transform.parent;
-
-                GlobalVariables.Solved = true;
-
-
-                this.GetComponent<Interaction>().enabled = true;
-
-                GlobalVariables.Init = true;
-                this.GetComponent<GlobalAlignText>().childCount = this.transform.childCount;
             }
-
-
-
-        }
 
 
         public static void UpdateEdgesLite(MyNode node, ReadJSON.MyGraph graph)
@@ -1216,13 +1168,9 @@ namespace TGraph
             si = GlobalVariables.SelectionIndex;
             GlobalVariables.CurrentFile = GraphFiles[GlobalVariables.SelectionIndex];
             GameObject.Find("UIDropdown").GetComponent<Dropdown>().value = si;
-
-            if (url != "")
-            {
-                WWW jsonUrl = new WWW(url);
-                ProcessJSON(jsonUrl);
-            }else
-                ProcessAsset();
+            WWW jsonUrl = new WWW(url);
+            ProcessJSON(jsonUrl);
+  
         }
 
       

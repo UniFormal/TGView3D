@@ -120,6 +120,7 @@ namespace TGraph
              }*/
             if (!temp)
             {
+                int hv = 0;
                 foreach (ReadJSON.MyNode node in graph.nodes)
                 {
                     foreach (int edge in node.edgeIndicesIn)
@@ -127,12 +128,12 @@ namespace TGraph
                         if (graph.edges[edge].style == "include")
                             if (graph.nodes[graph.nodeDict[graph.edges[edge].from]].pos.y < node.pos.y)
                             {
-                              //  Debug.Log(node.id + " " + graph.edges[edge].from);
-                                Debug.Log("Height Violation");
+                                //  Debug.Log(node.id + " " + graph.edges[edge].from);
+                                hv++;
                             }
                             else
                             {
-                                Debug.Log("Consistent Height");
+                             //   Debug.Log("Consistent Height");
                             }
                     }
                     /*
@@ -148,7 +149,9 @@ namespace TGraph
                                 Debug.Log("Consistent Height2");
                             }
                     }*/
+                   
                 }
+                Debug.Log(hv + " Height Violations");
             }
    
 
