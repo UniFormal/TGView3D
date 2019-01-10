@@ -37,7 +37,7 @@ namespace TGraph
         public GameObject UrlSelect;
         int si = 0;
         public int subNode = 400;
-        public string url;//"http://neuralocean.de/graph/test/nasa.json";
+        public string url;//http://neuralocean.de/graph/test/nasa.json";
         public int vol = 100;
         public TextAsset[] GraphFiles;
 
@@ -450,13 +450,13 @@ namespace TGraph
                     Vector3 next = 7 * (Quaternion.AngleAxis(360 * edges[i].localIdx, dir) * offset);
                     if (edges[i].localIdx <= 0)next *= 0;
                     //Debug.Log(edges[i].style);
-                    vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = graph.colorDict[edges[i].style];
-                    vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = graph.colorDict[edges[i].style] + new Color(0, 0, 255);
+                    vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = graph.colorDict[edges[i].style] / 10;
+                    vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = (new Color(255,255,255)+ graph.colorDict[edges[i].style]*3)/4;
 
                     //creates square tubes by setting vertices manually
 
-                  //  if (edges[i].localIdx > 0)
-                   //     Debug.Log(edges[i].localIdx+" "+next * 100+edges[i].from);
+                    //  if (edges[i].localIdx > 0)
+                    //     Debug.Log(edges[i].localIdx+" "+next * 100+edges[i].from);
                     /*
                     if (edges[i].localIdx > 0)
                         createEdge(i, vertices, source.pos+next, target.pos+next, offset, offsetOrtho);
@@ -824,12 +824,12 @@ namespace TGraph
             int pm = Application.absoluteURL.IndexOf("?");
             if (pm != -1)
             {
-                GlobalVariables.Url = Application.absoluteURL.Split("?"[0])[1];
-                Debug.Log(GlobalVariables.Url);
+                GlobalVariables.Url = "https://mmt.mathhub.info/:jgraph/json?" + Application.absoluteURL.Split("?"[0])[1];
+                Debug.Log("genereted url: "+GlobalVariables.Url);
             }
-#endif
+#endif      
 
-
+           // GlobalVariables.Url = "mmt.mathhub.info/:jgraph/json" + "?key=archivegraph&uri=MitM/smglom%20MitM/Foundation%20MMT/LFX";
 
         }
 
@@ -914,6 +914,7 @@ namespace TGraph
             yield return new WaitUntil(() => handle.IsCompleted);
             handle.Complete();
             Layouts.Normalize(spaceScale);
+            //TODO: iterate over edges instead
             foreach (MyNode node in graph.nodes)
             {
                 UpdateEdges(node);
@@ -933,7 +934,7 @@ namespace TGraph
             {
                 //GlobalVariables.Percent.text = ((float)(100.0f * (graph.fin)*2 / iterations)).ToString();
                 GlobalVariables.Percent.text = graph.fin.ToString();
-               if(graph.fin>1) Layouts.Normalize(spaceScale,true);
+                if(graph.fin>1) Layouts.Normalize(spaceScale,true);
                 yield return  new WaitForSeconds(.1f); 
             }
             GlobalVariables.Percent.text = "";
@@ -951,14 +952,50 @@ namespace TGraph
             //    graph.Disps.Dispose();
             Energies.Dispose();
             Debug.Log("Finished init " + (Time.realtimeSinceStartup - time));
+
+            this.StartCoroutine(_waitUntilStable(10));
+
+
         }
 
-     
-    
+
+
+
+        private static IEnumerator _waitUntilStable(float maxWait)
+        {
+            float startTime = Time.time;
+            //
+            // Let's aim for 75% of the target frame rate
+            //
+            float targetFrameTime = 1 / (Application.targetFrameRate * 0.75f);
+
+            int consecutiveGoodFrames = 0;
+
+            //
+            // Wait for enough good consecutive frames or the max wait.
+            //
+            while ((Time.time - startTime < maxWait) && (consecutiveGoodFrames < 20))
+            {
+                yield return null;
+
+                if (Time.deltaTime <= targetFrameTime)
+                {
+                    ++consecutiveGoodFrames;
+                }
+                else
+                {
+                    consecutiveGoodFrames = 0;
+                }
+            }
+
+
+        }
+
+
         //TODO: change
         IEnumerator ProcessJSON(WWW www)
         {
-            Debug.Log(www);
+           
             if (www == null)
             {
                 yield return null;
@@ -974,9 +1011,13 @@ namespace TGraph
             // check for errors
             if (www!=null&&www.error == null)
             {
-                //Debug.Log("WWW Ok!: " + www.text);
+                Debug.Log("WWW Ok!: " + www.text);
                 json = www.text;
 
+            }
+            else if (www!=null)
+            {
+                Debug.Log(www.error);
             }
            
             GlobalVariables.Graph = MyGraph.CreateFromJSON(json);
@@ -1001,12 +1042,13 @@ namespace TGraph
             graph.colorDict.Add("view", new Color(0, 0, 255));
             graph.colorDict.Add("structure", new Color(0, 120, 120));
 
+            /*
             graph.colorDict.Add("graphinclude", new Color(0, 255, 0));
             graph.colorDict.Add("graphmeta", new Color(255, 0, 0));
             graph.colorDict.Add("graphalignment", new Color(120, 120, 0));
             graph.colorDict.Add("graphview", new Color(0, 0, 255));
             graph.colorDict.Add("graphstructure", new Color(0, 120, 120));
-
+            */
             //Debug.Log(graph.nodes.Count);
 
             graph.nodeDict = new Dictionary<string, int>();

@@ -26,6 +26,7 @@ public class FlyCamera : MonoBehaviour
 
     void Update()
     {
+        Transform transform = this.transform.parent.transform;
         if (Input.GetMouseButton(1))
         {
             lastMouse = Input.mousePosition - lastMouse;
@@ -107,6 +108,6 @@ public class FlyCamera : MonoBehaviour
     {
          if(VR.activeSelf)
             VR.SetActive(false);
-         XRSettings.enabled = false;
+      //   XRSettings.enabled = false;
     }
 }

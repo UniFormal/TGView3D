@@ -16,14 +16,17 @@ public class GlobalAlignText : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-
-        Vector3 camPos = Camera.main.transform.position;
-        for (int i=0; i < childCount; i++)
+        if (TGraph.GlobalVariables.Init)
         {
-            Transform t = this.transform.GetChild(i).GetChild(0);
-            t.rotation = Quaternion.LookRotation(t.position -camPos);
+            Vector3 camPos = Camera.main.transform.position;
+            for (int i = 0; i < childCount; i++)
+            {
+                Transform t = this.transform.GetChild(i).GetChild(0);
+                t.rotation = Quaternion.LookRotation(t.position - camPos);
+            }
+
         }
-        
+
 
     }
 }

@@ -33,7 +33,7 @@ namespace TGraph
         {
             for (var i = 0; i < graph.nodes.Count; i++)
             {
-                var y = graph.nodes[i].nodeObject.transform.localPosition.y;
+                var y = ((graph.nodes.Count - i) / graph.nodes.Count) * 100 - 50;//graph.nodes[i].nodeObject.transform.localPosition.y;
                 float angle = (float)(10*i)%graph.nodes.Count() * 10.0f / graph.nodes.Count * 2 * Mathf.PI;
                 // Debug.Log(angle);
                 Vector3 pos = graph.nodes.Count * (float)i / (float)graph.nodes.Count / 10 * new Vector3(Mathf.Sin(angle), y, Mathf.Cos(angle));
@@ -105,7 +105,7 @@ namespace TGraph
 
             foreach (ReadJSON.MyNode node in graph.nodes)
             {
-                if (node.weight == -1) node.pos.y /= (forceCeiling - forceFloor) / maxHeight;
+                if (node.weight == -1&&!temp) node.pos.y /= (forceCeiling - forceFloor) / maxHeight;
             }
 
             /*
@@ -381,6 +381,22 @@ namespace TGraph
             public void Execute()
             {
 
+                for(int j=0; j<graph.nodes.Count;++j)
+                {
+                    var n = graph.nodes[j];
+                    var dispLength = Mathf.Sqrt(n.disp.x * n.disp.x + n.disp.y * n.disp.y + n.disp.z * n.disp.z) + 0.0001f;
+                    n.pos.x = ((n.pos.x + (n.disp.x / dispLength) * step));
+                    if (n.weight == -1)//||n.height==-1)
+                        n.pos.y = ((n.pos.y + (n.disp.y / dispLength) * step));
+
+                    n.pos.z = ((n.pos.z + (n.disp.z / dispLength) * step));
+
+                    Energies[j] = dispLength * dispLength;
+                }
+           
+
+
+
                 graph.fin++;
                 energyBefore = energy;
                 energy = Energies.Sum();
@@ -557,14 +573,7 @@ namespace TGraph
 
                             // Limit max displacement to temperature currTemperature
 
-                            var dispLength = Mathf.Sqrt(n.disp.x * n.disp.x + n.disp.y * n.disp.y + n.disp.z * n.disp.z) + 0.0001f;
-                            n.pos.x = ((n.pos.x + (n.disp.x / dispLength) * step));
-                            if(n.weight==-1)//||n.height==-1)
-                                n.pos.y = ((n.pos.y +  (n.disp.y / dispLength) * step));
 
-                            n.pos.z = ((n.pos.z + (n.disp.z / dispLength) * step));
-
-                            Energies[j] = dispLength * dispLength;
                         }
 
                     }
