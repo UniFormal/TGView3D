@@ -303,7 +303,7 @@ namespace TGraph
                 Aura.transform.parent = node.nodeObject.transform;
                 Aura.transform.position = node.pos;
                 
-                Camera.main.transform.LookAt(node.pos);
+                Camera.main.transform.parent.transform.LookAt(node.pos);
 
             }
            
