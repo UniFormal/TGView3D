@@ -229,7 +229,8 @@ namespace TGraph
                 if (graph.subObject != null)
                 {
                     GameObject.Destroy(graph.subObject);
-                    GameObject.Destroy(node.nodeObject.transform.GetChild(1).gameObject);
+                    //TODO: destroy old object
+                   // GameObject.Destroy(node.nodeObject.transform.GetChild(1).gameObject);
                 }
                    
 
@@ -934,7 +935,7 @@ namespace TGraph
             {
                 //GlobalVariables.Percent.text = ((float)(100.0f * (graph.fin)*2 / iterations)).ToString();
                 GlobalVariables.Percent.text = graph.fin.ToString();
-                if(graph.fin>1) Layouts.Normalize(spaceScale,true);
+              //  if(graph.fin>1) Layouts.Normalize(spaceScale,true);
                 yield return  new WaitForSeconds(.1f); 
             }
             GlobalVariables.Percent.text = "";
@@ -991,6 +992,15 @@ namespace TGraph
 
         }
 
+        private IEnumerator ShowUpdate()
+        {
+            while (!GlobalVariables.Init)
+            {
+                if (graph.fin > 1) Layouts.Normalize(spaceScale, true);
+                yield return new WaitForSeconds(.1f);
+            }
+    
+        }
 
         //TODO: change
         IEnumerator ProcessJSON(WWW www)
@@ -1063,8 +1073,8 @@ namespace TGraph
             Debug.Log("prep time " + (Time.realtimeSinceStartup - time));
 
             StartCoroutine(FinishInit(time));
-
-
+            StartCoroutine(ShowUpdate());
+             
 
 
             }
@@ -1235,6 +1245,22 @@ namespace TGraph
             {
                 
                 graph.latestSelection = result;
+            }
+            else
+            {
+            
+                foreach(var p in graph.nodeDict)
+                {
+                    if (p.Key.IndexOf(f.text) != -1)
+                    {
+                        graph.latestSelection = graph.nodeDict[p.Key];
+                        Debug.Log("found " + graph.latestSelection);
+                        break;
+                    }
+
+                }
+            
+               
             }
             
         }
