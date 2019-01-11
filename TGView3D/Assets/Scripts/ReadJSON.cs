@@ -935,7 +935,7 @@ namespace TGraph
             {
                 //GlobalVariables.Percent.text = ((float)(100.0f * (graph.fin)*2 / iterations)).ToString();
                 GlobalVariables.Percent.text = graph.fin.ToString();
-              //  if(graph.fin>1) Layouts.Normalize(spaceScale,true);
+                if(graph.fin>1) Layouts.Normalize(spaceScale,true);
                 yield return  new WaitForSeconds(.1f); 
             }
             GlobalVariables.Percent.text = "";
@@ -992,15 +992,7 @@ namespace TGraph
 
         }
 
-        private IEnumerator ShowUpdate()
-        {
-            while (!GlobalVariables.Init)
-            {
-                if (graph.fin > 1) Layouts.Normalize(spaceScale, true);
-                yield return new WaitForSeconds(.1f);
-            }
-    
-        }
+   
 
         //TODO: change
         IEnumerator ProcessJSON(WWW www)
@@ -1073,7 +1065,7 @@ namespace TGraph
             Debug.Log("prep time " + (Time.realtimeSinceStartup - time));
 
             StartCoroutine(FinishInit(time));
-            StartCoroutine(ShowUpdate());
+          
              
 
 
