@@ -8451,13 +8451,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1804221616}
   m_TextComponent: {fileID: 628179533}
   m_Placeholder: {fileID: 834032966}
-  m_ContentType: 2
+  m_ContentType: 0
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 4
+  m_KeyboardType: 0
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 1
+  m_CharacterValidation: 0
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
@@ -9145,6 +9145,11 @@ Prefab:
       propertyPath: UI
       value: 
       objectReference: {fileID: 1034633537}
+    - target: {fileID: 114038308936181916, guid: 54a613ba6e982e84db04156af08d6a89,
+        type: 2}
+      propertyPath: dontDestroyOnLoad
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114104781069495054, guid: 54a613ba6e982e84db04156af08d6a89, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 54a613ba6e982e84db04156af08d6a89, type: 2}
@@ -9275,7 +9280,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 992251400}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.81333333
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
