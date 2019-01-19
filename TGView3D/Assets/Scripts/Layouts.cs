@@ -33,7 +33,7 @@ namespace TGraph
         {
             for (var i = 0; i < graph.nodes.Count; i++)
             {
-                var y = ((graph.nodes.Count - i) / graph.nodes.Count) * 100 - 50;//graph.nodes[i].nodeObject.transform.localPosition.y;
+                var y =  ((graph.nodes.Count - i) / graph.nodes.Count) * 100 - 50;//graph.nodes[i].nodeObject.transform.localPosition.y;
                 float angle = (float)(10*i)%graph.nodes.Count() * 10.0f / graph.nodes.Count * 2 * Mathf.PI;
                 // Debug.Log(angle);
                 Vector3 pos = graph.nodes.Count * (float)i / (float)graph.nodes.Count / 10 * new Vector3(Mathf.Sin(angle), y, Mathf.Cos(angle));
@@ -60,15 +60,15 @@ namespace TGraph
             var updateEnergies = new UpdateEnergies(Energies);
             NativeArray<JobHandle> handles = new NativeArray<JobHandle>(iterations*2, Allocator.Persistent);
 
-            var handle = jt.Schedule();
-            //var handle = jt.Schedule(graph.nodes.Count, Mathf.Max(iterations*graph.nodes.Count/(100*100),1));
+            //var handle = jt.Schedule();
+            var handle = jt.Schedule(graph.nodes.Count, Mathf.Max(iterations*graph.nodes.Count/(100*100),1));
             for (int i = 1; i < iterations*2; i+=2)
             {
                 //handle.Complete();
 
 
                 handles[i-1] = handle;
-                handle = jt.Schedule(handles[i-1]);
+                handle = jt.Schedule(graph.nodes.Count, Mathf.Max(iterations * graph.nodes.Count / (100 * 100), 1),handles[i-1]);
                 handles[i] = handle;
                 handle = updateEnergies.Schedule(handles[i]);
                 
@@ -88,25 +88,25 @@ namespace TGraph
 
         public static void Normalize(float spaceScale, bool temp=false)
         {
-        
-             float forceCeiling = float.MinValue;
-             float forceFloor = float.MaxValue;
+            /*
+                 float forceCeiling = float.MinValue;
+                 float forceFloor = float.MaxValue;
 
 
-             foreach (ReadJSON.MyNode node in graph.nodes)
-             {
-            
-                 if (node.weight == -1)//||node.height==-1)
+                 foreach (ReadJSON.MyNode node in graph.nodes)
                  {
-                     forceCeiling = Mathf.Max(forceCeiling, node.pos.y);
-                     forceFloor = Mathf.Min(forceFloor, node.pos.y);
-                 }
-             }
 
-            foreach (ReadJSON.MyNode node in graph.nodes)
-            {
-                if (node.weight == -1&&!temp) node.pos.y /= (forceCeiling - forceFloor) / maxHeight;
-            }
+                     if (node.weight == -1)//||node.height==-1)
+                     {
+                         forceCeiling = Mathf.Max(forceCeiling, node.pos.y);
+                         forceFloor = Mathf.Min(forceFloor, node.pos.y);
+                     }
+                 }
+
+                foreach (ReadJSON.MyNode node in graph.nodes)
+                {
+                    if (node.weight == -1&&!temp) node.pos.y /= (forceCeiling - forceFloor) / maxHeight;
+                }*/
 
             /*
 
@@ -120,14 +120,21 @@ namespace TGraph
              {
                  node.pos -= avgPos;
              }*/
-            if (!temp)
+          //  if (!temp)
             {
+                float d = 0;
                 int hv = 0;
                 foreach (ReadJSON.MyNode node in graph.nodes)
                 {
                     foreach (int edge in node.edgeIndicesIn)
                     {
+
+
+                      
                         if (graph.edges[edge].style == "include")
+                        {
+
+                            d += (node.pos - graph.nodes[graph.nodeDict[graph.edges[edge].from]].pos).magnitude;
                             if (graph.nodes[graph.nodeDict[graph.edges[edge].from]].pos.y < node.pos.y)
                             {
                                 //  Debug.Log(node.id + " " + graph.edges[edge].from);
@@ -135,8 +142,10 @@ namespace TGraph
                             }
                             else
                             {
-                             //   Debug.Log("Consistent Height");
+                                //   Debug.Log("Consistent Height");
                             }
+                        }
+                         
                     }
                     /*
                     foreach (int edge in node.edgeIndicesOut)
@@ -153,7 +162,7 @@ namespace TGraph
                     }*/
                    
                 }
-                Debug.Log(hv + " Height Violations");
+                Debug.Log(hv + " Height Violations, "+d/graph.nodes.Count+" average edgelength");
             }
    
 
@@ -181,7 +190,8 @@ namespace TGraph
             for (int i = 0; i < graph.nodes.Count; i++)
             {
                 var node = graph.nodes[i];
-                Vector3 pos = Vector3.Scale(node.pos, realScale);
+                Vector3 pos = 
+                    Vector3.Scale(node.pos, realScale);
                 if(!temp) node.pos = pos;
                 node.nodeObject.transform.localPosition = pos;
             }
@@ -190,10 +200,7 @@ namespace TGraph
 
         }
 
-        public static void BuildHierarchyPath()
-        {
-
-        }
+  
 
 
         public static void BuildHierarchy()
@@ -219,12 +226,12 @@ namespace TGraph
                 float maxConnections = 0;
                 for (int i = 0; i < graph.nodes.Count; i++)
                 {
-                  
+                    
                     if (n == 0)
                     {
                         
                         graph.nodes[i].weight = graph.nodes[i].height = -1;
-   
+                         //not included -> root --> lowest
                         // if (graph.nodes[i].edgeIndicesOut.Count == 1&&graph.nodes[i].edgeIndicesOut[0]==graph.nodes[i].nr)
                         if (graph.nodes[i].edgeIndicesOut.Where(idx => graph.edges[idx].style=="include").ToList().Count ==0
                             && graph.nodes[i].edgeIndicesIn.Where(idx => graph.edges[idx].style == "include").ToList().Count >0)
@@ -351,7 +358,7 @@ namespace TGraph
                                                   if (x < -vol) x = 0;
 
                                                   if (i % 2 == 0) x *= -1;*/
-                 if (node.weight == -1|| node.height==-1) y = -1;
+                 if (node.weight == -1&& node.height==-1) y = -1;
 
                 // y = Mathf.Sign(y) * (Mathf.Sqrt(Mathf.Sqrt(Mathf.Abs(y * graph.nodes.Count / 100))));
                // Debug.Log(node.weight + " " + node.height + " " + y);
@@ -386,7 +393,7 @@ namespace TGraph
                     var n = graph.nodes[j];
                     var dispLength = Mathf.Sqrt(n.disp.x * n.disp.x + n.disp.y * n.disp.y + n.disp.z * n.disp.z) + 0.0001f;
                     n.pos.x = ((n.pos.x + (n.disp.x / dispLength) * step));
-                    if (n.weight == -1)//||n.height==-1)
+                   // if (n.weight == -1)//||n.height==-1)
                         n.pos.y = ((n.pos.y + (n.disp.y / dispLength) * step));
 
                     n.pos.z = ((n.pos.z + (n.disp.z / dispLength) * step));
@@ -424,7 +431,7 @@ namespace TGraph
         }
         // Function to calculate forces driven layout
         // ported from Marcel's Javascript versions
-        public struct JobTest : IJob//ParallelFor
+        public struct JobTest : IJobParallelFor
         {
             private bool useWeights;
             private int iterations;
@@ -460,18 +467,19 @@ namespace TGraph
          
                                     
                 kVal = Mathf.Max(Mathf.Min((graph.nodes.Count * 4 + graph.edges.Count / 2.5f) / 2 * 0.5f * spacingValue / 7.0f, 30), 0.1f);
+            
                 kSquared = kVal * kVal;
                 for (int i = 0; i < graph.nodes.Count; ++i)
                 {
                     Energies[i] = 0;
                 }
-
+                Debug.Log(kVal + " k.. " + kSquared);
 
 
             }
 
 
-            public void Execute()
+            public void Execute(int index)
             {
                 /*
                 if (resetForcesFixed == true)
@@ -498,36 +506,23 @@ namespace TGraph
                      }*/
 
 
-                    for (var j = 0; j < graph.nodes.Count; j++)
+                   // for (var j = 0; j < graph.nodes.Count; j++)
                     {
-                        //int j = index;
+                        int j = index;
                         var n = graph.nodes[j];
                         // if (!n.forcesFixed) //&& !n.hidden)
                         {
-                            n.disp.x = 0;
-                            n.disp.y = 0;
-                            n.disp.z = 0;
-
+                            n.disp = Vector3.zero;
                             // calculate global (repulsive) forces
                             for (var k = 0; k < graph.nodes.Count; k++)
                             {
                                 var u = graph.nodes[k];
                                 if (u.graphNumber == n.graphNumber && n != u && (u.edgeIndicesIn != null || u.edgeIndicesOut != null))
                                 {
-                                    var differenceNodesX = u.pos.x - n.pos.x;
-                                    var differenceNodesY = u.pos.y - n.pos.y;
-                                    var differenceNodesZ = u.pos.z - n.pos.z;
-
-                                    //var lengthDiff = Mathf.Sqrt(differenceNodesX * differenceNodesX + differenceNodesY * differenceNodesY) + 0.001;
-
-                                    var lengthDiff = Mathf.Sqrt(differenceNodesX * differenceNodesX +
-                                       differenceNodesY * differenceNodesY +
-                                        differenceNodesZ * differenceNodesZ) + 0.0001f;
+                                    var differenceNodes = u.pos- n.pos;
+                                    var lengthDiff = differenceNodes.magnitude + 0.0001f;
                                     var repulsiveForce = -(kSquared / lengthDiff);
-
-                                    n.disp.x += (differenceNodesX / lengthDiff) * repulsiveForce;
-                                    n.disp.y += (differenceNodesY / lengthDiff) * repulsiveForce;
-                                    n.disp.z += (differenceNodesZ / lengthDiff) * repulsiveForce;
+                                    n.disp += (differenceNodes / lengthDiff) * repulsiveForce;
                                 }
                             }
 
@@ -541,22 +536,32 @@ namespace TGraph
                                 var u = graph.nodes[n.connectedNodes[k]];
                                 if (!graph.edges[edgeIndices[k]].active)
                                     continue;
-                                var differenceNodesX = u.pos.x - n.pos.x;
-                                var differenceNodesY = u.pos.y - n.pos.y;
-                                var differenceNodesZ = u.pos.z - n.pos.z;
+                                var differenceNodes = u.pos - n.pos; ;
 
-                                var lengthDiff = Mathf.Sqrt(differenceNodesX * differenceNodesX +
-                                    differenceNodesY * differenceNodesY +
-                                    differenceNodesZ * differenceNodesZ) + 0.0001f;
+                                var lengthDiff = differenceNodes.magnitude + 0.0001f;
                                 var attractiveForce = (lengthDiff * lengthDiff / kVal);
                                 if (useWeights)
                                 {
                                     if (n.weights[k] <= .9f) attractiveForce *= n.weights[k] * globalWeight;
                                     if (n.weights[k] <= .1f) attractiveForce = 0;
                                 }
-                                n.disp.x += (differenceNodesX / lengthDiff) * attractiveForce;
-                                n.disp.y += (differenceNodesY / lengthDiff) * attractiveForce;
-                                n.disp.z += (differenceNodesZ / lengthDiff) * attractiveForce;
+                                n.disp += (differenceNodes / lengthDiff) * attractiveForce;
+
+                                /*
+                                if (graph.edges[edgeIndices[k]].style == "include")
+                                {
+                                   
+                                    if (k < n.edgeIndicesIn.Count)
+                                    {
+                                        n.disp.y = differenceNodes.y/(lengthDiff*lengthDiff);
+                                    }
+                                    else
+                                    {
+                                        n.disp.y = + differenceNodes.y / (lengthDiff * lengthDiff);
+                                    }
+                                }
+                                */
+
                             }
                           //  if (n.weight != -1)
                             {
@@ -565,11 +570,59 @@ namespace TGraph
                                 var diffVec = upos - n.pos;
                                 var lD= diffVec.magnitude + 0.0001f;
                                 var aF = (lD * lD / kVal);
-                                n.disp  += (diffVec/ lD) * aF;
+                                n.disp  += (diffVec/ lD) *0.1f*aF;
                             }
 
 
+                            //nodes with outgoing edges push upward      
+                            //positive
+                            var before = n.disp.y;
+                            n.disp.y = 0;
+                            float upDist = float.MaxValue;
+                            for (var k = 0; k < n.edgeIndicesIn.Count; k++)
+                            {
+                                if (graph.edges[edgeIndices[k]].style == "include")
+                                {
 
+                                    var u = graph.nodes[n.connectedNodes[k]];
+                                    {
+                                        var differenceNodesY = u.pos.y - n.pos.y;
+                                        upDist = Mathf.Min(upDist, Mathf.Max(0.0001f,differenceNodesY));
+
+                                    }
+
+
+                                }
+                            }
+                            if (upDist != float.MaxValue)
+                                n.disp.y -= 1/ upDist;
+
+
+                            //nodes with incoming edges push downward
+                            //negative
+                            float downDist = float.MinValue;
+                            for (var m = 0; m < n.edgeIndicesOut.Count; m++)
+                            {
+                                int k = m + n.edgeIndicesIn.Count;
+                                if (graph.edges[edgeIndices[k]].style == "include")
+                                {
+
+                                    var u = graph.nodes[n.connectedNodes[k]];
+                                    {
+                                        var differenceNodesY = u.pos.y - n.pos.y;
+                                        downDist = Mathf.Max(downDist, Mathf.Min(-0.0001f,differenceNodesY));
+                                    }
+
+
+                                }
+                            }
+                            if(downDist!=float.MinValue)
+                            n.disp.y -= 1 / downDist;
+
+                            
+                          //  n.disp.y =Mathf.Max(downDist/2, Mathf.Min(n.disp.y, upDist/2));
+
+                            Debug.Log(upDist + " ---- " + downDist+ " => "+n.disp.y+" before "+before );
 
                             // Limit max displacement to temperature currTemperature
 
