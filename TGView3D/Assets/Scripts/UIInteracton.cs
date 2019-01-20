@@ -175,8 +175,8 @@ public class UIInteracton : MonoBehaviour {
                 if (edges[i].style == type)
                 {
                     edges[i].active = true;
-                    vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = graph.colorDict[type];
-                    vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = graph.colorDict[type] + new Color(0, 0, 255);
+                    vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = TGraph.ReadJSON.GenerateOriginColor(graph.colorDict[edges[i].style]);
+                    vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = TGraph.ReadJSON.GenerateTargetColor(graph.colorDict[edges[i].style]);
                 }
                    
             }

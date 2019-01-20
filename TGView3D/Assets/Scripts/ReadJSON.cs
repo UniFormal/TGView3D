@@ -54,7 +54,7 @@ namespace TGraph
             public List<MyEdge> tmpEdges;
             public List<int> subEdges;
             public int handIndex = 0;
-
+ 
             //use object references instead?
             public List<int> selectedNodes;
             public List<int> movingNodes;
@@ -62,11 +62,13 @@ namespace TGraph
             public int currentTarget = -1;
             public int subGraphOrign = -1;
             public int fin = 0;
-
+            public int modus = 0;
             public GameObject edgeObject;
             public GameObject subObject;
-            public List<int> badHack;
             public float lineWidth = 0.003f;
+            public bool UseForces = true;
+            public bool WaterMode = false;
+            public bool FlatInit;
             //public List<int> removeList;
             public Dictionary<string, Color> colorDict;
 
@@ -162,7 +164,7 @@ namespace TGraph
             Material curMaterial = mat;
             var nodesToCheck = new Stack<int>();
             var graphNumber = 1;
-            Color randColor = Color.green;
+            Color randColor = Color.blue;
             for (var i = 0; i < graph.nodes.Count; i++)
             {
                 var n = graph.nodes[i];
@@ -356,8 +358,9 @@ namespace TGraph
 
         public static void createEdge(int i, Vector3[] vertices, Vector3 sourcePos, Vector3 targetPos, Vector3 offset, Vector3 offsetOrtho, int type, int controlPoints)
         {
-            if (type < 0)
+            if (true)//(type < 0)
                 createStraightEdge(i, vertices, sourcePos, targetPos, offset, offsetOrtho);
+            
             else
             {
                 /*
@@ -384,9 +387,15 @@ namespace TGraph
 
 
         
+        public static Color GenerateOriginColor(Color color)
+        {
+            return color / 20;
+        }
 
-    
-
+        public static Color GenerateTargetColor(Color color)
+        {
+            return (new Color(255, 255, 255) + color * 3) / 4;
+        }
 
         public static GameObject BuildEdges(List<MyEdge> edges, ref MyGraph graph, Material lineMat)
         {
@@ -451,8 +460,8 @@ namespace TGraph
                     Vector3 next = 7 * (Quaternion.AngleAxis(360 * edges[i].localIdx, dir) * offset);
                     if (edges[i].localIdx <= 0)next *= 0;
                     //Debug.Log(edges[i].style);
-                    vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = graph.colorDict[edges[i].style] / 10;
-                    vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = (new Color(255,255,255)+ graph.colorDict[edges[i].style]*3)/4;
+                    vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = GenerateOriginColor(graph.colorDict[edges[i].style]) ;
+                    vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = GenerateTargetColor(graph.colorDict[edges[i].style]);
 
                     //creates square tubes by setting vertices manually
 
@@ -462,7 +471,7 @@ namespace TGraph
                     if (edges[i].localIdx > 0)
                         createEdge(i, vertices, source.pos+next, target.pos+next, offset, offsetOrtho);
                     else*/
-                        createEdge(i, vertices, source.pos+next, target.pos+next, offset, offsetOrtho);
+                    createEdge(i, vertices, source.pos+next, target.pos+next, offset, offsetOrtho);
                     SetTriangles(i, triangles);
 
 
@@ -557,6 +566,7 @@ namespace TGraph
             //  node.transform.localScale = new Vector3(4, 1, 1);
             // GameObject node = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             GameObject nodeObject = Instantiate(grabbable);
+           // nodeObject.transform.localScale = new Vector3(.1f, .1f, .1f);
             // GameObject node = new GameObject();
             // node.AddComponent<AlignText>();
             Vector3 pos = Random.insideUnitSphere * vol;
@@ -924,22 +934,48 @@ namespace TGraph
             Energies.Dispose();
         }
 
+        private void UpdateAllEdges()
+        {
+            Mesh bigMesh = graph.edgeObject.GetComponent<MeshFilter>().sharedMesh;
+            Vector3[] bigVertices = bigMesh.vertices;
+            for (int i = 0; i < graph.edges.Count; i++)
+            {
+                var sourcePos = graph.nodes[graph.nodeDict[graph.edges[i].from]].nodeObject.transform.localPosition;
+                var targetPos = graph.nodes[graph.nodeDict[graph.edges[i].to]].nodeObject.transform.localPosition;
+                Vector3 dir = targetPos - sourcePos;
+                Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * graph.lineWidth;
+                Vector3 offsetOrtho = Vector3.Cross(dir, offset).normalized * graph.lineWidth;
+                ReadJSON.createEdge(i, bigVertices, sourcePos, targetPos, offset, offsetOrtho);
+            }
+            bigMesh.vertices = bigVertices;
+            bigMesh.RecalculateBounds();
+        }
 
         private IEnumerator FinishInit(float time)
         {
             NativeArray<float> Energies = new NativeArray<float>(graph.nodes.Count, Allocator.Persistent);
             var handle = Layouts.BaseLayout(iterations, globalWeight, spaceScale, Energies);
-    
-           // yield return new WaitUntil(() => handle.IsCompleted);
+
+
+        
+            // yield return new WaitUntil(() => handle.IsCompleted);
             while (!handle.IsCompleted)
             {
                 //GlobalVariables.Percent.text = ((float)(100.0f * (graph.fin)*2 / iterations)).ToString();
                 GlobalVariables.Percent.text = graph.fin.ToString();
-                if(graph.fin>1) Layouts.Normalize(spaceScale,true);
-                yield return  new WaitForSeconds(.1f); 
+                if (graph.fin > 1)
+                {
+                   Layouts.Normalize(spaceScale, true);
+                    // UpdateAllEdges();
+                }
+                else
+                {
+                    Debug.Log("Finished Hierarchy " + (Time.realtimeSinceStartup - time));
+                }
+                yield return  new WaitForSeconds(.05f); 
             }
+
             GlobalVariables.Percent.text = "";
-            Debug.Log("continue");
             handle.Complete();
             Layouts.Normalize(spaceScale);
             graph.edgeObject = BuildEdges(graph.edges, ref graph, lineMat);
