@@ -33,7 +33,9 @@ namespace TGraph
         {
             for (var i = 0; i < graph.nodes.Count; i++)
             {
+
                 var y = (float)(10 * i) % graph.nodes.Count() * 10.0f / graph.nodes.Count * 100 - 50;//graph.nodes[i].nodeObject.transform.localPosition.y;
+                if (graph.FlatInit) y = 0;
                 float angle = (float)(10*i)%graph.nodes.Count() * 10.0f / graph.nodes.Count * 2 * Mathf.PI;
                 // Debug.Log(angle);
                 Vector3 pos = graph.nodes.Count * (float)i / (float)graph.nodes.Count / 10 * new Vector3(Mathf.Sin(angle), y, Mathf.Cos(angle));
@@ -43,26 +45,33 @@ namespace TGraph
 
         }
 
-        public static JobHandle ActivateForces( float globalWeight, int iterations,NativeArray<float> Energies)
+        public static JobHandle ActivateForces( float globalWeight, int iterations,NativeArray<float> Energies, JobHandle hHandle)
         {
             currTemperature = 0.9f;
             energyBefore = 0;
             energy = 1000000f;
             step = 30.0f;// initialStep;
             success = 0;
+    
             var jt = new JobTest(iterations, 2f * 0.0213f, Energies, useWeights: true, globalWeight: globalWeight);
             var updateEnergies = new UpdateEnergies(Energies);
             NativeArray<JobHandle> handles = new NativeArray<JobHandle>(iterations * 2, Allocator.Persistent);
 
             //var handle = jt.Schedule();
-            var handle = jt.Schedule(graph.nodes.Count, Mathf.Max(iterations * graph.nodes.Count / (100 * 100), 1));
+
+            int batchCount = graph.nodes.Count / 32;// Mathf.Max(iterations * graph.nodes.Count / (100 * 100), 1);
+            var handle = jt.Schedule(
+                graph.nodes.Count,batchCount,
+                hHandle);
             for (int i = 1; i < iterations * 2; i += 2)
             {
                 //handle.Complete();
 
 
                 handles[i - 1] = handle;
-                handle = jt.Schedule(graph.nodes.Count, Mathf.Max(iterations * graph.nodes.Count / (100 * 100), 1), handles[i - 1]);
+                handle = jt.Schedule(
+                    graph.nodes.Count,  batchCount,
+                    handles[i - 1]);
                 handles[i] = handle;
                 handle = updateEnergies.Schedule(handles[i]);
 
@@ -86,14 +95,18 @@ namespace TGraph
       
             Init();
             Spiral();
-            if(graph.edges.Count>4000)return new JobHandle();
-            BuildHierarchy();
 
+       
+                var bH = new BuildHierarchy();
+                var handle = bH.Schedule();
+            
+     
+          //  var handle = new JobHandle();
             if (graph.UseForces)
             {
-                return ActivateForces(globalWeight, iterations, Energies);
+                return ActivateForces(globalWeight, iterations, Energies, handle);
             }
-            return new JobHandle(); ;// 
+            return handle; ;// 
 
         }
 
@@ -148,7 +161,7 @@ namespace TGraph
                             d += (node.pos - graph.nodes[graph.nodeDict[graph.edges[edge].from]].pos).magnitude;
                             if (graph.nodes[graph.nodeDict[graph.edges[edge].from]].pos.y < node.pos.y)
                             {
-                                  Debug.Log(node.id +", height "+node.weight+ " from " + graph.edges[edge].from+ ", height " + graph.nodes[graph.nodeDict[graph.edges[edge].from]].weight);
+                              //    Debug.Log(node.id +", height "+node.weight+ " from " + graph.edges[edge].from+ ", height " + graph.nodes[graph.nodeDict[graph.edges[edge].from]].weight);
                                 hv++;
                             }
                             else
@@ -211,200 +224,203 @@ namespace TGraph
 
         }
 
-  
 
 
-        public static void BuildHierarchy()
+
+        public struct BuildHierarchy : IJob
         {
-
-            Color[] vertexColors;
-            if (graph.edgeObject == null)
+        
+                public void Execute()
             {
-                vertexColors = new Color[graph.edges.Count * 8];
-                for (int i = 0; i < vertexColors.Length; ++i)
+                /*Color[] vertexColors;
+                if (graph.edgeObject == null)
                 {
-                    vertexColors[i] = Color.red;
+                    vertexColors = new Color[graph.edges.Count * 8];
+                    for (int i = 0; i < vertexColors.Length; ++i)
+                    {
+                        vertexColors[i] = Color.red;
+                    }
                 }
-            }
-            else
-                vertexColors = graph.edgeObject.GetComponent<MeshFilter>().mesh.colors;
+                else
+                    vertexColors = graph.edgeObject.GetComponent<MeshFilter>().mesh.colors;
+
+                */
 
 
-
-            
-            int start = graph.modus / 2; //0,1-> 0 ,2->1
-            int end = (graph.modus + 1) / 2 + 1;//0->1 , 1-> 2, 2 ->2
-            for (int i = 0; i < graph.nodes.Count; i++)
-            {
-                graph.nodes[i].weight = graph.nodes[i].height = 0;
-            }
-
-
-                Debug.Log("modus: " + graph.modus + " -> " + start + " " + end);
-            for (int n = start; n <end; n++)
-            {
-
-                List<int> rootIndices = new List<int>();
-                bool[] visited = new bool[graph.nodes.Count];
-             //   float maxConnections = 0;
+                int start = graph.modus / 2; //0,1-> 0 ,2->1
+                int end = (graph.modus + 1) / 2 + 1;//0->1 , 1-> 2, 2 ->2
                 for (int i = 0; i < graph.nodes.Count; i++)
                 {
-                    
-                    if (n == 0)
-                    {
-                        
-                       
-                         //not included -> root --> lowest
-                        // if (graph.nodes[i].edgeIndicesOut.Count == 1&&graph.nodes[i].edgeIndicesOut[0]==graph.nodes[i].nr)
-                        if (graph.nodes[i].edgeIndicesOut.Where(idx => graph.edges[idx].style=="include").ToList().Count ==0
-                            && graph.nodes[i].edgeIndicesIn.Where(idx => graph.edges[idx].style == "include").ToList().Count >0)
-                        {
-                    
-                            rootIndices.Add(i);
-                            // Debug.Log(graph.nodes[i].label);
-                        }
-                        else
-                        {
-                            graph.nodes[i].weight = -1;
-                        }
-                     
-                    }
-                    else
-                    {
-                       
-                        // if (graph.nodes[i].edgeIndicesIn.Count == 0) rootIndices.Add(i);
-                        if (graph.nodes[i].edgeIndicesIn.Where(idx => graph.edges[idx].style == "include").ToList().Count == 0
-                         && graph.nodes[i].edgeIndicesOut.Where(idx => graph.edges[idx].style == "include").ToList().Count > 0)
-                        {
-                            rootIndices.Add(i);
-                            // Debug.Log(graph.nodes[i].label);
-                        }
-                        else
-                        {
-                            graph.nodes[i].height = -1;
-                        }
-                    }
-                //    maxConnections = Mathf.Max(graph.nodes[i].connectedNodes.Count, maxConnections);
-
+                    graph.nodes[i].weight = graph.nodes[i].height = 0;
                 }
 
-                Debug.Log(rootIndices.Count+ " root nodes");
-                //  rootIndices = rootIndices.GetRange(0, Mathf.Min(rootIndices.Count,200));
-               // if (rootIndices.Count > 200) continue;
-                for (int i = 0; i < rootIndices.Count; i++)
+
+                //  Debug.Log("modus: " + graph.modus + " -> " + start + " " + end);
+                for (int n = start; n < end; n++)
                 {
-                    for (int j = 0; j < graph.nodes.Count; j++)
-                    {
-                        visited[j] = false;
-                    }
-                    float curHeight = 1;
-                    Stack<int> nodeIndexStack = new Stack<int>();
 
-                    nodeIndexStack.Push(rootIndices[i]);
-                    Stack<float> heightStack = new Stack<float>();
-                    heightStack.Push(curHeight);
-                   // visited[rootIndices[i]] = true;
-
-                    while (nodeIndexStack.Count > 0)
+                    List<int> rootIndices = new List<int>();
+                    //   float maxConnections = 0;
+                    for (int i = 0; i < graph.nodes.Count; i++)
                     {
 
-                        int curIndex = nodeIndexStack.Pop();
-                      //  visited[curIndex] = true;
-                        curHeight = heightStack.Pop();
-                        maxHeight = Mathf.Max(curHeight, maxHeight);
-                        minHeight = Mathf.Min(curHeight, minHeight);
-
-                        ReadJSON.MyNode curNode = graph.nodes[curIndex];
-
-                        int childCount;
-                        if (n == 0) childCount = curNode.edgeIndicesIn.Count;
-                        else childCount = curNode.edgeIndicesOut.Count;
-
-                        int edgeIndex;
-
-                        for (int j = 0; j < childCount; j++)
+                        if (n == 0)
                         {
-                            if (n == 0)
-                                edgeIndex = curNode.edgeIndicesIn[j];
-                            else
-                                edgeIndex = curNode.edgeIndicesOut[j];
-                           // Debug.Log(graph.edges[edgeIndex].style);
-                            if (graph.edges[edgeIndex].style!="include") continue;
 
-                            int childNodeIndex;
-                            if (n == 0)
+
+                            //not included -> root --> lowest
+                            // if (graph.nodes[i].edgeIndicesOut.Count == 1&&graph.nodes[i].edgeIndicesOut[0]==graph.nodes[i].nr)
+                            if (graph.nodes[i].edgeIndicesOut.Where(idx => graph.edges[idx].style == "include").ToList().Count == 0
+                                && graph.nodes[i].edgeIndicesIn.Where(idx => graph.edges[idx].style == "include").ToList().Count > 0)
                             {
-                                childNodeIndex = graph.nodeDict[graph.edges[curNode.edgeIndicesIn[j]].from];
-                                // graph.nodes[childNodeIndex].height -=curHeight;
-                                if (graph.nodes[childNodeIndex].weight < curHeight)
-                                    graph.nodes[childNodeIndex].weight = curHeight;// Mathf.Max(curHeight, graph.nodes[childNodeIndex].weight);//+= curHeight;
-                                else
-                                    continue;
 
-
+                                rootIndices.Add(i);
+                                if (!graph.HeightInit) graph.nodes[i].weight = -2;
+                                // Debug.Log(graph.nodes[i].label);
                             }
                             else
                             {
-                                childNodeIndex = graph.nodeDict[graph.edges[curNode.edgeIndicesOut[j]].to];
-                                if (graph.nodes[childNodeIndex].height < curHeight)
-                                    graph.nodes[childNodeIndex].height = curHeight;//Mathf.Max(curHeight, graph.nodes[childNodeIndex].height);//+= curHeight;
-                                else
-                                    continue;
+                                graph.nodes[i].weight = -1;
                             }
 
+                        }
+                        else
+                        {
 
-                           // if (!visited[childNodeIndex])
-                            
+                            // if (graph.nodes[i].edgeIndicesIn.Count == 0) rootIndices.Add(i);
+                            if (graph.nodes[i].edgeIndicesIn.Where(idx => graph.edges[idx].style == "include").ToList().Count == 0
+                             && graph.nodes[i].edgeIndicesOut.Where(idx => graph.edges[idx].style == "include").ToList().Count > 0)
                             {
-                                
-                                nodeIndexStack.Push(childNodeIndex);
-                                if (n == 0) heightStack.Push(curHeight + curNode.inWeights[j]);
-                                else heightStack.Push(curHeight + curNode.outWeights[j]);
+                                rootIndices.Add(i);
+                                if (!graph.HeightInit) graph.nodes[i].height = 2;
+                                // Debug.Log(graph.nodes[i].label);
+                            }
+                            else
+                            {
+                                graph.nodes[i].height = -1;
                             }
                         }
+                        //    maxConnections = Mathf.Max(graph.nodes[i].connectedNodes.Count, maxConnections);
 
                     }
+
+                    //   Debug.Log(rootIndices.Count + " root nodes");
+                    //  rootIndices = rootIndices.GetRange(0, Mathf.Min(rootIndices.Count,200));
+                    // if (rootIndices.Count > 200) continue;
+
+                    if (graph.HeightInit)
+                    {
+
+                        for (int i = 0; i < rootIndices.Count; i++)
+                        {
+
+                            float curHeight = 1;
+                            Stack<int> nodeIndexStack = new Stack<int>();
+                            nodeIndexStack.Push(rootIndices[i]);
+                            Stack<float> heightStack = new Stack<float>();
+                            heightStack.Push(curHeight);
+
+                            // visited[rootIndices[i]] = true;
+
+                            while (nodeIndexStack.Count > 0)
+                            {
+                                int curIndex = nodeIndexStack.Pop();
+                                //  visited[curIndex] = true;
+                                curHeight = heightStack.Pop();
+                              //  maxHeight = Mathf.Max(curHeight, maxHeight);
+                               // minHeight = Mathf.Min(curHeight, minHeight);
+
+                                ReadJSON.MyNode curNode = graph.nodes[curIndex];
+
+                                int childCount;
+                                if (n == 0) childCount = curNode.edgeIndicesIn.Count;
+                                else childCount = curNode.edgeIndicesOut.Count;
+
+                                int edgeIndex;
+
+                                for (int j = 0; j < childCount; j++)
+                                {
+                                    if (n == 0)
+                                        edgeIndex = curNode.edgeIndicesIn[j];
+                                    else
+                                        edgeIndex = curNode.edgeIndicesOut[j];
+                                    // Debug.Log(graph.edges[edgeIndex].style);
+                                    if (graph.edges[edgeIndex].style != "include") continue;
+
+                                    int childNodeIndex;
+                                    if (n == 0)
+                                    {
+                                        childNodeIndex = graph.nodeDict[graph.edges[curNode.edgeIndicesIn[j]].from];
+                                        // graph.nodes[childNodeIndex].height -=curHeight;
+                                        if (graph.nodes[childNodeIndex].weight < curHeight)
+                                            graph.nodes[childNodeIndex].weight = curHeight;// Mathf.Max(curHeight, graph.nodes[childNodeIndex].weight);//+= curHeight;
+                                        else
+                                        {
+                                            continue;
+
+                                        }
+
+
+
+                                    }
+                                    else
+                                    {
+                                        childNodeIndex = graph.nodeDict[graph.edges[curNode.edgeIndicesOut[j]].to];
+                                        if (graph.nodes[childNodeIndex].height < curHeight)
+                                            graph.nodes[childNodeIndex].height = curHeight;//Mathf.Max(curHeight, graph.nodes[childNodeIndex].height);//+= curHeight;
+                                        else
+                                            continue;
+                                    }
+
+                                    nodeIndexStack.Push(childNodeIndex);
+                                    if (n == 0) heightStack.Push(curHeight + curNode.inWeights[j]);
+                                    else heightStack.Push(curHeight + curNode.outWeights[j]);
+
+                                }
+
+                            }
+                        }
+                    }
+
+                    // sliceWidth = 0.2f;
+                    // sliceWidth = Mathf.Max(0.1f, 5.0f * maxHeight / Mathf.Sqrt(graph.nodes.Count));
+
+
+                    //Debug.Log("maxHeight: " + maxHeight);
                 }
-            }
 
-           // sliceWidth = 0.2f;
-            // sliceWidth = Mathf.Max(0.1f, 5.0f * maxHeight / Mathf.Sqrt(graph.nodes.Count));
+                for (int i = 0; i < graph.nodes.Count; i++)
+                {
+                    var node = graph.nodes[i];
 
+                    //Debug.Log(node.label + " " + node.height);
+                    //var y = (node.height - 0.8f * node.weight) * sliceWidth;
 
-            //Debug.Log("maxHeight: " + maxHeight);
+                    float y = node.weight - node.height;//-0.1f*node.height; //;+ node.height;* Mathf.Max(1, (graph.nodes.Count / 200.0f)
+                                                                        //  Debug.Log(y + " " + node.label);
+                                                                        // Debug.Log(i + " weight: " + node.weight + " height: " + node.height+" y " + y * Mathf.Max(1, (graph.nodes.Count / 200.0f)));
+                                                                        /*  float x =(maxConnections/10- node.connectedNodes.Count)*20 ;
+                                                                          if (x < -vol) x = 0;
 
+                                                                          if (i % 2 == 0) x *= -1;*/
+                    if (graph.FlatInit) y = 0;
 
-            for (int i = 0; i < graph.nodes.Count; i++)
-            {
-                var node = graph.nodes[i];
+                 //   if (node.weight == -1 || node.height == -1) y = -1;
+                 //this changes the Layout significantly when initializing!!!!!!!!!!!!!!!!!!!!!but is wrong?
 
-                //Debug.Log(node.label + " " + node.height);
-                //var y = (node.height - 0.8f * node.weight) * sliceWidth;
-
-
-                var y = node.weight-node.height;//-0.1f*node.height; //;+ node.height;* Mathf.Max(1, (graph.nodes.Count / 200.0f)
-                                                //  Debug.Log(y + " " + node.label);
-                                                // Debug.Log(i + " weight: " + node.weight + " height: " + node.height+" y " + y * Mathf.Max(1, (graph.nodes.Count / 200.0f)));
-                                                /*  float x =(maxConnections/10- node.connectedNodes.Count)*20 ;
-                                                  if (x < -vol) x = 0;
-                                                  
-                                                  if (i % 2 == 0) x *= -1;*/
-                 if (graph.FlatInit) y = 0;
-                 if (node.weight == -1|| node.height==-1) y = -1;
-
-                // y = Mathf.Sign(y) * (Mathf.Sqrt(Mathf.Sqrt(Mathf.Abs(y * graph.nodes.Count / 100))));
-               // Debug.Log(node.weight + " " + node.height + " " + y);
-                Vector3 pos = new Vector3(node.pos.x, y, node.pos.z);// / Mathf.Max(1, (graph.nodes.Count / 200.0f));
+                    // y = Mathf.Sign(y) * (Mathf.Sqrt(Mathf.Sqrt(Mathf.Abs(y * graph.nodes.Count / 100))));
+                    // Debug.Log(node.weight + " " + node.height + " " + y);
+                    Vector3 pos = new Vector3(node.pos.x, y, node.pos.z);// / Mathf.Max(1, (graph.nodes.Count / 200.0f));
 
 
-
-                node.pos = pos;
-                node.nodeObject.transform.localPosition = pos;
-
-
+                    node.pos = pos;
+                }
 
             }
-        }
+        
+
+                
+    }
 
         public struct UpdateEnergies : IJob
         {
@@ -515,7 +531,8 @@ namespace TGraph
             }
 
 
-            public void Execute(int index)
+           public void Execute(int index)
+           //public void Execute()
             {
                 /*
                 if (resetForcesFixed == true)
@@ -542,7 +559,7 @@ namespace TGraph
                      }*/
 
 
-                   // for (var j = 0; j < graph.nodes.Count; j++)
+                 //   for (var j = 0; j < graph.nodes.Count; j++)
                     {
                         int j = index;
                         var n = graph.nodes[j];

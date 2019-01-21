@@ -23,8 +23,6 @@ namespace TGraph
         public Material lineMat;
         public GameObject grabbable;
         public bool onlyInclude = false;
-        public bool buildHierarchy = true;
-        public bool normalize = false;
         public GameObject EventSystem;
         // public Material texMat;
         //public Texture2D testTex;
@@ -36,7 +34,7 @@ namespace TGraph
         public float spaceScale = 1;
         public GameObject UrlSelect;
         int si = 0;
-        public int subNode = 400;
+        public float time = 0;
         public string url;//http://neuralocean.de/graph/test/nasa.json";
         public int vol = 100;
         public TextAsset[] GraphFiles;
@@ -67,8 +65,9 @@ namespace TGraph
             public GameObject subObject;
             public float lineWidth = 0.003f;
             public bool UseForces = true;
-            public bool WaterMode = false;
-            public bool FlatInit;
+            public bool WaterMode = true;
+            public bool FlatInit = false;
+            public bool HeightInit =false;
             //public List<int> removeList;
             public Dictionary<string, Color> colorDict;
 
@@ -164,7 +163,7 @@ namespace TGraph
             Material curMaterial = mat;
             var nodesToCheck = new Stack<int>();
             var graphNumber = 1;
-            Color randColor = Color.blue;
+            Color randColor = Color.cyan;
             for (var i = 0; i < graph.nodes.Count; i++)
             {
                 var n = graph.nodes[i];
@@ -619,7 +618,7 @@ namespace TGraph
                 tmp.label = name;
                 tmp.nr = graph.nodes.Count;
                 graph.nodes.Add(tmp);
-                Debug.Log(name + "  " + tmp.nr);
+               // Debug.Log(name + "  " + tmp.nr);
             }
             // graph.nodes[id].edgeIndicesIn = new List<int>();
 
@@ -644,7 +643,7 @@ namespace TGraph
             // JsonUtility.ToJson(tmpMathMLs);
 
 
-            Debug.Log("Start Processing Nodes");
+         
 
             for (int i = 0; i < graph.nodes.Count; i++)
             {
@@ -922,7 +921,20 @@ namespace TGraph
             NativeArray<float> Energies = new NativeArray<float>(graph.nodes.Count, Allocator.Persistent);
             var handle = Layouts.BaseLayout(iterations, globalWeight, spaceScale, Energies);
 
-            yield return new WaitUntil(() => handle.IsCompleted);
+            while (!handle.IsCompleted)
+            {
+                //GlobalVariables.Percent.text = ((float)(100.0f * (graph.fin)*2 / iterations)).ToString();
+                GlobalVariables.Percent.text = graph.fin.ToString();
+                if (graph.fin > 1)
+                {
+                   
+                    Layouts.Normalize(spaceScale, true);
+                    // UpdateAllEdges();
+                }
+                yield return new WaitForSeconds(.1f);
+            }
+            graph.fin = 0;
+            GlobalVariables.Percent.text = "";
             handle.Complete();
             Layouts.Normalize(spaceScale);
             //TODO: iterate over edges instead
@@ -951,30 +963,39 @@ namespace TGraph
             bigMesh.RecalculateBounds();
         }
 
-        private IEnumerator FinishInit(float time)
+        private IEnumerator FinishInit()
         {
+          
             NativeArray<float> Energies = new NativeArray<float>(graph.nodes.Count, Allocator.Persistent);
             var handle = Layouts.BaseLayout(iterations, globalWeight, spaceScale, Energies);
 
 
-        
+            Debug.Log("Begin Layout " + ((Time.realtimeSinceStartup - time)));
+
             // yield return new WaitUntil(() => handle.IsCompleted);
             while (!handle.IsCompleted)
+
+ 
             {
                 //GlobalVariables.Percent.text = ((float)(100.0f * (graph.fin)*2 / iterations)).ToString();
                 GlobalVariables.Percent.text = graph.fin.ToString();
-                if (graph.fin > 1)
+                
+              /*  if (graph.fin > 1)
                 {
-                   Layouts.Normalize(spaceScale, true);
+                    //Layouts.Normalize(spaceScale, true);
+                    //Debug.Log((Time.realtimeSinceStartup-time));
                     // UpdateAllEdges();
                 }
                 else
                 {
-                    Debug.Log("Finished Hierarchy " + (Time.realtimeSinceStartup - time));
-                }
-                yield return  new WaitForSeconds(.05f); 
+                    GlobalVariables.Percent.text = ((Time.realtimeSinceStartup-time)-time).ToString();
+                   // Debug.Log(" Hierarchy "+ ((Time.realtimeSinceStartup-time)));
+                  
+                }*/
+         
+                yield return  new WaitForSeconds(.1f); 
             }
-
+            graph.fin = 0;
             GlobalVariables.Percent.text = "";
             handle.Complete();
             Layouts.Normalize(spaceScale);
@@ -988,7 +1009,8 @@ namespace TGraph
             //     graph.Positions.Dispose();
             //    graph.Disps.Dispose();
             Energies.Dispose();
-            Debug.Log("Finished init " + (Time.realtimeSinceStartup - time));
+            UIInteracton.SEnableEdgeType("meta");
+            Debug.Log("Finished init " + ((Time.realtimeSinceStartup-time)));
 
             this.StartCoroutine(_waitUntilStable(10));
 
@@ -1042,8 +1064,8 @@ namespace TGraph
             else
                 yield return www;
 
-            var time = Time.realtimeSinceStartup;
-            Debug.Log(GlobalVariables.SelectionIndex);
+
+            Debug.Log("index used for processing"+GlobalVariables.SelectionIndex);
             //Debug.Log(www.text);
             string json = GraphFiles[GlobalVariables.SelectionIndex].text;//;
             // check for errors
@@ -1065,7 +1087,7 @@ namespace TGraph
             .Select(group => group.First()).ToList();
             GlobalVariables.Vol = vol;
 
-            Debug.Log(graph.nodes.Count + " " + graph.edges.Count);
+            Debug.Log("nodes edges+"+graph.nodes.Count + " " + graph.edges.Count);
 
 
             graph.movingNodes = new List<int>();
@@ -1090,7 +1112,7 @@ namespace TGraph
             //Debug.Log(graph.nodes.Count);
 
             graph.nodeDict = new Dictionary<string, int>();
-            Debug.Log("setup time " + (Time.realtimeSinceStartup - time));
+            Debug.Log("setup time " + (Time.realtimeSinceStartup-time));
 
             ProcessNodes();
             ProcessEdges();
@@ -1098,9 +1120,9 @@ namespace TGraph
             //graph.Disps = new NativeArray<Vector3>(graph.nodes.Count,Allocator.Persistent);
             //graph.Positions = new NativeArray<Vector3>(graph.nodes.Count, Allocator.Persistent);
             identifySubgraphs();
-            Debug.Log("prep time " + (Time.realtimeSinceStartup - time));
+            Debug.Log("prep time " + (Time.realtimeSinceStartup-time));
 
-            StartCoroutine(FinishInit(time));
+            StartCoroutine(FinishInit());
           
              
 
@@ -1261,6 +1283,8 @@ namespace TGraph
             GameObject.Find("UIDropdown").GetComponent<Dropdown>().value = si;
             WWW jsonUrl = new WWW(url);
             if (url == "") jsonUrl = null;
+
+            time = Time.realtimeSinceStartup;
             StartCoroutine(ProcessJSON(jsonUrl));
   
         }
@@ -1296,7 +1320,7 @@ namespace TGraph
 
         public void RecalculateLayout()
         {
-            Debug.Log(url + " " + GlobalVariables.Url);
+            Debug.Log("urls: "+url + " " + GlobalVariables.Url);
             if (!GlobalVariables.Init)
             {
                 LoadGraph();

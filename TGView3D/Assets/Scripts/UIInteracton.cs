@@ -11,18 +11,13 @@ using UnityEngine.UI;
 public class UIInteracton : MonoBehaviour {
 
     bool outside = true;
-    Dictionary<string,bool> Edgeticked;
     public GameObject Desktop;
     public GameObject UIOverlay;
 
     private void Start()
     {
        
-        Edgeticked = new Dictionary<string, bool>();
-        Edgeticked["meta"] = true;
-        Edgeticked["view"] = true;
-        Edgeticked["structure"] = true;
-        Edgeticked["alignment"] = true;
+
     }
 
 
@@ -142,46 +137,75 @@ public class UIInteracton : MonoBehaviour {
         GlobalVariables.Beam = !GlobalVariables.Beam;
     }
 
+
+
     public void EnableEdgeType(string type)
     {
-
+        Debug.Log(type);
         var graph = GlobalVariables.Graph;
         var edges = graph.edges;
         var mesh = graph.edgeObject.GetComponent<MeshFilter>().mesh;
         Color[] vertexColors = mesh.colors;
-        
-        if (Edgeticked[type])
-        {
-            for (int i = 0; i < edges.Count; i++)
-            {
 
-              
-                if (edges[i].style == type)
+
+        for (int i = 0; i < edges.Count; i++)
+        {
+
+            if (edges[i].style == type)
+            {
+                if (edges[i].active)
                 {
                     edges[i].active = false;
-                    vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = new Color(0, 0, 0, 0);
+                    vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] =
+                    vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = new Color(0, 0, 0, 0);
                 }
-                   
-
-            }
-            Edgeticked[type] = false;
-
-        }
-        else
-        {
-            for (int i = 0; i < edges.Count; i++)
-            {
-               
-                if (edges[i].style == type)
+                else
                 {
                     edges[i].active = true;
                     vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = TGraph.ReadJSON.GenerateOriginColor(graph.colorDict[edges[i].style]);
                     vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = TGraph.ReadJSON.GenerateTargetColor(graph.colorDict[edges[i].style]);
                 }
+            }
+
+        }
+
+
+        mesh.colors = vertexColors;
+
+
+    }
+
+
+    public static void SEnableEdgeType(string type)
+    {
+        Debug.Log(type);
+        var graph = GlobalVariables.Graph;
+        var edges = graph.edges;
+        var mesh = graph.edgeObject.GetComponent<MeshFilter>().mesh;
+        Color[] vertexColors = mesh.colors;
+        
+       
+            for (int i = 0; i < edges.Count; i++)
+            {
+
+                if (edges[i].style == type)
+                {
+                    if (edges[i].active)
+                    {
+                        edges[i].active = false;
+                        vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] =
+                        vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = new Color(0, 0, 0, 0);
+                    }
+                    else
+                    {
+                        edges[i].active = true;
+                        vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = TGraph.ReadJSON.GenerateOriginColor(graph.colorDict[edges[i].style]);
+                        vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = TGraph.ReadJSON.GenerateTargetColor(graph.colorDict[edges[i].style]);
+                    }
+                }
                    
             }
-            Edgeticked[type] = true;
-        }
+      
 
         mesh.colors = vertexColors;
         
