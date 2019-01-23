@@ -23,7 +23,8 @@ public class FlyCamera : MonoBehaviour
     private float totalRun = 1.0f;
     [SerializeField]
     GameObject VR;
-
+    private Vector3 screenDist;
+    private Vector3 startPos = new Vector3(255, 255, 255);
     void Update()
     {
         Transform transform = this.transform.parent.transform;
@@ -36,8 +37,66 @@ public class FlyCamera : MonoBehaviour
             //Mouse  camera angle done.  
         }
         lastMouse = Input.mousePosition;
-        //Keyboard commands
-        float f = 0.0f;
+
+        if (TGraph.GlobalVariables.Init==true && Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("shoot");
+            RaycastHit hit;
+
+            // Does the ray intersect any objects excluding the player layer
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+            {
+                Debug.Log("Did Hit"+ hit.transform.gameObject);
+            
+                TGraph.GlobalVariables.Graph.selectedNodes[0] = hit.transform.GetSiblingIndex();
+                TGraph.GlobalVariables.Graph.movingNodes.Add(hit.transform.GetSiblingIndex());
+
+                 
+                startPos = TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.selectedNodes[0]].nodeObject.transform.position;
+                screenDist = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            }
+            else
+            {
+                TGraph.GlobalVariables.Graph.selectedNodes[0] = -1;
+
+            }
+        }
+
+        if (TGraph.GlobalVariables.Init == true && Input.GetMouseButton(0) && TGraph.GlobalVariables.Graph.movingNodes.Count>0)
+        {
+           
+            var mou = Input.mousePosition;
+            mou.z = (startPos-this.transform.position).magnitude;
+            TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.selectedNodes[0]].nodeObject.transform.position = Camera.main.ScreenToWorldPoint(mou);
+                /*    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);  var m_Plane = new Plane(this.transform.forward, TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.selectedNodes[0]].nodeObject.transform.position);
+            float enter = 0.0f;
+            Debug.Log("drag");
+    if (m_Plane.Raycast(ray, out enter))
+            {
+                
+                //Get the point that is clicked 
+                Vector3 hitPoint = ray.GetPoint(enter);
+              
+                Debug.Log(screenDist - this.transform.position);
+
+                //Move your cube GameObject to the point where you clicked
+                TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.selectedNodes[0]].nodeObject.transform.position = startPos-screenDist+transform.position;
+            }*/
+           
+           // Debug.Log(TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.selectedNodes[0]].nodeObject.transform.localPosition + " " + lastMouse + " " + nodeMouse);
+           // TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.selectedNodes[0]].nodeObject.transform.localPosition = startPos + Camera.main.ScreenToWorldPoint(new Vector3(lastMouse.x,lastMouse.y,nodeMouse.z)) - Camera.main.ScreenToWorldPoint(nodeMouse);
+        }
+        if (TGraph.GlobalVariables.Init == true && Input.GetMouseButtonUp(0) && TGraph.GlobalVariables.Graph.movingNodes.Count > 0)
+        {
+            TGraph.GlobalVariables.Graph.movingNodes.Clear();
+
+        }
+
+
+            //Keyboard commands
+            float f = 0.0f;
         Vector3 p = GetBaseInput();
         if (Input.GetKey(KeyCode.LeftShift))
         {

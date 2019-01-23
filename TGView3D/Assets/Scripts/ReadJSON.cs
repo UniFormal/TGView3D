@@ -925,12 +925,12 @@ namespace TGraph
             {
                 //GlobalVariables.Percent.text = ((float)(100.0f * (graph.fin)*2 / iterations)).ToString();
                 GlobalVariables.Percent.text = graph.fin.ToString();
-                if (graph.fin > 1)
+          /*      if (graph.fin > 1)
                 {
                    
                     Layouts.Normalize(spaceScale, true);
                     // UpdateAllEdges();
-                }
+                }*/
                 yield return new WaitForSeconds(.1f);
             }
             graph.fin = 0;
@@ -1012,6 +1012,7 @@ namespace TGraph
             UIInteracton.SEnableEdgeType("meta");
             Debug.Log("Finished init " + ((Time.realtimeSinceStartup-time)));
 
+            //webgl lagging on startup...fix?
             this.StartCoroutine(_waitUntilStable(10));
 
 
@@ -1260,7 +1261,7 @@ namespace TGraph
                 var node = graph.nodes[n];
                 GlobalVariables.Graph.nodes[n].pos = node.nodeObject.transform.localPosition;
                 //   Debug.Log(node.nodeObject.transform.localPosition);
-                UpdateEdgesFull(node);
+                UpdateEdges(node);
             }
         }
 
