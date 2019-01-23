@@ -28,7 +28,7 @@ public class FlyCamera : MonoBehaviour
     void Update()
     {
         Transform transform = this.transform.parent.transform;
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(2))
         {
             lastMouse = Input.mousePosition - lastMouse;
             lastMouse = new Vector3(-lastMouse.y * camSens, lastMouse.x * camSens, 0);
@@ -38,7 +38,7 @@ public class FlyCamera : MonoBehaviour
         }
         lastMouse = Input.mousePosition;
 
-        if (TGraph.GlobalVariables.Init==true && Input.GetMouseButtonDown(0))
+        if (TGraph.GlobalVariables.Init==true && Input.GetMouseButtonDown(1))
         {
             Debug.Log("shoot");
             RaycastHit hit;
@@ -50,7 +50,7 @@ public class FlyCamera : MonoBehaviour
             {
                 Debug.Log("Did Hit"+ hit.transform.gameObject);
             
-                TGraph.GlobalVariables.Graph.selectedNodes[0] = hit.transform.GetSiblingIndex();
+                TGraph.GlobalVariables.Graph.selectedNodes[0] = TGraph.GlobalVariables.Graph.latestSelection = hit.transform.GetSiblingIndex();
                 TGraph.GlobalVariables.Graph.movingNodes.Add(hit.transform.GetSiblingIndex());
 
                  
@@ -64,11 +64,11 @@ public class FlyCamera : MonoBehaviour
             }
         }
 
-        if (TGraph.GlobalVariables.Init == true && Input.GetMouseButton(0) && TGraph.GlobalVariables.Graph.movingNodes.Count>0)
+        if (TGraph.GlobalVariables.Init == true && Input.GetMouseButton(1) && TGraph.GlobalVariables.Graph.movingNodes.Count>0)
         {
            
             var mou = Input.mousePosition;
-            mou.z = (startPos-this.transform.position).magnitude;
+            mou.z = (startPos-screenDist).magnitude;
             TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.selectedNodes[0]].nodeObject.transform.position = Camera.main.ScreenToWorldPoint(mou);
                 /*    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);  var m_Plane = new Plane(this.transform.forward, TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.selectedNodes[0]].nodeObject.transform.position);
             float enter = 0.0f;
@@ -88,7 +88,7 @@ public class FlyCamera : MonoBehaviour
            // Debug.Log(TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.selectedNodes[0]].nodeObject.transform.localPosition + " " + lastMouse + " " + nodeMouse);
            // TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.selectedNodes[0]].nodeObject.transform.localPosition = startPos + Camera.main.ScreenToWorldPoint(new Vector3(lastMouse.x,lastMouse.y,nodeMouse.z)) - Camera.main.ScreenToWorldPoint(nodeMouse);
         }
-        if (TGraph.GlobalVariables.Init == true && Input.GetMouseButtonUp(0) && TGraph.GlobalVariables.Graph.movingNodes.Count > 0)
+        if (TGraph.GlobalVariables.Init == true && Input.GetMouseButtonUp(1) && TGraph.GlobalVariables.Graph.movingNodes.Count > 0)
         {
             TGraph.GlobalVariables.Graph.movingNodes.Clear();
 

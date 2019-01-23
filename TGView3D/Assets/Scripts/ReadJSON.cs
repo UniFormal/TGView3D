@@ -60,14 +60,16 @@ namespace TGraph
             public int currentTarget = -1;
             public int subGraphOrign = -1;
             public int fin = 0;
-            public int modus = 0;
             public GameObject edgeObject;
+            public int modus = 0;
             public GameObject subObject;
             public float lineWidth = 0.003f;
             public bool UseForces = true;
             public bool WaterMode = true;
             public bool FlatInit = false;
             public bool HeightInit =false;
+            public bool UseConstraint = false;
+            public bool RandomInit = false;
             //public List<int> removeList;
             public Dictionary<string, Color> colorDict;
 
@@ -205,7 +207,7 @@ namespace TGraph
                 }
             }
             Debug.Log("subgraphs found: " + (graphNumber - 1));
-            foreach (var n in countNodesInGraph) Debug.Log(n+"nodes in Subgraph");
+          //  foreach (var n in countNodesInGraph) Debug.Log(n+"nodes in Subgraph");
 
         }
 
@@ -925,12 +927,12 @@ namespace TGraph
             {
                 //GlobalVariables.Percent.text = ((float)(100.0f * (graph.fin)*2 / iterations)).ToString();
                 GlobalVariables.Percent.text = graph.fin.ToString();
-          /*      if (graph.fin > 1)
+                if (graph.fin > 1)
                 {
                    
                     Layouts.Normalize(spaceScale, true);
                     // UpdateAllEdges();
-                }*/
+                }
                 yield return new WaitForSeconds(.1f);
             }
             graph.fin = 0;
@@ -980,18 +982,13 @@ namespace TGraph
                 //GlobalVariables.Percent.text = ((float)(100.0f * (graph.fin)*2 / iterations)).ToString();
                 GlobalVariables.Percent.text = graph.fin.ToString();
                 
-              /*  if (graph.fin > 1)
+                if (graph.fin > 1)
                 {
-                    //Layouts.Normalize(spaceScale, true);
+                    Layouts.Normalize(spaceScale, true);
                     //Debug.Log((Time.realtimeSinceStartup-time));
                     // UpdateAllEdges();
                 }
-                else
-                {
-                    GlobalVariables.Percent.text = ((Time.realtimeSinceStartup-time)-time).ToString();
-                   // Debug.Log(" Hierarchy "+ ((Time.realtimeSinceStartup-time)));
-                  
-                }*/
+          
          
                 yield return  new WaitForSeconds(.1f); 
             }

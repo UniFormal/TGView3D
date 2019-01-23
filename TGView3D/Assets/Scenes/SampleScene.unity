@@ -144,7 +144,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.0000076293945}
+  m_AnchoredPosition: {x: 0, y: -0.00001335144}
   m_SizeDelta: {x: 0, y: 28}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1001 &49963241
@@ -5385,21 +5385,22 @@ MonoBehaviour:
     currentTarget: 0
     subGraphOrign: -1
     fin: 0
-    modus: 0
     edgeObject: {fileID: 0}
+    modus: 0
     subObject: {fileID: 0}
     lineWidth: 0.02
     UseForces: 1
     WaterMode: 1
     FlatInit: 0
     HeightInit: 0
+    UseConstraint: 0
   mat: {fileID: 2100000, guid: f73207ad5363bdb4194c901a41ed995e, type: 2}
   lineMat: {fileID: 2100000, guid: 492e279603edb21439d3524b472130c3, type: 2}
   grabbable: {fileID: 149070, guid: ceed2905feb0b114582b3ee7989983ea, type: 2}
   onlyInclude: 0
   EventSystem: {fileID: 869398359}
   globalWeight: 0.2
-  iterations: 500
+  iterations: 1000
   spaceScale: 1
   UrlSelect: {fileID: 221538338}
   time: 0
@@ -8070,6 +8071,11 @@ Prefab:
         type: 2}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114778601197568342, guid: a8915714b15785d4ebfbe108f661e09c,
+        type: 2}
+      propertyPath: m_IsOn
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8915714b15785d4ebfbe108f661e09c, type: 2}
