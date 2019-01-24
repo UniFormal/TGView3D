@@ -211,8 +211,10 @@ namespace TGraph
 
         }
 
+        
         public void CalculateSubgraph()
         {
+
             Debug.Log(graph.nodes.Count + " looking for " + graph.latestSelection);
             if (graph.latestSelection >= graph.nodes.Count||graph.latestSelection==-1)
                 return;
@@ -227,6 +229,7 @@ namespace TGraph
                 graph.subGraphOrign = -1;
                 graph.edgeObject.SetActive(true);
             }
+            //build
             else
             {
                 if (graph.subObject != null)
@@ -306,7 +309,8 @@ namespace TGraph
                 Aura.transform.parent = node.nodeObject.transform;
                 Aura.transform.position = node.pos;
                 
-                Camera.main.transform.parent.transform.LookAt(node.pos);
+                if(GameObject.Find("VR")==null)
+                Camera.main.transform.LookAt(node.pos);
 
             }
            
@@ -356,8 +360,8 @@ namespace TGraph
             vertices[6 + i * 8] = sourcePos - offset + offsetOrtho;
             vertices[7 + i * 8] = targetPos - offset + offsetOrtho;
         }
-
-        public static void createEdge(int i, Vector3[] vertices, Vector3 sourcePos, Vector3 targetPos, Vector3 offset, Vector3 offsetOrtho, int type, int controlPoints)
+        /*
+        public static void createEdge(List<ReadJSON.MyEdge> edges,int i, Vector3[] vertices, Vector3 sourcePos, Vector3 targetPos, Vector3 offset, Vector3 offsetOrtho, int type, int controlPoints)
         {
             if (true)//(type < 0)
                 createStraightEdge(i, vertices, sourcePos, targetPos, offset, offsetOrtho);
@@ -372,17 +376,18 @@ namespace TGraph
                     vertices[k + 1 * controlPoints + i] = sourcePos * alpha + targetPos * (1 - alpha) + offset - offsetOrtho;
                     vertices[k + 2 * controlPoints + i] = sourcePos * alpha + targetPos * (1 - alpha) - offset - offsetOrtho;
                     vertices[k + 3 * controlPoints + i] = sourcePos * alpha + targetPos * (1 - alpha) - offset + offsetOrtho;
-                }*/
+                }
                 var rand = Random.insideUnitSphere * 0.05f;
                 createStraightEdge(i, vertices, sourcePos + rand, targetPos + rand, offset, offsetOrtho);
             }
 
 
-        }
-        public static void createEdge(int i, Vector3[] vertices, Vector3 sourcePos, Vector3 targetPos, Vector3 offset, Vector3 offsetOrtho)
+        }*/
+        public static void createEdge(List<ReadJSON.MyEdge> edges, int i, Vector3[] vertices, Vector3 sourcePos, Vector3 targetPos, Vector3 offset, Vector3 offsetOrtho)
         {
-
-            createStraightEdge(i, vertices, sourcePos, targetPos, offset, offsetOrtho);
+            Vector3 next = 7 * (Quaternion.AngleAxis(360 * edges[i].localIdx, targetPos-sourcePos) * offset);
+            if (edges[i].localIdx <= 0) next *= 0;
+            createStraightEdge(i, vertices, sourcePos+next, targetPos+next, offset, offsetOrtho);
 
         }
 
@@ -458,8 +463,7 @@ namespace TGraph
                     Vector3 next = 7*(alpha * (a*offset - b*offsetOrtho) + offsetOrtho);
                     */
 
-                    Vector3 next = 7 * (Quaternion.AngleAxis(360 * edges[i].localIdx, dir) * offset);
-                    if (edges[i].localIdx <= 0)next *= 0;
+
                     //Debug.Log(edges[i].style);
                     vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = GenerateOriginColor(graph.colorDict[edges[i].style]) ;
                     vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = GenerateTargetColor(graph.colorDict[edges[i].style]);
@@ -470,9 +474,9 @@ namespace TGraph
                     //     Debug.Log(edges[i].localIdx+" "+next * 100+edges[i].from);
                     /*
                     if (edges[i].localIdx > 0)
-                        createEdge(i, vertices, source.pos+next, target.pos+next, offset, offsetOrtho);
+                        createEdge(graph.edges,i, vertices, source.pos+next, target.pos+next, offset, offsetOrtho);
                     else*/
-                    createEdge(i, vertices, source.pos+next, target.pos+next, offset, offsetOrtho);
+                    createEdge(graph.edges,i, vertices, source.pos, target.pos, offset, offsetOrtho);
                     SetTriangles(i, triangles);
 
 
@@ -959,7 +963,7 @@ namespace TGraph
                 Vector3 dir = targetPos - sourcePos;
                 Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * graph.lineWidth;
                 Vector3 offsetOrtho = Vector3.Cross(dir, offset).normalized * graph.lineWidth;
-                ReadJSON.createEdge(i, bigVertices, sourcePos, targetPos, offset, offsetOrtho);
+                ReadJSON.createEdge(graph.edges,i, bigVertices, sourcePos, targetPos, offset, offsetOrtho);
             }
             bigMesh.vertices = bigVertices;
             bigMesh.RecalculateBounds();
@@ -1146,7 +1150,7 @@ namespace TGraph
                 Vector3 dir = targetPos - sourcePos;
                 Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * graph.lineWidth;
                 Vector3 offsetOrtho = Vector3.Cross(dir, offset).normalized * graph.lineWidth;
-                ReadJSON.createEdge(node.edgeIndicesIn[i], bigVertices, sourcePos, targetPos, offset, offsetOrtho);
+                ReadJSON.createEdge(graph.edges,node.edgeIndicesIn[i], bigVertices, sourcePos, targetPos, offset, offsetOrtho);
             }
 
             sourcePos = targetPos;
@@ -1157,11 +1161,30 @@ namespace TGraph
                 Vector3 dir = targetPos - sourcePos;
                 Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * graph.lineWidth;
                 Vector3 offsetOrtho = Vector3.Cross(dir, offset).normalized * graph.lineWidth;
-                ReadJSON.createEdge(node.edgeIndicesOut[i], bigVertices, sourcePos, targetPos, offset, offsetOrtho);
+                ReadJSON.createEdge(graph.edges,node.edgeIndicesOut[i], bigVertices, sourcePos, targetPos, offset, offsetOrtho);
             }
 
             bigMesh.vertices = bigVertices;
             bigMesh.RecalculateBounds();
+            if (graph.subObject != null)
+            {
+
+                Mesh subMesh = graph.subObject.GetComponent<MeshFilter>().sharedMesh;
+
+                Vector3[] subVertices = subMesh.vertices;
+                int k = 0;
+                foreach (int eid in graph.subEdges)
+                {
+                    for (int v = 0; v < 8; v++)
+                    {
+                        subVertices[k++] = bigVertices[eid * 8 + v];
+                    }
+
+                }
+                subMesh.vertices = subVertices;
+                subMesh.RecalculateBounds();
+            }
+
         }
 
 
@@ -1189,8 +1212,8 @@ namespace TGraph
                 Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * graph.lineWidth;
                 Vector3 offsetOrtho = Vector3.Cross(dir, offset).normalized * graph.lineWidth;
 
-                ReadJSON.createEdge(node.edgeIndicesIn[i], bigVertices, sourcePos, targetPos, offset, offsetOrtho);
-                ReadJSON.createEdge(i, vertices, sourcePos, targetPos, offset, offsetOrtho);
+                ReadJSON.createEdge(graph.edges,node.edgeIndicesIn[i], bigVertices, sourcePos, targetPos, offset, offsetOrtho);
+                ReadJSON.createEdge(graph.edges,i, vertices, sourcePos, targetPos, offset, offsetOrtho);
             }
 
             sourcePos = targetPos;
@@ -1203,8 +1226,8 @@ namespace TGraph
                 Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * graph.lineWidth;
                 Vector3 offsetOrtho = Vector3.Cross(dir, offset).normalized * graph.lineWidth;
 
-                ReadJSON.createEdge(node.edgeIndicesOut[i], bigVertices, sourcePos, targetPos, offset, offsetOrtho);
-                ReadJSON.createEdge(i + node.edgeIndicesIn.Count, vertices, sourcePos, targetPos, offset, offsetOrtho);
+                ReadJSON.createEdge(graph.edges,node.edgeIndicesOut[i], bigVertices, sourcePos, targetPos, offset, offsetOrtho);
+                ReadJSON.createEdge(graph.edges,i + node.edgeIndicesIn.Count, vertices, sourcePos, targetPos, offset, offsetOrtho);
             }
 
 
@@ -1415,7 +1438,7 @@ namespace TGraph
                                 Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * graph.lineWidth;
                                 Vector3 offsetOrtho = Vector3.Cross(dir, offset).normalized * graph.lineWidth;
 
-                                ReadJSON.createEdge(edgeIndices[i], bigVertices, sourcePos, targetPos, offset, offsetOrtho);
+                                ReadJSON.createEdge(graph.edges,edgeIndices[i], bigVertices, sourcePos, targetPos, offset, offsetOrtho);
                                 //  changed = true;
                             }
 
@@ -1435,41 +1458,8 @@ namespace TGraph
         // Update is called once per frame
         void Update()
         {
-            /*
-                        if (OVRInput.GetDown(OVRInput.Button.One) || OVRInput.GetDown(OVRInput.Button.Two))
-                        {
-                            if (Camera.main.farClipPlane == 12) Camera.main.farClipPlane = 100;
-                            else Camera.main.farClipPlane = 12;
-                        }
-                        if (OVRInput.GetDown(OVRInput.Button.Three) || OVRInput.GetDown(OVRInput.Button.Four))
-                        {
-                            graph.edgeObject.SetActive(!graph.edgeObject.activeSelf);
-                        }*/
 
-            /*
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                Debug.Log(GlobalVariables.Solved);
-                if (GlobalVariables.Solved == true)
-                {
-                    GlobalVariables.Solved = false;
-                    StartCoroutine(RecalculateLayout());
-                   // globalWeight = globalWeight- 0.1f;
-                   // if (globalWeight < 0) globalWeight = 1;
-                }
-                
-
-            }*/
-            if(Input.GetKeyDown(KeyCode.RightShift))
-                CalculateSubgraph();
-
-            if (Input.GetKeyDown(KeyCode.KeypadEnter))
-            {
-                Debug.Log("enter");
-                LoadGraph();
-            }
-               
-
+            //for gestures
             if (GlobalVariables.Recalculate)
             {
                 // StopCoroutine(RecalculateLayout());

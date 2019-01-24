@@ -23,7 +23,7 @@ public class FlyCamera : MonoBehaviour
     private float totalRun = 1.0f;
     [SerializeField]
     GameObject VR;
-    private Vector3 screenDist;
+    private float screenDist;
     private Vector3 startPos = new Vector3(255, 255, 255);
     void Update()
     {
@@ -49,13 +49,19 @@ public class FlyCamera : MonoBehaviour
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
                 Debug.Log("Did Hit"+ hit.transform.gameObject);
-            
+               // Debug.Log(ray.origin + " " + hit.point + " " + (ray.origin + ray.direction.normalized * hit.distance)+" " + Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,Input.mousePosition.y,Camera.main.nearClipPlane)));
+              
                 TGraph.GlobalVariables.Graph.selectedNodes[0] = TGraph.GlobalVariables.Graph.latestSelection = hit.transform.GetSiblingIndex();
                 TGraph.GlobalVariables.Graph.movingNodes.Add(hit.transform.GetSiblingIndex());
 
                  
-                startPos = TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.selectedNodes[0]].nodeObject.transform.position;
-                screenDist = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                startPos = TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.selectedNodes[0]].nodeObject.transform.position-hit.point;
+
+                // Debug.Log(ray.direction.normalized.ToString("F4") + " " + (hit.transform.position - Camera.main.transform.position).normalized.ToString("F4"));
+
+            
+                screenDist= Camera.main.WorldToScreenPoint(hit.point).z;
+
             }
             else
             {
@@ -68,8 +74,9 @@ public class FlyCamera : MonoBehaviour
         {
            
             var mou = Input.mousePosition;
-            mou.z = (startPos-screenDist).magnitude;
-            TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.selectedNodes[0]].nodeObject.transform.position = Camera.main.ScreenToWorldPoint(mou);
+            mou.z = screenDist;
+            TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.selectedNodes[0]].nodeObject.transform.position = Camera.main.ScreenToWorldPoint(mou) +startPos;
+           // Debug.Log((TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.selectedNodes[0]].nodeObject.transform.position.z - transform.position.z));
                 /*    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);  var m_Plane = new Plane(this.transform.forward, TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.selectedNodes[0]].nodeObject.transform.position);
             float enter = 0.0f;
             Debug.Log("drag");

@@ -307,7 +307,7 @@ namespace OVRTouchSample
 
                // Debug.Log(closestGrabbable.transform.GetSiblingIndex() + " other has"+ graph.selectedNodes[(handIndex + 1) % 2]);
                 
-
+                //select node and highlight accordingly
                 if (closestGrabbable.transform.GetSiblingIndex() != graph.selectedNodes[(handIndex + 1) % 2] )
                 {
 
