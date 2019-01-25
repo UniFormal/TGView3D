@@ -12,7 +12,7 @@ public class Blink : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         var col = this.GetComponent<MeshRenderer>().material.GetColor("_TintColor");
-
+        //for subgraphorigin highlighting
         this.GetComponent<MeshRenderer>().material.SetColor("_TintColor", new Color(col.r, col.g, col.b, Mathf.Repeat(col.a+0.001f,.3f)));
 	}
 }

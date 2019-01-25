@@ -10,10 +10,29 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Unity.Collections;
 using Unity.Jobs;
+using System.IO;
 
 namespace TGraph
 {
+    [System.Serializable]
+    public class JSONDict
+    {
+        public KeyPosition[] keysAndPositions;
 
+        public static JSONDict CreateFromJSON(string jsonString)
+        {
+            return JsonUtility.FromJson<JSONDict>(jsonString);
+        }
+
+    }
+
+    [System.Serializable]
+    public class KeyPosition
+    {
+        public string id;
+        public Vector3 pos;
+
+    }
 
     public class ReadJSON : MonoBehaviour
     {
@@ -38,7 +57,8 @@ namespace TGraph
         public string url;//http://neuralocean.de/graph/test/nasa.json";
         public int vol = 100;
         public TextAsset[] GraphFiles;
-
+        private string LayoutFile="/testj.json";
+        public Dictionary<string, Vector3> nodePosDict;
 
         //TODO: throw out ugly indexing!!!!!
         [System.Serializable]
@@ -832,6 +852,7 @@ namespace TGraph
              //   UrlSelect.GetComponent<Dropdown>().value = GlobalVariables.SelectionIndex;
             Debug.Log(GlobalVariables.SelectionIndex + " found as index after start");
             //  GlobalVariables.Url = "file:///" + Application.dataPath + "/" + UrlSelect.GetComponent<Dropdown>().captionText.text + ".json";
+            if (GlobalVariables.SelectionIndex == GraphFiles.Length - 1) LoadMPDGraph();
             if (GlobalVariables.Reload&&!GlobalVariables.Init) LoadGraph();
 
 
@@ -921,9 +942,26 @@ namespace TGraph
 
             }
         }*/
+        private void UpdateAllEdges()
+        {
+            Mesh bigMesh = graph.edgeObject.GetComponent<MeshFilter>().sharedMesh;
+            Vector3[] bigVertices = bigMesh.vertices;
+            for (int i = 0; i < graph.edges.Count; i++)
+            {
+                var sourcePos = graph.nodes[graph.nodeDict[graph.edges[i].from]].nodeObject.transform.localPosition;
+                var targetPos = graph.nodes[graph.nodeDict[graph.edges[i].to]].nodeObject.transform.localPosition;
+                Vector3 dir = targetPos - sourcePos;
+                Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * graph.lineWidth;
+                Vector3 offsetOrtho = Vector3.Cross(dir, offset).normalized * graph.lineWidth;
+                ReadJSON.createEdge(graph.edges, i, bigVertices, sourcePos, targetPos, offset, offsetOrtho);
+            }
+            bigMesh.vertices = bigVertices;
+            bigMesh.RecalculateBounds();
+        }
 
         private IEnumerator FinishUpdate()
         {
+
             NativeArray<float> Energies = new NativeArray<float>(graph.nodes.Count, Allocator.Persistent);
             var handle = Layouts.BaseLayout(iterations, globalWeight, spaceScale, Energies);
 
@@ -952,54 +990,53 @@ namespace TGraph
             Energies.Dispose();
         }
 
-        private void UpdateAllEdges()
-        {
-            Mesh bigMesh = graph.edgeObject.GetComponent<MeshFilter>().sharedMesh;
-            Vector3[] bigVertices = bigMesh.vertices;
-            for (int i = 0; i < graph.edges.Count; i++)
-            {
-                var sourcePos = graph.nodes[graph.nodeDict[graph.edges[i].from]].nodeObject.transform.localPosition;
-                var targetPos = graph.nodes[graph.nodeDict[graph.edges[i].to]].nodeObject.transform.localPosition;
-                Vector3 dir = targetPos - sourcePos;
-                Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * graph.lineWidth;
-                Vector3 offsetOrtho = Vector3.Cross(dir, offset).normalized * graph.lineWidth;
-                ReadJSON.createEdge(graph.edges,i, bigVertices, sourcePos, targetPos, offset, offsetOrtho);
-            }
-            bigMesh.vertices = bigVertices;
-            bigMesh.RecalculateBounds();
-        }
 
         private IEnumerator FinishInit()
         {
-          
-            NativeArray<float> Energies = new NativeArray<float>(graph.nodes.Count, Allocator.Persistent);
-            var handle = Layouts.BaseLayout(iterations, globalWeight, spaceScale, Energies);
-
-
-            Debug.Log("Begin Layout " + ((Time.realtimeSinceStartup - time)));
-
-            // yield return new WaitUntil(() => handle.IsCompleted);
-            while (!handle.IsCompleted)
-
- 
+            if (nodePosDict== null)
             {
-                //GlobalVariables.Percent.text = ((float)(100.0f * (graph.fin)*2 / iterations)).ToString();
-                GlobalVariables.Percent.text = graph.fin.ToString();
-                
-                if (graph.fin > 1)
+                NativeArray<float> Energies = new NativeArray<float>(graph.nodes.Count, Allocator.Persistent);
+                var handle = Layouts.BaseLayout(iterations, globalWeight, spaceScale, Energies);
+
+
+                Debug.Log("Begin Layout " + ((Time.realtimeSinceStartup - time)));
+
+                // yield return new WaitUntil(() => handle.IsCompleted);
+                while (!handle.IsCompleted)
+
+
                 {
-                    Layouts.Normalize(spaceScale, true);
-                    //Debug.Log((Time.realtimeSinceStartup-time));
-                    // UpdateAllEdges();
+                    //GlobalVariables.Percent.text = ((float)(100.0f * (graph.fin)*2 / iterations)).ToString();
+                    GlobalVariables.Percent.text = graph.fin.ToString();
+
+                    if (graph.fin > 1)
+                    {
+                        Layouts.Normalize(spaceScale, true);
+                        //Debug.Log((Time.realtimeSinceStartup-time));
+                        // UpdateAllEdges();
+                    }
+
+
+                    yield return new WaitForSeconds(.1f);
                 }
-          
-         
-                yield return  new WaitForSeconds(.1f); 
+                graph.fin = 0;
+                GlobalVariables.Percent.text = "";
+                handle.Complete();
+                Layouts.Normalize(spaceScale);
+                Energies.Dispose();
             }
-            graph.fin = 0;
-            GlobalVariables.Percent.text = "";
-            handle.Complete();
-            Layouts.Normalize(spaceScale);
+            else
+            {
+                Debug.LogWarning("loading layout from file");
+                for (int i = 0; i < graph.nodes.Count; i++)
+                {
+                    var node = graph.nodes[i];
+                    var pos = nodePosDict[node.id];
+                    node.pos = pos;
+                    node.nodeObject.transform.localPosition = pos;
+                }
+            }
+          
             graph.edgeObject = BuildEdges(graph.edges, ref graph, lineMat);
             graph.edgeObject.transform.parent = transform.parent;
             graph.edgeObject.name = "EdgeMesh";
@@ -1009,12 +1046,15 @@ namespace TGraph
             this.GetComponent<GlobalAlignText>().childCount = this.transform.childCount;
             //     graph.Positions.Dispose();
             //    graph.Disps.Dispose();
-            Energies.Dispose();
+
             UIInteracton.SEnableEdgeType("meta");
-            Debug.Log("Finished init " + ((Time.realtimeSinceStartup-time)));
+            Debug.Log("Finished init " + ((Time.realtimeSinceStartup - time)));
 
             //webgl lagging on startup...fix?
             this.StartCoroutine(_waitUntilStable(10));
+
+            
+    
 
 
         }
@@ -1055,13 +1095,14 @@ namespace TGraph
    
 
         //TODO: change
-        IEnumerator ProcessJSON(WWW www)
+        IEnumerator ProcessJSON(WWW www, int type = 0)
         {
            
             if (www == null)
             {
                 yield return null;
             }
+
                 
             else
                 yield return www;
@@ -1084,6 +1125,12 @@ namespace TGraph
            
             GlobalVariables.Graph = MyGraph.CreateFromJSON(json);
             graph = GlobalVariables.Graph;
+            if (type == 1)
+            {
+                graph.WaterMode = false;
+                graph.HeightInit = false;
+                graph.FlatInit = true;
+            }
             graph.nodes = graph.nodes
             .GroupBy(customer => customer.id)
             .Select(group => group.First()).ToList();
@@ -1338,6 +1385,84 @@ namespace TGraph
             
         }
 
+        public void ChangeFile(InputField f)
+        {
+            LayoutFile = f.text;
+
+        }
+
+        public void StoreLayout()
+        {
+            var positions = new JSONDict();
+            positions.keysAndPositions = new KeyPosition[graph.nodes.Count];
+            for(int i = 0; i < graph.nodes.Count; ++i)
+            {
+                positions.keysAndPositions[i] = new KeyPosition();
+                positions.keysAndPositions[i].id = graph.nodes[i].id;
+                positions.keysAndPositions[i].pos = graph.nodes[i].nodeObject.transform.localPosition;
+            }
+            string json = JsonUtility.ToJson(positions);
+            Debug.Log(json);
+            string filePath = Application.dataPath + LayoutFile;
+            Debug.Log(filePath);
+            File.WriteAllText(filePath, json);
+        }
+
+        public void LoadMPDGraph()
+        {
+         
+            WWW jsonUrl = null;
+            time = Time.realtimeSinceStartup;
+            WWW layoutUrl = new WWW(Application.dataPath + LayoutFile);
+            if (LayoutFile != "")
+            {
+                StartCoroutine(LoadLayout(layoutUrl));
+            }
+            StartCoroutine(ProcessJSON(jsonUrl, 1));
+        }
+
+
+        public void LoadMPD()
+        {
+            var mpdi = GraphFiles.Length - 1;
+            GlobalVariables.CurrentFile = GraphFiles[mpdi];
+            GlobalVariables.SelectionIndex = si = mpdi;
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        }
+
+
+        IEnumerator LoadLayout(WWW www)
+        {
+            if (www == null)
+            {
+                yield return null;
+            }
+
+            else
+                yield return www;
+
+            if (www != null && www.error == null)
+            {
+                Debug.Log("WWW Ok!: " + www.text);
+                var json = www.text;
+                var nodePosArray = JSONDict.CreateFromJSON(json).keysAndPositions;
+                nodePosDict = new Dictionary<string, Vector3>();
+                foreach(var idAndPos in nodePosArray)
+                {
+                    nodePosDict.Add(idAndPos.id, idAndPos.pos);
+                }
+
+            }
+            else if (www != null)
+            {
+                Debug.Log(www.error);
+            }
+
+        
+        }
+
 
         public void RecalculateLayout()
         {
@@ -1349,25 +1474,15 @@ namespace TGraph
             else if (si != GlobalVariables.SelectionIndex)
             {
                 Debug.Log("new graph, reload scene");
-             //   graph.Positions.Dispose();
-              //  graph.Disps.Dispose();
                 GlobalVariables.Init = false;
                 GlobalVariables.Reload = true;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
                 Debug.Log("after reload");
-               //  LoadGraph();
             }
             else
             {
-                //Debug.Log(url + " ................ " + GlobalVariables.Url);
-
-                // StartCoroutine(RLCoroutine());
                 Debug.Log("update layout");
-               // var handle = Layouts.BaseLayout(iterations, globalWeight, spaceScale);
                 StartCoroutine(FinishUpdate());
-
-           
             }
 
         }
