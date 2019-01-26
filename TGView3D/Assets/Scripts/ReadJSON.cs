@@ -14,6 +14,21 @@ using System.IO;
 
 namespace TGraph
 {
+
+    [System.Serializable]
+    public class SVGCollection
+    {
+        public string[] svgs;
+
+        public static JSONDict CreateFromJSON(string jsonString)
+        {
+            return JsonUtility.FromJson<JSONDict>(jsonString);
+        }
+
+    }
+
+
+
     [System.Serializable]
     public class JSONDict
     {
@@ -57,8 +72,10 @@ namespace TGraph
         public string url;//http://neuralocean.de/graph/test/nasa.json";
         public int vol = 100;
         public TextAsset[] GraphFiles;
-        private string LayoutFile="/testj.json";
+        private static string LayoutFile="";
         public Dictionary<string, Vector3> nodePosDict;
+        SVGCollection svgCol;
+        public TextAsset SVGFile;
 
         //TODO: throw out ugly indexing!!!!!
         [System.Serializable]
@@ -654,6 +671,18 @@ namespace TGraph
         }
         void ProcessNodes()
         {
+
+            for (int i = 0; i < graph.nodes.Count; i++)
+            {
+                //check not required
+                if (ProcessNode(graph.nodes[i].id, graph.nodeDict.Count, false))
+                    graph.nodes[i].nr = i;
+            }
+
+
+            string json = SVGFile.text;//;
+            string[] svgs = JsonUtility.FromJson<SVGCollection>(json).svgs;
+
             // List<string> tmpMathMLs = new List<string>();
             for (int i = 0; i < graph.nodes.Count; i++)
             {
@@ -662,7 +691,9 @@ namespace TGraph
                     //tmpMathMLs.Add(graph.nodes[i].mathml);
                     PData data = new PData();
                     data.math = graph.nodes[i].mathml;
-                   // StartCoroutine(TestRequest(data, i));
+                    // StartCoroutine(TestRequest(data, i));
+                    graph.nodes[i].svg = svgs[i];
+                    CreateMathObject(i);
                 }
 
             }
@@ -671,12 +702,7 @@ namespace TGraph
 
          
 
-            for (int i = 0; i < graph.nodes.Count; i++)
-            {
-                //check not required
-                if(ProcessNode(graph.nodes[i].id, graph.nodeDict.Count, false))
-                    graph.nodes[i].nr = i;
-            }
+      
         }
 
 
@@ -821,8 +847,8 @@ namespace TGraph
 
         void Start()
         {
-
-
+            if(LayoutFile!="")
+                 GameObject.Find("FileInputField").GetComponent<InputField>().text = LayoutFile;
             GlobalVariables.Percent = Percent.GetComponent<Text>();
             GlobalVariables.EventSystem = EventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>();
             Camera camera = Camera.main;
@@ -870,6 +896,23 @@ namespace TGraph
 
         }
 
+        public void CreateMathObject(int i)
+        {
+            GameObject mathObject = (GameObject)Instantiate(Resources.Load("mathObject"));
+
+            var parentTransform = graph.nodes[i].labelObject.transform;
+            mathObject.transform.parent = parentTransform;
+            ImportSVG.ImportAsMesh(graph.nodes[i].svg, ref mathObject);
+            var y = 0f;
+            if (graph.nodes[i].label != "")
+            {
+                y -= 50f;
+            }
+            mathObject.transform.localPosition = new Vector3(-mathObject.GetComponent<MeshRenderer>().bounds.max.x / 2 * 3000, y, 0f);
+            mathObject.transform.localEulerAngles = new Vector3(180, 0, 0);
+            mathObject.transform.localScale = Vector3.one * 3000;
+        }
+
 
 
 
@@ -902,46 +945,15 @@ namespace TGraph
                 Debug.Log(www.downloadHandler.text);
                 Debug.Log("Request upload complete!");
                 graph.nodes[i].svg = www.downloadHandler.text.Replace("ex\"", "px\"").Replace("Infinity", "0").Replace("currentColor", "white");
-
+ 
                 Debug.Log(graph.nodes[i].svg);
-                GameObject mathObject = (GameObject)Instantiate(Resources.Load("mathObject"));
 
-                mathObject.transform.parent = graph.nodes[i].labelObject.transform;
-                ImportSVG.ImportAsMesh(graph.nodes[i].svg, ref mathObject);
-                mathObject.transform.localPosition = new Vector3(-mathObject.GetComponent<MeshRenderer>().bounds.max.x / 2 * 3000, -150f, 0f);
-                mathObject.transform.localEulerAngles = new Vector3(180, 0, 0);
-                mathObject.transform.localScale = Vector3.one * 3000;
+                CreateMathObject(i);
+
             }
         }
 
-        /*IEnumerator Lay()
-        {
 
-            yield return StartCoroutine(Layouts.SolveUsingForces(25, 0.13f));
-
-            if (GlobalVariables.Solved)
-            {
-
-                Layouts.BuildHierarchy();
-
-                graph.badHack = new List<int>();
-                for (int i = 0; i < graph.nodes.Count; i++)
-                {
-                    var node = graph.nodes[i];
-
-                    Vector3 pos = new Vector3(node.pos.x, node.pos.y, node.pos.z) / 4f;
-                    graph.badHack.Add(i);
-                    node.pos = pos;
-                    node.nodeObject.transform.localPosition = pos;
-                }
-
-                graph.edgeObject = BuildEdges(graph.edges, ref graph, lineMat);
-
-                GlobalVariables.Init = true;
-                this.GetComponent<Interaction>().enabled = true;
-
-            }
-        }*/
         private void UpdateAllEdges()
         {
             Mesh bigMesh = graph.edgeObject.GetComponent<MeshFilter>().sharedMesh;
@@ -1125,6 +1137,8 @@ namespace TGraph
            
             GlobalVariables.Graph = MyGraph.CreateFromJSON(json);
             graph = GlobalVariables.Graph;
+       
+
             if (type == 1)
             {
                 graph.WaterMode = false;
@@ -1170,7 +1184,7 @@ namespace TGraph
             //graph.Positions = new NativeArray<Vector3>(graph.nodes.Count, Allocator.Persistent);
             identifySubgraphs();
             Debug.Log("prep time " + (Time.realtimeSinceStartup-time));
-
+             
             StartCoroutine(FinishInit());
           
              
@@ -1393,6 +1407,10 @@ namespace TGraph
 
         public void StoreLayout()
         {
+          //  svgCol = new SVGCollection();
+           // svgCol.svgs = new string[graph.nodes.Count];
+
+
             var positions = new JSONDict();
             positions.keysAndPositions = new KeyPosition[graph.nodes.Count];
             for(int i = 0; i < graph.nodes.Count; ++i)
@@ -1400,12 +1418,18 @@ namespace TGraph
                 positions.keysAndPositions[i] = new KeyPosition();
                 positions.keysAndPositions[i].id = graph.nodes[i].id;
                 positions.keysAndPositions[i].pos = graph.nodes[i].nodeObject.transform.localPosition;
+                svgCol.svgs[i] = graph.nodes[i].svg;
             }
+
             string json = JsonUtility.ToJson(positions);
-            Debug.Log(json);
-            string filePath = Application.dataPath + LayoutFile;
-            Debug.Log(filePath);
+           // Debug.Log(json);
+            string filePath =Path.Combine(Application.dataPath, LayoutFile);
+           // Debug.Log(filePath);
             File.WriteAllText(filePath, json);
+          //  json = JsonUtility.ToJson(svgCol);
+           // File.WriteAllText(Application.dataPath+"/svgs.json", json);
+
+
         }
 
         public void LoadMPDGraph()
@@ -1413,7 +1437,7 @@ namespace TGraph
          
             WWW jsonUrl = null;
             time = Time.realtimeSinceStartup;
-            WWW layoutUrl = new WWW(Application.dataPath + LayoutFile);
+            WWW layoutUrl = new WWW(Path.Combine(Application.dataPath, LayoutFile));
             if (LayoutFile != "")
             {
                 StartCoroutine(LoadLayout(layoutUrl));
