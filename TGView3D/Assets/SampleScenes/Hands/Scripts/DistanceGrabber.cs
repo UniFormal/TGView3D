@@ -96,10 +96,7 @@ namespace OVRTouchSample
         public delegate void SelectedChange();
         public static event SelectedChange OnSelectionChanged;
         private bool ReadyToSnapTurn;
-        Color baseColor = Color.white;
-        Color selectedColor = Color.cyan;
-        Color connectedColor = Color.yellow;
-        Color targetColor = Color.red;
+
 
         protected override void Start()
         {
@@ -164,7 +161,7 @@ namespace OVRTouchSample
                 //    Debug.Log(graph.currentTarget+ "  "+ graph.latestSelection);
 
                     if (graph.currentTarget != -1 && graph.currentTarget != graph.nodes[graph.latestSelection].connectedNodes.Count)
-                        graph.nodes[graph.nodes[graph.latestSelection].connectedNodes[graph.currentTarget]].labelObject.GetComponent<TextMesh>().color =connectedColor;
+                        graph.nodes[graph.nodes[graph.latestSelection].connectedNodes[graph.currentTarget]].labelObject.GetComponent<TextMesh>().color =TGraph.ReadJSON.ConnectedColor;
                     graph.currentTarget = (graph.currentTarget - 1) % (graph.nodes[graph.latestSelection].connectedNodes.Count+1);
                     if (graph.currentTarget == -2) graph.currentTarget = graph.nodes[graph.latestSelection].connectedNodes.Count - 1;
                     if (OnSelectionChanged != null)
@@ -180,7 +177,7 @@ namespace OVRTouchSample
                 else
                 {
                  //   Debug.Log(graph.currentTarget + "  " + graph.latestSelection);
-                    graph.nodes[graph.nodes[graph.latestSelection].connectedNodes[graph.currentTarget]].labelObject.GetComponent<TextMesh>().color = targetColor;
+                    graph.nodes[graph.nodes[graph.latestSelection].connectedNodes[graph.currentTarget]].labelObject.GetComponent<TextMesh>().color = TGraph.ReadJSON.TargetColor;
                     Vector3 relativePos = graph.nodes[graph.nodes[graph.latestSelection].connectedNodes[graph.currentTarget]].nodeObject.transform.position - m_camera.transform.position;
                     Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
                     rotation.eulerAngles = new Vector3(0, rotation.eulerAngles.y, 0);
@@ -197,7 +194,7 @@ namespace OVRTouchSample
 
     
                     if (graph.currentTarget != -1 && graph.currentTarget != graph.nodes[graph.latestSelection].connectedNodes.Count)
-                        graph.nodes[graph.nodes[graph.latestSelection].connectedNodes[graph.currentTarget]].labelObject.GetComponent<TextMesh>().color =connectedColor;
+                        graph.nodes[graph.nodes[graph.latestSelection].connectedNodes[graph.currentTarget]].labelObject.GetComponent<TextMesh>().color =TGraph.ReadJSON.ConnectedColor;
                     graph.currentTarget = (graph.currentTarget + 1) % (graph.nodes[graph.latestSelection].connectedNodes.Count+1);
                     if (OnSelectionChanged != null)
                         OnSelectionChanged();
@@ -211,7 +208,7 @@ namespace OVRTouchSample
                 }
                 else
                 {
-                    graph.nodes[graph.nodes[graph.latestSelection].connectedNodes[graph.currentTarget]].labelObject.GetComponent<TextMesh>().color = targetColor;
+                    graph.nodes[graph.nodes[graph.latestSelection].connectedNodes[graph.currentTarget]].labelObject.GetComponent<TextMesh>().color = TGraph.ReadJSON.TargetColor;
                     Vector3 relativePos = graph.nodes[graph.nodes[graph.latestSelection].connectedNodes[graph.currentTarget]].nodeObject.transform.position - m_camera.transform.position;
                     Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
                     rotation.eulerAngles = new Vector3(0, rotation.eulerAngles.y, 0);
@@ -288,12 +285,12 @@ namespace OVRTouchSample
                 {
                     var graphNode = graph.nodes[graph.selectedNodes[handIndex]];
                
-                    graphNode.labelObject.GetComponent<TextMesh>().color = baseColor;
+                    graphNode.labelObject.GetComponent<TextMesh>().color = TGraph.ReadJSON.BaseColor;
                     graphNode.labelObject.layer = 18;
                     foreach (int nidx in graphNode.connectedNodes)
                     {
                         graph.nodes[nidx].labelObject.layer = 18;
-                        graph.nodes[nidx].labelObject.GetComponent<TextMesh>().color = baseColor;
+                        graph.nodes[nidx].labelObject.GetComponent<TextMesh>().color = TGraph.ReadJSON.BaseColor;
                     }
                     GameObject.Destroy(graphNode.nodeEdgeObject);
                     graphNode.nodeEdgeObject = null;
@@ -312,12 +309,12 @@ namespace OVRTouchSample
                 {
 
                     var edges = new List<TGraph.ReadJSON.MyEdge>();
-                    node.labelObject.GetComponent<TextMesh>().color = selectedColor;
+                    node.labelObject.GetComponent<TextMesh>().color = TGraph.ReadJSON.SelectedColor;
                     node.labelObject.layer = 0;
                     foreach (int nidx in node.connectedNodes)
                     {
                         graph.nodes[nidx].labelObject.layer = 0;
-                        graph.nodes[nidx].labelObject.GetComponent<TextMesh>().color = connectedColor;
+                        graph.nodes[nidx].labelObject.GetComponent<TextMesh>().color = TGraph.ReadJSON.ConnectedColor;
                     }
                     foreach (int idx in node.edgeIndicesIn)
                     {

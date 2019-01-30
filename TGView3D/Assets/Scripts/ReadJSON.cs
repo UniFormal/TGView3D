@@ -76,6 +76,12 @@ namespace TGraph
         public Dictionary<string, Vector3> nodePosDict;
         SVGCollection svgCol;
         public TextAsset SVGFile;
+        static bool IsMPD = false;
+        public static Color BaseColor = Color.white;
+        public static Color SelectedColor = Color.cyan;
+        public static Color ConnectedColor = Color.yellow;
+        public static Color TargetColor = Color.red;
+
 
         //TODO: throw out ugly indexing!!!!!
         [System.Serializable]
@@ -202,7 +208,7 @@ namespace TGraph
             Material curMaterial = mat;
             var nodesToCheck = new Stack<int>();
             var graphNumber = 1;
-            Color randColor = Color.cyan;
+            Color randColor = mat.color;
             for (var i = 0; i < graph.nodes.Count; i++)
             {
                 var n = graph.nodes[i];
@@ -432,12 +438,14 @@ namespace TGraph
         
         public static Color GenerateOriginColor(Color color)
         {
-            return color / 20;
+            if (IsMPD) return new Color(0, 100, 0);
+            return color / 40/4;
         }
 
         public static Color GenerateTargetColor(Color color)
         {
-            return (new Color(255, 255, 255) + color * 3) / 4;
+            if (IsMPD) return new Color(0, 100, 0);
+            return (new Color(255, 255, 255) + color * 3) / 4/4;
         }
 
         public static GameObject BuildEdges(List<MyEdge> edges, ref MyGraph graph, Material lineMat)
@@ -608,7 +616,7 @@ namespace TGraph
             //  node.transform.localScale = new Vector3(4, 1, 1);
             // GameObject node = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             GameObject nodeObject = Instantiate(grabbable);
-           // nodeObject.transform.localScale = new Vector3(.1f, .1f, .1f);
+            nodeObject.transform.localScale *= 1.1f;
             // GameObject node = new GameObject();
             // node.AddComponent<AlignText>();
             Vector3 pos = Random.insideUnitSphere * vol;
@@ -878,7 +886,16 @@ namespace TGraph
              //   UrlSelect.GetComponent<Dropdown>().value = GlobalVariables.SelectionIndex;
             Debug.Log(GlobalVariables.SelectionIndex + " found as index after start");
             //  GlobalVariables.Url = "file:///" + Application.dataPath + "/" + UrlSelect.GetComponent<Dropdown>().captionText.text + ".json";
-            if (GlobalVariables.SelectionIndex == GraphFiles.Length - 1) LoadMPDGraph();
+            if (GlobalVariables.SelectionIndex == GraphFiles.Length - 1)
+            {
+                LoadMPDGraph();
+                IsMPD = true;
+            }
+            else
+            {
+                IsMPD = false;
+            }
+
             if (GlobalVariables.Reload&&!GlobalVariables.Init) LoadGraph();
 
 
@@ -901,16 +918,30 @@ namespace TGraph
             GameObject mathObject = (GameObject)Instantiate(Resources.Load("mathObject"));
 
             var parentTransform = graph.nodes[i].labelObject.transform;
-            mathObject.transform.parent = parentTransform;
+
+       
             ImportSVG.ImportAsMesh(graph.nodes[i].svg, ref mathObject);
             var y = 0f;
             if (graph.nodes[i].label != "")
             {
+                mathObject.transform.parent = parentTransform;
                 y -= 50f;
+                mathObject.transform.localPosition = new Vector3(-mathObject.GetComponent<MeshRenderer>().bounds.max.x / 2 * 3000, y, 0f);
+                mathObject.transform.localScale = Vector3.one * 3000;
             }
-            mathObject.transform.localPosition = new Vector3(-mathObject.GetComponent<MeshRenderer>().bounds.max.x / 2 * 3000, y, 0f);
+            else
+            {
+
+    
+                parentTransform.localScale = Vector3.one;
+                mathObject.transform.parent = parentTransform;
+                mathObject.transform.localPosition = Vector3.zero;
+                parentTransform.localPosition = new Vector3(0, 0, 3);
+                mathObject.transform.localScale = Vector3.one * 60;
+            }
+
             mathObject.transform.localEulerAngles = new Vector3(180, 0, 0);
-            mathObject.transform.localScale = Vector3.one * 3000;
+        
         }
 
 
@@ -1165,14 +1196,6 @@ namespace TGraph
             graph.colorDict.Add("view", new Color(0, 0, 255));
             graph.colorDict.Add("structure", new Color(0, 120, 120));
 
-            /*
-            graph.colorDict.Add("graphinclude", new Color(0, 255, 0));
-            graph.colorDict.Add("graphmeta", new Color(255, 0, 0));
-            graph.colorDict.Add("graphalignment", new Color(120, 120, 0));
-            graph.colorDict.Add("graphview", new Color(0, 0, 255));
-            graph.colorDict.Add("graphstructure", new Color(0, 120, 120));
-            */
-            //Debug.Log(graph.nodes.Count);
 
             graph.nodeDict = new Dictionary<string, int>();
             Debug.Log("setup time " + (Time.realtimeSinceStartup-time));
@@ -1418,7 +1441,7 @@ namespace TGraph
                 positions.keysAndPositions[i] = new KeyPosition();
                 positions.keysAndPositions[i].id = graph.nodes[i].id;
                 positions.keysAndPositions[i].pos = graph.nodes[i].nodeObject.transform.localPosition;
-                svgCol.svgs[i] = graph.nodes[i].svg;
+             //   svgCol.svgs[i] = graph.nodes[i].svg;
             }
 
             string json = JsonUtility.ToJson(positions);

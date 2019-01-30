@@ -205,7 +205,7 @@ namespace TGraph
            
 
             if (scaleVec.y == 0) scaleVec.y++;
-            Vector3 realScale = 10*spaceScale/(Mathf.Pow(graph.nodes.Count,1f/3f)) * Vector3.Scale(new Vector3(1f / scaleVec.x, 1f / scaleVec.y, 1f / scaleVec.z),
+            Vector3 realScale = spaceScale/(Mathf.Pow(graph.nodes.Count,1f/10f)) * Vector3.Scale(new Vector3(1f / scaleVec.x, 1f / scaleVec.y, 1f / scaleVec.z),
                 Vector3.one * (Mathf.Pow(graph.nodes.Count, 1f / 2f)));
 
            // Debug.Log("beforeScale:" + maxVec + " " + minVec);

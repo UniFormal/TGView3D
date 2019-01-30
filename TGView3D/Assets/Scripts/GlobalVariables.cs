@@ -21,7 +21,6 @@ namespace TGraph
         public static TextAsset CurrentFile;
         public static Text Percent;
 
-        
     }
    
 
