@@ -1,18 +1,3 @@
-oo,cic:/Coq/ssr/ssrbool/BoolIf/A.var,cic:/Coq/ssr/ssrbool/BoolIf/A.var
-oo,cic:/Coq/ssr/ssrbool/BoolIf/b.var,cic:/Coq/Init/Datatypes/bool.ind
-oo,cic:/Coq/ssr/ssrbool/BoolIf/b.var,cic:/Coq/ssr/ssrbool/BoolIf/b.var
-oo,cic:/Coq/ssr/ssrbool/BoolIf/B.var,cic:/Coq/ssr/ssrbool/BoolIf/B.var
-oo,cic:/Coq/ssr/ssrbool/BoolIf/f.var,cic:/A.var
-oo,cic:/Coq/ssr/ssrbool/BoolIf/f.var,cic:/B.var
-oo,cic:/Coq/ssr/ssrbool/BoolIf/f.var,cic:/Coq/ssr/ssrbool/BoolIf/A.var
-oo,cic:/Coq/ssr/ssrbool/BoolIf/f.var,cic:/Coq/ssr/ssrbool/BoolIf/B.var
-oo,cic:/Coq/ssr/ssrbool/BoolIf/f.var,cic:/Coq/ssr/ssrbool/BoolIf/f.var
-oo,cic:/Coq/ssr/ssrbool/BoolIf/vF.var,cic:/A.var
-oo,cic:/Coq/ssr/ssrbool/BoolIf/vF.var,cic:/Coq/ssr/ssrbool/BoolIf/A.var
-oo,cic:/Coq/ssr/ssrbool/BoolIf/vF.var,cic:/Coq/ssr/ssrbool/BoolIf/vF.var
-oo,cic:/Coq/ssr/ssrbool/BoolIf/vT.var,cic:/A.var
-oo,cic:/Coq/ssr/ssrbool/BoolIf/vT.var,cic:/Coq/ssr/ssrbool/BoolIf/A.var
-oo,cic:/Coq/ssr/ssrbool/BoolIf/vT.var,cic:/Coq/ssr/ssrbool/BoolIf/vT.var
-oo,cic:/Coq/ssr/ssrbool/BoolIf/x.var,cic:/A.var
-oo,cic:/Coq/ssr/ssrbool/BoolIf/x.var,cic:/Coq/ssr/ssrbool/BoolIf/A.var
-oo,cic:/Coq/ssr/ssrbool/BoolIf/x.var,cic:/Coq/ssr/ssrbool/BoolIf/x.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:0edaa1f9a6ba1d6c21c4ed98d8ec93f59fda1ac8b190e2706d0a7c3e07ac4d00
+size 1170

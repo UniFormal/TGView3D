@@ -1,14 +1,3 @@
-oo,cic:/Coq/Logic/Hurkens/TypeNeqSmallType/up_down.con,cic:/A.var
-oo,cic:/Coq/Logic/Hurkens/TypeNeqSmallType/up_down.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Logic/Hurkens/TypeNeqSmallType/up_down.con,cic:/Coq/Init/Logic/eq_rect.con
-oo,cic:/Coq/Logic/Hurkens/TypeNeqSmallType/up_down.con,cic:/Coq/Init/Logic/eq_rect_r.con
-oo,cic:/Coq/Logic/Hurkens/TypeNeqSmallType/up_down.con,cic:/Coq/Logic/Hurkens/TypeNeqSmallType/Paradox/A.var
-oo,cic:/Coq/Logic/Hurkens/TypeNeqSmallType/up_down.con,cic:/Coq/Logic/Hurkens/TypeNeqSmallType/Paradox/down.var
-oo,cic:/Coq/Logic/Hurkens/TypeNeqSmallType/up_down.con,cic:/Coq/Logic/Hurkens/TypeNeqSmallType/Paradox/h.var
-oo,cic:/Coq/Logic/Hurkens/TypeNeqSmallType/up_down.con,cic:/Coq/Logic/Hurkens/TypeNeqSmallType/Paradox/up.var
-oo,cic:/Coq/Logic/Hurkens/TypeNeqSmallType/up_down.con,cic:/Coq/Logic/Hurkens/TypeNeqSmallType/Paradox/U.var
-oo,cic:/Coq/Logic/Hurkens/TypeNeqSmallType/up_down.con,cic:/Coq/Logic/Hurkens/TypeNeqSmallType/up_down.con
-oo,cic:/Coq/Logic/Hurkens/TypeNeqSmallType/up_down.con,cic:/down.var
-oo,cic:/Coq/Logic/Hurkens/TypeNeqSmallType/up_down.con,cic:/h.var
-oo,cic:/Coq/Logic/Hurkens/TypeNeqSmallType/up_down.con,cic:/up.var
-oo,cic:/Coq/Logic/Hurkens/TypeNeqSmallType/up_down.con,cic:/U.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:4b6dac411a6a59eb1815400769e28e1602fa90c634cc32fe6886ac7e700500d4
+size 1248

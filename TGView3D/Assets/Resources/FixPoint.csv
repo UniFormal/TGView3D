@@ -1,24 +1,3 @@
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/FixPoint/f.var,cic:/A.var
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/FixPoint/f.var,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/A.var
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/FixPoint/f.var,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/FixPoint/f.var
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/FixPoint/f.var,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/N/t.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/FixPoint/f_wd.var,cic:/Aeq.var
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/FixPoint/f_wd.var,cic:/A.var
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/FixPoint/f_wd.var,cic:/Coq/Classes/Morphisms/Proper.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/FixPoint/f_wd.var,cic:/Coq/Classes/Morphisms/respectful.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/FixPoint/f_wd.var,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/N/eq.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/FixPoint/f_wd.var,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/Aeq.var
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/FixPoint/f_wd.var,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/A.var
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/FixPoint/f_wd.var,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/FixPoint/f.var
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/FixPoint/f_wd.var,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/FixPoint/f_wd.var
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/FixPoint/f_wd.var,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/N/t.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/FixPoint/f_wd.var,cic:/f.var
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/FixPoint/step_good.var,cic:/Aeq.var
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/FixPoint/step_good.var,cic:/A.var
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/FixPoint/step_good.var,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/N/lt.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/FixPoint/step_good.var,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/Aeq.var
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/FixPoint/step_good.var,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/A.var
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/FixPoint/step_good.var,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/FixPoint/f.var
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/FixPoint/step_good.var,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/FixPoint/step_good.var
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/FixPoint/step_good.var,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/N/t.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/FixPoint/step_good.var,cic:/f.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:86b7375c92b2af5c46e2333d45b228d769433f7c287383ad96088a56a1af27f8
+size 3669

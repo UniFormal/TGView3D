@@ -1,7 +1,3 @@
-oo,cic:/Coq/Init/Specif/Subset_projections2/A.var,cic:/Coq/Init/Specif/Subset_projections2/A.var
-oo,cic:/Coq/Init/Specif/Subset_projections2/P.var,cic:/A.var
-oo,cic:/Coq/Init/Specif/Subset_projections2/P.var,cic:/Coq/Init/Specif/Subset_projections2/A.var
-oo,cic:/Coq/Init/Specif/Subset_projections2/P.var,cic:/Coq/Init/Specif/Subset_projections2/P.var
-oo,cic:/Coq/Init/Specif/Subset_projections2/Q.var,cic:/A.var
-oo,cic:/Coq/Init/Specif/Subset_projections2/Q.var,cic:/Coq/Init/Specif/Subset_projections2/A.var
-oo,cic:/Coq/Init/Specif/Subset_projections2/Q.var,cic:/Coq/Init/Specif/Subset_projections2/Q.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:0888ed90b1a33316e3ac93919f9d2c26e1d611342301ac4610896737226c4e21
+size 607

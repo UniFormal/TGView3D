@@ -1,16 +1,3 @@
-oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_nonpos.con,cic:/Coq/Numbers/NatInt/NZLog/A/eq.con
-oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_nonpos.con,cic:/Coq/Numbers/NatInt/NZLog/A/le.con
-oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_nonpos.con,cic:/Coq/Numbers/NatInt/NZLog/A/t.con
-oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_nonpos.con,cic:/Coq/Numbers/NatInt/NZLog/A/zero.con
-oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_nonpos.con,cic:/Coq/Numbers/NatInt/NZLog/C/log2.con
-oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_nonpos.con,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_nonpos.con
-oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_spec.con,cic:/Coq/Init/Logic/and.ind
-oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_spec.con,cic:/Coq/Numbers/NatInt/NZLog/A/le.con
-oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_spec.con,cic:/Coq/Numbers/NatInt/NZLog/A/lt.con
-oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_spec.con,cic:/Coq/Numbers/NatInt/NZLog/A/succ.con
-oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_spec.con,cic:/Coq/Numbers/NatInt/NZLog/A/t.con
-oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_spec.con,cic:/Coq/Numbers/NatInt/NZLog/A/two.con
-oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_spec.con,cic:/Coq/Numbers/NatInt/NZLog/A/zero.con
-oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_spec.con,cic:/Coq/Numbers/NatInt/NZLog/B/pow.con
-oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_spec.con,cic:/Coq/Numbers/NatInt/NZLog/C/log2.con
-oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_spec.con,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_spec.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:1f78e7d4a09876c5490d2994adb9eb035c795bed1b794950e907b18fe0e59ef8
+size 1597

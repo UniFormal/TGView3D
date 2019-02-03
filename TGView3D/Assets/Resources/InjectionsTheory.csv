@@ -1,18 +1,3 @@
-oo,cic:/Coq/ssr/ssrfun/InjectionsTheory/A.var,cic:/Coq/ssr/ssrfun/InjectionsTheory/A.var
-oo,cic:/Coq/ssr/ssrfun/InjectionsTheory/B.var,cic:/Coq/ssr/ssrfun/InjectionsTheory/B.var
-oo,cic:/Coq/ssr/ssrfun/InjectionsTheory/C.var,cic:/Coq/ssr/ssrfun/InjectionsTheory/C.var
-oo,cic:/Coq/ssr/ssrfun/InjectionsTheory/f.var,cic:/A.var
-oo,cic:/Coq/ssr/ssrfun/InjectionsTheory/f.var,cic:/B.var
-oo,cic:/Coq/ssr/ssrfun/InjectionsTheory/f.var,cic:/Coq/ssr/ssrfun/InjectionsTheory/A.var
-oo,cic:/Coq/ssr/ssrfun/InjectionsTheory/f.var,cic:/Coq/ssr/ssrfun/InjectionsTheory/B.var
-oo,cic:/Coq/ssr/ssrfun/InjectionsTheory/f.var,cic:/Coq/ssr/ssrfun/InjectionsTheory/f.var
-oo,cic:/Coq/ssr/ssrfun/InjectionsTheory/g.var,cic:/A.var
-oo,cic:/Coq/ssr/ssrfun/InjectionsTheory/g.var,cic:/B.var
-oo,cic:/Coq/ssr/ssrfun/InjectionsTheory/g.var,cic:/Coq/ssr/ssrfun/InjectionsTheory/A.var
-oo,cic:/Coq/ssr/ssrfun/InjectionsTheory/g.var,cic:/Coq/ssr/ssrfun/InjectionsTheory/B.var
-oo,cic:/Coq/ssr/ssrfun/InjectionsTheory/g.var,cic:/Coq/ssr/ssrfun/InjectionsTheory/g.var
-oo,cic:/Coq/ssr/ssrfun/InjectionsTheory/h.var,cic:/B.var
-oo,cic:/Coq/ssr/ssrfun/InjectionsTheory/h.var,cic:/Coq/ssr/ssrfun/InjectionsTheory/B.var
-oo,cic:/Coq/ssr/ssrfun/InjectionsTheory/h.var,cic:/Coq/ssr/ssrfun/InjectionsTheory/C.var
-oo,cic:/Coq/ssr/ssrfun/InjectionsTheory/h.var,cic:/Coq/ssr/ssrfun/InjectionsTheory/h.var
-oo,cic:/Coq/ssr/ssrfun/InjectionsTheory/h.var,cic:/C.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:1d0594a320d3c7a647db70834698ed22afa3abbcf26d2d46768d9f7055656c85
+size 1410

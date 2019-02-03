@@ -1,11 +1,3 @@
-oo,cic:/Coq/MSets/MSetInterface/HasOrdOps/compare.con,cic:/Coq/Init/Datatypes/comparison.ind
-oo,cic:/Coq/MSets/MSetInterface/HasOrdOps/compare.con,cic:/Coq/MSets/MSetInterface/HasOrdOps/compare.con
-oo,cic:/Coq/MSets/MSetInterface/HasOrdOps/compare.con,cic:/Coq/MSets/MSetInterface/T/t.con
-oo,cic:/Coq/MSets/MSetInterface/HasOrdOps/max_elt.con,cic:/Coq/Init/Datatypes/option.ind
-oo,cic:/Coq/MSets/MSetInterface/HasOrdOps/max_elt.con,cic:/Coq/MSets/MSetInterface/HasOrdOps/max_elt.con
-oo,cic:/Coq/MSets/MSetInterface/HasOrdOps/max_elt.con,cic:/Coq/MSets/MSetInterface/T/elt.con
-oo,cic:/Coq/MSets/MSetInterface/HasOrdOps/max_elt.con,cic:/Coq/MSets/MSetInterface/T/t.con
-oo,cic:/Coq/MSets/MSetInterface/HasOrdOps/min_elt.con,cic:/Coq/Init/Datatypes/option.ind
-oo,cic:/Coq/MSets/MSetInterface/HasOrdOps/min_elt.con,cic:/Coq/MSets/MSetInterface/HasOrdOps/min_elt.con
-oo,cic:/Coq/MSets/MSetInterface/HasOrdOps/min_elt.con,cic:/Coq/MSets/MSetInterface/T/elt.con
-oo,cic:/Coq/MSets/MSetInterface/HasOrdOps/min_elt.con,cic:/Coq/MSets/MSetInterface/T/t.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:6b47f15278216965b0e8567d1c41903b1c3dc5038ca8405bdef14c3ddd169460
+size 1045

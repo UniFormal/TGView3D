@@ -1,16 +1,3 @@
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModuloCyclicType/ops.con,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/Ops.ind
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModuloCyclicType/ops.con,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/P/p.con
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModuloCyclicType/ops.con,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/zmod_ops.con
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModuloCyclicType/ops.con,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModuloCyclicType/ops.con
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModuloCyclicType/ops.con,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModuloCyclicType/t.con
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModuloCyclicType/specs.con,cic:/Coq/Numbers/BinNums/Z.ind
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModuloCyclicType/specs.con,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/Specs.ind
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModuloCyclicType/specs.con,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/P/not_one.con
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModuloCyclicType/specs.con,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/P/p.con
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModuloCyclicType/specs.con,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/zmod_ops.con
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModuloCyclicType/specs.con,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/zmod_specs.con
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModuloCyclicType/specs.con,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModuloCyclicType/ops.con
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModuloCyclicType/specs.con,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModuloCyclicType/specs.con
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModuloCyclicType/specs.con,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModuloCyclicType/t.con
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModuloCyclicType/t.con,cic:/Coq/Numbers/BinNums/Z.ind
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModuloCyclicType/t.con,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModuloCyclicType/t.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:78dfd260c1763826371ff16de6efa1c61dbcb6d17fc83d3ac847bcbcb72bf519
+size 2001

@@ -1,15 +1,3 @@
-oo,cic:/Coq/Relations/Relation_Definitions/same_relation.con,cic:/Coq/Init/Logic/and.ind
-oo,cic:/Coq/Relations/Relation_Definitions/same_relation.con,cic:/Coq/Relations/Relation_Definitions/inclusion.con
-oo,cic:/Coq/Relations/Relation_Definitions/same_relation.con,cic:/Coq/Relations/Relation_Definitions/relation.con
-oo,cic:/Coq/Relations/Relation_Definitions/same_relation.con,cic:/Coq/Relations/Relation_Definitions/Relation_Definition/A.var
-oo,cic:/Coq/Relations/Relation_Definitions/same_relation.con,cic:/Coq/Relations/Relation_Definitions/same_relation.con
-oo,cic:/Coq/Relations/Relation_Definitions/symmetric.con,cic:/A.var
-oo,cic:/Coq/Relations/Relation_Definitions/symmetric.con,cic:/Coq/Relations/Relation_Definitions/Relation_Definition/A.var
-oo,cic:/Coq/Relations/Relation_Definitions/symmetric.con,cic:/Coq/Relations/Relation_Definitions/Relation_Definition/R.var
-oo,cic:/Coq/Relations/Relation_Definitions/symmetric.con,cic:/Coq/Relations/Relation_Definitions/symmetric.con
-oo,cic:/Coq/Relations/Relation_Definitions/symmetric.con,cic:/R.var
-oo,cic:/Coq/Relations/Relation_Definitions/transitive.con,cic:/A.var
-oo,cic:/Coq/Relations/Relation_Definitions/transitive.con,cic:/Coq/Relations/Relation_Definitions/Relation_Definition/A.var
-oo,cic:/Coq/Relations/Relation_Definitions/transitive.con,cic:/Coq/Relations/Relation_Definitions/Relation_Definition/R.var
-oo,cic:/Coq/Relations/Relation_Definitions/transitive.con,cic:/Coq/Relations/Relation_Definitions/transitive.con
-oo,cic:/Coq/Relations/Relation_Definitions/transitive.con,cic:/R.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:8ca41cb25bf86e4ad463545765279a6b456132a6ed227019583115da3ab81791
+size 1556

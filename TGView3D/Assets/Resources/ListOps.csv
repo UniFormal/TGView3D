@@ -1,7 +1,3 @@
-oo,cic:/Coq/Lists/List/ListOps/A.var,cic:/Coq/Lists/List/ListOps/A.var
-oo,cic:/Coq/Lists/List/ListOps/eq_dec.var,cic:/A.var
-oo,cic:/Coq/Lists/List/ListOps/eq_dec.var,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Lists/List/ListOps/eq_dec.var,cic:/Coq/Init/Logic/not.con
-oo,cic:/Coq/Lists/List/ListOps/eq_dec.var,cic:/Coq/Init/Specif/sumbool.ind
-oo,cic:/Coq/Lists/List/ListOps/eq_dec.var,cic:/Coq/Lists/List/ListOps/A.var
-oo,cic:/Coq/Lists/List/ListOps/eq_dec.var,cic:/Coq/Lists/List/ListOps/eq_dec.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:7162be7a42eb4d9af45d88ee825b7c66e3263b4b8a7fe387d9cea03ba1d731ae
+size 495

@@ -1,27 +1,3 @@
-oo,cic:/Coq/Structures/OrderedType/MiniOrderedType/compare.con,cic:/Coq/Structures/OrderedType/Compare.ind
-oo,cic:/Coq/Structures/OrderedType/MiniOrderedType/compare.con,cic:/Coq/Structures/OrderedType/MiniOrderedType/compare.con
-oo,cic:/Coq/Structures/OrderedType/MiniOrderedType/compare.con,cic:/Coq/Structures/OrderedType/MiniOrderedType/eq.con
-oo,cic:/Coq/Structures/OrderedType/MiniOrderedType/compare.con,cic:/Coq/Structures/OrderedType/MiniOrderedType/lt.con
-oo,cic:/Coq/Structures/OrderedType/MiniOrderedType/compare.con,cic:/Coq/Structures/OrderedType/MiniOrderedType/t.con
-oo,cic:/Coq/Structures/OrderedType/MiniOrderedType/eq.con,cic:/Coq/Structures/OrderedType/MiniOrderedType/eq.con
-oo,cic:/Coq/Structures/OrderedType/MiniOrderedType/eq.con,cic:/Coq/Structures/OrderedType/MiniOrderedType/t.con
-oo,cic:/Coq/Structures/OrderedType/MiniOrderedType/eq_refl.con,cic:/Coq/Structures/OrderedType/MiniOrderedType/eq.con
-oo,cic:/Coq/Structures/OrderedType/MiniOrderedType/eq_refl.con,cic:/Coq/Structures/OrderedType/MiniOrderedType/eq_refl.con
-oo,cic:/Coq/Structures/OrderedType/MiniOrderedType/eq_refl.con,cic:/Coq/Structures/OrderedType/MiniOrderedType/t.con
-oo,cic:/Coq/Structures/OrderedType/MiniOrderedType/eq_sym.con,cic:/Coq/Structures/OrderedType/MiniOrderedType/eq.con
-oo,cic:/Coq/Structures/OrderedType/MiniOrderedType/eq_sym.con,cic:/Coq/Structures/OrderedType/MiniOrderedType/eq_sym.con
-oo,cic:/Coq/Structures/OrderedType/MiniOrderedType/eq_sym.con,cic:/Coq/Structures/OrderedType/MiniOrderedType/t.con
-oo,cic:/Coq/Structures/OrderedType/MiniOrderedType/eq_trans.con,cic:/Coq/Structures/OrderedType/MiniOrderedType/eq.con
-oo,cic:/Coq/Structures/OrderedType/MiniOrderedType/eq_trans.con,cic:/Coq/Structures/OrderedType/MiniOrderedType/eq_trans.con
-oo,cic:/Coq/Structures/OrderedType/MiniOrderedType/eq_trans.con,cic:/Coq/Structures/OrderedType/MiniOrderedType/t.con
-oo,cic:/Coq/Structures/OrderedType/MiniOrderedType/lt.con,cic:/Coq/Structures/OrderedType/MiniOrderedType/lt.con
-oo,cic:/Coq/Structures/OrderedType/MiniOrderedType/lt.con,cic:/Coq/Structures/OrderedType/MiniOrderedType/t.con
-oo,cic:/Coq/Structures/OrderedType/MiniOrderedType/lt_not_eq.con,cic:/Coq/Init/Logic/not.con
-oo,cic:/Coq/Structures/OrderedType/MiniOrderedType/lt_not_eq.con,cic:/Coq/Structures/OrderedType/MiniOrderedType/eq.con
-oo,cic:/Coq/Structures/OrderedType/MiniOrderedType/lt_not_eq.con,cic:/Coq/Structures/OrderedType/MiniOrderedType/lt.con
-oo,cic:/Coq/Structures/OrderedType/MiniOrderedType/lt_not_eq.con,cic:/Coq/Structures/OrderedType/MiniOrderedType/lt_not_eq.con
-oo,cic:/Coq/Structures/OrderedType/MiniOrderedType/lt_not_eq.con,cic:/Coq/Structures/OrderedType/MiniOrderedType/t.con
-oo,cic:/Coq/Structures/OrderedType/MiniOrderedType/lt_trans.con,cic:/Coq/Structures/OrderedType/MiniOrderedType/lt.con
-oo,cic:/Coq/Structures/OrderedType/MiniOrderedType/lt_trans.con,cic:/Coq/Structures/OrderedType/MiniOrderedType/lt_trans.con
-oo,cic:/Coq/Structures/OrderedType/MiniOrderedType/lt_trans.con,cic:/Coq/Structures/OrderedType/MiniOrderedType/t.con
-oo,cic:/Coq/Structures/OrderedType/MiniOrderedType/t.con,cic:/Coq/Structures/OrderedType/MiniOrderedType/t.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:85f25dcdae9b3433e74350e3dba5b22568be5144ba84a88bd095636951d08e26
+size 3159

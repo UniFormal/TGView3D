@@ -1,25 +1,3 @@
-oo,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/isomorphism.con,cic:/Coq/Init/Logic/and.ind
-oo,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/isomorphism.con,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/Hom12/homomorphism.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/isomorphism.con,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/Hom21/homomorphism.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/isomorphism.con,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/isomorphism.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/isomorphism.con,cic:/Coq/Numbers/Natural/Abstract/NIso/N1/eq.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/isomorphism.con,cic:/Coq/Numbers/Natural/Abstract/NIso/N1/t.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/isomorphism.con,cic:/Coq/Numbers/Natural/Abstract/NIso/N2/eq.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/isomorphism.con,cic:/Coq/Numbers/Natural/Abstract/NIso/N2/t.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/iso_nat_iso.con,cic:/Coq/Init/Logic/and.ind
-oo,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/iso_nat_iso.con,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/Hom12/hom_nat_iso.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/iso_nat_iso.con,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/Hom12/homomorphism.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/iso_nat_iso.con,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/Hom12/natural_isomorphism.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/iso_nat_iso.con,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/Hom21/hom_nat_iso.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/iso_nat_iso.con,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/Hom21/homomorphism.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/iso_nat_iso.con,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/Hom21/natural_isomorphism.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/iso_nat_iso.con,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/Inverse12/Hom12/natural_isomorphism.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/iso_nat_iso.con,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/Inverse12/Hom21/natural_isomorphism.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/iso_nat_iso.con,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/Inverse12/inverse_nat_iso.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/iso_nat_iso.con,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/Inverse21/inverse_nat_iso.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/iso_nat_iso.con,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/isomorphism.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/iso_nat_iso.con,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/iso_nat_iso.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/iso_nat_iso.con,cic:/Coq/Numbers/Natural/Abstract/NIso/N1/eq.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/iso_nat_iso.con,cic:/Coq/Numbers/Natural/Abstract/NIso/N1/t.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/iso_nat_iso.con,cic:/Coq/Numbers/Natural/Abstract/NIso/N2/eq.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NIso/Isomorphism/iso_nat_iso.con,cic:/Coq/Numbers/Natural/Abstract/NIso/N2/t.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:a229e57e09374ea55c69c6e85d3e75e63b129d21f7ea65081817bae768f3fcf7
+size 3343

@@ -1,28 +1,3 @@
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/R_compat.var,cic:/A.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/R_compat.var,cic:/Coq/Classes/Morphisms/Proper.con
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/R_compat.var,cic:/Coq/Classes/Morphisms/respectful.con
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/R_compat.var,cic:/Coq/Init/Logic/iff.con
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/R_compat.var,cic:/Coq/Lists/SetoidList/Type_with_equality/A.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/R_compat.var,cic:/Coq/Lists/SetoidList/Type_with_equality/eqA.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/R_compat.var,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/R_compat.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/R_compat.var,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/R.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/R_compat.var,cic:/eqA.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/R_compat.var,cic:/R.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/R_sym.var,cic:/A.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/R_sym.var,cic:/Coq/Classes/RelationClasses/Symmetric.con
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/R_sym.var,cic:/Coq/Lists/SetoidList/Type_with_equality/A.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/R_sym.var,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/R_sym.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/R_sym.var,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/R.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/R_sym.var,cic:/R.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/R.var,cic:/A.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/R.var,cic:/Coq/Lists/SetoidList/Type_with_equality/A.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/R.var,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/R.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/TraR.var,cic:/Coq/Lists/SetoidList/transpose_restr.con
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/TraR.var,cic:/Coq/Lists/SetoidList/Type_with_equality/A.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/TraR.var,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/B.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/TraR.var,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/eqB.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/TraR.var,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/R.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/TraR.var,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/TraR.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/TraR.var,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/f.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/TraR.var,cic:/f.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold/Fold_With_Restriction/TraR.var,cic:/R.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:f777e5f68fe7ec1d78b96ba667058bffd294e73c6235fd2636f136caad4e05cf
+size 3667

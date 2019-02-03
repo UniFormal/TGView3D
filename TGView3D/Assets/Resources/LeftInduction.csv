@@ -1,33 +1,3 @@
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/A'.var,cic:/A.var
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/A'.var,cic:/Coq/Numbers/NatInt/NZOrder/NZ/le.con
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/A'.var,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/A.var
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/A'.var,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/A'.var
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/A'.var,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/z.var
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/A'.var,cic:/Coq/Numbers/NatInt/NZOrder/NZ/t.con
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/A'.var,cic:/z.var
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/left_step''.var,cic:/A'.var
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/left_step'.var,cic:/A'.var
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/left_step'.var,cic:/A.var
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/left_step.var,cic:/A.var
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/left_step''.var,cic:/Coq/Init/Logic/iff.con
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/left_step'.var,cic:/Coq/Numbers/NatInt/NZOrder/NZ/le.con
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/left_step.var,cic:/Coq/Numbers/NatInt/NZOrder/NZ/lt.con
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/left_step''.var,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/A.var
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/left_step'.var,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/A.var
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/left_step.var,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/A.var
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/left_step''.var,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/A'.var
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/left_step'.var,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/A'.var
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/left_step''.var,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/left_step''.var
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/left_step'.var,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/left_step'.var
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/left_step.var,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/left_step.var
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/left_step''.var,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/z.var
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/left_step'.var,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/z.var
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/left_step.var,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/z.var
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/left_step''.var,cic:/Coq/Numbers/NatInt/NZOrder/NZ/succ.con
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/left_step'.var,cic:/Coq/Numbers/NatInt/NZOrder/NZ/succ.con
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/left_step.var,cic:/Coq/Numbers/NatInt/NZOrder/NZ/succ.con
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/left_step''.var,cic:/Coq/Numbers/NatInt/NZOrder/NZ/t.con
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/left_step'.var,cic:/Coq/Numbers/NatInt/NZOrder/NZ/t.con
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/left_step.var,cic:/Coq/Numbers/NatInt/NZOrder/NZ/t.con
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/left_step'.var,cic:/z.var
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/Center/LeftInduction/left_step.var,cic:/z.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:c8f5e53635527e5480effe98f4ddcd1041fe106974fff9036b89572121dad4db
+size 4577

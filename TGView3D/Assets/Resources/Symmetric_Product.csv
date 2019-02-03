@@ -1,8 +1,3 @@
-oo,cic:/Coq/Relations/Relation_Operators/Symmetric_Product/A.var,cic:/Coq/Relations/Relation_Operators/Symmetric_Product/A.var
-oo,cic:/Coq/Relations/Relation_Operators/Symmetric_Product/B.var,cic:/Coq/Relations/Relation_Operators/Symmetric_Product/B.var
-oo,cic:/Coq/Relations/Relation_Operators/Symmetric_Product/leA.var,cic:/A.var
-oo,cic:/Coq/Relations/Relation_Operators/Symmetric_Product/leA.var,cic:/Coq/Relations/Relation_Operators/Symmetric_Product/A.var
-oo,cic:/Coq/Relations/Relation_Operators/Symmetric_Product/leA.var,cic:/Coq/Relations/Relation_Operators/Symmetric_Product/leA.var
-oo,cic:/Coq/Relations/Relation_Operators/Symmetric_Product/leB.var,cic:/B.var
-oo,cic:/Coq/Relations/Relation_Operators/Symmetric_Product/leB.var,cic:/Coq/Relations/Relation_Operators/Symmetric_Product/B.var
-oo,cic:/Coq/Relations/Relation_Operators/Symmetric_Product/leB.var,cic:/Coq/Relations/Relation_Operators/Symmetric_Product/leB.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:652ae25231927abd893954c8ec017d10cb9406d3ddde17a1acfaf73a2f158934
+size 930

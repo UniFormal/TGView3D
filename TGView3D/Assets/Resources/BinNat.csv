@@ -1,5 +1,3 @@
-oo,cic:/Coq/NArith/BinNat/N_rec_double.con,cic:/Coq/NArith/BinNat/N/binary_rec.con
-oo,cic:/Coq/NArith/BinNat/N_rec_double.con,cic:/Coq/NArith/BinNat/N/double.con
-oo,cic:/Coq/NArith/BinNat/N_rec_double.con,cic:/Coq/NArith/BinNat/N_rec_double.con
-oo,cic:/Coq/NArith/BinNat/N_rec_double.con,cic:/Coq/NArith/BinNat/N/succ_double.con
-oo,cic:/Coq/NArith/BinNat/N_rec_double.con,cic:/Coq/Numbers/BinNums/N.ind
+version https://git-lfs.github.com/spec/v1
+oid sha256:b1bb4ac2caef5a583b17af6983592c588165437c245900be075dbc3ede31588c
+size 403

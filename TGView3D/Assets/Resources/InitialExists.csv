@@ -1,6 +1,3 @@
-oo,cic:/Coq/Numbers/NatInt/NZDomain/NZDomainProp/InitialExists/Initial.var,cic:/Coq/Numbers/NatInt/NZDomain/NZDomainProp/initial.con
-oo,cic:/Coq/Numbers/NatInt/NZDomain/NZDomainProp/InitialExists/Initial.var,cic:/Coq/Numbers/NatInt/NZDomain/NZDomainProp/InitialExists/Initial.var
-oo,cic:/Coq/Numbers/NatInt/NZDomain/NZDomainProp/InitialExists/Initial.var,cic:/Coq/Numbers/NatInt/NZDomain/NZDomainProp/InitialExists/init.var
-oo,cic:/Coq/Numbers/NatInt/NZDomain/NZDomainProp/InitialExists/Initial.var,cic:/init.var
-oo,cic:/Coq/Numbers/NatInt/NZDomain/NZDomainProp/InitialExists/init.var,cic:/Coq/Numbers/NatInt/NZDomain/NZDomainProp/InitialExists/init.var
-oo,cic:/Coq/Numbers/NatInt/NZDomain/NZDomainProp/InitialExists/init.var,cic:/Coq/Numbers/NatInt/NZDomain/NZ/t.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:ebc3785a98bc93f5bc24b6b9749669059002b11b78358c22c78290eac374e97b
+size 768

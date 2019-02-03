@@ -1,10 +1,3 @@
-oo,cic:/Coq/ssr/ssrbool/ReflectConnectives/b1.var,cic:/Coq/Init/Datatypes/bool.ind
-oo,cic:/Coq/ssr/ssrbool/ReflectConnectives/b1.var,cic:/Coq/ssr/ssrbool/ReflectConnectives/b1.var
-oo,cic:/Coq/ssr/ssrbool/ReflectConnectives/b2.var,cic:/Coq/Init/Datatypes/bool.ind
-oo,cic:/Coq/ssr/ssrbool/ReflectConnectives/b2.var,cic:/Coq/ssr/ssrbool/ReflectConnectives/b2.var
-oo,cic:/Coq/ssr/ssrbool/ReflectConnectives/b3.var,cic:/Coq/Init/Datatypes/bool.ind
-oo,cic:/Coq/ssr/ssrbool/ReflectConnectives/b3.var,cic:/Coq/ssr/ssrbool/ReflectConnectives/b3.var
-oo,cic:/Coq/ssr/ssrbool/ReflectConnectives/b4.var,cic:/Coq/Init/Datatypes/bool.ind
-oo,cic:/Coq/ssr/ssrbool/ReflectConnectives/b4.var,cic:/Coq/ssr/ssrbool/ReflectConnectives/b4.var
-oo,cic:/Coq/ssr/ssrbool/ReflectConnectives/b5.var,cic:/Coq/Init/Datatypes/bool.ind
-oo,cic:/Coq/ssr/ssrbool/ReflectConnectives/b5.var,cic:/Coq/ssr/ssrbool/ReflectConnectives/b5.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:4a0fac3a0e3d8635890a74386e0b32c2587a4358c502882db4b2310bc50453a0
+size 900

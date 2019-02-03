@@ -1,15 +1,3 @@
-oo,cic:/Coq/MSets/MSetFacts/WFactsOn/BoolSpec/f.var,cic:/Coq/Init/Datatypes/bool.ind
-oo,cic:/Coq/MSets/MSetFacts/WFactsOn/BoolSpec/f.var,cic:/Coq/MSets/MSetFacts/M/elt.con
-oo,cic:/Coq/MSets/MSetFacts/WFactsOn/BoolSpec/f.var,cic:/Coq/MSets/MSetFacts/WFactsOn/BoolSpec/f.var
-oo,cic:/Coq/MSets/MSetFacts/WFactsOn/BoolSpec/s''.var,cic:/Coq/MSets/MSetFacts/M/t.con
-oo,cic:/Coq/MSets/MSetFacts/WFactsOn/BoolSpec/s'.var,cic:/Coq/MSets/MSetFacts/M/t.con
-oo,cic:/Coq/MSets/MSetFacts/WFactsOn/BoolSpec/s.var,cic:/Coq/MSets/MSetFacts/M/t.con
-oo,cic:/Coq/MSets/MSetFacts/WFactsOn/BoolSpec/s''.var,cic:/Coq/MSets/MSetFacts/WFactsOn/BoolSpec/s''.var
-oo,cic:/Coq/MSets/MSetFacts/WFactsOn/BoolSpec/s'.var,cic:/Coq/MSets/MSetFacts/WFactsOn/BoolSpec/s'.var
-oo,cic:/Coq/MSets/MSetFacts/WFactsOn/BoolSpec/s.var,cic:/Coq/MSets/MSetFacts/WFactsOn/BoolSpec/s.var
-oo,cic:/Coq/MSets/MSetFacts/WFactsOn/BoolSpec/x.var,cic:/Coq/MSets/MSetFacts/M/elt.con
-oo,cic:/Coq/MSets/MSetFacts/WFactsOn/BoolSpec/x.var,cic:/Coq/MSets/MSetFacts/WFactsOn/BoolSpec/x.var
-oo,cic:/Coq/MSets/MSetFacts/WFactsOn/BoolSpec/y.var,cic:/Coq/MSets/MSetFacts/M/elt.con
-oo,cic:/Coq/MSets/MSetFacts/WFactsOn/BoolSpec/y.var,cic:/Coq/MSets/MSetFacts/WFactsOn/BoolSpec/y.var
-oo,cic:/Coq/MSets/MSetFacts/WFactsOn/BoolSpec/z.var,cic:/Coq/MSets/MSetFacts/M/elt.con
-oo,cic:/Coq/MSets/MSetFacts/WFactsOn/BoolSpec/z.var,cic:/Coq/MSets/MSetFacts/WFactsOn/BoolSpec/z.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:a365003f48f4647a0f55ed4e1bd39c2d7a6277dd0f9370993ca3f7d429ca804f
+size 1404

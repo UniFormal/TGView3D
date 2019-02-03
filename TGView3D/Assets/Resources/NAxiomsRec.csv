@@ -1,22 +1,3 @@
-oo,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NAxiomsRec/recursion_0.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NAxiomsRec/recursion_0.con,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NAxiomsRec/recursion_0.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NAxiomsRec/recursion_0.con,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NAxiomsRec/recursion.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NAxiomsRec/recursion_0.con,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NZ/t.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NAxiomsRec/recursion_0.con,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NZ/zero.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NAxiomsRec/recursion.con,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NAxiomsRec/recursion.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NAxiomsRec/recursion.con,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NZ/t.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NAxiomsRec/recursion_succ.con,cic:/Coq/Classes/Morphisms/Proper.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NAxiomsRec/recursion_succ.con,cic:/Coq/Classes/Morphisms/respectful.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NAxiomsRec/recursion_succ.con,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NAxiomsRec/recursion.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NAxiomsRec/recursion_succ.con,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NAxiomsRec/recursion_succ.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NAxiomsRec/recursion_succ.con,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NZ/eq.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NAxiomsRec/recursion_succ.con,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NZ/succ.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NAxiomsRec/recursion_succ.con,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NZ/t.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NAxiomsRec/recursion_succ.con,cic:/Coq/Relations/Relation_Definitions/relation.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NAxiomsRec/recursion_wd.con,cic:/Coq/Classes/Morphisms/Proper.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NAxiomsRec/recursion_wd.con,cic:/Coq/Classes/Morphisms/respectful.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NAxiomsRec/recursion_wd.con,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NAxiomsRec/recursion.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NAxiomsRec/recursion_wd.con,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NAxiomsRec/recursion_wd.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NAxiomsRec/recursion_wd.con,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NZ/eq.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NAxiomsRec/recursion_wd.con,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NZ/t.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NAxioms/NAxiomsRec/recursion_wd.con,cic:/Coq/Relations/Relation_Definitions/relation.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:28161c6999fbc62595a4c40b08946da2f393a5e7d978c5dc071ee6a84ac6eac0
+size 2799

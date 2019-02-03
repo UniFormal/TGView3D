@@ -1,13 +1,3 @@
-oo,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_pred.con,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_pred.con
-oo,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_pred.con,cic:/Coq/ssr/ssrbool/KeyedPred.con
-oo,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_pred.con,cic:/Coq/ssr/ssrbool/keyed_pred.ind
-oo,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_pred.con,cic:/Coq/ssr/ssrbool/pred_key.ind
-oo,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_pred.con,cic:/Coq/ssr/ssrbool/predPredType.con
-oo,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_pred.con,cic:/Coq/ssr/ssrbool/pred_sort.con
-oo,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_qualifier.con,cic:/Coq/Init/Datatypes/nat.ind
-oo,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_qualifier.con,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_qualifier.con
-oo,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_qualifier.con,cic:/Coq/ssr/ssrbool/has_quality.con
-oo,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_qualifier.con,cic:/Coq/ssr/ssrbool/KeyedQualifier.con
-oo,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_qualifier.con,cic:/Coq/ssr/ssrbool/keyed_qualifier.ind
-oo,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_qualifier.con,cic:/Coq/ssr/ssrbool/pred_key.ind
-oo,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_qualifier.con,cic:/Coq/ssr/ssrbool/qualifier.ind
+version https://git-lfs.github.com/spec/v1
+oid sha256:2cc78fe64d5cfcfe6c533ed860557d83cadf42f73d189ac27cf2e099e61d0df7
+size 1346

@@ -1,26 +1,3 @@
-oo,cic:/Coq/Arith/Le/le_elim_rel.con,cic:/Coq/Arith/Le/le_elim_rel.con
-oo,cic:/Coq/Arith/Le/le_elim_rel.con,cic:/Coq/Arith/Le/le_Sn_le.con
-oo,cic:/Coq/Arith/Le/le_elim_rel.con,cic:/Coq/Init/Datatypes/nat.ind
-oo,cic:/Coq/Arith/Le/le_elim_rel.con,cic:/Coq/Init/Datatypes/nat_ind.con
-oo,cic:/Coq/Arith/Le/le_elim_rel.con,cic:/Coq/Init/Peano/le.ind
-oo,cic:/Coq/Arith/Le/le_elim_rel.con,cic:/Coq/Init/Peano/le_ind.con
-oo,cic:/Coq/Arith/Le/le_n_0_eq.con,cic:/Coq/Arith/Le/le_n_0_eq.con
-oo,cic:/Coq/Arith/Le/le_n_0_eq.con,cic:/Coq/Arith/PeanoNat/Nat/le_0_r.con
-oo,cic:/Coq/Arith/Le/le_n_0_eq.con,cic:/Coq/Init/Datatypes/nat.ind
-oo,cic:/Coq/Arith/Le/le_n_0_eq.con,cic:/Coq/Init/Logic/and.ind
-oo,cic:/Coq/Arith/Le/le_n_0_eq.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Arith/Le/le_n_0_eq.con,cic:/Coq/Init/Logic/eq_sym.con
-oo,cic:/Coq/Arith/Le/le_n_0_eq.con,cic:/Coq/Init/Logic/iff.con
-oo,cic:/Coq/Arith/Le/le_n_0_eq.con,cic:/Coq/Init/Peano/le.ind
-oo,cic:/Coq/Arith/Le/le_n_S.con,cic:/Coq/Arith/Le/le_n_S.con
-oo,cic:/Coq/Arith/Le/le_n_S.con,cic:/Coq/Init/Datatypes/nat.ind
-oo,cic:/Coq/Arith/Le/le_n_S.con,cic:/Coq/Init/Peano/le.ind
-oo,cic:/Coq/Arith/Le/le_n_S.con,cic:/Coq/Init/Peano/le_n_S.con
-oo,cic:/Coq/Arith/Le/le_S_n.con,cic:/Coq/Arith/Le/le_S_n.con
-oo,cic:/Coq/Arith/Le/le_S_n.con,cic:/Coq/Init/Datatypes/nat.ind
-oo,cic:/Coq/Arith/Le/le_S_n.con,cic:/Coq/Init/Peano/le.ind
-oo,cic:/Coq/Arith/Le/le_S_n.con,cic:/Coq/Init/Peano/le_S_n.con
-oo,cic:/Coq/Arith/Le/le_Sn_le.con,cic:/Coq/Arith/Le/le_Sn_le.con
-oo,cic:/Coq/Arith/Le/le_Sn_le.con,cic:/Coq/Arith/PeanoNat/Nat/lt_le_incl.con
-oo,cic:/Coq/Arith/Le/le_Sn_le.con,cic:/Coq/Init/Datatypes/nat.ind
-oo,cic:/Coq/Arith/Le/le_Sn_le.con,cic:/Coq/Init/Peano/le.ind
+version https://git-lfs.github.com/spec/v1
+oid sha256:4e53be54ace218e0b18dd7fe88caa2131d83184e65b15ea8b81119a32bb19d95
+size 1700

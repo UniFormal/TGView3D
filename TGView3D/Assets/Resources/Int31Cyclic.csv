@@ -1,11 +1,3 @@
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Int31Cyclic/ops.con,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/Ops.ind
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Int31Cyclic/ops.con,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Int31Cyclic/ops.con
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Int31Cyclic/ops.con,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/int31_ops.con
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Int31Cyclic/ops.con,cic:/Coq/Numbers/Cyclic/Int31/Int31/int31.ind
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Int31Cyclic/specs.con,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/Specs.ind
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Int31Cyclic/specs.con,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Int31Cyclic/specs.con
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Int31Cyclic/specs.con,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/int31_ops.con
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Int31Cyclic/specs.con,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/int31_specs.con
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Int31Cyclic/specs.con,cic:/Coq/Numbers/Cyclic/Int31/Int31/int31.ind
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Int31Cyclic/t.con,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Int31Cyclic/t.con
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Int31Cyclic/t.con,cic:/Coq/Numbers/Cyclic/Int31/Int31/int31.ind
+version https://git-lfs.github.com/spec/v1
+oid sha256:5363b910c8f16fad0d711c7c1deb10173818e1ae1851f9d3068b6e4e36ffec62
+size 1282

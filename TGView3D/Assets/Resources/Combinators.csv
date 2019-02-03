@@ -1,31 +1,3 @@
-oo,cic:/Coq/Program/Combinators/compose_assoc.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Program/Combinators/compose_assoc.con,cic:/Coq/Program/Basics/compose.con
-oo,cic:/Coq/Program/Combinators/compose_assoc.con,cic:/Coq/Program/Combinators/compose_assoc.con
-oo,cic:/Coq/Program/Combinators/compose_id_left.con,cic:/Coq/Init/Datatypes/id.con
-oo,cic:/Coq/Program/Combinators/compose_id_left.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Program/Combinators/compose_id_left.con,cic:/Coq/Program/Basics/compose.con
-oo,cic:/Coq/Program/Combinators/compose_id_left.con,cic:/Coq/Program/Combinators/compose_id_left.con
-oo,cic:/Coq/Program/Combinators/compose_id_right.con,cic:/Coq/Init/Datatypes/id.con
-oo,cic:/Coq/Program/Combinators/compose_id_right.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Program/Combinators/compose_id_right.con,cic:/Coq/Program/Basics/compose.con
-oo,cic:/Coq/Program/Combinators/compose_id_right.con,cic:/Coq/Program/Combinators/compose_id_right.con
-oo,cic:/Coq/Program/Combinators/flip_flip.con,cic:/Coq/Init/Datatypes/id.con
-oo,cic:/Coq/Program/Combinators/flip_flip.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Program/Combinators/flip_flip.con,cic:/Coq/Program/Basics/compose.con
-oo,cic:/Coq/Program/Combinators/flip_flip.con,cic:/Coq/Program/Basics/flip.con
-oo,cic:/Coq/Program/Combinators/flip_flip.con,cic:/Coq/Program/Combinators/flip_flip.con
-oo,cic:/Coq/Program/Combinators/prod_curry_uncurry.con,cic:/Coq/Init/Datatypes/id.con
-oo,cic:/Coq/Program/Combinators/prod_curry_uncurry.con,cic:/Coq/Init/Datatypes/prod_curry.con
-oo,cic:/Coq/Program/Combinators/prod_curry_uncurry.con,cic:/Coq/Init/Datatypes/prod.ind
-oo,cic:/Coq/Program/Combinators/prod_curry_uncurry.con,cic:/Coq/Init/Datatypes/prod_uncurry.con
-oo,cic:/Coq/Program/Combinators/prod_curry_uncurry.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Program/Combinators/prod_curry_uncurry.con,cic:/Coq/Logic/FunctionalExtensionality/functional_extensionality.con
-oo,cic:/Coq/Program/Combinators/prod_curry_uncurry.con,cic:/Coq/Program/Basics/compose.con
-oo,cic:/Coq/Program/Combinators/prod_curry_uncurry.con,cic:/Coq/Program/Combinators/prod_curry_uncurry.con
-oo,cic:/Coq/Program/Combinators/prod_uncurry_curry.con,cic:/Coq/Init/Datatypes/id.con
-oo,cic:/Coq/Program/Combinators/prod_uncurry_curry.con,cic:/Coq/Init/Datatypes/prod_curry.con
-oo,cic:/Coq/Program/Combinators/prod_uncurry_curry.con,cic:/Coq/Init/Datatypes/prod.ind
-oo,cic:/Coq/Program/Combinators/prod_uncurry_curry.con,cic:/Coq/Init/Datatypes/prod_uncurry.con
-oo,cic:/Coq/Program/Combinators/prod_uncurry_curry.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Program/Combinators/prod_uncurry_curry.con,cic:/Coq/Program/Basics/compose.con
-oo,cic:/Coq/Program/Combinators/prod_uncurry_curry.con,cic:/Coq/Program/Combinators/prod_uncurry_curry.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:153df7e31aad67281df14361222956eea6f553cffead0200d7ecdaf38e468c7c
+size 2780

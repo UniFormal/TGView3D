@@ -1,9 +1,3 @@
-oo,cic:/Coq/Program/Wf/WfExtensionality/fix_sub_eq_ext.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Program/Wf/WfExtensionality/fix_sub_eq_ext.con,cic:/Coq/Init/Logic/eq_ind_r.con
-oo,cic:/Coq/Program/Wf/WfExtensionality/fix_sub_eq_ext.con,cic:/Coq/Init/Specif/proj1_sig.con
-oo,cic:/Coq/Program/Wf/WfExtensionality/fix_sub_eq_ext.con,cic:/Coq/Init/Specif/sig.ind
-oo,cic:/Coq/Program/Wf/WfExtensionality/fix_sub_eq_ext.con,cic:/Coq/Init/Wf/well_founded.con
-oo,cic:/Coq/Program/Wf/WfExtensionality/fix_sub_eq_ext.con,cic:/Coq/Logic/FunctionalExtensionality/functional_extensionality_dep.con
-oo,cic:/Coq/Program/Wf/WfExtensionality/fix_sub_eq_ext.con,cic:/Coq/Program/Wf/Fix_eq.con
-oo,cic:/Coq/Program/Wf/WfExtensionality/fix_sub_eq_ext.con,cic:/Coq/Program/Wf/Fix_sub.con
-oo,cic:/Coq/Program/Wf/WfExtensionality/fix_sub_eq_ext.con,cic:/Coq/Program/Wf/WfExtensionality/fix_sub_eq_ext.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:a332310dae222eea11d0ff58f54ea42d3eefc77f53a7636e8cd281ae4c8518b6
+size 882

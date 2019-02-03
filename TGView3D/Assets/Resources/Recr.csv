@@ -1,19 +1,3 @@
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Recr/A.var,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Recr/A.var
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Recr/case0_caserec.var,cic:/A.var
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Recr/case0_caserec.var,cic:/case0.var
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Recr/case0_caserec.var,cic:/caserec.var
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Recr/case0_caserec.var,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Recr/case0_caserec.var,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Recr/A.var
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Recr/case0_caserec.var,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Recr/case0_caserec.var
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Recr/case0_caserec.var,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Recr/case0.var
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Recr/case0_caserec.var,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Recr/caserec.var
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Recr/case0_caserec.var,cic:/Coq/Numbers/Cyclic/Int31/Int31/digits.ind
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Recr/case0_caserec.var,cic:/Coq/Numbers/Cyclic/Int31/Int31/int31.ind
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Recr/case0.var,cic:/A.var
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Recr/case0.var,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Recr/A.var
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Recr/case0.var,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Recr/case0.var
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Recr/caserec.var,cic:/A.var
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Recr/caserec.var,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Recr/A.var
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Recr/caserec.var,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Recr/caserec.var
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Recr/caserec.var,cic:/Coq/Numbers/Cyclic/Int31/Int31/digits.ind
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Recr/caserec.var,cic:/Coq/Numbers/Cyclic/Int31/Int31/int31.ind
+version https://git-lfs.github.com/spec/v1
+oid sha256:506deea07474908dfdd21955878a50b0a490ebc873201ffa7c5d0be2bbb53c11
+size 2125

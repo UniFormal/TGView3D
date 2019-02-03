@@ -1,7 +1,3 @@
-oo,cic:/Coq/ssr/ssrfun/Injections/aT.var,cic:/Coq/ssr/ssrfun/Injections/aT.var
-oo,cic:/Coq/ssr/ssrfun/Injections/f.var,cic:/aT.var
-oo,cic:/Coq/ssr/ssrfun/Injections/f.var,cic:/Coq/ssr/ssrfun/Injections/aT.var
-oo,cic:/Coq/ssr/ssrfun/Injections/f.var,cic:/Coq/ssr/ssrfun/Injections/f.var
-oo,cic:/Coq/ssr/ssrfun/Injections/f.var,cic:/Coq/ssr/ssrfun/Injections/rT.var
-oo,cic:/Coq/ssr/ssrfun/Injections/f.var,cic:/rT.var
-oo,cic:/Coq/ssr/ssrfun/Injections/rT.var,cic:/Coq/ssr/ssrfun/Injections/rT.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:c42900346c03ffd1a6546030a0b955d759170b871234ddeaef058bdb508ec723
+size 495

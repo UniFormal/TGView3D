@@ -1,24 +1,3 @@
-oo,cic:/Coq/MSets/MSetRBT/MSetRemoveMin/remove_min.con,cic:/Coq/Init/Datatypes/option.ind
-oo,cic:/Coq/MSets/MSetRBT/MSetRemoveMin/remove_min.con,cic:/Coq/Init/Datatypes/prod.ind
-oo,cic:/Coq/MSets/MSetRBT/MSetRemoveMin/remove_min.con,cic:/Coq/MSets/MSetRBT/M/elt.con
-oo,cic:/Coq/MSets/MSetRBT/MSetRemoveMin/remove_min.con,cic:/Coq/MSets/MSetRBT/MSetRemoveMin/remove_min.con
-oo,cic:/Coq/MSets/MSetRBT/MSetRemoveMin/remove_min.con,cic:/Coq/MSets/MSetRBT/M/t.con
-oo,cic:/Coq/MSets/MSetRBT/MSetRemoveMin/remove_min_spec1.con,cic:/Coq/Init/Datatypes/option.ind
-oo,cic:/Coq/MSets/MSetRBT/MSetRemoveMin/remove_min_spec1.con,cic:/Coq/Init/Datatypes/prod.ind
-oo,cic:/Coq/MSets/MSetRBT/MSetRemoveMin/remove_min_spec1.con,cic:/Coq/Init/Logic/and.ind
-oo,cic:/Coq/MSets/MSetRBT/MSetRemoveMin/remove_min_spec1.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/MSets/MSetRBT/MSetRemoveMin/remove_min_spec1.con,cic:/Coq/MSets/MSetRBT/M/elt.con
-oo,cic:/Coq/MSets/MSetRBT/MSetRemoveMin/remove_min_spec1.con,cic:/Coq/MSets/MSetRBT/M/Equal.con
-oo,cic:/Coq/MSets/MSetRBT/MSetRemoveMin/remove_min_spec1.con,cic:/Coq/MSets/MSetRBT/M/min_elt.con
-oo,cic:/Coq/MSets/MSetRBT/MSetRemoveMin/remove_min_spec1.con,cic:/Coq/MSets/MSetRBT/M/remove.con
-oo,cic:/Coq/MSets/MSetRBT/MSetRemoveMin/remove_min_spec1.con,cic:/Coq/MSets/MSetRBT/MSetRemoveMin/remove_min.con
-oo,cic:/Coq/MSets/MSetRBT/MSetRemoveMin/remove_min_spec1.con,cic:/Coq/MSets/MSetRBT/MSetRemoveMin/remove_min_spec1.con
-oo,cic:/Coq/MSets/MSetRBT/MSetRemoveMin/remove_min_spec1.con,cic:/Coq/MSets/MSetRBT/M/t.con
-oo,cic:/Coq/MSets/MSetRBT/MSetRemoveMin/remove_min_spec2.con,cic:/Coq/Init/Datatypes/option.ind
-oo,cic:/Coq/MSets/MSetRBT/MSetRemoveMin/remove_min_spec2.con,cic:/Coq/Init/Datatypes/prod.ind
-oo,cic:/Coq/MSets/MSetRBT/MSetRemoveMin/remove_min_spec2.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/MSets/MSetRBT/MSetRemoveMin/remove_min_spec2.con,cic:/Coq/MSets/MSetRBT/M/elt.con
-oo,cic:/Coq/MSets/MSetRBT/MSetRemoveMin/remove_min_spec2.con,cic:/Coq/MSets/MSetRBT/M/Empty.con
-oo,cic:/Coq/MSets/MSetRBT/MSetRemoveMin/remove_min_spec2.con,cic:/Coq/MSets/MSetRBT/MSetRemoveMin/remove_min.con
-oo,cic:/Coq/MSets/MSetRBT/MSetRemoveMin/remove_min_spec2.con,cic:/Coq/MSets/MSetRBT/MSetRemoveMin/remove_min_spec2.con
-oo,cic:/Coq/MSets/MSetRBT/MSetRemoveMin/remove_min_spec2.con,cic:/Coq/MSets/MSetRBT/M/t.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:514dbf8ea7c53a11fb6de07295f121103aa1f78d55615bc466495bdddd5a5d3a
+size 2327

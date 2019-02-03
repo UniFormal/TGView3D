@@ -1,7 +1,3 @@
-oo,cic:/Coq/ssr/ssrfun/Sig/P.var,cic:/Coq/ssr/ssrfun/Sig/P.var
-oo,cic:/Coq/ssr/ssrfun/Sig/P.var,cic:/Coq/ssr/ssrfun/Sig/T.var
-oo,cic:/Coq/ssr/ssrfun/Sig/P.var,cic:/T.var
-oo,cic:/Coq/ssr/ssrfun/Sig/Q.var,cic:/Coq/ssr/ssrfun/Sig/Q.var
-oo,cic:/Coq/ssr/ssrfun/Sig/Q.var,cic:/Coq/ssr/ssrfun/Sig/T.var
-oo,cic:/Coq/ssr/ssrfun/Sig/Q.var,cic:/T.var
-oo,cic:/Coq/ssr/ssrfun/Sig/T.var,cic:/Coq/ssr/ssrfun/Sig/T.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:88ee6b761b994abb708b82e4f8cd94a185b77c11ed1052879ccb0a171da7509b
+size 403

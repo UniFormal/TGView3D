@@ -1,18 +1,3 @@
-oo,cic:/Coq/ZArith/Zpow_def/Zpower_theory.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/ZArith/Zpow_def/Zpower_theory.con,cic:/Coq/Init/Logic/eq_ind.con
-oo,cic:/Coq/ZArith/Zpow_def/Zpower_theory.con,cic:/Coq/Init/Logic/eq_ind_r.con
-oo,cic:/Coq/ZArith/Zpow_def/Zpower_theory.con,cic:/Coq/Numbers/BinNums/N.ind
-oo,cic:/Coq/ZArith/Zpow_def/Zpower_theory.con,cic:/Coq/Numbers/BinNums/positive.ind
-oo,cic:/Coq/ZArith/Zpow_def/Zpower_theory.con,cic:/Coq/Numbers/BinNums/positive_ind.con
-oo,cic:/Coq/ZArith/Zpow_def/Zpower_theory.con,cic:/Coq/Numbers/BinNums/Z.ind
-oo,cic:/Coq/ZArith/Zpow_def/Zpower_theory.con,cic:/Coq/PArith/BinPos/Pos/iter.con
-oo,cic:/Coq/ZArith/Zpow_def/Zpower_theory.con,cic:/Coq/setoid_ring/Ring_theory/power_theory.ind
-oo,cic:/Coq/ZArith/Zpow_def/Zpower_theory.con,cic:/Coq/setoid_ring/Ring_theory/pow_N.con
-oo,cic:/Coq/ZArith/Zpow_def/Zpower_theory.con,cic:/Coq/setoid_ring/Ring_theory/pow_pos.con
-oo,cic:/Coq/ZArith/Zpow_def/Zpower_theory.con,cic:/Coq/ZArith/BinInt/Z/mul_1_r.con
-oo,cic:/Coq/ZArith/Zpow_def/Zpower_theory.con,cic:/Coq/ZArith/BinInt/Z/mul_assoc.con
-oo,cic:/Coq/ZArith/Zpow_def/Zpower_theory.con,cic:/Coq/ZArith/BinInt/Z/mul.con
-oo,cic:/Coq/ZArith/Zpow_def/Zpower_theory.con,cic:/Coq/ZArith/BinInt/Z/of_N.con
-oo,cic:/Coq/ZArith/Zpow_def/Zpower_theory.con,cic:/Coq/ZArith/BinInt/Z/pow.con
-oo,cic:/Coq/ZArith/Zpow_def/Zpower_theory.con,cic:/Coq/ZArith/BinInt/Z/pow_pos.con
-oo,cic:/Coq/ZArith/Zpow_def/Zpower_theory.con,cic:/Coq/ZArith/Zpow_def/Zpower_theory.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:fbef6d89c7f87554ff8e219f7a7bb3fc3d9152e0e1641135a28189b07175d492
+size 1491

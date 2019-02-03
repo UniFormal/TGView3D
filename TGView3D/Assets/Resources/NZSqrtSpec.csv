@@ -1,15 +1,3 @@
-oo,cic:/Coq/Numbers/NatInt/NZSqrt/NZSqrtSpec/sqrt_neg.con,cic:/Coq/Numbers/NatInt/NZSqrt/A/eq.con
-oo,cic:/Coq/Numbers/NatInt/NZSqrt/NZSqrtSpec/sqrt_neg.con,cic:/Coq/Numbers/NatInt/NZSqrt/A/lt.con
-oo,cic:/Coq/Numbers/NatInt/NZSqrt/NZSqrtSpec/sqrt_neg.con,cic:/Coq/Numbers/NatInt/NZSqrt/A/t.con
-oo,cic:/Coq/Numbers/NatInt/NZSqrt/NZSqrtSpec/sqrt_neg.con,cic:/Coq/Numbers/NatInt/NZSqrt/A/zero.con
-oo,cic:/Coq/Numbers/NatInt/NZSqrt/NZSqrtSpec/sqrt_neg.con,cic:/Coq/Numbers/NatInt/NZSqrt/B/sqrt.con
-oo,cic:/Coq/Numbers/NatInt/NZSqrt/NZSqrtSpec/sqrt_neg.con,cic:/Coq/Numbers/NatInt/NZSqrt/NZSqrtSpec/sqrt_neg.con
-oo,cic:/Coq/Numbers/NatInt/NZSqrt/NZSqrtSpec/sqrt_spec.con,cic:/Coq/Init/Logic/and.ind
-oo,cic:/Coq/Numbers/NatInt/NZSqrt/NZSqrtSpec/sqrt_spec.con,cic:/Coq/Numbers/NatInt/NZSqrt/A/le.con
-oo,cic:/Coq/Numbers/NatInt/NZSqrt/NZSqrtSpec/sqrt_spec.con,cic:/Coq/Numbers/NatInt/NZSqrt/A/lt.con
-oo,cic:/Coq/Numbers/NatInt/NZSqrt/NZSqrtSpec/sqrt_spec.con,cic:/Coq/Numbers/NatInt/NZSqrt/A/mul.con
-oo,cic:/Coq/Numbers/NatInt/NZSqrt/NZSqrtSpec/sqrt_spec.con,cic:/Coq/Numbers/NatInt/NZSqrt/A/succ.con
-oo,cic:/Coq/Numbers/NatInt/NZSqrt/NZSqrtSpec/sqrt_spec.con,cic:/Coq/Numbers/NatInt/NZSqrt/A/t.con
-oo,cic:/Coq/Numbers/NatInt/NZSqrt/NZSqrtSpec/sqrt_spec.con,cic:/Coq/Numbers/NatInt/NZSqrt/A/zero.con
-oo,cic:/Coq/Numbers/NatInt/NZSqrt/NZSqrtSpec/sqrt_spec.con,cic:/Coq/Numbers/NatInt/NZSqrt/B/sqrt.con
-oo,cic:/Coq/Numbers/NatInt/NZSqrt/NZSqrtSpec/sqrt_spec.con,cic:/Coq/Numbers/NatInt/NZSqrt/NZSqrtSpec/sqrt_spec.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:e84fa632fa0f860b0cc7d00e742b9ba86e5708c0139e8909d61e06d774f3dc37
+size 1507

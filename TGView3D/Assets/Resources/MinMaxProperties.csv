@@ -1,24 +1,3 @@
-oo,cic:/Coq/Structures/GenericMinMax/MinMaxProperties/max_l.con,cic:/Coq/Structures/GenericMinMax/MinMaxProperties/max_l.con
-oo,cic:/Coq/Structures/GenericMinMax/MinMaxProperties/max_l.con,cic:/Coq/Structures/GenericMinMax/M/max.con
-oo,cic:/Coq/Structures/GenericMinMax/MinMaxProperties/max_l.con,cic:/Coq/Structures/GenericMinMax/M/max_l.con
-oo,cic:/Coq/Structures/GenericMinMax/MinMaxProperties/max_l.con,cic:/Coq/Structures/GenericMinMax/O/eq.con
-oo,cic:/Coq/Structures/GenericMinMax/MinMaxProperties/max_l.con,cic:/Coq/Structures/GenericMinMax/O/le.con
-oo,cic:/Coq/Structures/GenericMinMax/MinMaxProperties/max_l.con,cic:/Coq/Structures/GenericMinMax/O/t.con
-oo,cic:/Coq/Structures/GenericMinMax/MinMaxProperties/max_r.con,cic:/Coq/Structures/GenericMinMax/MinMaxProperties/max_r.con
-oo,cic:/Coq/Structures/GenericMinMax/MinMaxProperties/max_r.con,cic:/Coq/Structures/GenericMinMax/M/max.con
-oo,cic:/Coq/Structures/GenericMinMax/MinMaxProperties/max_r.con,cic:/Coq/Structures/GenericMinMax/M/max_r.con
-oo,cic:/Coq/Structures/GenericMinMax/MinMaxProperties/max_r.con,cic:/Coq/Structures/GenericMinMax/O/eq.con
-oo,cic:/Coq/Structures/GenericMinMax/MinMaxProperties/max_r.con,cic:/Coq/Structures/GenericMinMax/O/le.con
-oo,cic:/Coq/Structures/GenericMinMax/MinMaxProperties/max_r.con,cic:/Coq/Structures/GenericMinMax/O/t.con
-oo,cic:/Coq/Structures/GenericMinMax/MinMaxProperties/min_l.con,cic:/Coq/Structures/GenericMinMax/MinMaxProperties/min_l.con
-oo,cic:/Coq/Structures/GenericMinMax/MinMaxProperties/min_l.con,cic:/Coq/Structures/GenericMinMax/M/min.con
-oo,cic:/Coq/Structures/GenericMinMax/MinMaxProperties/min_l.con,cic:/Coq/Structures/GenericMinMax/M/min_l.con
-oo,cic:/Coq/Structures/GenericMinMax/MinMaxProperties/min_l.con,cic:/Coq/Structures/GenericMinMax/O/eq.con
-oo,cic:/Coq/Structures/GenericMinMax/MinMaxProperties/min_l.con,cic:/Coq/Structures/GenericMinMax/O/le.con
-oo,cic:/Coq/Structures/GenericMinMax/MinMaxProperties/min_l.con,cic:/Coq/Structures/GenericMinMax/O/t.con
-oo,cic:/Coq/Structures/GenericMinMax/MinMaxProperties/min_r.con,cic:/Coq/Structures/GenericMinMax/MinMaxProperties/min_r.con
-oo,cic:/Coq/Structures/GenericMinMax/MinMaxProperties/min_r.con,cic:/Coq/Structures/GenericMinMax/M/min.con
-oo,cic:/Coq/Structures/GenericMinMax/MinMaxProperties/min_r.con,cic:/Coq/Structures/GenericMinMax/M/min_r.con
-oo,cic:/Coq/Structures/GenericMinMax/MinMaxProperties/min_r.con,cic:/Coq/Structures/GenericMinMax/O/eq.con
-oo,cic:/Coq/Structures/GenericMinMax/MinMaxProperties/min_r.con,cic:/Coq/Structures/GenericMinMax/O/le.con
-oo,cic:/Coq/Structures/GenericMinMax/MinMaxProperties/min_r.con,cic:/Coq/Structures/GenericMinMax/O/t.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:b2b2aa4f0362b946223c06a5bd99dfc2c4fdd56eb3c7b53357b46687d5d187a7
+size 2652

@@ -1,8 +1,3 @@
-oo,cic:/Coq/ssr/ssreflect/ApplyIff/eqPQ.var,cic:/Coq/Init/Logic/iff.con
-oo,cic:/Coq/ssr/ssreflect/ApplyIff/eqPQ.var,cic:/Coq/ssr/ssreflect/ApplyIff/eqPQ.var
-oo,cic:/Coq/ssr/ssreflect/ApplyIff/eqPQ.var,cic:/Coq/ssr/ssreflect/ApplyIff/P.var
-oo,cic:/Coq/ssr/ssreflect/ApplyIff/eqPQ.var,cic:/Coq/ssr/ssreflect/ApplyIff/Q.var
-oo,cic:/Coq/ssr/ssreflect/ApplyIff/eqPQ.var,cic:/P.var
-oo,cic:/Coq/ssr/ssreflect/ApplyIff/eqPQ.var,cic:/Q.var
-oo,cic:/Coq/ssr/ssreflect/ApplyIff/P.var,cic:/Coq/ssr/ssreflect/ApplyIff/P.var
-oo,cic:/Coq/ssr/ssreflect/ApplyIff/Q.var,cic:/Coq/ssr/ssreflect/ApplyIff/Q.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:89140a08dc9fe0affcae2187051c8069f1e4be2dcc3047d05272b8e75b181b65
+size 589

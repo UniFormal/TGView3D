@@ -1,9 +1,3 @@
-oo,cic:/Coq/Sorting/PermutSetoid/Permut/singletonBag.var,cic:/A.var
-oo,cic:/Coq/Sorting/PermutSetoid/Permut/singletonBag.var,cic:/Coq/Sets/Multiset/multiset.ind
-oo,cic:/Coq/Sorting/PermutSetoid/Permut/singletonBag.var,cic:/Coq/Sets/Multiset/SingletonBag.con
-oo,cic:/Coq/Sorting/PermutSetoid/Permut/singletonBag.var,cic:/Coq/Sorting/PermutSetoid/Permut/A.var
-oo,cic:/Coq/Sorting/PermutSetoid/Permut/singletonBag.var,cic:/Coq/Sorting/PermutSetoid/Permut/eqA_dec.var
-oo,cic:/Coq/Sorting/PermutSetoid/Permut/singletonBag.var,cic:/Coq/Sorting/PermutSetoid/Permut/eqA.var
-oo,cic:/Coq/Sorting/PermutSetoid/Permut/singletonBag.var,cic:/Coq/Sorting/PermutSetoid/Permut/singletonBag.var
-oo,cic:/Coq/Sorting/PermutSetoid/Permut/singletonBag.var,cic:/eqA_dec.var
-oo,cic:/Coq/Sorting/PermutSetoid/Permut/singletonBag.var,cic:/eqA.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:f3f62299a2e8de2d221803d069a2d77bcd4643b1ff66c84a0a0adfdffdd53e9a
+size 821

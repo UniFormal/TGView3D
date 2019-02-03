@@ -1,6 +1,3 @@
-oo,cic:/Coq/Structures/Equalities/UsualIsEq/eq_equiv.con,cic:/Coq/Classes/RelationClasses/eq_equivalence.con
-oo,cic:/Coq/Structures/Equalities/UsualIsEq/eq_equiv.con,cic:/Coq/Classes/RelationClasses/Equivalence.ind
-oo,cic:/Coq/Structures/Equalities/UsualIsEq/eq_equiv.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Structures/Equalities/UsualIsEq/eq_equiv.con,cic:/Coq/Structures/Equalities/E/eq.con
-oo,cic:/Coq/Structures/Equalities/UsualIsEq/eq_equiv.con,cic:/Coq/Structures/Equalities/E/t.con
-oo,cic:/Coq/Structures/Equalities/UsualIsEq/eq_equiv.con,cic:/Coq/Structures/Equalities/UsualIsEq/eq_equiv.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:1b695e64b2494b3f4a2f17ab1291219155f117c32edad41edfe6acf64cbdba8d
+size 603

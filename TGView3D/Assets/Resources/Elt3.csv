@@ -1,11 +1,3 @@
-oo,cic:/Coq/FSets/FMapWeakList/Raw/Elt3/elt''.var,cic:/Coq/FSets/FMapWeakList/Raw/Elt3/elt''.var
-oo,cic:/Coq/FSets/FMapWeakList/Raw/Elt3/elt'.var,cic:/Coq/FSets/FMapWeakList/Raw/Elt3/elt'.var
-oo,cic:/Coq/FSets/FMapWeakList/Raw/Elt3/elt.var,cic:/Coq/FSets/FMapWeakList/Raw/Elt3/elt.var
-oo,cic:/Coq/FSets/FMapWeakList/Raw/Elt3/f.var,cic:/Coq/FSets/FMapWeakList/Raw/Elt3/elt''.var
-oo,cic:/Coq/FSets/FMapWeakList/Raw/Elt3/f.var,cic:/Coq/FSets/FMapWeakList/Raw/Elt3/elt'.var
-oo,cic:/Coq/FSets/FMapWeakList/Raw/Elt3/f.var,cic:/Coq/FSets/FMapWeakList/Raw/Elt3/elt.var
-oo,cic:/Coq/FSets/FMapWeakList/Raw/Elt3/f.var,cic:/Coq/FSets/FMapWeakList/Raw/Elt3/f.var
-oo,cic:/Coq/FSets/FMapWeakList/Raw/Elt3/f.var,cic:/Coq/Init/Datatypes/option.ind
-oo,cic:/Coq/FSets/FMapWeakList/Raw/Elt3/f.var,cic:/elt''.var
-oo,cic:/Coq/FSets/FMapWeakList/Raw/Elt3/f.var,cic:/elt'.var
-oo,cic:/Coq/FSets/FMapWeakList/Raw/Elt3/f.var,cic:/elt.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:c882b0acc6fbbc954df8cae6211f851cb1bc6cb00e897e724b8421b104249058
+size 911

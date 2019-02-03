@@ -1,27 +1,3 @@
-oo,cic:/Coq/setoid_ring/Algebra_syntax/addition.con,cic:/Coq/setoid_ring/Algebra_syntax/addition.con
-oo,cic:/Coq/setoid_ring/Algebra_syntax/addition.con,cic:/Coq/setoid_ring/Algebra_syntax/Addition.con
-oo,cic:/Coq/setoid_ring/Algebra_syntax/Addition.con,cic:/Coq/setoid_ring/Algebra_syntax/Addition.con
-oo,cic:/Coq/setoid_ring/Algebra_syntax/bracket.con,cic:/Coq/setoid_ring/Algebra_syntax/bracket.con
-oo,cic:/Coq/setoid_ring/Algebra_syntax/bracket.con,cic:/Coq/setoid_ring/Algebra_syntax/Bracket.con
-oo,cic:/Coq/setoid_ring/Algebra_syntax/Bracket.con,cic:/Coq/setoid_ring/Algebra_syntax/Bracket.con
-oo,cic:/Coq/setoid_ring/Algebra_syntax/equality.con,cic:/Coq/setoid_ring/Algebra_syntax/equality.con
-oo,cic:/Coq/setoid_ring/Algebra_syntax/equality.con,cic:/Coq/setoid_ring/Algebra_syntax/Equality.con
-oo,cic:/Coq/setoid_ring/Algebra_syntax/Equality.con,cic:/Coq/setoid_ring/Algebra_syntax/Equality.con
-oo,cic:/Coq/setoid_ring/Algebra_syntax/multiplication.con,cic:/Coq/setoid_ring/Algebra_syntax/multiplication.con
-oo,cic:/Coq/setoid_ring/Algebra_syntax/multiplication.con,cic:/Coq/setoid_ring/Algebra_syntax/Multiplication.con
-oo,cic:/Coq/setoid_ring/Algebra_syntax/Multiplication.con,cic:/Coq/setoid_ring/Algebra_syntax/Multiplication.con
-oo,cic:/Coq/setoid_ring/Algebra_syntax/one.con,cic:/Coq/setoid_ring/Algebra_syntax/one.con
-oo,cic:/Coq/setoid_ring/Algebra_syntax/one.con,cic:/Coq/setoid_ring/Algebra_syntax/One.con
-oo,cic:/Coq/setoid_ring/Algebra_syntax/One.con,cic:/Coq/setoid_ring/Algebra_syntax/One.con
-oo,cic:/Coq/setoid_ring/Algebra_syntax/opposite.con,cic:/Coq/setoid_ring/Algebra_syntax/opposite.con
-oo,cic:/Coq/setoid_ring/Algebra_syntax/opposite.con,cic:/Coq/setoid_ring/Algebra_syntax/Opposite.con
-oo,cic:/Coq/setoid_ring/Algebra_syntax/Opposite.con,cic:/Coq/setoid_ring/Algebra_syntax/Opposite.con
-oo,cic:/Coq/setoid_ring/Algebra_syntax/power.con,cic:/Coq/setoid_ring/Algebra_syntax/power.con
-oo,cic:/Coq/setoid_ring/Algebra_syntax/power.con,cic:/Coq/setoid_ring/Algebra_syntax/Power.con
-oo,cic:/Coq/setoid_ring/Algebra_syntax/Power.con,cic:/Coq/setoid_ring/Algebra_syntax/Power.con
-oo,cic:/Coq/setoid_ring/Algebra_syntax/subtraction.con,cic:/Coq/setoid_ring/Algebra_syntax/subtraction.con
-oo,cic:/Coq/setoid_ring/Algebra_syntax/subtraction.con,cic:/Coq/setoid_ring/Algebra_syntax/Subtraction.con
-oo,cic:/Coq/setoid_ring/Algebra_syntax/Subtraction.con,cic:/Coq/setoid_ring/Algebra_syntax/Subtraction.con
-oo,cic:/Coq/setoid_ring/Algebra_syntax/zero.con,cic:/Coq/setoid_ring/Algebra_syntax/zero.con
-oo,cic:/Coq/setoid_ring/Algebra_syntax/zero.con,cic:/Coq/setoid_ring/Algebra_syntax/Zero.con
-oo,cic:/Coq/setoid_ring/Algebra_syntax/Zero.con,cic:/Coq/setoid_ring/Algebra_syntax/Zero.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:4e052da2b5fe29199858f340a0a4f54496c0954517174e76ecfe2cf5b4248c78
+size 2703

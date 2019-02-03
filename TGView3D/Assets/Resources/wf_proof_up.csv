@@ -1,9 +1,3 @@
-oo,cic:/Coq/ZArith/Zwf/wf_proof_up/c.var,cic:/Coq/Numbers/BinNums/Z.ind
-oo,cic:/Coq/ZArith/Zwf/wf_proof_up/c.var,cic:/Coq/ZArith/Zwf/wf_proof_up/c.var
-oo,cic:/Coq/ZArith/Zwf/wf_proof_up/f.var,cic:/Coq/Init/Datatypes/nat.ind
-oo,cic:/Coq/ZArith/Zwf/wf_proof_up/f.var,cic:/Coq/Numbers/BinNums/Z.ind
-oo,cic:/Coq/ZArith/Zwf/wf_proof_up/f.var,cic:/Coq/ZArith/BinInt/Z/abs_nat.con
-oo,cic:/Coq/ZArith/Zwf/wf_proof_up/f.var,cic:/Coq/ZArith/BinInt/Z/sub.con
-oo,cic:/Coq/ZArith/Zwf/wf_proof_up/f.var,cic:/Coq/ZArith/Zwf/wf_proof_up/c.var
-oo,cic:/Coq/ZArith/Zwf/wf_proof_up/f.var,cic:/Coq/ZArith/Zwf/wf_proof_up/f.var
-oo,cic:/Coq/ZArith/Zwf/wf_proof_up/f.var,cic:/c.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:6b1063ecfe6fffa7e1003657422f19642e695a9471dd5522614fb2e0aff755f0
+size 658

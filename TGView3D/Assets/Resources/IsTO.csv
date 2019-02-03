@@ -1,33 +1,3 @@
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/eq_equiv.con,cic:/Coq/Classes/RelationClasses/Equivalence.ind
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/eq_equiv.con,cic:/Coq/Structures/OrderedType/O/eq.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/eq_equiv.con,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/eq_equiv.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/eq_equiv.con,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/eq_equiv.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/eq_equiv.con,cic:/Coq/Structures/OrderedType/O/t.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/le_lteq.con,cic:/Coq/Classes/RelationClasses/iff_Reflexive.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/le_lteq.con,cic:/Coq/Classes/RelationClasses/reflexivity.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/le_lteq.con,cic:/Coq/Init/Logic/iff.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/le_lteq.con,cic:/Coq/Init/Logic/or.ind
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/le_lteq.con,cic:/Coq/Structures/OrderedType/O/eq.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/le_lteq.con,cic:/Coq/Structures/OrderedType/O/lt.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/le_lteq.con,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/le_lteq.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/le_lteq.con,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/le.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/le_lteq.con,cic:/Coq/Structures/OrderedType/O/t.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/lt_compat.con,cic:/Coq/Classes/Morphisms/Proper.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/lt_compat.con,cic:/Coq/Classes/Morphisms/respectful.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/lt_compat.con,cic:/Coq/Init/Logic/iff.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/lt_compat.con,cic:/Coq/Structures/OrderedType/O/eq.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/lt_compat.con,cic:/Coq/Structures/OrderedType/O/lt.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/lt_compat.con,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/lt_compat.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/lt_compat.con,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/lt_compat.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/lt_compat.con,cic:/Coq/Structures/OrderedType/O/t.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/lt_strorder.con,cic:/Coq/Classes/RelationClasses/StrictOrder.ind
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/lt_strorder.con,cic:/Coq/Structures/OrderedType/O/lt.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/lt_strorder.con,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/lt_strorder.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/lt_strorder.con,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/lt_strorder.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/lt_strorder.con,cic:/Coq/Structures/OrderedType/O/t.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/lt_total.con,cic:/Coq/Init/Logic/or.ind
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/lt_total.con,cic:/Coq/Structures/OrderedType/O/eq.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/lt_total.con,cic:/Coq/Structures/OrderedType/O/lt.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/lt_total.con,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/lt_total.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/lt_total.con,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/lt_total.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/IsTO/lt_total.con,cic:/Coq/Structures/OrderedType/O/t.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:2bf6770a4fc5bef87303f0b95fd30a861f98c3af882a88544c1ae81a17a49f3b
+size 3889

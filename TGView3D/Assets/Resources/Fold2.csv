@@ -1,18 +1,3 @@
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold2/f.var,cic:/A.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold2/f.var,cic:/B.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold2/f.var,cic:/Coq/Lists/SetoidList/Type_with_equality/A.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold2/f.var,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold2/B.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold2/f.var,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold2/f.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold2/st.var,cic:/B.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold2/st.var,cic:/Coq/Classes/RelationClasses/Equivalence.ind
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold2/st.var,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold2/B.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold2/st.var,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold2/eqB.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold2/st.var,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold2/st.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold2/st.var,cic:/eqB.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold2/Tra.var,cic:/Coq/Lists/SetoidList/transpose2.con
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold2/Tra.var,cic:/Coq/Lists/SetoidList/Type_with_equality/A.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold2/Tra.var,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold2/B.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold2/Tra.var,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold2/eqB.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold2/Tra.var,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold2/f.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold2/Tra.var,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold2/Tra.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Fold2/Tra.var,cic:/f.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:cd9752d2de45fc91afa8169f5ebb2f2fbabe4a31005445b0bfb29a4a562fa427
+size 1869

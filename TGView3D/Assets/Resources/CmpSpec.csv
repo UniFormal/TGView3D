@@ -1,6 +1,3 @@
-oo,cic:/Coq/Structures/Orders/CmpSpec/compare_spec.con,cic:/Coq/Init/Datatypes/CompareSpec.ind
-oo,cic:/Coq/Structures/Orders/CmpSpec/compare_spec.con,cic:/Coq/Structures/Orders/C/compare.con
-oo,cic:/Coq/Structures/Orders/CmpSpec/compare_spec.con,cic:/Coq/Structures/Orders/CmpSpec/compare_spec.con
-oo,cic:/Coq/Structures/Orders/CmpSpec/compare_spec.con,cic:/Coq/Structures/Orders/E/eq.con
-oo,cic:/Coq/Structures/Orders/CmpSpec/compare_spec.con,cic:/Coq/Structures/Orders/E/lt.con
-oo,cic:/Coq/Structures/Orders/CmpSpec/compare_spec.con,cic:/Coq/Structures/Orders/E/t.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:8a31285fc367b01ee5cbe8a09cde91ef555fbb7ecd0b330f278a426f533b0610
+size 570

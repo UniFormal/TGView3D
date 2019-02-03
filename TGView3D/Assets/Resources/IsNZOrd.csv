@@ -1,24 +1,3 @@
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsNZOrd/lt_eq_cases.con,cic:/Coq/Init/Logic/iff.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsNZOrd/lt_eq_cases.con,cic:/Coq/Init/Logic/or.ind
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsNZOrd/lt_eq_cases.con,cic:/Coq/Numbers/NatInt/NZAxioms/IsNZOrd/lt_eq_cases.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsNZOrd/lt_eq_cases.con,cic:/Coq/Numbers/NatInt/NZAxioms/NZ/eq.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsNZOrd/lt_eq_cases.con,cic:/Coq/Numbers/NatInt/NZAxioms/NZ/le.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsNZOrd/lt_eq_cases.con,cic:/Coq/Numbers/NatInt/NZAxioms/NZ/lt.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsNZOrd/lt_eq_cases.con,cic:/Coq/Numbers/NatInt/NZAxioms/NZ/t.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsNZOrd/lt_irrefl.con,cic:/Coq/Init/Logic/not.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsNZOrd/lt_irrefl.con,cic:/Coq/Numbers/NatInt/NZAxioms/IsNZOrd/lt_irrefl.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsNZOrd/lt_irrefl.con,cic:/Coq/Numbers/NatInt/NZAxioms/NZ/lt.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsNZOrd/lt_irrefl.con,cic:/Coq/Numbers/NatInt/NZAxioms/NZ/t.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsNZOrd/lt_succ_r.con,cic:/Coq/Init/Logic/iff.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsNZOrd/lt_succ_r.con,cic:/Coq/Numbers/NatInt/NZAxioms/IsNZOrd/lt_succ_r.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsNZOrd/lt_succ_r.con,cic:/Coq/Numbers/NatInt/NZAxioms/NZ/le.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsNZOrd/lt_succ_r.con,cic:/Coq/Numbers/NatInt/NZAxioms/NZ/lt.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsNZOrd/lt_succ_r.con,cic:/Coq/Numbers/NatInt/NZAxioms/NZ/succ.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsNZOrd/lt_succ_r.con,cic:/Coq/Numbers/NatInt/NZAxioms/NZ/t.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsNZOrd/lt_wd.con,cic:/Coq/Classes/Morphisms/Proper.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsNZOrd/lt_wd.con,cic:/Coq/Classes/Morphisms/respectful.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsNZOrd/lt_wd.con,cic:/Coq/Init/Logic/iff.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsNZOrd/lt_wd.con,cic:/Coq/Numbers/NatInt/NZAxioms/IsNZOrd/lt_wd.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsNZOrd/lt_wd.con,cic:/Coq/Numbers/NatInt/NZAxioms/NZ/eq.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsNZOrd/lt_wd.con,cic:/Coq/Numbers/NatInt/NZAxioms/NZ/lt.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsNZOrd/lt_wd.con,cic:/Coq/Numbers/NatInt/NZAxioms/NZ/t.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:47e0023fada1c60bc24d24c9b2245ee755af80e0ae2052fc6ca7dfe63d030ecb
+size 2372

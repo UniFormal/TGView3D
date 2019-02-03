@@ -1,5 +1,3 @@
-oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/ZAxiom/succ_pred.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/ZAxiom/succ_pred.con
-oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/ZAxiom/succ_pred.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/eq.con
-oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/ZAxiom/succ_pred.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/pred.con
-oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/ZAxiom/succ_pred.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/succ.con
-oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/ZAxiom/succ_pred.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/t.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:3437450c643b3fc44a1d1781e010587b619d896301a58f2fab213c7a1c5e7b5e
+size 600

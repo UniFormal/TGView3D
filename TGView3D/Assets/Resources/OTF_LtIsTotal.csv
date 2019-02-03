@@ -1,9 +1,3 @@
-oo,cic:/Coq/Structures/Orders/OTF_LtIsTotal/lt_total.con,cic:/Coq/Init/Datatypes/CompareSpec.ind
-oo,cic:/Coq/Structures/Orders/OTF_LtIsTotal/lt_total.con,cic:/Coq/Init/Datatypes/comparison.ind
-oo,cic:/Coq/Structures/Orders/OTF_LtIsTotal/lt_total.con,cic:/Coq/Init/Logic/or.ind
-oo,cic:/Coq/Structures/Orders/OTF_LtIsTotal/lt_total.con,cic:/Coq/Structures/Orders/O/compare.con
-oo,cic:/Coq/Structures/Orders/OTF_LtIsTotal/lt_total.con,cic:/Coq/Structures/Orders/O/compare_spec.con
-oo,cic:/Coq/Structures/Orders/OTF_LtIsTotal/lt_total.con,cic:/Coq/Structures/Orders/O/eq.con
-oo,cic:/Coq/Structures/Orders/OTF_LtIsTotal/lt_total.con,cic:/Coq/Structures/Orders/O/lt.con
-oo,cic:/Coq/Structures/Orders/OTF_LtIsTotal/lt_total.con,cic:/Coq/Structures/Orders/O/t.con
-oo,cic:/Coq/Structures/Orders/OTF_LtIsTotal/lt_total.con,cic:/Coq/Structures/Orders/OTF_LtIsTotal/lt_total.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:8208c38122dea6bd74f575b815cb8ecb46aea261479275a4cdff856986db2e93
+size 867

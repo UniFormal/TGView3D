@@ -1,28 +1,3 @@
-oo,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/div_mod.con,cic:/Coq/Init/Logic/not.con
-oo,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/div_mod.con,cic:/Coq/Numbers/NatInt/NZDiv/A/add.con
-oo,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/div_mod.con,cic:/Coq/Numbers/NatInt/NZDiv/A/eq.con
-oo,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/div_mod.con,cic:/Coq/Numbers/NatInt/NZDiv/A/mul.con
-oo,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/div_mod.con,cic:/Coq/Numbers/NatInt/NZDiv/A/t.con
-oo,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/div_mod.con,cic:/Coq/Numbers/NatInt/NZDiv/A/zero.con
-oo,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/div_mod.con,cic:/Coq/Numbers/NatInt/NZDiv/B/div.con
-oo,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/div_mod.con,cic:/Coq/Numbers/NatInt/NZDiv/B/modulo.con
-oo,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/div_mod.con,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/div_mod.con
-oo,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/div_wd.con,cic:/Coq/Classes/Morphisms/Proper.con
-oo,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/div_wd.con,cic:/Coq/Classes/Morphisms/respectful.con
-oo,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/div_wd.con,cic:/Coq/Numbers/NatInt/NZDiv/A/eq.con
-oo,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/div_wd.con,cic:/Coq/Numbers/NatInt/NZDiv/A/t.con
-oo,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/div_wd.con,cic:/Coq/Numbers/NatInt/NZDiv/B/div.con
-oo,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/div_wd.con,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/div_wd.con
-oo,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/mod_bound_pos.con,cic:/Coq/Init/Logic/and.ind
-oo,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/mod_bound_pos.con,cic:/Coq/Numbers/NatInt/NZDiv/A/le.con
-oo,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/mod_bound_pos.con,cic:/Coq/Numbers/NatInt/NZDiv/A/lt.con
-oo,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/mod_bound_pos.con,cic:/Coq/Numbers/NatInt/NZDiv/A/t.con
-oo,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/mod_bound_pos.con,cic:/Coq/Numbers/NatInt/NZDiv/A/zero.con
-oo,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/mod_bound_pos.con,cic:/Coq/Numbers/NatInt/NZDiv/B/modulo.con
-oo,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/mod_bound_pos.con,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/mod_bound_pos.con
-oo,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/mod_wd.con,cic:/Coq/Classes/Morphisms/Proper.con
-oo,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/mod_wd.con,cic:/Coq/Classes/Morphisms/respectful.con
-oo,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/mod_wd.con,cic:/Coq/Numbers/NatInt/NZDiv/A/eq.con
-oo,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/mod_wd.con,cic:/Coq/Numbers/NatInt/NZDiv/A/t.con
-oo,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/mod_wd.con,cic:/Coq/Numbers/NatInt/NZDiv/B/modulo.con
-oo,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/mod_wd.con,cic:/Coq/Numbers/NatInt/NZDiv/NZDivSpec/mod_wd.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:dc9597b25e021ea91e6347c7840a0b8f13a029b4a7bcb516a523f5352cf00516
+size 2716

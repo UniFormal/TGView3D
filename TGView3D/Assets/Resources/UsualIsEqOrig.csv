@@ -1,11 +1,3 @@
-oo,cic:/Coq/Structures/Equalities/UsualIsEqOrig/eq_refl.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Structures/Equalities/UsualIsEqOrig/eq_refl.con,cic:/Coq/Structures/Equalities/E/t.con
-oo,cic:/Coq/Structures/Equalities/UsualIsEqOrig/eq_refl.con,cic:/Coq/Structures/Equalities/UsualIsEqOrig/eq_refl.con
-oo,cic:/Coq/Structures/Equalities/UsualIsEqOrig/eq_sym.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Structures/Equalities/UsualIsEqOrig/eq_sym.con,cic:/Coq/Init/Logic/eq_sym.con
-oo,cic:/Coq/Structures/Equalities/UsualIsEqOrig/eq_sym.con,cic:/Coq/Structures/Equalities/E/t.con
-oo,cic:/Coq/Structures/Equalities/UsualIsEqOrig/eq_sym.con,cic:/Coq/Structures/Equalities/UsualIsEqOrig/eq_sym.con
-oo,cic:/Coq/Structures/Equalities/UsualIsEqOrig/eq_trans.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Structures/Equalities/UsualIsEqOrig/eq_trans.con,cic:/Coq/Init/Logic/eq_trans.con
-oo,cic:/Coq/Structures/Equalities/UsualIsEqOrig/eq_trans.con,cic:/Coq/Structures/Equalities/E/t.con
-oo,cic:/Coq/Structures/Equalities/UsualIsEqOrig/eq_trans.con,cic:/Coq/Structures/Equalities/UsualIsEqOrig/eq_trans.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:2469aa2335d0bac08aa54153cffa75c68c692536df1d2fa2a837b4de51cbf22d
+size 1093

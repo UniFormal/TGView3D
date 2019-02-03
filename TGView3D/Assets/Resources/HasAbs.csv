@@ -1,15 +1,3 @@
-oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs.con
-oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/t.con
-oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_eq.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs.con
-oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_eq.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_eq.con
-oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_eq.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/eq.con
-oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_eq.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/le.con
-oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_eq.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/t.con
-oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_eq.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/zero.con
-oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_neq.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs.con
-oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_neq.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_neq.con
-oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_neq.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/eq.con
-oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_neq.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/le.con
-oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_neq.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/opp.con
-oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_neq.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/t.con
-oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_neq.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/zero.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:fcaecf42037e885d2da411575d279fc81a18fa6f9e499ab98a4067e690c9afe0
+size 1750

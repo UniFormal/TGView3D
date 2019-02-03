@@ -1,13 +1,3 @@
-oo,cic:/Coq/Structures/Orders/OT_to_Full/le.con,cic:/Coq/Init/Logic/or.ind
-oo,cic:/Coq/Structures/Orders/OT_to_Full/le.con,cic:/Coq/Structures/Orders/OT_to_Full/eq.con
-oo,cic:/Coq/Structures/Orders/OT_to_Full/le.con,cic:/Coq/Structures/Orders/OT_to_Full/le.con
-oo,cic:/Coq/Structures/Orders/OT_to_Full/le.con,cic:/Coq/Structures/Orders/OT_to_Full/lt.con
-oo,cic:/Coq/Structures/Orders/OT_to_Full/le.con,cic:/Coq/Structures/Orders/OT_to_Full/t.con
-oo,cic:/Coq/Structures/Orders/OT_to_Full/le_lteq.con,cic:/Coq/Init/Logic/and.ind
-oo,cic:/Coq/Structures/Orders/OT_to_Full/le_lteq.con,cic:/Coq/Init/Logic/iff.con
-oo,cic:/Coq/Structures/Orders/OT_to_Full/le_lteq.con,cic:/Coq/Init/Logic/or.ind
-oo,cic:/Coq/Structures/Orders/OT_to_Full/le_lteq.con,cic:/Coq/Structures/Orders/OT_to_Full/eq.con
-oo,cic:/Coq/Structures/Orders/OT_to_Full/le_lteq.con,cic:/Coq/Structures/Orders/OT_to_Full/le.con
-oo,cic:/Coq/Structures/Orders/OT_to_Full/le_lteq.con,cic:/Coq/Structures/Orders/OT_to_Full/le_lteq.con
-oo,cic:/Coq/Structures/Orders/OT_to_Full/le_lteq.con,cic:/Coq/Structures/Orders/OT_to_Full/lt.con
-oo,cic:/Coq/Structures/Orders/OT_to_Full/le_lteq.con,cic:/Coq/Structures/Orders/OT_to_Full/t.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:77763186ebef3ac7b7b388709742e7a4fcd3208ef0cdd8f580a0a37c014a7459
+size 1182

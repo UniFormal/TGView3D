@@ -1,24 +1,3 @@
-oo,cic:/Coq/Program/Subset/match_eq.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Program/Subset/match_eq.con,cic:/Coq/Init/Specif/sig.ind
-oo,cic:/Coq/Program/Subset/match_eq.con,cic:/Coq/Program/Subset/match_eq.con
-oo,cic:/Coq/Program/Subset/match_eq_rewrite.con,cic:/Coq/Init/Logic/and.ind
-oo,cic:/Coq/Program/Subset/match_eq_rewrite.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Program/Subset/match_eq_rewrite.con,cic:/Coq/Init/Logic/eq_sym.con
-oo,cic:/Coq/Program/Subset/match_eq_rewrite.con,cic:/Coq/Init/Logic/eq_trans.con
-oo,cic:/Coq/Program/Subset/match_eq_rewrite.con,cic:/Coq/Init/Logic/f_equal.con
-oo,cic:/Coq/Program/Subset/match_eq_rewrite.con,cic:/Coq/Init/Logic/iff.con
-oo,cic:/Coq/Program/Subset/match_eq_rewrite.con,cic:/Coq/Init/Specif/proj1_sig.con
-oo,cic:/Coq/Program/Subset/match_eq_rewrite.con,cic:/Coq/Init/Specif/sig.ind
-oo,cic:/Coq/Program/Subset/match_eq_rewrite.con,cic:/Coq/Program/Subset/match_eq.con
-oo,cic:/Coq/Program/Subset/match_eq_rewrite.con,cic:/Coq/Program/Subset/match_eq_rewrite.con
-oo,cic:/Coq/Program/Subset/match_eq_rewrite.con,cic:/Coq/Program/Subset/subset_eq.con
-oo,cic:/Coq/Program/Subset/subset_eq.con,cic:/Coq/Init/Logic/and.ind
-oo,cic:/Coq/Program/Subset/subset_eq.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Program/Subset/subset_eq.con,cic:/Coq/Init/Logic/eq_ind_r.con
-oo,cic:/Coq/Program/Subset/subset_eq.con,cic:/Coq/Init/Logic/eq_trans.con
-oo,cic:/Coq/Program/Subset/subset_eq.con,cic:/Coq/Init/Logic/f_equal.con
-oo,cic:/Coq/Program/Subset/subset_eq.con,cic:/Coq/Init/Logic/iff.con
-oo,cic:/Coq/Program/Subset/subset_eq.con,cic:/Coq/Init/Specif/proj1_sig.con
-oo,cic:/Coq/Program/Subset/subset_eq.con,cic:/Coq/Init/Specif/sig.ind
-oo,cic:/Coq/Program/Subset/subset_eq.con,cic:/Coq/Logic/ProofIrrelevance/proof_irrelevance.con
-oo,cic:/Coq/Program/Subset/subset_eq.con,cic:/Coq/Program/Subset/subset_eq.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:26853b928e8cda26c33db56b2726c6d092d64a4cbeca8356426829fd6a88f0fc
+size 1851

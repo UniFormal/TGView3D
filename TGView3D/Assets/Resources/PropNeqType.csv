@@ -1,6 +1,3 @@
-oo,cic:/Coq/Logic/Hurkens/PropNeqType/paradox.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Logic/Hurkens/PropNeqType/paradox.con,cic:/Coq/Init/Logic/eq_sym.con
-oo,cic:/Coq/Logic/Hurkens/PropNeqType/paradox.con,cic:/Coq/Init/Logic/False.ind
-oo,cic:/Coq/Logic/Hurkens/PropNeqType/paradox.con,cic:/Coq/Init/Logic/not.con
-oo,cic:/Coq/Logic/Hurkens/PropNeqType/paradox.con,cic:/Coq/Logic/Hurkens/PropNeqType/paradox.con
-oo,cic:/Coq/Logic/Hurkens/PropNeqType/paradox.con,cic:/Coq/Logic/Hurkens/TypeNeqSmallType/paradox.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:9d3874f2d68df96e37176e1a4255670247e30984e4f45c7d831f1e73c75ca720
+size 515

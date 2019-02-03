@@ -1,11 +1,3 @@
-oo,cic:/Coq/ssr/ssrfun/Option/apply.con,cic:/Coq/Init/Datatypes/option.ind
-oo,cic:/Coq/ssr/ssrfun/Option/apply.con,cic:/Coq/ssr/ssrfun/Option/apply.con
-oo,cic:/Coq/ssr/ssrfun/Option/bind.con,cic:/Coq/Init/Datatypes/option.ind
-oo,cic:/Coq/ssr/ssrfun/Option/bind.con,cic:/Coq/ssr/ssrfun/Option/apply.con
-oo,cic:/Coq/ssr/ssrfun/Option/bind.con,cic:/Coq/ssr/ssrfun/Option/bind.con
-oo,cic:/Coq/ssr/ssrfun/Option/default.con,cic:/Coq/Init/Datatypes/option.ind
-oo,cic:/Coq/ssr/ssrfun/Option/default.con,cic:/Coq/ssr/ssrfun/Option/apply.con
-oo,cic:/Coq/ssr/ssrfun/Option/default.con,cic:/Coq/ssr/ssrfun/Option/default.con
-oo,cic:/Coq/ssr/ssrfun/Option/map.con,cic:/Coq/Init/Datatypes/option.ind
-oo,cic:/Coq/ssr/ssrfun/Option/map.con,cic:/Coq/ssr/ssrfun/Option/bind.con
-oo,cic:/Coq/ssr/ssrfun/Option/map.con,cic:/Coq/ssr/ssrfun/Option/map.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:86ab809f1891e5dad1c8ad7084a680db560c66e3c6616d3b6cfb718b3636d197
+size 834

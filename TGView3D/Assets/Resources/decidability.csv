@@ -1,4 +1,3 @@
-oo,cic:/Coq/ZArith/ZArith_dec/decidability/x.var,cic:/Coq/Numbers/BinNums/Z.ind
-oo,cic:/Coq/ZArith/ZArith_dec/decidability/x.var,cic:/Coq/ZArith/ZArith_dec/decidability/x.var
-oo,cic:/Coq/ZArith/ZArith_dec/decidability/y.var,cic:/Coq/Numbers/BinNums/Z.ind
-oo,cic:/Coq/ZArith/ZArith_dec/decidability/y.var,cic:/Coq/ZArith/ZArith_dec/decidability/y.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:75b4c85525e9b8ad6a39fdb996f4cf260691f8da7e518ab3b233e58d0c9ef172
+size 350

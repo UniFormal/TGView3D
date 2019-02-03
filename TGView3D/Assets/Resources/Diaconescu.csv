@@ -1,7 +1,3 @@
-oo,cic:/Coq/Logic/Diaconescu/prop_ext.con,cic:/Coq/Init/Datatypes/bool.ind
-oo,cic:/Coq/Logic/Diaconescu/prop_ext.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Logic/Diaconescu/prop_ext.con,cic:/Coq/Init/Logic/eq_ind_r.con
-oo,cic:/Coq/Logic/Diaconescu/prop_ext.con,cic:/Coq/Init/Logic/iff.con
-oo,cic:/Coq/Logic/Diaconescu/prop_ext.con,cic:/Coq/Logic/Diaconescu/PredExt_RelChoice_imp_EM/pred_extensionality.var
-oo,cic:/Coq/Logic/Diaconescu/prop_ext.con,cic:/Coq/Logic/Diaconescu/prop_ext.con
-oo,cic:/Coq/Logic/Diaconescu/prop_ext.con,cic:/pred_extensionality.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:d2bd05e0ad74a2f25a2a291cbfb69b6d3076e7033671bcb76476cc2b7159c34e
+size 558

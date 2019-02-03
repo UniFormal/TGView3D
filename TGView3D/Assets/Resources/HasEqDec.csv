@@ -1,5 +1,3 @@
-oo,cic:/Coq/Structures/Equalities/HasEqDec/eq_dec.con,cic:/Coq/Init/Logic/not.con
-oo,cic:/Coq/Structures/Equalities/HasEqDec/eq_dec.con,cic:/Coq/Init/Specif/sumbool.ind
-oo,cic:/Coq/Structures/Equalities/HasEqDec/eq_dec.con,cic:/Coq/Structures/Equalities/E/eq.con
-oo,cic:/Coq/Structures/Equalities/HasEqDec/eq_dec.con,cic:/Coq/Structures/Equalities/E/t.con
-oo,cic:/Coq/Structures/Equalities/HasEqDec/eq_dec.con,cic:/Coq/Structures/Equalities/HasEqDec/eq_dec.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:baaf4fde0d91850b0c534b762ed1fc3d001c9ac5341fbaab29f13e9bb6ec095a
+size 461

@@ -1,5 +1,3 @@
-oo,cic:/Coq/Structures/Orders/LtIsTotal/lt_total.con,cic:/Coq/Init/Logic/or.ind
-oo,cic:/Coq/Structures/Orders/LtIsTotal/lt_total.con,cic:/Coq/Structures/Orders/E/eq.con
-oo,cic:/Coq/Structures/Orders/LtIsTotal/lt_total.con,cic:/Coq/Structures/Orders/E/lt.con
-oo,cic:/Coq/Structures/Orders/LtIsTotal/lt_total.con,cic:/Coq/Structures/Orders/E/t.con
-oo,cic:/Coq/Structures/Orders/LtIsTotal/lt_total.con,cic:/Coq/Structures/Orders/LtIsTotal/lt_total.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:978545db6952848aa6974e0f29a270c1e292622a240eb6de152212a04f1a52b7
+size 449

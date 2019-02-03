@@ -1,6 +1,3 @@
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/ZeroSuccPred/pred.con,cic:/Coq/Numbers/NatInt/NZAxioms/T/t.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/ZeroSuccPred/pred.con,cic:/Coq/Numbers/NatInt/NZAxioms/ZeroSuccPred/pred.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/ZeroSuccPred/succ.con,cic:/Coq/Numbers/NatInt/NZAxioms/T/t.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/ZeroSuccPred/succ.con,cic:/Coq/Numbers/NatInt/NZAxioms/ZeroSuccPred/succ.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/ZeroSuccPred/zero.con,cic:/Coq/Numbers/NatInt/NZAxioms/T/t.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/ZeroSuccPred/zero.con,cic:/Coq/Numbers/NatInt/NZAxioms/ZeroSuccPred/zero.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:9f35f27a27bcc9777a78dcf96841789afa9b1829455e8aa521d6636469d6f671
+size 636

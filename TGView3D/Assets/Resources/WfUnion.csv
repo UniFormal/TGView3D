@@ -1,8 +1,3 @@
-oo,cic:/Coq/Wellfounded/Union/WfUnion/R1.var,cic:/A.var
-oo,cic:/Coq/Wellfounded/Union/WfUnion/R1.var,cic:/Coq/Relations/Relation_Definitions/relation.con
-oo,cic:/Coq/Wellfounded/Union/WfUnion/R1.var,cic:/Coq/Wellfounded/Union/WfUnion/A.var
-oo,cic:/Coq/Wellfounded/Union/WfUnion/R1.var,cic:/Coq/Wellfounded/Union/WfUnion/R1.var
-oo,cic:/Coq/Wellfounded/Union/WfUnion/R2.var,cic:/A.var
-oo,cic:/Coq/Wellfounded/Union/WfUnion/R2.var,cic:/Coq/Relations/Relation_Definitions/relation.con
-oo,cic:/Coq/Wellfounded/Union/WfUnion/R2.var,cic:/Coq/Wellfounded/Union/WfUnion/A.var
-oo,cic:/Coq/Wellfounded/Union/WfUnion/R2.var,cic:/Coq/Wellfounded/Union/WfUnion/R2.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:6e29638758ee447878d5aa11d6654ffa522d0c0b81c058ba23e50baa6589ca91
+size 654

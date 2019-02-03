@@ -1,17 +1,3 @@
-oo,cic:/Coq/Sets/Multiset/multiset_defs/Aeq_dec.var,cic:/A.var
-oo,cic:/Coq/Sets/Multiset/multiset_defs/Aeq_dec.var,cic:/Coq/Init/Logic/not.con
-oo,cic:/Coq/Sets/Multiset/multiset_defs/Aeq_dec.var,cic:/Coq/Init/Specif/sumbool.ind
-oo,cic:/Coq/Sets/Multiset/multiset_defs/Aeq_dec.var,cic:/Coq/Sets/Multiset/multiset_defs/Aeq_dec.var
-oo,cic:/Coq/Sets/Multiset/multiset_defs/Aeq_dec.var,cic:/Coq/Sets/Multiset/multiset_defs/A.var
-oo,cic:/Coq/Sets/Multiset/multiset_defs/Aeq_dec.var,cic:/Coq/Sets/Multiset/multiset_defs/eqA.var
-oo,cic:/Coq/Sets/Multiset/multiset_defs/Aeq_dec.var,cic:/eqA.var
-oo,cic:/Coq/Sets/Multiset/multiset_defs/A.var,cic:/Coq/Sets/Multiset/multiset_defs/A.var
-oo,cic:/Coq/Sets/Multiset/multiset_defs/eqA_equiv.var,cic:/A.var
-oo,cic:/Coq/Sets/Multiset/multiset_defs/eqA_equiv.var,cic:/Coq/Classes/RelationClasses/Equivalence.ind
-oo,cic:/Coq/Sets/Multiset/multiset_defs/eqA_equiv.var,cic:/Coq/Sets/Multiset/multiset_defs/A.var
-oo,cic:/Coq/Sets/Multiset/multiset_defs/eqA_equiv.var,cic:/Coq/Sets/Multiset/multiset_defs/eqA_equiv.var
-oo,cic:/Coq/Sets/Multiset/multiset_defs/eqA_equiv.var,cic:/Coq/Sets/Multiset/multiset_defs/eqA.var
-oo,cic:/Coq/Sets/Multiset/multiset_defs/eqA_equiv.var,cic:/eqA.var
-oo,cic:/Coq/Sets/Multiset/multiset_defs/eqA.var,cic:/A.var
-oo,cic:/Coq/Sets/Multiset/multiset_defs/eqA.var,cic:/Coq/Sets/Multiset/multiset_defs/A.var
-oo,cic:/Coq/Sets/Multiset/multiset_defs/eqA.var,cic:/Coq/Sets/Multiset/multiset_defs/eqA.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:f71ff7aabf542c89d8aaf7a132cece861fa5ba402ebba950c841e515f76415f5
+size 1454

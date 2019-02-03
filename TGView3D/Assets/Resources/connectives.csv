@@ -1,16 +1,3 @@
-oo,cic:/Coq/Bool/Sumbool/connectives/A.var,cic:/Coq/Bool/Sumbool/connectives/A.var
-oo,cic:/Coq/Bool/Sumbool/connectives/B.var,cic:/Coq/Bool/Sumbool/connectives/B.var
-oo,cic:/Coq/Bool/Sumbool/connectives/C.var,cic:/Coq/Bool/Sumbool/connectives/C.var
-oo,cic:/Coq/Bool/Sumbool/connectives/D.var,cic:/Coq/Bool/Sumbool/connectives/D.var
-oo,cic:/Coq/Bool/Sumbool/connectives/H1.var,cic:/A.var
-oo,cic:/Coq/Bool/Sumbool/connectives/H1.var,cic:/B.var
-oo,cic:/Coq/Bool/Sumbool/connectives/H1.var,cic:/Coq/Bool/Sumbool/connectives/A.var
-oo,cic:/Coq/Bool/Sumbool/connectives/H1.var,cic:/Coq/Bool/Sumbool/connectives/B.var
-oo,cic:/Coq/Bool/Sumbool/connectives/H1.var,cic:/Coq/Bool/Sumbool/connectives/H1.var
-oo,cic:/Coq/Bool/Sumbool/connectives/H1.var,cic:/Coq/Init/Specif/sumbool.ind
-oo,cic:/Coq/Bool/Sumbool/connectives/H2.var,cic:/Coq/Bool/Sumbool/connectives/C.var
-oo,cic:/Coq/Bool/Sumbool/connectives/H2.var,cic:/Coq/Bool/Sumbool/connectives/D.var
-oo,cic:/Coq/Bool/Sumbool/connectives/H2.var,cic:/Coq/Bool/Sumbool/connectives/H2.var
-oo,cic:/Coq/Bool/Sumbool/connectives/H2.var,cic:/Coq/Init/Specif/sumbool.ind
-oo,cic:/Coq/Bool/Sumbool/connectives/H2.var,cic:/C.var
-oo,cic:/Coq/Bool/Sumbool/connectives/H2.var,cic:/D.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:fadfd087cda2842e120086724f19ad7d0e7292d84dc52e52e96b7c5fca52869a
+size 1212

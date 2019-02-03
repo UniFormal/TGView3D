@@ -1,17 +1,3 @@
-oo,cic:/Coq/Sets/Finite_sets/Finite.ind,cic:/Coq/Init/Logic/not.con
-oo,cic:/Coq/Sets/Finite_sets/Finite.ind,cic:/Coq/Sets/Ensembles/Add.con
-oo,cic:/Coq/Sets/Finite_sets/Finite.ind,cic:/Coq/Sets/Ensembles/Empty_set.ind
-oo,cic:/Coq/Sets/Finite_sets/Finite.ind,cic:/Coq/Sets/Ensembles/Ensemble.con
-oo,cic:/Coq/Sets/Finite_sets/Finite.ind,cic:/Coq/Sets/Ensembles/In.con
-oo,cic:/Coq/Sets/Finite_sets/Finite.ind,cic:/Coq/Sets/Finite_sets/Ensembles_finis/U.var
-oo,cic:/Coq/Sets/Finite_sets/Finite.ind,cic:/Coq/Sets/Finite_sets/Finite.ind
-oo,cic:/Coq/Sets/Finite_sets/Finite.ind,cic:/U.var
-oo,cic:/Coq/Sets/Finite_sets/Finite_ind.con,cic:/Coq/Init/Logic/not.con
-oo,cic:/Coq/Sets/Finite_sets/Finite_ind.con,cic:/Coq/Sets/Ensembles/Add.con
-oo,cic:/Coq/Sets/Finite_sets/Finite_ind.con,cic:/Coq/Sets/Ensembles/Empty_set.ind
-oo,cic:/Coq/Sets/Finite_sets/Finite_ind.con,cic:/Coq/Sets/Ensembles/Ensemble.con
-oo,cic:/Coq/Sets/Finite_sets/Finite_ind.con,cic:/Coq/Sets/Ensembles/In.con
-oo,cic:/Coq/Sets/Finite_sets/Finite_ind.con,cic:/Coq/Sets/Finite_sets/Ensembles_finis/U.var
-oo,cic:/Coq/Sets/Finite_sets/Finite_ind.con,cic:/Coq/Sets/Finite_sets/Finite.ind
-oo,cic:/Coq/Sets/Finite_sets/Finite_ind.con,cic:/Coq/Sets/Finite_sets/Finite_ind.con
-oo,cic:/Coq/Sets/Finite_sets/Finite_ind.con,cic:/U.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:f7edff7f504ab772366dcf830bc8af80797c7c09edfa8391db10c7605df0d6b4
+size 1281

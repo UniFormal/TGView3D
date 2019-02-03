@@ -1,21 +1,3 @@
-oo,cic:/Coq/quote/Quote/varmap_find.con,cic:/A.var
-oo,cic:/Coq/quote/Quote/varmap_find.con,cic:/Coq/quote/Quote/index.ind
-oo,cic:/Coq/quote/Quote/varmap_find.con,cic:/Coq/quote/Quote/variables_map/A.var
-oo,cic:/Coq/quote/Quote/varmap_find.con,cic:/Coq/quote/Quote/varmap_find.con
-oo,cic:/Coq/quote/Quote/varmap_find.con,cic:/Coq/quote/Quote/varmap.ind
-oo,cic:/Coq/quote/Quote/varmap.ind,cic:/A.var
-oo,cic:/Coq/quote/Quote/varmap.ind,cic:/Coq/quote/Quote/variables_map/A.var
-oo,cic:/Coq/quote/Quote/varmap.ind,cic:/Coq/quote/Quote/varmap.ind
-oo,cic:/Coq/quote/Quote/varmap_ind.con,cic:/A.var
-oo,cic:/Coq/quote/Quote/varmap_ind.con,cic:/Coq/quote/Quote/variables_map/A.var
-oo,cic:/Coq/quote/Quote/varmap_ind.con,cic:/Coq/quote/Quote/varmap.ind
-oo,cic:/Coq/quote/Quote/varmap_ind.con,cic:/Coq/quote/Quote/varmap_ind.con
-oo,cic:/Coq/quote/Quote/varmap_rec.con,cic:/A.var
-oo,cic:/Coq/quote/Quote/varmap_rec.con,cic:/Coq/quote/Quote/variables_map/A.var
-oo,cic:/Coq/quote/Quote/varmap_rec.con,cic:/Coq/quote/Quote/varmap.ind
-oo,cic:/Coq/quote/Quote/varmap_rec.con,cic:/Coq/quote/Quote/varmap_rec.con
-oo,cic:/Coq/quote/Quote/varmap_rec.con,cic:/Coq/quote/Quote/varmap_rect.con
-oo,cic:/Coq/quote/Quote/varmap_rect.con,cic:/A.var
-oo,cic:/Coq/quote/Quote/varmap_rect.con,cic:/Coq/quote/Quote/variables_map/A.var
-oo,cic:/Coq/quote/Quote/varmap_rect.con,cic:/Coq/quote/Quote/varmap.ind
-oo,cic:/Coq/quote/Quote/varmap_rect.con,cic:/Coq/quote/Quote/varmap_rect.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:0ecddb8f1f0d64ad50311aa50bc580b9c4635e6d39f6647f0aa91a3cbf6bb3fd
+size 1450

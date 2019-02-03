@@ -1,7 +1,3 @@
-oo,cic:/Coq/Wellfounded/Inclusion/WfInclusion/A.var,cic:/Coq/Wellfounded/Inclusion/WfInclusion/A.var
-oo,cic:/Coq/Wellfounded/Inclusion/WfInclusion/R1.var,cic:/A.var
-oo,cic:/Coq/Wellfounded/Inclusion/WfInclusion/R1.var,cic:/Coq/Wellfounded/Inclusion/WfInclusion/A.var
-oo,cic:/Coq/Wellfounded/Inclusion/WfInclusion/R1.var,cic:/Coq/Wellfounded/Inclusion/WfInclusion/R1.var
-oo,cic:/Coq/Wellfounded/Inclusion/WfInclusion/R2.var,cic:/A.var
-oo,cic:/Coq/Wellfounded/Inclusion/WfInclusion/R2.var,cic:/Coq/Wellfounded/Inclusion/WfInclusion/A.var
-oo,cic:/Coq/Wellfounded/Inclusion/WfInclusion/R2.var,cic:/Coq/Wellfounded/Inclusion/WfInclusion/R2.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:9311d5dab87ca7a6694fde2266e5b9aa491975f79d61ea70f2cf0f8f794072b9
+size 639

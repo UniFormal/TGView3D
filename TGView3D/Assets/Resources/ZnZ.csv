@@ -1,20 +1,3 @@
-oo,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/zdigits.con,cic:/Coq/Init/Datatypes/bool.ind
-oo,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/zdigits.con,cic:/Coq/Init/Datatypes/comparison.ind
-oo,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/zdigits.con,cic:/Coq/Init/Datatypes/prod.ind
-oo,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/zdigits.con,cic:/Coq/Numbers/BinNums/N.ind
-oo,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/zdigits.con,cic:/Coq/Numbers/BinNums/positive.ind
-oo,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/zdigits.con,cic:/Coq/Numbers/BinNums/Z.ind
-oo,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/zdigits.con,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/Ops.ind
-oo,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/zdigits.con,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/zdigits.con
-oo,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/zdigits.con,cic:/Coq/Numbers/Cyclic/Abstract/DoubleType/carry.ind
-oo,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/zdigits.con,cic:/Coq/Numbers/Cyclic/Abstract/DoubleType/zn2z.ind
-oo,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/zero.con,cic:/Coq/Init/Datatypes/bool.ind
-oo,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/zero.con,cic:/Coq/Init/Datatypes/comparison.ind
-oo,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/zero.con,cic:/Coq/Init/Datatypes/prod.ind
-oo,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/zero.con,cic:/Coq/Numbers/BinNums/N.ind
-oo,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/zero.con,cic:/Coq/Numbers/BinNums/positive.ind
-oo,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/zero.con,cic:/Coq/Numbers/BinNums/Z.ind
-oo,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/zero.con,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/Ops.ind
-oo,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/zero.con,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/zero.con
-oo,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/zero.con,cic:/Coq/Numbers/Cyclic/Abstract/DoubleType/carry.ind
-oo,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/zero.con,cic:/Coq/Numbers/Cyclic/Abstract/DoubleType/zn2z.ind
+version https://git-lfs.github.com/spec/v1
+oid sha256:fb1ae15f4d42755b56d988ad3570a4a3cc5347639f7262c01671306a140cd151
+size 2131

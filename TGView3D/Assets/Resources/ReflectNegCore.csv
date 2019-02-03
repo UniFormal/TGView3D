@@ -1,13 +1,3 @@
-oo,cic:/Coq/ssr/ssrbool/ReflectNegCore/b.var,cic:/Coq/Init/Datatypes/bool.ind
-oo,cic:/Coq/ssr/ssrbool/ReflectNegCore/b.var,cic:/Coq/ssr/ssrbool/ReflectNegCore/b.var
-oo,cic:/Coq/ssr/ssrbool/ReflectNegCore/c.var,cic:/Coq/Init/Datatypes/bool.ind
-oo,cic:/Coq/ssr/ssrbool/ReflectNegCore/c.var,cic:/Coq/ssr/ssrbool/ReflectNegCore/c.var
-oo,cic:/Coq/ssr/ssrbool/ReflectNegCore/Hb.var,cic:/b.var
-oo,cic:/Coq/ssr/ssrbool/ReflectNegCore/Hb.var,cic:/Coq/Bool/Bool/reflect.ind
-oo,cic:/Coq/ssr/ssrbool/ReflectNegCore/Hb.var,cic:/Coq/Init/Datatypes/negb.con
-oo,cic:/Coq/ssr/ssrbool/ReflectNegCore/Hb.var,cic:/Coq/ssr/ssrbool/ReflectNegCore/b.var
-oo,cic:/Coq/ssr/ssrbool/ReflectNegCore/Hb.var,cic:/Coq/ssr/ssrbool/ReflectNegCore/Hb.var
-oo,cic:/Coq/ssr/ssrbool/ReflectNegCore/Hb.var,cic:/Coq/ssr/ssrbool/ReflectNegCore/P.var
-oo,cic:/Coq/ssr/ssrbool/ReflectNegCore/Hb.var,cic:/P.var
-oo,cic:/Coq/ssr/ssrbool/ReflectNegCore/P.var,cic:/Coq/ssr/ssrbool/ReflectNegCore/P.var
-oo,cic:/Coq/ssr/ssrbool/ReflectNegCore/Q.var,cic:/Coq/ssr/ssrbool/ReflectNegCore/Q.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:1703b008b0abf26125566167cfcc781039963315d406d9f8df7c0d50c2ee26ee
+size 1039

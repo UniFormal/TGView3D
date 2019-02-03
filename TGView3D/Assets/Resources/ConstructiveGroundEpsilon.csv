@@ -1,10 +1,3 @@
-oo,cic:/Coq/Logic/ConstructiveEpsilon/ConstructiveGroundEpsilon/P_decidable.var,cic:/A.var
-oo,cic:/Coq/Logic/ConstructiveEpsilon/ConstructiveGroundEpsilon/P_decidable.var,cic:/Coq/Init/Logic/not.con
-oo,cic:/Coq/Logic/ConstructiveEpsilon/ConstructiveGroundEpsilon/P_decidable.var,cic:/Coq/Init/Specif/sumbool.ind
-oo,cic:/Coq/Logic/ConstructiveEpsilon/ConstructiveGroundEpsilon/P_decidable.var,cic:/Coq/Logic/ConstructiveEpsilon/ConstructiveGroundEpsilon/A.var
-oo,cic:/Coq/Logic/ConstructiveEpsilon/ConstructiveGroundEpsilon/P_decidable.var,cic:/Coq/Logic/ConstructiveEpsilon/ConstructiveGroundEpsilon/P_decidable.var
-oo,cic:/Coq/Logic/ConstructiveEpsilon/ConstructiveGroundEpsilon/P_decidable.var,cic:/Coq/Logic/ConstructiveEpsilon/ConstructiveGroundEpsilon/P.var
-oo,cic:/Coq/Logic/ConstructiveEpsilon/ConstructiveGroundEpsilon/P_decidable.var,cic:/P.var
-oo,cic:/Coq/Logic/ConstructiveEpsilon/ConstructiveGroundEpsilon/P.var,cic:/A.var
-oo,cic:/Coq/Logic/ConstructiveEpsilon/ConstructiveGroundEpsilon/P.var,cic:/Coq/Logic/ConstructiveEpsilon/ConstructiveGroundEpsilon/A.var
-oo,cic:/Coq/Logic/ConstructiveEpsilon/ConstructiveGroundEpsilon/P.var,cic:/Coq/Logic/ConstructiveEpsilon/ConstructiveGroundEpsilon/P.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:848491d69e220105dfcd8662fa7807c076e3a00c1f90bf0df9d94e96b8ab7b08
+size 1209

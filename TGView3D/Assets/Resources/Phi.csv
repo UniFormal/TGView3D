@@ -1,6 +1,3 @@
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Phi/Phi.var,cic:/Coq/Numbers/BinNums/Z.ind
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Phi/Phi.var,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Phi/Phi.var
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Phi/Phi.var,cic:/Coq/Numbers/Cyclic/Int31/Int31/digits.ind
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Phi/Phi.var,cic:/Coq/Numbers/Cyclic/Int31/Int31/int31.ind
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Phi/Phi.var,cic:/Coq/ZArith/BinInt/Z/double.con
-oo,cic:/Coq/Numbers/Cyclic/Int31/Cyclic31/Basics/Phi/Phi.var,cic:/Coq/ZArith/BinInt/Z/succ_double.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:53ea59893bac5f584aed8681482b0a0b0db7f718f6b17e2b8058979f3f19094f
+size 625

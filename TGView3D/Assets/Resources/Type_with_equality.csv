@@ -1,9 +1,3 @@
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/sotrans.var,cic:/A.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/sotrans.var,cic:/Coq/Classes/RelationClasses/StrictOrder_Transitive.con
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/sotrans.var,cic:/Coq/Classes/RelationClasses/Transitive.con
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/sotrans.var,cic:/Coq/Lists/SetoidList/Type_with_equality/A.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/sotrans.var,cic:/Coq/Lists/SetoidList/Type_with_equality/ltA_strorder.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/sotrans.var,cic:/Coq/Lists/SetoidList/Type_with_equality/ltA.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/sotrans.var,cic:/Coq/Lists/SetoidList/Type_with_equality/sotrans.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/sotrans.var,cic:/ltA_strorder.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/sotrans.var,cic:/ltA.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:8f07c70fe6c4af2c703abc2ce905d23952ee8dccc2502ceb92cae2bb68069392
+size 917

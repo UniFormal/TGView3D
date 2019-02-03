@@ -1,10 +1,3 @@
-oo,cic:/Coq/ssr/ssrbool/MonoHomoMorphismTheory/rP.var,cic:/Coq/ssr/ssrbool/MonoHomoMorphismTheory/rP.var
-oo,cic:/Coq/ssr/ssrbool/MonoHomoMorphismTheory/rP.var,cic:/Coq/ssr/ssrbool/MonoHomoMorphismTheory/rT.var
-oo,cic:/Coq/ssr/ssrbool/MonoHomoMorphismTheory/rP.var,cic:/Coq/ssr/ssrbool/pred.con
-oo,cic:/Coq/ssr/ssrbool/MonoHomoMorphismTheory/rP.var,cic:/rT.var
-oo,cic:/Coq/ssr/ssrbool/MonoHomoMorphismTheory/rR.var,cic:/Coq/ssr/ssrbool/MonoHomoMorphismTheory/rR.var
-oo,cic:/Coq/ssr/ssrbool/MonoHomoMorphismTheory/rR.var,cic:/Coq/ssr/ssrbool/MonoHomoMorphismTheory/rT.var
-oo,cic:/Coq/ssr/ssrbool/MonoHomoMorphismTheory/rR.var,cic:/Coq/ssr/ssrbool/rel.con
-oo,cic:/Coq/ssr/ssrbool/MonoHomoMorphismTheory/rR.var,cic:/rT.var
-oo,cic:/Coq/ssr/ssrbool/MonoHomoMorphismTheory/rT.var,cic:/Coq/ssr/ssrbool/MonoHomoMorphismTheory/rT.var
-oo,cic:/Coq/ssr/ssrbool/MonoHomoMorphismTheory/sT.var,cic:/Coq/ssr/ssrbool/MonoHomoMorphismTheory/sT.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:acbba07a0ab08c5a36704080d4ba1501ee4a8e1721bdfc7a8f7699eb7ea95f12
+size 929

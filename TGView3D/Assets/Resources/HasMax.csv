@@ -1,12 +1,3 @@
-oo,cic:/Coq/Structures/GenericMinMax/HasMax/max.con,cic:/Coq/Structures/GenericMinMax/E/t.con
-oo,cic:/Coq/Structures/GenericMinMax/HasMax/max.con,cic:/Coq/Structures/GenericMinMax/HasMax/max.con
-oo,cic:/Coq/Structures/GenericMinMax/HasMax/max_l.con,cic:/Coq/Structures/GenericMinMax/E/eq.con
-oo,cic:/Coq/Structures/GenericMinMax/HasMax/max_l.con,cic:/Coq/Structures/GenericMinMax/E/le.con
-oo,cic:/Coq/Structures/GenericMinMax/HasMax/max_l.con,cic:/Coq/Structures/GenericMinMax/E/t.con
-oo,cic:/Coq/Structures/GenericMinMax/HasMax/max_l.con,cic:/Coq/Structures/GenericMinMax/HasMax/max.con
-oo,cic:/Coq/Structures/GenericMinMax/HasMax/max_l.con,cic:/Coq/Structures/GenericMinMax/HasMax/max_l.con
-oo,cic:/Coq/Structures/GenericMinMax/HasMax/max_r.con,cic:/Coq/Structures/GenericMinMax/E/eq.con
-oo,cic:/Coq/Structures/GenericMinMax/HasMax/max_r.con,cic:/Coq/Structures/GenericMinMax/E/le.con
-oo,cic:/Coq/Structures/GenericMinMax/HasMax/max_r.con,cic:/Coq/Structures/GenericMinMax/E/t.con
-oo,cic:/Coq/Structures/GenericMinMax/HasMax/max_r.con,cic:/Coq/Structures/GenericMinMax/HasMax/max.con
-oo,cic:/Coq/Structures/GenericMinMax/HasMax/max_r.con,cic:/Coq/Structures/GenericMinMax/HasMax/max_r.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:2dffbbf2cff4294025fc26874c1fec0bd61f749303b8337c54287ab51ed12d1c
+size 1191

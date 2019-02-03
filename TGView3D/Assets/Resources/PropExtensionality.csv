@@ -1,8 +1,3 @@
-oo,cic:/Coq/Logic/PropExtensionality/proof_irrelevance.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Logic/PropExtensionality/proof_irrelevance.con,cic:/Coq/Logic/ClassicalFacts/ext_prop_dep_proof_irrel_cic.con
-oo,cic:/Coq/Logic/PropExtensionality/proof_irrelevance.con,cic:/Coq/Logic/ClassicalFacts/proof_irrelevance.con
-oo,cic:/Coq/Logic/PropExtensionality/proof_irrelevance.con,cic:/Coq/Logic/PropExtensionality/proof_irrelevance.con
-oo,cic:/Coq/Logic/PropExtensionality/proof_irrelevance.con,cic:/Coq/Logic/PropExtensionality/propositional_extensionality.con
-oo,cic:/Coq/Logic/PropExtensionality/propositional_extensionality.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Logic/PropExtensionality/propositional_extensionality.con,cic:/Coq/Init/Logic/iff.con
-oo,cic:/Coq/Logic/PropExtensionality/propositional_extensionality.con,cic:/Coq/Logic/PropExtensionality/propositional_extensionality.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:9d12f5ea857c49db583b29781745205ba72773159444b4ee91811eb87fc6752d
+size 892

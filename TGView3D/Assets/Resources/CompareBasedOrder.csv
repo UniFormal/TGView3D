@@ -1,28 +1,3 @@
-oo,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_antisym.con,cic:/Coq/Init/Datatypes/comparison.ind
-oo,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_antisym.con,cic:/Coq/Init/Datatypes/CompOpp.con
-oo,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_antisym.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_antisym.con,cic:/Coq/Structures/OrdersFacts/C/compare.con
-oo,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_antisym.con,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_antisym.con
-oo,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_antisym.con,cic:/Coq/Structures/OrdersFacts/E/t.con
-oo,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_eq_iff.con,cic:/Coq/Init/Datatypes/comparison.ind
-oo,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_eq_iff.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_eq_iff.con,cic:/Coq/Init/Logic/iff.con
-oo,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_eq_iff.con,cic:/Coq/Structures/OrdersFacts/C/compare.con
-oo,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_eq_iff.con,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_eq_iff.con
-oo,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_eq_iff.con,cic:/Coq/Structures/OrdersFacts/E/eq.con
-oo,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_eq_iff.con,cic:/Coq/Structures/OrdersFacts/E/t.con
-oo,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_le_iff.con,cic:/Coq/Init/Datatypes/comparison.ind
-oo,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_le_iff.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_le_iff.con,cic:/Coq/Init/Logic/iff.con
-oo,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_le_iff.con,cic:/Coq/Init/Logic/not.con
-oo,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_le_iff.con,cic:/Coq/Structures/OrdersFacts/C/compare.con
-oo,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_le_iff.con,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_le_iff.con
-oo,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_le_iff.con,cic:/Coq/Structures/OrdersFacts/E/le.con
-oo,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_le_iff.con,cic:/Coq/Structures/OrdersFacts/E/t.con
-oo,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_lt_iff.con,cic:/Coq/Init/Datatypes/comparison.ind
-oo,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_lt_iff.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_lt_iff.con,cic:/Coq/Init/Logic/iff.con
-oo,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_lt_iff.con,cic:/Coq/Structures/OrdersFacts/C/compare.con
-oo,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_lt_iff.con,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_lt_iff.con
-oo,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_lt_iff.con,cic:/Coq/Structures/OrdersFacts/E/lt.con
-oo,cic:/Coq/Structures/OrdersFacts/CompareBasedOrder/compare_lt_iff.con,cic:/Coq/Structures/OrdersFacts/E/t.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:065ef66fae1eab18e5fab95d7596cc6978a3f9a0ba26bb47a269fd4927b60276
+size 3178

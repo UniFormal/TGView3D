@@ -1,21 +1,3 @@
-oo,cic:/Coq/Wellfounded/Inclusion/Acc_incl.con,cic:/A.var
-oo,cic:/Coq/Wellfounded/Inclusion/Acc_incl.con,cic:/Coq/Init/Wf/Acc.ind
-oo,cic:/Coq/Wellfounded/Inclusion/Acc_incl.con,cic:/Coq/Init/Wf/Acc_ind.con
-oo,cic:/Coq/Wellfounded/Inclusion/Acc_incl.con,cic:/Coq/Relations/Relation_Definitions/inclusion.con
-oo,cic:/Coq/Wellfounded/Inclusion/Acc_incl.con,cic:/Coq/Wellfounded/Inclusion/Acc_incl.con
-oo,cic:/Coq/Wellfounded/Inclusion/Acc_incl.con,cic:/Coq/Wellfounded/Inclusion/WfInclusion/A.var
-oo,cic:/Coq/Wellfounded/Inclusion/Acc_incl.con,cic:/Coq/Wellfounded/Inclusion/WfInclusion/R1.var
-oo,cic:/Coq/Wellfounded/Inclusion/Acc_incl.con,cic:/Coq/Wellfounded/Inclusion/WfInclusion/R2.var
-oo,cic:/Coq/Wellfounded/Inclusion/Acc_incl.con,cic:/R1.var
-oo,cic:/Coq/Wellfounded/Inclusion/Acc_incl.con,cic:/R2.var
-oo,cic:/Coq/Wellfounded/Inclusion/wf_incl.con,cic:/A.var
-oo,cic:/Coq/Wellfounded/Inclusion/wf_incl.con,cic:/Coq/Init/Wf/Acc.ind
-oo,cic:/Coq/Wellfounded/Inclusion/wf_incl.con,cic:/Coq/Init/Wf/well_founded.con
-oo,cic:/Coq/Wellfounded/Inclusion/wf_incl.con,cic:/Coq/Relations/Relation_Definitions/inclusion.con
-oo,cic:/Coq/Wellfounded/Inclusion/wf_incl.con,cic:/Coq/Wellfounded/Inclusion/Acc_incl.con
-oo,cic:/Coq/Wellfounded/Inclusion/wf_incl.con,cic:/Coq/Wellfounded/Inclusion/wf_incl.con
-oo,cic:/Coq/Wellfounded/Inclusion/wf_incl.con,cic:/Coq/Wellfounded/Inclusion/WfInclusion/A.var
-oo,cic:/Coq/Wellfounded/Inclusion/wf_incl.con,cic:/Coq/Wellfounded/Inclusion/WfInclusion/R1.var
-oo,cic:/Coq/Wellfounded/Inclusion/wf_incl.con,cic:/Coq/Wellfounded/Inclusion/WfInclusion/R2.var
-oo,cic:/Coq/Wellfounded/Inclusion/wf_incl.con,cic:/R1.var
-oo,cic:/Coq/Wellfounded/Inclusion/wf_incl.con,cic:/R2.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:001e30936d6390cc2cdbfc78c3f56ee809d8a766839ff0538407af8fd93ca929
+size 1696

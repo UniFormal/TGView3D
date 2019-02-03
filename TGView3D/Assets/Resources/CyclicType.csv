@@ -1,8 +1,3 @@
-oo,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/CyclicType/ops.con,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/CyclicType/ops.con
-oo,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/CyclicType/ops.con,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/CyclicType/t.con
-oo,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/CyclicType/ops.con,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/Ops.ind
-oo,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/CyclicType/specs.con,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/CyclicType/ops.con
-oo,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/CyclicType/specs.con,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/CyclicType/specs.con
-oo,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/CyclicType/specs.con,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/CyclicType/t.con
-oo,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/CyclicType/specs.con,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/ZnZ/Specs.ind
-oo,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/CyclicType/t.con,cic:/Coq/Numbers/Cyclic/Abstract/CyclicAxioms/CyclicType/t.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:4e14e3d7a628bf9714ae269987352add21e3dca529fbbad8270c581bb4cd10bb
+size 1054

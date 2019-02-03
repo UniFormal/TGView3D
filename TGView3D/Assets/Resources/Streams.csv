@@ -1,12 +1,3 @@
-oo,cic:/Coq/Lists/Streams/zipWith.con,cic:/A.var
-oo,cic:/Coq/Lists/Streams/zipWith.con,cic:/B.var
-oo,cic:/Coq/Lists/Streams/zipWith.con,cic:/Coq/Lists/Streams/hd.con
-oo,cic:/Coq/Lists/Streams/zipWith.con,cic:/Coq/Lists/Streams/Stream.ind
-oo,cic:/Coq/Lists/Streams/zipWith.con,cic:/Coq/Lists/Streams/tl.con
-oo,cic:/Coq/Lists/Streams/zipWith.con,cic:/Coq/Lists/Streams/Zip/A.var
-oo,cic:/Coq/Lists/Streams/zipWith.con,cic:/Coq/Lists/Streams/Zip/B.var
-oo,cic:/Coq/Lists/Streams/zipWith.con,cic:/Coq/Lists/Streams/Zip/C.var
-oo,cic:/Coq/Lists/Streams/zipWith.con,cic:/Coq/Lists/Streams/Zip/f.var
-oo,cic:/Coq/Lists/Streams/zipWith.con,cic:/Coq/Lists/Streams/zipWith.con
-oo,cic:/Coq/Lists/Streams/zipWith.con,cic:/C.var
-oo,cic:/Coq/Lists/Streams/zipWith.con,cic:/f.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:2ad8ca34d801e4adb21e8d7de9fbac2b105dcb79c41e391c27039653eecaf237
+size 761

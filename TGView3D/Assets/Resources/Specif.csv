@@ -1,20 +1,3 @@
-oo,cic:/Coq/Init/Specif/sumbool.ind,cic:/Coq/Init/Specif/sumbool.ind
-oo,cic:/Coq/Init/Specif/sumbool_ind.con,cic:/Coq/Init/Specif/sumbool.ind
-oo,cic:/Coq/Init/Specif/sumbool_ind.con,cic:/Coq/Init/Specif/sumbool_ind.con
-oo,cic:/Coq/Init/Specif/sumbool_rec.con,cic:/Coq/Init/Specif/sumbool.ind
-oo,cic:/Coq/Init/Specif/sumbool_rec.con,cic:/Coq/Init/Specif/sumbool_rec.con
-oo,cic:/Coq/Init/Specif/sumbool_rec.con,cic:/Coq/Init/Specif/sumbool_rect.con
-oo,cic:/Coq/Init/Specif/sumbool_rect.con,cic:/Coq/Init/Specif/sumbool.ind
-oo,cic:/Coq/Init/Specif/sumbool_rect.con,cic:/Coq/Init/Specif/sumbool_rect.con
-oo,cic:/Coq/Init/Specif/sumor.ind,cic:/Coq/Init/Specif/sumor.ind
-oo,cic:/Coq/Init/Specif/sumor_ind.con,cic:/Coq/Init/Specif/sumor.ind
-oo,cic:/Coq/Init/Specif/sumor_ind.con,cic:/Coq/Init/Specif/sumor_ind.con
-oo,cic:/Coq/Init/Specif/sumor_rec.con,cic:/Coq/Init/Specif/sumor.ind
-oo,cic:/Coq/Init/Specif/sumor_rec.con,cic:/Coq/Init/Specif/sumor_rec.con
-oo,cic:/Coq/Init/Specif/sumor_rec.con,cic:/Coq/Init/Specif/sumor_rect.con
-oo,cic:/Coq/Init/Specif/sumor_rect.con,cic:/Coq/Init/Specif/sumor.ind
-oo,cic:/Coq/Init/Specif/sumor_rect.con,cic:/Coq/Init/Specif/sumor_rect.con
-oo,cic:/Coq/Init/Specif/value.con,cic:/A.var
-oo,cic:/Coq/Init/Specif/value.con,cic:/Coq/Init/Datatypes/option.ind
-oo,cic:/Coq/Init/Specif/value.con,cic:/Coq/Init/Specif/Exc/A.var
-oo,cic:/Coq/Init/Specif/value.con,cic:/Coq/Init/Specif/value.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:6432226dd1379dac1fd0aed1425b38c836695be91d8bfdfbf5af1634760aca8d
+size 1412

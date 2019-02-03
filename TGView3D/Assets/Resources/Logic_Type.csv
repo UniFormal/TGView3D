@@ -1,36 +1,3 @@
-oo,cic:/Coq/Init/Logic_Type/identity_rec_r.con,cic:/Coq/Init/Datatypes/identity.ind
-oo,cic:/Coq/Init/Logic_Type/identity_rec_r.con,cic:/Coq/Init/Logic_Type/identity_rec_r.con
-oo,cic:/Coq/Init/Logic_Type/identity_rec_r.con,cic:/Coq/Init/Logic_Type/identity_sym.con
-oo,cic:/Coq/Init/Logic_Type/identity_rect_r.con,cic:/Coq/Init/Datatypes/identity.ind
-oo,cic:/Coq/Init/Logic_Type/identity_rect_r.con,cic:/Coq/Init/Logic_Type/identity_rect_r.con
-oo,cic:/Coq/Init/Logic_Type/identity_rect_r.con,cic:/Coq/Init/Logic_Type/identity_sym.con
-oo,cic:/Coq/Init/Logic_Type/identity_sym.con,cic:/A.var
-oo,cic:/Coq/Init/Logic_Type/identity_sym.con,cic:/Coq/Init/Datatypes/identity.ind
-oo,cic:/Coq/Init/Logic_Type/identity_sym.con,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/A.var
-oo,cic:/Coq/Init/Logic_Type/identity_sym.con,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/x.var
-oo,cic:/Coq/Init/Logic_Type/identity_sym.con,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/y.var
-oo,cic:/Coq/Init/Logic_Type/identity_sym.con,cic:/Coq/Init/Logic_Type/identity_sym.con
-oo,cic:/Coq/Init/Logic_Type/identity_sym.con,cic:/x.var
-oo,cic:/Coq/Init/Logic_Type/identity_sym.con,cic:/y.var
-oo,cic:/Coq/Init/Logic_Type/identity_trans.con,cic:/A.var
-oo,cic:/Coq/Init/Logic_Type/identity_trans.con,cic:/Coq/Init/Datatypes/identity.ind
-oo,cic:/Coq/Init/Logic_Type/identity_trans.con,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/A.var
-oo,cic:/Coq/Init/Logic_Type/identity_trans.con,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/x.var
-oo,cic:/Coq/Init/Logic_Type/identity_trans.con,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/y.var
-oo,cic:/Coq/Init/Logic_Type/identity_trans.con,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/z.var
-oo,cic:/Coq/Init/Logic_Type/identity_trans.con,cic:/Coq/Init/Logic_Type/identity_trans.con
-oo,cic:/Coq/Init/Logic_Type/identity_trans.con,cic:/x.var
-oo,cic:/Coq/Init/Logic_Type/identity_trans.con,cic:/y.var
-oo,cic:/Coq/Init/Logic_Type/identity_trans.con,cic:/z.var
-oo,cic:/Coq/Init/Logic_Type/not_identity_sym.con,cic:/A.var
-oo,cic:/Coq/Init/Logic_Type/not_identity_sym.con,cic:/Coq/Init/Datatypes/identity.ind
-oo,cic:/Coq/Init/Logic_Type/not_identity_sym.con,cic:/Coq/Init/Logic/False.ind
-oo,cic:/Coq/Init/Logic_Type/not_identity_sym.con,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/A.var
-oo,cic:/Coq/Init/Logic_Type/not_identity_sym.con,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/x.var
-oo,cic:/Coq/Init/Logic_Type/not_identity_sym.con,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/y.var
-oo,cic:/Coq/Init/Logic_Type/not_identity_sym.con,cic:/Coq/Init/Logic_Type/not_identity_sym.con
-oo,cic:/Coq/Init/Logic_Type/not_identity_sym.con,cic:/Coq/Init/Logic_Type/notT.con
-oo,cic:/Coq/Init/Logic_Type/not_identity_sym.con,cic:/x.var
-oo,cic:/Coq/Init/Logic_Type/not_identity_sym.con,cic:/y.var
-oo,cic:/Coq/Init/Logic_Type/notT.con,cic:/Coq/Init/Logic/False.ind
-oo,cic:/Coq/Init/Logic_Type/notT.con,cic:/Coq/Init/Logic_Type/notT.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:40b7157a74c2f049497c270ece033ad49fbfac2c9a832633bfd441773d1e8736
+size 2967

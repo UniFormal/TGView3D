@@ -1,7 +1,3 @@
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Remove/eqA_dec.var,cic:/A.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Remove/eqA_dec.var,cic:/Coq/Init/Logic/not.con
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Remove/eqA_dec.var,cic:/Coq/Init/Specif/sumbool.ind
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Remove/eqA_dec.var,cic:/Coq/Lists/SetoidList/Type_with_equality/A.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Remove/eqA_dec.var,cic:/Coq/Lists/SetoidList/Type_with_equality/eqA.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Remove/eqA_dec.var,cic:/Coq/Lists/SetoidList/Type_with_equality/Remove/eqA_dec.var
-oo,cic:/Coq/Lists/SetoidList/Type_with_equality/Remove/eqA_dec.var,cic:/eqA.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:499720cb3ad6c5bd357a20bc728e3c771a1528f1dcec91411f2b896511a9d197
+size 722

@@ -1,32 +1,3 @@
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/radd.var,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/radd.var
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/radd.var,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/radd.var,cic:/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/reqb.var,cic:/Coq/Init/Datatypes/bool.ind
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/reqb.var,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/reqb.var
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/reqb.var,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/reqb.var,cic:/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/req.var,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/req.var
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/req.var,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/req.var,cic:/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/rI.var,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/rI.var
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/rI.var,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/rI.var,cic:/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/rmul.var,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/rmul.var
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/rmul.var,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/rmul.var,cic:/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/ropp.var,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/ropp.var
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/ropp.var,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/ropp.var,cic:/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/rO.var,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/rO.var
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/rO.var,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/rO.var,cic:/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/Rsth.var,cic:/Coq/Classes/RelationClasses/Equivalence.ind
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/Rsth.var,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/req.var
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/Rsth.var,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/Rsth.var
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/Rsth.var,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/Rsth.var,cic:/req.var
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/Rsth.var,cic:/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/rsub.var,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/rsub.var
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/rsub.var,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/rsub.var,cic:/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/R.var,cic:/Coq/setoid_ring/Ring_theory/DEFINITIONS/R.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:b098e4eb28078882dade711235eeb624d169e2a8b1c4b26743e1fea86def349a
+size 3044

@@ -1,13 +1,3 @@
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/eq.con,cic:/Coq/Structures/OrderedType/O/eq.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/eq.con,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/eq.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/eq.con,cic:/Coq/Structures/OrderedType/O/t.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/le.con,cic:/Coq/Init/Logic/or.ind
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/le.con,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/eq.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/le.con,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/le.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/le.con,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/lt.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/le.con,cic:/Coq/Structures/OrderedType/O/t.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/lt.con,cic:/Coq/Structures/OrderedType/O/lt.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/lt.con,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/lt.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/lt.con,cic:/Coq/Structures/OrderedType/O/t.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/t.con,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/t.con
-oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/t.con,cic:/Coq/Structures/OrderedType/O/t.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:eba935ab5c0bce9e8dd707ed8cafbed7379e7bb7cdc0d1575ae8fff082347246
+size 1426

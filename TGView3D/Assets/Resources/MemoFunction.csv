@@ -1,17 +1,3 @@
-oo,cic:/Coq/Lists/StreamMemo/MemoFunction/A.var,cic:/Coq/Lists/StreamMemo/MemoFunction/A.var
-oo,cic:/Coq/Lists/StreamMemo/MemoFunction/f.var,cic:/A.var
-oo,cic:/Coq/Lists/StreamMemo/MemoFunction/f.var,cic:/Coq/Init/Datatypes/nat.ind
-oo,cic:/Coq/Lists/StreamMemo/MemoFunction/f.var,cic:/Coq/Lists/StreamMemo/MemoFunction/A.var
-oo,cic:/Coq/Lists/StreamMemo/MemoFunction/f.var,cic:/Coq/Lists/StreamMemo/MemoFunction/f.var
-oo,cic:/Coq/Lists/StreamMemo/MemoFunction/g.var,cic:/A.var
-oo,cic:/Coq/Lists/StreamMemo/MemoFunction/g.var,cic:/Coq/Lists/StreamMemo/MemoFunction/A.var
-oo,cic:/Coq/Lists/StreamMemo/MemoFunction/g.var,cic:/Coq/Lists/StreamMemo/MemoFunction/g.var
-oo,cic:/Coq/Lists/StreamMemo/MemoFunction/Hg_correct.var,cic:/A.var
-oo,cic:/Coq/Lists/StreamMemo/MemoFunction/Hg_correct.var,cic:/Coq/Init/Datatypes/nat.ind
-oo,cic:/Coq/Lists/StreamMemo/MemoFunction/Hg_correct.var,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Lists/StreamMemo/MemoFunction/Hg_correct.var,cic:/Coq/Lists/StreamMemo/MemoFunction/A.var
-oo,cic:/Coq/Lists/StreamMemo/MemoFunction/Hg_correct.var,cic:/Coq/Lists/StreamMemo/MemoFunction/f.var
-oo,cic:/Coq/Lists/StreamMemo/MemoFunction/Hg_correct.var,cic:/Coq/Lists/StreamMemo/MemoFunction/g.var
-oo,cic:/Coq/Lists/StreamMemo/MemoFunction/Hg_correct.var,cic:/Coq/Lists/StreamMemo/MemoFunction/Hg_correct.var
-oo,cic:/Coq/Lists/StreamMemo/MemoFunction/Hg_correct.var,cic:/f.var
-oo,cic:/Coq/Lists/StreamMemo/MemoFunction/Hg_correct.var,cic:/g.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:628c487b5f6f7718445d0752f4d384998e4f1f6d4ce59dd6e144b19045d32872
+size 1457

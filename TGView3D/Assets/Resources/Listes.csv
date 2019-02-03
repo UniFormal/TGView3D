@@ -1,11 +1,3 @@
-oo,cic:/CoqInCoq/MyList/Listes/A.var,cic:/CoqInCoq/MyList/Listes/A.var
-oo,cic:/CoqInCoq/MyList/Listes/eq_dec.var,cic:/A.var
-oo,cic:/CoqInCoq/MyList/Listes/eq_dec.var,cic:/CoqInCoq/MyList/Listes/A.var
-oo,cic:/CoqInCoq/MyList/Listes/eq_dec.var,cic:/CoqInCoq/MyList/Listes/eq_dec.var
-oo,cic:/CoqInCoq/MyList/Listes/eq_dec.var,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/CoqInCoq/MyList/Listes/eq_dec.var,cic:/Coq/Init/Logic/not.con
-oo,cic:/CoqInCoq/MyList/Listes/eq_dec.var,cic:/Coq/Init/Specif/sumbool.ind
-oo,cic:/CoqInCoq/MyList/Listes/List.var,cic:/A.var
-oo,cic:/CoqInCoq/MyList/Listes/List.var,cic:/CoqInCoq/MyList/Listes/A.var
-oo,cic:/CoqInCoq/MyList/Listes/List.var,cic:/CoqInCoq/MyList/Listes/List.var
-oo,cic:/CoqInCoq/MyList/Listes/List.var,cic:/Coq/Init/Datatypes/list.ind
+version https://git-lfs.github.com/spec/v1
+oid sha256:2978339e21e2d23ba0d346f04cfb318925a7df7e35ab4f4f245ea2f65c0e9988
+size 770

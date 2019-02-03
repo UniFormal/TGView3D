@@ -1,32 +1,3 @@
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/mul_assoc.var,cic:/Coq/setoid_ring/Ring_theory/Power/mul_assoc.var
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/mul_assoc.var,cic:/Coq/setoid_ring/Ring_theory/Power/req.var
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/mul_assoc.var,cic:/Coq/setoid_ring/Ring_theory/Power/rmul.var
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/mul_assoc.var,cic:/Coq/setoid_ring/Ring_theory/Power/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/mul_assoc.var,cic:/req.var
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/mul_assoc.var,cic:/rmul.var
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/mul_assoc.var,cic:/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/mul_ext.var,cic:/Coq/Classes/Morphisms/Proper.con
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/mul_ext.var,cic:/Coq/Classes/Morphisms/respectful.con
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/mul_ext.var,cic:/Coq/setoid_ring/Ring_theory/Power/mul_ext.var
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/mul_ext.var,cic:/Coq/setoid_ring/Ring_theory/Power/req.var
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/mul_ext.var,cic:/Coq/setoid_ring/Ring_theory/Power/rmul.var
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/mul_ext.var,cic:/Coq/setoid_ring/Ring_theory/Power/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/mul_ext.var,cic:/req.var
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/mul_ext.var,cic:/rmul.var
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/mul_ext.var,cic:/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/req.var,cic:/Coq/setoid_ring/Ring_theory/Power/req.var
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/req.var,cic:/Coq/setoid_ring/Ring_theory/Power/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/req.var,cic:/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/rI.var,cic:/Coq/setoid_ring/Ring_theory/Power/rI.var
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/rI.var,cic:/Coq/setoid_ring/Ring_theory/Power/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/rI.var,cic:/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/rmul.var,cic:/Coq/setoid_ring/Ring_theory/Power/rmul.var
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/rmul.var,cic:/Coq/setoid_ring/Ring_theory/Power/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/rmul.var,cic:/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/Rsth.var,cic:/Coq/Classes/RelationClasses/Equivalence.ind
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/Rsth.var,cic:/Coq/setoid_ring/Ring_theory/Power/req.var
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/Rsth.var,cic:/Coq/setoid_ring/Ring_theory/Power/Rsth.var
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/Rsth.var,cic:/Coq/setoid_ring/Ring_theory/Power/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/Rsth.var,cic:/req.var
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/Rsth.var,cic:/R.var
-oo,cic:/Coq/setoid_ring/Ring_theory/Power/R.var,cic:/Coq/setoid_ring/Ring_theory/Power/R.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:50f4f615d86db0b2de03985c12f4cd3066bc69b5c720eaa11eb427ad3f99f492
+size 2789

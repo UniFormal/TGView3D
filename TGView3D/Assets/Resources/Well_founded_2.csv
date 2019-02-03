@@ -1,20 +1,3 @@
-oo,cic:/Coq/Init/Wf/Well_founded_2/P.var,cic:/A.var
-oo,cic:/Coq/Init/Wf/Well_founded_2/P.var,cic:/B.var
-oo,cic:/Coq/Init/Wf/Well_founded_2/P.var,cic:/Coq/Init/Wf/Well_founded_2/A.var
-oo,cic:/Coq/Init/Wf/Well_founded_2/P.var,cic:/Coq/Init/Wf/Well_founded_2/B.var
-oo,cic:/Coq/Init/Wf/Well_founded_2/P.var,cic:/Coq/Init/Wf/Well_founded_2/P.var
-oo,cic:/Coq/Init/Wf/Well_founded_2/R.var,cic:/A.var
-oo,cic:/Coq/Init/Wf/Well_founded_2/R.var,cic:/B.var
-oo,cic:/Coq/Init/Wf/Well_founded_2/R.var,cic:/Coq/Init/Datatypes/prod.ind
-oo,cic:/Coq/Init/Wf/Well_founded_2/R.var,cic:/Coq/Init/Wf/Well_founded_2/A.var
-oo,cic:/Coq/Init/Wf/Well_founded_2/R.var,cic:/Coq/Init/Wf/Well_founded_2/B.var
-oo,cic:/Coq/Init/Wf/Well_founded_2/R.var,cic:/Coq/Init/Wf/Well_founded_2/R.var
-oo,cic:/Coq/Init/Wf/Well_founded_2/Rwf.var,cic:/A.var
-oo,cic:/Coq/Init/Wf/Well_founded_2/Rwf.var,cic:/B.var
-oo,cic:/Coq/Init/Wf/Well_founded_2/Rwf.var,cic:/Coq/Init/Datatypes/prod.ind
-oo,cic:/Coq/Init/Wf/Well_founded_2/Rwf.var,cic:/Coq/Init/Wf/Well_founded_2/A.var
-oo,cic:/Coq/Init/Wf/Well_founded_2/Rwf.var,cic:/Coq/Init/Wf/Well_founded_2/B.var
-oo,cic:/Coq/Init/Wf/Well_founded_2/Rwf.var,cic:/Coq/Init/Wf/Well_founded_2/R.var
-oo,cic:/Coq/Init/Wf/Well_founded_2/Rwf.var,cic:/Coq/Init/Wf/Well_founded_2/Rwf.var
-oo,cic:/Coq/Init/Wf/Well_founded_2/Rwf.var,cic:/Coq/Init/Wf/well_founded.con
-oo,cic:/Coq/Init/Wf/Well_founded_2/Rwf.var,cic:/R.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:35e81ea27ea715f4a0e9ed71c2575b8856b299acb4e5cf89b8cd10d8a7cb1aa8
+size 1397

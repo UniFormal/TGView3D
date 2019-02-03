@@ -1,25 +1,3 @@
-oo,cic:/Coq/Program/Wf/measure_wf.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Program/Wf/measure_wf.con,cic:/Coq/Init/Logic/eq_ind.con
-oo,cic:/Coq/Program/Wf/measure_wf.con,cic:/Coq/Init/Wf/Acc.ind
-oo,cic:/Coq/Program/Wf/measure_wf.con,cic:/Coq/Init/Wf/well_founded.con
-oo,cic:/Coq/Program/Wf/measure_wf.con,cic:/Coq/Init/Wf/well_founded_ind.con
-oo,cic:/Coq/Program/Wf/measure_wf.con,cic:/Coq/Program/Wf/Measure_well_founded/m.var
-oo,cic:/Coq/Program/Wf/measure_wf.con,cic:/Coq/Program/Wf/Measure_well_founded/M.var
-oo,cic:/Coq/Program/Wf/measure_wf.con,cic:/Coq/Program/Wf/Measure_well_founded/R.var
-oo,cic:/Coq/Program/Wf/measure_wf.con,cic:/Coq/Program/Wf/Measure_well_founded/T.var
-oo,cic:/Coq/Program/Wf/measure_wf.con,cic:/Coq/Program/Wf/Measure_well_founded/wf.var
-oo,cic:/Coq/Program/Wf/measure_wf.con,cic:/Coq/Program/Wf/measure_wf.con
-oo,cic:/Coq/Program/Wf/measure_wf.con,cic:/Coq/Program/Wf/MR.con
-oo,cic:/Coq/Program/Wf/measure_wf.con,cic:/m.var
-oo,cic:/Coq/Program/Wf/measure_wf.con,cic:/M.var
-oo,cic:/Coq/Program/Wf/measure_wf.con,cic:/R.var
-oo,cic:/Coq/Program/Wf/measure_wf.con,cic:/T.var
-oo,cic:/Coq/Program/Wf/measure_wf.con,cic:/wf.var
-oo,cic:/Coq/Program/Wf/MR.con,cic:/Coq/Program/Wf/Measure_well_founded/m.var
-oo,cic:/Coq/Program/Wf/MR.con,cic:/Coq/Program/Wf/Measure_well_founded/M.var
-oo,cic:/Coq/Program/Wf/MR.con,cic:/Coq/Program/Wf/Measure_well_founded/R.var
-oo,cic:/Coq/Program/Wf/MR.con,cic:/Coq/Program/Wf/Measure_well_founded/T.var
-oo,cic:/Coq/Program/Wf/MR.con,cic:/Coq/Program/Wf/MR.con
-oo,cic:/Coq/Program/Wf/MR.con,cic:/m.var
-oo,cic:/Coq/Program/Wf/MR.con,cic:/R.var
-oo,cic:/Coq/Program/Wf/MR.con,cic:/T.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:cc1e0a64b68d4366be5e92f27944d9143100eab2e1dce3a2eb1917f8ead3bf1a
+size 1643

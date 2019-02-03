@@ -1,26 +1,3 @@
-oo,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_0_r.con,cic:/Coq/Numbers/NatInt/NZPow/A/eq.con
-oo,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_0_r.con,cic:/Coq/Numbers/NatInt/NZPow/A/one.con
-oo,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_0_r.con,cic:/Coq/Numbers/NatInt/NZPow/A/t.con
-oo,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_0_r.con,cic:/Coq/Numbers/NatInt/NZPow/A/zero.con
-oo,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_0_r.con,cic:/Coq/Numbers/NatInt/NZPow/B/pow.con
-oo,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_0_r.con,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_0_r.con
-oo,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_neg_r.con,cic:/Coq/Numbers/NatInt/NZPow/A/eq.con
-oo,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_neg_r.con,cic:/Coq/Numbers/NatInt/NZPow/A/lt.con
-oo,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_neg_r.con,cic:/Coq/Numbers/NatInt/NZPow/A/t.con
-oo,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_neg_r.con,cic:/Coq/Numbers/NatInt/NZPow/A/zero.con
-oo,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_neg_r.con,cic:/Coq/Numbers/NatInt/NZPow/B/pow.con
-oo,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_neg_r.con,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_neg_r.con
-oo,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_succ_r.con,cic:/Coq/Numbers/NatInt/NZPow/A/eq.con
-oo,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_succ_r.con,cic:/Coq/Numbers/NatInt/NZPow/A/le.con
-oo,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_succ_r.con,cic:/Coq/Numbers/NatInt/NZPow/A/mul.con
-oo,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_succ_r.con,cic:/Coq/Numbers/NatInt/NZPow/A/succ.con
-oo,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_succ_r.con,cic:/Coq/Numbers/NatInt/NZPow/A/t.con
-oo,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_succ_r.con,cic:/Coq/Numbers/NatInt/NZPow/A/zero.con
-oo,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_succ_r.con,cic:/Coq/Numbers/NatInt/NZPow/B/pow.con
-oo,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_succ_r.con,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_succ_r.con
-oo,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_wd.con,cic:/Coq/Classes/Morphisms/Proper.con
-oo,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_wd.con,cic:/Coq/Classes/Morphisms/respectful.con
-oo,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_wd.con,cic:/Coq/Numbers/NatInt/NZPow/A/eq.con
-oo,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_wd.con,cic:/Coq/Numbers/NatInt/NZPow/A/t.con
-oo,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_wd.con,cic:/Coq/Numbers/NatInt/NZPow/B/pow.con
-oo,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_wd.con,cic:/Coq/Numbers/NatInt/NZPow/NZPowSpec/pow_wd.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:d822f666f68ce26c446c9f92a7285580638f4e7d14542a956fa2fa89d7e89126
+size 2542

@@ -1,5 +1,3 @@
-oo,cic:/Coq/Logic/Hurkens/NoRetractToModalProposition/strength.con,cic:/Coq/Logic/Hurkens/NoRetractToModalProposition/Paradox/incr.var
-oo,cic:/Coq/Logic/Hurkens/NoRetractToModalProposition/strength.con,cic:/Coq/Logic/Hurkens/NoRetractToModalProposition/Paradox/M.var
-oo,cic:/Coq/Logic/Hurkens/NoRetractToModalProposition/strength.con,cic:/Coq/Logic/Hurkens/NoRetractToModalProposition/strength.con
-oo,cic:/Coq/Logic/Hurkens/NoRetractToModalProposition/strength.con,cic:/incr.var
-oo,cic:/Coq/Logic/Hurkens/NoRetractToModalProposition/strength.con,cic:/M.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:f852932cbc9a87b183f4948189c404f3cc612cdb5218ca547c8e11a19771836e
+size 557

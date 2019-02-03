@@ -1,10 +1,3 @@
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/A.var,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/A.var
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/A.var,cic:/Coq/Numbers/NatInt/NZOrder/NZ/t.con
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/A_wd.var,cic:/A.var
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/A_wd.var,cic:/Coq/Classes/Morphisms/Proper.con
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/A_wd.var,cic:/Coq/Classes/Morphisms/respectful.con
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/A_wd.var,cic:/Coq/Init/Logic/iff.con
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/A_wd.var,cic:/Coq/Numbers/NatInt/NZOrder/NZ/eq.con
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/A_wd.var,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/A.var
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/A_wd.var,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/A_wd.var
-oo,cic:/Coq/Numbers/NatInt/NZOrder/NZOrderProp/Induction/A_wd.var,cic:/Coq/Numbers/NatInt/NZOrder/NZ/t.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:537998af9ab4277d666ddf241cd2bfcd07943b7ccc7888530b22cde77e980d98
+size 1080

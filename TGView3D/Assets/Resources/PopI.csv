@@ -1,9 +1,3 @@
-oo,cic:/Coq/setoid_ring/Ring_polynom/MakeRingPol/PopI/Pop.var,cic:/Coq/setoid_ring/Ring_polynom/MakeRingPol/C.var
-oo,cic:/Coq/setoid_ring/Ring_polynom/MakeRingPol/PopI/Pop.var,cic:/Coq/setoid_ring/Ring_polynom/MakeRingPol/PopI/Pop.var
-oo,cic:/Coq/setoid_ring/Ring_polynom/MakeRingPol/PopI/Pop.var,cic:/Coq/setoid_ring/Ring_polynom/Pol.ind
-oo,cic:/Coq/setoid_ring/Ring_polynom/MakeRingPol/PopI/P'.var,cic:/Coq/setoid_ring/Ring_polynom/MakeRingPol/C.var
-oo,cic:/Coq/setoid_ring/Ring_polynom/MakeRingPol/PopI/P'.var,cic:/Coq/setoid_ring/Ring_polynom/MakeRingPol/PopI/P'.var
-oo,cic:/Coq/setoid_ring/Ring_polynom/MakeRingPol/PopI/P'.var,cic:/Coq/setoid_ring/Ring_polynom/Pol.ind
-oo,cic:/Coq/setoid_ring/Ring_polynom/MakeRingPol/PopI/Q.var,cic:/Coq/setoid_ring/Ring_polynom/MakeRingPol/C.var
-oo,cic:/Coq/setoid_ring/Ring_polynom/MakeRingPol/PopI/Q.var,cic:/Coq/setoid_ring/Ring_polynom/MakeRingPol/PopI/Q.var
-oo,cic:/Coq/setoid_ring/Ring_polynom/MakeRingPol/PopI/Q.var,cic:/Coq/setoid_ring/Ring_polynom/Pol.ind
+version https://git-lfs.github.com/spec/v1
+oid sha256:8e74201ed8a238f81391572b7a36d9fb60afa4ef0fc9605b66b325fced1a9680
+size 1005

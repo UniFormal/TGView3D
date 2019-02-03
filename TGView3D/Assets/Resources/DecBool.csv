@@ -1,16 +1,3 @@
-oo,cic:/Coq/Bool/DecBool/ifdec.con,cic:/Coq/Bool/DecBool/ifdec.con
-oo,cic:/Coq/Bool/DecBool/ifdec.con,cic:/Coq/Init/Specif/sumbool.ind
-oo,cic:/Coq/Bool/DecBool/ifdec_left.con,cic:/Coq/Bool/DecBool/ifdec.con
-oo,cic:/Coq/Bool/DecBool/ifdec_left.con,cic:/Coq/Bool/DecBool/ifdec_left.con
-oo,cic:/Coq/Bool/DecBool/ifdec_left.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Bool/DecBool/ifdec_left.con,cic:/Coq/Init/Logic/False.ind
-oo,cic:/Coq/Bool/DecBool/ifdec_left.con,cic:/Coq/Init/Logic/False_ind.con
-oo,cic:/Coq/Bool/DecBool/ifdec_left.con,cic:/Coq/Init/Logic/not.con
-oo,cic:/Coq/Bool/DecBool/ifdec_left.con,cic:/Coq/Init/Specif/sumbool.ind
-oo,cic:/Coq/Bool/DecBool/ifdec_right.con,cic:/Coq/Bool/DecBool/ifdec.con
-oo,cic:/Coq/Bool/DecBool/ifdec_right.con,cic:/Coq/Bool/DecBool/ifdec_right.con
-oo,cic:/Coq/Bool/DecBool/ifdec_right.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Bool/DecBool/ifdec_right.con,cic:/Coq/Init/Logic/False.ind
-oo,cic:/Coq/Bool/DecBool/ifdec_right.con,cic:/Coq/Init/Logic/False_ind.con
-oo,cic:/Coq/Bool/DecBool/ifdec_right.con,cic:/Coq/Init/Logic/not.con
-oo,cic:/Coq/Bool/DecBool/ifdec_right.con,cic:/Coq/Init/Specif/sumbool.ind
+version https://git-lfs.github.com/spec/v1
+oid sha256:585f0f18b352e508b915209e5905f4c197e5d7bf6bb8f987bc483e0492aad5a3
+size 1145

@@ -1,11 +1,3 @@
-oo,cic:/Coq/Structures/Orders/IsStrOrder/lt_compat.con,cic:/Coq/Classes/Morphisms/Proper.con
-oo,cic:/Coq/Structures/Orders/IsStrOrder/lt_compat.con,cic:/Coq/Classes/Morphisms/respectful.con
-oo,cic:/Coq/Structures/Orders/IsStrOrder/lt_compat.con,cic:/Coq/Init/Logic/iff.con
-oo,cic:/Coq/Structures/Orders/IsStrOrder/lt_compat.con,cic:/Coq/Structures/Orders/E/eq.con
-oo,cic:/Coq/Structures/Orders/IsStrOrder/lt_compat.con,cic:/Coq/Structures/Orders/E/lt.con
-oo,cic:/Coq/Structures/Orders/IsStrOrder/lt_compat.con,cic:/Coq/Structures/Orders/E/t.con
-oo,cic:/Coq/Structures/Orders/IsStrOrder/lt_compat.con,cic:/Coq/Structures/Orders/IsStrOrder/lt_compat.con
-oo,cic:/Coq/Structures/Orders/IsStrOrder/lt_strorder.con,cic:/Coq/Classes/RelationClasses/StrictOrder.ind
-oo,cic:/Coq/Structures/Orders/IsStrOrder/lt_strorder.con,cic:/Coq/Structures/Orders/E/lt.con
-oo,cic:/Coq/Structures/Orders/IsStrOrder/lt_strorder.con,cic:/Coq/Structures/Orders/E/t.con
-oo,cic:/Coq/Structures/Orders/IsStrOrder/lt_strorder.con,cic:/Coq/Structures/Orders/IsStrOrder/lt_strorder.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:2174779bf8b9d9b30cb877250a5c280e51c204dc38f76a5752974ff5643c582e
+size 1054

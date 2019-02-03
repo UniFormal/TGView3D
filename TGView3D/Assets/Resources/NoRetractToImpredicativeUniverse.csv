@@ -1,25 +1,3 @@
-oo,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/paradox.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/paradox.con,cic:/Coq/Init/Logic/eq_ind_r.con
-oo,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/paradox.con,cic:/Coq/Logic/Hurkens/Generic/paradox.con
-oo,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/paradox.con,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/paradox.con
-oo,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/paradox.con,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/Paradox/u02u1.var
-oo,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/paradox.con,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/Paradox/U0.var
-oo,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/paradox.con,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/Paradox/u12u0_counit.var
-oo,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/paradox.con,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/Paradox/u12u0_unit.var
-oo,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/paradox.con,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/Paradox/u12u0.var
-oo,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/paradox.con,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/Paradox/U1.var
-oo,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/paradox.con,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/Paradox/u22u1_coherent.var
-oo,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/paradox.con,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/Paradox/u22u1_counit.var
-oo,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/paradox.con,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/Paradox/u22u1_unit.var
-oo,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/paradox.con,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/Paradox/u22u1.var
-oo,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/paradox.con,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/Paradox/U2.var
-oo,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/paradox.con,cic:/u02u1.var
-oo,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/paradox.con,cic:/U0.var
-oo,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/paradox.con,cic:/u12u0_counit.var
-oo,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/paradox.con,cic:/u12u0_unit.var
-oo,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/paradox.con,cic:/u12u0.var
-oo,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/paradox.con,cic:/U1.var
-oo,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/paradox.con,cic:/u22u1_coherent.var
-oo,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/paradox.con,cic:/u22u1_counit.var
-oo,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/paradox.con,cic:/u22u1_unit.var
-oo,cic:/Coq/Logic/Hurkens/NoRetractToImpredicativeUniverse/paradox.con,cic:/u22u1.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:142934f216026c450aadedf1c06477c3f8e75b4927edcf6dac955bbf81c42579
+size 2961

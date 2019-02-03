@@ -1,17 +1,3 @@
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/strong_rec_wd.con,cic:/Aeq.var
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/strong_rec_wd.con,cic:/A.var
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/strong_rec_wd.con,cic:/Coq/Classes/Morphisms/Proper.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/strong_rec_wd.con,cic:/Coq/Classes/Morphisms/respectful.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/strong_rec_wd.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/strong_rec_wd.con,cic:/Coq/Init/Logic/eq_ind_r.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/strong_rec_wd.con,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/N/eq.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/strong_rec_wd.con,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/strong_rec0.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/strong_rec_wd.con,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/strong_rec0_wd.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/strong_rec_wd.con,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/strong_rec_alt.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/strong_rec_wd.con,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/strong_rec.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/strong_rec_wd.con,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/Aeq.var
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/strong_rec_wd.con,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/StrongRecursion/A.var
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/strong_rec_wd.con,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/strong_rec_wd.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/strong_rec_wd.con,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/N/succ.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/strong_rec_wd.con,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/N/succ_wd.con
-oo,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/NStrongRecProp/strong_rec_wd.con,cic:/Coq/Numbers/Natural/Abstract/NStrongRec/N/t.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:97d6b3c931692a70cae5fd6eb870a8082b7a454eb7be9897b0b0ba971058df6e
+size 2316

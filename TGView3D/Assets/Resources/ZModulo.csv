@@ -1,16 +1,3 @@
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModulo/digits_gt_1.var,cic:/Coq/Numbers/BinNums/positive.ind
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModulo/digits_gt_1.var,cic:/Coq/Numbers/BinNums/Z.ind
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModulo/digits_gt_1.var,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/spec_more_than_1_digit.con
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModulo/digits_gt_1.var,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModulo/digits_gt_1.var
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModulo/digits_gt_1.var,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModulo/digits_ne_1.var
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModulo/digits_gt_1.var,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModulo/digits.var
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModulo/digits_gt_1.var,cic:/Coq/ZArith/BinInt/Z/lt.con
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModulo/digits_gt_1.var,cic:/digits.var
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModulo/digits_ne_1.var,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModulo/digits_ne_1.var,cic:/Coq/Init/Logic/not.con
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModulo/digits_ne_1.var,cic:/Coq/Numbers/BinNums/positive.ind
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModulo/digits_ne_1.var,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModulo/digits_ne_1.var
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModulo/digits_ne_1.var,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModulo/digits.var
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModulo/digits_ne_1.var,cic:/digits.var
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModulo/digits.var,cic:/Coq/Numbers/BinNums/positive.ind
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModulo/digits.var,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/ZModulo/digits.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:b588b07d1a9727c7bdd1b5623a427f0139d069cbd4e29dcd45982246fb3de344
+size 1762

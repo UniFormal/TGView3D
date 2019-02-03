@@ -1,10 +1,3 @@
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsOneTwo/one_succ.con,cic:/Coq/Numbers/NatInt/NZAxioms/E/eq.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsOneTwo/one_succ.con,cic:/Coq/Numbers/NatInt/NZAxioms/IsOneTwo/one_succ.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsOneTwo/one_succ.con,cic:/Coq/Numbers/NatInt/NZAxioms/O/one.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsOneTwo/one_succ.con,cic:/Coq/Numbers/NatInt/NZAxioms/Z/succ.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsOneTwo/one_succ.con,cic:/Coq/Numbers/NatInt/NZAxioms/Z/zero.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsOneTwo/two_succ.con,cic:/Coq/Numbers/NatInt/NZAxioms/E/eq.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsOneTwo/two_succ.con,cic:/Coq/Numbers/NatInt/NZAxioms/IsOneTwo/two_succ.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsOneTwo/two_succ.con,cic:/Coq/Numbers/NatInt/NZAxioms/O/one.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsOneTwo/two_succ.con,cic:/Coq/Numbers/NatInt/NZAxioms/O/two.con
-oo,cic:/Coq/Numbers/NatInt/NZAxioms/IsOneTwo/two_succ.con,cic:/Coq/Numbers/NatInt/NZAxioms/Z/succ.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:e8a5c16413a6770855b0c0872b3200c54648b37e158d78e912e1f0367a3cd231
+size 1035

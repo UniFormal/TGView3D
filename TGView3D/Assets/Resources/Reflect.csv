@@ -1,15 +1,3 @@
-oo,cic:/Coq/ssr/ssrbool/Reflect/Pb'.var,cic:/b'.var
-oo,cic:/Coq/ssr/ssrbool/Reflect/Pb.var,cic:/b.var
-oo,cic:/Coq/ssr/ssrbool/Reflect/Pb'.var,cic:/Coq/Bool/Bool/reflect.ind
-oo,cic:/Coq/ssr/ssrbool/Reflect/Pb.var,cic:/Coq/Bool/Bool/reflect.ind
-oo,cic:/Coq/ssr/ssrbool/Reflect/Pb'.var,cic:/Coq/Init/Datatypes/negb.con
-oo,cic:/Coq/ssr/ssrbool/Reflect/Pb'.var,cic:/Coq/ssr/ssrbool/Reflect/b'.var
-oo,cic:/Coq/ssr/ssrbool/Reflect/Pb.var,cic:/Coq/ssr/ssrbool/Reflect/b.var
-oo,cic:/Coq/ssr/ssrbool/Reflect/Pb'.var,cic:/Coq/ssr/ssrbool/Reflect/Pb'.var
-oo,cic:/Coq/ssr/ssrbool/Reflect/Pb.var,cic:/Coq/ssr/ssrbool/Reflect/Pb.var
-oo,cic:/Coq/ssr/ssrbool/Reflect/Pb'.var,cic:/Coq/ssr/ssrbool/Reflect/P.var
-oo,cic:/Coq/ssr/ssrbool/Reflect/Pb.var,cic:/Coq/ssr/ssrbool/Reflect/P.var
-oo,cic:/Coq/ssr/ssrbool/Reflect/Pb'.var,cic:/P.var
-oo,cic:/Coq/ssr/ssrbool/Reflect/Pb.var,cic:/P.var
-oo,cic:/Coq/ssr/ssrbool/Reflect/P.var,cic:/Coq/ssr/ssrbool/Reflect/P.var
-oo,cic:/Coq/ssr/ssrbool/Reflect/Q.var,cic:/Coq/ssr/ssrbool/Reflect/Q.var
+version https://git-lfs.github.com/spec/v1
+oid sha256:cbb860e84c340a925a91c1bb06a3ee01ccd752a058c4b39fc67e9f631f26950c
+size 1014

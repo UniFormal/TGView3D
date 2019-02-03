@@ -1,6 +1,3 @@
-oo,cic:/Coq/Logic/Eqdep_dec/DecidableType/eq_dec.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Logic/Eqdep_dec/DecidableType/eq_dec.con,cic:/Coq/Init/Logic/not.con
-oo,cic:/Coq/Logic/Eqdep_dec/DecidableType/eq_dec.con,cic:/Coq/Init/Specif/sumbool.ind
-oo,cic:/Coq/Logic/Eqdep_dec/DecidableType/eq_dec.con,cic:/Coq/Logic/Eqdep_dec/DecidableType/eq_dec.con
-oo,cic:/Coq/Logic/Eqdep_dec/DecidableType/eq_dec.con,cic:/Coq/Logic/Eqdep_dec/DecidableType/U.con
-oo,cic:/Coq/Logic/Eqdep_dec/DecidableType/U.con,cic:/Coq/Logic/Eqdep_dec/DecidableType/U.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:e5dea3b24d1be76038e870ee3f75e6d4e8c865e67255c8b17610cdcdede53284
+size 541

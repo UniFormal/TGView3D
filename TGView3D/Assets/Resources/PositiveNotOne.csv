@@ -1,7 +1,3 @@
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/PositiveNotOne/not_one.con,cic:/Coq/Init/Logic/eq.ind
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/PositiveNotOne/not_one.con,cic:/Coq/Init/Logic/not.con
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/PositiveNotOne/not_one.con,cic:/Coq/Numbers/BinNums/positive.ind
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/PositiveNotOne/not_one.con,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/PositiveNotOne/not_one.con
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/PositiveNotOne/not_one.con,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/PositiveNotOne/p.con
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/PositiveNotOne/p.con,cic:/Coq/Numbers/BinNums/positive.ind
-oo,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/PositiveNotOne/p.con,cic:/Coq/Numbers/Cyclic/ZModulo/ZModulo/PositiveNotOne/p.con
+version https://git-lfs.github.com/spec/v1
+oid sha256:9669a28dff4cb1d8138481371c6b79b16434343428c8b2c8b54fc42d4026a710
+size 798
