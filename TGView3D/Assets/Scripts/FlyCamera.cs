@@ -23,8 +23,8 @@ public class FlyCamera : MonoBehaviour
     private float totalRun = 1.0f;
     [SerializeField]
     GameObject VR;
-    [SerializeField]
-    Material mat;
+    Color Col;
+    
     private float screenDist;
     private Vector3 startPos = new Vector3(255, 255, 255);
     void Update()
@@ -54,11 +54,12 @@ public class FlyCamera : MonoBehaviour
                 // Debug.Log(ray.origin + " " + hit.point + " " + (ray.origin + ray.direction.normalized * hit.distance)+" " + Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,Input.mousePosition.y,Camera.main.nearClipPlane)));
 
                 if (TGraph.GlobalVariables.Graph.latestSelection != -1)
-                    TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].nodeObject.GetComponent<MeshRenderer>().material.color = mat.color;
+                    TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].nodeObject.GetComponent<MeshRenderer>().material.color = Col;
                 TGraph.GlobalVariables.Graph.selectedNodes[0] = TGraph.GlobalVariables.Graph.latestSelection = hit.transform.GetSiblingIndex();
                 TGraph.GlobalVariables.Graph.movingNodes.Add(hit.transform.GetSiblingIndex());
-
+                Col = TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.selectedNodes[0]].nodeObject.GetComponent<MeshRenderer>().material.color;
                 TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.selectedNodes[0]].nodeObject.GetComponent<MeshRenderer>().material.color = OVRTouchSample.ColorGrabbable.COLOR_GRAB;
+
                 startPos = TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.selectedNodes[0]].nodeObject.transform.position-hit.point;
 
                 // Debug.Log(ray.direction.normalized.ToString("F4") + " " + (hit.transform.position - Camera.main.transform.position).normalized.ToString("F4"));

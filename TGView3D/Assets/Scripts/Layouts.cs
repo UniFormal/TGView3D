@@ -23,7 +23,7 @@ namespace TGraph
         static float minHeight = 10;
         static float currTemperature;
         static float epsilon = 0.0001f;
-        static float diameter = 0.5f;
+        static float diameter = 2*0.5f;
 
         public static void Init()
         {
@@ -521,8 +521,11 @@ namespace TGraph
                                     
                 kVal =Mathf.Max(Mathf.Min((graph.nodes.Count * 4 + graph.edges.Count / 2.5f) / 2 * 0.5f * spacingValue / 7.0f, 30), 0.1f);
                 //kVal = Mathf.Log(kVal);
-             //   kVal = 10f;
+                kVal = 1f;
                 kSquared = kVal * kVal;
+
+                
+
                 for (int i = 0; i < graph.nodes.Count; ++i)
                 {
                     Energies[i] = 0;
@@ -575,7 +578,7 @@ namespace TGraph
                                 if (u.graphNumber == n.graphNumber && n != u && (u.edgeIndicesIn != null || u.edgeIndicesOut != null))
                                 {
                                     var differenceNodes = u.pos- n.pos;
-                                    var lengthDiff = differenceNodes.magnitude-diameter + epsilon;
+                                    var lengthDiff = Mathf.Max(0,differenceNodes.magnitude - diameter) + epsilon;
                                     var repulsiveForce = -(kSquared / lengthDiff);
                                     n.disp += (differenceNodes / lengthDiff) * repulsiveForce;
                                 }
@@ -648,7 +651,7 @@ namespace TGraph
                                     continue;
                                 var differenceNodes = u.pos - n.pos; ;
 
-                                var lengthDiff = differenceNodes.magnitude - diameter + epsilon;
+                                var lengthDiff = Mathf.Max(0,differenceNodes.magnitude - diameter) + epsilon;
                                 var attractiveForce = (lengthDiff * lengthDiff / kVal);
                                 if (useWeights)
                                 {
@@ -677,9 +680,9 @@ namespace TGraph
 
                             var upos = Vector3.zero;
                             var diffVec = upos - n.pos;
-                            var lD = diffVec.magnitude - diameter + epsilon;
+                            var lD = Mathf.Max(0,diffVec.magnitude - diameter) + epsilon;
                             var aF = (lD * lD / kVal);
-                            n.disp += (diffVec / lD) * diameter * aF;
+                            n.disp += (diffVec / lD) * 0.001f*aF;
 
 
                             if (graph.UseConstraint) n.disp.y = Mathf.Max(downDist, Mathf.Min(n.disp.y, upDist));
