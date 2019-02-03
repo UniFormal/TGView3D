@@ -1,0 +1,11 @@
+oo,cic:/Coq/ssr/ssrfun/Option/apply.con,cic:/Coq/Init/Datatypes/option.ind
+oo,cic:/Coq/ssr/ssrfun/Option/apply.con,cic:/Coq/ssr/ssrfun/Option/apply.con
+oo,cic:/Coq/ssr/ssrfun/Option/bind.con,cic:/Coq/Init/Datatypes/option.ind
+oo,cic:/Coq/ssr/ssrfun/Option/bind.con,cic:/Coq/ssr/ssrfun/Option/apply.con
+oo,cic:/Coq/ssr/ssrfun/Option/bind.con,cic:/Coq/ssr/ssrfun/Option/bind.con
+oo,cic:/Coq/ssr/ssrfun/Option/default.con,cic:/Coq/Init/Datatypes/option.ind
+oo,cic:/Coq/ssr/ssrfun/Option/default.con,cic:/Coq/ssr/ssrfun/Option/apply.con
+oo,cic:/Coq/ssr/ssrfun/Option/default.con,cic:/Coq/ssr/ssrfun/Option/default.con
+oo,cic:/Coq/ssr/ssrfun/Option/map.con,cic:/Coq/Init/Datatypes/option.ind
+oo,cic:/Coq/ssr/ssrfun/Option/map.con,cic:/Coq/ssr/ssrfun/Option/bind.con
+oo,cic:/Coq/ssr/ssrfun/Option/map.con,cic:/Coq/ssr/ssrfun/Option/map.con

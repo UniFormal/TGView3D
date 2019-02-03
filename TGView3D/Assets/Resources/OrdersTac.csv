@@ -1,0 +1,10 @@
+oo,cic:/Coq/Structures/OrdersTac/ord.ind,cic:/Coq/Structures/OrdersTac/ord.ind
+oo,cic:/Coq/Structures/OrdersTac/ord_ind.con,cic:/Coq/Structures/OrdersTac/ord.ind
+oo,cic:/Coq/Structures/OrdersTac/ord_ind.con,cic:/Coq/Structures/OrdersTac/ord_ind.con
+oo,cic:/Coq/Structures/OrdersTac/ord_rec.con,cic:/Coq/Structures/OrdersTac/ord.ind
+oo,cic:/Coq/Structures/OrdersTac/ord_rec.con,cic:/Coq/Structures/OrdersTac/ord_rec.con
+oo,cic:/Coq/Structures/OrdersTac/ord_rec.con,cic:/Coq/Structures/OrdersTac/ord_rect.con
+oo,cic:/Coq/Structures/OrdersTac/ord_rect.con,cic:/Coq/Structures/OrdersTac/ord.ind
+oo,cic:/Coq/Structures/OrdersTac/ord_rect.con,cic:/Coq/Structures/OrdersTac/ord_rect.con
+oo,cic:/Coq/Structures/OrdersTac/trans_ord.con,cic:/Coq/Structures/OrdersTac/ord.ind
+oo,cic:/Coq/Structures/OrdersTac/trans_ord.con,cic:/Coq/Structures/OrdersTac/trans_ord.con

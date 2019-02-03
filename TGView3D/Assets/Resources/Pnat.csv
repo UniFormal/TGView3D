@@ -1,0 +1,14 @@
+oo,cic:/Coq/PArith/Pnat/ZL6.con,cic:/Coq/Arith/PeanoNat/Nat/add_0_r.con
+oo,cic:/Coq/PArith/Pnat/ZL6.con,cic:/Coq/Arith/PeanoNat/Nat/add.con
+oo,cic:/Coq/PArith/Pnat/ZL6.con,cic:/Coq/Arith/PeanoNat/Nat/mul_comm.con
+oo,cic:/Coq/PArith/Pnat/ZL6.con,cic:/Coq/Arith/PeanoNat/Nat/mul.con
+oo,cic:/Coq/PArith/Pnat/ZL6.con,cic:/Coq/Init/Datatypes/nat.ind
+oo,cic:/Coq/PArith/Pnat/ZL6.con,cic:/Coq/Init/Logic/eq.ind
+oo,cic:/Coq/PArith/Pnat/ZL6.con,cic:/Coq/Init/Logic/eq_ind_r.con
+oo,cic:/Coq/PArith/Pnat/ZL6.con,cic:/Coq/Init/Nat/add.con
+oo,cic:/Coq/PArith/Pnat/ZL6.con,cic:/Coq/Init/Nat/mul.con
+oo,cic:/Coq/PArith/Pnat/ZL6.con,cic:/Coq/Numbers/BinNums/positive.ind
+oo,cic:/Coq/PArith/Pnat/ZL6.con,cic:/Coq/PArith/BinPos/Pos/iter_op.con
+oo,cic:/Coq/PArith/Pnat/ZL6.con,cic:/Coq/PArith/BinPos/Pos/to_nat.con
+oo,cic:/Coq/PArith/Pnat/ZL6.con,cic:/Coq/PArith/Pnat/Pmult_nat_mult.con
+oo,cic:/Coq/PArith/Pnat/ZL6.con,cic:/Coq/PArith/Pnat/ZL6.con

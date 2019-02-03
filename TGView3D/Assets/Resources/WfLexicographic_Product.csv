@@ -1,0 +1,12 @@
+oo,cic:/Coq/Wellfounded/Lexicographic_Product/WfLexicographic_Product/A.var,cic:/Coq/Wellfounded/Lexicographic_Product/WfLexicographic_Product/A.var
+oo,cic:/Coq/Wellfounded/Lexicographic_Product/WfLexicographic_Product/B.var,cic:/A.var
+oo,cic:/Coq/Wellfounded/Lexicographic_Product/WfLexicographic_Product/B.var,cic:/Coq/Wellfounded/Lexicographic_Product/WfLexicographic_Product/A.var
+oo,cic:/Coq/Wellfounded/Lexicographic_Product/WfLexicographic_Product/B.var,cic:/Coq/Wellfounded/Lexicographic_Product/WfLexicographic_Product/B.var
+oo,cic:/Coq/Wellfounded/Lexicographic_Product/WfLexicographic_Product/leA.var,cic:/A.var
+oo,cic:/Coq/Wellfounded/Lexicographic_Product/WfLexicographic_Product/leA.var,cic:/Coq/Wellfounded/Lexicographic_Product/WfLexicographic_Product/A.var
+oo,cic:/Coq/Wellfounded/Lexicographic_Product/WfLexicographic_Product/leA.var,cic:/Coq/Wellfounded/Lexicographic_Product/WfLexicographic_Product/leA.var
+oo,cic:/Coq/Wellfounded/Lexicographic_Product/WfLexicographic_Product/leB.var,cic:/A.var
+oo,cic:/Coq/Wellfounded/Lexicographic_Product/WfLexicographic_Product/leB.var,cic:/B.var
+oo,cic:/Coq/Wellfounded/Lexicographic_Product/WfLexicographic_Product/leB.var,cic:/Coq/Wellfounded/Lexicographic_Product/WfLexicographic_Product/A.var
+oo,cic:/Coq/Wellfounded/Lexicographic_Product/WfLexicographic_Product/leB.var,cic:/Coq/Wellfounded/Lexicographic_Product/WfLexicographic_Product/B.var
+oo,cic:/Coq/Wellfounded/Lexicographic_Product/WfLexicographic_Product/leB.var,cic:/Coq/Wellfounded/Lexicographic_Product/WfLexicographic_Product/leB.var

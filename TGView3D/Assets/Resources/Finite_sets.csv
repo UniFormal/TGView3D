@@ -1,0 +1,17 @@
+oo,cic:/Coq/Sets/Finite_sets/Finite.ind,cic:/Coq/Init/Logic/not.con
+oo,cic:/Coq/Sets/Finite_sets/Finite.ind,cic:/Coq/Sets/Ensembles/Add.con
+oo,cic:/Coq/Sets/Finite_sets/Finite.ind,cic:/Coq/Sets/Ensembles/Empty_set.ind
+oo,cic:/Coq/Sets/Finite_sets/Finite.ind,cic:/Coq/Sets/Ensembles/Ensemble.con
+oo,cic:/Coq/Sets/Finite_sets/Finite.ind,cic:/Coq/Sets/Ensembles/In.con
+oo,cic:/Coq/Sets/Finite_sets/Finite.ind,cic:/Coq/Sets/Finite_sets/Ensembles_finis/U.var
+oo,cic:/Coq/Sets/Finite_sets/Finite.ind,cic:/Coq/Sets/Finite_sets/Finite.ind
+oo,cic:/Coq/Sets/Finite_sets/Finite.ind,cic:/U.var
+oo,cic:/Coq/Sets/Finite_sets/Finite_ind.con,cic:/Coq/Init/Logic/not.con
+oo,cic:/Coq/Sets/Finite_sets/Finite_ind.con,cic:/Coq/Sets/Ensembles/Add.con
+oo,cic:/Coq/Sets/Finite_sets/Finite_ind.con,cic:/Coq/Sets/Ensembles/Empty_set.ind
+oo,cic:/Coq/Sets/Finite_sets/Finite_ind.con,cic:/Coq/Sets/Ensembles/Ensemble.con
+oo,cic:/Coq/Sets/Finite_sets/Finite_ind.con,cic:/Coq/Sets/Ensembles/In.con
+oo,cic:/Coq/Sets/Finite_sets/Finite_ind.con,cic:/Coq/Sets/Finite_sets/Ensembles_finis/U.var
+oo,cic:/Coq/Sets/Finite_sets/Finite_ind.con,cic:/Coq/Sets/Finite_sets/Finite.ind
+oo,cic:/Coq/Sets/Finite_sets/Finite_ind.con,cic:/Coq/Sets/Finite_sets/Finite_ind.con
+oo,cic:/Coq/Sets/Finite_sets/Finite_ind.con,cic:/U.var

@@ -1,0 +1,16 @@
+oo,cic:/Coq/Bool/DecBool/ifdec.con,cic:/Coq/Bool/DecBool/ifdec.con
+oo,cic:/Coq/Bool/DecBool/ifdec.con,cic:/Coq/Init/Specif/sumbool.ind
+oo,cic:/Coq/Bool/DecBool/ifdec_left.con,cic:/Coq/Bool/DecBool/ifdec.con
+oo,cic:/Coq/Bool/DecBool/ifdec_left.con,cic:/Coq/Bool/DecBool/ifdec_left.con
+oo,cic:/Coq/Bool/DecBool/ifdec_left.con,cic:/Coq/Init/Logic/eq.ind
+oo,cic:/Coq/Bool/DecBool/ifdec_left.con,cic:/Coq/Init/Logic/False.ind
+oo,cic:/Coq/Bool/DecBool/ifdec_left.con,cic:/Coq/Init/Logic/False_ind.con
+oo,cic:/Coq/Bool/DecBool/ifdec_left.con,cic:/Coq/Init/Logic/not.con
+oo,cic:/Coq/Bool/DecBool/ifdec_left.con,cic:/Coq/Init/Specif/sumbool.ind
+oo,cic:/Coq/Bool/DecBool/ifdec_right.con,cic:/Coq/Bool/DecBool/ifdec.con
+oo,cic:/Coq/Bool/DecBool/ifdec_right.con,cic:/Coq/Bool/DecBool/ifdec_right.con
+oo,cic:/Coq/Bool/DecBool/ifdec_right.con,cic:/Coq/Init/Logic/eq.ind
+oo,cic:/Coq/Bool/DecBool/ifdec_right.con,cic:/Coq/Init/Logic/False.ind
+oo,cic:/Coq/Bool/DecBool/ifdec_right.con,cic:/Coq/Init/Logic/False_ind.con
+oo,cic:/Coq/Bool/DecBool/ifdec_right.con,cic:/Coq/Init/Logic/not.con
+oo,cic:/Coq/Bool/DecBool/ifdec_right.con,cic:/Coq/Init/Specif/sumbool.ind

@@ -1,0 +1,14 @@
+oo,cic:/Coq/Init/Logic/unique.con,cic:/Coq/Init/Logic/and.ind
+oo,cic:/Coq/Init/Logic/unique.con,cic:/Coq/Init/Logic/eq.ind
+oo,cic:/Coq/Init/Logic/unique.con,cic:/Coq/Init/Logic/unique.con
+oo,cic:/Coq/Init/Logic/unique_existence.con,cic:/Coq/Init/Logic/and.ind
+oo,cic:/Coq/Init/Logic/unique_existence.con,cic:/Coq/Init/Logic/eq.ind
+oo,cic:/Coq/Init/Logic/unique_existence.con,cic:/Coq/Init/Logic/eq_sym.con
+oo,cic:/Coq/Init/Logic/unique_existence.con,cic:/Coq/Init/Logic/eq_trans.con
+oo,cic:/Coq/Init/Logic/unique_existence.con,cic:/Coq/Init/Logic/ex.ind
+oo,cic:/Coq/Init/Logic/unique_existence.con,cic:/Coq/Init/Logic/iff.con
+oo,cic:/Coq/Init/Logic/unique_existence.con,cic:/Coq/Init/Logic/unique.con
+oo,cic:/Coq/Init/Logic/unique_existence.con,cic:/Coq/Init/Logic/unique_existence.con
+oo,cic:/Coq/Init/Logic/unique_existence.con,cic:/Coq/Init/Logic/uniqueness.con
+oo,cic:/Coq/Init/Logic/uniqueness.con,cic:/Coq/Init/Logic/eq.ind
+oo,cic:/Coq/Init/Logic/uniqueness.con,cic:/Coq/Init/Logic/uniqueness.con

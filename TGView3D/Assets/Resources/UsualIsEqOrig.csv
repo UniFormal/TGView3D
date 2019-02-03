@@ -1,0 +1,11 @@
+oo,cic:/Coq/Structures/Equalities/UsualIsEqOrig/eq_refl.con,cic:/Coq/Init/Logic/eq.ind
+oo,cic:/Coq/Structures/Equalities/UsualIsEqOrig/eq_refl.con,cic:/Coq/Structures/Equalities/E/t.con
+oo,cic:/Coq/Structures/Equalities/UsualIsEqOrig/eq_refl.con,cic:/Coq/Structures/Equalities/UsualIsEqOrig/eq_refl.con
+oo,cic:/Coq/Structures/Equalities/UsualIsEqOrig/eq_sym.con,cic:/Coq/Init/Logic/eq.ind
+oo,cic:/Coq/Structures/Equalities/UsualIsEqOrig/eq_sym.con,cic:/Coq/Init/Logic/eq_sym.con
+oo,cic:/Coq/Structures/Equalities/UsualIsEqOrig/eq_sym.con,cic:/Coq/Structures/Equalities/E/t.con
+oo,cic:/Coq/Structures/Equalities/UsualIsEqOrig/eq_sym.con,cic:/Coq/Structures/Equalities/UsualIsEqOrig/eq_sym.con
+oo,cic:/Coq/Structures/Equalities/UsualIsEqOrig/eq_trans.con,cic:/Coq/Init/Logic/eq.ind
+oo,cic:/Coq/Structures/Equalities/UsualIsEqOrig/eq_trans.con,cic:/Coq/Init/Logic/eq_trans.con
+oo,cic:/Coq/Structures/Equalities/UsualIsEqOrig/eq_trans.con,cic:/Coq/Structures/Equalities/E/t.con
+oo,cic:/Coq/Structures/Equalities/UsualIsEqOrig/eq_trans.con,cic:/Coq/Structures/Equalities/UsualIsEqOrig/eq_trans.con

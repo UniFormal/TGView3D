@@ -1,0 +1,14 @@
+oo,cic:/Coq/Relations/Relations/inverse_image_of_eq.con,cic:/Coq/Init/Logic/eq.ind
+oo,cic:/Coq/Relations/Relations/inverse_image_of_eq.con,cic:/Coq/Init/Logic/eq_sym.con
+oo,cic:/Coq/Relations/Relations/inverse_image_of_eq.con,cic:/Coq/Init/Logic/eq_trans.con
+oo,cic:/Coq/Relations/Relations/inverse_image_of_eq.con,cic:/Coq/Relations/Relation_Definitions/equivalence.ind
+oo,cic:/Coq/Relations/Relations/inverse_image_of_eq.con,cic:/Coq/Relations/Relation_Definitions/reflexive.con
+oo,cic:/Coq/Relations/Relations/inverse_image_of_eq.con,cic:/Coq/Relations/Relation_Definitions/symmetric.con
+oo,cic:/Coq/Relations/Relations/inverse_image_of_eq.con,cic:/Coq/Relations/Relation_Definitions/transitive.con
+oo,cic:/Coq/Relations/Relations/inverse_image_of_eq.con,cic:/Coq/Relations/Relations/inverse_image_of_eq.con
+oo,cic:/Coq/Relations/Relations/inverse_image_of_equivalence.con,cic:/Coq/Relations/Relation_Definitions/equivalence.ind
+oo,cic:/Coq/Relations/Relations/inverse_image_of_equivalence.con,cic:/Coq/Relations/Relation_Definitions/reflexive.con
+oo,cic:/Coq/Relations/Relations/inverse_image_of_equivalence.con,cic:/Coq/Relations/Relation_Definitions/relation.con
+oo,cic:/Coq/Relations/Relations/inverse_image_of_equivalence.con,cic:/Coq/Relations/Relation_Definitions/symmetric.con
+oo,cic:/Coq/Relations/Relations/inverse_image_of_equivalence.con,cic:/Coq/Relations/Relation_Definitions/transitive.con
+oo,cic:/Coq/Relations/Relations/inverse_image_of_equivalence.con,cic:/Coq/Relations/Relations/inverse_image_of_equivalence.con

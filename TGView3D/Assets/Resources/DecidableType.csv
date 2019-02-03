@@ -1,0 +1,6 @@
+oo,cic:/Coq/Logic/Eqdep_dec/DecidableType/eq_dec.con,cic:/Coq/Init/Logic/eq.ind
+oo,cic:/Coq/Logic/Eqdep_dec/DecidableType/eq_dec.con,cic:/Coq/Init/Logic/not.con
+oo,cic:/Coq/Logic/Eqdep_dec/DecidableType/eq_dec.con,cic:/Coq/Init/Specif/sumbool.ind
+oo,cic:/Coq/Logic/Eqdep_dec/DecidableType/eq_dec.con,cic:/Coq/Logic/Eqdep_dec/DecidableType/eq_dec.con
+oo,cic:/Coq/Logic/Eqdep_dec/DecidableType/eq_dec.con,cic:/Coq/Logic/Eqdep_dec/DecidableType/U.con
+oo,cic:/Coq/Logic/Eqdep_dec/DecidableType/U.con,cic:/Coq/Logic/Eqdep_dec/DecidableType/U.con

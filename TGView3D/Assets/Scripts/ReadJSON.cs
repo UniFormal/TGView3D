@@ -11,6 +11,110 @@ using UnityEngine.UI;
 using Unity.Collections;
 using Unity.Jobs;
 using System.IO;
+using System.Text.RegularExpressions;
+
+public class CSVReader
+{
+    static string SPLIT_RE = @",(?=(?:[^""]*""[^""]*"")*(?![^""]*""))";
+    static string LINE_SPLIT_RE = @"\r\n|\n\r|\n|\r";
+    static char[] TRIM_CHARS = { '\"' };
+
+    public static List<List<string>> Read(string file)
+    {
+        int k = 0;
+      //  Debug.Log("read csv");
+       // var list = new List<Dictionary<string, object>>();
+        var list = new List<List<string>>();
+        TextAsset data = Resources.Load(file) as TextAsset;
+
+        var lines = Regex.Split(data.text, LINE_SPLIT_RE);
+      //  Debug.Log("lines found: "+lines.Length);
+
+        if (lines.Length <= 1) return list;
+        string part="";
+        string origin = "core";
+
+        string[] header = { "type", "id", "to"};
+        //Regex.Split(lines[0], SPLIT_RE);
+        Debug.Log("header length: " + header.Length);
+        for (var i = 1; i < lines.Length; i++)
+        {
+            var values = Regex.Split(lines[i], SPLIT_RE);
+           // Debug.Log("values length: " + values.Length);
+            if (values.Length == 0 || values[0] == "") continue;
+            var entry = new List<string>();// new Dictionary<string, object>();
+            for (var j = 0; j < header.Length && j < values.Length; j++)
+            {
+                string value = values[j];
+                value = value.TrimStart(TRIM_CHARS).TrimEnd(TRIM_CHARS).Replace("\\", "");
+
+                /*object finalvalue = value;
+                int n;
+                float f;
+                if (int.TryParse(value, out n))
+                {
+                    finalvalue = n;
+                }
+                else if (float.TryParse(value, out f))
+                {
+                    finalvalue = f;
+                }
+                entry[header[j]] = finalvalue;*/
+                //  Debug.Log(header[j] + " " + finalvalue);
+                entry.Add(value);
+            
+            }
+            //  if (entry[0] == "oo") break;
+
+            /*
+            string[] splitString = values[1].Split('/');
+        
+            if (values[0] == "oo" && splitString[splitString.Length-1] != origin)
+            {
+                string dir = values[1].Remove(values[1].Length- splitString[splitString.Length - 1].Length-1, splitString[splitString.Length - 1].Length+1);
+         
+                //not  included yet
+                origin = splitString[splitString.Length-1];
+                part += "od,"+values[1]+","+dir  + "\n";
+
+            }
+            */
+
+            /*
+            //new block found
+            string[] splitString = values[1].Split('/');
+            if (values[0] == "oo" && splitString[splitString.Length-2] != origin)
+            {
+  
+                //old block exists
+                if (part != "")
+                {
+                    //write out old block
+                    //origin=origin.Replace('/', '_');
+                    //origin = origin.Replace(':', '_');
+
+                
+                    File.WriteAllText(Application.dataPath + "/" + origin + ".csv", part);
+                    
+                }
+                //reset variables
+                part = "";
+                origin = splitString[splitString.Length-2];
+
+            }
+
+            part += lines[i] + "\n";
+            */
+            list.Add(entry);
+            k++;
+            // if (k > 5000) break;
+           
+        }
+       // File.WriteAllText(Application.dataPath + "/stdlib_objects.csv", part);
+        return list;
+    }
+}
+
 
 namespace TGraph
 {
@@ -438,12 +542,14 @@ namespace TGraph
         
         public static Color GenerateOriginColor(Color color)
         {
+            return color / 4;
             if (IsMPD) return new Color(0, 100, 0);
             return color / 40/4;
         }
 
         public static Color GenerateTargetColor(Color color)
         {
+            return color / 4;
             if (IsMPD) return new Color(0, 100, 0);
             return (new Color(255, 255, 255) + color * 3) / 4/4;
         }
@@ -855,8 +961,11 @@ namespace TGraph
 
         void Start()
         {
+
             if(LayoutFile!="")
                  GameObject.Find("FileInputField").GetComponent<InputField>().text = LayoutFile;
+
+
             GlobalVariables.Percent = Percent.GetComponent<Text>();
             GlobalVariables.EventSystem = EventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>();
             Camera camera = Camera.main;
@@ -886,6 +995,10 @@ namespace TGraph
              //   UrlSelect.GetComponent<Dropdown>().value = GlobalVariables.SelectionIndex;
             Debug.Log(GlobalVariables.SelectionIndex + " found as index after start");
             //  GlobalVariables.Url = "file:///" + Application.dataPath + "/" + UrlSelect.GetComponent<Dropdown>().captionText.text + ".json";
+
+
+           // LoadCoq();
+
             if (GlobalVariables.SelectionIndex == GraphFiles.Length - 1)
             {
                 LoadMPDGraph();
@@ -912,6 +1025,141 @@ namespace TGraph
            // GlobalVariables.Url = "mmt.mathhub.info/:jgraph/json" + "?key=archivegraph&uri=MitM/smglom%20MitM/Foundation%20MMT/LFX";
 
         }
+
+
+        public void LoadCoqDirectory(string dirFile) {
+
+            var data = CSVReader.Read(dirFile);
+            int n = 0;
+
+            string last = "";
+
+
+
+
+            foreach (var val in data)
+            {
+
+
+                if (last != val[1])
+                {
+                    var diredge = new MyEdge();
+                    diredge.style = "view";// val[0];
+                    diredge.to = val[1];
+                    string[] splitString = val[1].Split('/');
+                    string dir = val[1].Remove(val[1].Length - splitString[splitString.Length - 1].Length - 1, splitString[splitString.Length - 1].Length + 1);
+                    diredge.from = dir;
+                    graph.edges.Add(diredge);
+                    last = val[1];
+                }
+
+                var edge = new MyEdge();
+                edge.style = "alignment";// val[0];
+                edge.from = val[1];
+                edge.to = val[2];
+                graph.edges.Add(edge);
+                n++;
+                //  if (n > 2000) break;
+            }
+
+            List<string> tmpOrigins = new List<string>();
+            foreach (var val in data)
+            {
+
+
+                val[1] = val[2];
+
+
+                var diredge = new MyEdge();
+                diredge.style = "view";// val[0];
+                diredge.to = val[1];
+                string[] splitString = val[1].Split('/');
+                string dir = val[1].Remove(val[1].Length - splitString[splitString.Length - 1].Length - 1, splitString[splitString.Length - 1].Length + 1);
+                diredge.from = dir;
+
+                if (!tmpOrigins.Contains(val[1]))
+                {
+                    graph.edges.Add(diredge);
+                    tmpOrigins.Add(val[1]);
+                }
+
+            }
+        }
+
+
+        public void LoadCoq()
+        {
+            graph = new MyGraph();
+            graph.nodes = new List<MyNode>();
+            graph.edges = new List<MyEdge>();
+
+
+            List<List<string>> data = CSVReader.Read("core");
+            // Debug.Log(data[0]["id"]);
+
+            foreach(var val in data)
+            {
+                if (val[0].Length == 1)
+                {
+                    var node = new MyNode();
+ 
+                    node.style = val[0];
+                    node.id = val[1];
+                     string[] parts = val[1].Split('/');
+                     node.label = parts[parts.Length-1];
+                   // node.label = val[1];
+                    graph.nodes.Add(node);
+            /*        if (val[0] == "o")
+                    {
+                        var edge = new MyEdge();
+                        edge.style = "meta";// val[0];
+                        edge.from = val[1];
+                        string target = "";
+                        for(int i =0; i < parts.Length - 1;++i)
+                        {
+                            target += parts[i];
+                        }
+                        edge.to = target;
+                        graph.edges.Add(edge);
+                    }*/
+                }
+                else if(val[0]=="dd")
+                {
+                    var edge = new MyEdge();
+                    edge.style = "include";// val[0];
+                    edge.from = val[1];
+                    edge.to = val[2];
+                    graph.edges.Add(edge);
+                }
+                else
+                {
+                    continue;
+                }
+
+             /*   else if (val[0] == "od")
+                {
+                    var edge = new MyEdge();
+                    edge.style = "meta";// val[0];
+                    edge.from = val[1];
+                    edge.to = val[2];
+                    graph.edges.Add(edge);
+                }*/
+            }
+
+            //LoadCoqDirectory("Binomial");
+            LoadCoqDirectory("N");
+            LoadCoqDirectory("BinNat");
+
+
+
+
+            GlobalVariables.Graph = graph;
+            InitGraph();
+
+            
+        }
+
+
 
         public void CreateMathObject(int i)
         {
@@ -1135,7 +1383,44 @@ namespace TGraph
 
         }
 
-   
+        private void InitGraph()
+        {
+            graph = GlobalVariables.Graph;
+
+            graph.nodes = graph.nodes
+            .GroupBy(customer => customer.id)
+            .Select(group => group.First()).ToList();
+            GlobalVariables.Vol = vol;
+
+            Debug.Log("nodes edges+" + graph.nodes.Count + " " + graph.edges.Count);
+
+
+            graph.movingNodes = new List<int>();
+            graph.selectedNodes = new List<int>();
+            graph.selectedNodes.Add(-1);
+            graph.selectedNodes.Add(-1);
+
+            graph.colorDict = new Dictionary<string, Color>();
+            graph.colorDict.Add("include", new Color(0, 255, 0));
+            graph.colorDict.Add("meta", new Color(255, 0, 0));
+            graph.colorDict.Add("alignment", new Color(200, 200, 0));
+            graph.colorDict.Add("view", new Color(0, 0, 255));
+            graph.colorDict.Add("structure", new Color(0, 120, 120));
+
+
+            graph.nodeDict = new Dictionary<string, int>();
+            Debug.Log("setup time " + (Time.realtimeSinceStartup - time));
+
+            ProcessNodes();
+            ProcessEdges();
+
+            //graph.Disps = new NativeArray<Vector3>(graph.nodes.Count,Allocator.Persistent);
+            //graph.Positions = new NativeArray<Vector3>(graph.nodes.Count, Allocator.Persistent);
+            identifySubgraphs();
+            Debug.Log("prep time " + (Time.realtimeSinceStartup - time));
+
+            StartCoroutine(FinishInit());
+        }
 
         //TODO: change
         IEnumerator ProcessJSON(WWW www, int type = 0)
@@ -1167,8 +1452,6 @@ namespace TGraph
             }
            
             GlobalVariables.Graph = MyGraph.CreateFromJSON(json);
-            graph = GlobalVariables.Graph;
-       
 
             if (type == 1)
             {
@@ -1176,43 +1459,10 @@ namespace TGraph
                 graph.HeightInit = false;
                 graph.FlatInit = true;
             }
-            graph.nodes = graph.nodes
-            .GroupBy(customer => customer.id)
-            .Select(group => group.First()).ToList();
-            GlobalVariables.Vol = vol;
 
-            Debug.Log("nodes edges+"+graph.nodes.Count + " " + graph.edges.Count);
+            InitGraph();
 
-
-            graph.movingNodes = new List<int>();
-            graph.selectedNodes = new List<int>();
-            graph.selectedNodes.Add(-1);
-            graph.selectedNodes.Add(-1);
-
-            graph.colorDict = new Dictionary<string, Color>();
-            graph.colorDict.Add("include", new Color(0, 255, 0));
-            graph.colorDict.Add("meta", new Color(255, 0, 0));
-            graph.colorDict.Add("alignment", new Color(120, 120, 0));
-            graph.colorDict.Add("view", new Color(0, 0, 255));
-            graph.colorDict.Add("structure", new Color(0, 120, 120));
-
-
-            graph.nodeDict = new Dictionary<string, int>();
-            Debug.Log("setup time " + (Time.realtimeSinceStartup-time));
-
-            ProcessNodes();
-            ProcessEdges();
-
-            //graph.Disps = new NativeArray<Vector3>(graph.nodes.Count,Allocator.Persistent);
-            //graph.Positions = new NativeArray<Vector3>(graph.nodes.Count, Allocator.Persistent);
-            identifySubgraphs();
-            Debug.Log("prep time " + (Time.realtimeSinceStartup-time));
-             
-            StartCoroutine(FinishInit());
-          
-             
-
-
+            
             }
 
 

@@ -1,0 +1,13 @@
+oo,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_pred.con,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_pred.con
+oo,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_pred.con,cic:/Coq/ssr/ssrbool/KeyedPred.con
+oo,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_pred.con,cic:/Coq/ssr/ssrbool/keyed_pred.ind
+oo,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_pred.con,cic:/Coq/ssr/ssrbool/pred_key.ind
+oo,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_pred.con,cic:/Coq/ssr/ssrbool/predPredType.con
+oo,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_pred.con,cic:/Coq/ssr/ssrbool/pred_sort.con
+oo,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_qualifier.con,cic:/Coq/Init/Datatypes/nat.ind
+oo,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_qualifier.con,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_qualifier.con
+oo,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_qualifier.con,cic:/Coq/ssr/ssrbool/has_quality.con
+oo,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_qualifier.con,cic:/Coq/ssr/ssrbool/KeyedQualifier.con
+oo,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_qualifier.con,cic:/Coq/ssr/ssrbool/keyed_qualifier.ind
+oo,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_qualifier.con,cic:/Coq/ssr/ssrbool/pred_key.ind
+oo,cic:/Coq/ssr/ssrbool/DefaultKeying/default_keyed_qualifier.con,cic:/Coq/ssr/ssrbool/qualifier.ind

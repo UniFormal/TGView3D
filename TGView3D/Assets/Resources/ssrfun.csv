@@ -1,0 +1,9 @@
+oo,cic:/Coq/ssr/ssrfun/unitE.con,cic:/Coq/Init/Datatypes/unit.ind
+oo,cic:/Coq/ssr/ssrfun/unitE.con,cic:/Coq/Init/Logic/eq.ind
+oo,cic:/Coq/ssr/ssrfun/unitE.con,cic:/Coq/ssr/ssrfun/all_equal_to.con
+oo,cic:/Coq/ssr/ssrfun/unitE.con,cic:/Coq/ssr/ssrfun/unitE.con
+oo,cic:/Coq/ssr/ssrfun/unwrap.con,cic:/Coq/ssr/ssrfun/unwrap.con
+oo,cic:/Coq/ssr/ssrfun/unwrap.con,cic:/Coq/ssr/ssrfun/wrapped.ind
+oo,cic:/Coq/ssr/ssrfun/wrap.con,cic:/Coq/ssr/ssrfun/wrap.con
+oo,cic:/Coq/ssr/ssrfun/wrap.con,cic:/Coq/ssr/ssrfun/wrapped.ind
+oo,cic:/Coq/ssr/ssrfun/wrapped.ind,cic:/Coq/ssr/ssrfun/wrapped.ind

@@ -1,0 +1,16 @@
+oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_nonpos.con,cic:/Coq/Numbers/NatInt/NZLog/A/eq.con
+oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_nonpos.con,cic:/Coq/Numbers/NatInt/NZLog/A/le.con
+oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_nonpos.con,cic:/Coq/Numbers/NatInt/NZLog/A/t.con
+oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_nonpos.con,cic:/Coq/Numbers/NatInt/NZLog/A/zero.con
+oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_nonpos.con,cic:/Coq/Numbers/NatInt/NZLog/C/log2.con
+oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_nonpos.con,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_nonpos.con
+oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_spec.con,cic:/Coq/Init/Logic/and.ind
+oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_spec.con,cic:/Coq/Numbers/NatInt/NZLog/A/le.con
+oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_spec.con,cic:/Coq/Numbers/NatInt/NZLog/A/lt.con
+oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_spec.con,cic:/Coq/Numbers/NatInt/NZLog/A/succ.con
+oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_spec.con,cic:/Coq/Numbers/NatInt/NZLog/A/t.con
+oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_spec.con,cic:/Coq/Numbers/NatInt/NZLog/A/two.con
+oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_spec.con,cic:/Coq/Numbers/NatInt/NZLog/A/zero.con
+oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_spec.con,cic:/Coq/Numbers/NatInt/NZLog/B/pow.con
+oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_spec.con,cic:/Coq/Numbers/NatInt/NZLog/C/log2.con
+oo,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_spec.con,cic:/Coq/Numbers/NatInt/NZLog/NZLog2Spec/log2_spec.con

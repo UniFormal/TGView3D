@@ -1,0 +1,11 @@
+oo,cic:/CoqInCoq/MyList/Listes/A.var,cic:/CoqInCoq/MyList/Listes/A.var
+oo,cic:/CoqInCoq/MyList/Listes/eq_dec.var,cic:/A.var
+oo,cic:/CoqInCoq/MyList/Listes/eq_dec.var,cic:/CoqInCoq/MyList/Listes/A.var
+oo,cic:/CoqInCoq/MyList/Listes/eq_dec.var,cic:/CoqInCoq/MyList/Listes/eq_dec.var
+oo,cic:/CoqInCoq/MyList/Listes/eq_dec.var,cic:/Coq/Init/Logic/eq.ind
+oo,cic:/CoqInCoq/MyList/Listes/eq_dec.var,cic:/Coq/Init/Logic/not.con
+oo,cic:/CoqInCoq/MyList/Listes/eq_dec.var,cic:/Coq/Init/Specif/sumbool.ind
+oo,cic:/CoqInCoq/MyList/Listes/List.var,cic:/A.var
+oo,cic:/CoqInCoq/MyList/Listes/List.var,cic:/CoqInCoq/MyList/Listes/A.var
+oo,cic:/CoqInCoq/MyList/Listes/List.var,cic:/CoqInCoq/MyList/Listes/List.var
+oo,cic:/CoqInCoq/MyList/Listes/List.var,cic:/Coq/Init/Datatypes/list.ind

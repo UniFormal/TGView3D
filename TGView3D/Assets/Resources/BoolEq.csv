@@ -1,0 +1,13 @@
+oo,cic:/Coq/Bool/BoolEq/not_eq_false_beq.con,cic:/A.var
+oo,cic:/Coq/Bool/BoolEq/not_eq_false_beq.con,cic:/beq_eq.var
+oo,cic:/Coq/Bool/BoolEq/not_eq_false_beq.con,cic:/beq.var
+oo,cic:/Coq/Bool/BoolEq/not_eq_false_beq.con,cic:/Coq/Bool/BoolEq/Bool_eq_dec/A.var
+oo,cic:/Coq/Bool/BoolEq/not_eq_false_beq.con,cic:/Coq/Bool/BoolEq/Bool_eq_dec/beq_eq.var
+oo,cic:/Coq/Bool/BoolEq/not_eq_false_beq.con,cic:/Coq/Bool/BoolEq/Bool_eq_dec/beq.var
+oo,cic:/Coq/Bool/BoolEq/not_eq_false_beq.con,cic:/Coq/Bool/BoolEq/not_eq_false_beq.con
+oo,cic:/Coq/Bool/BoolEq/not_eq_false_beq.con,cic:/Coq/Bool/Bool/not_true_is_false.con
+oo,cic:/Coq/Bool/BoolEq/not_eq_false_beq.con,cic:/Coq/Init/Datatypes/bool.ind
+oo,cic:/Coq/Bool/BoolEq/not_eq_false_beq.con,cic:/Coq/Init/Logic/eq.ind
+oo,cic:/Coq/Bool/BoolEq/not_eq_false_beq.con,cic:/Coq/Init/Logic/eq_sym.con
+oo,cic:/Coq/Bool/BoolEq/not_eq_false_beq.con,cic:/Coq/Init/Logic/False.ind
+oo,cic:/Coq/Bool/BoolEq/not_eq_false_beq.con,cic:/Coq/Init/Logic/not.con

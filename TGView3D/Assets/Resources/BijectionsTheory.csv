@@ -1,0 +1,13 @@
+oo,cic:/Coq/ssr/ssrfun/BijectionsTheory/A.var,cic:/Coq/ssr/ssrfun/BijectionsTheory/A.var
+oo,cic:/Coq/ssr/ssrfun/BijectionsTheory/B.var,cic:/Coq/ssr/ssrfun/BijectionsTheory/B.var
+oo,cic:/Coq/ssr/ssrfun/BijectionsTheory/C.var,cic:/Coq/ssr/ssrfun/BijectionsTheory/C.var
+oo,cic:/Coq/ssr/ssrfun/BijectionsTheory/f.var,cic:/A.var
+oo,cic:/Coq/ssr/ssrfun/BijectionsTheory/f.var,cic:/B.var
+oo,cic:/Coq/ssr/ssrfun/BijectionsTheory/f.var,cic:/Coq/ssr/ssrfun/BijectionsTheory/A.var
+oo,cic:/Coq/ssr/ssrfun/BijectionsTheory/f.var,cic:/Coq/ssr/ssrfun/BijectionsTheory/B.var
+oo,cic:/Coq/ssr/ssrfun/BijectionsTheory/f.var,cic:/Coq/ssr/ssrfun/BijectionsTheory/f.var
+oo,cic:/Coq/ssr/ssrfun/BijectionsTheory/h.var,cic:/B.var
+oo,cic:/Coq/ssr/ssrfun/BijectionsTheory/h.var,cic:/Coq/ssr/ssrfun/BijectionsTheory/B.var
+oo,cic:/Coq/ssr/ssrfun/BijectionsTheory/h.var,cic:/Coq/ssr/ssrfun/BijectionsTheory/C.var
+oo,cic:/Coq/ssr/ssrfun/BijectionsTheory/h.var,cic:/Coq/ssr/ssrfun/BijectionsTheory/h.var
+oo,cic:/Coq/ssr/ssrfun/BijectionsTheory/h.var,cic:/C.var

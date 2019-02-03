@@ -1,0 +1,13 @@
+oo,cic:/Coq/Sorting/Mergesort/NatOrder/leb.con,cic:/Coq/Init/Datatypes/bool.ind
+oo,cic:/Coq/Sorting/Mergesort/NatOrder/leb.con,cic:/Coq/Init/Datatypes/nat.ind
+oo,cic:/Coq/Sorting/Mergesort/NatOrder/leb.con,cic:/Coq/Sorting/Mergesort/NatOrder/leb.con
+oo,cic:/Coq/Sorting/Mergesort/NatOrder/leb_total.con,cic:/Coq/Init/Datatypes/bool.ind
+oo,cic:/Coq/Sorting/Mergesort/NatOrder/leb_total.con,cic:/Coq/Init/Datatypes/is_true.con
+oo,cic:/Coq/Sorting/Mergesort/NatOrder/leb_total.con,cic:/Coq/Init/Datatypes/nat.ind
+oo,cic:/Coq/Sorting/Mergesort/NatOrder/leb_total.con,cic:/Coq/Init/Datatypes/nat_ind.con
+oo,cic:/Coq/Sorting/Mergesort/NatOrder/leb_total.con,cic:/Coq/Init/Logic/eq.ind
+oo,cic:/Coq/Sorting/Mergesort/NatOrder/leb_total.con,cic:/Coq/Init/Logic/or.ind
+oo,cic:/Coq/Sorting/Mergesort/NatOrder/leb_total.con,cic:/Coq/Sorting/Mergesort/NatOrder/leb.con
+oo,cic:/Coq/Sorting/Mergesort/NatOrder/leb_total.con,cic:/Coq/Sorting/Mergesort/NatOrder/leb_total.con
+oo,cic:/Coq/Sorting/Mergesort/NatOrder/t.con,cic:/Coq/Init/Datatypes/nat.ind
+oo,cic:/Coq/Sorting/Mergesort/NatOrder/t.con,cic:/Coq/Sorting/Mergesort/NatOrder/t.con

@@ -1,0 +1,17 @@
+oo,cic:/Coq/Logic/Eqdep_dec/DecidableEqDep/Streicher_K.con,cic:/Coq/Init/Logic/eq.ind
+oo,cic:/Coq/Logic/Eqdep_dec/DecidableEqDep/Streicher_K.con,cic:/Coq/Logic/Eqdep_dec/DecidableEqDep/Streicher_K.con
+oo,cic:/Coq/Logic/Eqdep_dec/DecidableEqDep/Streicher_K.con,cic:/Coq/Logic/Eqdep_dec/K_dec_type.con
+oo,cic:/Coq/Logic/Eqdep_dec/DecidableEqDep/Streicher_K.con,cic:/Coq/Logic/Eqdep_dec/M/eq_dec.con
+oo,cic:/Coq/Logic/Eqdep_dec/DecidableEqDep/Streicher_K.con,cic:/Coq/Logic/Eqdep_dec/M/U.con
+oo,cic:/Coq/Logic/Eqdep_dec/DecidableEqDep/UIP.con,cic:/Coq/Init/Logic/eq.ind
+oo,cic:/Coq/Logic/Eqdep_dec/DecidableEqDep/UIP.con,cic:/Coq/Logic/Eqdep_dec/DecidableEqDep/eq_dep_eq.con
+oo,cic:/Coq/Logic/Eqdep_dec/DecidableEqDep/UIP.con,cic:/Coq/Logic/Eqdep_dec/DecidableEqDep/UIP.con
+oo,cic:/Coq/Logic/Eqdep_dec/DecidableEqDep/UIP.con,cic:/Coq/Logic/Eqdep_dec/M/U.con
+oo,cic:/Coq/Logic/Eqdep_dec/DecidableEqDep/UIP.con,cic:/Coq/Logic/EqdepFacts/eq_dep_eq__UIP.con
+oo,cic:/Coq/Logic/Eqdep_dec/DecidableEqDep/UIP.con,cic:/Coq/Logic/EqdepFacts/UIP_.con
+oo,cic:/Coq/Logic/Eqdep_dec/DecidableEqDep/UIP_refl.con,cic:/Coq/Init/Logic/eq.ind
+oo,cic:/Coq/Logic/Eqdep_dec/DecidableEqDep/UIP_refl.con,cic:/Coq/Logic/Eqdep_dec/DecidableEqDep/UIP.con
+oo,cic:/Coq/Logic/Eqdep_dec/DecidableEqDep/UIP_refl.con,cic:/Coq/Logic/Eqdep_dec/DecidableEqDep/UIP_refl.con
+oo,cic:/Coq/Logic/Eqdep_dec/DecidableEqDep/UIP_refl.con,cic:/Coq/Logic/Eqdep_dec/M/U.con
+oo,cic:/Coq/Logic/Eqdep_dec/DecidableEqDep/UIP_refl.con,cic:/Coq/Logic/EqdepFacts/UIP_refl_.con
+oo,cic:/Coq/Logic/Eqdep_dec/DecidableEqDep/UIP_refl.con,cic:/Coq/Logic/EqdepFacts/UIP__UIP_refl.con

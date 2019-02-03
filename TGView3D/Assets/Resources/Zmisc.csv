@@ -1,0 +1,14 @@
+oo,cic:/Coq/ZArith/Zmisc/iter_nat_of_Z.con,cic:/Coq/Init/Datatypes/comparison.ind
+oo,cic:/Coq/ZArith/Zmisc/iter_nat_of_Z.con,cic:/Coq/Init/Datatypes/nat.ind
+oo,cic:/Coq/ZArith/Zmisc/iter_nat_of_Z.con,cic:/Coq/Init/Datatypes/nat_rect.con
+oo,cic:/Coq/ZArith/Zmisc/iter_nat_of_Z.con,cic:/Coq/Init/Logic/eq.ind
+oo,cic:/Coq/ZArith/Zmisc/iter_nat_of_Z.con,cic:/Coq/Init/Logic/False.ind
+oo,cic:/Coq/ZArith/Zmisc/iter_nat_of_Z.con,cic:/Coq/Numbers/BinNums/positive.ind
+oo,cic:/Coq/ZArith/Zmisc/iter_nat_of_Z.con,cic:/Coq/Numbers/BinNums/Z.ind
+oo,cic:/Coq/ZArith/Zmisc/iter_nat_of_Z.con,cic:/Coq/PArith/BinPos/Pos/iter.con
+oo,cic:/Coq/ZArith/Zmisc/iter_nat_of_Z.con,cic:/Coq/PArith/BinPos/Pos/to_nat.con
+oo,cic:/Coq/ZArith/Zmisc/iter_nat_of_Z.con,cic:/Coq/PArith/Pnat/Pos2Nat/inj_iter.con
+oo,cic:/Coq/ZArith/Zmisc/iter_nat_of_Z.con,cic:/Coq/ZArith/BinInt/Z/abs_nat.con
+oo,cic:/Coq/ZArith/Zmisc/iter_nat_of_Z.con,cic:/Coq/ZArith/BinInt/Z/iter.con
+oo,cic:/Coq/ZArith/Zmisc/iter_nat_of_Z.con,cic:/Coq/ZArith/BinInt/Z/le.con
+oo,cic:/Coq/ZArith/Zmisc/iter_nat_of_Z.con,cic:/Coq/ZArith/Zmisc/iter_nat_of_Z.con

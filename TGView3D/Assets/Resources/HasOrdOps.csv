@@ -1,0 +1,11 @@
+oo,cic:/Coq/MSets/MSetInterface/HasOrdOps/compare.con,cic:/Coq/Init/Datatypes/comparison.ind
+oo,cic:/Coq/MSets/MSetInterface/HasOrdOps/compare.con,cic:/Coq/MSets/MSetInterface/HasOrdOps/compare.con
+oo,cic:/Coq/MSets/MSetInterface/HasOrdOps/compare.con,cic:/Coq/MSets/MSetInterface/T/t.con
+oo,cic:/Coq/MSets/MSetInterface/HasOrdOps/max_elt.con,cic:/Coq/Init/Datatypes/option.ind
+oo,cic:/Coq/MSets/MSetInterface/HasOrdOps/max_elt.con,cic:/Coq/MSets/MSetInterface/HasOrdOps/max_elt.con
+oo,cic:/Coq/MSets/MSetInterface/HasOrdOps/max_elt.con,cic:/Coq/MSets/MSetInterface/T/elt.con
+oo,cic:/Coq/MSets/MSetInterface/HasOrdOps/max_elt.con,cic:/Coq/MSets/MSetInterface/T/t.con
+oo,cic:/Coq/MSets/MSetInterface/HasOrdOps/min_elt.con,cic:/Coq/Init/Datatypes/option.ind
+oo,cic:/Coq/MSets/MSetInterface/HasOrdOps/min_elt.con,cic:/Coq/MSets/MSetInterface/HasOrdOps/min_elt.con
+oo,cic:/Coq/MSets/MSetInterface/HasOrdOps/min_elt.con,cic:/Coq/MSets/MSetInterface/T/elt.con
+oo,cic:/Coq/MSets/MSetInterface/HasOrdOps/min_elt.con,cic:/Coq/MSets/MSetInterface/T/t.con

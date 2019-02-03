@@ -1,0 +1,11 @@
+oo,cic:/Coq/Numbers/Integer/Binary/ZBinary/TestOrder/test.var,cic:/Coq/Init/Logic/eq.ind
+oo,cic:/Coq/Numbers/Integer/Binary/ZBinary/TestOrder/test.var,cic:/Coq/Init/Logic/False.ind
+oo,cic:/Coq/Numbers/Integer/Binary/ZBinary/TestOrder/test.var,cic:/Coq/Init/Logic/not.con
+oo,cic:/Coq/Numbers/Integer/Binary/ZBinary/TestOrder/test.var,cic:/Coq/Numbers/BinNums/Z.ind
+oo,cic:/Coq/Numbers/Integer/Binary/ZBinary/TestOrder/test.var,cic:/Coq/Numbers/Integer/Binary/ZBinary/TestOrder/test.var
+oo,cic:/Coq/Numbers/Integer/Binary/ZBinary/TestOrder/test.var,cic:/Coq/Numbers/Integer/Binary/ZBinary/Z/Private_OrderTac/Tac/eq_neq.con
+oo,cic:/Coq/Numbers/Integer/Binary/ZBinary/TestOrder/test.var,cic:/Coq/Numbers/Integer/Binary/ZBinary/Z/Private_OrderTac/Tac/eq_refl.con
+oo,cic:/Coq/Numbers/Integer/Binary/ZBinary/TestOrder/test.var,cic:/Coq/Numbers/Integer/Binary/ZBinary/Z/Private_OrderTac/Tac/eq_sym.con
+oo,cic:/Coq/Numbers/Integer/Binary/ZBinary/TestOrder/test.var,cic:/Coq/Numbers/Integer/Binary/ZBinary/Z/Private_OrderTac/Tac/le_antisym.con
+oo,cic:/Coq/Numbers/Integer/Binary/ZBinary/TestOrder/test.var,cic:/Coq/Numbers/Integer/Binary/ZBinary/Z/Private_OrderTac/Tac/not_neq_eq.con
+oo,cic:/Coq/Numbers/Integer/Binary/ZBinary/TestOrder/test.var,cic:/Coq/ZArith/BinInt/Z/le.con

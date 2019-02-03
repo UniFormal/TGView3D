@@ -1,0 +1,14 @@
+oo,cic:/Coq/Sorting/PermutEq/Perm/A.var,cic:/Coq/Sorting/PermutEq/Perm/A.var
+oo,cic:/Coq/Sorting/PermutEq/Perm/B.var,cic:/Coq/Sorting/PermutEq/Perm/B.var
+oo,cic:/Coq/Sorting/PermutEq/Perm/eqB_dec.var,cic:/B.var
+oo,cic:/Coq/Sorting/PermutEq/Perm/eqB_dec.var,cic:/Coq/Init/Logic/eq.ind
+oo,cic:/Coq/Sorting/PermutEq/Perm/eqB_dec.var,cic:/Coq/Init/Logic/not.con
+oo,cic:/Coq/Sorting/PermutEq/Perm/eqB_dec.var,cic:/Coq/Init/Specif/sumbool.ind
+oo,cic:/Coq/Sorting/PermutEq/Perm/eqB_dec.var,cic:/Coq/Sorting/PermutEq/Perm/B.var
+oo,cic:/Coq/Sorting/PermutEq/Perm/eqB_dec.var,cic:/Coq/Sorting/PermutEq/Perm/eqB_dec.var
+oo,cic:/Coq/Sorting/PermutEq/Perm/eq_dec.var,cic:/A.var
+oo,cic:/Coq/Sorting/PermutEq/Perm/eq_dec.var,cic:/Coq/Init/Logic/eq.ind
+oo,cic:/Coq/Sorting/PermutEq/Perm/eq_dec.var,cic:/Coq/Init/Logic/not.con
+oo,cic:/Coq/Sorting/PermutEq/Perm/eq_dec.var,cic:/Coq/Init/Specif/sumbool.ind
+oo,cic:/Coq/Sorting/PermutEq/Perm/eq_dec.var,cic:/Coq/Sorting/PermutEq/Perm/A.var
+oo,cic:/Coq/Sorting/PermutEq/Perm/eq_dec.var,cic:/Coq/Sorting/PermutEq/Perm/eq_dec.var

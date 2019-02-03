@@ -1,0 +1,6 @@
+oo,cic:/Coq/Structures/Orders/CmpSpec/compare_spec.con,cic:/Coq/Init/Datatypes/CompareSpec.ind
+oo,cic:/Coq/Structures/Orders/CmpSpec/compare_spec.con,cic:/Coq/Structures/Orders/C/compare.con
+oo,cic:/Coq/Structures/Orders/CmpSpec/compare_spec.con,cic:/Coq/Structures/Orders/CmpSpec/compare_spec.con
+oo,cic:/Coq/Structures/Orders/CmpSpec/compare_spec.con,cic:/Coq/Structures/Orders/E/eq.con
+oo,cic:/Coq/Structures/Orders/CmpSpec/compare_spec.con,cic:/Coq/Structures/Orders/E/lt.con
+oo,cic:/Coq/Structures/Orders/CmpSpec/compare_spec.con,cic:/Coq/Structures/Orders/E/t.con

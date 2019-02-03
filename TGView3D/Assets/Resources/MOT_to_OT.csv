@@ -1,0 +1,12 @@
+oo,cic:/Coq/Structures/OrderedType/MOT_to_OT/eq_dec.con,cic:/Coq/Init/Logic/False.ind
+oo,cic:/Coq/Structures/OrderedType/MOT_to_OT/eq_dec.con,cic:/Coq/Init/Logic/not.con
+oo,cic:/Coq/Structures/OrderedType/MOT_to_OT/eq_dec.con,cic:/Coq/Init/Specif/sumbool.ind
+oo,cic:/Coq/Structures/OrderedType/MOT_to_OT/eq_dec.con,cic:/Coq/Structures/OrderedType/Compare.ind
+oo,cic:/Coq/Structures/OrderedType/MOT_to_OT/eq_dec.con,cic:/Coq/Structures/OrderedType/Compare_rec.con
+oo,cic:/Coq/Structures/OrderedType/MOT_to_OT/eq_dec.con,cic:/Coq/Structures/OrderedType/MOT_to_OT/compare.con
+oo,cic:/Coq/Structures/OrderedType/MOT_to_OT/eq_dec.con,cic:/Coq/Structures/OrderedType/MOT_to_OT/eq.con
+oo,cic:/Coq/Structures/OrderedType/MOT_to_OT/eq_dec.con,cic:/Coq/Structures/OrderedType/MOT_to_OT/eq_dec.con
+oo,cic:/Coq/Structures/OrderedType/MOT_to_OT/eq_dec.con,cic:/Coq/Structures/OrderedType/MOT_to_OT/eq_sym.con
+oo,cic:/Coq/Structures/OrderedType/MOT_to_OT/eq_dec.con,cic:/Coq/Structures/OrderedType/MOT_to_OT/lt.con
+oo,cic:/Coq/Structures/OrderedType/MOT_to_OT/eq_dec.con,cic:/Coq/Structures/OrderedType/MOT_to_OT/lt_not_eq.con
+oo,cic:/Coq/Structures/OrderedType/MOT_to_OT/eq_dec.con,cic:/Coq/Structures/OrderedType/MOT_to_OT/t.con

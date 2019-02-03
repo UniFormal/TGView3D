@@ -1,0 +1,16 @@
+oo,cic:/Coq/Arith/Wf_nat/Well_founded_Nat/A.var,cic:/Coq/Arith/Wf_nat/Well_founded_Nat/A.var
+oo,cic:/Coq/Arith/Wf_nat/Well_founded_Nat/f.var,cic:/A.var
+oo,cic:/Coq/Arith/Wf_nat/Well_founded_Nat/f.var,cic:/Coq/Arith/Wf_nat/Well_founded_Nat/A.var
+oo,cic:/Coq/Arith/Wf_nat/Well_founded_Nat/f.var,cic:/Coq/Arith/Wf_nat/Well_founded_Nat/f.var
+oo,cic:/Coq/Arith/Wf_nat/Well_founded_Nat/f.var,cic:/Coq/Init/Datatypes/nat.ind
+oo,cic:/Coq/Arith/Wf_nat/Well_founded_Nat/H_compat.var,cic:/A.var
+oo,cic:/Coq/Arith/Wf_nat/Well_founded_Nat/H_compat.var,cic:/Coq/Arith/Wf_nat/Well_founded_Nat/A.var
+oo,cic:/Coq/Arith/Wf_nat/Well_founded_Nat/H_compat.var,cic:/Coq/Arith/Wf_nat/Well_founded_Nat/f.var
+oo,cic:/Coq/Arith/Wf_nat/Well_founded_Nat/H_compat.var,cic:/Coq/Arith/Wf_nat/Well_founded_Nat/H_compat.var
+oo,cic:/Coq/Arith/Wf_nat/Well_founded_Nat/H_compat.var,cic:/Coq/Arith/Wf_nat/Well_founded_Nat/R.var
+oo,cic:/Coq/Arith/Wf_nat/Well_founded_Nat/H_compat.var,cic:/Coq/Init/Peano/lt.con
+oo,cic:/Coq/Arith/Wf_nat/Well_founded_Nat/H_compat.var,cic:/f.var
+oo,cic:/Coq/Arith/Wf_nat/Well_founded_Nat/H_compat.var,cic:/R.var
+oo,cic:/Coq/Arith/Wf_nat/Well_founded_Nat/R.var,cic:/A.var
+oo,cic:/Coq/Arith/Wf_nat/Well_founded_Nat/R.var,cic:/Coq/Arith/Wf_nat/Well_founded_Nat/A.var
+oo,cic:/Coq/Arith/Wf_nat/Well_founded_Nat/R.var,cic:/Coq/Arith/Wf_nat/Well_founded_Nat/R.var

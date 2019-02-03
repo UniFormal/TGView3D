@@ -1,0 +1,16 @@
+oo,cic:/Coq/Bool/Sumbool/connectives/A.var,cic:/Coq/Bool/Sumbool/connectives/A.var
+oo,cic:/Coq/Bool/Sumbool/connectives/B.var,cic:/Coq/Bool/Sumbool/connectives/B.var
+oo,cic:/Coq/Bool/Sumbool/connectives/C.var,cic:/Coq/Bool/Sumbool/connectives/C.var
+oo,cic:/Coq/Bool/Sumbool/connectives/D.var,cic:/Coq/Bool/Sumbool/connectives/D.var
+oo,cic:/Coq/Bool/Sumbool/connectives/H1.var,cic:/A.var
+oo,cic:/Coq/Bool/Sumbool/connectives/H1.var,cic:/B.var
+oo,cic:/Coq/Bool/Sumbool/connectives/H1.var,cic:/Coq/Bool/Sumbool/connectives/A.var
+oo,cic:/Coq/Bool/Sumbool/connectives/H1.var,cic:/Coq/Bool/Sumbool/connectives/B.var
+oo,cic:/Coq/Bool/Sumbool/connectives/H1.var,cic:/Coq/Bool/Sumbool/connectives/H1.var
+oo,cic:/Coq/Bool/Sumbool/connectives/H1.var,cic:/Coq/Init/Specif/sumbool.ind
+oo,cic:/Coq/Bool/Sumbool/connectives/H2.var,cic:/Coq/Bool/Sumbool/connectives/C.var
+oo,cic:/Coq/Bool/Sumbool/connectives/H2.var,cic:/Coq/Bool/Sumbool/connectives/D.var
+oo,cic:/Coq/Bool/Sumbool/connectives/H2.var,cic:/Coq/Bool/Sumbool/connectives/H2.var
+oo,cic:/Coq/Bool/Sumbool/connectives/H2.var,cic:/Coq/Init/Specif/sumbool.ind
+oo,cic:/Coq/Bool/Sumbool/connectives/H2.var,cic:/C.var
+oo,cic:/Coq/Bool/Sumbool/connectives/H2.var,cic:/D.var

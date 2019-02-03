@@ -1,0 +1,15 @@
+oo,cic:/Coq/Structures/Equalities/HasEqBool2Dec/eq_dec.con,cic:/Coq/Init/Datatypes/bool.ind
+oo,cic:/Coq/Structures/Equalities/HasEqBool2Dec/eq_dec.con,cic:/Coq/Init/Logic/and.ind
+oo,cic:/Coq/Structures/Equalities/HasEqBool2Dec/eq_dec.con,cic:/Coq/Init/Logic/eq.ind
+oo,cic:/Coq/Structures/Equalities/HasEqBool2Dec/eq_dec.con,cic:/Coq/Init/Logic/eq_ind.con
+oo,cic:/Coq/Structures/Equalities/HasEqBool2Dec/eq_dec.con,cic:/Coq/Init/Logic/False.ind
+oo,cic:/Coq/Structures/Equalities/HasEqBool2Dec/eq_dec.con,cic:/Coq/Init/Logic/False_ind.con
+oo,cic:/Coq/Structures/Equalities/HasEqBool2Dec/eq_dec.con,cic:/Coq/Init/Logic/iff.con
+oo,cic:/Coq/Structures/Equalities/HasEqBool2Dec/eq_dec.con,cic:/Coq/Init/Logic/not.con
+oo,cic:/Coq/Structures/Equalities/HasEqBool2Dec/eq_dec.con,cic:/Coq/Init/Logic/True.ind
+oo,cic:/Coq/Structures/Equalities/HasEqBool2Dec/eq_dec.con,cic:/Coq/Init/Specif/sumbool.ind
+oo,cic:/Coq/Structures/Equalities/HasEqBool2Dec/eq_dec.con,cic:/Coq/Structures/Equalities/E/eq.con
+oo,cic:/Coq/Structures/Equalities/HasEqBool2Dec/eq_dec.con,cic:/Coq/Structures/Equalities/E/t.con
+oo,cic:/Coq/Structures/Equalities/HasEqBool2Dec/eq_dec.con,cic:/Coq/Structures/Equalities/F/eqb.con
+oo,cic:/Coq/Structures/Equalities/HasEqBool2Dec/eq_dec.con,cic:/Coq/Structures/Equalities/F/eqb_eq.con
+oo,cic:/Coq/Structures/Equalities/HasEqBool2Dec/eq_dec.con,cic:/Coq/Structures/Equalities/HasEqBool2Dec/eq_dec.con

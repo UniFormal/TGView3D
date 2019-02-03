@@ -1,0 +1,15 @@
+oo,cic:/Coq/Structures/OrdersAlt/OrderedTypeAlt/compare.con,cic:/Coq/Init/Datatypes/comparison.ind
+oo,cic:/Coq/Structures/OrdersAlt/OrderedTypeAlt/compare.con,cic:/Coq/Structures/OrdersAlt/OrderedTypeAlt/compare.con
+oo,cic:/Coq/Structures/OrdersAlt/OrderedTypeAlt/compare.con,cic:/Coq/Structures/OrdersAlt/OrderedTypeAlt/t.con
+oo,cic:/Coq/Structures/OrdersAlt/OrderedTypeAlt/compare_sym.con,cic:/Coq/Init/Datatypes/comparison.ind
+oo,cic:/Coq/Structures/OrdersAlt/OrderedTypeAlt/compare_sym.con,cic:/Coq/Init/Datatypes/CompOpp.con
+oo,cic:/Coq/Structures/OrdersAlt/OrderedTypeAlt/compare_sym.con,cic:/Coq/Init/Logic/eq.ind
+oo,cic:/Coq/Structures/OrdersAlt/OrderedTypeAlt/compare_sym.con,cic:/Coq/Structures/OrdersAlt/OrderedTypeAlt/compare.con
+oo,cic:/Coq/Structures/OrdersAlt/OrderedTypeAlt/compare_sym.con,cic:/Coq/Structures/OrdersAlt/OrderedTypeAlt/compare_sym.con
+oo,cic:/Coq/Structures/OrdersAlt/OrderedTypeAlt/compare_sym.con,cic:/Coq/Structures/OrdersAlt/OrderedTypeAlt/t.con
+oo,cic:/Coq/Structures/OrdersAlt/OrderedTypeAlt/compare_trans.con,cic:/Coq/Init/Datatypes/comparison.ind
+oo,cic:/Coq/Structures/OrdersAlt/OrderedTypeAlt/compare_trans.con,cic:/Coq/Init/Logic/eq.ind
+oo,cic:/Coq/Structures/OrdersAlt/OrderedTypeAlt/compare_trans.con,cic:/Coq/Structures/OrdersAlt/OrderedTypeAlt/compare.con
+oo,cic:/Coq/Structures/OrdersAlt/OrderedTypeAlt/compare_trans.con,cic:/Coq/Structures/OrdersAlt/OrderedTypeAlt/compare_trans.con
+oo,cic:/Coq/Structures/OrdersAlt/OrderedTypeAlt/compare_trans.con,cic:/Coq/Structures/OrdersAlt/OrderedTypeAlt/t.con
+oo,cic:/Coq/Structures/OrdersAlt/OrderedTypeAlt/t.con,cic:/Coq/Structures/OrdersAlt/OrderedTypeAlt/t.con

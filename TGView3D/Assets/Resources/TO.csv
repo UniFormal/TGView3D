@@ -1,0 +1,13 @@
+oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/eq.con,cic:/Coq/Structures/OrderedType/O/eq.con
+oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/eq.con,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/eq.con
+oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/eq.con,cic:/Coq/Structures/OrderedType/O/t.con
+oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/le.con,cic:/Coq/Init/Logic/or.ind
+oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/le.con,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/eq.con
+oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/le.con,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/le.con
+oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/le.con,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/lt.con
+oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/le.con,cic:/Coq/Structures/OrderedType/O/t.con
+oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/lt.con,cic:/Coq/Structures/OrderedType/O/lt.con
+oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/lt.con,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/lt.con
+oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/lt.con,cic:/Coq/Structures/OrderedType/O/t.con
+oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/t.con,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/t.con
+oo,cic:/Coq/Structures/OrderedType/OrderedTypeFacts/TO/t.con,cic:/Coq/Structures/OrderedType/O/t.con

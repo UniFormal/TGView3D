@@ -1,0 +1,16 @@
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/IsOpp/opp_0.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/IsOpp/opp_0.con
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/IsOpp/opp_0.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/O/opp.con
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/IsOpp/opp_0.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/eq.con
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/IsOpp/opp_0.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/zero.con
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/IsOpp/opp_succ.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/IsOpp/opp_succ.con
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/IsOpp/opp_succ.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/O/opp.con
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/IsOpp/opp_succ.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/eq.con
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/IsOpp/opp_succ.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/pred.con
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/IsOpp/opp_succ.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/succ.con
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/IsOpp/opp_succ.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/t.con
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/IsOpp/opp_wd.con,cic:/Coq/Classes/Morphisms/Proper.con
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/IsOpp/opp_wd.con,cic:/Coq/Classes/Morphisms/respectful.con
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/IsOpp/opp_wd.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/IsOpp/opp_wd.con
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/IsOpp/opp_wd.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/O/opp.con
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/IsOpp/opp_wd.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/eq.con
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/IsOpp/opp_wd.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/t.con

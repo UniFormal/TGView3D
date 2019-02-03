@@ -1,0 +1,12 @@
+oo,cic:/Coq/setoid_ring/Cring/Zcri.con,cic:/Coq/Init/Logic/eq.ind
+oo,cic:/Coq/setoid_ring/Cring/Zcri.con,cic:/Coq/Numbers/BinNums/positive.ind
+oo,cic:/Coq/setoid_ring/Cring/Zcri.con,cic:/Coq/Numbers/BinNums/Z.ind
+oo,cic:/Coq/setoid_ring/Cring/Zcri.con,cic:/Coq/setoid_ring/Cring/Cring.con
+oo,cic:/Coq/setoid_ring/Cring/Zcri.con,cic:/Coq/setoid_ring/Cring/Zcri.con
+oo,cic:/Coq/setoid_ring/Cring/Zcri.con,cic:/Coq/setoid_ring/Ncring_initial/Zops.con
+oo,cic:/Coq/setoid_ring/Cring/Zcri.con,cic:/Coq/setoid_ring/Ncring_initial/Zr.con
+oo,cic:/Coq/setoid_ring/Cring/Zcri.con,cic:/Coq/ZArith/BinInt/Z/add.con
+oo,cic:/Coq/setoid_ring/Cring/Zcri.con,cic:/Coq/ZArith/BinInt/Z/mul_comm.con
+oo,cic:/Coq/setoid_ring/Cring/Zcri.con,cic:/Coq/ZArith/BinInt/Z/mul.con
+oo,cic:/Coq/setoid_ring/Cring/Zcri.con,cic:/Coq/ZArith/BinInt/Z/opp.con
+oo,cic:/Coq/setoid_ring/Cring/Zcri.con,cic:/Coq/ZArith/BinInt/Z/sub.con

@@ -1,0 +1,17 @@
+oo,cic:/Coq/Numbers/NatInt/NZBits/Bits/div2.con,cic:/Coq/Numbers/NatInt/NZBits/A/t.con
+oo,cic:/Coq/Numbers/NatInt/NZBits/Bits/div2.con,cic:/Coq/Numbers/NatInt/NZBits/Bits/div2.con
+oo,cic:/Coq/Numbers/NatInt/NZBits/Bits/land.con,cic:/Coq/Numbers/NatInt/NZBits/A/t.con
+oo,cic:/Coq/Numbers/NatInt/NZBits/Bits/land.con,cic:/Coq/Numbers/NatInt/NZBits/Bits/land.con
+oo,cic:/Coq/Numbers/NatInt/NZBits/Bits/ldiff.con,cic:/Coq/Numbers/NatInt/NZBits/A/t.con
+oo,cic:/Coq/Numbers/NatInt/NZBits/Bits/ldiff.con,cic:/Coq/Numbers/NatInt/NZBits/Bits/ldiff.con
+oo,cic:/Coq/Numbers/NatInt/NZBits/Bits/lor.con,cic:/Coq/Numbers/NatInt/NZBits/A/t.con
+oo,cic:/Coq/Numbers/NatInt/NZBits/Bits/lor.con,cic:/Coq/Numbers/NatInt/NZBits/Bits/lor.con
+oo,cic:/Coq/Numbers/NatInt/NZBits/Bits/lxor.con,cic:/Coq/Numbers/NatInt/NZBits/A/t.con
+oo,cic:/Coq/Numbers/NatInt/NZBits/Bits/lxor.con,cic:/Coq/Numbers/NatInt/NZBits/Bits/lxor.con
+oo,cic:/Coq/Numbers/NatInt/NZBits/Bits/shiftl.con,cic:/Coq/Numbers/NatInt/NZBits/A/t.con
+oo,cic:/Coq/Numbers/NatInt/NZBits/Bits/shiftl.con,cic:/Coq/Numbers/NatInt/NZBits/Bits/shiftl.con
+oo,cic:/Coq/Numbers/NatInt/NZBits/Bits/shiftr.con,cic:/Coq/Numbers/NatInt/NZBits/A/t.con
+oo,cic:/Coq/Numbers/NatInt/NZBits/Bits/shiftr.con,cic:/Coq/Numbers/NatInt/NZBits/Bits/shiftr.con
+oo,cic:/Coq/Numbers/NatInt/NZBits/Bits/testbit.con,cic:/Coq/Init/Datatypes/bool.ind
+oo,cic:/Coq/Numbers/NatInt/NZBits/Bits/testbit.con,cic:/Coq/Numbers/NatInt/NZBits/A/t.con
+oo,cic:/Coq/Numbers/NatInt/NZBits/Bits/testbit.con,cic:/Coq/Numbers/NatInt/NZBits/Bits/testbit.con

@@ -1,0 +1,16 @@
+oo,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/A.var,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/A.var
+oo,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/B.var,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/B.var
+oo,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/f.var,cic:/A.var
+oo,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/f.var,cic:/B.var
+oo,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/f.var,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/A.var
+oo,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/f.var,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/B.var
+oo,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/f.var,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/f.var
+oo,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/x.var,cic:/A.var
+oo,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/x.var,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/A.var
+oo,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/x.var,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/x.var
+oo,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/y.var,cic:/A.var
+oo,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/y.var,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/A.var
+oo,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/y.var,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/y.var
+oo,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/z.var,cic:/A.var
+oo,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/z.var,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/A.var
+oo,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/z.var,cic:/Coq/Init/Logic_Type/identity_is_a_congruence/z.var

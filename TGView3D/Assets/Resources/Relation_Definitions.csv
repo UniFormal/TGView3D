@@ -1,0 +1,15 @@
+oo,cic:/Coq/Relations/Relation_Definitions/same_relation.con,cic:/Coq/Init/Logic/and.ind
+oo,cic:/Coq/Relations/Relation_Definitions/same_relation.con,cic:/Coq/Relations/Relation_Definitions/inclusion.con
+oo,cic:/Coq/Relations/Relation_Definitions/same_relation.con,cic:/Coq/Relations/Relation_Definitions/relation.con
+oo,cic:/Coq/Relations/Relation_Definitions/same_relation.con,cic:/Coq/Relations/Relation_Definitions/Relation_Definition/A.var
+oo,cic:/Coq/Relations/Relation_Definitions/same_relation.con,cic:/Coq/Relations/Relation_Definitions/same_relation.con
+oo,cic:/Coq/Relations/Relation_Definitions/symmetric.con,cic:/A.var
+oo,cic:/Coq/Relations/Relation_Definitions/symmetric.con,cic:/Coq/Relations/Relation_Definitions/Relation_Definition/A.var
+oo,cic:/Coq/Relations/Relation_Definitions/symmetric.con,cic:/Coq/Relations/Relation_Definitions/Relation_Definition/R.var
+oo,cic:/Coq/Relations/Relation_Definitions/symmetric.con,cic:/Coq/Relations/Relation_Definitions/symmetric.con
+oo,cic:/Coq/Relations/Relation_Definitions/symmetric.con,cic:/R.var
+oo,cic:/Coq/Relations/Relation_Definitions/transitive.con,cic:/A.var
+oo,cic:/Coq/Relations/Relation_Definitions/transitive.con,cic:/Coq/Relations/Relation_Definitions/Relation_Definition/A.var
+oo,cic:/Coq/Relations/Relation_Definitions/transitive.con,cic:/Coq/Relations/Relation_Definitions/Relation_Definition/R.var
+oo,cic:/Coq/Relations/Relation_Definitions/transitive.con,cic:/Coq/Relations/Relation_Definitions/transitive.con
+oo,cic:/Coq/Relations/Relation_Definitions/transitive.con,cic:/R.var

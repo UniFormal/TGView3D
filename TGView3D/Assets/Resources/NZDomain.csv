@@ -1,0 +1,7 @@
+oo,cic:/Coq/Numbers/NatInt/NZDomain/nat_rect_wd.con,cic:/Coq/Classes/Morphisms/Proper.con
+oo,cic:/Coq/Numbers/NatInt/NZDomain/nat_rect_wd.con,cic:/Coq/Classes/Morphisms/respectful.con
+oo,cic:/Coq/Numbers/NatInt/NZDomain/nat_rect_wd.con,cic:/Coq/Init/Datatypes/nat.ind
+oo,cic:/Coq/Numbers/NatInt/NZDomain/nat_rect_wd.con,cic:/Coq/Init/Datatypes/nat_ind.con
+oo,cic:/Coq/Numbers/NatInt/NZDomain/nat_rect_wd.con,cic:/Coq/Init/Datatypes/nat_rect.con
+oo,cic:/Coq/Numbers/NatInt/NZDomain/nat_rect_wd.con,cic:/Coq/Numbers/NatInt/NZDomain/nat_rect_wd.con
+oo,cic:/Coq/Numbers/NatInt/NZDomain/nat_rect_wd.con,cic:/Coq/Relations/Relation_Definitions/relation.con

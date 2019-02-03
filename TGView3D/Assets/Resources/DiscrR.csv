@@ -1,0 +1,16 @@
+oo,cic:/Coq/Reals/DiscrR/IZR_eq.con,cic:/Coq/Init/Logic/eq.ind
+oo,cic:/Coq/Reals/DiscrR/IZR_eq.con,cic:/Coq/Init/Logic/eq_ind_r.con
+oo,cic:/Coq/Reals/DiscrR/IZR_eq.con,cic:/Coq/Numbers/BinNums/Z.ind
+oo,cic:/Coq/Reals/DiscrR/IZR_eq.con,cic:/Coq/Reals/DiscrR/IZR_eq.con
+oo,cic:/Coq/Reals/DiscrR/IZR_eq.con,cic:/Coq/Reals/Rdefinitions/IZR.con
+oo,cic:/Coq/Reals/DiscrR/IZR_eq.con,cic:/Coq/Reals/Rdefinitions/R.con
+oo,cic:/Coq/Reals/DiscrR/Rlt_R0_R2.con,cic:/Coq/Arith/PeanoNat/Nat/lt_0_succ.con
+oo,cic:/Coq/Reals/DiscrR/Rlt_R0_R2.con,cic:/Coq/Init/Datatypes/nat.ind
+oo,cic:/Coq/Reals/DiscrR/Rlt_R0_R2.con,cic:/Coq/Init/Peano/lt.con
+oo,cic:/Coq/Reals/DiscrR/Rlt_R0_R2.con,cic:/Coq/Numbers/BinNums/positive.ind
+oo,cic:/Coq/Reals/DiscrR/Rlt_R0_R2.con,cic:/Coq/Numbers/BinNums/Z.ind
+oo,cic:/Coq/Reals/DiscrR/Rlt_R0_R2.con,cic:/Coq/Reals/DiscrR/Rlt_R0_R2.con
+oo,cic:/Coq/Reals/DiscrR/Rlt_R0_R2.con,cic:/Coq/Reals/Raxioms/INR.con
+oo,cic:/Coq/Reals/DiscrR/Rlt_R0_R2.con,cic:/Coq/Reals/Rdefinitions/IZR.con
+oo,cic:/Coq/Reals/DiscrR/Rlt_R0_R2.con,cic:/Coq/Reals/Rdefinitions/Rlt.con
+oo,cic:/Coq/Reals/DiscrR/Rlt_R0_R2.con,cic:/Coq/Reals/RIneq/lt_0_INR.con

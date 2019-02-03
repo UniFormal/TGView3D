@@ -1,0 +1,15 @@
+oo,cic:/Coq/Arith/Wf_nat/LT_WF_REL/A.var,cic:/Coq/Arith/Wf_nat/LT_WF_REL/A.var
+oo,cic:/Coq/Arith/Wf_nat/LT_WF_REL/F_compat.var,cic:/A.var
+oo,cic:/Coq/Arith/Wf_nat/LT_WF_REL/F_compat.var,cic:/Coq/Arith/Wf_nat/inv_lt_rel.con
+oo,cic:/Coq/Arith/Wf_nat/LT_WF_REL/F_compat.var,cic:/Coq/Arith/Wf_nat/LT_WF_REL/A.var
+oo,cic:/Coq/Arith/Wf_nat/LT_WF_REL/F_compat.var,cic:/Coq/Arith/Wf_nat/LT_WF_REL/F_compat.var
+oo,cic:/Coq/Arith/Wf_nat/LT_WF_REL/F_compat.var,cic:/Coq/Arith/Wf_nat/LT_WF_REL/F.var
+oo,cic:/Coq/Arith/Wf_nat/LT_WF_REL/F_compat.var,cic:/Coq/Arith/Wf_nat/LT_WF_REL/R.var
+oo,cic:/Coq/Arith/Wf_nat/LT_WF_REL/F_compat.var,cic:/R.var
+oo,cic:/Coq/Arith/Wf_nat/LT_WF_REL/F.var,cic:/A.var
+oo,cic:/Coq/Arith/Wf_nat/LT_WF_REL/F.var,cic:/Coq/Arith/Wf_nat/LT_WF_REL/A.var
+oo,cic:/Coq/Arith/Wf_nat/LT_WF_REL/F.var,cic:/Coq/Arith/Wf_nat/LT_WF_REL/F.var
+oo,cic:/Coq/Arith/Wf_nat/LT_WF_REL/F.var,cic:/Coq/Init/Datatypes/nat.ind
+oo,cic:/Coq/Arith/Wf_nat/LT_WF_REL/R.var,cic:/A.var
+oo,cic:/Coq/Arith/Wf_nat/LT_WF_REL/R.var,cic:/Coq/Arith/Wf_nat/LT_WF_REL/A.var
+oo,cic:/Coq/Arith/Wf_nat/LT_WF_REL/R.var,cic:/Coq/Arith/Wf_nat/LT_WF_REL/R.var

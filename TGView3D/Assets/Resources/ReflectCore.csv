@@ -1,0 +1,12 @@
+oo,cic:/Coq/ssr/ssrbool/ReflectCore/b.var,cic:/Coq/Init/Datatypes/bool.ind
+oo,cic:/Coq/ssr/ssrbool/ReflectCore/b.var,cic:/Coq/ssr/ssrbool/ReflectCore/b.var
+oo,cic:/Coq/ssr/ssrbool/ReflectCore/c.var,cic:/Coq/Init/Datatypes/bool.ind
+oo,cic:/Coq/ssr/ssrbool/ReflectCore/c.var,cic:/Coq/ssr/ssrbool/ReflectCore/c.var
+oo,cic:/Coq/ssr/ssrbool/ReflectCore/Hb.var,cic:/b.var
+oo,cic:/Coq/ssr/ssrbool/ReflectCore/Hb.var,cic:/Coq/Bool/Bool/reflect.ind
+oo,cic:/Coq/ssr/ssrbool/ReflectCore/Hb.var,cic:/Coq/ssr/ssrbool/ReflectCore/b.var
+oo,cic:/Coq/ssr/ssrbool/ReflectCore/Hb.var,cic:/Coq/ssr/ssrbool/ReflectCore/Hb.var
+oo,cic:/Coq/ssr/ssrbool/ReflectCore/Hb.var,cic:/Coq/ssr/ssrbool/ReflectCore/P.var
+oo,cic:/Coq/ssr/ssrbool/ReflectCore/Hb.var,cic:/P.var
+oo,cic:/Coq/ssr/ssrbool/ReflectCore/P.var,cic:/Coq/ssr/ssrbool/ReflectCore/P.var
+oo,cic:/Coq/ssr/ssrbool/ReflectCore/Q.var,cic:/Coq/ssr/ssrbool/ReflectCore/Q.var

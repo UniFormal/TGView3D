@@ -1,0 +1,15 @@
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs.con
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/t.con
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_eq.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs.con
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_eq.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_eq.con
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_eq.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/eq.con
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_eq.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/le.con
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_eq.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/t.con
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_eq.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/zero.con
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_neq.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs.con
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_neq.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_neq.con
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_neq.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/eq.con
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_neq.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/le.con
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_neq.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/opp.con
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_neq.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/t.con
+oo,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/HasAbs/abs_neq.con,cic:/Coq/Numbers/Integer/Abstract/ZAxioms/Z/zero.con

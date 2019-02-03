@@ -1,0 +1,16 @@
+oo,cic:/Coq/Logic/IndefiniteDescription/constructive_definite_description.con,cic:/Coq/Init/Logic/and_ind.con
+oo,cic:/Coq/Logic/IndefiniteDescription/constructive_definite_description.con,cic:/Coq/Init/Logic/eq.ind
+oo,cic:/Coq/Logic/IndefiniteDescription/constructive_definite_description.con,cic:/Coq/Init/Logic/ex.ind
+oo,cic:/Coq/Logic/IndefiniteDescription/constructive_definite_description.con,cic:/Coq/Init/Logic/ex_ind.con
+oo,cic:/Coq/Logic/IndefiniteDescription/constructive_definite_description.con,cic:/Coq/Init/Logic/unique.con
+oo,cic:/Coq/Logic/IndefiniteDescription/constructive_definite_description.con,cic:/Coq/Init/Specif/sig.ind
+oo,cic:/Coq/Logic/IndefiniteDescription/constructive_definite_description.con,cic:/Coq/Logic/IndefiniteDescription/constructive_definite_description.con
+oo,cic:/Coq/Logic/IndefiniteDescription/constructive_definite_description.con,cic:/Coq/Logic/IndefiniteDescription/constructive_indefinite_description.con
+oo,cic:/Coq/Logic/IndefiniteDescription/constructive_indefinite_description.con,cic:/Coq/Init/Logic/ex.ind
+oo,cic:/Coq/Logic/IndefiniteDescription/constructive_indefinite_description.con,cic:/Coq/Init/Specif/sig.ind
+oo,cic:/Coq/Logic/IndefiniteDescription/constructive_indefinite_description.con,cic:/Coq/Logic/IndefiniteDescription/constructive_indefinite_description.con
+oo,cic:/Coq/Logic/IndefiniteDescription/functional_choice.con,cic:/Coq/Init/Logic/ex.ind
+oo,cic:/Coq/Logic/IndefiniteDescription/functional_choice.con,cic:/Coq/Logic/ChoiceFacts/constructive_indefinite_descr_fun_choice.con
+oo,cic:/Coq/Logic/IndefiniteDescription/functional_choice.con,cic:/Coq/Logic/ChoiceFacts/FunctionalChoice_on.con
+oo,cic:/Coq/Logic/IndefiniteDescription/functional_choice.con,cic:/Coq/Logic/IndefiniteDescription/constructive_indefinite_description.con
+oo,cic:/Coq/Logic/IndefiniteDescription/functional_choice.con,cic:/Coq/Logic/IndefiniteDescription/functional_choice.con
