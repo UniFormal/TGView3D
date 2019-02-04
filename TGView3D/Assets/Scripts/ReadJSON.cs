@@ -214,9 +214,10 @@ namespace TGraph
             public bool UseForces = true;
             public bool WaterMode = true;
             public bool FlatInit = false;
-            public bool HeightInit =false;
+            public bool HeightInit = false;
             public bool UseConstraint = false;
             public bool RandomInit = false;
+            public float PushLimit = 10.0f;
             //public List<int> removeList;
             public Dictionary<string, Color> colorDict;
 
@@ -803,8 +804,8 @@ namespace TGraph
                 if (graph.nodes[i].mathml != null)
                 {
                     //tmpMathMLs.Add(graph.nodes[i].mathml);
-                    PData data = new PData();
-                    data.math = graph.nodes[i].mathml;
+                    // PData data = new PData();
+                    //   data.math = graph.nodes[i].mathml;
                     // StartCoroutine(TestRequest(data, i));
                     graph.nodes[i].svg = svgs[i];
                     CreateMathObject(i);
@@ -1146,14 +1147,17 @@ namespace TGraph
                 }*/
             }
 
-            //LoadCoqDirectory("Binomial");
-            LoadCoqDirectory("N");
-            LoadCoqDirectory("BinNat");
+            LoadCoqDirectory("Binomial");
+            //LoadCoqDirectory("N");
+            //LoadCoqDirectory("BinNat");
 
 
 
 
             GlobalVariables.Graph = graph;
+            string json =JsonUtility.ToJson(graph);
+            File.WriteAllText(Application.dataPath + "/export.json", json);
+
             InitGraph();
 
             
@@ -1253,38 +1257,7 @@ namespace TGraph
         private IEnumerator FinishUpdate()
         {
 
-            NativeArray<float> Energies = new NativeArray<float>(graph.nodes.Count, Allocator.Persistent);
-            var handle = Layouts.BaseLayout(iterations, globalWeight, spaceScale, Energies);
-
-            while (!handle.IsCompleted)
-            {
-                //GlobalVariables.Percent.text = ((float)(100.0f * (graph.fin)*2 / iterations)).ToString();
-                GlobalVariables.Percent.text = graph.fin.ToString();
-                if (graph.fin > 1)
-                {
-                   
-                    Layouts.Normalize(spaceScale, true);
-                    // UpdateAllEdges();
-                }
-                yield return new WaitForSeconds(.1f);
-            }
-            graph.fin = 0;
-            GlobalVariables.Percent.text = "";
-            handle.Complete();
-            Layouts.Normalize(spaceScale);
-            //TODO: iterate over edges instead
-            foreach (MyNode node in graph.nodes)
-            {
-                UpdateEdges(node);
-            }
-            Debug.Log("update fin");
-            Energies.Dispose();
-        }
-
-
-        private IEnumerator FinishInit()
-        {
-            if (nodePosDict== null)
+            if (nodePosDict == null)
             {
                 NativeArray<float> Energies = new NativeArray<float>(graph.nodes.Count, Allocator.Persistent);
                 var handle = Layouts.BaseLayout(iterations, globalWeight, spaceScale, Energies);
@@ -1302,7 +1275,7 @@ namespace TGraph
 
                     if (graph.fin > 1)
                     {
-                        Layouts.Normalize(spaceScale, true);
+                        // Layouts.Normalize(spaceScale, true);
                         //Debug.Log((Time.realtimeSinceStartup-time));
                         // UpdateAllEdges();
                     }
@@ -1327,10 +1300,29 @@ namespace TGraph
                     node.nodeObject.transform.localPosition = pos;
                 }
             }
+
+            //TODO: iterate over edges instead
+            foreach (MyNode node in graph.nodes)
+            {
+                UpdateEdges(node);
+            }
+
+        }
+
+
+        private IEnumerator FinishInit()
+        {
+            Layouts.Init();
+            Layouts.Spiral();
           
             graph.edgeObject = BuildEdges(graph.edges, ref graph, lineMat);
             graph.edgeObject.transform.parent = transform.parent;
             graph.edgeObject.name = "EdgeMesh";
+            UIInteracton.SEnableEdgeType("meta");
+
+            yield return FinishUpdate();
+
+
             GlobalVariables.Solved = true;
             this.GetComponent<Interaction>().enabled = true;
             GlobalVariables.Init = true;
@@ -1338,11 +1330,10 @@ namespace TGraph
             //     graph.Positions.Dispose();
             //    graph.Disps.Dispose();
 
-            UIInteracton.SEnableEdgeType("meta");
+
+
             Debug.Log("Finished init " + ((Time.realtimeSinceStartup - time)));
 
-            //webgl lagging on startup...fix?
-            this.StartCoroutine(_waitUntilStable(10));
 
             
     

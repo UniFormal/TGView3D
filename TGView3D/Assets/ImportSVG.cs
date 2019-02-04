@@ -39,13 +39,13 @@ public static class ImportSVG {
         };
 
         //Pfad zur Datei
-        string svgFilePath = Application.dataPath+"/equation.svg";
+        //string svgFilePath = Application.dataPath+"/equation.svg";
 
-        StreamReader sr = new StreamReader(svgFilePath);
-        string svgText = sr.ReadToEnd();
+        //StreamReader sr = new StreamReader(svgFilePath);
+        //string svgText = sr.ReadToEnd();
        // print(svgText);
-        sr.Close();
-        sr.Dispose();
+       // sr.Close();
+       // sr.Dispose();
 
         // Dynamically import the SVG data, and tessellate the resulting vector scene.
         var sceneInfo = SVGParser.ImportSVG(new StringReader(svg));

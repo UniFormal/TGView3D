@@ -30,7 +30,7 @@ public class FlyCamera : MonoBehaviour
     void Update()
     {
         Transform transform = this.transform.parent.transform;
-        if (Input.GetMouseButton(2))
+        if (Input.GetMouseButton(0))
         {
             lastMouse = Input.mousePosition - lastMouse;
             lastMouse = new Vector3(-lastMouse.y * camSens, lastMouse.x * camSens, 0);
