@@ -10,7 +10,7 @@ namespace TGraph
 {
     public static class Layouts
     {
-
+        
 
        // static bool flat = false;
        // static float sliceWidth = 0;
@@ -23,8 +23,8 @@ namespace TGraph
         //   static float maxHeight = -10;
         //   static float minHeight = 10;
 
-        static float epsilon = 0.0001f;
-        static float diameter = 0.1f*0.5f;
+        static float epsilon = 0.00001f;
+        static float diameter = 0.5f;
 
         public static void Init()
         {
@@ -107,7 +107,7 @@ namespace TGraph
 
         public static void Normalize(float spaceScale, bool temp=false)
         {
-        
+
             /*
                  float forceCeiling = float.MinValue;
                  float forceFloor = float.MaxValue;
@@ -128,22 +128,13 @@ namespace TGraph
                     if (node.weight == -1&&!temp) node.pos.y /= (forceCeiling - forceFloor) / maxHeight;
                 }
 
-            /*
+            */
 
-             Vector3 avgPos = Vector3.zero;
-             foreach (ReadJSON.MyNode node in graph.nodes)
-             {
-                 avgPos += node.pos;
-             }
-             avgPos /= graph.nodes.Count;
-             foreach (ReadJSON.MyNode node in graph.nodes)
-             {
-                 node.pos -= avgPos;
-             }*/
+     
             if (!temp)
           {
           
-                /*
+                
                  Vector3 avgPos = Vector3.zero;
                  foreach (ReadJSON.MyNode node in graph.nodes)
                  {
@@ -153,7 +144,7 @@ namespace TGraph
                  foreach (ReadJSON.MyNode node in graph.nodes)
                  {
                      node.pos -= avgPos;
-                 }*/
+                 }
 
                     float d = 0;
                     int hv = 0;
@@ -627,13 +618,14 @@ namespace TGraph
                                 */
 
                             }
+                            n.range = maxDist;
 
 
                             var upos = Vector3.zero;
                             var diffVec = upos - n.pos;
                             var lD = Mathf.Max(0, diffVec.magnitude - diameter) + epsilon;
                             var aF = (lD * lD / kVal);
-                            n.disp += (diffVec / lD) * 0.05f * aF;
+                            n.disp += (diffVec / lD) * 0.02f * aF;
 
 
 
@@ -649,16 +641,16 @@ namespace TGraph
                                     var lengthDiff = Mathf.Max(0,differenceNodes.magnitude - diameter) + epsilon;
                                    
                                     var repulsiveForce = -(kSquared / lengthDiff);
-                                    if (graph.fin>10&&maxDist>0&&lengthDiff > graph.PushLimit * maxDist)
+                                    if (graph.fin>10&&maxDist>0&&lengthDiff > graph.PushLimit * (maxDist+n.range))
                                     {
                                         repulsiveForce = 0;
-                                        limit++;
+                                    //    limit++;
                                     }
 
                                     n.disp += (differenceNodes / lengthDiff) * repulsiveForce;
                                 }
                             }
-                            if (limit > 0) Debug.Log("limit " + limit+ " "+maxDist);
+                          //  if (limit > 0) Debug.Log("limit " + limit+ " "+maxDist);
 
                             //calculate hierarchic repulsive forces
                             //positive

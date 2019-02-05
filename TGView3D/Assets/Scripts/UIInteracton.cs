@@ -138,8 +138,19 @@ public class UIInteracton : MonoBehaviour {
     }
 
 
+    public void ReColor(string type)
+    {
 
-    public void EnableEdgeType(string type)
+
+    }
+
+    public void Cluster()
+    {
+        Clustering.DBScan();
+    }
+
+
+        public void EnableEdgeType(string type)
     {
         Debug.Log(type);
         var graph = GlobalVariables.Graph;

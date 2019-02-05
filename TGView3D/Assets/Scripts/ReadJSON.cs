@@ -185,6 +185,8 @@ namespace TGraph
         public static Color SelectedColor = Color.cyan;
         public static Color ConnectedColor = Color.yellow;
         public static Color TargetColor = Color.red;
+        public static bool IsCoq = false;
+        public static string PersistentLatest = "";
 
 
         //TODO: throw out ugly indexing!!!!!
@@ -217,7 +219,9 @@ namespace TGraph
             public bool HeightInit = false;
             public bool UseConstraint = false;
             public bool RandomInit = false;
-            public float PushLimit = 10.0f;
+            public float PushLimit = 2.0f;
+            
+
             //public List<int> removeList;
             public Dictionary<string, Color> colorDict;
 
@@ -241,6 +245,8 @@ namespace TGraph
             public Vector3 disp;
             public GameObject nodeObject;
             public bool forcesFixed;
+            public float range = float.MaxValue;
+            public int ClusterId = -1;
 
             //use object references instead?
             public List<int> edgeIndicesOut = new List<int>();
@@ -913,8 +919,8 @@ namespace TGraph
 
                            
                         }
-                        Debug.Log(node.label +" "+graph.nodes[duplicate.Nid].label + " " + duplicate.Index + " " + graph.edges[edgeIndices[duplicate.Index]].localIdx + " " + graph.edges[edgeIndices[duplicate.Index]].from + " " + graph.edges[edgeIndices[duplicate.Index]].to);
-
+                       // Debug.Log(node.label +" "+graph.nodes[duplicate.Nid].label + " " + duplicate.Index + " " + graph.edges[edgeIndices[duplicate.Index]].localIdx + " " + graph.edges[edgeIndices[duplicate.Index]].from + " " + graph.edges[edgeIndices[duplicate.Index]].to);
+                       //TODO up here
 
                     }
                 }
@@ -963,6 +969,7 @@ namespace TGraph
         void Start()
         {
 
+            Debug.Log(PersistentLatest);
             if(LayoutFile!="")
                  GameObject.Find("FileInputField").GetComponent<InputField>().text = LayoutFile;
 
@@ -998,9 +1005,9 @@ namespace TGraph
             //  GlobalVariables.Url = "file:///" + Application.dataPath + "/" + UrlSelect.GetComponent<Dropdown>().captionText.text + ".json";
 
 
-           // LoadCoq();
+            if(IsCoq) LoadCoqGraph();
 
-            if (GlobalVariables.SelectionIndex == GraphFiles.Length - 1)
+            else if (GlobalVariables.SelectionIndex == GraphFiles.Length - 1)
             {
                 LoadMPDGraph();
                 IsMPD = true;
@@ -1030,6 +1037,7 @@ namespace TGraph
 
         public void LoadCoqDirectory(string dirFile) {
 
+            Debug.Log("load" + dirFile);
             var data = CSVReader.Read(dirFile);
             int n = 0;
 
@@ -1086,9 +1094,18 @@ namespace TGraph
 
             }
         }
-
-
         public void LoadCoq()
+        {
+            TextAsset data = Resources.Load(PersistentLatest) as TextAsset;
+            if (!IsCoq || data != null) { 
+
+                IsCoq = true;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
+        }
+
+
+        public void LoadCoqGraph()
         {
             graph = new MyGraph();
             graph.nodes = new List<MyNode>();
@@ -1146,8 +1163,9 @@ namespace TGraph
                     graph.edges.Add(edge);
                 }*/
             }
-
-            LoadCoqDirectory("Binomial");
+            Debug.LogWarning("dir " + PersistentLatest);
+            if(PersistentLatest!="")
+            LoadCoqDirectory(PersistentLatest);
             //LoadCoqDirectory("N");
             //LoadCoqDirectory("BinNat");
 
@@ -1306,6 +1324,8 @@ namespace TGraph
             {
                 UpdateEdges(node);
             }
+
+           // Clustering.DBScan();
 
         }
 
@@ -1862,6 +1882,15 @@ namespace TGraph
         void Update()
         {
 
+           // Debug.Log(IsCoq + " " + (graph.latestSelection!=-1) );
+            if (IsCoq&&(graph.latestSelection != -1))
+            {
+              //  Debug.Log(PersistentLatest);
+                var label = graph.nodes[graph.latestSelection].label;
+                    string[] splitString = label.Split('/');
+                    //not  included yet
+                    PersistentLatest = splitString[splitString.Length - 1];
+            }
             //for gestures
             if (GlobalVariables.Recalculate)
             {
