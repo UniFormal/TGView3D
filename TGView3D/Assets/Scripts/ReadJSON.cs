@@ -26,6 +26,7 @@ public class CSVReader
        // var list = new List<Dictionary<string, object>>();
         var list = new List<List<string>>();
         TextAsset data = Resources.Load(file) as TextAsset;
+        if(data== null) return null;
 
         var lines = Regex.Split(data.text, LINE_SPLIT_RE);
       //  Debug.Log("lines found: "+lines.Length);
@@ -186,7 +187,7 @@ namespace TGraph
         public static Color ConnectedColor = Color.yellow;
         public static Color TargetColor = Color.red;
         public static bool IsCoq = false;
-        public static string PersistentLatest = "";
+        public static List<MyNode> FoundNodes;
 
 
         //TODO: throw out ugly indexing!!!!!
@@ -194,7 +195,7 @@ namespace TGraph
         public class MyGraph
         {
             public List<MyNode> nodes;
-            public List<MyNode> foundNodes;
+
             public NativeArray<Vector3> Disps;
             public NativeArray<Vector3> Positions;
             public Dictionary<string, int> nodeDict;
@@ -383,7 +384,7 @@ namespace TGraph
                 return;
 
 
-            foreach (var node in graph.foundNodes)
+            foreach (var node in FoundNodes)
             {
 
  
@@ -986,7 +987,7 @@ namespace TGraph
         void Start()
         {
 
-            Debug.Log(PersistentLatest);
+
             if(LayoutFile!="")
                  GameObject.Find("FileInputField").GetComponent<InputField>().text = LayoutFile;
 
@@ -1004,8 +1005,8 @@ namespace TGraph
             //camera.backgroundColor = new Color(0.7f, 0.8f, 0.7f); 
 
 
-
-
+            if (FoundNodes == null) FoundNodes = new List<MyNode>();
+ 
 
             // Debug.Log(url);
             //float time = Time.realtimeSinceStartup;
@@ -1052,69 +1053,89 @@ namespace TGraph
         }
 
 
-        public void LoadCoqDirectory(string dirFile) {
+        public void LoadCoqDirectory() {
 
-            Debug.Log("load" + dirFile);
-            var data = CSVReader.Read(dirFile);
             int n = 0;
-
-            string last = "";
-
-
-
-
-            foreach (var val in data)
-            {
-
-
-                if (last != val[1])
-                {
-                    var diredge = new MyEdge();
-                    diredge.style = "include";// val[0];
-                    diredge.to = val[1];
-                    string[] splitString = val[1].Split('/');
-                    string dir = val[1].Remove(val[1].Length - splitString[splitString.Length - 1].Length - 1, splitString[splitString.Length - 1].Length + 1);
-                    diredge.from = dir;
-                    graph.edges.Add(diredge);
-                    last = val[1];
-                }
-
-                var edge = new MyEdge();
-                edge.style = "include";// val[0];
-                edge.from = val[1];
-                edge.to = val[2];
-                graph.edges.Add(edge);
-                n++;
-                //  if (n > 2000) break;
-            }
-
             List<string> tmpOrigins = new List<string>();
-            foreach (var val in data)
+            foreach (var node in FoundNodes)
             {
+                var label = node.label;
+                string[] splitStringDir = label.Split('/');
+                string dirFile = splitStringDir[splitStringDir.Length - 1];
+                Debug.Log("load" + dirFile);
+                var data = CSVReader.Read(dirFile);
+                if (data == null) continue;
+               
+
+                string last = "";
 
 
-                val[1] = val[2];
 
 
-                var diredge = new MyEdge();
-                diredge.style = "view";// val[0];
-                diredge.to = val[1];
-                string[] splitString = val[1].Split('/');
-                string dir = val[1].Remove(val[1].Length - splitString[splitString.Length - 1].Length - 1, splitString[splitString.Length - 1].Length + 1);
-                diredge.from = dir;
-
-                if (!tmpOrigins.Contains(val[1]))
+                foreach (var val in data)
                 {
-                    graph.edges.Add(diredge);
-                    tmpOrigins.Add(val[1]);
+
+
+                    // redunddant od eges?
+                    if (last != val[1])
+                    {
+                        var diredge = new MyEdge();
+                        diredge.style = "include";// val[0];
+                        diredge.to = val[1];
+                        string[] splitString = val[1].Split('/');
+                        string dir = val[1].Remove(val[1].Length - splitString[splitString.Length - 1].Length - 1, splitString[splitString.Length - 1].Length + 1);
+                        diredge.from = dir;
+                        graph.edges.Add(diredge);
+                        last = val[1];
+                    }
+                    //oo edges
+                    var edge = new MyEdge();
+                    edge.style = "alignment";// val[0];
+                    edge.from = val[2];
+                    edge.to = val[1];
+
+                    if (!graph.edges.Contains(edge))
+                    {
+                        graph.edges.Add(edge);
+                        n++;
+
+                    }
+                    if (n > 2000) return;
+
+
                 }
 
+                /*
+                            //od edges of targets
+                            foreach (var val in data)
+                            {
+
+
+                                val[1] = val[2];
+
+
+                                var diredge = new MyEdge();
+                                diredge.style = "include";// val[0];
+                                diredge.to = val[1];
+                                string[] splitString = val[1].Split('/');
+                                string dir = val[1].Remove(val[1].Length - splitString[splitString.Length - 1].Length - 1, splitString[splitString.Length - 1].Length + 1);
+                                diredge.from = dir;
+
+                                if (!tmpOrigins.Contains(val[1]))
+                                {
+                                    graph.edges.Add(diredge);
+                                    tmpOrigins.Add(val[1]);
+                                }
+
+                            }
+                        }*/
             }
+
         }
         public void LoadCoq()
         {
-            TextAsset data = Resources.Load(PersistentLatest) as TextAsset;
-            if (!IsCoq || data != null) { 
+
+            if (!IsCoq||FoundNodes.Count>0) { 
 
                 IsCoq = true;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -1127,7 +1148,6 @@ namespace TGraph
             graph = new MyGraph();
             graph.nodes = new List<MyNode>();
             graph.edges = new List<MyEdge>();
-            graph.foundNodes = new List<MyNode>();
 
             List<List<string>> data = CSVReader.Read("core");
             // Debug.Log(data[0]["id"]);
@@ -1180,9 +1200,8 @@ namespace TGraph
                     graph.edges.Add(edge);
                 }*/
             }
-            Debug.LogWarning("dir " + PersistentLatest);
-            if(PersistentLatest!="")
-            LoadCoqDirectory(PersistentLatest);
+
+            LoadCoqDirectory();
             //LoadCoqDirectory("N");
             //LoadCoqDirectory("BinNat");
 
@@ -1675,6 +1694,7 @@ namespace TGraph
       
         public void ChangeID(InputField f)
         {
+            if (!GlobalVariables.Init) return;
             int result = 0;
             if (System.Int32.TryParse(f.text, out result))
             {
@@ -1683,14 +1703,21 @@ namespace TGraph
             }
             else
             {
-            
-                foreach(var p in graph.nodeDict)
+                FoundNodes.Clear();
+                foreach (var pair in graph.nodeDict)
                 {
-                    if (p.Key.ToLower().IndexOf(f.text.ToLower()) != -1)
+                    var p = graph.nodes[pair.Value].label;
+
+                    int startIdx = p.ToLower().IndexOf(f.text.ToLower());
+                    if (startIdx != -1)
                     {
-                        graph.latestSelection = graph.nodeDict[p.Key];
-                        Debug.Log("found " + graph.latestSelection);
-                        graph.foundNodes.Add(graph.nodes[graph.nodeDict[p.Key]]);
+                        if(p[startIdx] == p.ToUpper()[startIdx]|| (startIdx>0 &&p[startIdx - 1] == '_')){
+                            graph.latestSelection = graph.nodeDict[pair.Key];
+                            Debug.Log("found " + graph.latestSelection);
+                            if(!FoundNodes.Contains(graph.nodes[graph.nodeDict[pair.Key]]))
+                                FoundNodes.Add(graph.nodes[graph.nodeDict[pair.Key]]);
+                        }
+           
                         //break;
                     }
 
@@ -1900,15 +1927,20 @@ namespace TGraph
         void Update()
         {
 
+            /*
            // Debug.Log(IsCoq + " " + (graph.latestSelection!=-1) );
             if (IsCoq&&(graph.latestSelection != -1))
             {
-              //  Debug.Log(PersistentLatest);
-                var label = graph.nodes[graph.latestSelection].label;
+                  //  Debug.Log(PersistentLatest);
+                foreach(var node in graph.foundNodes)
+                {
+                    var label = node.label;
                     string[] splitString = label.Split('/');
                     //not  included yet
-                    PersistentLatest = splitString[splitString.Length - 1];
-            }
+                    if(p)
+                }
+
+            }*/
             //for gestures
             if (GlobalVariables.Recalculate)
             {
