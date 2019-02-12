@@ -817,7 +817,7 @@ namespace TGraph
                 tmp.nr = graph.nodes.Count;
                 tmp.generated = true;
                 tmp.radius = edge.targetCount * 10;
-                Debug.Log(tmp.radius);
+          //      Debug.Log(tmp.radius);
                 graph.nodes.Add(tmp);
 
 
@@ -1206,7 +1206,7 @@ namespace TGraph
                                 graph.edges.Add(edge);
                             }*/
                 }
-                else if (val[0] == "dd")
+                else if (val[0] == "dd"||val[0]=="od")
                 {
                     var edge = new MyEdge();
                     edge.style = "include";// val[0];
@@ -1228,6 +1228,7 @@ namespace TGraph
                     edge.style = "include";// val[0];
                     edge.from = val[1];
                     edge.to = val[2];
+
                     
 
                     if (edge.from!=edge.to&&!graph.edges.Any(x => x.from == edge.from && x.to == edge.to))
@@ -1260,7 +1261,8 @@ namespace TGraph
             graph.nodes = new List<MyNode>();
             graph.edges = new List<MyEdge>();
 
-            LoadCSV("core");
+            //LoadCSV("fingroup");
+             LoadCSV("core");
             LoadCSV("cut");
      
 
@@ -1574,23 +1576,28 @@ namespace TGraph
             ProcessNodes();
             ProcessEdges();
 
-            if (recursive)
+            if (IsCoq)
             {
-                List<List<string>> sizes = CSVReader.Read("sizes");
-                foreach (var size in sizes)
+                if (recursive)
                 {
+                    List<List<string>> sizes = CSVReader.Read("sizes");
+                    
+                    foreach (var size in sizes)
+                    {
+                        if (!graph.nodeDict.ContainsKey(size[1])) break;
+                        graph.nodes[graph.nodeDict[size[1]]].radius = System.Int32.Parse(size[2]);
+                    }
+                }
+                else
+                {
+                    foreach (var node in graph.nodes)
+                    {
 
-                    graph.nodes[graph.nodeDict[size[1]]].radius = System.Int32.Parse(size[2]);
+                        node.radius += CSVReader.GetLineNumber(node.label);
+                    }
                 }
             }
-            else
-            {
-                foreach (var node in graph.nodes)
-                {
-
-                    node.radius += CSVReader.GetLineNumber(node.label);
-                }
-            }
+        
 
 
 
@@ -1605,9 +1612,12 @@ namespace TGraph
 
             Material loadedMat = new Material(mat);
             loadedMat.color = Color.red;
+
+
+
             foreach (var node in graph.nodes)
             {
-                node.radius = 4*//Mathf.Sqrt
+                node.radius = 10*//Mathf.Sqrt
                     (node.radius / (maxSize+1));
                 node.nodeObject.transform.localScale *= (1+node.radius);
                 if(node.generated)

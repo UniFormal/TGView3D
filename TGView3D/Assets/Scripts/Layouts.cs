@@ -521,7 +521,7 @@ namespace TGraph
          
             float kSquared;
             float kVal;
-           // Color[] vertexColors;
+            // Color[] vertexColors;https://isabelle.sketis.net/repos/isabelle/file/tip/src/Pure/General/graph.ML
 
             public JobTest(int iterations, float spacingValue, NativeArray<float> Energies, float initialStep = 3.0f, float globalWeight = 1.0f, bool useWeights = true)
             {
@@ -644,7 +644,7 @@ namespace TGraph
                             var diffVec = upos - n.pos;
                             var lD = Mathf.Max(0, diffVec.magnitude - diameter) + epsilon;
                             var aF = (lD * lD / kVal);
-                           // n.disp += (diffVec / lD) * 0.02f * aF;
+                            n.disp += (diffVec / lD) * 0.02f * aF;
 
 
 
@@ -662,7 +662,7 @@ namespace TGraph
                                     var repulsiveForce = -(kSquared / lengthDiff);
                                     if (graph.fin>10&&maxDist>0&&lengthDiff > graph.PushLimit * (maxDist+n.range))
                                     {
-                                      //  repulsiveForce = 0;
+                                        repulsiveForce = 0;
                                     //    limit++;
                                     }
 
@@ -737,7 +737,7 @@ namespace TGraph
                                 //nodes with outgoing edges push upward      
                  
                                 var before = n.disp.y;
-                               // n.disp.y *= 0.4f;
+                                n.disp.y *= 0.4f;
 
                                 var hierarchyDisp = 0.0f;
                         
