@@ -24,7 +24,7 @@ namespace TGraph
         //   static float minHeight = 10;
 
         static float epsilon = 0.00001f;
-        static float diameter = 0.5f;
+        static float diameter = 1f;
 
         public static void Init()
         {
@@ -99,10 +99,21 @@ namespace TGraph
       
             Init();
             Spiral();
+
             var bH = new BuildHierarchy();
             var handle = bH.Schedule();
             return ActivateForces(globalWeight, iterations, Energies, handle);
      
+        }
+
+
+        public static JobHandle UpdateLayout(int iterations, float globalWeight, float spaceScale, NativeArray<float> Energies)
+        {
+
+            var bH = new BuildHierarchy();
+            var handle = bH.Schedule();
+            return ActivateForces(globalWeight, iterations, Energies, handle);
+
         }
 
         public static void Normalize(float spaceScale, bool temp=false)
@@ -148,7 +159,9 @@ namespace TGraph
 
                     float d = 0;
                     int hv = 0;
-                    foreach (ReadJSON.MyNode node in graph.nodes)
+                Material loadedMat = new Material(graph.nodes[0].nodeObject.GetComponent<MeshRenderer>().material);
+                loadedMat.color = Color.yellow;
+                foreach (ReadJSON.MyNode node in graph.nodes)
                     {
                         foreach (int edge in node.edgeIndicesIn)
                         {
@@ -163,10 +176,13 @@ namespace TGraph
                                 {
                                 //   node.nodeObject.transform.localScale = Vector3.one*.2f;
 
-                                  //  node.nodeObject.GetComponent<MeshRenderer>().material.color = Color.red;
+                                //  node.nodeObject.GetComponent<MeshRenderer>().material.color = Color.red;
 
-                                  //    Debug.Log(node.id +", height "+node.weight+ " from " + graph.edges[edge].from+ ", height " + graph.nodes[graph.nodeDict[graph.edges[edge].from]].weight);
-                                    hv++;
+                                //    Debug.Log(node.id +", height "+node.weight+ " from " + graph.edges[edge].from+ ", height " + graph.nodes[graph.nodeDict[graph.edges[edge].from]].weight);
+                                graph.nodes[graph.nodeDict[graph.edges[edge].from]].nodeObject.GetComponent<MeshRenderer>().sharedMaterial = loadedMat;
+                                node.nodeObject.GetComponent<MeshRenderer>().sharedMaterial = loadedMat;
+                                hv++;
+                                
                                 }
                                 else
                                 {
@@ -259,134 +275,137 @@ namespace TGraph
                     graph.nodes[i].weight = graph.nodes[i].height = 0;
                 }
 
-
+               
                 //  Debug.Log("modus: " + graph.modus + " -> " + start + " " + end);
                 for (int n = start; n < end; n++)
                 {
-
-                    List<int> rootIndices = new List<int>();
-                    //   float maxConnections = 0;
-                    for (int i = 0; i < graph.nodes.Count; i++)
+                    if (!graph.FlatInit)
                     {
-
-                        if (n == 0)
+                        List<int> rootIndices = new List<int>();
+                        //   float maxConnections = 0;
+                        for (int i = 0; i < graph.nodes.Count; i++)
                         {
 
-
-                            //not included -> root --> lowest
-                            // if (graph.nodes[i].edgeIndicesOut.Count == 1&&graph.nodes[i].edgeIndicesOut[0]==graph.nodes[i].nr)
-                            if (graph.nodes[i].edgeIndicesOut.Where(idx => graph.edges[idx].style == "include").ToList().Count == 0
-                                && graph.nodes[i].edgeIndicesIn.Where(idx => graph.edges[idx].style == "include").ToList().Count > 0)
+                            if (n == 0)
                             {
 
-                                rootIndices.Add(i);
-                                if (!graph.HeightInit) graph.nodes[i].weight = -2;
-                                // Debug.Log(graph.nodes[i].label);
-                            }
-                            else
-                            {
-                                graph.nodes[i].weight = -1;
-                            }
 
-                        }
-                        else
-                        {
-
-                            // if (graph.nodes[i].edgeIndicesIn.Count == 0) rootIndices.Add(i);
-                            if (graph.nodes[i].edgeIndicesIn.Where(idx => graph.edges[idx].style == "include").ToList().Count == 0
-                             && graph.nodes[i].edgeIndicesOut.Where(idx => graph.edges[idx].style == "include").ToList().Count > 0)
-                            {
-                                rootIndices.Add(i);
-                                if (!graph.HeightInit) graph.nodes[i].height = 2;
-                                // Debug.Log(graph.nodes[i].label);
-                            }
-                            else
-                            {
-                                graph.nodes[i].height = -1;
-                            }
-                        }
-                        //    maxConnections = Mathf.Max(graph.nodes[i].connectedNodes.Count, maxConnections);
-
-                    }
-
-                    //   Debug.Log(rootIndices.Count + " root nodes");
-                    //  rootIndices = rootIndices.GetRange(0, Mathf.Min(rootIndices.Count,200));
-                    // if (rootIndices.Count > 200) continue;
-
-                    if (graph.HeightInit)
-                    {
-
-                        for (int i = 0; i < rootIndices.Count; i++)
-                        {
-
-                            float curHeight = 1;
-                            Stack<int> nodeIndexStack = new Stack<int>();
-                            nodeIndexStack.Push(rootIndices[i]);
-                            Stack<float> heightStack = new Stack<float>();
-                            heightStack.Push(curHeight);
-
-                            // visited[rootIndices[i]] = true;
-
-                            while (nodeIndexStack.Count > 0)
-                            {
-                                int curIndex = nodeIndexStack.Pop();
-                                //  visited[curIndex] = true;
-                                curHeight = heightStack.Pop();
-                              //  maxHeight = Mathf.Max(curHeight, maxHeight);
-                               // minHeight = Mathf.Min(curHeight, minHeight);
-
-                                ReadJSON.MyNode curNode = graph.nodes[curIndex];
-
-                                int childCount;
-                                if (n == 0) childCount = curNode.edgeIndicesIn.Count;
-                                else childCount = curNode.edgeIndicesOut.Count;
-
-                                int edgeIndex;
-
-                                for (int j = 0; j < childCount; j++)
+                                //not included -> root --> lowest
+                                // if (graph.nodes[i].edgeIndicesOut.Count == 1&&graph.nodes[i].edgeIndicesOut[0]==graph.nodes[i].nr)
+                                if (graph.nodes[i].edgeIndicesOut.Where(idx => graph.edges[idx].style == "include").ToList().Count == 0
+                                    && graph.nodes[i].edgeIndicesIn.Where(idx => graph.edges[idx].style == "include").ToList().Count > 0)
                                 {
-                                    if (n == 0)
-                                        edgeIndex = curNode.edgeIndicesIn[j];
-                                    else
-                                        edgeIndex = curNode.edgeIndicesOut[j];
-                                    // Debug.Log(graph.edges[edgeIndex].style);
-                                    if (graph.edges[edgeIndex].style != "include") continue;
 
-                                    int childNodeIndex;
-                                    if (n == 0)
-                                    {
-                                        childNodeIndex = graph.nodeDict[graph.edges[curNode.edgeIndicesIn[j]].from];
-                                        // graph.nodes[childNodeIndex].height -=curHeight;
-                                        if (graph.nodes[childNodeIndex].weight < curHeight)
-                                            graph.nodes[childNodeIndex].weight = curHeight;// Mathf.Max(curHeight, graph.nodes[childNodeIndex].weight);//+= curHeight;
-                                        else
-                                        {
-                                            continue;
-
-                                        }
-
-
-
-                                    }
-                                    else
-                                    {
-                                        childNodeIndex = graph.nodeDict[graph.edges[curNode.edgeIndicesOut[j]].to];
-                                        if (graph.nodes[childNodeIndex].height < curHeight)
-                                            graph.nodes[childNodeIndex].height = curHeight;//Mathf.Max(curHeight, graph.nodes[childNodeIndex].height);//+= curHeight;
-                                        else
-                                            continue;
-                                    }
-
-                                    nodeIndexStack.Push(childNodeIndex);
-                                    if (n == 0) heightStack.Push(curHeight + curNode.inWeights[j]);
-                                    else heightStack.Push(curHeight + curNode.outWeights[j]);
-
+                                    rootIndices.Add(i);
+                                    if (!graph.HeightInit) graph.nodes[i].weight = -2;
+                                    // Debug.Log(graph.nodes[i].label);
+                                }
+                                else
+                                {
+                                    graph.nodes[i].weight = -1;
                                 }
 
                             }
+                            else
+                            {
+
+                                // if (graph.nodes[i].edgeIndicesIn.Count == 0) rootIndices.Add(i);
+                                if (graph.nodes[i].edgeIndicesIn.Where(idx => graph.edges[idx].style == "include").ToList().Count == 0
+                                 && graph.nodes[i].edgeIndicesOut.Where(idx => graph.edges[idx].style == "include").ToList().Count > 0)
+                                {
+                                    rootIndices.Add(i);
+                                    if (!graph.HeightInit) graph.nodes[i].height = 2;
+                                    // Debug.Log(graph.nodes[i].label);
+                                }
+                                else
+                                {
+                                    graph.nodes[i].height = -1;
+                                }
+                            }
+                            //    maxConnections = Mathf.Max(graph.nodes[i].connectedNodes.Count, maxConnections);
+
+                        }
+
+
+
+                        //   Debug.Log(rootIndices.Count + " root nodes");
+                        //  rootIndices = rootIndices.GetRange(0, Mathf.Min(rootIndices.Count,200));
+                        // if (rootIndices.Count > 200) continue;
+
+                        if (graph.HeightInit)
+                        {
+
+                            for (int i = 0; i < rootIndices.Count; i++)
+                            {
+
+                                float curHeight = 1;
+                                Stack<int> nodeIndexStack = new Stack<int>();
+                                nodeIndexStack.Push(rootIndices[i]);
+                                Stack<float> heightStack = new Stack<float>();
+                                heightStack.Push(curHeight);
+
+                                // visited[rootIndices[i]] = true;
+
+                                while (nodeIndexStack.Count > 0)
+                                {
+                                    int curIndex = nodeIndexStack.Pop();
+                                    //  visited[curIndex] = true;
+                                    curHeight = heightStack.Pop();
+                                    //  maxHeight = Mathf.Max(curHeight, maxHeight);
+                                    // minHeight = Mathf.Min(curHeight, minHeight);
+
+                                    ReadJSON.MyNode curNode = graph.nodes[curIndex];
+
+                                    int childCount;
+                                    if (n == 0) childCount = curNode.edgeIndicesIn.Count;
+                                    else childCount = curNode.edgeIndicesOut.Count;
+
+                                    int edgeIndex;
+
+                                    for (int j = 0; j < childCount; j++)
+                                    {
+                                        if (n == 0)
+                                            edgeIndex = curNode.edgeIndicesIn[j];
+                                        else
+                                            edgeIndex = curNode.edgeIndicesOut[j];
+                                        // Debug.Log(graph.edges[edgeIndex].style);
+                                        if (graph.edges[edgeIndex].style != "include") continue;
+
+                                        int childNodeIndex;
+                                        if (n == 0)
+                                        {
+                                            childNodeIndex = graph.nodeDict[graph.edges[curNode.edgeIndicesIn[j]].from];
+                                            // graph.nodes[childNodeIndex].height -=curHeight;
+                                            if (graph.nodes[childNodeIndex].weight < curHeight)
+                                                graph.nodes[childNodeIndex].weight = curHeight;// Mathf.Max(curHeight, graph.nodes[childNodeIndex].weight);//+= curHeight;
+                                            else
+                                            {
+                                                continue;
+
+                                            }
+
+
+
+                                        }
+                                        else
+                                        {
+                                            childNodeIndex = graph.nodeDict[graph.edges[curNode.edgeIndicesOut[j]].to];
+                                            if (graph.nodes[childNodeIndex].height < curHeight)
+                                                graph.nodes[childNodeIndex].height = curHeight;//Mathf.Max(curHeight, graph.nodes[childNodeIndex].height);//+= curHeight;
+                                            else
+                                                continue;
+                                        }
+
+                                        nodeIndexStack.Push(childNodeIndex);
+                                        if (n == 0) heightStack.Push(curHeight + curNode.inWeights[j]);
+                                        else heightStack.Push(curHeight + curNode.outWeights[j]);
+
+                                    }
+
+                                }
+                            }
                         }
                     }
-
                     // sliceWidth = 0.2f;
                     // sliceWidth = Mathf.Max(0.1f, 5.0f * maxHeight / Mathf.Sqrt(graph.nodes.Count));
 
@@ -526,7 +545,7 @@ namespace TGraph
                                     
                 kVal =Mathf.Max(Mathf.Min((graph.nodes.Count * 4 + graph.edges.Count / 2.5f) / 2 * 0.5f * spacingValue / 7.0f, 30), 0.1f);
                 //kVal = Mathf.Log(kVal);
-               //kVal = 1f;
+                kVal = 1f;
                 kSquared = kVal * kVal;
 
                 
@@ -625,7 +644,7 @@ namespace TGraph
                             var diffVec = upos - n.pos;
                             var lD = Mathf.Max(0, diffVec.magnitude - diameter) + epsilon;
                             var aF = (lD * lD / kVal);
-                            n.disp += (diffVec / lD) * 0.02f * aF;
+                           // n.disp += (diffVec / lD) * 0.02f * aF;
 
 
 
@@ -643,7 +662,7 @@ namespace TGraph
                                     var repulsiveForce = -(kSquared / lengthDiff);
                                     if (graph.fin>10&&maxDist>0&&lengthDiff > graph.PushLimit * (maxDist+n.range))
                                     {
-                                        repulsiveForce = 0;
+                                      //  repulsiveForce = 0;
                                     //    limit++;
                                     }
 
@@ -657,13 +676,68 @@ namespace TGraph
                             float upDist = float.MaxValue;
                             //negative
                             float downDist = float.MinValue;
+
+                            /*
                             if (graph.WaterMode)
+                            {
+
+                                //nodes with outgoing edges push downward  
+
+                                var before = n.disp.y;
+                                n.disp.y = 0.0f;
+
+                                var hierarchyDisp = float.MinValue;
+
+                                for (var k = 0; k < n.edgeIndicesIn.Count; k++)
+                                {
+                                    if (graph.edges[edgeIndices[k]].style == "include")
+                                    {
+
+                                        var u = graph.nodes[n.connectedNodes[k]];
+                                        {
+                                            var differenceNodesY = u.pos.y - n.pos.y + diameter;
+                                            // upDist = Mathf.Min(upDist, Mathf.Max(epsilon, differenceNodesY));
+
+                                            hierarchyDisp = Mathf.Max(hierarchyDisp, differenceNodesY);
+
+                                        }
+
+
+                                    }
+                                }
+
+                                if (hierarchyDisp != float.MinValue) n.disp.y += kSquared / Mathf.Min(hierarchyDisp, -epsilon);
+
+                                hierarchyDisp = float.MaxValue;
+                                //nodes with incoming edges push upward
+
+                                for (var m = 0; m < n.edgeIndicesOut.Count; m++)
+                                {
+                                    int k = m + n.edgeIndicesIn.Count;
+                                    if (graph.edges[edgeIndices[k]].style == "include")
+                                    {
+
+                                        var u = graph.nodes[n.connectedNodes[k]];
+                                        {
+                                            var differenceNodesY = -(u.pos.y - n.pos.y + diameter);
+
+                                            hierarchyDisp = Mathf.Min(hierarchyDisp, differenceNodesY);
+                                        }
+
+
+                                    }
+                                }
+
+                                if (hierarchyDisp != float.MaxValue) n.disp.y += kSquared / Mathf.Max(hierarchyDisp, epsilon);*/
+
+
+                                if (graph.WaterMode)
                             {
 
                                 //nodes with outgoing edges push upward      
                  
                                 var before = n.disp.y;
-                                n.disp.y *= 0.4f;
+                               // n.disp.y *= 0.4f;
 
                                 var hierarchyDisp = 0.0f;
                         
@@ -674,10 +748,11 @@ namespace TGraph
 
                                         var u = graph.nodes[n.connectedNodes[k]];
                                         {
-                                            var differenceNodesY = u.pos.y - n.pos.y-diameter;
+                                            var differenceNodesY = u.pos.y - n.pos.y;
 
-                                            upDist = Mathf.Min(upDist, Mathf.Max(epsilon, differenceNodesY));
-                                          
+                                            //s
+                                            upDist = Mathf.Min(upDist, Mathf.Max(epsilon, differenceNodesY-diameter));
+                                      //      if (epsilon>=differenceNodesY) if (n.id.Contains("_dec") || n.id.Contains("_nat")) Debug.Log(n.id + " " + u.id + " " );
 
                                         }
                                       
@@ -698,8 +773,9 @@ namespace TGraph
 
                                         var u = graph.nodes[n.connectedNodes[k]];
                                         {
-                                            var differenceNodesY = u.pos.y - n.pos.y+diameter;
-                                            downDist = Mathf.Max(downDist, Mathf.Min(-epsilon, differenceNodesY));
+                                            var differenceNodesY = u.pos.y - n.pos.y;
+                                            downDist = Mathf.Max(downDist, Mathf.Min(-epsilon, differenceNodesY+diameter));
+                                          //  if (-epsilon<=differenceNodesY) if (n.id.Contains("_dec") || n.id.Contains("_nat")) Debug.Log(n.id + " " + u.id+" ");
                                         }
 
 
@@ -708,14 +784,24 @@ namespace TGraph
                                 if (downDist != float.MinValue)
                                     hierarchyDisp -= kSquared / downDist;
 
-                                if (Mathf.Sign(n.disp.y) == Mathf.Sign(hierarchyDisp))
+                                    if (Mathf.Sign(n.disp.y) == Mathf.Sign(hierarchyDisp))
+                                     {
+                                          n.disp.y = 0.5f * n.disp.y + 0.5f*hierarchyDisp;
+                                    
+                                     }
+                                     else
+                                     {
+                                         n.disp.y = 0.05f * n.disp.y + 0.95f*hierarchyDisp;
+                                     }
+                                n.disp.y = hierarchyDisp;
+
+                               if (n.id.Contains( "_dec")|| n.id.Contains("_nat"))
                                 {
-                                    n.disp.y = 0.5f * n.disp.y + 0.5f*hierarchyDisp;
+                                   // Debug.Log(n.id +" "+upDist +" "+ downDist);
                                 }
-                                else
-                                {
-                                    n.disp.y = 0.1f * n.disp.y + 0.9f*hierarchyDisp;
-                                }
+
+
+
                               
                             }
 

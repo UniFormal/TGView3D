@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.04344748, g: 0.04184796, b: 0.044882335, a: 1}
+  m_IndirectSpecularColor: {r: 0.04345821, g: 0.041858047, b: 0.044895597, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -144,7 +144,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.000019073486}
   m_SizeDelta: {x: 0, y: 28}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1001 &49963241
@@ -6335,7 +6335,6 @@ MonoBehaviour:
   Percent: {fileID: 1610118665}
   graph:
     nodes: []
-    foundNodes: []
     edges: []
     tmpEdges: []
     subEdges: 
@@ -6362,9 +6361,10 @@ MonoBehaviour:
   grabbable: {fileID: 149070, guid: ceed2905feb0b114582b3ee7989983ea, type: 2}
   onlyInclude: 0
   EventSystem: {fileID: 869398359}
+  recursive: 0
   globalWeight: 0.2
-  iterations: 100
-  spaceScale: 1
+  iterations: 300
+  spaceScale: 2
   UrlSelect: {fileID: 221538338}
   time: 0
   url: 
@@ -10794,7 +10794,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 992251400}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.8133334
+  m_Size: 0.81333333
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
