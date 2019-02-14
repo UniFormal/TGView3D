@@ -40,7 +40,8 @@ public class CSVReader
         TextAsset data = Resources.Load(file) as TextAsset;
         if(data== null) return null;
 
-        var lines = Regex.Split(data.text, LINE_SPLIT_RE);
+
+        var lines = Regex.Split(data.text.Replace("|", ","), LINE_SPLIT_RE);
       //  Debug.Log("lines found: "+lines.Length);
 
         if (lines.Length <= 1) return list;
@@ -53,9 +54,16 @@ public class CSVReader
         for (var i = 1; i < lines.Length; i++)
         {
             var values = Regex.Split(lines[i], SPLIT_RE);
-           // Debug.Log("values length: " + values.Length);
+            // Debug.Log("values length: " + values.Length);
             if (values.Length == 0 || values[0] == "") continue;
             var entry = new List<string>();// new Dictionary<string, object>();
+                                           // if (values[0] == "oo") break;
+            if (values[0] == "od")
+            {
+                var tmp = values[1];
+                values[2] = values[1];
+                values[1] = tmp;
+            }
             for (var j = 0; j < header.Length && j < values.Length; j++)
             {
                 string value = values[j];
@@ -123,7 +131,8 @@ public class CSVReader
             // if (k > 5000) break;
            
         }
-       // File.WriteAllText(Application.dataPath + "/stdlib_objects.csv", part);
+        // File.WriteAllText(Application.dataPath + "/stdlib_objects.csv", part);
+        if (list.Count == 0) Debug.LogError("bad list");
         return list;
     }
 }
@@ -166,6 +175,33 @@ namespace TGraph
 
     }
 
+    [System.Serializable]
+    public class SimpleGraph
+    {
+        public List<SimpleNode> nodes;
+        public List<SimpleEdge> edges;
+        public static SimpleGraph CreateFromJSON(string jsonString)
+        {
+            return JsonUtility.FromJson<SimpleGraph>(jsonString);
+        }
+
+    }
+    [System.Serializable]
+    public class SimpleNode
+    {
+
+        public string id;
+        public string label;
+
+    }
+    [System.Serializable]
+    public class SimpleEdge
+    {
+        public string style;
+        public string from;
+        public string to;
+    }
+
     public class ReadJSON : MonoBehaviour
     {
         public GameObject Percent;
@@ -181,7 +217,7 @@ namespace TGraph
         //private MeshRenderer mr;
         // private GameObject TextPrefab;
         public float globalWeight;
- 
+
         public int iterations = 25;
         public float spaceScale = 1;
         public GameObject UrlSelect;
@@ -190,7 +226,7 @@ namespace TGraph
         public string url;//http://neuralocean.de/graph/test/nasa.json";
         public int vol = 100;
         public TextAsset[] GraphFiles;
-        private static string LayoutFile="";
+        private static string LayoutFile = "";
         public static Dictionary<string, Vector3> nodePosDict;
         SVGCollection svgCol;
         public TextAsset SVGFile;
@@ -216,7 +252,7 @@ namespace TGraph
             public List<MyEdge> tmpEdges;
             public List<int> subEdges;
             public int handIndex = 0;
- 
+
             //use object references instead?
             public List<int> selectedNodes;
             public List<int> movingNodes;
@@ -234,8 +270,8 @@ namespace TGraph
             public bool HeightInit = false;
             public bool UseConstraint = false;
             public bool RandomInit = false;
-            public float PushLimit = 2.0f;
-            
+            public float PushLimit = 2f;
+
 
             //public List<int> removeList;
             public Dictionary<string, Color> colorDict;
@@ -247,7 +283,11 @@ namespace TGraph
 
 
         }
-        [System.Serializable]
+
+
+
+
+
         public class MyNode
         {
             public float radius = 0;
@@ -264,11 +304,12 @@ namespace TGraph
             public float range = float.MaxValue;
             public int ClusterId = -1;
             public bool generated;
+            public bool visited = false;
             //use object references instead?
             public List<int> edgeIndicesOut = new List<int>();
             public List<int> edgeIndicesIn = new List<int>();
             public List<int> connectedNodes = new List<int>();
-
+            public List<NE> targets = new List<NE>();
 
             public List<float> weights = new List<float>();
             public List<float> inWeights = new List<float>();
@@ -305,6 +346,11 @@ namespace TGraph
 
 
         }
+
+
+
+
+
         /*
         [System.Serializable]
         private class MyNestedObject
@@ -313,11 +359,17 @@ namespace TGraph
             public string nestedVariable2;
         }
         */
+        public class NE
+        {
+            public MyNode node;
+            public MyEdge edge;
+
+        }
 
 
         List<int> countNodesInGraph = new List<int>();
 
-     
+
 
 
         void identifySubgraphs()
@@ -326,12 +378,12 @@ namespace TGraph
             Debug.Log("Identify Subgraphs... for node count of " + graph.nodes.Count);
             for (var i = 0; i < graph.nodes.Count; i++)
             {
-               /* if (graph.nodes[i].connectedNodes.Count == 0)
-                {
-                    graph.nodes.RemoveAt(i);
-                    Debug.Log("delete " + i);
-                    i--;
-                }*/
+                /* if (graph.nodes[i].connectedNodes.Count == 0)
+                 {
+                     graph.nodes.RemoveAt(i);
+                     Debug.Log("delete " + i);
+                     i--;
+                 }*/
             }
             for (var i = 0; i < graph.nodes.Count; i++)
             {
@@ -382,11 +434,11 @@ namespace TGraph
                 }
             }
             Debug.Log("subgraphs found: " + (graphNumber - 1));
-          //  foreach (var n in countNodesInGraph) Debug.Log(n+"nodes in Subgraph");
+            //  foreach (var n in countNodesInGraph) Debug.Log(n+"nodes in Subgraph");
 
         }
 
-      
+
 
 
         public void CalculateSubgraph()
@@ -395,7 +447,7 @@ namespace TGraph
 
 
             Debug.Log(graph.nodes.Count + " looking for " + graph.latestSelection);
-            if (graph.latestSelection >= graph.nodes.Count||graph.latestSelection==-1)
+            if (graph.latestSelection >= graph.nodes.Count || graph.latestSelection == -1)
                 return;
 
             if (FoundNodes.Count == 0) FoundNodes.Add(graph.nodes[graph.latestSelection]);
@@ -403,21 +455,21 @@ namespace TGraph
             foreach (var node in FoundNodes)
             {
 
- 
+
 
                 //var node = graph.nodes[graph.latestSelection];
 
-             /*   //deactivate
-                if (graph.subGraphOrign == graph.latestSelection)
-                {
-                    GameObject.Destroy(graph.subObject);
-                    GameObject.Destroy(node.nodeObject.transform.GetChild(1).gameObject);
+                /*   //deactivate
+                   if (graph.subGraphOrign == graph.latestSelection)
+                   {
+                       GameObject.Destroy(graph.subObject);
+                       GameObject.Destroy(node.nodeObject.transform.GetChild(1).gameObject);
 
-                    graph.subGraphOrign = -1;
-                    graph.edgeObject.SetActive(true);
-                }
-                //build
-                else*/
+                       graph.subGraphOrign = -1;
+                       graph.edgeObject.SetActive(true);
+                   }
+                   //build
+                   else*/
                 {
                     /*
                     if (graph.subObject != null)
@@ -573,26 +625,26 @@ namespace TGraph
         }*/
         public static void createEdge(List<ReadJSON.MyEdge> edges, int i, Vector3[] vertices, Vector3 sourcePos, Vector3 targetPos, Vector3 offset, Vector3 offsetOrtho)
         {
-            Vector3 next = 7 * (Quaternion.AngleAxis(360 * edges[i].localIdx, targetPos-sourcePos) * offset);
+            Vector3 next = 7 * (Quaternion.AngleAxis(360 * edges[i].localIdx, targetPos - sourcePos) * offset);
             if (edges[i].localIdx <= 0) next *= 0;
-            createStraightEdge(i, vertices, sourcePos+next, targetPos+next, offset, offsetOrtho);
+            createStraightEdge(i, vertices, sourcePos + next, targetPos + next, offset, offsetOrtho);
 
         }
 
 
-        
+
         public static Color GenerateTargetColor(Color color)
         {
-           
+
             if (IsMPD) return new Color(0, 100, 0);
-            return color / 40/3;
+            return color / 40 / 3;
         }
 
         public static Color GenerateOriginColor(Color color)
         {
-          
+
             if (IsMPD) return new Color(0, 100, 0);
-            return (new Color(255, 255, 255) + color * 3) / 4/4;
+            return (new Color(255, 255, 255) + color * 3) / 4 / 4;
         }
 
         public static GameObject BuildEdges(List<MyEdge> edges, ref MyGraph graph, Material lineMat)
@@ -632,7 +684,7 @@ namespace TGraph
             MeshRenderer mr = line.AddComponent<MeshRenderer>();
             MeshFilter mf = line.AddComponent<MeshFilter>();
             Mesh mesh = new Mesh();
-          //  Debug.Log(triangles.Length);
+            //  Debug.Log(triangles.Length);
 
 
             for (int i = 0; i < edges.Count; i++)
@@ -657,7 +709,7 @@ namespace TGraph
 
 
                     //Debug.Log(edges[i].style);
-                    vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = GenerateOriginColor(graph.colorDict[edges[i].style]) ;
+                    vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = GenerateOriginColor(graph.colorDict[edges[i].style]);
                     vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = GenerateTargetColor(graph.colorDict[edges[i].style]);
 
                     //creates square tubes by setting vertices manually
@@ -668,7 +720,7 @@ namespace TGraph
                     if (edges[i].localIdx > 0)
                         createEdge(graph.edges,i, vertices, source.pos+next, target.pos+next, offset, offsetOrtho);
                     else*/
-                    createEdge(graph.edges,i, vertices, source.pos, target.pos, offset, offsetOrtho);
+                    createEdge(graph.edges, i, vertices, source.pos, target.pos, offset, offsetOrtho);
                     SetTriangles(i, triangles);
 
 
@@ -714,7 +766,7 @@ namespace TGraph
 
             text.transform.parent = parent;
             text.GetComponent<TextMesh>().text = label;
-            text.transform.localPosition = Vector3.zero + new Vector3(0, -parent.childCount + 1, 5f);
+            text.transform.localPosition = Vector3.zero + new Vector3(0, 0, 1f);
             text.name = label;
 
             return text;
@@ -769,7 +821,7 @@ namespace TGraph
             Vector3 pos = Random.insideUnitSphere * vol;
 
             var node = graph.nodes[graph.nodeDict[name]];
-           // Debug.Log(node.label+" "+name);
+            // Debug.Log(node.label+" "+name);
             node.labelObject = GenLabel(nodeObject.transform, node.label);
             nodeObject.name = node.label;
 
@@ -807,7 +859,7 @@ namespace TGraph
 
 
 
-            if (edge!=null)
+            if (edge != null)
             {
                 //Add Nodes that are not already present in orginal data
                 //TODO: use label of id
@@ -817,11 +869,11 @@ namespace TGraph
                 tmp.nr = graph.nodes.Count;
                 tmp.generated = true;
                 tmp.radius = edge.targetCount * 10;
-          //      Debug.Log(tmp.radius);
+                //      Debug.Log(tmp.radius);
                 graph.nodes.Add(tmp);
 
 
-               // Debug.Log(name + "  " + tmp.nr);
+                // Debug.Log(name + "  " + tmp.nr);
             }
             // graph.nodes[id].edgeIndicesIn = new List<int>();
 
@@ -860,9 +912,9 @@ namespace TGraph
             // JsonUtility.ToJson(tmpMathMLs);
 
 
-         
 
-      
+
+
         }
 
 
@@ -906,7 +958,7 @@ namespace TGraph
                         target.inWeights.Add(weight);
                     }
 
-                } 
+                }
             }
 
             foreach (MyNode node in graph.nodes)
@@ -920,8 +972,8 @@ namespace TGraph
                      nodeEdgePairs[i]=new Vector2Int(edgeIndices[i], node.connectedNodes[i]);
                  }*/
 
-         
-                foreach(int eidx in node.edgeIndicesIn)
+
+                foreach (int eidx in node.edgeIndicesIn)
                 {
                     node.connectedNodes.Add(graph.nodeDict[graph.edges[eidx].from]);
                 }
@@ -938,14 +990,14 @@ namespace TGraph
 
                 foreach (var duplicateGroup in duplicates)
                 {
-                   // Debug.Log(node.id+" "+duplicateGroup.Count());
+                    // Debug.Log(node.id+" "+duplicateGroup.Count());
                     int k = 0;
                     foreach (var duplicate in duplicateGroup)
                     {
-                        if(node.nr!=duplicate.Nid&& graph.edges[edgeIndices[duplicate.Index]].localIdx==0)
-                          //  graph.edges[edgeIndices[duplicate.Index]].localIdx =
-                                k++;
-                    
+                        if (node.nr != duplicate.Nid && graph.edges[edgeIndices[duplicate.Index]].localIdx == 0)
+                            //  graph.edges[edgeIndices[duplicate.Index]].localIdx =
+                            k++;
+
                     }
                     float dnum = k;
 
@@ -954,12 +1006,12 @@ namespace TGraph
                     {
                         if (node.nr != duplicate.Nid && graph.edges[edgeIndices[duplicate.Index]].localIdx == 0)
                         {
-                            graph.edges[edgeIndices[duplicate.Index]].localIdx = k++/dnum;
+                            graph.edges[edgeIndices[duplicate.Index]].localIdx = k++ / dnum;
 
-                           
+
                         }
-                       // Debug.Log(node.label +" "+graph.nodes[duplicate.Nid].label + " " + duplicate.Index + " " + graph.edges[edgeIndices[duplicate.Index]].localIdx + " " + graph.edges[edgeIndices[duplicate.Index]].from + " " + graph.edges[edgeIndices[duplicate.Index]].to);
-                       //TODO up here
+                        // Debug.Log(node.label +" "+graph.nodes[duplicate.Nid].label + " " + duplicate.Index + " " + graph.edges[edgeIndices[duplicate.Index]].localIdx + " " + graph.edges[edgeIndices[duplicate.Index]].from + " " + graph.edges[edgeIndices[duplicate.Index]].to);
+                        //TODO up here
 
                     }
                 }
@@ -979,7 +1031,7 @@ namespace TGraph
                         idx++;
                     }
                 }*/
-         
+
             }
 
 
@@ -1009,8 +1061,8 @@ namespace TGraph
         {
 
 
-            if(LayoutFile!="")
-                 GameObject.Find("FileInputField").GetComponent<InputField>().text = LayoutFile;
+            if (LayoutFile != "")
+                GameObject.Find("FileInputField").GetComponent<InputField>().text = LayoutFile;
 
 
             GlobalVariables.Percent = Percent.GetComponent<Text>();
@@ -1027,7 +1079,7 @@ namespace TGraph
 
 
             if (FoundNodes == null) FoundNodes = new List<MyNode>();
- 
+
 
             // Debug.Log(url);
             //float time = Time.realtimeSinceStartup;
@@ -1039,12 +1091,12 @@ namespace TGraph
                    //"/smglom_archive.json"
                    ;
         */ // if(UrlSelect.GetComponent<Dropdown>().value != GlobalVariables.SelectionIndex)
-             //   UrlSelect.GetComponent<Dropdown>().value = GlobalVariables.SelectionIndex;
+           //   UrlSelect.GetComponent<Dropdown>().value = GlobalVariables.SelectionIndex;
             Debug.Log(GlobalVariables.SelectionIndex + " found as index after start");
             //  GlobalVariables.Url = "file:///" + Application.dataPath + "/" + UrlSelect.GetComponent<Dropdown>().captionText.text + ".json";
 
 
-            if(IsCoq) LoadCoqGraph();
+            if (IsCoq) LoadCoqGraph();
 
             else if (GlobalVariables.SelectionIndex == GraphFiles.Length - 1)
             {
@@ -1056,7 +1108,7 @@ namespace TGraph
                 IsMPD = false;
             }
 
-            if (GlobalVariables.Reload&&!GlobalVariables.Init) LoadGraph();
+            if (GlobalVariables.Reload && !GlobalVariables.Init) LoadGraph();
 
 
 #if UNITY_WEBGL
@@ -1067,9 +1119,9 @@ namespace TGraph
                 GlobalVariables.Url = "https://mmt.mathhub.info/:jgraph/json?" + Application.absoluteURL.Split("?"[0])[1];
                 Debug.Log("genereted url: "+GlobalVariables.Url);
             }
-#endif      
+#endif
 
-           // GlobalVariables.Url = "mmt.mathhub.info/:jgraph/json" + "?key=archivegraph&uri=MitM/smglom%20MitM/Foundation%20MMT/LFX";
+            // GlobalVariables.Url = "mmt.mathhub.info/:jgraph/json" + "?key=archivegraph&uri=MitM/smglom%20MitM/Foundation%20MMT/LFX";
 
         }
 
@@ -1079,7 +1131,7 @@ namespace TGraph
             int n = 0;
             List<string> tmpOrigins = new List<string>();
 
-           // FoundNodes.Add(graph.nodes[761]);
+            // FoundNodes.Add(graph.nodes[761]);
 
             foreach (var node in FoundNodes)
             {
@@ -1089,7 +1141,7 @@ namespace TGraph
                 Debug.Log("load" + dirFile);
                 var data = CSVReader.Read(dirFile);
                 if (data == null) continue;
-               
+
 
                 string last = "";
 
@@ -1115,7 +1167,7 @@ namespace TGraph
                         diredge.from = dir;
                         graph.edges.Add(diredge);
                         last = val[1];
-                      
+
                     }
                     cCount++;
                     //oo edges
@@ -1134,7 +1186,7 @@ namespace TGraph
                     if (n > 2000) return;
                     */
 
-               
+
 
                 }
 
@@ -1165,6 +1217,47 @@ namespace TGraph
             }
 
         }
+
+        public void SpawnNodesEarly(List<string> val, MyEdge edge)
+        {
+
+            
+            MyNode origin  = graph.nodes.Find(x => x.id == val[1]);
+            if (origin == null)
+            {
+                origin = new MyNode();
+                origin.style = "gen";
+                origin.generated = true;
+                origin.id = val[2];
+                string[] parts = val[2].Split('/');
+                origin.label = parts[parts.Length - 1];
+                // origin.label = val[1];
+                graph.nodes.Add(origin);
+            }
+
+            MyNode node = graph.nodes.Find(x => x.id == val[2]);
+            if (node == null)
+            {
+                node = new MyNode();
+                node.style = "gen";
+                node.generated = true;
+                node.id = val[2];
+                string[] parts = val[2].Split('/');
+                node.label = parts[parts.Length - 1];
+                // node.label = val[1];
+                graph.nodes.Add(node);
+            }
+            var ne = new NE()
+            {
+                node = node,
+                edge = edge
+
+            };
+
+            origin.targets.Add(ne);
+            
+        }
+
         public void LoadCoq()
         {
             Debug.Log("num nodes found: " + FoundNodes.Count);
@@ -1206,43 +1299,28 @@ namespace TGraph
                                 graph.edges.Add(edge);
                             }*/
                 }
-                else if (val[0] == "dd"||val[0]=="od")
-                {
-                    var edge = new MyEdge();
-                    edge.style = "include";// val[0];
-                    edge.from = val[1];
-                    edge.to = val[2];
-
-                    if (!graph.edges.Any(x => x.from == edge.from&& x.to == edge.to))
-                    {
-                        graph.edges.Add(edge);
-                        n++;
-                    }
-
-
-                }
-                else if (val[0] == "ii"&&val[2]!= "cic:")
-                {
-                    
-                    var edge = new MyEdge();
-                    edge.style = "include";// val[0];
-                    edge.from = val[1];
-                    edge.to = val[2];
-
-                    
-
-                    if (edge.from!=edge.to&&!graph.edges.Any(x => x.from == edge.from && x.to == edge.to))
-                    {
-                        graph.edges.Add(edge);
-                        n++;
-                    }
-
-                   // if (n > 300) break;
-                }
                 else
                 {
-                    continue;
+                    if (val[0]=="ii"&&val[2] == "cic:") continue;
+                    var edge = new MyEdge();
+                    edge.style = "include";// val[0];
+                    edge.from = val[1];
+                    edge.to = val[2];
+
+
+
+                    if (!edge.from.Contains(edge.to)&&edge.from != edge.to && !graph.edges.Any(x => x.from == edge.from && x.to == edge.to))
+                    {
+                        graph.edges.Add(edge);
+                        SpawnNodesEarly(val, edge);
+                        n++;
+                    }
+
+                    // if (n > 300) break;
                 }
+        
+ 
+              
 
                 /*   else if (val[0] == "od")
                    {
@@ -1257,31 +1335,180 @@ namespace TGraph
 
         public void LoadCoqGraph()
         {
+            Debug.Log("load coq graph");
             graph = new MyGraph();
             graph.nodes = new List<MyNode>();
             graph.edges = new List<MyEdge>();
 
-            //LoadCSV("fingroup");
-             LoadCSV("core");
-            LoadCSV("cut");
-     
+            float st = Time.realtimeSinceStartup;
+            var curstring = //"exportSG";
+            // "fingroup";
+            "extlib";
+            bool load = false;
+            load = true;
+            if (load)
+            {
+                LoadCSV(curstring);
 
-            LoadCoqDirectory();
-            //LoadCoqDirectory("N");
-            //LoadCoqDirectory("BinNat");
+                Debug.Log("searchcrap " + (Time.realtimeSinceStartup - st));
+                // LoadCSV("core");
+                // LoadCSV("cut");
+
+                // LoadCoqDirectory();
+                //LoadCoqDirectory("N");
+                //LoadCoqDirectory("BinNat");
+                //
+                GlobalVariables.Graph = graph;
+                TransitiveReduction(); 
+
+           // SimpleExport(curstring);
+            }else
+
+            SimpleImport(curstring);
 
 
 
-
-            GlobalVariables.Graph = graph;
-            string json =JsonUtility.ToJson(graph);
-            File.WriteAllText(Application.dataPath + "/export.json", json);
-
+       
             InitGraph();
 
             
         }
 
+        public void TransitiveReduction()
+        {
+            int r = 0;
+            int l = 0;
+            foreach (var node in graph.nodes)
+            {
+                for (int n = 0; n < graph.nodes.Count; n++)
+                {
+                    graph.nodes[n].visited = false;
+                }
+
+
+                var targets = new List<NE>();
+                var subs = new List<NE>();
+                node.visited = true;
+                foreach (var ne in node.targets)
+                {
+                    targets.Add(ne);
+                    subs.Add(ne);
+
+                }
+                for (int i = 0; i < subs.Count; ++i)
+                {
+                    l++;
+                    //  if (l > 10000) break;
+                    if (targets.Count == 0) break;
+
+                    for (int o = 0; o < subs[i].node.targets.Count; ++o)
+                    {
+                        var subTarget = subs[i].node.targets[o];
+                        if (subTarget.edge.style != "include") continue;
+
+                        if (!subTarget.node.visited)
+                        {
+                            subTarget.node.visited = true;
+                            for (int j = 0; j < targets.Count; ++j)
+                            {
+                                var t = targets[j];
+                                if (subTarget.node == t.node)
+                                {
+                                    graph.edges.Remove(t.edge);
+                                    targets.Remove(t);
+                                  //  Debug.Log(t.edge.from+" "+t.edge.to+" "+subTarget.edge.from+" "+subTarget.edge.to);
+                                    r++;
+                                }
+                            }
+                            subs.Add(subTarget);
+                        }
+
+                    }
+
+                }
+            }
+            Debug.Log(l + ", #removed: " + r);
+        }
+
+        public void SimpleImport(string s)
+        {
+            StreamReader reader = new StreamReader(Application.dataPath + "/"+s+".json");
+            var text = reader.ReadToEnd();
+            SimpleGraph sG = SimpleGraph.CreateFromJSON(text);
+
+            Debug.Log(sG.edges.Count);
+            var MyNodes = new List<MyNode>();
+            var MyEdges = new List<MyEdge>();
+            foreach (var node in sG.nodes)
+            {
+                var MyNode = new MyNode
+                {
+                    id = node.id,
+                    label = node.label
+                
+                };
+                MyNodes.Add(MyNode);
+            }
+            int e = 0;
+            foreach (var edge in sG.edges)
+            {
+                var MyEdge = new MyEdge
+                {
+                    from = edge.from,
+                    to = edge.to,
+                        style = "include"
+                };
+                MyEdges.Add(MyEdge);
+                e++;
+                if (e > 5000) break;
+            }
+
+            var MyGraph = new MyGraph
+            {
+                nodes = MyNodes,
+                edges = MyEdges
+
+            };
+            GlobalVariables.Graph = MyGraph;
+
+
+        }
+
+        public void SimpleExport(string s)
+        {
+            var simpleNodes = new List<SimpleNode>();
+            var simpleEdges = new List<SimpleEdge>();
+            foreach (var node in graph.nodes)
+            {
+                var simpleNode = new SimpleNode
+                {
+                    id = node.id,
+                    label = node.label
+                };
+                simpleNodes.Add(simpleNode);
+            }
+            foreach (var edge in graph.edges)
+            {
+                var simpleEdge = new SimpleEdge
+                {
+                    from = edge.from,
+                    to = edge.to
+
+                };
+                simpleEdges.Add(simpleEdge);
+            }
+
+            var simpleGraph = new SimpleGraph
+            {
+                nodes = simpleNodes,
+                edges = simpleEdges
+
+            };
+
+
+            string json = JsonUtility.ToJson(simpleGraph);
+            File.WriteAllText(Application.dataPath + "/"+s+".json", json);
+        }
 
 
         public void CreateMathObject(int i)
@@ -1554,7 +1781,7 @@ namespace TGraph
             .Select(group => group.First()).ToList();
             GlobalVariables.Vol = vol;
 
-            Debug.Log("nodes edges+" + graph.nodes.Count + " " + graph.edges.Count);
+            Debug.Log("nodes edges" + graph.nodes.Count + " " + graph.edges.Count);
 
 
             graph.movingNodes = new List<int>();
@@ -1576,12 +1803,15 @@ namespace TGraph
             ProcessNodes();
             ProcessEdges();
 
+            identifySubgraphs();
+
             if (IsCoq)
             {
+                /*
                 if (recursive)
                 {
                     List<List<string>> sizes = CSVReader.Read("sizes");
-                    
+
                     foreach (var size in sizes)
                     {
                         if (!graph.nodeDict.ContainsKey(size[1])) break;
@@ -1596,39 +1826,36 @@ namespace TGraph
                         node.radius += CSVReader.GetLineNumber(node.label);
                     }
                 }
-            }
-        
+          
+
+                float maxSize = -1f;
+                foreach (var node in graph.nodes)
+                {
+                    maxSize = Mathf.Max(maxSize, node.radius);
+                }
+
+                Material loadedMat = new Material(mat);
+                loadedMat.color = Color.red;
 
 
+            
+                foreach (var node in graph.nodes)
+                {
+                    node.radius = 10*
+                    //Mathf.Sqrt
+                        (node.radius / (maxSize+1));
+                    node.nodeObject.transform.localScale *= 2*spaceScale*(1+node.radius);
+                    if(node.generated)
+                        node.nodeObject.GetComponent<MeshRenderer>().sharedMaterial = loadedMat;
 
-
-            identifySubgraphs();
-
-            float maxSize = -1f;
-            foreach (var node in graph.nodes)
-            {
-                maxSize = Mathf.Max(maxSize, node.radius);
-            }
-
-            Material loadedMat = new Material(mat);
-            loadedMat.color = Color.red;
-
-
-
-            foreach (var node in graph.nodes)
-            {
-                node.radius = 10*//Mathf.Sqrt
-                    (node.radius / (maxSize+1));
-                node.nodeObject.transform.localScale *= (1+node.radius);
-                if(node.generated)
-                    node.nodeObject.GetComponent<MeshRenderer>().sharedMaterial = loadedMat;
+                }*/
             }
 
             //graph.Disps = new NativeArray<Vector3>(graph.nodes.Count,Allocator.Persistent);
             //graph.Positions = new NativeArray<Vector3>(graph.nodes.Count, Allocator.Persistent);
 
 
-  
+
 
 
             Debug.Log("prep time " + (Time.realtimeSinceStartup - time));
@@ -1636,7 +1863,7 @@ namespace TGraph
             StartCoroutine(FinishInit());
         }
 
-        //TODO: change
+    
         IEnumerator ProcessJSON(WWW www, int type = 0)
         {
            
@@ -1665,7 +1892,8 @@ namespace TGraph
                 Debug.Log(www.error);
             }
            
-            GlobalVariables.Graph = MyGraph.CreateFromJSON(json);
+            GlobalVariables.Graph = ReadJSON.MyGraph.CreateFromJSON(json);
+            Debug.Log(GlobalVariables.Graph.nodes.Count);
 
             if (type == 1)
             {

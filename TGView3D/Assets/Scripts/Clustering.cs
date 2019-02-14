@@ -33,18 +33,21 @@ namespace TGraph
 
             var nodestack = new Stack<ReadJSON.MyNode>();
 
-
+            List<int> clusterSizes = new List<int>();
             int clusterId = 0;
             colors.Add(Random.ColorHSV(.0f, 1, .1f, 1, .1f, 1, 1, 1));
             foreach (var startNode in nodes)
             {
+                
                 if (startNode.ClusterId == -1)
                 {
                     nodestack.Push(startNode);
+                    clusterSizes.Add(0);
                     while (nodestack.Count > 0)
                     {
                         var node = nodestack.Pop();
                         node.ClusterId = clusterId;
+                        clusterSizes[clusterId]++;
 
                         foreach (var otherNodeIdx in node.connectedNodes)
                         {
@@ -55,35 +58,50 @@ namespace TGraph
                             }
                         }
                     }
-                    colors.Add(Random.ColorHSV(.0f, 1, .1f, 1, .1f, 1, 1, 1));
+                    colors.Add(Random.ColorHSV(.0f, 1f, .6f, .9f, .6f, .9f, .1f, .2f));
                     clusterId++;
+                    
                 }
             }
             Debug.Log(clusterId+" clusters");
-
+            
             for (int i = 0; i < edges.Count; ++i)
             {
-                if (edges[i].active)
+                if (edges[i].active&&clusterSizes[nodes[GlobalVariables.Graph.nodeDict[edges[i].to]].ClusterId]>2)
                 {
+
                     var col = colors[nodes[GlobalVariables.Graph.nodeDict[edges[i].to]].ClusterId] * 255;
                     col.a = 1;
                    // Debug.Log(col);
-                    vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] =
+                  //  vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] =
                     vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = col;
                 }
-        
+
+                if (edges[i].active && clusterSizes[nodes[GlobalVariables.Graph.nodeDict[edges[i].to]].ClusterId] > 2)
+                {
+
+                    var col = colors[nodes[GlobalVariables.Graph.nodeDict[edges[i].from]].ClusterId] * 255;
+                    col.a = 1;
+                    // Debug.Log(col);
+                      vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = col;
+                }
+
             }
             mesh.colors = vertexColors;
+            
 
 
 
-
-
+            
             foreach(var node in nodes)
             {
-                var col = colors[node.ClusterId];
+                if (clusterSizes[node.ClusterId] > 2) 
+                {
+                    var col = colors[node.ClusterId];
 
-                node.nodeObject.GetComponent<MeshRenderer>().material.color = col;
+                    node.nodeObject.GetComponent<MeshRenderer>().material.color = col;
+                }
+    
             }
 
         }

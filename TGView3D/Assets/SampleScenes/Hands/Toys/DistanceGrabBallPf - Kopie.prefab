@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 3325748}
   - component: {fileID: 13563118}
   - component: {fileID: 2316270}
+  - component: {fileID: 5443760}
   - component: {fileID: 11496178}
   - component: {fileID: 114000010017286678}
   m_Layer: 0
-  m_Name: DistanceGrabBallPf
+  m_Name: DistanceGrabBallPf - Kopie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,6 +76,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149070}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &5443760
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149070}
+  serializedVersion: 2
+  m_Mass: 1.77
+  m_Drag: 0.8
+  m_AngularDrag: 0.5
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 2
 --- !u!114 &11496178
 MonoBehaviour:
   m_ObjectHideFlags: 1
