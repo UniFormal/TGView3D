@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.04344748, g: 0.04184796, b: 0.044882335, a: 1}
+  m_IndirectSpecularColor: {r: 0.04345821, g: 0.041858047, b: 0.044895597, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5195,8 +5195,8 @@ Camera:
   m_GameObject: {fileID: 1034633537}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.0188, g: 0.019261539, b: 0.02, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -6334,7 +6334,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Percent: {fileID: 1610118665}
   graph:
-    nodes: []
     edges: []
     tmpEdges: []
     subEdges: 
@@ -6363,8 +6362,8 @@ MonoBehaviour:
   EventSystem: {fileID: 869398359}
   recursive: 0
   globalWeight: 0.2
-  iterations: 100
-  spaceScale: 1.5
+  iterations: 200
+  spaceScale: 1
   UrlSelect: {fileID: 221538338}
   time: 0
   url: 
@@ -10794,7 +10793,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 992251400}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.81333333
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
