@@ -209,49 +209,53 @@ namespace TGraph
                     maxVec = Vector3.Max(nodepos, maxVec);
                     minVec = Vector3.Min(nodepos, minVec);
 
-                    foreach (int edge in node.edgeIndicesIn)
+                    if (graph.WaterMode)
                     {
-
-                        if (graph.edges[edge].style == "include")
+                        foreach (int edge in node.edgeIndicesIn)
                         {
 
-                            d += (nodepos - graph.nodes[graph.nodeDict[graph.edges[edge].from]].nodeObject.transform.position).magnitude;
-                            if (graph.nodes[graph.nodeDict[graph.edges[edge].from]].pos.y < node.pos.y)
+                            if (graph.edges[edge].style == "include")
                             {
-                                //   node.nodeObject.transform.localScale = Vector3.one*.2f;
 
-                                //  node.nodeObject.GetComponent<MeshRenderer>().material.color = Color.red;
+                                d += (nodepos - graph.nodes[graph.nodeDict[graph.edges[edge].from]].nodeObject.transform.position).magnitude;
+                                if (graph.nodes[graph.nodeDict[graph.edges[edge].from]].pos.y < node.pos.y)
+                                {
+                                    //   node.nodeObject.transform.localScale = Vector3.one*.2f;
 
-                                //    Debug.Log(node.id +", height "+node.weight+ " from " + graph.edges[edge].from+ ", height " + graph.nodes[graph.nodeDict[graph.edges[edge].from]].weight);
-                                graph.nodes[graph.nodeDict[graph.edges[edge].from]].nodeObject.GetComponent<MeshRenderer>().sharedMaterial = loadedMat;
-                                node.nodeObject.GetComponent<MeshRenderer>().sharedMaterial = loadedMat;
-                                hv++;
+                                    //  node.nodeObject.GetComponent<MeshRenderer>().material.color = Color.red;
 
+                                    //    Debug.Log(node.id +", height "+node.weight+ " from " + graph.edges[edge].from+ ", height " + graph.nodes[graph.nodeDict[graph.edges[edge].from]].weight);
+                                    graph.nodes[graph.nodeDict[graph.edges[edge].from]].nodeObject.GetComponent<MeshRenderer>().sharedMaterial = loadedMat;
+                                    node.nodeObject.GetComponent<MeshRenderer>().sharedMaterial = loadedMat;
+                                    hv++;
+
+                                }
+                                else
+                                {
+                                    //   node.nodeObject.GetComponent<MeshRenderer>().material.color = Color.cyan;
+                                    //   Debug.Log("Consistent Height");
+                                }
                             }
-                            else
-                            {
-                                //   node.nodeObject.GetComponent<MeshRenderer>().material.color = Color.cyan;
-                                //   Debug.Log("Consistent Height");
-                            }
+
                         }
+                        /*
+                        foreach (int edge in node.edgeIndicesOut)
+                        {
+                            if (graph.edges[edge].style == "include")
+                                if (graph.nodes[graph.nodeDict[graph.edges[edge].to]].pos.y > node.pos.y)
+                                {
+                                    Debug.Log("Height Violation2");
+                                }
+                                else
+                                {
+                                    Debug.Log("Consistent Height2");
+                                }
+                        }*/
+
+
 
                     }
-                    /*
-                    foreach (int edge in node.edgeIndicesOut)
-                    {
-                        if (graph.edges[edge].style == "include")
-                            if (graph.nodes[graph.nodeDict[graph.edges[edge].to]].pos.y > node.pos.y)
-                            {
-                                Debug.Log("Height Violation2");
-                            }
-                            else
-                            {
-                                Debug.Log("Consistent Height2");
-                            }
-                    }*/
-
-
-
+      
                 }
                 var width = (maxVec - minVec).magnitude;
                 Debug.Log(hv + " Height Violations, " + d / graph.nodes.Count + " average edgelength, " + width + " diameter, " + d / graph.nodes.Count / width + " normalized edgeLength");
@@ -686,13 +690,13 @@ namespace TGraph
                             }
                             n.range = maxDist;
 
-                            var upos = Vector3.zero;
+                            var upos = Vector3.one*n.graphNumber*0;
                             var diffVec = upos - n.pos;
                             var lD = Mathf.Max(0, diffVec.magnitude - diameter) + epsilon;
                             var aF = (lD * lD / kVal);
 
                             //if (graph.fin % 5 == 0)
-                            n.disp += (diffVec / lD) * 0.01f * aF;
+                            n.disp += (diffVec / lD) * 0.005f * aF;
 
 
 
@@ -711,7 +715,7 @@ namespace TGraph
                                     var repulsiveForce = -(kSquared / lengthDiff);
                                     if (graph.PushLimit > 0.01f)
                                     {
-                                        if (graph.fin > 20 && maxDist > 0 && lengthDiff > graph.PushLimit * (maxDist + n.range))
+                                        if (n.graphNumber == u.graphNumber&&graph.fin > 20 && maxDist > 0 && lengthDiff > graph.PushLimit * (maxDist + n.range))
                                         {
                                             repulsiveForce = 0;
                                             //    limit++;
@@ -722,6 +726,7 @@ namespace TGraph
                                         }
                                     }
 
+                                    if (n.graphNumber != u.graphNumber) repulsiveForce *= 4;
 
                                     n.disp += (differenceNodes / lengthDiff) * repulsiveForce;
                                 }
@@ -738,7 +743,8 @@ namespace TGraph
 
                             if (graph.WaterMode)
                             {
-
+                                //var plane = new Plane(u.pos - n.pos, u.pos);
+                                //  differenceNodesY = plane.GetDistanceToPoint(n.pos);
                                 //nodes with outgoing edges push upward      
 
                                 var before = n.disp.y;
