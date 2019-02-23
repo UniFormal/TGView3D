@@ -29,7 +29,7 @@ namespace TGraph
             }
             avgDist /= (3*nodes.Count);
 
-            Epsilon = 0.2f * avgDist;
+            Epsilon = 0.15f * avgDist;
 
             var nodestack = new Stack<ReadJSON.MyNode>();
 

@@ -288,16 +288,14 @@ namespace TGraph
 
             public static MyGraph CreateFromJSON(string jsonString)
             {
+
                 return JsonUtility.FromJson<MyGraph>(jsonString);
             }
 
 
         }
 
-
-
-
-
+        [System.Serializable]
         public class MyNode
         {
             public float radius = 0;
@@ -356,8 +354,6 @@ namespace TGraph
 
 
         }
-
-
 
 
 
@@ -460,6 +456,8 @@ namespace TGraph
             if (graph.latestSelection >= graph.nodes.Count || graph.latestSelection == -1)
                 return;
 
+            //remove this for coq
+            FoundNodes.Clear();
             if (FoundNodes.Count == 0) FoundNodes.Add(graph.nodes[graph.latestSelection]);
 
             foreach (var node in FoundNodes)
@@ -469,7 +467,7 @@ namespace TGraph
 
                 //var node = graph.nodes[graph.latestSelection];
 
-                /*   //deactivate
+                  //deactivate
                    if (graph.subGraphOrign == graph.latestSelection)
                    {
                        GameObject.Destroy(graph.subObject);
@@ -479,15 +477,15 @@ namespace TGraph
                        graph.edgeObject.SetActive(true);
                    }
                    //build
-                   else*/
+                   else
                 {
-                    /*
+                    
                     if (graph.subObject != null)
                     {
                         GameObject.Destroy(graph.subObject);
                         //TODO: destroy old object
                         // GameObject.Destroy(node.nodeObject.transform.GetChild(1).gameObject);
-                    }*/
+                    }
 
 
                     graph.edgeObject.SetActive(false);
@@ -1855,6 +1853,12 @@ namespace TGraph
 
             Debug.Log("nodes edges" + graph.nodes.Count + " " + graph.edges.Count);
 
+            foreach(var edge in graph.edges)
+            {
+                var tmp = edge.from;
+                edge.from = edge.to;
+                edge.to = tmp;
+            }
 
             graph.movingNodes = new List<int>();
             graph.selectedNodes = new List<int>();

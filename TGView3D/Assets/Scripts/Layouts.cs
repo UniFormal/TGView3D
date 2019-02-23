@@ -201,11 +201,14 @@ namespace TGraph
                 loadedMat.color = Color.yellow;
                 Vector3 maxVec = Vector3.one * float.MinValue;
                 Vector3 minVec = Vector3.one * float.MaxValue;
-
                 foreach (ReadJSON.MyNode node in graph.nodes)
                 {
                     var nodepos = node.nodeObject.transform.localPosition;
                     node.pos = nodepos;
+                }
+                    foreach (ReadJSON.MyNode node in graph.nodes)
+                {
+                    var nodepos = node.pos;
                     maxVec = Vector3.Max(nodepos, maxVec);
                     minVec = Vector3.Min(nodepos, minVec);
 
@@ -696,7 +699,7 @@ namespace TGraph
                             var aF = (lD * lD / kVal);
 
                             //if (graph.fin % 5 == 0)
-                            n.disp += (diffVec / lD) * 0.005f * aF;
+                            n.disp += (diffVec / lD) * 0.003f * aF;
 
 
 

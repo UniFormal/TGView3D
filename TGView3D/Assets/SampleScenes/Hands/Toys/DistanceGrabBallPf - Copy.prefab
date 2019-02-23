@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 3325748}
   - component: {fileID: 13563118}
   - component: {fileID: 2316270}
-  - component: {fileID: 5443760}
   - component: {fileID: 11496178}
+  - component: {fileID: 5443760}
   - component: {fileID: 114000010017286678}
   m_Layer: 0
-  m_Name: DistanceGrabBallPf
+  m_Name: DistanceGrabBallPf - Copy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

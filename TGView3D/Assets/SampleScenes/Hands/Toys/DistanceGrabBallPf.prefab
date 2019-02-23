@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 13563118}
   - component: {fileID: 2316270}
   - component: {fileID: 11496178}
+  - component: {fileID: 54124199953713036}
+  - component: {fileID: 114992282399912104}
   m_Layer: 0
   m_Name: DistanceGrabBallPf
   m_TagString: Untagged
@@ -156,3 +158,36 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 149070}
   m_IsPrefabAsset: 1
+--- !u!54 &54124199953713036
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149070}
+  serializedVersion: 2
+  m_Mass: 1.77
+  m_Drag: 0.8
+  m_AngularDrag: 0.5
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 2
+--- !u!114 &114992282399912104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bde54dcb87096948a4f258cd458bbc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_allowOffhandGrab: 1
+  m_snapPosition: 1
+  m_snapOrientation: 0
+  m_snapOffset: {fileID: 4000013978610772, guid: f047dd20e0df9884280b988e5592886e,
+    type: 2}
+  m_grabPoints: []
+  m_materialColorField: _OutlineColor
