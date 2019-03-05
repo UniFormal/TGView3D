@@ -557,6 +557,177 @@ namespace TGraph
             }
 
         }
+
+
+        public static void ApplyWaterForceSum(ReadJSON.MyNode n, List<int> edgeIndices, float kSquared)
+        {
+            //calculate hierarchic repulsive forces
+            //positive
+            float upDist = 0;
+            //negative
+            float downDist = 0;
+
+
+
+            //var plane = new Plane(u.pos - n.pos, u.pos);
+            //  differenceNodesY = plane.GetDistanceToPoint(n.pos);
+            //nodes with outgoing edges push upward      
+
+
+            // n.disp.y *= 0.4f;
+            //downDist = upDist = 0.0f;
+
+            var hierarchyDisp = 0f;
+            for (var k = 0; k < n.edgeIndicesIn.Count; k++)
+            {
+                if (graph.edges[edgeIndices[k]].style == "include")
+                {
+
+                    var u = graph.nodes[n.connectedNodes[k]];
+                    {
+                        var differenceNodesY = u.pos.y - n.pos.y;
+                        //s
+                        upDist += kSquared/ Mathf.Max(epsilon, differenceNodesY - diameter);
+                        //      if (epsilon>=differenceNodesY) if (n.id.Contains("_dec") || n.id.Contains("_nat")) Debug.Log(n.id + " " + u.id + " " );
+
+                    }
+
+
+                }
+            }
+
+            //nodes with incoming edges push downward
+
+            for (var m = 0; m < n.edgeIndicesOut.Count; m++)
+            {
+                int k = m + n.edgeIndicesIn.Count;
+                if (graph.edges[edgeIndices[k]].style == "include")
+                {
+
+                    var u = graph.nodes[n.connectedNodes[k]];
+                    {
+                        var differenceNodesY = u.pos.y - n.pos.y;
+                        downDist += kSquared/Mathf.Min(-epsilon, differenceNodesY + diameter);
+                        //  if (-epsilon<=differenceNodesY) if (n.id.Contains("_dec") || n.id.Contains("_nat")) Debug.Log(n.id + " " + u.id+" ");
+                    }
+
+
+                }
+            }
+            hierarchyDisp = (-downDist - upDist);
+            if (Mathf.Sign(n.disp.y) == Mathf.Sign(hierarchyDisp))
+            {
+                n.disp.y = 0.5f * n.disp.y + .1f * hierarchyDisp;
+
+            }
+            else
+            {
+                n.disp.y = 0.1f * n.disp.y + 0.5f * hierarchyDisp;
+            }
+
+
+
+
+            if (n.id.Contains("_dec") || n.id.Contains("_nat"))
+            {
+                // Debug.Log(n.id +" "+upDist +" "+ downDist);
+            }
+
+
+
+            //  if (graph.UseConstraint) n.disp.y = Mathf.Max(downDist, Mathf.Min(n.disp.y, upDist));
+        }
+
+
+        public static void ApplyWaterForce(ReadJSON.MyNode n, List<int> edgeIndices, float kSquared)
+        {
+            //calculate hierarchic repulsive forces
+            //positive
+            float upDist = float.MaxValue;
+            //negative
+            float downDist = float.MinValue;
+
+
+
+            //var plane = new Plane(u.pos - n.pos, u.pos);
+            //  differenceNodesY = plane.GetDistanceToPoint(n.pos);
+            //nodes with outgoing edges push upward      
+
+            var before = n.disp.y;
+            // n.disp.y *= 0.4f;
+            //downDist = upDist = 0.0f;
+            var hierarchyDisp = 0.0f;
+
+            for (var k = 0; k < n.edgeIndicesIn.Count; k++)
+            {
+                if (graph.edges[edgeIndices[k]].style == "include")
+                {
+
+                    var u = graph.nodes[n.connectedNodes[k]];
+                    {
+                        var differenceNodesY = u.pos.y - n.pos.y;
+                        differenceNodesY = Mathf.Pow(Mathf.Abs(differenceNodesY), 1);
+                        //s
+                        upDist = Mathf.Min
+                            (upDist, Mathf.Max(epsilon, differenceNodesY - diameter));
+                        //      if (epsilon>=differenceNodesY) if (n.id.Contains("_dec") || n.id.Contains("_nat")) Debug.Log(n.id + " " + u.id + " " );
+
+                    }
+
+
+                }
+            }
+            if (upDist != float.MaxValue) hierarchyDisp -= kSquared / upDist;
+
+
+            //nodes with incoming edges push downward
+
+            for (var m = 0; m < n.edgeIndicesOut.Count; m++)
+            {
+                int k = m + n.edgeIndicesIn.Count;
+                if (graph.edges[edgeIndices[k]].style == "include")
+                {
+
+                    var u = graph.nodes[n.connectedNodes[k]];
+                    {
+                        var differenceNodesY = u.pos.y - n.pos.y;
+                        differenceNodesY = Mathf.Pow((differenceNodesY), 1);
+                        downDist = Mathf.Max
+                            (downDist, Mathf.Min(-epsilon, differenceNodesY + diameter));
+                        //  if (-epsilon<=differenceNodesY) if (n.id.Contains("_dec") || n.id.Contains("_nat")) Debug.Log(n.id + " " + u.id+" ");
+                    }
+
+
+                }
+            }
+            if (downDist != float.MinValue) hierarchyDisp -= kSquared / downDist;
+            //  hierarchyDisp = downDist + upDist;
+
+            if (hierarchyDisp != 0)
+            {
+
+                if (Mathf.Sign(n.disp.y) == Mathf.Sign(hierarchyDisp))
+                {
+                    n.disp.y = 0.5f * n.disp.y + .1f * hierarchyDisp;
+
+                }
+                else
+                {
+                    n.disp.y = 0.1f * n.disp.y + 0.5f * hierarchyDisp;
+                }
+            }
+
+
+            if (n.id.Contains("_dec") || n.id.Contains("_nat"))
+            {
+                // Debug.Log(n.id +" "+upDist +" "+ downDist);
+            }
+
+
+
+            //  if (graph.UseConstraint) n.disp.y = Mathf.Max(downDist, Mathf.Min(n.disp.y, upDist));
+        }
+
         // Function to calculate forces driven layout
         // ported from Marcel's Javascript versions
         public struct JobTest : IJobParallelFor
@@ -673,7 +844,7 @@ namespace TGraph
                                       if (n.weights[k] <= .9f) attractiveForce *= n.weights[k] * globalWeight;
                                       if (n.weights[k] <= .1f) attractiveForce = 0;
                                   }*/
-                                n.disp += (differenceNodes / lengthDiff) * attractiveForce;
+                                n.disp += (differenceNodes / lengthDiff) *attractiveForce;
 
                                 /*
                                 if (graph.edges[edgeIndices[k]].style == "include")
@@ -723,7 +894,7 @@ namespace TGraph
                                             repulsiveForce = 0;
                                             //    limit++;
                                         }
-                                        else
+                                        else //increase it to even out zeroing
                                         {
                                             repulsiveForce *= 1.2f;
                                         }
@@ -736,96 +907,16 @@ namespace TGraph
                             }
                             //  if (limit > 0) Debug.Log("limit " + limit+ " "+maxDist);
 
-                            //calculate hierarchic repulsive forces
-                            //positive
-                            float upDist = float.MaxValue;
-                            //negative
-                            float downDist = float.MinValue;
+      
 
 
 
                             if (graph.WaterMode)
                             {
-                                //var plane = new Plane(u.pos - n.pos, u.pos);
-                                //  differenceNodesY = plane.GetDistanceToPoint(n.pos);
-                                //nodes with outgoing edges push upward      
-
-                                var before = n.disp.y;
-                                // n.disp.y *= 0.4f;
-                                //downDist = upDist = 0.0f;
-                                var hierarchyDisp = 0.0f;
-
-                                for (var k = 0; k < n.edgeIndicesIn.Count; k++)
-                                {
-                                    if (graph.edges[edgeIndices[k]].style == "include")
-                                    {
-
-                                        var u = graph.nodes[n.connectedNodes[k]];
-                                        {
-                                            var differenceNodesY = u.pos.y - n.pos.y;
-                                            differenceNodesY = Mathf.Pow(Mathf.Abs(differenceNodesY), 1);
-                                            //s
-                                            upDist = Mathf.Min
-                                                (upDist, Mathf.Max(epsilon, differenceNodesY - diameter));
-                                            //      if (epsilon>=differenceNodesY) if (n.id.Contains("_dec") || n.id.Contains("_nat")) Debug.Log(n.id + " " + u.id + " " );
-
-                                        }
-
-
-                                    }
-                                }
-                                if (upDist != float.MaxValue) hierarchyDisp -= kSquared / upDist;
-
-
-                                //nodes with incoming edges push downward
-
-                                for (var m = 0; m < n.edgeIndicesOut.Count; m++)
-                                {
-                                    int k = m + n.edgeIndicesIn.Count;
-                                    if (graph.edges[edgeIndices[k]].style == "include")
-                                    {
-
-                                        var u = graph.nodes[n.connectedNodes[k]];
-                                        {
-                                            var differenceNodesY = u.pos.y - n.pos.y;
-                                            differenceNodesY = Mathf.Pow((differenceNodesY), 1);
-                                            downDist = Mathf.Max
-                                                (downDist, Mathf.Min(-epsilon, differenceNodesY + diameter));
-                                            //  if (-epsilon<=differenceNodesY) if (n.id.Contains("_dec") || n.id.Contains("_nat")) Debug.Log(n.id + " " + u.id+" ");
-                                        }
-
-
-                                    }
-                                }
-                                if (downDist != float.MinValue) hierarchyDisp -= kSquared / downDist;
-                                //  hierarchyDisp = downDist + upDist;
-
-                                if (hierarchyDisp != 0)
-                                {
-
-                                    if (Mathf.Sign(n.disp.y) == Mathf.Sign(hierarchyDisp))
-                                    {
-                                        n.disp.y = 0.5f * n.disp.y + .1f * hierarchyDisp;
-
-                                    }
-                                    else
-                                    {
-                                        n.disp.y = 0.1f * n.disp.y + 0.5f * hierarchyDisp;
-                                    }
-                                }
-
-
-                                if (n.id.Contains("_dec") || n.id.Contains("_nat"))
-                                {
-                                    // Debug.Log(n.id +" "+upDist +" "+ downDist);
-                                }
-
-
-
-                                //  if (graph.UseConstraint) n.disp.y = Mathf.Max(downDist, Mathf.Min(n.disp.y, upDist));
+                                ApplyWaterForceSum(n, edgeIndices, kSquared);
                             }
-                            
-                   
+
+
 
 
                         }

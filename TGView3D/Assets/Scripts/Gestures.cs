@@ -47,20 +47,24 @@ public class Gestures : MonoBehaviour {
         }
         for (int k = 0; k < vertexCount / 8; ++k)
         {
-            Vector3 offset = -.5f * (1 - factor) * (vertexCopies[4 + e] - vertexCopies[0 + e]);
-            Vector3 offsetOrtho = -.5f * (1 - factor) * (vertexCopies[2 + e] - vertexCopies[0 + e]);
+            Vector3 sourcePos = (vertexCopies[4 + e] + vertexCopies[0 + e]) / 2*factor;
+            Vector3 targetPos = (vertexCopies[5 + e] + vertexCopies[1 + e]) / 2*factor;
 
-            vertices[0 + e] = vertexCopies[0 + e] * factor + offset + offsetOrtho;
-            vertices[1 + e] = vertexCopies[1 + e] * factor + offset + offsetOrtho;
+            // Vector3 offset = -.5f * (1 - factor) * (vertexCopies[4 + e] - vertexCopies[0 + e]);
+            Vector3 offset =- (vertexCopies[2 + e] - vertexCopies[0 + e])/2;
+            // Vector3 offsetOrtho = -.5f * (1 - factor) * (vertexCopies[2 + e] - vertexCopies[0 + e]);
+            Vector3 offsetOrtho =  (vertexCopies[6 + e] - vertexCopies[0 + e])/2;
+            vertices[0 + e] = sourcePos + offset + offsetOrtho;
+            vertices[1 + e] = targetPos + offset + offsetOrtho;
 
-            vertices[2 + e] = vertexCopies[2 + e] * factor + offset - offsetOrtho;
-            vertices[3 + e] = vertexCopies[3 + e] * factor + offset - offsetOrtho;
+            vertices[2 + e] = sourcePos + offset - offsetOrtho;
+            vertices[3 + e] = targetPos + offset - offsetOrtho;
 
-            vertices[4 + e] = vertexCopies[4 + e] * factor - offset + offsetOrtho;
-            vertices[5 + e] = vertexCopies[5 + e] * factor - offset + offsetOrtho;
+            vertices[4 + e] = sourcePos - offset - offsetOrtho;
+            vertices[5 + e] = targetPos - offset - offsetOrtho;
 
-            vertices[6 + e] = vertexCopies[6 + e] * factor - offset - offsetOrtho;
-            vertices[7 + e] = vertexCopies[7 + e] * factor - offset - offsetOrtho;
+            vertices[6 + e] = sourcePos - offset + offsetOrtho;
+            vertices[7 + e] = targetPos - offset + offsetOrtho;
 
             e = (e + 8) % vertexCount;
         }
@@ -85,20 +89,25 @@ public class Gestures : MonoBehaviour {
         }
         for (int k = 0; k < vertexCount / 8; ++k)
         {
-            float offset = -.5f * (1 - factor) * (vertexCopies[4 + e][dim] - vertexCopies[0 + e][dim]);
-            float offsetOrtho = -.5f * (1 - factor) * (vertexCopies[2 + e][dim] - vertexCopies[0 + e][dim]);
+            // float offset = -.5f * (1 - factor) * (vertexCopies[2 + e][dim] - vertexCopies[0 + e][dim]);
+            //float offsetOrtho = .5f * (1 - factor) * (vertexCopies[6 + e][dim] - vertexCopies[0 + e][dim]);
+            float sourcePos = (vertexCopies[4 + e][dim] + vertexCopies[0 + e][dim]) / 2 * factor;
+            float targetPos = (vertexCopies[5 + e][dim] + vertexCopies[1 + e][dim]) / 2 * factor;
+            float offset = -(vertexCopies[2 + e][dim] - vertexCopies[0 + e][dim]) / 2;
 
-            vertices[0 + e][dim] = vertexCopies[0 + e][dim] * factor + offset + offsetOrtho;
-            vertices[1 + e][dim] = vertexCopies[1 + e][dim] * factor + offset + offsetOrtho;
+            float offsetOrtho = (vertexCopies[6 + e][dim] - vertexCopies[0 + e][dim]) / 2;
 
-            vertices[2 + e][dim] = vertexCopies[2 + e][dim] * factor + offset - offsetOrtho;
-            vertices[3 + e][dim] = vertexCopies[3 + e][dim] * factor + offset - offsetOrtho;
+            vertices[0 + e][dim] = sourcePos + offset + offsetOrtho;
+            vertices[1 + e][dim] = targetPos  + offset + offsetOrtho;
 
-            vertices[4 + e][dim] = vertexCopies[4 + e][dim] * factor - offset + offsetOrtho;
-            vertices[5 + e][dim] = vertexCopies[5 + e][dim] * factor - offset + offsetOrtho;
+            vertices[2 + e][dim] = sourcePos + offset - offsetOrtho;
+            vertices[3 + e][dim] = targetPos + offset - offsetOrtho;
 
-            vertices[6 + e][dim] = vertexCopies[6 + e][dim] * factor - offset - offsetOrtho;
-            vertices[7 + e][dim] = vertexCopies[7 + e][dim] * factor - offset - offsetOrtho;
+            vertices[4 + e][dim] = sourcePos - offset - offsetOrtho;
+            vertices[5 + e][dim] = targetPos - offset - offsetOrtho;
+
+            vertices[6 + e][dim] = sourcePos - offset + offsetOrtho;
+            vertices[7 + e][dim] = targetPos - offset + offsetOrtho;
 
             e = (e + 8) % vertexCount;
         }

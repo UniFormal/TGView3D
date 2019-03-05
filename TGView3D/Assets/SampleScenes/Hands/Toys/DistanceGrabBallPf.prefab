@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 13563118}
   - component: {fileID: 2316270}
   - component: {fileID: 11496178}
-  - component: {fileID: 54124199953713036}
-  - component: {fileID: 114992282399912104}
+  - component: {fileID: 54432109052983814}
+  - component: {fileID: 114093972220836306}
   m_Layer: 0
   m_Name: DistanceGrabBallPf
   m_TagString: Untagged
@@ -158,7 +158,7 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 149070}
   m_IsPrefabAsset: 1
---- !u!54 &54124199953713036
+--- !u!54 &54432109052983814
 Rigidbody:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,7 +173,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 2
---- !u!114 &114992282399912104
+--- !u!114 &114093972220836306
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
