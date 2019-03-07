@@ -217,7 +217,7 @@ namespace TGraph
                         foreach (int edge in node.edgeIndicesIn)
                         {
 
-                            if (graph.edges[edge].style == "include")
+                            if (graph.edges[edge].type == "include")
                             {
 
                                 d += (nodepos - graph.nodes[graph.nodeDict[graph.edges[edge].from]].nodeObject.transform.position).magnitude;
@@ -244,7 +244,7 @@ namespace TGraph
                         /*
                         foreach (int edge in node.edgeIndicesOut)
                         {
-                            if (graph.edges[edge].style == "include")
+                            if (graph.edges[edge].type == "include")
                                 if (graph.nodes[graph.nodeDict[graph.edges[edge].to]].pos.y > node.pos.y)
                                 {
                                     Debug.Log("Height Violation2");
@@ -349,8 +349,8 @@ namespace TGraph
 
                                 //not included -> root --> lowest
                                 // if (graph.nodes[i].edgeIndicesOut.Count == 1&&graph.nodes[i].edgeIndicesOut[0]==graph.nodes[i].nr)
-                                if (graph.nodes[i].edgeIndicesOut.Where(idx => graph.edges[idx].style == "include").ToList().Count == 0
-                                    && graph.nodes[i].edgeIndicesIn.Where(idx => graph.edges[idx].style == "include").ToList().Count > 0)
+                                if (graph.nodes[i].edgeIndicesOut.Where(idx => graph.edges[idx].type == "include").ToList().Count == 0
+                                    && graph.nodes[i].edgeIndicesIn.Where(idx => graph.edges[idx].type == "include").ToList().Count > 0)
                                 {
 
                                     rootIndices.Add(i);
@@ -367,8 +367,8 @@ namespace TGraph
                             {
 
                                 // if (graph.nodes[i].edgeIndicesIn.Count == 0) rootIndices.Add(i);
-                                if (graph.nodes[i].edgeIndicesIn.Where(idx => graph.edges[idx].style == "include").ToList().Count == 0
-                                 && graph.nodes[i].edgeIndicesOut.Where(idx => graph.edges[idx].style == "include").ToList().Count > 0)
+                                if (graph.nodes[i].edgeIndicesIn.Where(idx => graph.edges[idx].type == "include").ToList().Count == 0
+                                 && graph.nodes[i].edgeIndicesOut.Where(idx => graph.edges[idx].type == "include").ToList().Count > 0)
                                 {
                                     rootIndices.Add(i);
                                     if (!graph.HeightInit) graph.nodes[i].height = 2;
@@ -580,7 +580,7 @@ namespace TGraph
             var hierarchyDisp = 0f;
             for (var k = 0; k < n.edgeIndicesIn.Count; k++)
             {
-                if (graph.edges[edgeIndices[k]].style == "include")
+                if (graph.edges[edgeIndices[k]].type == "include")
                 {
 
                     var u = graph.nodes[n.connectedNodes[k]];
@@ -601,7 +601,7 @@ namespace TGraph
             for (var m = 0; m < n.edgeIndicesOut.Count; m++)
             {
                 int k = m + n.edgeIndicesIn.Count;
-                if (graph.edges[edgeIndices[k]].style == "include")
+                if (graph.edges[edgeIndices[k]].type == "include")
                 {
 
                     var u = graph.nodes[n.connectedNodes[k]];
@@ -660,7 +660,7 @@ namespace TGraph
 
             for (var k = 0; k < n.edgeIndicesIn.Count; k++)
             {
-                if (graph.edges[edgeIndices[k]].style == "include")
+                if (graph.edges[edgeIndices[k]].type == "include")
                 {
 
                     var u = graph.nodes[n.connectedNodes[k]];
@@ -685,7 +685,7 @@ namespace TGraph
             for (var m = 0; m < n.edgeIndicesOut.Count; m++)
             {
                 int k = m + n.edgeIndicesIn.Count;
-                if (graph.edges[edgeIndices[k]].style == "include")
+                if (graph.edges[edgeIndices[k]].type == "include")
                 {
 
                     var u = graph.nodes[n.connectedNodes[k]];
@@ -839,15 +839,15 @@ namespace TGraph
                                 maxDist = Mathf.Max(maxDist, lengthDiff);
 
                                 var attractiveForce = (lengthDiff * lengthDiff / kVal);
-                                /*  if (useWeights)
+                              //    if (useWeights)
                                   {
                                       if (n.weights[k] <= .9f) attractiveForce *= n.weights[k] * globalWeight;
                                       if (n.weights[k] <= .1f) attractiveForce = 0;
-                                  }*/
+                                  }
                                 n.disp += (differenceNodes / lengthDiff) *attractiveForce;
 
                                 /*
-                                if (graph.edges[edgeIndices[k]].style == "include")
+                                if (graph.edges[edgeIndices[k]].type == "include")
                                 {
                                    
                                     if (k < n.edgeIndicesIn.Count)

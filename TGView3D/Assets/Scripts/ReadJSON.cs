@@ -338,6 +338,7 @@ namespace TGraph
         public class MyEdge
         {
             public string id;
+            public string type = "";
             public string style;
             public string from;
             public string to;
@@ -957,11 +958,13 @@ namespace TGraph
                         target.edgeIndicesIn.Add(i);
 
                         float weight = 1;
+                        graph.edges[i].type = "include";
                         if (graph.edges[i].style != "graphinclude" && graph.edges[i].style != "include")
                         {
                             weight = 0.8f;
                             if (graph.edges[i].style == "graphmeta" || graph.edges[i].style == "meta")
                                 weight = .2f;
+                            graph.edges[i].type = "include";
                         }
                         source.weights.Add(weight);
                         target.weights.Add(weight);
