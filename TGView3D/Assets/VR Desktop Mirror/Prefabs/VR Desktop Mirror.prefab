@@ -131,16 +131,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   KeyboardShow: 306
   KeyboardZoom: 308
-  ViveShow: 2
-  ViveZoom: 1
-  ViveLeftClick: 33
-  ViveTouchPadForClick: 1
+  monitor: {fileID: 0}
   KeyboardDistance: 1
   KeyboardZoomDistance: 0.5
   ControllerZoomDistance: 0.1
   ScreenScaleFactor: 0.0005
   ShowLine: 1
   TextureFilterMode: 2
+  LinearColorSpace: 0
+  MultiMonitorScreen: 0
+  MultiMonitorPositionOffset: {x: 1, y: 0, z: 0}
   RenderScale: 1
   EnableHackUnityBug: 0
 --- !u!120 &12043184

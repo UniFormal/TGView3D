@@ -67,7 +67,7 @@ namespace TGraph
             
             for (int i = 0; i < edges.Count; ++i)
             {
-                if (edges[i].active&&clusterSizes[nodes[GlobalVariables.Graph.nodeDict[edges[i].to]].ClusterId]>2)
+                if (edges[i].active&&clusterSizes[nodes[GlobalVariables.Graph.nodeDict[edges[i].to]].ClusterId]>1)
                 {
 
                     var col = colors[nodes[GlobalVariables.Graph.nodeDict[edges[i].to]].ClusterId] * 255;
@@ -77,7 +77,7 @@ namespace TGraph
                     vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = col;
                 }
 
-                if (edges[i].active && clusterSizes[nodes[GlobalVariables.Graph.nodeDict[edges[i].to]].ClusterId] > 2)
+                if (edges[i].active && clusterSizes[nodes[GlobalVariables.Graph.nodeDict[edges[i].to]].ClusterId] > 1)
                 {
 
                     var col = colors[nodes[GlobalVariables.Graph.nodeDict[edges[i].from]].ClusterId] * 255;
@@ -95,7 +95,7 @@ namespace TGraph
             
             foreach(var node in nodes)
             {
-                if (clusterSizes[node.ClusterId] > 2) 
+                if (clusterSizes[node.ClusterId] > 1) 
                 {
                     var col = colors[node.ClusterId];
 

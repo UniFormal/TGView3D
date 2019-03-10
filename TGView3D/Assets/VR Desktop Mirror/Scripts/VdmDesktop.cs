@@ -180,7 +180,10 @@ public class VdmDesktop : MonoBehaviour
             m_manager.SetCursorPos(iX, iY);
             m_manager.SimulateMouseLeftDown();
             m_manager.SimulateMouseLeftUp();
+
+            m_manager.SetCursorPos(0, 0);
             VdmDesktopManager.ActionInThisFrame = true;
+          
         }
            
 
@@ -558,7 +561,9 @@ public class VdmDesktop : MonoBehaviour
         GetComponent<Renderer>().material.mainTexture.filterMode = m_manager.TextureFilterMode;
         GetComponent<Renderer>().material.mainTexture.anisoLevel= 8;
 
-        GetComponent<Renderer>().material.SetTextureScale("_MainTex", new Vector2(1, -1));
+        //breaks touchscreen, offset ray hit or change below
+        GetComponent<Renderer>().material.SetTextureScale("_MainTex", new Vector2(.83f, -.769f));
+        GetComponent<Renderer>().material.SetTextureOffset("_MainTex", new Vector2(.17f, -.01f));
 
         float sx = width;
         float sy = height;

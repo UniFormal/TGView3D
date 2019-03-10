@@ -247,7 +247,7 @@ namespace TGraph
         public static bool IsCoq = false;
         public static List<MyNode> FoundNodes;
         public bool Gen = false;
-
+        public bool TwoD = false;
 
         //TODO: throw out ugly indexing!!!!!
         [System.Serializable]
@@ -554,9 +554,9 @@ namespace TGraph
                     graph.subObject.transform.parent = this.transform.parent;
                     graph.subObject.transform.localPosition = Vector3.zero;
                     graph.subObject.transform.localEulerAngles = Vector3.zero;
-                    GameObject Aura = Instantiate(Resources.Load("Aura")) as GameObject;
-                    Aura.transform.parent = node.nodeObject.transform;
-                    Aura.transform.position = node.pos;
+                  //  GameObject Aura = Instantiate(Resources.Load("Aura")) as GameObject;
+                  //  Aura.transform.parent = node.nodeObject.transform;
+                  //  Aura.transform.position = node.pos;
 
                     //if (GameObject.Find("VR") == null)
                     //    Camera.main.transform.LookAt(node.pos);
@@ -963,8 +963,15 @@ namespace TGraph
                         {
                             weight = 0.8f;
                             if (graph.edges[i].style == "graphmeta" || graph.edges[i].style == "meta")
+                            {
                                 weight = .2f;
-                            graph.edges[i].type = "include";
+                                graph.edges[i].type = "include";
+                            }
+                            else
+                            {
+                                graph.edges[i].type = "";
+                            }
+                            
                         }
                         source.weights.Add(weight);
                         target.weights.Add(weight);
@@ -1085,7 +1092,7 @@ namespace TGraph
             float[] distances = new float[32];
             GlobalVariables.Beam = true;
             //camera.farClipPlane = 12;
-            distances[18] = 10;
+            distances[18] = 4;
             camera.layerCullDistances = distances;
             camera.layerCullSpherical = true;
             //camera.clearFlags = CameraClearFlags.SolidColor;
@@ -1777,7 +1784,7 @@ namespace TGraph
 
         private IEnumerator FinishInit()
         {
-            Layouts.Init();
+            Layouts.Init(TwoD);
             Layouts.Spiral();
           
             graph.edgeObject = BuildEdges(graph.edges, ref graph, lineMat);

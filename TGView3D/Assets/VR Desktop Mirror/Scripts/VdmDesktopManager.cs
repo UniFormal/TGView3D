@@ -286,6 +286,10 @@ public class VdmDesktopManager : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
+
+       // if (ActionInThisFrame) ReInit();
+
+
         ActionInThisFrame = false;
 
        // if (UnityEngine.XR.XRSettings.eyeTextureResolutionScale != RenderScale)
@@ -473,7 +477,7 @@ public class VdmDesktopManager : MonoBehaviour {
 
     public void HackStart()
     {
-       /* HackStop();
+       HackStop();
 
         string exePath = "Assets\\VR Desktop Mirror\\Hack\\VrDesktopMirrorWorkaround.exe";
         if (System.IO.File.Exists(exePath))
@@ -488,19 +492,19 @@ public class VdmDesktopManager : MonoBehaviour {
         else
         {
             Debug.Log("VR Desktop Mirror Hack exe not found: " + exePath);
-        }*/
+        }
     }
 
     public void HackStop()
     {
-        /*if (m_process != null)
+        if (m_process != null)
         {
             if (m_process.HasExited == false)
             {
                 m_process.Kill();
             }
         }
-        m_process = null;*/
+        m_process = null;
     }
 
 

@@ -23,16 +23,20 @@ namespace TGraph
         //   static float maxHeight = -10;
         //   static float minHeight = 10;
         static float Scaler = 100f;
-        static float VolumeWidth = 0.05f * Scaler;
+        static float VolumeWidth = 0.05f * 2*Scaler;
         static float epsilon = 0.00001f;
         static float diameter = 0.05f;//2.5f;
+        static bool TwoD = false;
 
         public static void Init()
         {
             graph = GlobalVariables.Graph;
         }
-
-
+        public static void Init(bool twoD)
+        {
+            graph = GlobalVariables.Graph;
+            TwoD = twoD;
+        }
         public static void Spiral()
         {
             Random.InitState(10);
@@ -52,6 +56,7 @@ namespace TGraph
                 */
                 Vector3 pos = Random.insideUnitSphere * VolumeWidth * Mathf.Pow(graph.nodes.Count, 1 / 3f) / 2;
                 if (graph.FlatInit) pos.y = 0;
+                if(TwoD) pos.z= 0;
                 graph.nodes[i].pos = pos;
                 graph.nodes[i].nodeObject.transform.localPosition = pos;
             }
@@ -617,21 +622,14 @@ namespace TGraph
             hierarchyDisp = (-downDist - upDist);
             if (Mathf.Sign(n.disp.y) == Mathf.Sign(hierarchyDisp))
             {
-                n.disp.y = 0.5f * n.disp.y + .1f * hierarchyDisp;
+                n.disp.y = 0.9f * n.disp.y + .1f * hierarchyDisp;
 
             }
             else
             {
-                n.disp.y = 0.1f * n.disp.y + 0.5f * hierarchyDisp;
+                n.disp.y = 0.1f * n.disp.y + 0.9f * hierarchyDisp;
             }
 
-
-
-
-            if (n.id.Contains("_dec") || n.id.Contains("_nat"))
-            {
-                // Debug.Log(n.id +" "+upDist +" "+ downDist);
-            }
 
 
 
@@ -870,7 +868,7 @@ namespace TGraph
                             var aF = (lD * lD / kVal);
 
                             //if (graph.fin % 5 == 0)
-                            n.disp += (diffVec / lD) * 0.003f * aF;
+                            n.disp += (diffVec / lD) * 0.003f*  aF;
 
 
 
@@ -916,7 +914,7 @@ namespace TGraph
                                 ApplyWaterForceSum(n, edgeIndices, kSquared);
                             }
 
-
+                            if (TwoD) n.disp.z = 0;
 
 
                         }
