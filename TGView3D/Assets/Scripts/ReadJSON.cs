@@ -273,14 +273,14 @@ namespace TGraph
             public GameObject edgeObject;
             public int modus = 0;
             public GameObject subObject;
-            public float lineWidth = 0.003f;
+            public float lineWidth = 0.009f;
             public bool UseForces = true;
             public bool WaterMode = true;
             public bool FlatInit = false;
             public bool HeightInit = false;
             public bool UseConstraint = false;
             public bool RandomInit = false;
-            public float PushLimit = 2f;
+            public float PushLimit = 1f;
 
 
             //public List<int> removeList;
@@ -458,7 +458,7 @@ namespace TGraph
                 return;
 
             //remove this for coq
-            FoundNodes.Clear();
+           // FoundNodes.Clear();
             if (FoundNodes.Count == 0) FoundNodes.Add(graph.nodes[graph.latestSelection]);
 
             foreach (var node in FoundNodes)
@@ -467,101 +467,102 @@ namespace TGraph
 
 
                 //var node = graph.nodes[graph.latestSelection];
-
+               
                   //deactivate
-                   if (graph.subGraphOrign == graph.latestSelection)
-                   {
-                       GameObject.Destroy(graph.subObject);
-                       GameObject.Destroy(node.nodeObject.transform.GetChild(1).gameObject);
-
-                       graph.subGraphOrign = -1;
-                       graph.edgeObject.SetActive(true);
-                   }
-                   //build
-                   else
-                {
-                    
-                    if (graph.subObject != null)
+                    if (graph.subGraphOrign == graph.latestSelection)
                     {
                         GameObject.Destroy(graph.subObject);
-                        //TODO: destroy old object
-                        // GameObject.Destroy(node.nodeObject.transform.GetChild(1).gameObject);
+                    //for aura?
+                        //GameObject.Destroy(node.nodeObject.transform.GetChild(1).gameObject);
+
+                        graph.subGraphOrign = -1;
+                        graph.edgeObject.SetActive(true);
                     }
-
-
-                    graph.edgeObject.SetActive(false);
-                    graph.subGraphOrign = node.nr;
-                    Debug.Log(node.label);
-                    List<int> edgesIn = new List<int>();
-                    List<int> edgesOut = new List<int>();
-                    bool[] visited = new bool[graph.nodes.Count];
-
-                    for (int n = 0; n < graph.nodes.Count; n++)
+       
+                    else
                     {
-                        visited[n] = false;
-                    }
-
-                    foreach (int idx in node.edgeIndicesIn)
-                    {
-                        edgesIn.Add(idx);
-                    }
-                    for (int i = 0; i < edgesIn.Count; ++i)
-                    {
-                        int idxIn = edgesIn[i];
-                        foreach (int idx in graph.nodes[graph.nodeDict[graph.edges[idxIn].from]].edgeIndicesIn)
+                    
+                        if (graph.subObject != null)
                         {
+                            GameObject.Destroy(graph.subObject);
+                            //TODO: destroy old aura
+                            // GameObject.Destroy(node.nodeObject.transform.GetChild(1).gameObject);
+                        }
 
-                            if (!visited[graph.nodeDict[graph.edges[idx].from]])
+
+                        graph.edgeObject.SetActive(false);
+                        graph.subGraphOrign = node.nr;
+                        Debug.Log(node.label);
+                        List<int> edgesIn = new List<int>();
+                        List<int> edgesOut = new List<int>();
+                        bool[] visited = new bool[graph.nodes.Count];
+
+                        for (int n = 0; n < graph.nodes.Count; n++)
+                        {
+                            visited[n] = false;
+                        }
+
+                        foreach (int idx in node.edgeIndicesIn)
+                        {
+                            edgesIn.Add(idx);
+                        }
+                        for (int i = 0; i < edgesIn.Count; ++i)
+                        {
+                            int idxIn = edgesIn[i];
+                            foreach (int idx in graph.nodes[graph.nodeDict[graph.edges[idxIn].from]].edgeIndicesIn)
                             {
-                                edgesIn.Add(idx);
-                                visited[graph.nodeDict[graph.edges[idx].from]] = true;
+
+                                if (!visited[graph.nodeDict[graph.edges[idx].from]])
+                                {
+                                    edgesIn.Add(idx);
+                                    visited[graph.nodeDict[graph.edges[idx].from]] = true;
+                                }
+
+                            }
+
+
+                        }
+
+                        foreach (int idx in node.edgeIndicesOut)
+                        {
+                            edgesOut.Add(idx);
+                        }
+                        for (int i = 0; i < edgesOut.Count; ++i)
+                        {
+                            int idxOut = edgesOut[i];
+                            foreach (int idx in graph.nodes[graph.nodeDict[graph.edges[idxOut].to]].edgeIndicesOut)
+                            {
+
+                                if (!visited[graph.nodeDict[graph.edges[idx].to]])
+                                {
+                                    edgesOut.Add(idx);
+                                    visited[graph.nodeDict[graph.edges[idx].to]] = true;
+                                }
+
                             }
 
                         }
 
+                        List<int> edgeIndices = (edgesIn.Concat<int>(edgesOut).ToList<int>());
+                        List<MyEdge> edges = new List<MyEdge>();
+                        foreach (int eidx in edgeIndices)
+                            edges.Add(graph.edges[eidx]);
+
+                        graph.subEdges = edgeIndices;
+                        graph.subObject = TGraph.ReadJSON.BuildEdges(edges, ref graph, graph.edgeObject.GetComponent<MeshRenderer>().sharedMaterial);
+
+                        graph.subObject.name = "subgraph";
+                        graph.subObject.transform.parent = this.transform.parent;
+                        graph.subObject.transform.localPosition = Vector3.zero;
+                        graph.subObject.transform.localEulerAngles = Vector3.zero;
+                      //  GameObject Aura = Instantiate(Resources.Load("Aura")) as GameObject;
+                      //  Aura.transform.parent = node.nodeObject.transform;
+                      //  Aura.transform.position = node.pos;
+
+                        //if (GameObject.Find("VR") == null)
+                        //    Camera.main.transform.LookAt(node.pos);
 
                     }
-
-                    foreach (int idx in node.edgeIndicesOut)
-                    {
-                        edgesOut.Add(idx);
-                    }
-                    for (int i = 0; i < edgesOut.Count; ++i)
-                    {
-                        int idxOut = edgesOut[i];
-                        foreach (int idx in graph.nodes[graph.nodeDict[graph.edges[idxOut].to]].edgeIndicesOut)
-                        {
-
-                            if (!visited[graph.nodeDict[graph.edges[idx].to]])
-                            {
-                                edgesOut.Add(idx);
-                                visited[graph.nodeDict[graph.edges[idx].to]] = true;
-                            }
-
-                        }
-
-                    }
-
-                    List<int> edgeIndices = (edgesIn.Concat<int>(edgesOut).ToList<int>());
-                    List<MyEdge> edges = new List<MyEdge>();
-                    foreach (int eidx in edgeIndices)
-                        edges.Add(graph.edges[eidx]);
-
-                    graph.subEdges = edgeIndices;
-                    graph.subObject = TGraph.ReadJSON.BuildEdges(edges, ref graph, graph.edgeObject.GetComponent<MeshRenderer>().sharedMaterial);
-
-                    graph.subObject.name = "subgraph";
-                    graph.subObject.transform.parent = this.transform.parent;
-                    graph.subObject.transform.localPosition = Vector3.zero;
-                    graph.subObject.transform.localEulerAngles = Vector3.zero;
-                  //  GameObject Aura = Instantiate(Resources.Load("Aura")) as GameObject;
-                  //  Aura.transform.parent = node.nodeObject.transform;
-                  //  Aura.transform.position = node.pos;
-
-                    //if (GameObject.Find("VR") == null)
-                    //    Camera.main.transform.LookAt(node.pos);
-
-                }
 
             }
 
@@ -967,7 +968,7 @@ namespace TGraph
                                 weight = .2f;
                                 graph.edges[i].type = "include";
                             }
-                            else
+                            else if(graph.edges[i].style!="structure")
                             {
                                 graph.edges[i].type = "";
                             }
@@ -1376,11 +1377,11 @@ namespace TGraph
 
             float st = Time.realtimeSinceStartup;
             var curstring =
-              //  "graph_algebra";
+                "graph_algebra";
             //"exportSG";
             //"fingroup";
-            "tlc";
-           // "extlib";
+            //"tlc";
+            //"extlib";
 
 
             if (Gen)
@@ -1487,7 +1488,7 @@ namespace TGraph
                 };
                 //only show objects when found
              
-                if (MyNode.style == "o")// && FoundNodes.Exists(f =>  MyNode.id.Contains(f.id)))
+                if (MyNode.style == "o"&& FoundNodes.Exists(f =>  MyNode.id.Contains(f.id)))
                     MyNodes.Add(MyNode);
                 else if (MyNode.style == "d")
                     MyNodes.Add(MyNode);
@@ -1506,8 +1507,9 @@ namespace TGraph
                 };
                 Debug.Log(MyEdge.label);
                 //add oo edges of found nodes
-                if (MyEdge.label == "oo")// && (FoundNodes.Exists(f => MyEdge.from.Contains(f.id))|| FoundNodes.Exists(f => MyEdge.from.Contains(f.id))))
+                if (MyEdge.label == "oo" && (FoundNodes.Exists(f => MyEdge.from.Contains(f.id))|| FoundNodes.Exists(f => MyEdge.from.Contains(f.id))))
                 {
+                    MyEdge.style = "alignment";
                     MyEdges.Add(MyEdge); e++;
                     if (e > 8000)
                     {
@@ -1517,13 +1519,13 @@ namespace TGraph
                 }
                 else if (MyEdge.label == "ii")// && !(FoundNodes.Exists(f => f.id == MyEdge.from) || FoundNodes.Exists(f => f.id == MyEdge.to)))
                 {
-                    MyEdge.style = "include";
+                    MyEdge.style = "structure";
                     MyEdges.Add(MyEdge); e++;
                   
                 }
                 else if (MyEdge.label == "od" && ( FoundNodes.Exists(f => f.id == MyEdge.from)))
                 {
-
+                    MyEdge.style = "meta";
                     MyEdges.Add(MyEdge);
 
                 }
@@ -1790,9 +1792,11 @@ namespace TGraph
             graph.edgeObject = BuildEdges(graph.edges, ref graph, lineMat);
             graph.edgeObject.transform.parent = transform.parent;
             graph.edgeObject.name = "EdgeMesh";
-            UIInteracton.SEnableEdgeType("meta");
-          //  graph.edgeObject.SetActive(false);
+          if(!IsCoq)  UIInteracton.SEnableEdgeType("meta");
+            //  graph.edgeObject.SetActive(false);
 
+           // yield return null;
+        
             yield return FinishUpdate();
 
 
@@ -1877,10 +1881,10 @@ namespace TGraph
 
             graph.colorDict = new Dictionary<string, Color>();
             graph.colorDict.Add("include", new Color(0, 255, 0));
-            graph.colorDict.Add("meta", new Color(255, 0, 0));
+            graph.colorDict.Add("meta", new Color(255, 20, 0));
             graph.colorDict.Add("alignment", new Color(200, 200, 0));
             graph.colorDict.Add("view", new Color(0, 0, 255));
-            graph.colorDict.Add("structure", new Color(0, 120, 120));
+            graph.colorDict.Add("structure", new Color(200, 0, 250));
 
 
             graph.nodeDict = new Dictionary<string, int>();
@@ -1927,7 +1931,7 @@ namespace TGraph
             
                 foreach (var node in graph.nodes)
                 {
-                    node.radius = 10*
+                    node.radius = 2*
                     //Mathf.Sqrt
                         (node.radius / (maxSize+1));
                     node.nodeObject.transform.localScale *= 2*(1+node.radius);

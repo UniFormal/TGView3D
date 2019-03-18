@@ -22,7 +22,7 @@ namespace TGraph
         static float currTemperature;
         //   static float maxHeight = -10;
         //   static float minHeight = 10;
-        static float Scaler = 100f;
+        static float Scaler = 10f;
         static float VolumeWidth = 0.05f * 2*Scaler;
         static float epsilon = 0.00001f;
         static float diameter = 0.05f;//2.5f;
@@ -620,6 +620,7 @@ namespace TGraph
                 }
             }
             hierarchyDisp = (-downDist - upDist);
+
             if (Mathf.Sign(n.disp.y) == Mathf.Sign(hierarchyDisp))
             {
                 n.disp.y = 0.9f * n.disp.y + .1f * hierarchyDisp;
@@ -837,13 +838,14 @@ namespace TGraph
                                 maxDist = Mathf.Max(maxDist, lengthDiff);
 
                                 var attractiveForce = (lengthDiff * lengthDiff / kVal);
+                          /*
                               //    if (useWeights)
                                   {
                                       if (n.weights[k] <= .9f) attractiveForce *= n.weights[k] * globalWeight;
                                       if (n.weights[k] <= .1f) attractiveForce = 0;
-                                  }
+                                  }*/
                                 n.disp += (differenceNodes / lengthDiff) *attractiveForce;
-
+                                
                                 /*
                                 if (graph.edges[edgeIndices[k]].type == "include")
                                 {
@@ -872,7 +874,7 @@ namespace TGraph
 
 
 
-
+                            var repulsion = Vector3.zero;
 
                             int limit = 0;
                             // calculate global (repulsive) forces
@@ -900,12 +902,14 @@ namespace TGraph
 
                                     if (n.graphNumber != u.graphNumber) repulsiveForce *= 4;
 
-                                    n.disp += (differenceNodes / lengthDiff) * repulsiveForce;
+                                    repulsion += (differenceNodes / lengthDiff) * repulsiveForce;
                                 }
                             }
                             //  if (limit > 0) Debug.Log("limit " + limit+ " "+maxDist);
+                            if (repulsion == Vector3.zero) return;
+                            n.disp += repulsion;
 
-      
+                       
 
 
 
