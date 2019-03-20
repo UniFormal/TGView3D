@@ -6171,7 +6171,7 @@ MonoBehaviour:
     FlatInit: 0
     HeightInit: 0
     UseConstraint: 0
-    RandomInit: 0
+    RootLeaves: 0
     PushLimit: 2
   mat: {fileID: 2100000, guid: f73207ad5363bdb4194c901a41ed995e, type: 2}
   lineMat: {fileID: 2100000, guid: 492e279603edb21439d3524b472130c3, type: 2}
@@ -6180,7 +6180,7 @@ MonoBehaviour:
   EventSystem: {fileID: 869398359}
   recursive: 0
   globalWeight: 0.01
-  iterations: 200
+  iterations: 100
   spaceScale: 1
   UrlSelect: {fileID: 221538338}
   time: 0
@@ -6196,7 +6196,8 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 4ecbca3e9b2d4d6468788b26af833150, type: 3}
   SVGFile: {fileID: 4900000, guid: 3b01930eb8203a847b7bb74d92be4f5d, type: 3}
   Gen: 0
-  TwoD: 0
+  TwoD: 1
+  SwapRoots: 0
 --- !u!4 &1165595084
 Transform:
   m_ObjectHideFlags: 0
@@ -10769,7 +10770,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 992251400}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

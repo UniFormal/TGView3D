@@ -248,6 +248,7 @@ namespace TGraph
         public static List<MyNode> FoundNodes;
         public bool Gen = false;
         public bool TwoD = false;
+        public bool SwapRoots = false;
 
         //TODO: throw out ugly indexing!!!!!
         [System.Serializable]
@@ -278,8 +279,8 @@ namespace TGraph
             public bool WaterMode = true;
             public bool FlatInit = false;
             public bool HeightInit = false;
-            public bool UseConstraint = false;
-            public bool RandomInit = false;
+            public bool UseConstraint = true;
+            public bool RootLeaves = true;
             public float PushLimit = 1f;
 
 
@@ -1772,14 +1773,7 @@ namespace TGraph
 
             }
 
-
-            //TODO: iterate over edges instead
-            foreach (MyNode node in graph.nodes)
-            {
-                UpdateEdges(node);
-            }
-
-           // Clustering.DBScan();
+            UpdateAllEdges();
 
         }
 
@@ -1867,12 +1861,16 @@ namespace TGraph
 
             Debug.Log("nodes edges" + graph.nodes.Count + " " + graph.edges.Count);
 
-            foreach(var edge in graph.edges)
+            if (SwapRoots)
             {
-                var tmp = edge.from;
-                edge.from = edge.to;
-                edge.to = tmp;
+                foreach (var edge in graph.edges)
+                {
+                    var tmp = edge.from;
+                    edge.from = edge.to;
+                    edge.to = tmp;
+                }
             }
+    
 
             graph.movingNodes = new List<int>();
             graph.selectedNodes = new List<int>();
