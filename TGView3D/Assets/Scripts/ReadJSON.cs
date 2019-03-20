@@ -218,6 +218,7 @@ namespace TGraph
         public Material mat;
         public Material lineMat;
         public GameObject grabbable;
+        public GameObject URLObject;
         public bool onlyInclude = false;
         public GameObject EventSystem;
         public bool recursive = false;
@@ -247,9 +248,9 @@ namespace TGraph
         public static bool IsCoq = false;
         public static List<MyNode> FoundNodes;
         public bool Gen = false;
-        public bool TwoD = false;
+        public static bool TwoD = false;
         public bool SwapRoots = false;
-
+        private GameObject Aura;
         //TODO: throw out ugly indexing!!!!!
         [System.Serializable]
         public class MyGraph
@@ -274,7 +275,7 @@ namespace TGraph
             public GameObject edgeObject;
             public int modus = 0;
             public GameObject subObject;
-            public float lineWidth = 0.009f;
+            public float lineWidth = 0.003f;
             public bool UseForces = true;
             public bool WaterMode = true;
             public bool FlatInit = false;
@@ -453,7 +454,7 @@ namespace TGraph
         {
 
 
-
+            if (Aura != null) GameObject.Destroy(Aura);
             Debug.Log(graph.nodes.Count + " looking for " + graph.latestSelection);
             if (graph.latestSelection >= graph.nodes.Count || graph.latestSelection == -1)
                 return;
@@ -466,7 +467,7 @@ namespace TGraph
             {
 
 
-
+                Debug.Log(graph.subGraphOrign);
                 //var node = graph.nodes[graph.latestSelection];
                
                   //deactivate
@@ -556,15 +557,16 @@ namespace TGraph
                         graph.subObject.transform.parent = this.transform.parent;
                         graph.subObject.transform.localPosition = Vector3.zero;
                         graph.subObject.transform.localEulerAngles = Vector3.zero;
-                      //  GameObject Aura = Instantiate(Resources.Load("Aura")) as GameObject;
-                      //  Aura.transform.parent = node.nodeObject.transform;
-                      //  Aura.transform.position = node.pos;
+                        Aura = Instantiate(Resources.Load("Aura")) as GameObject;
+                        Aura.transform.parent = node.nodeObject.transform;
+                        Aura.transform.position = node.pos;
 
-                        //if (GameObject.Find("VR") == null)
-                        //    Camera.main.transform.LookAt(node.pos);
+                    //if (GameObject.Find("VR") == null)
+                    //    Camera.main.transform.LookAt(node.pos);
 
+                   
                     }
-
+                if (!IsCoq) break;
             }
 
         }
@@ -902,7 +904,12 @@ namespace TGraph
             {
                 //check not required
                 if (ProcessNode(graph.nodes[i].id, graph.nodeDict.Count, null))
+                {
                     graph.nodes[i].nr = i;
+                   // Debug.Log(graph.nodes[i].label + " " + i);
+                }
+                   
+               
             }
 
 
@@ -1133,6 +1140,7 @@ namespace TGraph
 
             if (GlobalVariables.Reload && !GlobalVariables.Init) LoadGraph();
 
+        
 
 #if UNITY_WEBGL
             Debug.Log("#################WEBGLBUILD###############################");
@@ -1470,10 +1478,12 @@ namespace TGraph
 
         public void SimpleImport(string s)
         {
-            StreamReader reader = new StreamReader(Application.dataPath + "/"+s+".json");
-            var text = reader.ReadToEnd();
+            // StreamReader reader = new StreamReader(Application.dataPath + "/"+s+".json");
+            // var text = reader.ReadToEnd();
+            TextAsset data = Resources.Load(s) as TextAsset;
+            var text = data.text;
             SimpleGraph sG = SimpleGraph.CreateFromJSON(text);
-            Debug.Log(FoundNodes.Count+" fffffffffffffffffffffffffffffffffffffffffffff");
+            Debug.Log(FoundNodes.Count);
             Debug.Log(sG.edges.Count);
             var MyNodes = new List<MyNode>();
             var MyEdges = new List<MyEdge>();
@@ -2158,8 +2168,17 @@ namespace TGraph
                 UpdateEdgesFull(node);
             }
         }
+
+        public void Switch2D()
+        {
+            TwoD = !TwoD;
+            Layouts.Init(TwoD);
+        }
+
+
         public void LoadGraph()
         {
+            if (URLObject.GetComponent<InputField>().text != "") GlobalVariables.Url = "https://mmt.mathhub.info/:jgraph/json?key=archivegraph&uri=" + URLObject.GetComponent<InputField>().text;
             Debug.Log("load " + GlobalVariables.Url);
 
             url = GlobalVariables.Url;
@@ -2187,6 +2206,30 @@ namespace TGraph
             else
             {
                 FoundNodes.Clear();
+
+                if (!IsCoq)
+                {
+                    foreach (var pair in graph.nodeDict)
+                    {
+                        var p = graph.nodes[pair.Value].label;
+
+                        if(p.ToLower()==f.text.ToLower())
+
+                    
+                        {
+                            graph.latestSelection = graph.nodeDict[pair.Key];
+                            Debug.Log("found " + graph.latestSelection); 
+                            return;
+                        }
+
+                            //break;
+                        
+
+                    }
+                }
+          
+
+
                 foreach (var pair in graph.nodeDict)
                 {
                     var p = graph.nodes[pair.Value].label;
@@ -2199,12 +2242,16 @@ namespace TGraph
                             Debug.Log("found " + graph.latestSelection);
                             if(!FoundNodes.Contains(graph.nodes[graph.nodeDict[pair.Key]]))
                                 FoundNodes.Add(graph.nodes[graph.nodeDict[pair.Key]]);
+                            if (!IsCoq) return;
                         }
            
                         //break;
                     }
 
                 }
+
+
+
             
                
             }
@@ -2303,12 +2350,14 @@ namespace TGraph
 
         public void RecalculateLayout()
         {
+
             Debug.Log("urls: "+url + " " + GlobalVariables.Url);
+            if (URLObject.GetComponent<InputField>().text != "") GlobalVariables.Url = "https://mmt.mathhub.info/:jgraph/json?key=archivegraph&uri=" + URLObject.GetComponent<InputField>().text;
             if (!GlobalVariables.Init)
             {
                 LoadGraph();
             }
-            else if (si != GlobalVariables.SelectionIndex)
+            else if (si != GlobalVariables.SelectionIndex||GlobalVariables.Url!="")
             {
                 Debug.Log("new graph, reload scene");
                 GlobalVariables.Init = false;

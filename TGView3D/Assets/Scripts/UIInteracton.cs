@@ -101,13 +101,14 @@ public class UIInteracton : MonoBehaviour {
     {
       //  GlobalVariables.Url = "file:///" + Application.dataPath + "/" + d.captionText.text + ".json";
         GlobalVariables.SelectionIndex = d.value;
+        GlobalVariables.Url = "";
         Debug.Log(d.value);
 
     }
 
     public void ChangeClipPlane(){
-        if (Camera.main.farClipPlane == 12) Camera.main.farClipPlane = 100;
-        else Camera.main.farClipPlane = 12;
+        if (Camera.main.farClipPlane == 3) Camera.main.farClipPlane = 100;
+        else Camera.main.farClipPlane = 3;
     }
 
             
