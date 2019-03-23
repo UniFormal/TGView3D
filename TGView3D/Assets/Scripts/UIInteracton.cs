@@ -101,7 +101,7 @@ public class UIInteracton : MonoBehaviour {
     {
       //  GlobalVariables.Url = "file:///" + Application.dataPath + "/" + d.captionText.text + ".json";
         GlobalVariables.SelectionIndex = d.value;
-        GlobalVariables.Url = "";
+        //GlobalVariables.Url = "";
         Debug.Log(d.value);
 
     }

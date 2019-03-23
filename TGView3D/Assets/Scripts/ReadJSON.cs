@@ -275,7 +275,7 @@ namespace TGraph
             public GameObject edgeObject;
             public int modus = 0;
             public GameObject subObject;
-            public float lineWidth = 0.003f;
+            public float lineWidth = 2*0.003f;
             public bool UseForces = true;
             public bool WaterMode = true;
             public bool FlatInit = false;
@@ -452,7 +452,10 @@ namespace TGraph
 
         public void CalculateSubgraph()
         {
-
+            for (int i = 0; i < graph.nodes.Count; ++i)
+            {
+                graph.nodes[i].pos = graph.nodes[i].nodeObject.transform.localPosition;
+            }
 
             if (Aura != null) GameObject.Destroy(Aura);
             Debug.Log(graph.nodes.Count + " looking for " + graph.latestSelection);
@@ -460,7 +463,7 @@ namespace TGraph
                 return;
 
             //remove this for coq
-           // FoundNodes.Clear();
+           if(!IsCoq) FoundNodes.Clear();
             if (FoundNodes.Count == 0) FoundNodes.Add(graph.nodes[graph.latestSelection]);
 
             foreach (var node in FoundNodes)
@@ -1101,9 +1104,9 @@ namespace TGraph
             float[] distances = new float[32];
             GlobalVariables.Beam = true;
             //camera.farClipPlane = 12;
-            distances[18] = 4;
+            distances[18] = 2;
             camera.layerCullDistances = distances;
-            camera.layerCullSpherical = true;
+            if(XRSettings.enabled)camera.layerCullSpherical = true;
             //camera.clearFlags = CameraClearFlags.SolidColor;
             //camera.backgroundColor = new Color(0.7f, 0.8f, 0.7f); 
 
@@ -1785,6 +1788,9 @@ namespace TGraph
 
             UpdateAllEdges();
 
+            if (!XRSettings.enabled) GameObject.Find("DebugCamera").GetComponent<Gestures>().Init();
+
+
         }
 
 
@@ -1961,23 +1967,24 @@ namespace TGraph
             StartCoroutine(FinishInit());
         }
 
-    
+
         IEnumerator ProcessJSON(WWW www, int type = 0)
         {
-           
+
             if (www == null)
             {
                 yield return null;
             }
 
-                
+
             else
                 yield return www;
 
 
-            Debug.Log("index used for processing"+GlobalVariables.SelectionIndex);
+            Debug.Log("index used for processing" + GlobalVariables.SelectionIndex);
             //Debug.Log(www.text);
-            string json = GraphFiles[GlobalVariables.SelectionIndex].text;//;
+            string json ="";
+            if (GlobalVariables.SelectionIndex != -1) json= GraphFiles[GlobalVariables.SelectionIndex].text;//;
             // check for errors
             if (www!=null&&www.error == null)
             {
@@ -2165,7 +2172,7 @@ namespace TGraph
             {
                 if (n == -1) continue; //TODO: change this
                 var node = graph.nodes[n];
-                UpdateEdgesFull(node);
+                UpdateEdges(node);
             }
         }
 
@@ -2178,13 +2185,18 @@ namespace TGraph
 
         public void LoadGraph()
         {
-            if (URLObject.GetComponent<InputField>().text != "") GlobalVariables.Url = "https://mmt.mathhub.info/:jgraph/json?key=archivegraph&uri=" + URLObject.GetComponent<InputField>().text;
+       
             Debug.Log("load " + GlobalVariables.Url);
-
+            if (URLObject.GetComponent<InputField>().text != "") GlobalVariables.Url = "https://mmt.mathhub.info/:jgraph/json?key=archivegraph&uri=" + URLObject.GetComponent<InputField>().text;
+            else if(GlobalVariables.SelectionIndex!=-1)
+            {
+                GlobalVariables.Url = "";
+                si = GlobalVariables.SelectionIndex;
+                GlobalVariables.CurrentFile = GraphFiles[GlobalVariables.SelectionIndex];
+                GameObject.Find("UIDropdown").GetComponent<Dropdown>().value = si;
+            }
             url = GlobalVariables.Url;
-            si = GlobalVariables.SelectionIndex;
-            GlobalVariables.CurrentFile = GraphFiles[GlobalVariables.SelectionIndex];
-            GameObject.Find("UIDropdown").GetComponent<Dropdown>().value = si;
+
             WWW jsonUrl = new WWW(url);
             if (url == "") jsonUrl = null;
 
@@ -2352,12 +2364,19 @@ namespace TGraph
         {
 
             Debug.Log("urls: "+url + " " + GlobalVariables.Url);
-            if (URLObject.GetComponent<InputField>().text != "") GlobalVariables.Url = "https://mmt.mathhub.info/:jgraph/json?key=archivegraph&uri=" + URLObject.GetComponent<InputField>().text;
+            Debug.Log(si + " " + GlobalVariables.SelectionIndex);
+            if (URLObject.GetComponent<InputField>().text != "")
+            {
+                GlobalVariables.SelectionIndex = -1;
+                GlobalVariables.Url = "https://mmt.mathhub.info/:jgraph/json?key=archivegraph&uri=" + URLObject.GetComponent<InputField>().text;
+            }
+          
             if (!GlobalVariables.Init)
             {
                 LoadGraph();
             }
-            else if (si != GlobalVariables.SelectionIndex||GlobalVariables.Url!="")
+     
+            else if ((GlobalVariables.SelectionIndex!=-1&&si != GlobalVariables.SelectionIndex)||GlobalVariables.Url!=url)
             {
                 Debug.Log("new graph, reload scene");
                 GlobalVariables.Init = false;

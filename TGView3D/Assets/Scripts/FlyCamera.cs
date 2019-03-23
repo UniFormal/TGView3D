@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.XR;
+using UnityEngine.EventSystems;
 
-public class FlyCamera : MonoBehaviour
+public class FlyCamera : MonoBehaviour, IPointerClickHandler
 {
 
     /*
@@ -27,10 +28,39 @@ public class FlyCamera : MonoBehaviour
     
     private float screenDist;
     private Vector3 startPos = new Vector3(255, 255, 255);
+    [System.Runtime.InteropServices.DllImport("__Internal")]
+    private static extern void openWindow(string url);
+
+    public virtual void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.clickCount == 2)
+        {
+            Debug.Log("double");
+            RaycastHit hit;
+
+            // Does the ray intersect any objects excluding the player layer
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+            {
+
+#if UNITY_WEBGL && !UNITY_EDITOR
+                     
+                openWindow("https://mmt.mathhub.info" + TGraph.GlobalVariables.Graph.nodes[hit.transform.GetSiblingIndex()].url);
+#else
+                Application.OpenURL("https://mmt.mathhub.info" + TGraph.GlobalVariables.Graph.nodes[hit.transform.GetSiblingIndex()].url);
+#endif
+
+            }
+        }
+    }
+
     void Update()
     {
+       
+
         Transform transform = this.transform.parent.transform;
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(1))
         {
             lastMouse = Input.mousePosition - lastMouse;
             lastMouse = new Vector3(-lastMouse.y * camSens, lastMouse.x * camSens, 0);
@@ -40,7 +70,7 @@ public class FlyCamera : MonoBehaviour
         }
         lastMouse = Input.mousePosition;
 
-        if (TGraph.GlobalVariables.Init==true && Input.GetMouseButtonDown(1))
+        if (TGraph.GlobalVariables.Init==true && Input.GetMouseButtonDown(0))
         {
             Debug.Log("shoot");
             RaycastHit hit;
@@ -75,7 +105,7 @@ public class FlyCamera : MonoBehaviour
             }
         }
 
-        if (TGraph.GlobalVariables.Init == true && Input.GetMouseButton(1) && TGraph.GlobalVariables.Graph.movingNodes.Count>0)
+        if (TGraph.GlobalVariables.Init == true && Input.GetMouseButton(0) && TGraph.GlobalVariables.Graph.movingNodes.Count>0)
         {
            
             var mou = Input.mousePosition;
@@ -100,7 +130,7 @@ public class FlyCamera : MonoBehaviour
            // Debug.Log(TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.selectedNodes[0]].nodeObject.transform.localPosition + " " + lastMouse + " " + nodeMouse);
            // TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.selectedNodes[0]].nodeObject.transform.localPosition = startPos + Camera.main.ScreenToWorldPoint(new Vector3(lastMouse.x,lastMouse.y,nodeMouse.z)) - Camera.main.ScreenToWorldPoint(nodeMouse);
         }
-        if (TGraph.GlobalVariables.Init == true && Input.GetMouseButtonUp(1) && TGraph.GlobalVariables.Graph.movingNodes.Count > 0)
+        if (TGraph.GlobalVariables.Init == true && Input.GetMouseButtonUp(0) && TGraph.GlobalVariables.Graph.movingNodes.Count > 0)
         {
             TGraph.GlobalVariables.Graph.movingNodes.Clear();
 
@@ -145,19 +175,19 @@ public class FlyCamera : MonoBehaviour
         Vector3 p_Velocity = new Vector3();
 
      
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W)||Input.GetKey(KeyCode.UpArrow))
         {
             p_Velocity += new Vector3(0, 0, 1);
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             p_Velocity += new Vector3(0, 0, -1);
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             p_Velocity += new Vector3(-1, 0, 0);
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             p_Velocity += new Vector3(1, 0, 0);
         }

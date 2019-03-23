@@ -33,6 +33,61 @@ public class Gestures : MonoBehaviour {
     // Update is called once per frame
     float factor;
 
+    public void Init()
+    {
+        graph = TGraph.GlobalVariables.Graph;
+        nodeCount = graph.nodes.Count;
+        mesh = graph.edgeObject.GetComponent<MeshFilter>().sharedMesh;
+        vertexCount = mesh.vertexCount;
+        vertices = mesh.vertices;
+        vertexCopies = (Vector3[])vertices.Clone();
+    }
+
+
+    public void RescaleSlider(float factor)
+    {
+        if (graph == null)
+        {
+            Init();
+        }
+        
+        
+        for (int i = 0; i < nodeCount; ++i)
+        {
+            var node = graph.nodes[j];
+            graph.nodes[j].nodeObject.transform.localPosition = factor * node.pos;
+            j = (j + 1) % nodeCount;
+        }
+        for (int k = 0; k < vertexCount / 8; ++k)
+        {
+            Vector3 sourcePos = (vertexCopies[4 + e] + vertexCopies[0 + e]) / 2 * factor;
+            Vector3 targetPos = (vertexCopies[5 + e] + vertexCopies[1 + e]) / 2 * factor;
+
+            // Vector3 offset = -.5f * (1 - factor) * (vertexCopies[4 + e] - vertexCopies[0 + e]);
+            Vector3 offset = -(vertexCopies[2 + e] - vertexCopies[0 + e]) / 2;
+            // Vector3 offsetOrtho = -.5f * (1 - factor) * (vertexCopies[2 + e] - vertexCopies[0 + e]);
+            Vector3 offsetOrtho = (vertexCopies[6 + e] - vertexCopies[0 + e]) / 2;
+            vertices[0 + e] = sourcePos + offset + offsetOrtho;
+            vertices[1 + e] = targetPos + offset + offsetOrtho;
+
+            vertices[2 + e] = sourcePos + offset - offsetOrtho;
+            vertices[3 + e] = targetPos + offset - offsetOrtho;
+
+            vertices[4 + e] = sourcePos - offset - offsetOrtho;
+            vertices[5 + e] = targetPos - offset - offsetOrtho;
+
+            vertices[6 + e] = sourcePos - offset + offsetOrtho;
+            vertices[7 + e] = targetPos - offset + offsetOrtho;
+
+            e = (e + 8) % vertexCount;
+        }
+        mesh.vertices = vertices;
+        mesh.RecalculateBounds();
+        TGraph.GlobalVariables.Recalculate = true;
+
+    }
+
+
 
     private void Rescale()
     {
@@ -267,8 +322,12 @@ public class Gestures : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        RightHand = transform.GetChild(0);
-        LeftHand = transform.GetChild(1);
+        if (this.gameObject.name == "Hands")
+        {
+            RightHand = transform.GetChild(0);
+            LeftHand = transform.GetChild(1);
+        }
+
         NodeParent = GraphParent.transform.GetChild(0);
     }
 }

@@ -31,7 +31,12 @@ namespace TGraph
 
         public static void Init()
         {
-            graph = GlobalVariables.Graph;
+            if (GlobalVariables.Graph != null)
+            {
+                graph = GlobalVariables.Graph;
+                VolumeWidth = diameter * 2 * Scaler * Mathf.Sqrt(graph.nodes.Count) / 20;
+            }
+         
         }
 
         public static float Stretch(int i)
@@ -68,7 +73,7 @@ namespace TGraph
 
         public static void Init(bool twoD)
         {
-            graph = GlobalVariables.Graph;
+            Init();
             TwoD = twoD;
         }
         public static void Spiral()
