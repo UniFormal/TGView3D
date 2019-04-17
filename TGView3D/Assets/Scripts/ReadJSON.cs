@@ -231,6 +231,8 @@ namespace TGraph
         public int iterations = 25;
         public float spaceScale = 1;
         public GameObject UrlSelect;
+        public GameObject SemanticSelect;
+        public GameObject ArgSolverSelect;
         int si = 0;
         public float time = 0;
         public string url;//http://neuralocean.de/graph/test/nasa.json";
@@ -1023,7 +1025,7 @@ namespace TGraph
 
                 foreach (var duplicateGroup in duplicates)
                 {
-                    // Debug.Log(node.id+" "+duplicateGroup.Count());
+                     Debug.LogWarning("----"+node.id+" "+duplicateGroup.Count());
                     int k = 0;
                     foreach (var duplicate in duplicateGroup)
                     {
@@ -1904,6 +1906,11 @@ namespace TGraph
             graph.colorDict.Add("structure", new Color(200, 0, 250));
 
 
+            graph.colorDict.Add("attack", new Color(220, 0, 200));
+            graph.colorDict.Add("b", new Color(255, 20, 0));
+            graph.colorDict.Add("c", new Color(200, 200, 0));
+
+
             graph.nodeDict = new Dictionary<string, int>();
             Debug.Log("setup time " + (Time.realtimeSinceStartup - time));
 
@@ -1911,6 +1918,25 @@ namespace TGraph
             ProcessEdges();
 
             identifySubgraphs();
+
+            Material mat1 = new Material(mat);
+            mat1.color = Color.red;
+            Material mat2 = new Material(mat);
+            mat2.color = Color.yellow;
+            Material mat3 = new Material(mat);
+            mat3.color = Color.green;
+
+
+            foreach (var node in graph.nodes)
+            {
+                if (node.style == "sceptically_accepted")
+                    node.nodeObject.GetComponent<Renderer>().material = mat3;
+                else if (node.style == "credulously_accepted")
+                    node.nodeObject.GetComponent<Renderer>().material = mat2;
+                else if (node.style == "rejected")
+                    node.nodeObject.GetComponent<Renderer>().material = mat1;
+            }
+
 
             if (IsCoq)
             {
@@ -2185,6 +2211,30 @@ namespace TGraph
             Layouts.Init(TwoD);
         }
 
+
+
+        public void LoadAG()
+        {
+
+            Debug.Log("load " + GlobalVariables.Url);
+            if (URLObject.GetComponent<InputField>().text != "") GlobalVariables.Url = "localhost:8080/:jgraph/json?key=archivegraph&uri=" + URLObject.GetComponent<InputField>().text
+                    +"&semantic="+SemanticSelect.GetComponent<Dropdown>().options[SemanticSelect.GetComponent<Dropdown>().value]+ "&comp="+ ArgSolverSelect.GetComponent<Dropdown>().options[ArgSolverSelect.GetComponent<Dropdown>().value];
+            else if (GlobalVariables.SelectionIndex != -1)
+            {
+                GlobalVariables.Url = "";
+                si = GlobalVariables.SelectionIndex;
+                GlobalVariables.CurrentFile = GraphFiles[GlobalVariables.SelectionIndex];
+                GameObject.Find("UIDropdown").GetComponent<Dropdown>().value = si;
+            }
+            url = GlobalVariables.Url;
+
+            WWW jsonUrl = new WWW(url);
+            if (url == "") jsonUrl = null;
+
+            time = Time.realtimeSinceStartup;
+            StartCoroutine(ProcessJSON(jsonUrl));
+
+        }
 
         public void LoadGraph()
         {

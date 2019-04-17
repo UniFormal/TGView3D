@@ -731,7 +731,7 @@ namespace TGraph
 
             if (Mathf.Sign(n.disp.y) == Mathf.Sign(hierarchyDisp))
             {
-                n.disp.y = 0.9f * n.disp.y + .1f * hierarchyDisp;
+               // n.disp.y = 0.9f * n.disp.y + .1f * hierarchyDisp;
 
             }
             else
