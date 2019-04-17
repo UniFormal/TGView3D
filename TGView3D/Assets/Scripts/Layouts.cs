@@ -117,7 +117,7 @@ namespace TGraph
 
             //var handle = jt.Schedule();
 
-            int batchCount = graph.nodes.Count / 256;// Mathf.Max(iterations * graph.nodes.Count / (100 * 100), 1);
+            int batchCount = 12;// Mathf.Max(iterations * graph.nodes.Count / (100 * 100), 1);
             var handle = jt.Schedule(
                 graph.nodes.Count, batchCount,
                 hHandle);
@@ -274,7 +274,7 @@ namespace TGraph
                                 {
                                     //   node.nodeObject.transform.localScale = Vector3.one*.2f;
 
-                                    //  node.nodeObject.GetComponent<MeshRenderer>().material.color = Color.red;
+                                   //   node.nodeObject.GetComponent<MeshRenderer>().material.color = Color.red;
 
                                     //    Debug.Log(node.id +", height "+node.weight+ " from " + graph.edges[edge].from+ ", height " + graph.nodes[graph.nodeDict[graph.edges[edge].from]].weight);
                                    // graph.nodes[graph.nodeDict[graph.edges[edge].from]].nodeObject.GetComponent<MeshRenderer>().sharedMaterial = loadedMat;
@@ -403,13 +403,9 @@ namespace TGraph
                                 {
 
                                     rootIndices.Add(i);
-                                     graph.nodes[i].weight = -2;
-                                    // Debug.Log(graph.nodes[i].label);
+               
                                 }
-                                else
-                                {
-                                    graph.nodes[i].weight = -1;
-                                }
+                               
 
                             }
                             else
@@ -420,13 +416,9 @@ namespace TGraph
                                  && graph.nodes[i].edgeIndicesOut.Where(idx => graph.edges[idx].type == "include" && graph.edges[idx].active).ToList().Count > 0)
                                 {
                                     rootIndices.Add(i);
-                                    graph.nodes[i].height = 2;
-                                    // Debug.Log(graph.nodes[i].label);
+
                                 }
-                                else
-                                {
-                                    graph.nodes[i].height = -1;
-                                }
+                                
                             }
                             //    maxConnections = Mathf.Max(graph.nodes[i].connectedNodes.Count, maxConnections);
 
@@ -613,6 +605,70 @@ namespace TGraph
                 energyBefore = energy;
             }
 
+        }
+        public static void ApplyWaterForceMagnetic(ReadJSON.MyNode n, List<int> edgeIndices, float kSquared)
+        {
+         
+            var upDist = Vector3.zero;
+            var downDist = Vector3.zero;
+
+            for (var k = 0; k < n.edgeIndicesIn.Count; k++)
+            {
+                if (graph.edges[edgeIndices[k]].type == "include")
+                {
+
+                    var u = graph.nodes[n.connectedNodes[k]];
+                    {
+                        var differenceNodes = u.pos - n.pos;
+                        //s
+                        var ortho1 = Vector3.Cross(differenceNodes, Vector3.up).normalized;
+                        var ortho2 = Vector3.Cross(differenceNodes, ortho1).normalized;
+                        var angle = Vector3.Angle(differenceNodes, Vector3.up);
+                        upDist += Vector3.Magnitude(differenceNodes) * (ortho1+ortho2) * angle/360;
+
+                    }
+
+
+                }
+            }
+
+            //nodes with incoming edges push downward
+
+            for (var m = 0; m < n.edgeIndicesOut.Count; m++)
+            {
+                int k = m + n.edgeIndicesIn.Count;
+                if (graph.edges[edgeIndices[k]].type == "include")
+                {
+
+                    var u = graph.nodes[n.connectedNodes[k]];
+                    {
+                        var differenceNodes = u.pos - n.pos;
+                        var ortho1 = Vector3.Cross(differenceNodes, Vector3.up).normalized;
+                        var ortho2 = Vector3.Cross(differenceNodes, ortho1).normalized;
+                        var angle = Vector3.Angle(differenceNodes, Vector3.up);
+                        downDist += Vector3.Magnitude(differenceNodes) * (ortho1 + ortho2) * angle / 360;
+                    }
+
+
+                }
+            }
+        
+            n.disp += (-downDist - upDist);
+            /*
+        if (Mathf.Sign(n.disp.y) == Mathf.Sign(hierarchyDisp))
+        {
+            n.disp.y = 0.9f * n.disp.y + .1f * hierarchyDisp;
+
+        }
+        else
+        {
+            n.disp.y = 0.1f * n.disp.y + 0.9f * hierarchyDisp;
+        }*/
+
+
+
+
+            //  if (graph.UseConstraint) n.disp.y = Mathf.Max(downDist, Mathf.Min(n.disp.y, upDist));
         }
 
 

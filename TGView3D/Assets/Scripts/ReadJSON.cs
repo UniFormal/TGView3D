@@ -1523,7 +1523,7 @@ namespace TGraph
                 //add oo edges of found nodes
                 if (MyEdge.label == "oo" && (FoundNodes.Exists(f => MyEdge.from.Contains(f.id))|| FoundNodes.Exists(f => MyEdge.from.Contains(f.id))))
                 {
-                    MyEdge.style = "alignment";
+                    MyEdge.style = "meta";
                     MyEdges.Add(MyEdge); e++;
                     if (e > 8000)
                     {
@@ -1698,6 +1698,7 @@ namespace TGraph
 
         private IEnumerator FinishUpdate()
         {
+            var stime = Time.realtimeSinceStartup;
 
             if (nodePosDict == null)
             {
@@ -1787,8 +1788,10 @@ namespace TGraph
             }
 
             UpdateAllEdges();
+            Debug.Log(Time.realtimeSinceStartup - stime);
 
             if (!XRSettings.enabled) GameObject.Find("DebugCamera").GetComponent<Gestures>().Init();
+       
 
 
         }
@@ -2479,7 +2482,11 @@ namespace TGraph
         void Update()
         {
 
-            
+            if (Input.GetKeyDown(KeyCode.Keypad5))
+            {
+                ScreenCapture.CaptureScreenshot("Screenshot__" + System.DateTime.Now.ToString("MM-dd_HH-mm-ss") + ".png");
+                Debug.Log("pic");
+            }
           //Debug.Log(IsCoq + " " + (graph.latestSelection!=-1) );
      
             //for gestures

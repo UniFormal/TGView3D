@@ -247,6 +247,7 @@ public class Gestures : MonoBehaviour {
             }
         }
         
+        //translate
         else if (!Manipulated&&OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
         {
             GraphParent.transform.localPosition = CurPos + (LeftHand.transform.position - LeftStart) * 30;
@@ -256,6 +257,7 @@ public class Gestures : MonoBehaviour {
                 CurPos = GraphParent.transform.localPosition;
             }
         }
+        //rotate
         else if (!Manipulated&&OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger))
         {
 
