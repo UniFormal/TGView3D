@@ -641,7 +641,7 @@ namespace TGraph
         }*/
         public static void createEdge(List<ReadJSON.MyEdge> edges, int i, Vector3[] vertices, Vector3 sourcePos, Vector3 targetPos, Vector3 offset, Vector3 offsetOrtho)
         {
-            Vector3 next = 7 * (Quaternion.AngleAxis(360 * edges[i].localIdx, targetPos - sourcePos) * offset);
+            Vector3 next = 3 * (Quaternion.AngleAxis(360 * edges[i].localIdx, targetPos - sourcePos) * offset);
             if (edges[i].localIdx <= 0) next *= 0;
             createStraightEdge(i, vertices, sourcePos + next, targetPos + next, offset, offsetOrtho);
 
@@ -1050,20 +1050,31 @@ namespace TGraph
                 }
 
                 //loops
-                /*
+                
                 var idx = 0;
-                int same = -1;
-                var count = node.connectedNodes.Count(item => item ==node.nr);
-                while (idx != -1)
+                float same = -1;
+                float count = node.connectedNodes.Count(item => item ==node.nr);
+               // while (idx != -1)
                 {                 
                     idx = node.connectedNodes.IndexOf(node.nr,idx);
                     if (idx != -1)
                     {
+         
+                        Debug.Log("SAME");
+                        GameObject torus = GameObject.Instantiate(Resources.Load("Torus")) as GameObject;
+                        node.nodeObject.transform.Rotate(Vector3.up, 360 * -1f * same / count);
+                        torus.transform.parent = node.nodeObject.transform;
+                        torus.transform.localPosition = new Vector3(1, 0, 0);
+                        torus.transform.localScale = new Vector3(100, 100, 100);
+                        torus.GetComponent<Renderer>().material = new Material(mat);
+                        torus.GetComponent<Renderer>().material.color = new Color(20/255f,20/255f,140/255f);// graph.colorDict[graph.edges[edgeIndices[idx]].style];
 
-                        graph.edges[edgeIndices[idx]].localIdx = (same--/count);
+
+                        graph.edges[edgeIndices[idx]].localIdx = (same-- / count);
+
                         idx++;
                     }
-                }*/
+                }
 
             }
 

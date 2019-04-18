@@ -55,19 +55,21 @@ namespace TGraph
             }
           
                     
-            if (graph.nodes[i].edgeIndicesIn.Where(idx => graph.edges[idx].type == "include" && graph.edges[idx].active).ToList().Count == 0
+            else if (graph.nodes[i].edgeIndicesIn.Where(idx => graph.edges[idx].type == "include" && graph.edges[idx].active).ToList().Count == 0
                 && graph.nodes[i].edgeIndicesOut.Where(idx => graph.edges[idx].type == "include" && graph.edges[idx].active).ToList().Count > 0)
             {
                 return VolumeWidth;
     
             }
 
+            else if (graph.nodes[i].edgeIndicesIn.Where(idx => graph.edges[idx].type == "include" && graph.edges[idx].active).ToList().Count == 0
+                 && graph.nodes[i].edgeIndicesOut.Where(idx => graph.edges[idx].type == "include" && graph.edges[idx].active).ToList().Count == 0)
 
-            //    maxConnections = Mathf.Max(graph.nodes[i].connectedNodes.Count, maxConnections);
+                //    maxConnections = Mathf.Max(graph.nodes[i].connectedNodes.Count, maxConnections);
+
+              return  Random.Range(-VolumeWidth, VolumeWidth);
 
             return 0;
-            
-
         }
 
 
