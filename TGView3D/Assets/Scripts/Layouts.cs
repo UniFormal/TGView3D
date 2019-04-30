@@ -22,6 +22,8 @@ namespace TGraph
         static float currTemperature;
         //   static float maxHeight = -10;
         //   static float minHeight = 10;
+
+        //this does not really do much, we cancle it out later
         static float Scaler = 100f;
 
         static float epsilon = 0.00001f;
@@ -51,24 +53,26 @@ namespace TGraph
             {
 
                 return -VolumeWidth;
-              
+
             }
-          
-                    
+
+
             else if (graph.nodes[i].edgeIndicesIn.Where(idx => graph.edges[idx].type == "include" && graph.edges[idx].active).ToList().Count == 0
                 && graph.nodes[i].edgeIndicesOut.Where(idx => graph.edges[idx].type == "include" && graph.edges[idx].active).ToList().Count > 0)
             {
                 return VolumeWidth;
-    
-            }
 
+            }
+            //for only view graphs
             else if (graph.nodes[i].edgeIndicesIn.Where(idx => graph.edges[idx].type == "include" && graph.edges[idx].active).ToList().Count == 0
-                 && graph.nodes[i].edgeIndicesOut.Where(idx => graph.edges[idx].type == "include" && graph.edges[idx].active).ToList().Count == 0)
+                 && graph.nodes[i].edgeIndicesOut.Where(idx => graph.edges[idx].type == "include" && graph.edges[idx].active).ToList().Count == 0
+                 && (graph.nodes[i].edgeIndicesIn.Where(idx => graph.edges[idx].style == "view" ).ToList().Count > 0
+                 || graph.nodes[i].edgeIndicesOut.Where(idx => graph.edges[idx].style == "view" ).ToList().Count > 0))
 
                 //    maxConnections = Mathf.Max(graph.nodes[i].connectedNodes.Count, maxConnections);
 
-              return  Random.Range(-VolumeWidth, VolumeWidth);
-
+                return Random.Range(-VolumeWidth, VolumeWidth);
+              
             return 0;
         }
 
@@ -733,7 +737,8 @@ namespace TGraph
 
             if (Mathf.Sign(n.disp.y) == Mathf.Sign(hierarchyDisp))
             {
-               // n.disp.y = 0.9f * n.disp.y + .1f * hierarchyDisp;
+              //  n.disp.y = 0.9f * n.disp.y + .1f * hierarchyDisp;
+
 
             }
             else
@@ -923,8 +928,10 @@ namespace TGraph
                 //  kVal =Mathf.Max(Mathf.Min((graph.nodes.Count * 4 + graph.edges.Count / 2.5f) / 2 * 0.5f * spacingValue / 7.0f, 300), 70);
 
 
+                float s = 3;
+                //if (TwoD) s = 2;
 
-                kVal = Mathf.Pow(VolumeWidth, 1f / 3f);
+                kVal = Mathf.Pow(VolumeWidth, 1f / s);
                 //kVal = Mathf.Log(kVal);
                 //kVal = 1f;
                 kSquared = kVal * kVal;

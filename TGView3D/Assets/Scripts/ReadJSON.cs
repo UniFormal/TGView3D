@@ -236,6 +236,7 @@ namespace TGraph
         int si = 0;
         public float time = 0;
         public string url;//http://neuralocean.de/graph/test/nasa.json";
+        public string path;
         public int vol = 100;
         public TextAsset[] GraphFiles;
         private static string LayoutFile = "";
@@ -248,6 +249,7 @@ namespace TGraph
         public static Color ConnectedColor = Color.yellow;
         public static Color TargetColor = Color.red;
         public static bool IsCoq = false;
+        public static bool IsAG = false;
         public static List<MyNode> FoundNodes;
         public bool Gen = false;
         public static bool TwoD = false;
@@ -385,7 +387,7 @@ namespace TGraph
 
         void identifySubgraphs()
         {
-
+          
             Debug.Log("Identify Subgraphs... for node count of " + graph.nodes.Count);
             for (var i = 0; i < graph.nodes.Count; i++)
             {
@@ -643,7 +645,8 @@ namespace TGraph
         }*/
         public static void createEdge(List<ReadJSON.MyEdge> edges, int i, Vector3[] vertices, Vector3 sourcePos, Vector3 targetPos, Vector3 offset, Vector3 offsetOrtho)
         {
-            Vector3 next = 3 * (Quaternion.AngleAxis(360 * edges[i].localIdx, targetPos - sourcePos) * offset);
+           
+            Vector3 next = 2 * (Quaternion.AngleAxis((360 * edges[i].localIdx), targetPos - sourcePos) * offset);
             if (edges[i].localIdx <= 0) next *= 0;
             createStraightEdge(i, vertices, sourcePos + next, targetPos + next, offset, offsetOrtho);
 
@@ -784,7 +787,7 @@ namespace TGraph
 
             text.transform.parent = parent;
             text.GetComponent<TextMesh>().text = label;
-            if (type == "o") text.GetComponent<TextMesh>().color = Color.red;
+            if (type == "o") text.GetComponent<TextMesh>().color = Color.gray;
             text.transform.localPosition = Vector3.zero + new Vector3(0, 0, 1f);
             text.name = label;
 
@@ -833,15 +836,22 @@ namespace TGraph
             //  GameObject node = GameObject.CreatePrimitive(PrimitiveType.Quad);
             //  node.transform.localScale = new Vector3(4, 1, 1);
             // GameObject node = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            GameObject nodeObject = Instantiate(grabbable);
-            nodeObject.transform.localScale *= 1.1f;
+     
+
+            var node = graph.nodes[graph.nodeDict[name]];
+            // Debug.Log(node.label+" "+name);
+            GameObject nodeObject;
+            if (node.style == "model")
+            {
+                 nodeObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                nodeObject.transform.localScale *= 0.070f;
+            }
+            else  nodeObject = Instantiate(grabbable);
+            nodeObject.transform.localScale *= 1.0f;
             // GameObject node = new GameObject();
             // node.AddComponent<AlignText>();
             Vector3 pos = Random.insideUnitSphere * vol;
 
-            var node = graph.nodes[graph.nodeDict[name]];
-            // Debug.Log(node.label+" "+name);
-     
             node.labelObject = GenLabel(nodeObject.transform, node.label, node.style);
   
             nodeObject.name = node.label;
@@ -924,12 +934,13 @@ namespace TGraph
             // List<string> tmpMathMLs = new List<string>();
             for (int i = 0; i < graph.nodes.Count; i++)
             {
-                if (graph.nodes[i].mathml != null)
+                if (graph.nodes[i].mathml != null&& graph.nodes[i].mathml!="")
                 {
                     //tmpMathMLs.Add(graph.nodes[i].mathml);
                     // PData data = new PData();
                     //   data.math = graph.nodes[i].mathml;
                     // StartCoroutine(TestRequest(data, i));
+                    Debug.Log(graph.nodes[i].mathml);
                     graph.nodes[i].svg = svgs[i];
                     CreateMathObject(i);
                 }
@@ -1025,7 +1036,7 @@ namespace TGraph
 
                 foreach (var duplicateGroup in duplicates)
                 {
-                     Debug.LogWarning("----"+node.id+" "+duplicateGroup.Count());
+                  
                     int k = 0;
                     foreach (var duplicate in duplicateGroup)
                     {
@@ -1041,8 +1052,21 @@ namespace TGraph
                     {
                         if (node.nr != duplicate.Nid && graph.edges[edgeIndices[duplicate.Index]].localIdx == 0)
                         {
-                            graph.edges[edgeIndices[duplicate.Index]].localIdx = k++ / dnum;
+                           
 
+                            if(duplicate.Index<node.edgeIndicesIn.Count)
+                            graph.edges[edgeIndices[duplicate.Index]].localIdx = k / dnum-0.25f;
+                            else
+                            graph.edges[edgeIndices[duplicate.Index]].localIdx = Mathf.Repeat((k / dnum)+0.5f+0.25f,1f);
+
+
+
+                            k++;
+
+                            Debug.LogWarning(k/dnum+"----" + node.id + " " + duplicateGroup.Count()+" "+duplicate.Index+ " "+node.edgeIndicesIn.Count);
+
+
+                            Debug.Log(graph.edges[edgeIndices[duplicate.Index]].localIdx);
 
                         }
                         // Debug.Log(node.label +" "+graph.nodes[duplicate.Nid].label + " " + duplicate.Index + " " + graph.edges[edgeIndices[duplicate.Index]].localIdx + " " + graph.edges[edgeIndices[duplicate.Index]].from + " " + graph.edges[edgeIndices[duplicate.Index]].to);
@@ -1069,7 +1093,9 @@ namespace TGraph
                         torus.transform.localPosition = new Vector3(1, 0, 0);
                         torus.transform.localScale = new Vector3(100, 100, 100);
                         torus.GetComponent<Renderer>().material = new Material(mat);
-                        torus.GetComponent<Renderer>().material.color = new Color(20/255f,20/255f,140/255f);// graph.colorDict[graph.edges[edgeIndices[idx]].style];
+                        torus.GetComponent<Renderer>().material.color = 
+                           // new Color(20/255f,20/255f,140/255f);
+                        graph.colorDict[graph.edges[edgeIndices[idx]].style]/255f;
 
 
                         graph.edges[edgeIndices[idx]].localIdx = (same-- / count);
@@ -1153,6 +1179,8 @@ namespace TGraph
             {
                 IsMPD = false;
             }
+            if (IsAG) LoadAGGraph();
+
 
             if (GlobalVariables.Reload && !GlobalVariables.Init) LoadGraph();
 
@@ -1928,6 +1956,39 @@ namespace TGraph
             ProcessNodes();
             ProcessEdges();
 
+            string dot = "digraph D {\n";
+            foreach (var node in graph.nodes)
+            {
+                string targets = "{";
+                foreach (var edge in node.edgeIndicesOut)
+                {
+                    if (graph.edges[edge].style == "include")
+                    {
+                        string target = "\""+ graph.nodes[graph.nodeDict[graph.edges[edge].to]].label
+                            +graph.nodes[graph.nodeDict[graph.edges[edge].to]].nr
+                            + "\"";
+                        targets += target + ", ";
+                    }
+
+                }
+
+                
+
+                if (targets != "{")
+                {
+                    targets = targets.Remove(targets.Length - 2, 2);
+                    targets += "}";
+                    dot += "\""+node.label
+                        +node.nr
+                        + "\"" + " -> " + targets+"[arrowhead=none]\n";
+                }
+            }
+            dot += "\n}";
+
+            File.WriteAllText(Application.dataPath + "/dot.gv", dot);
+
+
+
             identifySubgraphs();
 
             Material mat1 = new Material(mat);
@@ -1940,7 +2001,7 @@ namespace TGraph
 
             foreach (var node in graph.nodes)
             {
-                if (node.style == "sceptically_accepted")
+                if (node.style == "skeptically_accepted"|| node.style == "sceptically_accepted")
                     node.nodeObject.GetComponent<Renderer>().material = mat3;
                 else if (node.style == "credulously_accepted")
                     node.nodeObject.GetComponent<Renderer>().material = mat2;
@@ -1979,10 +2040,11 @@ namespace TGraph
                 }
 
                 Material loadedMat = new Material(mat);
-                loadedMat.color = Color.red;
+                loadedMat.color = Color.gray;
+                Material loadedMat2 = new Material(mat);
+                loadedMat2.color = Color.yellow;
 
 
-            
                 foreach (var node in graph.nodes)
                 {
                     node.radius = 2*
@@ -1991,7 +2053,7 @@ namespace TGraph
                     node.nodeObject.transform.localScale *= 2*(1+node.radius);
                     if(node.generated)
                         node.nodeObject.GetComponent<MeshRenderer>().sharedMaterial = loadedMat;
-
+                    else if(node.style=="o") node.nodeObject.GetComponent<MeshRenderer>().sharedMaterial = loadedMat2;
                 }
             }
 
@@ -1999,10 +2061,14 @@ namespace TGraph
             //graph.Positions = new NativeArray<Vector3>(graph.nodes.Count, Allocator.Persistent);
 
 
-
-
+            int ec = 0;
+            foreach(var edge in graph.edges)
+            {
+                if (edge.active) ec++;
+            }
 
             Debug.Log("prep time " + (Time.realtimeSinceStartup - time));
+            Debug.Log(graph.nodes.Count + " " + ec + "-----------------------------------------------------");
 
             StartCoroutine(FinishInit());
         }
@@ -2021,10 +2087,17 @@ namespace TGraph
                 yield return www;
 
 
-            Debug.Log("index used for processing" + GlobalVariables.SelectionIndex);
+            Debug.Log("index used for processing " + GlobalVariables.SelectionIndex);
             //Debug.Log(www.text);
             string json ="";
             if (GlobalVariables.SelectionIndex != -1) json= GraphFiles[GlobalVariables.SelectionIndex].text;//;
+            else if (GlobalVariables.Path != "")
+            {
+                Debug.Log("local file "+GlobalVariables.Path);
+                StreamReader reader = new StreamReader(GlobalVariables.Path);
+                json = reader.ReadToEnd();
+                Debug.Log(json);
+            }
             // check for errors
             if (www!=null&&www.error == null)
             {
@@ -2039,13 +2112,15 @@ namespace TGraph
            
             GlobalVariables.Graph = ReadJSON.MyGraph.CreateFromJSON(json);
             Debug.Log(GlobalVariables.Graph.nodes.Count);
-
+/*
             if (type == 1)
             {
+                Debug.LogWarning("mpd");
                 graph.WaterMode = false;
                 graph.HeightInit = false;
+                graph.RootLeaves = false;
                 graph.FlatInit = true;
-            }
+            }*/
 
             InitGraph();
 
@@ -2222,25 +2297,28 @@ namespace TGraph
             Layouts.Init(TwoD);
         }
 
-
-
         public void LoadAG()
         {
+            IsAG = true;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
-            Debug.Log("load " + GlobalVariables.Url);
-            if (URLObject.GetComponent<InputField>().text != "") GlobalVariables.Url = "localhost:8080/:jgraph/json?key=archivegraph&uri=" + URLObject.GetComponent<InputField>().text
-                    +"&semantic="+SemanticSelect.GetComponent<Dropdown>().options[SemanticSelect.GetComponent<Dropdown>().value]+ "&comp="+ ArgSolverSelect.GetComponent<Dropdown>().options[ArgSolverSelect.GetComponent<Dropdown>().value];
-            else if (GlobalVariables.SelectionIndex != -1)
-            {
-                GlobalVariables.Url = "";
-                si = GlobalVariables.SelectionIndex;
-                GlobalVariables.CurrentFile = GraphFiles[GlobalVariables.SelectionIndex];
-                GameObject.Find("UIDropdown").GetComponent<Dropdown>().value = si;
-            }
+            if (URLObject.GetComponent<InputField>().text != "")
+                 GlobalVariables.Url = "localhost:8080/:jgraph/json?key=archivegraph&uri=" + URLObject.GetComponent<InputField>().text
+                 +"&semantic="+SemanticSelect.GetComponent<Dropdown>().options[SemanticSelect.GetComponent<Dropdown>().value].text+ "&comp="+ ArgSolverSelect.GetComponent<Dropdown>().options[ArgSolverSelect.GetComponent<Dropdown>().value].text;
+                //GlobalVariables.Url = "https://mmt.mathhub.info/:jgraph/json?key=archivegraph&uri=" + URLObject.GetComponent<InputField>().text;
+
+            GlobalVariables.URName = URLObject.GetComponent<InputField>().text;
+        }
+
+        public void LoadAGGraph()
+        {
+
+            Debug.Log("load AG " + GlobalVariables.Url);
+            URLObject.GetComponent<InputField>().text = GlobalVariables.URName;
             url = GlobalVariables.Url;
-
+            Debug.Log(url);
             WWW jsonUrl = new WWW(url);
-            if (url == "") jsonUrl = null;
+
 
             time = Time.realtimeSinceStartup;
             StartCoroutine(ProcessJSON(jsonUrl));
@@ -2250,23 +2328,34 @@ namespace TGraph
         public void LoadGraph()
         {
        
-            Debug.Log("load " + GlobalVariables.Url);
-            if (URLObject.GetComponent<InputField>().text != "") GlobalVariables.Url = "https://mmt.mathhub.info/:jgraph/json?key=archivegraph&uri=" + URLObject.GetComponent<InputField>().text;
-            else if(GlobalVariables.SelectionIndex!=-1)
+            Debug.Log("load " + GlobalVariables.Url+" "+GlobalVariables.Path);
+
+            if (GlobalVariables.Path != "")
             {
-                GlobalVariables.Url = "";
-                si = GlobalVariables.SelectionIndex;
-                GlobalVariables.CurrentFile = GraphFiles[GlobalVariables.SelectionIndex];
-                GameObject.Find("UIDropdown").GetComponent<Dropdown>().value = si;
+                path = GlobalVariables.Path;
+                StartCoroutine(ProcessJSON(null));
             }
-            url = GlobalVariables.Url;
+            else
+            {
+                if (URLObject.GetComponent<InputField>().text != "") GlobalVariables.Url = "https://mmt.mathhub.info/:jgraph/json?key=archivegraph&uri=" + URLObject.GetComponent<InputField>().text;
+                else if (GlobalVariables.SelectionIndex != -1)
+                {
+                    GlobalVariables.Url = "";
+                    si = GlobalVariables.SelectionIndex;
+                    GlobalVariables.CurrentFile = GraphFiles[GlobalVariables.SelectionIndex];
+                    GameObject.Find("UIDropdown").GetComponent<Dropdown>().value = si;
+                }
+                url = GlobalVariables.Url;
 
-            WWW jsonUrl = new WWW(url);
-            if (url == "") jsonUrl = null;
+                WWW jsonUrl = new WWW(url);
+                if (url == "") jsonUrl = null;
 
-            time = Time.realtimeSinceStartup;
-            StartCoroutine(ProcessJSON(jsonUrl));
-  
+                time = Time.realtimeSinceStartup;
+                StartCoroutine(ProcessJSON(jsonUrl));
+
+            }
+
+
         }
 
       
@@ -2434,14 +2523,22 @@ namespace TGraph
                 GlobalVariables.SelectionIndex = -1;
                 GlobalVariables.Url = "https://mmt.mathhub.info/:jgraph/json?key=archivegraph&uri=" + URLObject.GetComponent<InputField>().text;
             }
-          
+
+           if( GlobalVariables.Path != path)
+            {
+                GlobalVariables.SelectionIndex = -1;
+            }
+
+
+
             if (!GlobalVariables.Init)
             {
                 LoadGraph();
             }
      
-            else if ((GlobalVariables.SelectionIndex!=-1&&si != GlobalVariables.SelectionIndex)||GlobalVariables.Url!=url)
+            else if ((GlobalVariables.SelectionIndex!=-1&&si != GlobalVariables.SelectionIndex)||GlobalVariables.Url!=url||GlobalVariables.Path!=path)
             {
+              
                 Debug.Log("new graph, reload scene");
                 GlobalVariables.Init = false;
                 GlobalVariables.Reload = true;

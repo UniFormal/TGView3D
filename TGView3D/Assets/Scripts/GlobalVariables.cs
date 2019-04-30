@@ -20,7 +20,8 @@ namespace TGraph
         public static int SelectionIndex = 0;
         public static TextAsset CurrentFile;
         public static Text Percent;
-
+        public static string URName;
+        public static string Path="";
     }
    
 
