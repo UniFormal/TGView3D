@@ -1744,29 +1744,49 @@ namespace TGraph
             if (nodePosDict == null)
             {
                 NativeArray<float> Energies = new NativeArray<float>(graph.nodes.Count, Allocator.Persistent);
-                var handle = Layouts.BaseLayout(iterations, globalWeight, spaceScale, Energies);
-               
+                var handle = Layouts.BaseLayout(0, globalWeight, spaceScale, Energies);
+                handle.Complete();
 
-                Debug.Log("Begin Layout " + ((Time.realtimeSinceStartup - time)));
-
-                // yield return new WaitUntil(() => handle.IsCompleted);
-                while (!handle.IsCompleted)
-
-
+                int k = iterations;
+#if UNITY_WEBGL
+                k = 1;
+                
+#endif
+                for (int p= 0; p < iterations; p += k)
                 {
-                    //GlobalVariables.Percent.text = ((float)(100.0f * (graph.fin)*2 / iterations)).ToString();
+                    handle = Layouts.UpdateLayout(k, globalWeight, spaceScale);
+                  
+
+                    Debug.Log("Begin Layout " + ((Time.realtimeSinceStartup - time)));
+
+                    // yield return new WaitUntil(() => handle.IsCompleted);
+                    //   while (!handle.IsCompleted)
+
                     GlobalVariables.Percent.text = graph.fin.ToString();
+#if !UNITY_WEBGL||UNITY_EDITOR
 
-                    if (graph.fin > 1)
+                    do
                     {
-                         Layouts.Normalize(spaceScale, true);
-                        //Debug.Log((Time.realtimeSinceStartup-time));
-                         UpdateAllEdges();
-                    }
+                        //GlobalVariables.Percent.text = ((float)(100.0f * (graph.fin)*2 / iterations)).ToString();
+                        GlobalVariables.Percent.text = graph.fin.ToString();
+
+                        if (graph.fin > 1)
+                        {
+                            Layouts.Normalize(spaceScale, true);
+                            //Debug.Log((Time.realtimeSinceStartup-time));
+                            UpdateAllEdges();
+                        }
 
 
-                    yield return new WaitForSeconds(.1f);
+                        yield return null;
+                    } while (!handle.IsCompleted);
+
+#endif
+
+                    handle.Complete();
+                    yield return null;
                 }
+            
                 graph.fin = 0;
                 GlobalVariables.Percent.text = "";
                 handle.Complete();
@@ -1795,7 +1815,8 @@ namespace TGraph
                 {
                     UpdateAllEdges();
                     NativeArray<float> Energies = new NativeArray<float>(graph.nodes.Count, Allocator.Persistent);
-                    var handle = Layouts.UpdateLayout(iterations, globalWeight, spaceScale, Energies);
+                    Layouts.Energies = Energies;
+                    var handle = Layouts.UpdateLayout(iterations, globalWeight, spaceScale);
 
                     Debug.Log("Begin Layout " + ((Time.realtimeSinceStartup - time)));
 
@@ -1956,6 +1977,7 @@ namespace TGraph
             ProcessNodes();
             ProcessEdges();
 
+            /*
             string dot = "digraph D {\n";
             foreach (var node in graph.nodes)
             {
@@ -1986,7 +2008,7 @@ namespace TGraph
             dot += "\n}";
 
             File.WriteAllText(Application.dataPath + "/dot.gv", dot);
-
+            */
 
 
             identifySubgraphs();

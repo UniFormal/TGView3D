@@ -30,6 +30,7 @@ namespace TGraph
         static float diameter = 1*0.05f;//2.5f;
         static float VolumeWidth = diameter * 2 * Scaler;
         static bool TwoD = false;
+        public static NativeArray<float> Energies;
 
         public static void Init()
         {
@@ -111,11 +112,7 @@ namespace TGraph
 
         public static JobHandle ActivateForces(float globalWeight, int iterations, NativeArray<float> Energies, JobHandle hHandle)
         {
-            currTemperature = 0.95f;
-            energyBefore = 0;
-            energy = 1000000f;
-            step = 6.0f;// initialStep;
-            success = 0;
+   
             //50*0.0213f
             var jt = new JobTest(iterations, 1, Energies, useWeights: true, globalWeight: globalWeight);
             var updateEnergies = new UpdateEnergies(Energies);
@@ -159,26 +156,33 @@ namespace TGraph
 
             Init();
             Spiral();
-
-            return UpdateLayout(iterations, globalWeight, spaceScale, Energies);
-
-        }
-
-
-        public static JobHandle UpdateLayout(int iterations, float globalWeight, float spaceScale, NativeArray<float> Energies)
-        {
-
+            Layouts.Energies = Energies;
             var handle = new JobHandle();
             if (graph.HeightInit)
             {
                 var bH = new BuildHierarchy();
                 handle = bH.Schedule();
             }
+            handle.Complete();
+            currTemperature = 0.95f;
+            energyBefore = 0;
+            energy = 1000000f;
+            step = 6.0f;// initialStep;
+            success = 0;
+            return UpdateLayout(iterations, globalWeight, spaceScale);
 
+        }
+
+
+        public static JobHandle UpdateLayout(int iterations, float globalWeight, float spaceScale)
+        {
+
+            
+        
             if (graph.UseForces)
-                return ActivateForces(globalWeight, iterations, Energies, handle);
+                return ActivateForces(globalWeight, iterations, Energies, new JobHandle());
 
-            return handle;
+            return new JobHandle();
 
         }
 
@@ -558,7 +562,7 @@ namespace TGraph
 
             public UpdateEnergies(NativeArray<float> Energies)
             {
-                this.Energies = Energies;
+                this.Energies = Layouts.Energies;
             }
 
             public void Execute()
@@ -586,7 +590,7 @@ namespace TGraph
    }*/
                 }
 
-
+                Layouts.Energies = this.Energies;
                 graph.fin++;
                 energyBefore = energy;
                 energy = Energies.Sum();
