@@ -319,6 +319,7 @@ namespace TGraph
             public int ClusterId = -1;
             public bool generated;
             public bool visited = false;
+            public string color ="";
             //use object references instead?
             public List<int> edgeIndicesOut = new List<int>();
             public List<int> edgeIndicesIn = new List<int>();
@@ -354,7 +355,7 @@ namespace TGraph
             public float localIdx = 0;
             public GameObject line;
             public GameObject labelObject;
-            public Color col;
+            public string color;
             public bool active = true;
             public int targetCount = 0;
             //public List<MyNestedObject> nestedObjects;
@@ -2029,6 +2030,16 @@ namespace TGraph
                     node.nodeObject.GetComponent<Renderer>().material = mat2;
                 else if (node.style == "rejected")
                     node.nodeObject.GetComponent<Renderer>().material = mat1;
+                else
+                {
+                    Color color;
+                    if (ColorUtility.TryParseHtmlString(node.color, out color))
+                    {
+                        node.nodeObject.GetComponent<Renderer>().material = new Material(mat1);
+                        node.nodeObject.GetComponent<Renderer>().material.color = color;
+                    }
+                       
+                }
             }
 
 
