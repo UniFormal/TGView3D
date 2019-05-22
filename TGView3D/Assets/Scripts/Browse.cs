@@ -5,10 +5,13 @@ using System.IO;
 
 public class Browse : MonoBehaviour
 {
-	// Warning: paths returned by FileBrowser dialogs do not contain a trailing '\' character
-	// Warning: FileBrowser can only show 1 dialog at a time
+    // Warning: paths returned by FileBrowser dialogs do not contain a trailing '\' character
+    // Warning: FileBrowser can only show 1 dialog at a time
 
-	void Start()
+    [System.Runtime.InteropServices.DllImport("__Internal")]
+    private static extern void openFileBrowser();
+
+    void Start()
 	{
 		// Set filters (optional)
 		// It is sufficient to set the filters just once (instead of each time before showing the file browser dialog), 
@@ -52,7 +55,13 @@ public class Browse : MonoBehaviour
     public void BrowseFiles()
     {
         // Coroutine example
+
+#if UNITY_WEBGL
+
+
+#else
         StartCoroutine(ShowLoadDialogCoroutine());
+#endif
     }
 
 
