@@ -22,6 +22,7 @@ namespace TGraph
         public static Text Percent;
         public static string URName;
         public static string Path="";
+        public static string JSON = "";
     }
    
 

@@ -5,13 +5,13 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.XR;
-using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Unity.Collections;
 using Unity.Jobs;
 using System.IO;
 using System.Text.RegularExpressions;
+
 
 public class CSVReader
 {
@@ -383,7 +383,21 @@ namespace TGraph
 
         List<int> countNodesInGraph = new List<int>();
 
-
+        public void WebBrowserLoad(string s)
+        {
+            if(GlobalVariables.JSON == s)
+            {
+                StartCoroutine(FinishUpdate());
+            }
+            else
+            {
+                GlobalVariables.JSON = s;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
+       
+           
+        }
+     
 
 
         void identifySubgraphs()
@@ -1132,12 +1146,12 @@ namespace TGraph
 
         void Start()
         {
-
-
+                
+           
             if (LayoutFile != "")
                 GameObject.Find("FileInputField").GetComponent<InputField>().text = LayoutFile;
 
-
+               
             GlobalVariables.Percent = Percent.GetComponent<Text>();
             GlobalVariables.EventSystem = EventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>();
             Camera camera = Camera.main;
@@ -1168,22 +1182,26 @@ namespace TGraph
             Debug.Log(GlobalVariables.SelectionIndex + " found as index after start");
             //  GlobalVariables.Url = "file:///" + Application.dataPath + "/" + UrlSelect.GetComponent<Dropdown>().captionText.text + ".json";
 
-
-            if (IsCoq) LoadCoqGraph();
-
-            else if (GlobalVariables.SelectionIndex == GraphFiles.Length - 1)
-            {
-                LoadMPDGraph();
-                IsMPD = true;
-            }
+            if (GlobalVariables.JSON != "") BuildFromJSON(GlobalVariables.JSON);
             else
             {
-                IsMPD = false;
+                if (IsCoq) LoadCoqGraph();
+
+                else if (GlobalVariables.SelectionIndex == GraphFiles.Length - 1)
+                {
+                    LoadMPDGraph();
+                    IsMPD = true;
+                }
+                else
+                {
+                    IsMPD = false;
+                }
+                if (IsAG) LoadAGGraph();
+
+
+                if (GlobalVariables.Reload && !GlobalVariables.Init) LoadGraph();
             }
-            if (IsAG) LoadAGGraph();
-
-
-            if (GlobalVariables.Reload && !GlobalVariables.Init) LoadGraph();
+         
 
         
 
@@ -1192,8 +1210,9 @@ namespace TGraph
             int pm = Application.absoluteURL.IndexOf("?");
             if (pm != -1)
             {
+                GlobalVariables.SelectionIndex = -1;
                 GlobalVariables.Url = "https://mmt.mathhub.info/:jgraph/json?" + Application.absoluteURL.Split("?"[0])[1];
-                Debug.Log("genereted url: "+GlobalVariables.Url);
+                Debug.Log("generated url: "+GlobalVariables.Url);
             }
 #endif
 
@@ -1749,8 +1768,8 @@ namespace TGraph
                 handle.Complete();
 
                 int k = iterations;
-#if UNITY_WEBGL
-                k = 1;
+#if UNITY_WEBGL && !UNITY_EDITOR
+                k = 2;
                 
 #endif
                 for (int p= 0; p < iterations; p += k)
@@ -2021,6 +2040,7 @@ namespace TGraph
             Material mat3 = new Material(mat);
             mat3.color = Color.green;
 
+            Dictionary<string, Material> materialDict = new Dictionary<string, Material>();
 
             foreach (var node in graph.nodes)
             {
@@ -2035,8 +2055,19 @@ namespace TGraph
                     Color color;
                     if (ColorUtility.TryParseHtmlString(node.color, out color))
                     {
-                        node.nodeObject.GetComponent<Renderer>().material = new Material(mat1);
-                        node.nodeObject.GetComponent<Renderer>().material.color = color;
+                        if (materialDict.ContainsKey(node.color))
+                        {
+                            node.nodeObject.GetComponent<Renderer>().sharedMaterial =  materialDict[node.color];
+
+                        }
+                        else
+                        {
+                            var genMat = new Material(mat1);
+                            node.nodeObject.GetComponent<Renderer>().sharedMaterial = genMat;
+                            node.nodeObject.GetComponent<Renderer>().sharedMaterial.color = color;
+                            materialDict.Add(node.color, genMat);
+                        }
+                     
                     }
                        
                 }
@@ -2142,23 +2173,29 @@ namespace TGraph
             {
                 Debug.Log(www.error);
             }
-           
-            GlobalVariables.Graph = ReadJSON.MyGraph.CreateFromJSON(json);
-            Debug.Log(GlobalVariables.Graph.nodes.Count);
-/*
-            if (type == 1)
-            {
-                Debug.LogWarning("mpd");
-                graph.WaterMode = false;
-                graph.HeightInit = false;
-                graph.RootLeaves = false;
-                graph.FlatInit = true;
-            }*/
 
-            InitGraph();
+            BuildFromJSON(json);
 
             
             }
+        public void BuildFromJSON(string json)
+        {
+            GlobalVariables.Graph = ReadJSON.MyGraph.CreateFromJSON(json);
+            Debug.Log(GlobalVariables.Graph.nodes.Count);
+            /*
+                        if (type == 1)
+                        {
+                            Debug.LogWarning("mpd");
+                            graph.WaterMode = false;
+                            graph.HeightInit = false;
+                            graph.RootLeaves = false;
+                            graph.FlatInit = true;
+                        }*/
+
+            InitGraph();
+        }
+
+       
 
 
         public static void UpdateEdgesLite(MyNode node, ReadJSON.MyGraph graph)
@@ -2548,7 +2585,7 @@ namespace TGraph
 
         public void RecalculateLayout()
         {
-
+         
             Debug.Log("urls: "+url + " " + GlobalVariables.Url);
             Debug.Log(si + " " + GlobalVariables.SelectionIndex);
             if (URLObject.GetComponent<InputField>().text != "")

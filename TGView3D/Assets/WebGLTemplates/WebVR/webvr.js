@@ -429,6 +429,8 @@
     return vrManager;
   }
 
+
+
   function init() {
     if (!navigator.getVRDisplays) {
       var script = document.createElement('script');
@@ -447,5 +449,23 @@
     initWebVRManager();
   }
 
+ 
+
   init();
 })();
+
+$("document").ready(function(){
+
+    $("#file").change(function(e) {
+		var reader = new FileReader();
+		reader.onload = function(event)
+        {
+			var son = event.target.result;
+			gameInstance.SendMessage("Nodes", "WebBrowserLoad", son);
+			
+        };
+		reader.readAsText(e.target.files[0]);
+ 
+      
+    });
+});

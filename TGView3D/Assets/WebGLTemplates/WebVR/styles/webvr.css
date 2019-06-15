@@ -111,6 +111,13 @@ a:link, a:visited {
   border: none;
 }
 
+#file {
+  position: absolute;
+  left: 300px;
+  top: 40px;
+  color: #ffffff;
+}
+
 #entervr {
   display: none;
   position: absolute;

@@ -5,7 +5,6 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.XR;
-using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Unity.Collections;

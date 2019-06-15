@@ -8,15 +8,19 @@ public class Browse : MonoBehaviour
     // Warning: paths returned by FileBrowser dialogs do not contain a trailing '\' character
     // Warning: FileBrowser can only show 1 dialog at a time
 
-    [System.Runtime.InteropServices.DllImport("__Internal")]
-    private static extern void openFileBrowser();
+    //[System.Runtime.InteropServices.DllImport("__Internal")]
+    //private static extern void openFileBrowser();
 
     void Start()
 	{
-		// Set filters (optional)
-		// It is sufficient to set the filters just once (instead of each time before showing the file browser dialog), 
-		// if all the dialogs will be using the same filters
-		FileBrowser.SetFilters( true, new FileBrowser.Filter( "Images", ".jpg", ".png" ), new FileBrowser.Filter( "Text Files", ".txt", ".pdf" ), new FileBrowser.Filter("Graph Files", ".json"));
+#if UNITY_WEBGL && !UNITY_EDITOR
+
+        this.gameObject.SetActive(false);
+#else
+        // Set filters (optional)
+        // It is sufficient to set the filters just once (instead of each time before showing the file browser dialog), 
+        // if all the dialogs will be using the same filters
+        FileBrowser.SetFilters( true, new FileBrowser.Filter( "Images", ".jpg", ".png" ), new FileBrowser.Filter( "Text Files", ".txt", ".pdf" ), new FileBrowser.Filter("Graph Files", ".json"));
 
 		// Set default filter that is selected when the dialog is shown (optional)
 		// Returns true if the default filter is set successfully
@@ -48,7 +52,7 @@ public class Browse : MonoBehaviour
 		// FileBrowser.ShowLoadDialog( (path) => { Debug.Log( "Selected: " + path ); }, 
 		//                                () => { Debug.Log( "Canceled" ); }, 
 		//                                true, null, "Select Folder", "Select" );
-
+#endif
 
 	}
 
@@ -56,7 +60,7 @@ public class Browse : MonoBehaviour
     {
         // Coroutine example
 
-#if UNITY_WEBGL
+#if UNITY_WEBGL && !UNITY_EDITOR
 
 
 #else
