@@ -13,13 +13,21 @@ public class UIInteracton : MonoBehaviour {
     bool outside = true;
     public GameObject Desktop;
     public GameObject UIOverlay;
+    public TextAsset[] GraphFiles;
 
-    private void Start()
+
+
+     void Start()
     {
-       
+     
+        ReadJSON.CurrentJSON = GraphFiles[GameObject.Find("UIDropdown").GetComponent<Dropdown>().value].text;
 
     }
 
+    public void SetCustomEdgeType(InputField inputField)
+    {
+        GlobalVariables.CustomType = inputField.text;
+    }
 
     public void EnableDesktop()
     {
@@ -28,8 +36,16 @@ public class UIInteracton : MonoBehaviour {
 
 
 
+    public void Switch2D()
+    {
+        GlobalVariables.TwoD = !GlobalVariables.TwoD;
+        Layouts.Init(GlobalVariables.TwoD);
+    }
 
-
+    public void SetUrlMode(Dropdown d)
+    {
+        GlobalVariables.UrlMode = d.value;
+    }
 
 
     private void OnTriggerEnter(Collider other)
@@ -97,12 +113,14 @@ public class UIInteracton : MonoBehaviour {
 
     }
 
-    public void ChangeUrl(Dropdown d)
+    public void ChangeJSON(Dropdown d)
     {
-      //  GlobalVariables.Url = "file:///" + Application.dataPath + "/" + d.captionText.text + ".json";
-        GlobalVariables.SelectionIndex = d.value;
+        //  GlobalVariables.Url = "file:///" + Application.dataPath + "/" + d.captionText.text + ".json";
+        //GlobalVariables.SelectionIndex = d.value;
         //GlobalVariables.Url = "";
-        Debug.Log(d.value);
+
+        ReadJSON.CurrentJSON = GraphFiles[d.value].text;
+        Debug.Log("select "+d.value);
 
     }
 
@@ -151,8 +169,12 @@ public class UIInteracton : MonoBehaviour {
     }
 
 
-        public void EnableEdgeType(string type)
+   public void EnableEdgeType(string type)
     {
+        if (type == "")
+            type = GlobalVariables.CustomType;
+
+
         Debug.Log(type);
         var graph = GlobalVariables.Graph;
         var edges = graph.edges;
@@ -174,8 +196,8 @@ public class UIInteracton : MonoBehaviour {
                 else
                 {
                     edges[i].active = true;
-                    vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = TGraph.ReadJSON.GenerateOriginColor(graph.colorDict[edges[i].style]);
-                    vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = TGraph.ReadJSON.GenerateTargetColor(graph.colorDict[edges[i].style]);
+                    vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = TGraph.GraphManager.GenerateOriginColor(graph.colorDict[edges[i].style]);
+                    vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = TGraph.GraphManager.GenerateTargetColor(graph.colorDict[edges[i].style]);
                 }
             }
 
@@ -211,8 +233,8 @@ public class UIInteracton : MonoBehaviour {
                     else
                     {
                         edges[i].active = true;
-                        vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = TGraph.ReadJSON.GenerateOriginColor(graph.colorDict[edges[i].style]);
-                        vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = TGraph.ReadJSON.GenerateTargetColor(graph.colorDict[edges[i].style]);
+                        vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = TGraph.GraphManager.GenerateOriginColor(graph.colorDict[edges[i].style]);
+                        vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = TGraph.GraphManager.GenerateTargetColor(graph.colorDict[edges[i].style]);
                     }
                 }
                    

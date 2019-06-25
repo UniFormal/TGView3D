@@ -3,14 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - pickupAble
-  - bullet
-  - floor
-  - wall
-  - Fader
-  - dontmove
-  - listlast
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -20,18 +13,18 @@ TagManager:
   - UI
   - 
   - 
-  - NoFadeOut
-  - ColliderGrid
-  - Gazable
-  - Player
-  - LitStairs1
-  - Hand
-  - Wall
-  - TeleportPoints
-  - DemoUI
-  - Toys
-  - Text
-  - Monitor
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 

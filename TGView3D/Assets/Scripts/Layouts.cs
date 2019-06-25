@@ -174,11 +174,10 @@ namespace TGraph
         }
 
 
-        public static JobHandle UpdateLayout(int iterations, float globalWeight, float spaceScale)
+        public static JobHandle UpdateLayout(int iterations = 1, float globalWeight = 1, float spaceScale = 1)
         {
 
-            
-        
+          
             if (graph.UseForces)
                 return ActivateForces(globalWeight, iterations, Energies, new JobHandle());
 
@@ -210,6 +209,7 @@ namespace TGraph
                 }
 
             */
+
             foreach (var node in graph.nodes)
             {
                 node.nodeObject.transform.localPosition = node.pos * spaceScale / (Mathf.Pow(Scaler, 1 / 3f));
@@ -1032,7 +1032,7 @@ namespace TGraph
                             }
                             n.range = maxDist;
 
-                            var upos = Vector3.one*n.graphNumber*0;
+                            var upos = Vector3.one*n.GraphNumber*0;
                             var diffVec = upos - n.pos;
                             var lD = Mathf.Max(0, diffVec.magnitude - diameter) + epsilon;
                             var aF = (lD * lD / kVal);
@@ -1049,7 +1049,7 @@ namespace TGraph
                             for (var k = 0; k < graph.nodes.Count; k++)
                             {
                                 var u = graph.nodes[k];
-                                if (u.graphNumber == n.graphNumber && n != u && (u.edgeIndicesIn != null || u.edgeIndicesOut != null))
+                                if (u.GraphNumber == n.GraphNumber && n != u && (u.edgeIndicesIn != null || u.edgeIndicesOut != null))
                                 {
                                     var differenceNodes = u.pos - n.pos;
                                     var lengthDiff = Mathf.Max(0, differenceNodes.magnitude - diameter) + epsilon;
@@ -1057,7 +1057,7 @@ namespace TGraph
                                     var repulsiveForce = -(kSquared / lengthDiff);
                                     if (graph.PushLimit > 0.01f)
                                     {
-                                        if (n.graphNumber == u.graphNumber&&graph.fin > 20 && maxDist > 0 && lengthDiff > graph.PushLimit * (maxDist + n.range))
+                                        if (n.GraphNumber == u.GraphNumber&&graph.fin > 20 && maxDist > 0 && lengthDiff > graph.PushLimit * (maxDist + n.range))
                                         {
                                             repulsiveForce = 0;
                                             //    limit++;
@@ -1068,7 +1068,7 @@ namespace TGraph
                                         }
                                     }
 
-                                    if (n.graphNumber != u.graphNumber) repulsiveForce *= 4;
+                                    if (n.GraphNumber != u.GraphNumber) repulsiveForce *= 4;
 
                                     repulsion += (differenceNodes / lengthDiff) * repulsiveForce;
                                 }

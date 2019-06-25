@@ -31,14 +31,13 @@ public class FreeFlightController : MonoBehaviour {
 
     bool inDesktopLike {
         get {
-            //weird bug
-            return true;// capabilities.hasExternalDisplay;
+            return capabilities.hasExternalDisplay;
         }
     }
 
     void Start()
     {
-        WebVRManager.Instance.OnVRChange += onVRChange; 
+        WebVRManager.Instance.OnVRChange += onVRChange;
         WebVRManager.Instance.OnVRCapabilitiesUpdate += onVRCapabilitiesUpdate;
         originalRotation = transform.localRotation;
     }
@@ -61,7 +60,7 @@ public class FreeFlightController : MonoBehaviour {
         EnableAccordingToPlatform();
     }
 
-    void Urpdate() {
+    void Update() {
         if (translationEnabled)
         {
             float x = Input.GetAxis("Horizontal") * Time.deltaTime * straffeSpeed;
@@ -69,6 +68,7 @@ public class FreeFlightController : MonoBehaviour {
 
             transform.Translate(x, 0, z);
         }
+
         if (rotationEnabled && Input.GetMouseButton(0))
         {
 
@@ -89,7 +89,6 @@ public class FreeFlightController : MonoBehaviour {
     {
         translationEnabled = false;
         rotationEnabled = false;
-        Debug.Log("dis");
     }
 
     /// Enables rotation and translation control for desktop environments.
@@ -99,7 +98,6 @@ public class FreeFlightController : MonoBehaviour {
     {
         rotationEnabled = inDesktopLike || !capabilities.canPresent;
         translationEnabled = inDesktopLike || !capabilities.hasPosition;
-        Debug.Log(rotationEnabled + " enabled " + translationEnabled);
     }
 
     public static float ClampAngle (float angle, float min, float max)

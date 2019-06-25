@@ -46,6 +46,7 @@ public class Gestures : MonoBehaviour {
 
     public void RescaleSlider(float factor)
     {
+        //alternative to global refs in start or setting values externally, not sure which is best
         if (graph == null)
         {
             Init();
@@ -63,9 +64,7 @@ public class Gestures : MonoBehaviour {
             Vector3 sourcePos = (vertexCopies[4 + e] + vertexCopies[0 + e]) / 2 * factor;
             Vector3 targetPos = (vertexCopies[5 + e] + vertexCopies[1 + e]) / 2 * factor;
 
-            // Vector3 offset = -.5f * (1 - factor) * (vertexCopies[4 + e] - vertexCopies[0 + e]);
             Vector3 offset = -(vertexCopies[2 + e] - vertexCopies[0 + e]) / 2;
-            // Vector3 offsetOrtho = -.5f * (1 - factor) * (vertexCopies[2 + e] - vertexCopies[0 + e]);
             Vector3 offsetOrtho = (vertexCopies[6 + e] - vertexCopies[0 + e]) / 2;
             vertices[0 + e] = sourcePos + offset + offsetOrtho;
             vertices[1 + e] = targetPos + offset + offsetOrtho;
@@ -83,7 +82,8 @@ public class Gestures : MonoBehaviour {
         }
         mesh.vertices = vertices;
         mesh.RecalculateBounds();
-        TGraph.GlobalVariables.Recalculate = true;
+
+       // TGraph.GlobalVariables.Recalculate = true;
 
     }
 
@@ -330,6 +330,6 @@ public class Gestures : MonoBehaviour {
             LeftHand = transform.GetChild(1);
         }
 
-        NodeParent = GraphParent.transform.GetChild(0);
+       // NodeParent = GraphParent.transform.GetChild(0);
     }
 }

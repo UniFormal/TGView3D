@@ -1514,7 +1514,6 @@ MonoBehaviour:
   DefaultHeight: 1.2
   TrackingSpace: 1
   vrState: 1
-  UI: {fileID: 0}
 --- !u!114 &114104781069495054
 MonoBehaviour:
   m_ObjectHideFlags: 1

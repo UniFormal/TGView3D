@@ -66,7 +66,7 @@ public class WebVRController : MonoBehaviour
             {
                 if (UnityEngine.XR.XRDevice.isPresent && !input.unityInputIsButton)
                 {
-                  //  return Input.GetAxis(input.unityInputName);
+                    return Input.GetAxis(input.unityInputName);
                 }
                 else
                 {
@@ -289,7 +289,7 @@ public class WebVRController : MonoBehaviour
                 transform.position = InputTracking.GetLocalPosition(handNode);
                 transform.rotation = InputTracking.GetLocalRotation(handNode);
             }
-            /*
+
             foreach(WebVRControllerInput input in inputMap.inputs)
             {
                 if (!input.unityInputIsButton)
@@ -299,7 +299,7 @@ public class WebVRController : MonoBehaviour
                     if (Input.GetAxis(input.unityInputName) < 1)
                         SetButtonState(input.actionName, false, Input.GetAxis(input.unityInputName));
                 }
-            }*/
+            }
         }
     }
 

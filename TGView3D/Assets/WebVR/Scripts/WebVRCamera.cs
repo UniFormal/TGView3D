@@ -24,7 +24,7 @@ public class WebVRCamera : MonoBehaviour
         WebVRManager.Instance.OnVRChange += onVRChange;
         WebVRManager.Instance.OnHeadsetUpdate += onHeadsetUpdate;
         
-        cameraMain = GameObject.Find("DebugCamera").GetComponent<Camera>();
+        cameraMain = GameObject.Find("CameraMain").GetComponent<Camera>();
         cameraL = GameObject.Find("CameraL").GetComponent<Camera>();
         cameraR = GameObject.Find("CameraR").GetComponent<Camera>();
 

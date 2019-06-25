@@ -30,7 +30,6 @@ public class WebVRManager : MonoBehaviour
 
     public delegate void VRChange(WebVRState state);
     public event VRChange OnVRChange;
-    public GameObject UI;
     
     public delegate void HeadsetUpdate(
         Matrix4x4 leftProjectionMatrix,
@@ -173,7 +172,6 @@ public class WebVRManager : MonoBehaviour
     public void setVrState(WebVRState state)
     {
         this.vrState = state;
-        Debug.Log("change");
         if (OnVRChange != null)
             OnVRChange(state);
     }
@@ -181,14 +179,12 @@ public class WebVRManager : MonoBehaviour
     // received start VR from WebVR browser
     public void OnStartVR()
     {
-        UI.transform.localScale = Vector3.zero;
         Instance.setVrState(WebVRState.ENABLED);        
     }
 
     // receive end VR from WebVR browser
     public void OnEndVR()
     {
-        UI.transform.localScale = Vector3.one;
         Instance.setVrState(WebVRState.NORMAL);
     }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Blink : MonoBehaviour {
 
+    private float val = 0;
 	// Use this for initialization
 	void Start () {
 		
@@ -13,6 +14,8 @@ public class Blink : MonoBehaviour {
 	void Update () {
         var col = this.GetComponent<MeshRenderer>().material.GetColor("_TintColor");
         //for subgraphorigin highlighting
-        this.GetComponent<MeshRenderer>().material.SetColor("_TintColor", new Color(col.r, col.g, col.b, Mathf.Repeat(col.a+0.001f,.3f)));
-	}
+        this.GetComponent<MeshRenderer>().material.SetColor("_TintColor", new Color(col.r, col.g, col.b, Mathf.PingPong(val+=0.001f,.3f)));
+        //Debug.Log(col);
+
+    }
 }

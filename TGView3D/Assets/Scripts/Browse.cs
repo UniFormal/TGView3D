@@ -80,9 +80,10 @@ public class Browse : MonoBehaviour
         // and the path to the selected file (FileBrowser.Result) (null, if FileBrowser.Success is false)
         if (FileBrowser.Success)
         {
-            TGraph.GlobalVariables.Path = FileBrowser.Result;
+            TGraph.ReadJSON.ReadJsonFromPath(FileBrowser.Result);
             FileBrowser.AddQuickLink(Path.GetDirectoryName(FileBrowser.Result), Path.GetDirectoryName(FileBrowser.Result));
-            GameObject.Find("Nodes").GetComponent<TGraph.ReadJSON>().RecalculateLayout();
+            //TODO
+            GameObject.Find("Main").GetComponent<TGraph.ReadJSON>().RecalculateLayout();
         }
 
 

@@ -9,7 +9,7 @@ public class GlobalAlignText : MonoBehaviour {
     public int childCount;
     void Start()
     {
-      
+        childCount = TGraph.GlobalVariables.NodeCount;
         
     }
 
