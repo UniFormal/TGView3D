@@ -67,7 +67,7 @@ namespace TGraph
             Camera camera = Camera.main;
             float[] distances = new float[32];
             GlobalVariables.Beam = true;
-            //camera.farClipPlane = 12;
+            camera.farClipPlane = 100;
             distances[18] = 2;
             camera.layerCullDistances = distances;
             if (XRSettings.enabled) camera.layerCullSpherical = true;
@@ -952,7 +952,7 @@ namespace TGraph
 
                 int k = iterations;
 #if UNITY_WEBGL && !UNITY_EDITOR
-                k = 2;
+                k = iterations;
                 
 #endif
                 for (int p = 0; p < iterations; p += k)

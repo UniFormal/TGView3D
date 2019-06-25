@@ -207,17 +207,24 @@ namespace TGraph
         void Start()
         {
 
+        
 #if UNITY_WEBGL
             Debug.Log("#################WEBGLBUILD###############################");
             int pm = Application.absoluteURL.IndexOf("?");
             if (pm != -1)
             {
              //var url = "https://mmt.mathhub.info/:jgraph/json?" + Application.absoluteURL.Split("?"[0])[1];
-               var url =  Application.absoluteURL.Split("/"[0])[1];
-               WWW jsonUrl = new WWW(url);
-               StartCoroutine(ProcessURL(jsonUrl));
-             
-               URLObject.GetComponent<InputField>().DeactivateInputField();
+               var url =  Application.absoluteURL.Split("?"[0])[1];
+
+                if (url != "")
+                {
+                    Debug.Log(url);
+                    WWW jsonUrl = new WWW(url);
+                    StartCoroutine(ProcessURL(jsonUrl));
+
+                   // URLObject.GetComponent<InputField>().DeactivateInputField();
+                }
+  
             }
 #endif
 
@@ -431,6 +438,16 @@ namespace TGraph
             graph.colorDict.Add("attack", new Color(220, 0, 200));
             graph.colorDict.Add("b", new Color(255, 20, 0));
             graph.colorDict.Add("c", new Color(200, 200, 0));
+
+             foreach (var edge in graph.edges)
+            {
+                if (!graph.colorDict.ContainsKey(edge.style))
+                {
+                    edge.style = "include";
+                }
+            }
+
+
 
 
             graph.nodeDict = new Dictionary<string, int>();
