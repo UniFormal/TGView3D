@@ -65,6 +65,7 @@ namespace TGraph
         private GameObject GraphObject;
         public int iterations = 25;
         public float spaceScale = 1;
+    
 
         public GameObject SemanticSelect;
         public GameObject ArgSolverSelect;
@@ -88,8 +89,12 @@ namespace TGraph
         public bool Gen = false;
         public bool SwapRoots = false;
         private GameObject Aura;
+        public static Dictionary<string,string> EdgeTypes = new Dictionary<string, string>() ;
+        public static Dictionary<string, Color> ColorDict;
 
         List<int> countNodesInGraph = new List<int>();
+        public Dropdown EdgeTypeSelector;
+        public Dropdown EdgeAttributeSelector;
 
 
         //TODO: throw out ugly indexing!!!!! + cleanup class variables
@@ -116,7 +121,7 @@ namespace TGraph
             public GameObject edgeObject;
             public int modus = 0;
             public GameObject subObject;
-            public float lineWidth = 2*0.003f;
+            public float lineWidth = 0.003f;
             public bool UseForces = true;
             public bool WaterMode = true;
             public bool FlatInit = false;
@@ -125,7 +130,7 @@ namespace TGraph
             public bool RootLeaves = true;
             public float PushLimit = 1f;
 
-            public Dictionary<string, Color> colorDict;
+       
 
             public static MyGraph CreateFromJSON(string jsonString)
             {
@@ -183,7 +188,6 @@ namespace TGraph
         public class MyEdge
         {
             public string id;
-            public string type = "";
             public string style;
             public string from;
             public string to;
@@ -207,7 +211,22 @@ namespace TGraph
         void Start()
         {
 
-        
+
+
+
+            ColorDict = new Dictionary<string, Color>();
+            ColorDict.Add("include", new Color(0, 255, 0));
+            ColorDict.Add("meta", new Color(255, 20, 0));
+            ColorDict.Add("alignment", new Color(200, 200, 0));
+            ColorDict.Add("view", new Color(0, 0, 255));
+            ColorDict.Add("structure", new Color(200, 0, 250));
+
+
+            ColorDict.Add("attack", new Color(220, 0, 200));
+            ColorDict.Add("b", new Color(255, 20, 0));
+            ColorDict.Add("c", new Color(200, 200, 0));
+
+
 #if UNITY_WEBGL
             Debug.Log("#################WEBGLBUILD###############################");
             int pm = Application.absoluteURL.IndexOf("?");
@@ -250,6 +269,8 @@ namespace TGraph
                     GlobalVariables.JSON = CurrentJSON;
                     LoadGraph();
                     GlobalVariables.Init = true;
+                    GlobalVariables.UIInteractonManager.Init();
+                 
                 }
 
                 else if (GlobalVariables.JSON != CurrentJSON)
@@ -421,33 +442,44 @@ namespace TGraph
                 }
             }
 
+  
 
             graph.movingNodes = new List<int>();
             graph.selectedNodes = new List<int>();
             graph.selectedNodes.Add(-1);
             graph.selectedNodes.Add(-1);
 
-            graph.colorDict = new Dictionary<string, Color>();
-            graph.colorDict.Add("include", new Color(0, 255, 0));
-            graph.colorDict.Add("meta", new Color(255, 20, 0));
-            graph.colorDict.Add("alignment", new Color(200, 200, 0));
-            graph.colorDict.Add("view", new Color(0, 0, 255));
-            graph.colorDict.Add("structure", new Color(200, 0, 250));
 
+            EdgeTypes.Clear();
+            EdgeTypes.Add("include", "include");
+            EdgeTypes.Add("dontselect", "");
 
-            graph.colorDict.Add("attack", new Color(220, 0, 200));
-            graph.colorDict.Add("b", new Color(255, 20, 0));
-            graph.colorDict.Add("c", new Color(200, 200, 0));
-
-             foreach (var edge in graph.edges)
-            {
-                if (!graph.colorDict.ContainsKey(edge.style))
+            foreach (var edge in graph.edges)
+             {
+                if (!EdgeTypes.ContainsKey(edge.style))
                 {
-                    edge.style = "include";
+                    string type;
+                    if (edge.style == "include" || edge.style == "meta" || edge.style == "structure")
+                    {
+                       type = "include";
+                    }
+
+                    else
+                    {
+                       type = "";
+                    }
+
+
+                    EdgeTypes.Add(edge.style,type);
+
                 }
+
             }
 
-
+            EdgeTypeSelector.ClearOptions();
+            EdgeAttributeSelector.ClearOptions();
+            EdgeTypeSelector.AddOptions((EdgeTypes.Keys).ToList<string>());
+            EdgeAttributeSelector.AddOptions((EdgeTypes.Values.Distinct<string>().ToList()));
 
 
             graph.nodeDict = new Dictionary<string, int>();

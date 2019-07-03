@@ -56,9 +56,9 @@ namespace TGraph
         private GameObject Aura;
 
         List<int> countNodesInGraph = new List<int>();
+        public GameObject NodeText;
 
-
-        void Start()
+        void Awake()
         {
 
 
@@ -509,8 +509,8 @@ namespace TGraph
 
 
                     //Debug.Log(edges[i].style);
-                    vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = GenerateOriginColor(Graph.colorDict[edges[i].style]);
-                    vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = GenerateTargetColor(Graph.colorDict[edges[i].style]);
+                    vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = GenerateOriginColor(TGraph.ReadJSON.ColorDict[edges[i].style]);
+                    vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = GenerateTargetColor(TGraph.ReadJSON.ColorDict[edges[i].style]);
 
                     //creates square tubes by setting vertices manually
 
@@ -560,9 +560,9 @@ namespace TGraph
 
 
 
-        public static GameObject GenLabel(Transform parent, string label, string type)
+        public GameObject GenLabel(Transform parent, string label, string type)
         {
-            GameObject text = (GameObject)Instantiate(Resources.Load("nodeText"));
+            GameObject text = (GameObject)Instantiate(NodeText);
 
             text.transform.parent = parent;
             text.GetComponent<TextMesh>().text = label;
@@ -826,7 +826,7 @@ namespace TGraph
                     torus.GetComponent<Renderer>().material = new Material(mat);
                     torus.GetComponent<Renderer>().material.color =
                     // new Color(20/255f,20/255f,140/255f);
-                    Graph.colorDict[Graph.edges[edgeIndices[idx]].style] / 255f;
+                   TGraph.ReadJSON.ColorDict[Graph.edges[edgeIndices[idx]].style] / 255f;
 
 
                     Graph.edges[edgeIndices[idx]].localIdx = (same-- / count);
@@ -866,20 +866,15 @@ namespace TGraph
                         target.edgeIndicesIn.Add(i);
 
                         float weight = 1;
-                        Graph.edges[i].type = "include";
+                   
                         if (Graph.edges[i].style != "Graphinclude" && Graph.edges[i].style != "include")
                         {
                             weight = 0.8f;
                             if (Graph.edges[i].style == "Graphmeta" || Graph.edges[i].style == "meta")
                             {
                                 weight = .2f;
-                                Graph.edges[i].type = "include";
+                         
                             }
-                            else if (Graph.edges[i].style != "structure")
-                            {
-                                Graph.edges[i].type = "";
-                            }
-
                         }
                         source.weights.Add(weight);
                         target.weights.Add(weight);

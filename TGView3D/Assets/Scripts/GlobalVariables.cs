@@ -8,6 +8,7 @@ namespace TGraph
     public static class GlobalVariables
     {
         public static GraphManager GraphManager;
+        public static UIInteracton UIInteractonManager;
         public static ReadJSON.MyGraph Graph;
         public static UnityEngine.EventSystems.EventSystem EventSystem;
         public static Text Percent;
@@ -21,7 +22,6 @@ namespace TGraph
         public static bool Beam = true;
         public static bool Recalculate = false;
         public static bool TwoD = false;
-        public static string CustomType = "";
         public static string JSON = "";
 
         /*

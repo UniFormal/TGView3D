@@ -2,6 +2,8 @@
 using System.Collections;
 using UnityEngine.XR;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class FlyCamera : MonoBehaviour, IPointerClickHandler
 {
@@ -30,6 +32,9 @@ public class FlyCamera : MonoBehaviour, IPointerClickHandler
     private Vector3 startPos = new Vector3(255, 255, 255);
     [System.Runtime.InteropServices.DllImport("__Internal")]
     private static extern void openWindow(string url);
+
+    [SerializeField]
+    private GameObject nodeText;
 
     public virtual void OnPointerClick(PointerEventData eventData)
     {
@@ -205,9 +210,90 @@ public class FlyCamera : MonoBehaviour, IPointerClickHandler
 
         return p_Velocity;
     }
+
+    public void  InvertColors()
+    {
+        var texts = GetComponentsInChildren<Text>();
+
+        Camera.main.backgroundColor = Color.white - Camera.main.backgroundColor;
+
+        var tcol = new Color();
+        tcol = TGraph.GlobalVariables.GraphManager.NodeText.GetComponent<TextMesh>().color;
+        Debug.Log(tcol);
+
+        tcol = Color.white - tcol;
+        tcol.a = 1;
+        Debug.Log(tcol);
+
+        TGraph.GlobalVariables.GraphManager.NodeText.GetComponent<TextMesh>().color = tcol;
+
+        List<string> keys = new List<string>(TGraph.ReadJSON.ColorDict.Keys);
+
+        foreach( var key in keys)
+        {
+            var col = TGraph.ReadJSON.ColorDict[key];
+            col.a = 4 - col.a; 
+            TGraph.ReadJSON.ColorDict[key] = col;
+        }
+        if (TGraph.GlobalVariables.Init)
+        {
+            TGraph.GlobalVariables.UIInteractonManager.Init();
+            UIInteracton.ReColor();
+        }
+
+        var no = GameObject.Find("Nodes");
+        Debug.Log(no);
+        if (no != null)
+        {
+           var textMs = no.GetComponentsInChildren<TextMesh>();
+
+            foreach (var text in textMs)
+            {
+
+                var col = Color.white - new Color(text.color.r, text.color.g, text.color.b, 0);
+                col.a = text.color.a;
+                text.color = col;
+            }
+
+        }
+
+        /*
+         * 
+        foreach (var text in texts)
+        {
+
+            var col = Color.white - new Color(text.color.r, text.color.g, text.color.b, 0);
+            col.a = text.color.a;
+            text.color = col;
+        }
+        var images = GetComponentsInChildren<InputField>();
+        foreach (var image in images)
+        {
+            var col = Color.white - new Color(image.colors.normalColor.r, image.colors.normalColor.g, image.colors.normalColor.b, 0);
+            col.a = image.colors.normalColor.a;
+            var cols = image.colors;
+            cols.normalColor = col;
+
+            image.colors = cols;
+        }
+
+        var bImages = GetComponentsInChildren<Button>();
+        foreach (var image in bImages)
+        {
+            var col = Color.white - new Color(image.colors.normalColor.r, image.colors.normalColor.g, image.colors.normalColor.b, 0);
+            col.a = image.colors.normalColor.a;
+            var cols = image.colors;
+            cols.normalColor = col;
+
+            image.colors = cols;
+        }
+        */
+    }
+
     private void Start()
     {
-         if(VR.activeSelf)
+        TGraph.GlobalVariables.GraphManager.NodeText.GetComponent<TextMesh>().color = nodeText.GetComponent<TextMesh>().color;
+        if (VR.activeSelf)
             VR.SetActive(false);
       //   XRSettings.enabled = false;
     }

@@ -9,15 +9,20 @@ public class GlobalAlignText : MonoBehaviour {
     public int childCount;
     void Start()
     {
-        childCount = TGraph.GlobalVariables.NodeCount;
+      
+        childCount = TGraph.GlobalVariables.Graph.nodes.Count ;
         
     }
 
 
     // Update is called once per frame
     void Update () {
+
+
+        Debug.LogWarning(TGraph.GlobalVariables.Init);
         if (TGraph.GlobalVariables.Init)
         {
+
             Vector3 camPos = Camera.main.transform.position;
             for (int i = 0; i < childCount; i++)
             {

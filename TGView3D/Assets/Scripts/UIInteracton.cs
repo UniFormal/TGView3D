@@ -14,24 +14,84 @@ public class UIInteracton : MonoBehaviour {
     public GameObject Desktop;
     public GameObject UIOverlay;
     public TextAsset[] GraphFiles;
+    public ColorPicker ColorPicker;
+    public UnityEngine.UI.Dropdown Left;
+    public UnityEngine.UI.Dropdown Right;
+    public Toggle CustomToggle;
 
 
-
-     void Start()
+    void Start()
     {
      
         ReadJSON.CurrentJSON = GraphFiles[GameObject.Find("UIDropdown").GetComponent<Dropdown>().value].text;
-
+        GlobalVariables.UIInteractonManager =  GetComponent<UIInteracton>();
     }
 
-    public void SetCustomEdgeType(InputField inputField)
+    public void Init()
     {
-        GlobalVariables.CustomType = inputField.text;
+        ChainAttribute();
+        ChangeAttribute();
+        ChangeColor();
     }
+ 
+
 
     public void EnableDesktop()
     {
        Desktop.SetActive(true);
+    }
+
+
+    public void ChainAttribute()
+    {
+        var left = Left;
+        Dropdown right = Right;
+        right.value = right.options.FindIndex((i) => { return i.text.Equals(ReadJSON.EdgeTypes[left.options[left.value].text]); }); 
+        var col = TGraph.ReadJSON.ColorDict[left.options[left.value].text] / 255f;
+        col.a = col.a*255f/4;
+        ColorPicker.CurrentColor = col;
+   
+    }
+
+   
+    public void MetaConsistency(Toggle md)
+    {
+        if(Left.options[Left.value].text == "meta")
+        {
+            CustomToggle.isOn = md.isOn;
+        }
+    }
+
+    public void MetaConsistency2(Toggle md)
+    {
+        if (Left.options[Left.value].text == "meta")
+        {
+            md.isOn = CustomToggle.isOn;
+        }
+    }
+
+
+    public void ChangeAttribute()
+    {
+        var left = Left;
+        Dropdown right = Right;
+        ReadJSON.EdgeTypes[left.options[left.value].text] = right.options[right.value].text;
+    }
+
+    public void ChangeColor()
+    {
+        if (GlobalVariables.Graph != null)
+        {
+            var cp = ColorPicker;
+            var type = Left.options[Left.value].text;
+            TGraph.ReadJSON.ColorDict[type] = new Color (cp.CurrentColor.r * 255 ,cp.CurrentColor.g * 255, cp.CurrentColor.b * 255 ,cp.CurrentColor.a*4) ;
+
+            // this.EnableEdgeType(type); this.EnableEdgeType(type);
+            
+            ReColor();
+
+        }
+
     }
 
 
@@ -157,9 +217,40 @@ public class UIInteracton : MonoBehaviour {
     }
 
 
-    public void ReColor(string type)
+    public static void ReColor()
     {
+    
+            var graph = GlobalVariables.Graph;
+            var edges = graph.edges;
+            var mesh = graph.edgeObject.GetComponent<MeshFilter>().mesh;
+            Color[] vertexColors = mesh.colors;
 
+
+            for (int i = 0; i < edges.Count; i++)
+            {
+
+           
+                    if (!edges[i].active)
+                    {
+                       
+                        vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] =
+                        vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = new Color(0, 0, 0, 0);
+                    }
+                    else
+                    {
+                  
+                        vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = TGraph.GraphManager.GenerateOriginColor(TGraph.ReadJSON.ColorDict[edges[i].style]);
+                        vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = TGraph.GraphManager.GenerateTargetColor(TGraph.ReadJSON.ColorDict[edges[i].style]);
+                    }
+                
+
+            }
+
+
+            mesh.colors = vertexColors;
+
+
+        
 
     }
 
@@ -172,7 +263,7 @@ public class UIInteracton : MonoBehaviour {
    public void EnableEdgeType(string type)
     {
         if (type == "")
-            type = GlobalVariables.CustomType;
+            type = Left.options[Left.value].text;
 
 
         Debug.Log(type);
@@ -196,8 +287,8 @@ public class UIInteracton : MonoBehaviour {
                 else
                 {
                     edges[i].active = true;
-                    vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = TGraph.GraphManager.GenerateOriginColor(graph.colorDict[edges[i].style]);
-                    vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = TGraph.GraphManager.GenerateTargetColor(graph.colorDict[edges[i].style]);
+                    vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = TGraph.GraphManager.GenerateOriginColor(TGraph.ReadJSON.ColorDict[edges[i].style]);
+                    vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = TGraph.GraphManager.GenerateTargetColor(TGraph.ReadJSON.ColorDict[edges[i].style]);
                 }
             }
 
@@ -208,6 +299,7 @@ public class UIInteracton : MonoBehaviour {
 
 
     }
+
 
 
     public static void SEnableEdgeType(string type)
@@ -233,8 +325,8 @@ public class UIInteracton : MonoBehaviour {
                     else
                     {
                         edges[i].active = true;
-                        vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = TGraph.GraphManager.GenerateOriginColor(graph.colorDict[edges[i].style]);
-                        vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = TGraph.GraphManager.GenerateTargetColor(graph.colorDict[edges[i].style]);
+                        vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] = TGraph.GraphManager.GenerateOriginColor(TGraph.ReadJSON.ColorDict[edges[i].style]);
+                        vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = TGraph.GraphManager.GenerateTargetColor(TGraph.ReadJSON.ColorDict[edges[i].style]);
                     }
                 }
                    
@@ -245,6 +337,8 @@ public class UIInteracton : MonoBehaviour {
         
 
     }
+
+
 
 
 
