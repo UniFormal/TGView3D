@@ -472,6 +472,14 @@ namespace TGraph
 
                     EdgeTypes.Add(edge.style,type);
 
+                    if (!ColorDict.ContainsKey(edge.style)){
+                        Random.InitState(edge.style.Length+edge.style[0]);
+                        var rndcol = Random.ColorHSV(0f,1f,.9f,1f) * 255;
+                        rndcol.a = 0;
+                        ColorDict.Add(edge.style,rndcol);
+                    }
+
+
                 }
 
             }
