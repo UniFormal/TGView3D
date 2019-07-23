@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1004068825275064, guid: efec9fb14b5a8ec4da6d6198bac2ffb7, type: 3}
       propertyPath: m_Name
-      value: nodeTextStatic
+      value: nodeText Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4178467059554406, guid: efec9fb14b5a8ec4da6d6198bac2ffb7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -54,6 +54,11 @@ PrefabInstance:
     - target: {fileID: 4178467059554406, guid: efec9fb14b5a8ec4da6d6198bac2ffb7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 102312631266508862, guid: efec9fb14b5a8ec4da6d6198bac2ffb7,
+        type: 3}
+      propertyPath: m_Color.rgba
+      value: 4293062129
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efec9fb14b5a8ec4da6d6198bac2ffb7, type: 3}
