@@ -188,7 +188,7 @@ namespace TGraph
         //selects node based on ID or finds its label
         public void ChangeID(InputField f)
         {
-            if (!GlobalVariables.Init) return;
+            if (GlobalVariables.Graph.nodes.Count==0) return;
             int result = 0;
             if (System.Int32.TryParse(f.text, out result))
             {
