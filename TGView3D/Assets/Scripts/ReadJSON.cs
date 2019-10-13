@@ -10,7 +10,8 @@ using Unity.Collections;
 using Unity.Jobs;
 using System.IO;
 using System.Text.RegularExpressions;
-
+using System;
+using Random = UnityEngine.Random;
 
 namespace TGraph
 {
@@ -63,8 +64,7 @@ namespace TGraph
         public float globalWeight;
         public static string CurrentJSON;
         private GameObject GraphObject;
-        public int iterations = 25;
-        public float spaceScale = 1;
+      
     
 
         public GameObject SemanticSelect;
@@ -101,33 +101,59 @@ namespace TGraph
         [System.Serializable]
         public class MyGraph
         {
+            
             public List<MyNode> nodes;
-            public ReadJSON GraphParser;
-            public NativeArray<Vector3> Disps;
-            public NativeArray<Vector3> Positions;
-            public Dictionary<string, int> nodeDict;
             public List<MyEdge> edges;
+
+            [NonSerialized]
+            public ReadJSON GraphParser;
+            [NonSerialized]
+            public NativeArray<Vector3> Disps;
+            [NonSerialized]
+            public NativeArray<Vector3> Positions;
+            [NonSerialized]
+            public Dictionary<string, int> nodeDict;
+            [NonSerialized]
             public List<MyEdge> tmpEdges;
+            [NonSerialized]
             public List<int> subEdges;
+            [NonSerialized]
             public int handIndex = 0;
 
             //use object references instead?
+            [NonSerialized]
             public List<int> selectedNodes;
+            [NonSerialized]
             public List<int> movingNodes;
+            [NonSerialized]
             public int latestSelection = -1;
+            [NonSerialized]
             public int currentTarget = -1;
+            [NonSerialized]
             public int subGraphOrign = -1;
+            [NonSerialized]
             public int fin = 0;
+            [NonSerialized]
             public GameObject edgeObject;
+            [NonSerialized]
             public int modus = 0;
+            [NonSerialized]
             public GameObject subObject;
+            [NonSerialized]
             public float lineWidth = 0.003f;
+            [NonSerialized]
             public bool UseForces = true;
+            [NonSerialized]
             public bool WaterMode = true;
+            [NonSerialized]
             public bool FlatInit = false;
+            [NonSerialized]
             public bool HeightInit = false;
+            [NonSerialized]
             public bool UseConstraint = true;
+            [NonSerialized]
             public bool RootLeaves = true;
+            [NonSerialized]
             public float PushLimit = 1f;
 
        
@@ -153,31 +179,54 @@ namespace TGraph
 
 
 
+            [NonSerialized]
             public float radius = 0;
+            [NonSerialized]
             public string svg;
+            [NonSerialized]
             public Vector3 pos;
+            [NonSerialized]
             public Vector3 disp;
+            [NonSerialized]
             public GameObject nodeObject;
+            [NonSerialized]
             public bool forcesFixed;
+            [NonSerialized]
             public float range = float.MaxValue;
+            [NonSerialized]
             public int ClusterId = -1;
+            [NonSerialized]
             public bool generated;
+            [NonSerialized]
             public bool visited = false;
+            [NonSerialized]
             public string color ="";
             //use object references instead?
+            [NonSerialized]
             public List<int> edgeIndicesOut = new List<int>();
+            [NonSerialized]
             public List<int> edgeIndicesIn = new List<int>();
+            [NonSerialized]
             public List<int> connectedNodes = new List<int>();
-
+            [NonSerialized]
             public List<float> weights = new List<float>();
+            [NonSerialized]
             public List<float> inWeights = new List<float>();
+            [NonSerialized]
             public List<float> outWeights = new List<float>();
+            [NonSerialized]
             public int GraphNumber;
+            [NonSerialized]
             public float height = 0;
+            [NonSerialized]
             public float weight = 0;
+            [NonSerialized]
             public GameObject nodeEdgeObject;
+            [NonSerialized]
             public GameObject labelObject;
+            [NonSerialized]
             public bool selected = false;
+            [NonSerialized]
             public int nr;
 
 
@@ -196,12 +245,17 @@ namespace TGraph
             public string clickText;
 
 
-
+            [NonSerialized]
             public float localIdx = 0;
+            [NonSerialized]
             public GameObject line;
+            [NonSerialized]
             public GameObject labelObject;
+            [NonSerialized]
             public string color;
+            [NonSerialized]
             public bool active = true;
+            [NonSerialized]
             public int targetCount = 0;
             //public List<MyNestedObject> nestedObjects;
 
@@ -213,7 +267,7 @@ namespace TGraph
 
 
 
-
+            GlobalVariables.JsonManager = this;
             ColorDict = new Dictionary<string, Color>();
             ColorDict.Add("include", new Color(0, 255, 0));
             ColorDict.Add("meta", new Color(255, 20, 0));
@@ -229,23 +283,33 @@ namespace TGraph
 
 #if UNITY_WEBGL
             Debug.Log("#################WEBGLBUILD###############################");
-        /*    int pm = Application.absoluteURL.IndexOf("?");
-            if (pm != -1)
-            {
-             //var url = "https://mmt.mathhub.info/:jgraph/json?" + Application.absoluteURL.Split("?"[0])[1];
-               var url =  Application.absoluteURL.Split("?"[0])[1];
-
-                if (url != "")
+            /*    int pm = Application.absoluteURL.IndexOf("?");
+                if (pm != -1)
                 {
-                    Debug.Log(url);
-                    WWW jsonUrl = new WWW(url);
-                    StartCoroutine(ProcessURL(jsonUrl));
+                 //var url = "https://mmt.mathhub.info/:jgraph/json?" + Application.absoluteURL.Split("?"[0])[1];
+                   var url =  Application.absoluteURL.Split("?"[0])[1];
 
-                   // URLObject.GetComponent<InputField>().DeactivateInputField();
-                }
-  
-            }*/
+                    if (url != "")
+                    {
+                        Debug.Log(url);
+                        WWW jsonUrl = new WWW(url);
+                        StartCoroutine(ProcessURL(jsonUrl));
+
+                       // URLObject.GetComponent<InputField>().DeactivateInputField();
+                    }
+
+                }*/
 #endif
+            graph = new MyGraph();
+            graph.nodes = new List<MyNode>();
+            graph.edges = new List<MyEdge>();
+       
+             AddNode(false);
+            AddNode(false);
+            AddEdge(graph.nodes[0], graph.nodes[1],false);
+        
+
+            //BuildFromJSON();
 
         }
 
@@ -253,7 +317,8 @@ namespace TGraph
         public void CleanupScene()
         {
             GraphObject.transform.parent = null;
-            GameObject.Destroy(GraphObject);    
+            GameObject.Destroy(GraphObject);
+           
         }
 
 
@@ -286,7 +351,7 @@ namespace TGraph
                 else
                 {
                     Debug.Log("update layout");
-                    StartCoroutine(GlobalVariables.GraphManager.FinishUpdate());
+                    StartCoroutine(GlobalVariables.GraphManager.SmallUpdate());
                     GameObject.Find("Slider").GetComponent<Slider>().value = GameObject.Find("Slider").GetComponent<Slider>().maxValue * .5f;
                 }
             }
@@ -298,7 +363,49 @@ namespace TGraph
 
         }
 
+        public void AddNode(bool build)
+        {
+            var node = new MyNode();
+            node.label = "test";
+            node.style = "rejected";
+            node.id = graph.nodes.Count.ToString();
+            graph.nodes.Add(node);
+            var json = JsonUtility.ToJson(graph);
+            CurrentJSON = json;
 
+         if(build)   GlobalVariables.GraphManager.AddNode(node.id);
+        }
+
+
+        public void RemoveNode(MyNode node)
+        {
+            graph.nodes.Remove(node);
+            var json = JsonUtility.ToJson(graph);
+            CurrentJSON = json;
+        }
+
+
+
+        public void AddEdge(MyNode from, MyNode to, bool build = true)
+        {
+         // style;
+        // label;
+        // url;
+        // clickText;
+            var edge = new MyEdge();
+            edge.from = from.id;
+            edge.to = to.id;
+            edge.style = "include";
+            edge.label = "boom";
+            edge.id = "customedge";
+            Debug.Log(graph.edges.Count);
+            graph.edges.Add(edge);
+            Debug.Log(graph.edges.Count);
+            var json = JsonUtility.ToJson(graph);
+            CurrentJSON = json;
+
+            if(build)GlobalVariables.GraphManager.AddEdge(from, to);
+        }
 
 
 
@@ -334,6 +441,14 @@ namespace TGraph
    
         }
 
+        public void ExportJSON()
+        {
+            var json = JsonUtility.ToJson(graph);
+
+            string filePath = Application.dataPath+"/graphExp.json";
+            File.WriteAllText(filePath, json);
+
+        }
 
         public void BuildFromJSON()
         {
@@ -446,8 +561,8 @@ namespace TGraph
 
             graph.movingNodes = new List<int>();
             graph.selectedNodes = new List<int>();
-            graph.selectedNodes.Add(-1);
-            graph.selectedNodes.Add(-1);
+       //     graph.selectedNodes.Add(-1);
+       //     graph.selectedNodes.Add(-1);
 
 
             EdgeTypes.Clear();
@@ -524,11 +639,13 @@ namespace TGraph
                     {
                         if (materialDict.ContainsKey(node.color))
                         {
+                           
                             node.nodeObject.GetComponent<Renderer>().sharedMaterial = materialDict[node.color];
 
                         }
                         else
                         {
+                            Debug.LogWarning("weird color? " + color);
                             var genMat = new Material(mat1);
                             node.nodeObject.GetComponent<Renderer>().sharedMaterial = genMat;
                             node.nodeObject.GetComponent<Renderer>().sharedMaterial.color = color;
@@ -538,6 +655,9 @@ namespace TGraph
                     }
 
                 }
+
+             
+
             }
 
             int ec = 0;

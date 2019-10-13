@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Collections;
+using Unity.Jobs;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -30,7 +31,7 @@ namespace TGraph
         public bool recursive = false;
         public float globalWeight;
 
-        public int iterations = 25;
+        public int Iterations = 25;
         public float spaceScale = 1;
 
         public GameObject SemanticSelect;
@@ -54,7 +55,7 @@ namespace TGraph
         public bool Gen = false;
         public bool SwapRoots = false;
         private GameObject Aura;
-
+        public float[] GlobalEnergies;
         List<int> countNodesInGraph = new List<int>();
         public GameObject NodeText;
 
@@ -638,7 +639,7 @@ namespace TGraph
             Graph.nodes[Graph.nodeDict[name]].pos = pos;
             Graph.nodes[Graph.nodeDict[name]].nodeObject = nodeObject;
             nodeObject.transform.parent = transform.GetChild(0).GetChild(0);
-            Debug.Log(nodeObject.transform.parent.name);
+      
             //node.transform.localScale = new Vector3(20, 20, 20);
 
 
@@ -678,12 +679,14 @@ namespace TGraph
             return true;
 
         }
+
         void ProcessNodes()
         {
 
             for (int i = 0; i < Graph.nodes.Count; i++)
             {
                 //check not required
+
                 if (ProcessNode(Graph.nodes[i].id, Graph.nodeDict.Count, null))
                 {
                     Graph.nodes[i].nr = i;
@@ -721,6 +724,25 @@ namespace TGraph
         }
 
 
+        public void AddEdge(MyNode start, MyNode end)
+        {
+            GameObject myLine = new GameObject();
+            myLine.transform.parent = this.transform.GetChild(0);
+           // myLine.transform.position = start;
+            myLine.AddComponent<LineRenderer>();
+            LineRenderer lr = myLine.GetComponent<LineRenderer>();
+             var LineUpdater = myLine.AddComponent<SingleLine>();
+            LineUpdater.Target = end.nodeObject.transform;
+            LineUpdater.Origin = start.nodeObject.transform;
+            //  lr.material = new Material(Shader.Find("Particles/Alpha Blended Premultiply"));
+            lr.SetColors(Color.red, Color.red);
+            lr.SetWidth(0.1f, 0.1f);
+            lr.SetPosition(0, start.nodeObject.transform.position);
+            lr.SetPosition(1, end.nodeObject.transform.position);
+
+        }
+
+        /*
         void AddEdge()
         {
             var edge = new MyEdge();
@@ -735,7 +757,7 @@ namespace TGraph
         void ProcessEdge(int i)
         {
 
-        }
+        }*/
 
         public void PlaceEdge( MyNode node)
         {
@@ -794,7 +816,7 @@ namespace TGraph
 
                         k++;
 
-                        Debug.LogWarning(k / dnum + "----" + node.id + " " + duplicateGroup.Count() + " " + duplicate.Index + " " + node.edgeIndicesIn.Count);
+                       // Debug.LogWarning(k / dnum + "----" + node.id + " " + duplicateGroup.Count() + " " + duplicate.Index + " " + node.edgeIndicesIn.Count);
 
 
                         Debug.Log(Graph.edges[edgeIndices[duplicate.Index]].localIdx);
@@ -935,68 +957,99 @@ namespace TGraph
         }
 
 
-
-        public IEnumerator FinishUpdate()
+        public IEnumerator UpdateLoop(int iterations, NativeArray<float> Energies)
         {
             var stime = Time.realtimeSinceStartup;
+            int k = iterations;
 
-           
-                NativeArray<float> Energies = new NativeArray<float>(Graph.nodes.Count, Allocator.Persistent);
-                var handle = Layouts.BaseLayout(0, globalWeight, spaceScale, Energies);
-                handle.Complete();
+            JobHandle handle = new JobHandle();
 
-                int k = iterations;
 #if UNITY_WEBGL && !UNITY_EDITOR
                 k = iterations;
                 
 #endif
-                for (int p = 0; p < iterations; p += k)
-                {
-                    handle = Layouts.UpdateLayout(k, globalWeight, spaceScale);
+            for (int p = 0; p < iterations; p += k)
+            {
+                handle = Layouts.UpdateLayout(k, globalWeight, spaceScale);
 
 
-                    Debug.Log("Begin Layout " + ((Time.realtimeSinceStartup - time)));
+                Debug.Log("Begin Layout " + ((Time.realtimeSinceStartup - time)));
 
 
-                    //   while (!handle.IsCompleted)
+                //   while (!handle.IsCompleted)
 
-                    GlobalVariables.Percent.text = Graph.fin.ToString();
+                GlobalVariables.Percent.text = Graph.fin.ToString();
 #if !UNITY_WEBGL || UNITY_EDITOR
 
-                    do
+                do
+                {
+                    //GlobalVariables.Percent.text = ((float)(100.0f * (Graph.fin)*2 / iterations)).ToString();
+                    GlobalVariables.Percent.text = Graph.fin.ToString();
+
+                    if (Graph.fin > 1)
                     {
-                        //GlobalVariables.Percent.text = ((float)(100.0f * (Graph.fin)*2 / iterations)).ToString();
-                        GlobalVariables.Percent.text = Graph.fin.ToString();
-
-                        if (Graph.fin > 1)
-                        {
-                            Layouts.Normalize(spaceScale, true);
-                            //Debug.Log((Time.realtimeSinceStartup-time));
-                            UpdateAllEdges();
-                        }
+                        Layouts.Normalize(spaceScale, true);
+                        //Debug.Log((Time.realtimeSinceStartup-time));
+                        UpdateAllEdges();
+                    }
 
 
-                        yield return null;
-                    } while (!handle.IsCompleted);
+                    yield return null;
+                } while (!handle.IsCompleted);
 
 #endif
 
-                    handle.Complete();
-                    yield return null;
-                }
-
-                Graph.fin = 0;
-                GlobalVariables.Percent.text = "";
                 handle.Complete();
-                Layouts.Normalize(spaceScale);
-                Energies.Dispose();
-            
+                yield return null;
+            }
+
+            Graph.fin = 0;
+            GlobalVariables.Percent.text = "";
+            handle.Complete();
+            Layouts.Normalize(spaceScale);
+
+            GlobalEnergies = new float[Energies.Length];
+            Energies.CopyTo(GlobalEnergies);
+            Energies.Dispose();
 
             UpdateAllEdges();
             Debug.Log(Time.realtimeSinceStartup - stime);
 
-            if (!XRSettings.enabled) GameObject.Find("CameraMain").GetComponent<Gestures>().Init();
+            
+        }
 
+
+
+        public IEnumerator FinishUpdate()
+        {
+           
+            NativeArray<float> Energies = new NativeArray<float>(Graph.nodes.Count, Allocator.Persistent);
+            for(int i = 0; i< Energies.Length;++i)
+            {
+                Energies[i] = 0;
+            }
+            var handle = Layouts.BaseLayout(0, globalWeight, spaceScale, Energies);
+            handle.Complete();
+
+            yield return StartCoroutine(UpdateLoop(Iterations,Energies));
+
+ 
+
+        }
+
+
+
+        public IEnumerator SmallUpdate()
+        {
+            Layouts.VolumeWidth /= Layouts.Scaler;
+            Layouts.ToTwoD(GlobalVariables.TwoD);
+            Layouts.Scaler = 1;
+            Layouts.step = Mathf.Max(Layouts.step,(.5f+Layouts.step/2));
+            NativeArray<float> Energies = new NativeArray<float>(Graph.nodes.Count, Allocator.Persistent);
+            Layouts.InitEnergies(Energies);
+
+
+            yield return StartCoroutine(UpdateLoop(4,Energies));
 
 
         }
@@ -1017,7 +1070,7 @@ namespace TGraph
             this.GetComponent<Interaction>().enabled = true;
             GlobalVariables.Init = true;
             GlobalVariables.NodeCount = this.transform.childCount;
-        
+            if (!XRSettings.enabled) GameObject.Find("CameraMain").GetComponent<Gestures>().Init();
 
             Debug.Log("Finished init " + ((Time.realtimeSinceStartup - time)));
  
@@ -1036,7 +1089,26 @@ namespace TGraph
         
         }
 
+        public void AddNode(string uri)
+        {
 
+            if(ProcessNode(uri, Graph.nodeDict.Count, null))
+            {
+                var node = Graph.nodes.Last();
+
+                var mousePos = Input.mousePosition;
+              
+
+       
+                var spawnPos = Camera.main.ScreenToWorldPoint(mousePos) ;
+
+                spawnPos += Camera.main.transform.forward * Camera.main.nearClipPlane * 2;
+                
+
+                node.nodeObject.transform.position = spawnPos;
+
+            }
+        }
 
 
 

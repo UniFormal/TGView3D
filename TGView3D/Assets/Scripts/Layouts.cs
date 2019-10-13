@@ -18,17 +18,17 @@ namespace TGraph
         static float energy;
         static float energyBefore;
         static int success;
-        static float step;// initialStep;
+        public static float step;// initialStep;
         static float currTemperature;
         //   static float maxHeight = -10;
         //   static float minHeight = 10;
 
         //this does not really do much, we cancle it out later
-        static float Scaler = 100f;
+        public static float Scaler = 100f;
 
         static float epsilon = 0.00001f;
         static float diameter = 1*0.05f;//2.5f;
-        static float VolumeWidth = diameter * 2 * Scaler;
+        public static float VolumeWidth = diameter * 2 * Scaler;
         static bool TwoD = false;
         public static NativeArray<float> Energies;
 
@@ -39,6 +39,8 @@ namespace TGraph
                 graph = GlobalVariables.Graph;
                 VolumeWidth = diameter * 2 * Scaler * Mathf.Sqrt(graph.nodes.Count) / 20;
             }
+
+            
          
         }
 
@@ -78,10 +80,35 @@ namespace TGraph
         }
 
 
+        public static void ToTwoD(bool twoD)
+        {
+            if (twoD && twoD != TwoD)
+            {
+
+                for (var i = 0; i < graph.nodes.Count; i++)
+                {
+
+                    var pos = graph.nodes[i].pos;
+                    pos.z = 0;
+                    graph.nodes[i].pos = pos;
+                    graph.nodes[i].nodeObject.transform.localPosition = pos;
+
+
+                }
+            }
+        }
+
+
+
         public static void Init(bool twoD)
         {
             Init();
+
+       
+
             TwoD = twoD;
+
+
         }
         public static void Spiral()
         {
@@ -151,12 +178,25 @@ namespace TGraph
         }
 
 
-        public static JobHandle BaseLayout(int iterations, float globalWeight, float spaceScale, NativeArray<float> Energies)
+        public static void InitEnergies(NativeArray<float> energies)
         {
+           
+            //step=1f;
+            Layouts.Energies = energies;
+            Debug.Log(currTemperature + " " + step + " " + energy + " " + energyBefore);
+        }
 
+
+        public static JobHandle BaseLayout(int iterations, float globalWeight, float spaceScale, NativeArray<float> energies)
+        {
+            currTemperature = 0.95f;
+            energyBefore = 0;
+            energy = 1000000f;
+            step = 6.0f;// initialStep;
+            success = 0;
             Init();
             Spiral();
-            Layouts.Energies = Energies;
+            InitEnergies(energies);
             var handle = new JobHandle();
             if (graph.HeightInit)
             {
@@ -164,11 +204,7 @@ namespace TGraph
                 handle = bH.Schedule();
             }
             handle.Complete();
-            currTemperature = 0.95f;
-            energyBefore = 0;
-            energy = 1000000f;
-            step = 6.0f;// initialStep;
-            success = 0;
+   
             return UpdateLayout(iterations, globalWeight, spaceScale);
 
         }
@@ -212,7 +248,8 @@ namespace TGraph
 
             foreach (var node in graph.nodes)
             {
-                node.nodeObject.transform.localPosition = node.pos * spaceScale / (Mathf.Pow(Scaler, 1 / 3f));
+                node.nodeObject.transform.localPosition = node.pos* spaceScale / (Mathf.Pow(Scaler, 1 / 3f));
+
                 //if (!temp) node.pos = node.nodeObject.transform.localPosition;
             }
 
@@ -320,7 +357,7 @@ namespace TGraph
       
                 }
                 var width = (maxVec - minVec).magnitude;
-                Debug.Log(hv + " Height Violations, " + d / graph.nodes.Count + " average edgelength, " + width + " diameter, " + d / graph.nodes.Count / width + " normalized edgeLength");
+                Debug.Log(hv + " Height Violations, " + d / graph.nodes.Count + " average edgelength, " + width + " diameter, " + d / graph.nodes.Count / width + " normalized edgeLength" +" energy "+energy);
             }
 
 
@@ -593,6 +630,7 @@ namespace TGraph
                 Layouts.Energies = this.Energies;
                 graph.fin++;
                 energyBefore = energy;
+               // Debug.Log(energy);
                 energy = Energies.Sum();
                // Debug.Log(energy + " " + step);
                 if (energy < energyBefore)

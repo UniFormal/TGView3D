@@ -9,6 +9,7 @@ namespace TGraph
     {
         public static GraphManager GraphManager;
         public static UIInteracton UIInteractonManager;
+        public static ReadJSON JsonManager;
         public static ReadJSON.MyGraph Graph;
         public static UnityEngine.EventSystems.EventSystem EventSystem;
         public static Text Percent;

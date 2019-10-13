@@ -19,15 +19,16 @@ public class GlobalAlignText : MonoBehaviour {
     void Update () {
 
 
-        Debug.LogWarning(TGraph.GlobalVariables.Init);
+    //s    Debug.LogWarning(TGraph.GlobalVariables.Init);
         if (TGraph.GlobalVariables.Init)
         {
 
             Vector3 camPos = Camera.main.transform.position;
             for (int i = 0; i < childCount; i++)
             {
-                Transform t = this.transform.GetChild(i).GetChild(0);
-                t.rotation = Quaternion.LookRotation(t.position - camPos);
+                Transform t = this.transform.GetChild(i);//.GetChild(0);
+                // t.rotation = Quaternion.LookRotation(t.position - camPos);
+                t.forward = Camera.main.transform.forward;
             }
 
         }

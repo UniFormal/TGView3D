@@ -28,7 +28,7 @@ public class WebVRCamera : MonoBehaviour
         cameraL = GameObject.Find("CameraL").GetComponent<Camera>();
         cameraR = GameObject.Find("CameraR").GetComponent<Camera>();
 
-        cameraMain.transform.Translate(new Vector3(0, WebVRManager.Instance.DefaultHeight, 0));
+      //  cameraMain.transform.Translate(new Vector3(0, WebVRManager.Instance.DefaultHeight, 0));
     }
 
     void Update()

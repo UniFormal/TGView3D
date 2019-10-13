@@ -23,7 +23,8 @@ public class UIInteracton : MonoBehaviour {
     void Start()
     {
      
-        ReadJSON.CurrentJSON = GraphFiles[GameObject.Find("UIDropdown").GetComponent<Dropdown>().value].text;
+        //if(ReadJSON.CurrentJSON == null)
+            ReadJSON.CurrentJSON = GraphFiles[GameObject.Find("UIDropdown").GetComponent<Dropdown>().value].text;
         GlobalVariables.UIInteractonManager =  GetComponent<UIInteracton>();
     }
 
@@ -197,11 +198,19 @@ public class UIInteracton : MonoBehaviour {
     }
     public void EnableUI()
     {
-        Debug.Log(0);
-        if (UIOverlay.GetComponent<RectTransform>().localScale.x == 1)
-            UIOverlay.GetComponent<RectTransform>().localScale = Vector3.zero;
+        var targetUI = UIOverlay;
+        if (targetUI.GetComponent<RectTransform>().localScale.x == 1)
+            targetUI.GetComponent<RectTransform>().localScale = Vector3.zero;
         else
-            UIOverlay.GetComponent<RectTransform>().localScale = Vector3.one;
+            targetUI.GetComponent<RectTransform>().localScale = Vector3.one;
+    }
+    public void EnableUI(GameObject targetUI)
+    {
+        if (targetUI == null) targetUI = UIOverlay;
+        if (targetUI.GetComponent<Canvas>().enabled)
+            targetUI.GetComponent<Canvas>().enabled = false;
+        else
+            targetUI.GetComponent<Canvas>().enabled = true;
     }
 
 

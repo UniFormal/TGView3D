@@ -255,6 +255,82 @@ namespace OVRTouchSample
             GrabVolumeEnable(true);
         }
 
+        public void SelectNode(int nodeId)
+        {
+            
+            //current Selection exists
+            if (graph.selectedNodes[handIndex] != -1)
+            {
+
+
+                var graphNode = graph.nodes[graph.selectedNodes[handIndex]];
+
+                graphNode.labelObject.GetComponent<TextMesh>().color = TGraph.ReadJSON.BaseColor;
+                graphNode.labelObject.layer = 18;
+                foreach (int nidx in graphNode.connectedNodes)
+                {
+                    graph.nodes[nidx].labelObject.layer = 18;
+                    graph.nodes[nidx].labelObject.GetComponent<TextMesh>().color = TGraph.ReadJSON.BaseColor;
+                }
+                GameObject.Destroy(graphNode.nodeEdgeObject);
+                graphNode.nodeEdgeObject = null;
+            }
+
+
+
+
+            TGraph.ReadJSON.MyNode node = graph.nodes[nodeId];
+
+
+            // Debug.Log(nodeId + " other has"+ graph.selectedNodes[(handIndex + 1) % 2]);
+
+            //select node and highlight accordingly
+            if (nodeId != graph.selectedNodes[(handIndex + 1) % 2])
+            {
+
+                var edges = new List<TGraph.ReadJSON.MyEdge>();
+                node.labelObject.GetComponent<TextMesh>().color = TGraph.ReadJSON.SelectedColor;
+                node.labelObject.layer = 0;
+                foreach (int nidx in node.connectedNodes)
+                {
+                    graph.nodes[nidx].labelObject.layer = 0;
+                    graph.nodes[nidx].labelObject.GetComponent<TextMesh>().color = TGraph.ReadJSON.ConnectedColor;
+                }
+                foreach (int idx in node.edgeIndicesIn)
+                {
+                    edges.Add(graph.edges[idx]);
+                }
+                foreach (int idx in node.edgeIndicesOut)
+                {
+                    edges.Add(graph.edges[idx]);
+                }
+
+
+                graph.nodes[nodeId].nodeEdgeObject = TGraph.GraphManager.BuildEdges(edges, ref graph, graph.edgeObject.GetComponent<MeshRenderer>().sharedMaterial);
+                graph.nodes[nodeId].nodeEdgeObject.transform.parent = graph.edgeObject.transform.parent;
+                graph.nodes[nodeId].nodeEdgeObject.transform.localPosition = Vector3.zero;
+                graph.nodes[nodeId].nodeEdgeObject.transform.localEulerAngles = Vector3.zero;
+
+                graph.selectedNodes[handIndex] = (nodeId);
+                graph.latestSelection = nodeId;
+                graph.currentTarget = -1;
+
+                if (OnSelectionChanged != null)
+                    OnSelectionChanged();
+
+
+            }
+            else
+            {
+                graph.selectedNodes[handIndex] = graph.nodes[graph.selectedNodes[(handIndex + 1) % 2]].nr;
+                graph.selectedNodes[(handIndex + 1) % 2] = -1;
+            }
+
+            graph.movingNodes.Add(nodeId);
+
+        }
+
+
         protected override void GrabBegin()
         {
             DistanceGrabbable closestGrabbable = m_target;
@@ -279,73 +355,9 @@ namespace OVRTouchSample
                     graph.handIndex++;
                 }
 
+                SelectNode(closestGrabbable.transform.GetSiblingIndex());
 
-                //current Selection exists
-                if (graph.selectedNodes[handIndex] != -1)
-                {
-                    var graphNode = graph.nodes[graph.selectedNodes[handIndex]];
                
-                    graphNode.labelObject.GetComponent<TextMesh>().color = TGraph.ReadJSON.BaseColor;
-                    graphNode.labelObject.layer = 18;
-                    foreach (int nidx in graphNode.connectedNodes)
-                    {
-                        graph.nodes[nidx].labelObject.layer = 18;
-                        graph.nodes[nidx].labelObject.GetComponent<TextMesh>().color = TGraph.ReadJSON.BaseColor;
-                    }
-                    GameObject.Destroy(graphNode.nodeEdgeObject);
-                    graphNode.nodeEdgeObject = null;
-                }
-
-
-
-
-                TGraph.ReadJSON.MyNode node = graph.nodes[closestGrabbable.transform.GetSiblingIndex()];
-
-
-               // Debug.Log(closestGrabbable.transform.GetSiblingIndex() + " other has"+ graph.selectedNodes[(handIndex + 1) % 2]);
-                
-                //select node and highlight accordingly
-                if (closestGrabbable.transform.GetSiblingIndex() != graph.selectedNodes[(handIndex + 1) % 2] )
-                {
-
-                    var edges = new List<TGraph.ReadJSON.MyEdge>();
-                    node.labelObject.GetComponent<TextMesh>().color = TGraph.ReadJSON.SelectedColor;
-                    node.labelObject.layer = 0;
-                    foreach (int nidx in node.connectedNodes)
-                    {
-                        graph.nodes[nidx].labelObject.layer = 0;
-                        graph.nodes[nidx].labelObject.GetComponent<TextMesh>().color = TGraph.ReadJSON.ConnectedColor;
-                    }
-                    foreach (int idx in node.edgeIndicesIn)
-                    {
-                        edges.Add(graph.edges[idx]);
-                    }
-                    foreach (int idx in node.edgeIndicesOut)
-                    {
-                        edges.Add(graph.edges[idx]);
-                    }
-
-
-                    graph.nodes[closestGrabbable.transform.GetSiblingIndex()].nodeEdgeObject = TGraph.GraphManager.BuildEdges(edges,ref graph, graph.edgeObject.GetComponent<MeshRenderer>().sharedMaterial);
-                    graph.nodes[closestGrabbable.transform.GetSiblingIndex()].nodeEdgeObject.transform.parent = graph.edgeObject.transform.parent;
-                    graph.nodes[closestGrabbable.transform.GetSiblingIndex()].nodeEdgeObject.transform.localPosition = Vector3.zero;
-                    graph.nodes[closestGrabbable.transform.GetSiblingIndex()].nodeEdgeObject.transform.localEulerAngles = Vector3.zero;
-
-                    graph.selectedNodes[handIndex] = (closestGrabbable.transform.GetSiblingIndex());
-                    graph.latestSelection = closestGrabbable.transform.GetSiblingIndex();
-                    graph.currentTarget = -1;
-
-                    if (OnSelectionChanged!= null)
-                        OnSelectionChanged();
-
-
-                }
-                else
-                {
-                    graph.selectedNodes[handIndex] = graph.nodes[graph.selectedNodes[(handIndex + 1) % 2]].nr;
-                    graph.selectedNodes[(handIndex + 1) % 2] = -1 ;
-                }
-
 
 
                 Debug.Log(graph.selectedNodes[handIndex ] + " other:" + graph.selectedNodes[(handIndex + 1) % 2]);
@@ -377,12 +389,12 @@ namespace OVRTouchSample
 
 
 
-              if (!graph.selectedNodes.Contains(graph.nodes[closestGrabbable.transform.GetSiblingIndex()]))
+              if (!graph.selectedNodes.Contains(graph.nodes[nodeId]))
               {
                     var edges = new List<TGraph.ReadJSON.MyEdge>();
                     // foreach (TGraph.ReadJSON.MyNode node in graph.selectedNodes)
                     {
-                        TGraph.ReadJSON.MyNode node = graph.nodes[closestGrabbable.transform.GetSiblingIndex()];
+                        TGraph.ReadJSON.MyNode node = graph.nodes[nodeId];
 
                         node.labelObject.GetComponent<TextMesh>().color = new Color(0.6f, 0.6f, 0.05f);
                         foreach (int nidx in node.connectedNodes)
@@ -400,13 +412,13 @@ namespace OVRTouchSample
                         }
                     }
 
-                    graph.nodes[closestGrabbable.transform.GetSiblingIndex()].nodeEdgeObject = TGraph.ReadJSON.BuildEdges(edges, graph, graph.nodeDict, graph.edgeObject.GetComponent<MeshRenderer>().sharedMaterial);
-                    graph.selectedNodes.Add(graph.nodes[closestGrabbable.transform.GetSiblingIndex()]);
+                    graph.nodes[nodeId].nodeEdgeObject = TGraph.ReadJSON.BuildEdges(edges, graph, graph.nodeDict, graph.edgeObject.GetComponent<MeshRenderer>().sharedMaterial);
+                    graph.selectedNodes.Add(graph.nodes[nodeId]);
                 }*/
 
 
 
-                graph.movingNodes.Add(closestGrabbable.transform.GetSiblingIndex());
+     
 
                 m_grabbedObj.GrabBegin(this, closestGrabbableCollider);
 
