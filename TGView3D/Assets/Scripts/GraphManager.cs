@@ -630,6 +630,8 @@ namespace TGraph
         
 
             Vector3 pos = Random.insideUnitSphere * vol;
+
+            if (GlobalVariables.IdToPosition.ContainsKey(name) && GlobalVariables.IdToPosition[name] != null) pos = GlobalVariables.IdToPosition[name];
             node.labelObject = GenLabel(nodeObject.transform, node.label, node.style);
             nodeObject.name = node.label;
 
@@ -1055,17 +1057,25 @@ namespace TGraph
         }
 
 
-        public IEnumerator FinishInit()
+        public IEnumerator FinishInit(bool keepLayout = false)
         {
             Layouts.Init(GlobalVariables.TwoD);
-            Layouts.Spiral();
+            if (!keepLayout)
+            {
+                
+                Layouts.Spiral();
+              
+            }
+          
 
             Graph.edgeObject = BuildEdges(Graph.edges, ref Graph, lineMat);
             Graph.edgeObject.transform.parent = transform.GetChild(0);
             Graph.edgeObject.name = "EdgeMesh";
             UIInteracton.SEnableEdgeType("meta");
        
-            yield return FinishUpdate();
+            if(!keepLayout) yield return FinishUpdate();
+
+
             GlobalVariables.Solved = true;
             this.GetComponent<Interaction>().enabled = true;
             GlobalVariables.Init = true;

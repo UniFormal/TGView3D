@@ -4,6 +4,7 @@ using UnityEngine.XR;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Reflection;
 
 public class FlyCamera : MonoBehaviour, IPointerClickHandler
 {
@@ -200,10 +201,33 @@ public class FlyCamera : MonoBehaviour, IPointerClickHandler
   
         GameObject menu = GameObject.Instantiate(Resources.Load("NodeMenu")) as GameObject;
         menu.transform.parent = node.nodeObject.transform;
-        menu.transform.localPosition = Vector3.zero;
+        menu.transform.localPosition = Vector3.zero-Camera.main.transform.forward;
         //   menu.transform.LookAt(menu.transform.position*2-Camera.main.transform.position);
         menu.transform.forward = Camera.main.transform.forward;
         menu.transform.localScale = Vector3.one * .02f;
+
+        int offset = 0;
+        var field = menu.GetComponent<SubMenu>().FieldInput;
+        foreach (FieldInfo info in node.GetType().GetFields())
+        {
+            if (!info.IsNotSerialized && info.GetValue(node)!=null)
+            {
+
+                var f = GameObject.Instantiate(field);
+                f.transform.parent = menu.transform;
+                f.transform.position = field.transform.position;
+                f.transform.forward = menu.transform.forward;
+                f.transform.localScale = Vector3.one;
+                f.transform.localPosition += Vector3.down * offset * 25f ;
+                var texts = f.GetComponentsInChildren<Text>();
+                texts[0].text = info.Name;
+                f.GetComponentInChildren<InputField>().text = info.GetValue(node).ToString();
+              
+                offset++;
+            }
+        }
+        GameObject.Destroy(field);
+
     }
 
     public void DestroySubMenu(TGraph.ReadJSON.MyNode node)
@@ -385,32 +409,32 @@ public class FlyCamera : MonoBehaviour, IPointerClickHandler
     { //returns the basic values, if it's 0 than it's not active.
         Vector3 p_Velocity = new Vector3();
 
-     
-        if (Input.GetKey(KeyCode.W)||Input.GetKey(KeyCode.UpArrow))
-        {
-            p_Velocity += new Vector3(0, 0, 1);
+        if (Input.GetMouseButton(0)) { 
+            if (Input.GetKey(KeyCode.W)||Input.GetKey(KeyCode.UpArrow))
+            {
+                p_Velocity += new Vector3(0, 0, 1);
+            }
+            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+            {
+                p_Velocity += new Vector3(0, 0, -1);
+            }
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+            {
+                p_Velocity += new Vector3(-1, 0, 0);
+            }
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            {
+                p_Velocity += new Vector3(1, 0, 0);
+            }
+            if (Input.GetKey(KeyCode.E))
+            {
+                p_Velocity += new Vector3(0, 1, 0);
+            }
+            if (Input.GetKey(KeyCode.Q))
+            {
+                p_Velocity += new Vector3(0, -1, 0);
+            }
         }
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-        {
-            p_Velocity += new Vector3(0, 0, -1);
-        }
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-        {
-            p_Velocity += new Vector3(-1, 0, 0);
-        }
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        {
-            p_Velocity += new Vector3(1, 0, 0);
-        }
-        if (Input.GetKey(KeyCode.E))
-        {
-            p_Velocity += new Vector3(0, 1, 0);
-        }
-        if (Input.GetKey(KeyCode.Q))
-        {
-            p_Velocity += new Vector3(0, -1, 0);
-        }
-
         p_Velocity += Input.mouseScrollDelta.y * Vector3.forward*10;
       //  p_Velocity += Input.mouseScrollDelta.x * Vector3.right * 4;
 

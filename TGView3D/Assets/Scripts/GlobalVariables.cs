@@ -24,7 +24,7 @@ namespace TGraph
         public static bool Recalculate = false;
         public static bool TwoD = false;
         public static string JSON = "";
-
+        public static Dictionary<string, Vector3> IdToPosition = new Dictionary<string, Vector3>();
         /*
         public static string Url = "";
        

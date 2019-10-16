@@ -53,7 +53,7 @@ namespace TGraph
     public class ReadJSON : MonoBehaviour
     {
         public GameObject Percent;
-        public MyGraph graph;
+        public static MyGraph graph;
         public Material mat;
         public Material lineMat;
         public GameObject grabbable;
@@ -171,13 +171,14 @@ namespace TGraph
         public class MyNode
         {
            
+
+
+
             public string id;
             public string style;
             public string label;
             public string url;
             public string mathml;
-
-
 
             [NonSerialized]
             public float radius = 0;
@@ -305,8 +306,8 @@ namespace TGraph
             graph.edges = new List<MyEdge>();
        
              AddNode(false);
-            AddNode(false);
-            AddEdge(graph.nodes[0], graph.nodes[1],false);
+           // AddNode(false);
+            //AddEdge(graph.nodes[0], graph.nodes[1],false);
         
 
             //BuildFromJSON();
@@ -323,6 +324,42 @@ namespace TGraph
 
 
         //build graph depending on json file
+
+
+         void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                UpdateJson();
+                UpdateLayout();
+            }
+           
+        }   
+
+        public void UpdateLayout()
+        {
+
+            nodePosDict = new Dictionary<string, Vector3>();
+            foreach(var node in graph.nodes)
+            {
+                nodePosDict.Add(node.id, node.nodeObject.transform.localPosition);
+            }
+
+            GlobalVariables.IdToPosition = nodePosDict;
+
+            if (CurrentJSON != null)
+            {
+            
+                    GlobalVariables.JSON = CurrentJSON;
+                    CleanupScene();
+                    LoadGraph(true);
+
+
+                
+            }
+        }
+
+
         public void RecalculateLayout()
         {
 
@@ -374,6 +411,11 @@ namespace TGraph
             CurrentJSON = json;
 
          if(build)   GlobalVariables.GraphManager.AddNode(node.id);
+        }
+
+        public static void UpdateJson()
+        {
+            CurrentJSON = JsonUtility.ToJson(graph);
         }
 
 
@@ -450,12 +492,15 @@ namespace TGraph
 
         }
 
-        public void BuildFromJSON()
+        public void BuildFromJSON(bool keepLayout = false)
         {
             GlobalVariables.Graph = ReadJSON.MyGraph.CreateFromJSON(CurrentJSON);
             GlobalVariables.Graph.GraphParser = this;
-            InitGraph();
+            InitGraph(keepLayout);
         }
+
+        
+
 
         public void WebBrowserLoad(string s)
         {
@@ -512,14 +557,14 @@ namespace TGraph
   
 
 
-        public void LoadGraph()
+        public void LoadGraph(bool keepLayout = false)
         {
 
             GraphObject =Instantiate(Resources.Load<GameObject>("Graph"));
             GraphObject.transform.parent = this.transform;
             time = Time.realtimeSinceStartup;
 
-            BuildFromJSON();
+            BuildFromJSON(keepLayout);
    
         }
 
@@ -536,7 +581,9 @@ namespace TGraph
         }
 
 
-        private void InitGraph()
+
+
+        private void InitGraph(bool keepLayout = false)
         {
             graph = GlobalVariables.Graph;
 
@@ -671,7 +718,7 @@ namespace TGraph
         //    GraphManager.Init();
 
 
-            StartCoroutine(GlobalVariables.GraphManager.FinishInit());
+            StartCoroutine(GlobalVariables.GraphManager.FinishInit(keepLayout));
      
 
 
