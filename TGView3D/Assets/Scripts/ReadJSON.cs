@@ -13,8 +13,12 @@ using System.Text.RegularExpressions;
 using System;
 using Random = UnityEngine.Random;
 
+
+
+
 namespace TGraph
 {
+
 
     [System.Serializable]
     public class SVGCollection
@@ -49,9 +53,26 @@ namespace TGraph
 
     }
 
+    public class EdgeType
+    {
+        public string type;
+        public bool active = true;
+
+        public EdgeType(string type)
+        {
+            this.type = type;
+        }
+    }
+
 
     public class ReadJSON : MonoBehaviour
     {
+
+
+
+        [System.Runtime.InteropServices.DllImport("__Internal")]
+        private static extern void download(string data, string strFileName, string strMimeType);
+
         public GameObject Percent;
         public static MyGraph graph;
         public Material mat;
@@ -87,9 +108,9 @@ namespace TGraph
         public static bool IsAG = false;
         public static List<MyNode> FoundNodes;
         public bool Gen = false;
-        public bool SwapRoots = false;
+        public static bool SwapRoots = false;
         private GameObject Aura;
-        public static Dictionary<string,string> EdgeTypes = new Dictionary<string, string>() ;
+        public static Dictionary<string,EdgeType> EdgeTypes = new Dictionary<string, EdgeType>() ;
         public static Dictionary<string, Color> ColorDict;
 
         List<int> countNodesInGraph = new List<int>();
@@ -124,6 +145,8 @@ namespace TGraph
             [NonSerialized]
             public List<int> selectedNodes;
             [NonSerialized]
+            public List<int> SelectedEdges = new List<int>();
+            [NonSerialized]
             public List<int> movingNodes;
             [NonSerialized]
             public int latestSelection = -1;
@@ -140,7 +163,7 @@ namespace TGraph
             [NonSerialized]
             public GameObject subObject;
             [NonSerialized]
-            public float lineWidth = 0.003f;
+            public float lineWidth = 0.01f;
             [NonSerialized]
             public bool UseForces = true;
             [NonSerialized]
@@ -179,6 +202,9 @@ namespace TGraph
             public string label;
             public string url;
             public string mathml;
+
+            [NonSerialized]
+            public bool alive = true;
 
             [NonSerialized]
             public float radius = 0;
@@ -230,6 +256,10 @@ namespace TGraph
             [NonSerialized]
             public int nr;
 
+            public GameObject GetObject()
+            {
+                return nodeObject;
+            }
 
 
 
@@ -245,7 +275,8 @@ namespace TGraph
             public string url;
             public string clickText;
 
-
+            [NonSerialized]
+            public bool alive = true;
             [NonSerialized]
             public float localIdx = 0;
             [NonSerialized]
@@ -259,7 +290,11 @@ namespace TGraph
             [NonSerialized]
             public int targetCount = 0;
             //public List<MyNestedObject> nestedObjects;
-
+            public GameObject GetObject()
+            {
+                Debug.Log(GlobalVariables.Graph.edgeObject);
+                return GlobalVariables.Graph.edgeObject;
+            }
 
         }
 
@@ -267,7 +302,7 @@ namespace TGraph
         {
 
 
-
+            Physics.autoSimulation = false;
             GlobalVariables.JsonManager = this;
             ColorDict = new Dictionary<string, Color>();
             ColorDict.Add("include", new Color(0, 255, 0));
@@ -304,8 +339,16 @@ namespace TGraph
             graph = new MyGraph();
             graph.nodes = new List<MyNode>();
             graph.edges = new List<MyEdge>();
-       
-             AddNode(false);
+            var tmpGraph = MyGraph.CreateFromJSON(JsonUtility.ToJson(graph));
+
+            var json = JsonUtility.ToJson(tmpGraph);
+            CurrentJSON = json;
+
+           UpdateLayout();
+
+
+
+            
            // AddNode(false);
             //AddEdge(graph.nodes[0], graph.nodes[1],false);
         
@@ -326,19 +369,36 @@ namespace TGraph
         //build graph depending on json file
 
 
-         void Update()
+      
+        void Update()
         {
             if (Input.GetKeyDown(KeyCode.Return))
             {
-                UpdateJson();
+             //   UpdateJson();
                 UpdateLayout();
             }
            
-        }   
+        }
+
+        public void UpdateJSON()
+        {
+            if (ReadJSON.SwapRoots)
+            {
+                foreach (var edge in GlobalVariables.Graph.edges)
+                {
+                    var tmp = edge.from;
+                    edge.from = edge.to;
+                    edge.to = tmp;
+                }
+
+            }
+            var json = JsonUtility.ToJson(graph);
+            CurrentJSON = json;
+        }
 
         public void UpdateLayout()
         {
-
+            transform.eulerAngles =  Vector3.zero;
             nodePosDict = new Dictionary<string, Vector3>();
             foreach(var node in graph.nodes)
             {
@@ -349,22 +409,52 @@ namespace TGraph
 
             if (CurrentJSON != null)
             {
-            
+                if (!GlobalVariables.Init)
+                {
+                    Debug.Log("first load");
+                    GlobalVariables.JSON = CurrentJSON;
+                    LoadGraph(true);
+                    GlobalVariables.Init = true;
+                    GlobalVariables.UIInteractonManager.Init();
+
+                }
+                else
+                {
+                    Debug.Log(CurrentJSON);
                     GlobalVariables.JSON = CurrentJSON;
                     CleanupScene();
                     LoadGraph(true);
+                }
 
 
-                
+
+                transform.eulerAngles = GlobalVariables.Rotation;
+
             }
+        }
+
+        public void ResetLayout()
+        {
+            Debug.Log("new Graph, reload scene");
+            GlobalVariables.Init = false;
+            GlobalVariables.JSON = CurrentJSON;
+            CleanupScene();
+            LoadGraph();
+            GameObject.Find("Slider").GetComponent<Slider>().value = GameObject.Find("Slider").GetComponent<Slider>().maxValue * .5f;
         }
 
 
         public void RecalculateLayout()
         {
-
+          
+            if (MyGraph.CreateFromJSON(CurrentJSON).nodes.Count == 0)
+            {
+                CurrentJSON = GlobalVariables.UIInteractonManager.GraphFiles[0].text;
+            }
+            
             if (CurrentJSON != null)
             {
+                transform.eulerAngles = GlobalVariables.Rotation = Vector3.zero;
                 if (!GlobalVariables.Init)
                 {
                     Debug.Log("first load");
@@ -372,31 +462,31 @@ namespace TGraph
                     LoadGraph();
                     GlobalVariables.Init = true;
                     GlobalVariables.UIInteractonManager.Init();
+                    Camera.main.transform.parent.localPosition = new Vector3(0, 0, -4);
                  
                 }
 
                 else if (GlobalVariables.JSON != CurrentJSON)
                 {
-                    Debug.Log("new Graph, reload scene");
-                    GlobalVariables.Init = false;
-                    GlobalVariables.JSON = CurrentJSON;
-                    CleanupScene();
-                    LoadGraph();
-                    GameObject.Find("Slider").GetComponent<Slider>().value = GameObject.Find("Slider").GetComponent<Slider>().maxValue * .5f;
 
+                    ResetLayout();
+                    Camera.main.transform.parent.localPosition = new Vector3(0, 0, -4);
                 }
                 else
                 {
                     Debug.Log("update layout");
                     StartCoroutine(GlobalVariables.GraphManager.SmallUpdate());
+                    GlobalVariables.Gestures.Init();
                     GameObject.Find("Slider").GetComponent<Slider>().value = GameObject.Find("Slider").GetComponent<Slider>().maxValue * .5f;
+                    transform.GetChild(0).eulerAngles = Vector3.zero;
                 }
+            
             }
             else
             {
                 Debug.Log("no valid json file");
             }
-     
+          
 
         }
 
@@ -409,22 +499,24 @@ namespace TGraph
             graph.nodes.Add(node);
             var json = JsonUtility.ToJson(graph);
             CurrentJSON = json;
+            Debug.Log(node.id);
+            int i = 0;
 
-         if(build)   GlobalVariables.GraphManager.AddNode(node.id);
+            while ((graph.nodeDict.ContainsKey(node.id)))
+            {
+                node.id = i.ToString();
+                i++;
+            }
+      
+
+            if (build)   GlobalVariables.GraphManager.AddNode(node.id);
         }
 
-        public static void UpdateJson()
-        {
-            CurrentJSON = JsonUtility.ToJson(graph);
-        }
+
+      
+   
 
 
-        public void RemoveNode(MyNode node)
-        {
-            graph.nodes.Remove(node);
-            var json = JsonUtility.ToJson(graph);
-            CurrentJSON = json;
-        }
 
 
 
@@ -435,8 +527,18 @@ namespace TGraph
         // url;
         // clickText;
             var edge = new MyEdge();
-            edge.from = from.id;
-            edge.to = to.id;
+            if (SwapRoots)
+            {
+
+                edge.to = from.id;
+                edge.from = to.id;
+            }
+            else
+            {
+
+                edge.from = from.id;
+                edge.to = to.id;
+            }
             edge.style = "include";
             edge.label = "boom";
             edge.id = "customedge";
@@ -445,8 +547,12 @@ namespace TGraph
             Debug.Log(graph.edges.Count);
             var json = JsonUtility.ToJson(graph);
             CurrentJSON = json;
+           // from.edgeIndicesOut.Add(graph.edges.Count-1);
+           // to.edgeIndicesIn.Add(graph.edges.Count-1);
 
-            if(build)GlobalVariables.GraphManager.AddEdge(from, to);
+            if (build)GlobalVariables.GraphManager.AddEdge(from, to);
+
+            
         }
 
 
@@ -485,10 +591,38 @@ namespace TGraph
 
         public void ExportJSON()
         {
-            var json = JsonUtility.ToJson(graph);
+
+            var json = "";
+            if (SwapRoots)
+            {
+                MyGraph tmpGraph = MyGraph.CreateFromJSON(JsonUtility.ToJson(graph));
+                foreach(var edge in tmpGraph.edges)
+                {
+
+                    string from = edge.from;
+                    edge.from = edge.to;
+                    edge.to = from;
+                }
+                json = JsonUtility.ToJson(tmpGraph);
+            }
+            else
+            {
+
+                json = JsonUtility.ToJson(graph);
+            }
+
+
+
+#if UNITY_WEBGL && !UNITY_EDITOR
+
+            download(json, "graph.json", "text/plain");
+
+#else
 
             string filePath = Application.dataPath+"/graphExp.json";
             File.WriteAllText(filePath, json);
+
+#endif
 
         }
 
@@ -563,7 +697,7 @@ namespace TGraph
             GraphObject =Instantiate(Resources.Load<GameObject>("Graph"));
             GraphObject.transform.parent = this.transform;
             time = Time.realtimeSinceStartup;
-
+    
             BuildFromJSON(keepLayout);
    
         }
@@ -587,9 +721,9 @@ namespace TGraph
         {
             graph = GlobalVariables.Graph;
 
-            graph.nodes = graph.nodes
+          /*  graph.nodes = graph.nodes
             .GroupBy(customer => customer.id)
-            .Select(group => group.First()).ToList();
+            .Select(group => group.First()).ToList();*/
             GlobalVariables.Vol = vol;
 
             Debug.Log("nodes edges" + graph.nodes.Count + " " + graph.edges.Count);
@@ -602,6 +736,7 @@ namespace TGraph
                     edge.from = edge.to;
                     edge.to = tmp;
                 }
+
             }
 
   
@@ -613,8 +748,8 @@ namespace TGraph
 
 
             EdgeTypes.Clear();
-            EdgeTypes.Add("include", "include");
-            EdgeTypes.Add("dontselect", "");
+            EdgeTypes.Add("include", new EdgeType("include"));
+            EdgeTypes.Add("dontselect", new EdgeType(""));
 
             foreach (var edge in graph.edges)
              {
@@ -632,7 +767,7 @@ namespace TGraph
                     }
 
 
-                    EdgeTypes.Add(edge.style,type);
+                    EdgeTypes.Add(edge.style,new EdgeType(type));
 
                     if (!ColorDict.ContainsKey(edge.style)){
                         Random.InitState(edge.style.Length+edge.style[0]);
@@ -649,15 +784,24 @@ namespace TGraph
             EdgeTypeSelector.ClearOptions();
             EdgeAttributeSelector.ClearOptions();
             EdgeTypeSelector.AddOptions((EdgeTypes.Keys).ToList<string>());
-            EdgeAttributeSelector.AddOptions((EdgeTypes.Values.Distinct<string>().ToList()));
+
+            var types = EdgeTypes.Values;
+            var typeStrings = new List<string>();
+            foreach(var type in types)
+            {
+                typeStrings.Add(type.type);
+            }
+
+            EdgeAttributeSelector.AddOptions((typeStrings.Distinct<string>().ToList()));
 
 
             graph.nodeDict = new Dictionary<string, int>();
-            Debug.Log("setup time " + (Time.realtimeSinceStartup - time));
+       
 
             
             GlobalVariables.GraphManager.Graph = GlobalVariables.Graph;
-
+            Debug.Log("init time " + (Time.realtimeSinceStartup - time));
+            time = Time.realtimeSinceStartup;
             GlobalVariables.GraphManager.ProcessGraph();
 
 
@@ -669,7 +813,7 @@ namespace TGraph
             mat3.color = Color.green;
 
             Dictionary<string, Material> materialDict = new Dictionary<string, Material>();
-
+         
             foreach (var node in graph.nodes)
             {
 
@@ -706,15 +850,15 @@ namespace TGraph
              
 
             }
-
-            int ec = 0;
-            foreach (var edge in graph.edges)
-            {
-                if (edge.active) ec++;
-            }
+            /*
+         int ec = 0;
+         foreach (var edge in graph.edges)
+         {
+             if (edge.active) ec++;
+         }*/
 
             Debug.Log("prep time " + (Time.realtimeSinceStartup - time));
-            Debug.Log(graph.nodes.Count + " " + ec + "-----------------------------------------------------");
+          //  Debug.Log(graph.nodes.Count + " " + ec + "-----------------------------------------------------");
         //    GraphManager.Init();
 
 

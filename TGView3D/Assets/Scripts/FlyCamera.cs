@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Reflection;
 
-public class FlyCamera : MonoBehaviour, IPointerClickHandler
+public class FlyCamera : MonoBehaviour
 {
 
     /*
@@ -39,8 +39,36 @@ public class FlyCamera : MonoBehaviour, IPointerClickHandler
     [SerializeField]
     private GameObject nodeText;
 
+
+    void OnGUI()
+    {
+        if (Event.current.isMouse && Event.current.button == 0 && Event.current.clickCount > 1)
+        {
+            Debug.Log("double");
+            RaycastHit hit;
+
+            // Does the ray intersect any objects excluding the player layer
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity)&&hit.transform.tag=="Node")
+            {
+
+#if UNITY_WEBGL && !UNITY_EDITOR
+                     
+                openWindow("https://mmt.mathhub.info" + TGraph.GlobalVariables.Graph.nodes[hit.transform.GetSiblingIndex()].url);
+#else
+                Application.OpenURL("https://mmt.mathhub.info" + TGraph.GlobalVariables.Graph.nodes[hit.transform.GetSiblingIndex()].url);
+#endif
+
+            }
+        }
+    
+    }
+
     public virtual void OnPointerClick(PointerEventData eventData)
     {
+
+        Debug.Log(eventData.clickCount);
         if (eventData.clickCount == 2)
         {
             Debug.Log("double");
@@ -79,12 +107,37 @@ public class FlyCamera : MonoBehaviour, IPointerClickHandler
         GameObject.Destroy(graphNode.nodeEdgeObject);
         graphNode.nodeEdgeObject = null;
 
-        graph.selectedNodes.RemoveAt(graph.selectedNodes.FindIndex(x => x == nodeId));
+        int idx = graph.selectedNodes.FindIndex(x => x == nodeId);
+       if(idx >=0)graph.selectedNodes.RemoveAt(idx);
 
         DestroySubMenu(graphNode);
 
     }
 
+
+    public void SelectEdge(int edgeId, RaycastHit hit)
+    {
+        var graph = TGraph.GlobalVariables.Graph;
+       
+        // if (graph.SelectedEdges.Contains(edgeId))
+        {
+            foreach(var edge in graph.SelectedEdges)
+            DeselectEdge();
+            
+        }
+        graph.selectedNodes.Clear();
+        graph.SelectedEdges.Add(edgeId);
+
+        ActivateSubMenu(edgeId, hit);
+    }
+
+    public void DeselectEdge()
+    {
+
+        DestroySubMenu();
+    }
+
+    
 
 
     public bool SelectNode(int nodeId)
@@ -101,6 +154,7 @@ public class FlyCamera : MonoBehaviour, IPointerClickHandler
             return true;
         }
 
+        Debug.Log(graph.latestSelection);
         if (graph.selectedNodes.Contains(nodeId))
         {
             DeselectNode(nodeId);
@@ -108,37 +162,43 @@ public class FlyCamera : MonoBehaviour, IPointerClickHandler
 
         }
 
-      
 
-        //current Selection exists
-      /*  if (graph.selectedNodes[0] != -1)
-        {
+        Debug.Log(nodeId);
+       if(graph.latestSelection!=-1&&graph.latestSelection !=nodeId) DeselectNode(graph.latestSelection);
 
-            foreach(var idx in graph.selectedNodes)
-            {
-                if (idx != -1)
-                {
-                    var graphNode = graph.nodes[idx];
-
-                    graphNode.labelObject.GetComponent<TextMesh>().color = TGraph.ReadJSON.BaseColor;
-                    graphNode.labelObject.layer = 18;
-                    foreach (int nidx in graphNode.connectedNodes)
-                    {
-                        graph.nodes[nidx].labelObject.layer = 18;
-                        graph.nodes[nidx].labelObject.GetComponent<TextMesh>().color = TGraph.ReadJSON.BaseColor;
-                    }
-                    GameObject.Destroy(graphNode.nodeEdgeObject);
-                    graphNode.nodeEdgeObject = null;
-                }
-           
-            }
-  
-        }*/
 
 
 
 
-       
+        //current Selection exists
+        /*  if (graph.selectedNodes[0] != -1)
+          {
+
+              foreach(var idx in graph.selectedNodes)
+              {
+                  if (idx != -1)
+                  {
+                      var graphNode = graph.nodes[idx];
+
+                      graphNode.labelObject.GetComponent<TextMesh>().color = TGraph.ReadJSON.BaseColor;
+                      graphNode.labelObject.layer = 18;
+                      foreach (int nidx in graphNode.connectedNodes)
+                      {
+                          graph.nodes[nidx].labelObject.layer = 18;
+                          graph.nodes[nidx].labelObject.GetComponent<TextMesh>().color = TGraph.ReadJSON.BaseColor;
+                      }
+                      GameObject.Destroy(graphNode.nodeEdgeObject);
+                      graphNode.nodeEdgeObject = null;
+                  }
+
+              }
+
+          }*/
+
+
+
+
+
 
 
 
@@ -147,6 +207,7 @@ public class FlyCamera : MonoBehaviour, IPointerClickHandler
 
         //select node and highlight accordingly
         //if (nodeId != graph.selectedNodes[(handIndex + 1) % 2])
+        if (graph.latestSelection != nodeId)
         {
 
             var edges = new List<TGraph.ReadJSON.MyEdge>();
@@ -173,11 +234,12 @@ public class FlyCamera : MonoBehaviour, IPointerClickHandler
             graph.nodes[nodeId].nodeEdgeObject.transform.localPosition = Vector3.zero;
             graph.nodes[nodeId].nodeEdgeObject.transform.localEulerAngles = Vector3.zero;
 
-            graph.selectedNodes.Add((nodeId));
-            graph.latestSelection = nodeId;
-          //  graph.currentTarget = -1;
 
+            //  graph.currentTarget = -1;
+            ActivateSubMenu(node);
         }
+        graph.selectedNodes.Add((nodeId));
+        graph.latestSelection = nodeId;
         /*
         else
         {
@@ -186,7 +248,7 @@ public class FlyCamera : MonoBehaviour, IPointerClickHandler
         }*/
         graph.movingNodes.Add(nodeId);
 
-        ActivateSubMenu(node);
+
 
     
 
@@ -228,11 +290,56 @@ public class FlyCamera : MonoBehaviour, IPointerClickHandler
         }
         GameObject.Destroy(field);
 
+
+
+    }
+
+
+    public void ActivateSubMenu(int edgeId, RaycastHit hit)
+    {
+        var edge = TGraph.GlobalVariables.Graph.edges[edgeId];
+        GameObject menu = GameObject.Instantiate(Resources.Load("EdgeMenu")) as GameObject;
+        menu.GetComponent<SubMenu>().ID = edgeId;
+        
+       // menu.transform.parent = edge.GetObject().transform;
+        menu.transform.position = hit.point;
+        //   menu.transform.LookAt(menu.transform.position*2-Camera.main.transform.position);
+        menu.transform.forward = Camera.main.transform.forward;
+        menu.transform.SetParent(edge.GetObject().transform);
+        menu.transform.localScale = Vector3.one * .002f;
+
+        int offset = 0;
+        var field = menu.GetComponent<SubMenu>().FieldInput;
+        foreach (FieldInfo info in edge.GetType().GetFields())
+        {
+            if (!info.IsNotSerialized && info.GetValue(edge) != null)
+            {
+
+                var f = GameObject.Instantiate(field);
+                f.transform.parent = menu.transform;
+                f.transform.position = field.transform.position;
+                f.transform.forward = menu.transform.forward;
+                f.transform.localScale = Vector3.one;
+                f.transform.localPosition += Vector3.down * offset * 25f;
+                var texts = f.GetComponentsInChildren<Text>();
+                texts[0].text = info.Name;
+                f.GetComponentInChildren<InputField>().text = info.GetValue(edge).ToString();
+
+                offset++;
+            }
+        }
+        GameObject.Destroy(field);
+
     }
 
     public void DestroySubMenu(TGraph.ReadJSON.MyNode node)
     {
         GameObject.Destroy(node.nodeObject.GetComponentInChildren<SubMenu>().gameObject);
+    }
+
+    public void DestroySubMenu()
+    {
+        GameObject.Destroy(TGraph.GlobalVariables.Graph.edgeObject.GetComponentInChildren<SubMenu>().gameObject);
     }
 
 
@@ -262,16 +369,26 @@ public class FlyCamera : MonoBehaviour, IPointerClickHandler
 
             var lP = lastMouse;
             lP.z = g.z;
-            transform.position -= Camera.main.ScreenToWorldPoint(cP) - Camera.main.ScreenToWorldPoint(lP);
+            Vector3 diff = Vector3.zero;
+            if (lP.z > 0)
+                diff = Camera.main.ScreenToWorldPoint(cP) - Camera.main.ScreenToWorldPoint(lP);
+            else
+                diff = -( Camera.main.ScreenToWorldPoint(cP) - Camera.main.ScreenToWorldPoint(lP));
+
+            transform.position -= diff;
 
         }
 
         if (Input.GetMouseButton(1))
         {
-            lastMouse = Input.mousePosition - lastMouse;
+            var graphTransform = TGraph.GlobalVariables.JsonManager.transform;
+            lastMouse = -( Input.mousePosition - lastMouse);
             lastMouse = new Vector3(-lastMouse.y * camSens, lastMouse.x * camSens, 0);
-            lastMouse = new Vector3(transform.eulerAngles.x + lastMouse.x, transform.eulerAngles.y + lastMouse.y, 0);
-            transform.eulerAngles = lastMouse;
+            lastMouse = new Vector3(graphTransform.eulerAngles.x + lastMouse.x, graphTransform.eulerAngles.y + lastMouse.y, 0);
+           graphTransform.eulerAngles = TGraph.GlobalVariables.Rotation= lastMouse;
+
+           
+
             //Mouse  camera angle done.  
         }
         lastMouse = Input.mousePosition;
@@ -280,40 +397,55 @@ public class FlyCamera : MonoBehaviour, IPointerClickHandler
         {
             Debug.Log("shoot");
             RaycastHit hit;
+            Physics.queriesHitBackfaces = true;
+            var mC= TGraph.GlobalVariables.Graph.edgeObject.AddComponent<MeshCollider>();
+            mC.sharedMesh = TGraph.GlobalVariables.Graph.edgeObject.GetComponent<MeshFilter>().sharedMesh;
+            Physics.autoSimulation = true;
             LastMou = Input.mousePosition;
-            Debug.Log(LastMou);
+          //  Debug.Log(LastMou);
             // Does the ray intersect any objects excluding the player layer
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
-                Debug.Log("Did Hit"+ hit.transform.gameObject);
+                Debug.Log("Did Hit" + hit.transform.gameObject);
                 // Debug.Log(ray.origin + " " + hit.point + " " + (ray.origin + ray.direction.normalized * hit.distance)+" " + Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,Input.mousePosition.y,Camera.main.nearClipPlane)));
 
-                Debug.Log(Startid);
+                //  Debug.Log(Startid);
 
 
-                if (SelectNode(hit.transform.GetSiblingIndex()))
+                if (hit.transform.tag == "Node" && SelectNode(hit.transform.GetSiblingIndex()))
                 {
-                 
+
                     screenDist = Camera.main.WorldToScreenPoint(hit.point).z;
-                    Debug.Log(TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].nodeObject.transform.position+" "+ hit.point);
+                    Debug.Log(TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].nodeObject.transform.position + " " + hit.point);
+                }
+                else if(hit.transform.tag == "Edge")
+                {
+                    var edge = TGraph.GlobalVariables.Graph.edges[hit.triangleIndex / 8];
+                    //   TGraph.GlobalVariables.Graph.edges.Remove(edge);
+
+                    SelectEdge(hit.triangleIndex / 8, hit);
+
+
+                  //  TGraph.GlobalVariables.JsonManager.UpdateJSON();
+                  //  TGraph.GlobalVariables.JsonManager.UpdateLayout();
                 }
 
-            /*    StartPositions.Clear();
-                 if(TGraph.GlobalVariables.Graph.latestSelection!=-1)
-                    StartPositions.Add(TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].nodeObject.transform.position);// - hit.point);
-               */ /*
+                /*    StartPositions.Clear();
+                     if(TGraph.GlobalVariables.Graph.latestSelection!=-1)
+                        StartPositions.Add(TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].nodeObject.transform.position);// - hit.point);
+                   */ /*
 
-                if (TGraph.GlobalVariables.Graph.latestSelection != -1)
-                    TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].nodeObject.GetComponent<MeshRenderer>().material.color = Col;
+                    if (TGraph.GlobalVariables.Graph.latestSelection != -1)
+                        TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].nodeObject.GetComponent<MeshRenderer>().material.color = Col;
 
 
-                TGraph.GlobalVariables.Graph.selectedNodes[0] = TGraph.GlobalVariables.Graph.latestSelection = hit.transform.GetSiblingIndex();
-                TGraph.GlobalVariables.Graph.movingNodes.Add(hit.transform.GetSiblingIndex());
-                Col = TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.selectedNodes[0]].nodeObject.GetComponent<MeshRenderer>().material.color;
-                TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.selectedNodes[0]].nodeObject.GetComponent<MeshRenderer>().material.color = OVRTouchSample.ColorGrabbable.COLOR_GRAB;
-                */
+                    TGraph.GlobalVariables.Graph.selectedNodes[0] = TGraph.GlobalVariables.Graph.latestSelection = hit.transform.GetSiblingIndex();
+                    TGraph.GlobalVariables.Graph.movingNodes.Add(hit.transform.GetSiblingIndex());
+                    Col = TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.selectedNodes[0]].nodeObject.GetComponent<MeshRenderer>().material.color;
+                    TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.selectedNodes[0]].nodeObject.GetComponent<MeshRenderer>().material.color = OVRTouchSample.ColorGrabbable.COLOR_GRAB;
+                    */
 
 
 
@@ -323,9 +455,38 @@ public class FlyCamera : MonoBehaviour, IPointerClickHandler
             }
             else
             {
-               // TGraph.GlobalVariables.Graph.selectedNodes[0] = -1;
+                /*
+                Debug.Log("miss");
+                if (Physics.SphereCast(ray, .1f, out hit, Mathf.Infinity))
+                {
+                    Debug.Log("Did Hit with spherecast " + hit.transform.gameObject);
 
+
+
+                    if (hit.transform.tag=="Node"&&SelectNode(hit.transform.GetSiblingIndex()))
+                    {
+
+                        screenDist = Camera.main.WorldToScreenPoint(hit.point).z;
+                        Debug.Log(TGraph.GlobalVariables.Graph.nodes[TGraph.GlobalVariables.Graph.latestSelection].nodeObject.transform.position + " " + hit.point);
+                    }
+                    else
+                    {
+                        Debug.Log(TGraph.GlobalVariables.Graph.edges[hit.triangleIndex / 8].from + " "+ TGraph.GlobalVariables.Graph.edges[hit.triangleIndex / 8].to);
+
+                    }
+
+                    // TGraph.GlobalVariables.Graph.selectedNodes[0] = -1;
+                    //if(TGraph.GlobalVariables.Graph.selectedNodes.Count>0) DeselectNode(TGraph.GlobalVariables.Graph.latestSelection);
+                   
+
+                }else
+                Debug.Log("miss2");
+                Physics.autoSimulation = false;
+                Destroy(mC);
+                */
             }
+            
+
         }
 
         else if (TGraph.GlobalVariables.Init == true && Input.GetMouseButton(0) && TGraph.GlobalVariables.Graph.movingNodes.Count>0)
@@ -366,8 +527,9 @@ public class FlyCamera : MonoBehaviour, IPointerClickHandler
         }
         if (TGraph.GlobalVariables.Init == true && Input.GetMouseButtonUp(0) && TGraph.GlobalVariables.Graph.movingNodes.Count > 0)
         {
-          //  TGraph.GlobalVariables.Graph.movingNodes.Clear();
-          //  TGraph.GlobalVariables.Graph.selectedNodes.Clear();
+
+          // TGraph.GlobalVariables.Graph.movingNodes.Clear();
+            TGraph.GlobalVariables.Graph.selectedNodes.Clear();
 
         }
 
@@ -435,7 +597,8 @@ public class FlyCamera : MonoBehaviour, IPointerClickHandler
                 p_Velocity += new Vector3(0, -1, 0);
             }
         }
-        p_Velocity += Input.mouseScrollDelta.y * Vector3.forward*10;
+        Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition + Vector3.forward *Screen.width);
+        p_Velocity += Input.mouseScrollDelta.y * (target-Camera.main.transform.position).normalized*10;
       //  p_Velocity += Input.mouseScrollDelta.x * Vector3.right * 4;
 
     

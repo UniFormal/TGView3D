@@ -33,6 +33,7 @@ public class Gestures : MonoBehaviour {
     // Update is called once per frame
     float factor;
 
+  
     public void Init()
     {
         graph = TGraph.GlobalVariables.Graph;
@@ -82,8 +83,9 @@ public class Gestures : MonoBehaviour {
         }
         mesh.vertices = vertices;
         mesh.RecalculateBounds();
-
-       // TGraph.GlobalVariables.Recalculate = true;
+      //  var mC = graph.edgeObject.AddComponent<MeshCollider>();
+       // mC.sharedMesh = graph.edgeObject.GetComponent<MeshFilter>().sharedMesh;
+        // TGraph.GlobalVariables.Recalculate = true;
 
     }
 
@@ -324,6 +326,7 @@ public class Gestures : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        TGraph.GlobalVariables.Gestures = this;
         if (this.gameObject.name == "Hands")
         {
             RightHand = transform.GetChild(0);

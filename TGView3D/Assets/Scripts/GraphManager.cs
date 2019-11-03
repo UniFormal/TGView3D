@@ -101,11 +101,12 @@ namespace TGraph
             if (GlobalVariables.Init)
             {
                 //for gestures
+                /*
                 if (GlobalVariables.Recalculate)
                 {
                     UpdateSelected();
                     GlobalVariables.Recalculate = false;
-                }
+                }*/
 
 
                 if (Graph.movingNodes.Count > 0)
@@ -551,6 +552,7 @@ namespace TGraph
 
             mr.sharedMaterial = lineMat;
             mf.sharedMesh = mesh;
+            mf.sharedMesh = mf.sharedMesh;
 
             mesh.RecalculateBounds();
 
@@ -698,7 +700,7 @@ namespace TGraph
 
             }
 
-
+            /*
             string json = SVGFile.text;//;
             string[] svgs = JsonUtility.FromJson<SVGCollection>(json).svgs;
 
@@ -716,7 +718,7 @@ namespace TGraph
                     CreateMathObject(i);
                 }
 
-            }
+            }*/
             // JsonUtility.ToJson(tmpMathMLs);
 
 
@@ -729,20 +731,47 @@ namespace TGraph
         public void AddEdge(MyNode start, MyNode end)
         {
             GameObject myLine = new GameObject();
-            myLine.transform.parent = this.transform.GetChild(0);
+            myLine.transform.parent =start.nodeObject.transform.GetChild(0);
            // myLine.transform.position = start;
             myLine.AddComponent<LineRenderer>();
             LineRenderer lr = myLine.GetComponent<LineRenderer>();
+      
+            lr.material = lineMat;
+            lr.material.color = Color.white;
              var LineUpdater = myLine.AddComponent<SingleLine>();
             LineUpdater.Target = end.nodeObject.transform;
             LineUpdater.Origin = start.nodeObject.transform;
             //  lr.material = new Material(Shader.Find("Particles/Alpha Blended Premultiply"));
             lr.SetColors(Color.red, Color.red);
+            lr.SetWidth(0.1f, 0.01f);
+            lr.SetPosition(0, start.nodeObject.transform.position);
+            lr.SetPosition(1, end.nodeObject.transform.position);
+
+        }
+
+
+        public void BlendEdge(MyNode start, MyNode end)
+        {
+            GameObject myLine = new GameObject();
+            myLine.transform.parent = this.transform.GetChild(0);
+            // myLine.transform.position = start;
+            myLine.AddComponent<LineRenderer>();
+            LineRenderer lr = myLine.GetComponent<LineRenderer>();
+            lr.material = lineMat;
+            lr.material.color = Color.white;
+            var LineUpdater = myLine.AddComponent<SingleLine>();
+            LineUpdater.Target = end.nodeObject.transform;
+            LineUpdater.Origin = start.nodeObject.transform;
+            //  lr.material = new Material(Shader.Find("Particles/Alpha Blended Premultiply"));
+            lr.SetColors(Color.cyan, Color.cyan);
             lr.SetWidth(0.1f, 0.1f);
             lr.SetPosition(0, start.nodeObject.transform.position);
             lr.SetPosition(1, end.nodeObject.transform.position);
 
         }
+
+
+
 
         /*
         void AddEdge()
@@ -1005,7 +1034,7 @@ namespace TGraph
                 yield return null;
             }
 
-            Graph.fin = 0;
+           // Graph.fin = 0;
             GlobalVariables.Percent.text = "";
             handle.Complete();
             Layouts.Normalize(spaceScale);
@@ -1016,7 +1045,7 @@ namespace TGraph
 
             UpdateAllEdges();
             Debug.Log(Time.realtimeSinceStartup - stime);
-
+            
             
         }
 
@@ -1046,7 +1075,7 @@ namespace TGraph
             Layouts.VolumeWidth /= Layouts.Scaler;
             Layouts.ToTwoD(GlobalVariables.TwoD);
             Layouts.Scaler = 1;
-            Layouts.step = Mathf.Max(Layouts.step,(.5f+Layouts.step/2));
+            Layouts.step = .1f; Mathf.Max(Layouts.step,(.5f+Layouts.step/2));
             NativeArray<float> Energies = new NativeArray<float>(Graph.nodes.Count, Allocator.Persistent);
             Layouts.InitEnergies(Energies);
 
@@ -1059,6 +1088,7 @@ namespace TGraph
 
         public IEnumerator FinishInit(bool keepLayout = false)
         {
+            time = Time.realtimeSinceStartup;
             Layouts.Init(GlobalVariables.TwoD);
             if (!keepLayout)
             {
@@ -1069,6 +1099,9 @@ namespace TGraph
           
 
             Graph.edgeObject = BuildEdges(Graph.edges, ref Graph, lineMat);
+            Graph.edgeObject.tag = "Edge";
+           
+            
             Graph.edgeObject.transform.parent = transform.GetChild(0);
             Graph.edgeObject.name = "EdgeMesh";
             UIInteracton.SEnableEdgeType("meta");
@@ -1117,6 +1150,10 @@ namespace TGraph
 
                 node.nodeObject.transform.position = spawnPos;
 
+            }
+            else
+            {
+                Debug.LogError("redundant id");
             }
         }
 
@@ -1172,6 +1209,9 @@ namespace TGraph
             }
             bigMesh.vertices = bigVertices;
             bigMesh.RecalculateBounds();
+           
+            
+
         }
 
 
@@ -1210,6 +1250,8 @@ namespace TGraph
 
             bigMesh.vertices = bigVertices;
             bigMesh.RecalculateBounds();
+
+            
             if (Graph.subObject != null)
             {
 
@@ -1279,7 +1321,7 @@ namespace TGraph
 
             bigMesh.vertices = bigVertices;
             bigMesh.RecalculateBounds();
-
+   
             if (Graph.subObject != null)
             {
 
@@ -1297,8 +1339,10 @@ namespace TGraph
                 }
                 subMesh.vertices = subVertices;
                 subMesh.RecalculateBounds();
-            }
 
+
+            }
+           // Debug.Log(node.id + " full update");
 
         }
 
@@ -1322,7 +1366,8 @@ namespace TGraph
             {
                 if (n == -1) continue; //TODO: change this
                 var node = Graph.nodes[n];
-                GlobalVariables.Graph.nodes[n].pos = node.nodeObject.transform.localPosition;
+           //    if(node.nodeObject!=null)
+                    GlobalVariables.Graph.nodes[n].pos = node.nodeObject.transform.localPosition;
                 //   Debug.Log(node.nodeObject.transform.localPosition);
                 UpdateEdges(node);
             }

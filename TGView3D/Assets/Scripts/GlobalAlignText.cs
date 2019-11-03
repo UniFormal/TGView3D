@@ -7,11 +7,12 @@ public class GlobalAlignText : MonoBehaviour {
     // Use this for initialization
 
     public int childCount;
+    public Transform CamTransform;
     void Start()
     {
       
         childCount = TGraph.GlobalVariables.Graph.nodes.Count ;
-        
+        CamTransform = Camera.main.transform;
     }
 
 
@@ -23,12 +24,12 @@ public class GlobalAlignText : MonoBehaviour {
         if (TGraph.GlobalVariables.Init)
         {
 
-            Vector3 camPos = Camera.main.transform.position;
+            Vector3 camPos = CamTransform.position;
             for (int i = 0; i < childCount; i++)
             {
                 Transform t = this.transform.GetChild(i);//.GetChild(0);
                 // t.rotation = Quaternion.LookRotation(t.position - camPos);
-                t.forward = Camera.main.transform.forward;
+                t.forward = CamTransform.forward;
             }
 
         }

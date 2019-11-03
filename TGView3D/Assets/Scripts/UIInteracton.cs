@@ -18,7 +18,7 @@ public class UIInteracton : MonoBehaviour {
     public UnityEngine.UI.Dropdown Left;
     public UnityEngine.UI.Dropdown Right;
     public Toggle CustomToggle;
-
+  
 
     void Start()
     {
@@ -46,8 +46,10 @@ public class UIInteracton : MonoBehaviour {
     public void ChainAttribute()
     {
         var left = Left;
+        CustomToggle.isOn = ReadJSON.EdgeTypes[left.options[left.value].text].active;
+       
         Dropdown right = Right;
-        right.value = right.options.FindIndex((i) => { return i.text.Equals(ReadJSON.EdgeTypes[left.options[left.value].text]); }); 
+        right.value = right.options.FindIndex((i) => { return i.text.Equals(ReadJSON.EdgeTypes[left.options[left.value].text].type); }); 
         var col = TGraph.ReadJSON.ColorDict[left.options[left.value].text] / 255f;
         col.a = col.a*255f/4;
         ColorPicker.CurrentColor = col;
@@ -55,12 +57,14 @@ public class UIInteracton : MonoBehaviour {
     }
 
    
-    public void MetaConsistency(Toggle md)
+  /*  public void MetaConsistency(Toggle md)
     {
         if(Left.options[Left.value].text == "meta")
         {
             CustomToggle.isOn = md.isOn;
         }
+
+
     }
 
     public void MetaConsistency2(Toggle md)
@@ -70,13 +74,13 @@ public class UIInteracton : MonoBehaviour {
             md.isOn = CustomToggle.isOn;
         }
     }
-
+    */
 
     public void ChangeAttribute()
     {
         var left = Left;
         Dropdown right = Right;
-        ReadJSON.EdgeTypes[left.options[left.value].text] = right.options[right.value].text;
+        ReadJSON.EdgeTypes[left.options[left.value].text].type = right.options[right.value].text;
     }
 
     public void ChangeColor()
@@ -99,8 +103,13 @@ public class UIInteracton : MonoBehaviour {
 
     public void Switch2D()
     {
+        Debug.Log(GlobalVariables.Init);
         GlobalVariables.TwoD = !GlobalVariables.TwoD;
-        Layouts.Init(GlobalVariables.TwoD);
+        if (GlobalVariables.Init&&GlobalVariables.Graph.nodes.Count>0) { 
+            Layouts.Init(GlobalVariables.TwoD);
+    
+                GlobalVariables.JsonManager.ResetLayout();
+        }
     }
 
     public void SetUrlMode(Dropdown d)
@@ -274,7 +283,9 @@ public class UIInteracton : MonoBehaviour {
         if (type == "")
             type = Left.options[Left.value].text;
 
-
+        if (ReadJSON.EdgeTypes[type].active != CustomToggle.isOn)
+            SEnableEdgeType(type);
+        /*
         Debug.Log(type);
         var graph = GlobalVariables.Graph;
         var edges = graph.edges;
@@ -304,7 +315,7 @@ public class UIInteracton : MonoBehaviour {
         }
 
 
-        mesh.colors = vertexColors;
+        mesh.colors = vertexColors;*/
 
 
     }
@@ -313,6 +324,10 @@ public class UIInteracton : MonoBehaviour {
 
     public static void SEnableEdgeType(string type)
     {
+
+    
+       if(ReadJSON.EdgeTypes.ContainsKey(type))
+            ReadJSON.EdgeTypes[type].active = !ReadJSON.EdgeTypes[type].active;
         Debug.Log(type);
         var graph = GlobalVariables.Graph;
         var edges = graph.edges;

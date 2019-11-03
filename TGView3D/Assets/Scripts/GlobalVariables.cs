@@ -25,18 +25,23 @@ namespace TGraph
         public static bool TwoD = false;
         public static string JSON = "";
         public static Dictionary<string, Vector3> IdToPosition = new Dictionary<string, Vector3>();
+        public static Gestures Gestures;
+        public static Vector3 Rotation;
         /*
-        public static string Url = "";
-       
-        public static TextAsset CurrentFile;
-        public static string URName;
-        public static string Path="";
-              public static int SelectionIndex = 0;
-        */
+public static string Url = "";
+
+public static TextAsset CurrentFile;
+public static string URName;
+public static string Path="";
+public static int SelectionIndex = 0;
+*/
 
 
     }
-   
 
-	
+
+    /*Pointer_stringify(data), Pointer_stringify(strFileName), Pointer_stringify(strMimeType)
+	//function download() {
+
+		*/
 }

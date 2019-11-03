@@ -10,7 +10,7 @@ public class WMTSettings
         {
             PlayerSettings.WebGL.memorySize = 512 * 2;
 
-            PlayerSettings.WebGL.linkerTarget = WebGLLinkerTarget.Wasm;
+           // PlayerSettings.WebGL.linkerTarget = WebGLLinkerTarget.Wasm;
             PlayerSettings.WebGL.threadsSupport = false;//true;
 
         if (PlayerSettings.WebGL.threadsSupport)
