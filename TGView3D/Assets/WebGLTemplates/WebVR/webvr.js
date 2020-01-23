@@ -36,13 +36,13 @@
     }
 
     this.attachEventListeners();
-
+/*
     await this.getVRDisplay();
     if (this.vrDisplay) {
       // Unity drives its rendering from the window `rAF`. We reassign to use `VRDisplay`'s `rAF` when presenting
       // such that Unity renders at the VR display's proper framerate.
       window.requestAnimationFrame = this.requestAnimationFrame.bind(this);
-    }
+    }*/
   }
 
   VRManager.prototype.requestAnimationFrame = function(cb) {
@@ -430,7 +430,8 @@
   }
 
   function init() {
-    if (!navigator.getVRDisplays) {
+   // if (!navigator.getVRDisplays)
+ {
       var script = document.createElement('script');
       script.src = 'vendor/webvr-polyfill.min.js';
       document.getElementsByTagName('head')[0].appendChild(script);
@@ -438,17 +439,19 @@
       script.addEventListener('load', function () {
         initWebVRManager();
       });
-
+/*
       script.addEventListener('error', function (err) {
         console.warn('Could not load the WebVR Polyfill script:', err);
-      });
+      });*/
     }
 
-    initWebVRManager();
+   // initWebVRManager();
   }
 
   init();
 })();
+
+
 $("document").ready(function(){
 
     $("#file").change(function(e) {

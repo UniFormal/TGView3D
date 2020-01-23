@@ -11,6 +11,7 @@ public class SubMenu : MonoBehaviour
     public GameObject FieldInput;
     public TGraph.GraphManager Gm;
     public int ID = 0;
+    public Transform Pivot;
 
     // Start is called before the first frame update
     void Start()
@@ -22,15 +23,43 @@ public class SubMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.forward = Camera.main.transform.forward;
     }
 
+    public void SpawnEdgeSelector()
+    {
+        var types = TGraph.ReadJSON.EdgeTypes;
+        float typeCount = types.Count ;
+        float i = 0;
+     
+        foreach(var type in types)
+        {
+
+            var edgeButton = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            edgeButton.transform.parent = Pivot;
+            /*if (i == 0)
+            {
+                edgeButton.transform.localPosition = Vector3.zero;
+            }
+           else*/
+            {
+                edgeButton.transform.localPosition = new Vector3(Mathf.Sin(Mathf.PI * 2 * i / typeCount), Mathf.Cos(Mathf.PI * 2 * i / typeCount), 0) * 30f;
+             
+               
+            }
+            Debug.Log(TGraph.ReadJSON.ColorDict[type.Key] + " " + type.Key);
+            edgeButton.GetComponent<MeshRenderer>().material.color = TGraph.ReadJSON.ColorDict[type.Key]/300f;
+            edgeButton.transform.localScale *= .025f;
+            i++;
+        }
+    }
 
     public void StartEdge()
     {
         Debug.Log("startedge");
         string startId = TGraph.GlobalVariables.Graph.nodes[transform.parent.GetSiblingIndex()].id;
         Camera.main.GetComponent<FlyCamera>().Startid = startId;
+        SpawnEdgeSelector();
     }
 
     public void UpdateNodeField(GameObject field)

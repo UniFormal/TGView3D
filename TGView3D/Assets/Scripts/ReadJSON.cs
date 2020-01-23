@@ -85,8 +85,8 @@ namespace TGraph
         public float globalWeight;
         public static string CurrentJSON;
         private GameObject GraphObject;
-      
-    
+        private bool Reading = true;
+        private bool Cors = false;
 
         public GameObject SemanticSelect;
         public GameObject ArgSolverSelect;
@@ -99,7 +99,7 @@ namespace TGraph
         public static Dictionary<string, Vector3> nodePosDict;
         SVGCollection svgCol;
         public TextAsset SVGFile;
-      
+
         public static Color BaseColor = Color.white;
         public static Color SelectedColor = Color.cyan;
         public static Color ConnectedColor = Color.yellow;
@@ -108,9 +108,9 @@ namespace TGraph
         public static bool IsAG = false;
         public static List<MyNode> FoundNodes;
         public bool Gen = false;
-        public static bool SwapRoots = false;
+        public bool SwapRoots = true;
         private GameObject Aura;
-        public static Dictionary<string,EdgeType> EdgeTypes = new Dictionary<string, EdgeType>() ;
+        public static Dictionary<string, EdgeType> EdgeTypes = new Dictionary<string, EdgeType>();
         public static Dictionary<string, Color> ColorDict;
 
         List<int> countNodesInGraph = new List<int>();
@@ -122,7 +122,7 @@ namespace TGraph
         [System.Serializable]
         public class MyGraph
         {
-            
+
             public List<MyNode> nodes;
             public List<MyEdge> edges;
 
@@ -163,7 +163,7 @@ namespace TGraph
             [NonSerialized]
             public GameObject subObject;
             [NonSerialized]
-            public float lineWidth = 0.01f;
+            public float lineWidth = 0.005f;
             [NonSerialized]
             public bool UseForces = true;
             [NonSerialized]
@@ -179,7 +179,7 @@ namespace TGraph
             [NonSerialized]
             public float PushLimit = 1f;
 
-       
+
 
             public static MyGraph CreateFromJSON(string jsonString)
             {
@@ -193,7 +193,7 @@ namespace TGraph
         [System.Serializable]
         public class MyNode
         {
-           
+
 
 
 
@@ -202,6 +202,9 @@ namespace TGraph
             public string label;
             public string url;
             public string mathml;
+         //   [NonSerialized]
+            public string color = "";
+
 
             [NonSerialized]
             public bool alive = true;
@@ -226,8 +229,7 @@ namespace TGraph
             public bool generated;
             [NonSerialized]
             public bool visited = false;
-            [NonSerialized]
-            public string color ="";
+ 
             //use object references instead?
             [NonSerialized]
             public List<int> edgeIndicesOut = new List<int>();
@@ -317,25 +319,7 @@ namespace TGraph
             ColorDict.Add("c", new Color(200, 200, 0));
 
 
-#if UNITY_WEBGL
-            Debug.Log("#################WEBGLBUILD###############################");
-            /*    int pm = Application.absoluteURL.IndexOf("?");
-                if (pm != -1)
-                {
-                 //var url = "https://mmt.mathhub.info/:jgraph/json?" + Application.absoluteURL.Split("?"[0])[1];
-                   var url =  Application.absoluteURL.Split("?"[0])[1];
 
-                    if (url != "")
-                    {
-                        Debug.Log(url);
-                        WWW jsonUrl = new WWW(url);
-                        StartCoroutine(ProcessURL(jsonUrl));
-
-                       // URLObject.GetComponent<InputField>().DeactivateInputField();
-                    }
-
-                }*/
-#endif
             graph = new MyGraph();
             graph.nodes = new List<MyNode>();
             graph.edges = new List<MyEdge>();
@@ -344,51 +328,84 @@ namespace TGraph
             var json = JsonUtility.ToJson(tmpGraph);
             CurrentJSON = json;
 
-           UpdateLayout();
+            UpdateLayout();
+
+#if UNITY_WEBGL
+            Debug.Log("#################WEBGLBUILD###############################");
+
+        /*    int pm = Application.absoluteURL.IndexOf("?");
+            if (pm != -1)
+            {
+                //var url = "https://mmt.mathhub.info/:jgraph/json?" + Application.absoluteURL.Split("?"[0])[1];
+                var url = Application.absoluteURL.Split("?"[0])[1];
+
+                if (url != "")
+                {
+
+                    Debug.Log(url);
+                    //   WWW jsonUrl = new WWW("https://cors-anywhere.herokuapp.com/" + url);
+                    WWW jsonUrl = new WWW(url);
+                    StartCoroutine(ProcessURL(jsonUrl));
+                    StartCoroutine(LoadIfReady());
+                    // URLObject.GetComponent<InputField>().DeactivateInputField();
+                }
+
+            }*/
+#endif
 
 
-
-            
-           // AddNode(false);
+            // AddNode(false);
             //AddEdge(graph.nodes[0], graph.nodes[1],false);
-        
+
 
             //BuildFromJSON();
 
         }
 
 
+        IEnumerator LoadIfReady()
+        {
+            yield return new WaitUntil(() => !Reading);
+            RecalculateLayout();
+
+        }
+
         public void CleanupScene()
         {
+            Camera.main.GetComponent<FlyCamera>().Startid = "";
             GraphObject.transform.parent = null;
             GameObject.Destroy(GraphObject);
-           
+
         }
 
 
         //build graph depending on json file
 
 
-      
+
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.Return))
             {
-             //   UpdateJson();
+                //   UpdateJson();
                 UpdateLayout();
             }
-           
+
         }
 
         public void UpdateJSON()
         {
-            if (ReadJSON.SwapRoots)
+            if (SwapRoots)
             {
+            
                 foreach (var edge in GlobalVariables.Graph.edges)
                 {
+                   
                     var tmp = edge.from;
                     edge.from = edge.to;
                     edge.to = tmp;
+                
+
                 }
 
             }
@@ -398,9 +415,10 @@ namespace TGraph
 
         public void UpdateLayout()
         {
-            transform.eulerAngles =  Vector3.zero;
+
+            transform.eulerAngles = Vector3.zero;
             nodePosDict = new Dictionary<string, Vector3>();
-            foreach(var node in graph.nodes)
+            foreach (var node in graph.nodes)
             {
                 nodePosDict.Add(node.id, node.nodeObject.transform.localPosition);
             }
@@ -416,6 +434,7 @@ namespace TGraph
                     LoadGraph(true);
                     GlobalVariables.Init = true;
                     GlobalVariables.UIInteractonManager.Init();
+
 
                 }
                 else
@@ -446,12 +465,12 @@ namespace TGraph
 
         public void RecalculateLayout()
         {
-          
+
             if (MyGraph.CreateFromJSON(CurrentJSON).nodes.Count == 0)
             {
                 CurrentJSON = GlobalVariables.UIInteractonManager.GraphFiles[0].text;
             }
-            
+
             if (CurrentJSON != null)
             {
                 transform.eulerAngles = GlobalVariables.Rotation = Vector3.zero;
@@ -462,33 +481,47 @@ namespace TGraph
                     LoadGraph();
                     GlobalVariables.Init = true;
                     GlobalVariables.UIInteractonManager.Init();
-                    Camera.main.transform.parent.localPosition = new Vector3(0, 0, -4);
-                 
+                    Camera.main.transform.parent.localPosition = new Vector3(0, 0, -20);
+
+                    StartCoroutine(Camera.main.GetComponent<FlyCamera>().ZoomIn());
+
                 }
 
                 else if (GlobalVariables.JSON != CurrentJSON)
                 {
 
                     ResetLayout();
-                    Camera.main.transform.parent.localPosition = new Vector3(0, 0, -4);
+                    Camera.main.transform.parent.localPosition = new Vector3(0, 0, -20);
+
+                    StartCoroutine(Camera.main.GetComponent<FlyCamera>().ZoomIn());
                 }
                 else
                 {
                     Debug.Log("update layout");
-                    StartCoroutine(GlobalVariables.GraphManager.SmallUpdate());
-                    GlobalVariables.Gestures.Init();
-                    GameObject.Find("Slider").GetComponent<Slider>().value = GameObject.Find("Slider").GetComponent<Slider>().maxValue * .5f;
-                    transform.GetChild(0).eulerAngles = Vector3.zero;
+                    StartCoroutine(AfterSmallUpdate());
+              
                 }
-            
+
             }
             else
             {
                 Debug.Log("no valid json file");
             }
-          
+
 
         }
+
+        public IEnumerator AfterSmallUpdate()
+        {
+            yield return StartCoroutine(GlobalVariables.GraphManager.SmallUpdate());
+            GlobalVariables.Gestures.Init();
+            GameObject.Find("Slider").GetComponent<Slider>().value = GameObject.Find("Slider").GetComponent<Slider>().maxValue * .5f;
+            transform.GetChild(0).eulerAngles = Vector3.zero;
+        }
+
+
+
+
 
         public void AddNode(bool build)
         {
@@ -507,14 +540,14 @@ namespace TGraph
                 node.id = i.ToString();
                 i++;
             }
-      
 
-            if (build)   GlobalVariables.GraphManager.AddNode(node.id);
+
+            if (build) GlobalVariables.GraphManager.AddNode(node.id);
         }
 
 
-      
-   
+
+
 
 
 
@@ -522,10 +555,10 @@ namespace TGraph
 
         public void AddEdge(MyNode from, MyNode to, bool build = true)
         {
-         // style;
-        // label;
-        // url;
-        // clickText;
+            // style;
+            // label;
+            // url;
+            // clickText;
             var edge = new MyEdge();
             if (SwapRoots)
             {
@@ -547,12 +580,12 @@ namespace TGraph
             Debug.Log(graph.edges.Count);
             var json = JsonUtility.ToJson(graph);
             CurrentJSON = json;
-           // from.edgeIndicesOut.Add(graph.edges.Count-1);
-           // to.edgeIndicesIn.Add(graph.edges.Count-1);
+            // from.edgeIndicesOut.Add(graph.edges.Count-1);
+            // to.edgeIndicesIn.Add(graph.edges.Count-1);
 
-            if (build)GlobalVariables.GraphManager.AddEdge(from, to);
+            if (build) GlobalVariables.GraphManager.AddEdge(from, to);
 
-            
+
         }
 
 
@@ -568,25 +601,35 @@ namespace TGraph
             else
                 yield return www;
 
-          
-         
+            Debug.Log(www.url);
+
             // check for errors
-            if (www!=null&&www.error == null&& www.text!=null&&www.text!="" && MyGraph.CreateFromJSON(www.text)!=null && MyGraph.CreateFromJSON(www.text).nodes.Count>0)
+            if (www != null && www.error == null && www.text != null && www.text != "" && MyGraph.CreateFromJSON(www.text) != null && MyGraph.CreateFromJSON(www.text).nodes.Count > 0)
             {
                 Debug.Log("WWW Ok!: " + www.text);
-                CurrentJSON= www.text;
+                CurrentJSON = www.text;
                 var cols = URLObject.GetComponent<InputField>().colors;
                 cols.normalColor = cols.disabledColor = Color.green;
                 URLObject.GetComponent<InputField>().colors = cols;
+                Reading = false;
+                Cors = false;
             }
-            else if (www!=null)
+            else if (www != null)
             {
                 Debug.Log(www.error);
+#if (UNITY_WEBGL)
+                if (!Cors)
+                {
+                    Cors = true;
+                    StartCoroutine(new WWW("https://cors-anywhere.herokuapp.com/" + www.url));
+                }
+
+#endif
                 var cols = URLObject.GetComponent<InputField>().colors;
                 cols.normalColor = cols.disabledColor = Color.red;
                 URLObject.GetComponent<InputField>().colors = cols;
             }
-   
+
         }
 
         public void ExportJSON()
@@ -596,7 +639,7 @@ namespace TGraph
             if (SwapRoots)
             {
                 MyGraph tmpGraph = MyGraph.CreateFromJSON(JsonUtility.ToJson(graph));
-                foreach(var edge in tmpGraph.edges)
+                foreach (var edge in tmpGraph.edges)
                 {
 
                     string from = edge.from;
@@ -619,7 +662,7 @@ namespace TGraph
 
 #else
 
-            string filePath = Application.dataPath+"/graphExp.json";
+            string filePath = Application.dataPath + "/graphExp.json";
             File.WriteAllText(filePath, json);
 
 #endif
@@ -633,7 +676,7 @@ namespace TGraph
             InitGraph(keepLayout);
         }
 
-        
+
 
 
         public void WebBrowserLoad(string s)
@@ -688,23 +731,23 @@ namespace TGraph
         }
 
 
-  
+
 
 
         public void LoadGraph(bool keepLayout = false)
         {
 
-            GraphObject =Instantiate(Resources.Load<GameObject>("Graph"));
+            GraphObject = Instantiate(Resources.Load<GameObject>("Graph"));
             GraphObject.transform.parent = this.transform;
             time = Time.realtimeSinceStartup;
-    
+
             BuildFromJSON(keepLayout);
-   
+
         }
 
-    
 
-       
+
+
 
 
 
@@ -721,59 +764,61 @@ namespace TGraph
         {
             graph = GlobalVariables.Graph;
 
-          /*  graph.nodes = graph.nodes
-            .GroupBy(customer => customer.id)
-            .Select(group => group.First()).ToList();*/
+            /*  graph.nodes = graph.nodes
+              .GroupBy(customer => customer.id)
+              .Select(group => group.First()).ToList();*/
             GlobalVariables.Vol = vol;
 
-            Debug.Log("nodes edges" + graph.nodes.Count + " " + graph.edges.Count);
+            Debug.Log("Init Graph, nodes edges " + graph.nodes.Count + " " + graph.edges.Count +" SwapRoots "+SwapRoots);
 
             if (SwapRoots)
             {
                 foreach (var edge in graph.edges)
                 {
+                   // Debug.Log(edge.from + " to " + edge.to);
                     var tmp = edge.from;
                     edge.from = edge.to;
-                    edge.to = tmp;
+                    edge.to = tmp;// Debug.Log(edge.from + " " + edge.to);
                 }
 
             }
 
-  
+
 
             graph.movingNodes = new List<int>();
             graph.selectedNodes = new List<int>();
-       //     graph.selectedNodes.Add(-1);
-       //     graph.selectedNodes.Add(-1);
+            //     graph.selectedNodes.Add(-1);
+            //     graph.selectedNodes.Add(-1);
 
 
             EdgeTypes.Clear();
-            EdgeTypes.Add("include", new EdgeType("include"));
-            EdgeTypes.Add("dontselect", new EdgeType(""));
+            EdgeTypes.Add("include", new EdgeType("hierarchic"));
+            //   EdgeTypes.Add("dontselect", new EdgeType(""));
 
             foreach (var edge in graph.edges)
-             {
+            {
                 if (!EdgeTypes.ContainsKey(edge.style))
                 {
                     string type;
                     if (edge.style == "include" || edge.style == "meta" || edge.style == "structure")
                     {
-                       type = "include";
+                        type = "hierarchic";
                     }
 
                     else
                     {
-                       type = "";
+                        type = "";
                     }
 
 
-                    EdgeTypes.Add(edge.style,new EdgeType(type));
+                    EdgeTypes.Add(edge.style, new EdgeType(type));
 
-                    if (!ColorDict.ContainsKey(edge.style)){
-                        Random.InitState(edge.style.Length+edge.style[0]);
-                        var rndcol = Random.ColorHSV(0f,1f,.9f,1f) * 255;
+                    if (!ColorDict.ContainsKey(edge.style))
+                    {
+                        Random.InitState(edge.style.Length + edge.style[0]);
+                        var rndcol = Random.ColorHSV(0f, 1f, .9f, 1f) * 255;
                         rndcol.a = 0;
-                        ColorDict.Add(edge.style,rndcol);
+                        ColorDict.Add(edge.style, rndcol);
                     }
 
 
@@ -787,7 +832,7 @@ namespace TGraph
 
             var types = EdgeTypes.Values;
             var typeStrings = new List<string>();
-            foreach(var type in types)
+            foreach (var type in types)
             {
                 typeStrings.Add(type.type);
             }
@@ -796,9 +841,9 @@ namespace TGraph
 
 
             graph.nodeDict = new Dictionary<string, int>();
-       
 
-            
+
+
             GlobalVariables.GraphManager.Graph = GlobalVariables.Graph;
             Debug.Log("init time " + (Time.realtimeSinceStartup - time));
             time = Time.realtimeSinceStartup;
@@ -813,10 +858,10 @@ namespace TGraph
             mat3.color = Color.green;
 
             Dictionary<string, Material> materialDict = new Dictionary<string, Material>();
-         
+             
             foreach (var node in graph.nodes)
             {
-
+                //Debug.Log(node.id+" "+node.color + " " + node.style);
                 if (node.style == "skeptically_accepted" || node.style == "sceptically_accepted")
                     node.nodeObject.GetComponent<Renderer>().material = mat3;
                 else if (node.style == "credulously_accepted")
@@ -825,12 +870,12 @@ namespace TGraph
                     node.nodeObject.GetComponent<Renderer>().material = mat1;
                 else
                 {
-                    Color color;
-                    if (ColorUtility.TryParseHtmlString(node.color, out color))
+                    //Debug.Log("no static style "+node.color);  
+                    if (ColorUtility.TryParseHtmlString(node.color, out Color color))
                     {
+                        Debug.Log(color);
                         if (materialDict.ContainsKey(node.color))
                         {
-                           
                             node.nodeObject.GetComponent<Renderer>().sharedMaterial = materialDict[node.color];
 
                         }
@@ -847,7 +892,7 @@ namespace TGraph
 
                 }
 
-             
+
 
             }
             /*
@@ -858,12 +903,12 @@ namespace TGraph
          }*/
 
             Debug.Log("prep time " + (Time.realtimeSinceStartup - time));
-          //  Debug.Log(graph.nodes.Count + " " + ec + "-----------------------------------------------------");
-        //    GraphManager.Init();
+            //  Debug.Log(graph.nodes.Count + " " + ec + "-----------------------------------------------------");
+            //    GraphManager.Init();
 
 
             StartCoroutine(GlobalVariables.GraphManager.FinishInit(keepLayout));
-     
+
 
 
         }

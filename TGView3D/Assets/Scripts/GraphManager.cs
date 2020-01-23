@@ -53,7 +53,6 @@ namespace TGraph
         public static bool IsAG = false;
         public static List<MyNode> FoundNodes;
         public bool Gen = false;
-        public bool SwapRoots = false;
         private GameObject Aura;
         public float[] GlobalEnergies;
         List<int> countNodesInGraph = new List<int>();
@@ -69,7 +68,7 @@ namespace TGraph
             float[] distances = new float[32];
             GlobalVariables.Beam = true;
             camera.farClipPlane = 100;
-            distances[18] = 2;
+            distances[18] = 4;
             camera.layerCullDistances = distances;
             if (XRSettings.enabled) camera.layerCullSpherical = true;
             //camera.clearFlags = CameraClearFlags.SolidColor;
@@ -626,7 +625,7 @@ namespace TGraph
             if (node.style == "model")
             {
                 nodeObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                nodeObject.transform.localScale *= 0.070f;
+                nodeObject.transform.localScale *= 0.1f;// 0.070f;
             }
             else nodeObject = Instantiate(grabbable);
         
@@ -1045,6 +1044,7 @@ namespace TGraph
 
             UpdateAllEdges();
             Debug.Log(Time.realtimeSinceStartup - stime);
+           
             
             
         }

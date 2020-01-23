@@ -51,8 +51,8 @@ namespace TGraph
 
 
             //roots
-            if (graph.nodes[i].edgeIndicesOut.Where(idx => TGraph.ReadJSON.EdgeTypes[graph.edges[idx].style].type == "include" && graph.edges[idx].active).ToList().Count == 0
-                && graph.nodes[i].edgeIndicesIn.Where(idx =>TGraph.ReadJSON.EdgeTypes[graph.edges[idx].style].type == "include" && graph.edges[idx].active).ToList().Count > 0)
+            if (graph.nodes[i].edgeIndicesOut.Where(idx => TGraph.ReadJSON.EdgeTypes[graph.edges[idx].style].type == "hierarchic" && graph.edges[idx].active).ToList().Count == 0
+                && graph.nodes[i].edgeIndicesIn.Where(idx =>TGraph.ReadJSON.EdgeTypes[graph.edges[idx].style].type == "hierarchic" && graph.edges[idx].active).ToList().Count > 0)
             {
 
                 return -VolumeWidth;
@@ -60,15 +60,15 @@ namespace TGraph
             }
 
 
-            else if (graph.nodes[i].edgeIndicesIn.Where(idx =>TGraph.ReadJSON.EdgeTypes[graph.edges[idx].style].type == "include" && graph.edges[idx].active).ToList().Count == 0
-                && graph.nodes[i].edgeIndicesOut.Where(idx =>TGraph.ReadJSON.EdgeTypes[graph.edges[idx].style].type == "include" && graph.edges[idx].active).ToList().Count > 0)
+            else if (graph.nodes[i].edgeIndicesIn.Where(idx =>TGraph.ReadJSON.EdgeTypes[graph.edges[idx].style].type == "hierarchic" && graph.edges[idx].active).ToList().Count == 0
+                && graph.nodes[i].edgeIndicesOut.Where(idx =>TGraph.ReadJSON.EdgeTypes[graph.edges[idx].style].type == "hierarchic" && graph.edges[idx].active).ToList().Count > 0)
             {
                 return VolumeWidth;
 
             }
             //for only view graphs
-            else if (graph.nodes[i].edgeIndicesIn.Where(idx =>TGraph.ReadJSON.EdgeTypes[graph.edges[idx].style].type == "include" && graph.edges[idx].active).ToList().Count == 0
-                 && graph.nodes[i].edgeIndicesOut.Where(idx =>TGraph.ReadJSON.EdgeTypes[graph.edges[idx].style].type == "include" && graph.edges[idx].active).ToList().Count == 0
+            else if (graph.nodes[i].edgeIndicesIn.Where(idx =>TGraph.ReadJSON.EdgeTypes[graph.edges[idx].style].type == "hierarchic" && graph.edges[idx].active).ToList().Count == 0
+                 && graph.nodes[i].edgeIndicesOut.Where(idx =>TGraph.ReadJSON.EdgeTypes[graph.edges[idx].style].type == "hierarchic" && graph.edges[idx].active).ToList().Count == 0
                  && (graph.nodes[i].edgeIndicesIn.Where(idx => TGraph.ReadJSON.EdgeTypes[graph.edges[idx].style].type == "" ).ToList().Count > 0
                  || graph.nodes[i].edgeIndicesOut.Where(idx => TGraph.ReadJSON.EdgeTypes[graph.edges[idx].style].type == "" ).ToList().Count > 0))
 
@@ -313,7 +313,7 @@ namespace TGraph
                         foreach (int edge in node.edgeIndicesIn)
                         {
 
-                            if (TGraph.ReadJSON.EdgeTypes[graph.edges[edge].style].type == "include"&&graph.edges[edge].active)
+                            if (TGraph.ReadJSON.EdgeTypes[graph.edges[edge].style].type == "hierarchic"&&graph.edges[edge].active)
                             {
 
                                 d += (nodepos - graph.nodes[graph.nodeDict[graph.edges[edge].from]].nodeObject.transform.position).magnitude;
@@ -340,7 +340,7 @@ namespace TGraph
                         /*
                         foreach (int edge in node.edgeIndicesOut)
                         {
-                            if (TGraph.ReadJSON.EdgeTypes[graph.edges[edge].style].type == "include")
+                            if (TGraph.ReadJSON.EdgeTypes[graph.edges[edge].style].type == "hierarchic")
                                 if (graph.nodes[graph.nodeDict[graph.edges[edge].to]].pos.y > node.pos.y)
                                 {
                                     Debug.Log("Height Violation2");
@@ -445,8 +445,8 @@ namespace TGraph
 
                                 //not included -> root --> lowest
                                 // if (graph.nodes[i].edgeIndicesOut.Count == 1&&graph.nodes[i].edgeIndicesOut[0]==graph.nodes[i].nr)
-                                if (graph.nodes[i].edgeIndicesOut.Where(idx =>TGraph.ReadJSON.EdgeTypes[graph.edges[idx].style].type == "include" && graph.edges[idx].active).ToList().Count == 0
-                                    && graph.nodes[i].edgeIndicesIn.Where(idx =>TGraph.ReadJSON.EdgeTypes[graph.edges[idx].style].type == "include" && graph.edges[idx].active).ToList().Count > 0)
+                                if (graph.nodes[i].edgeIndicesOut.Where(idx =>TGraph.ReadJSON.EdgeTypes[graph.edges[idx].style].type == "hierarchic" && graph.edges[idx].active).ToList().Count == 0
+                                    && graph.nodes[i].edgeIndicesIn.Where(idx =>TGraph.ReadJSON.EdgeTypes[graph.edges[idx].style].type == "hierarchic" && graph.edges[idx].active).ToList().Count > 0)
                                 {
 
                                     rootIndices.Add(i);
@@ -459,8 +459,8 @@ namespace TGraph
                             {
 
                                 // if (graph.nodes[i].edgeIndicesIn.Count == 0) rootIndices.Add(i);
-                                if (graph.nodes[i].edgeIndicesIn.Where(idx =>TGraph.ReadJSON.EdgeTypes[graph.edges[idx].style].type == "include" && graph.edges[idx].active).ToList().Count == 0
-                                 && graph.nodes[i].edgeIndicesOut.Where(idx =>TGraph.ReadJSON.EdgeTypes[graph.edges[idx].style].type == "include" && graph.edges[idx].active).ToList().Count > 0)
+                                if (graph.nodes[i].edgeIndicesIn.Where(idx =>TGraph.ReadJSON.EdgeTypes[graph.edges[idx].style].type == "hierarchic" && graph.edges[idx].active).ToList().Count == 0
+                                 && graph.nodes[i].edgeIndicesOut.Where(idx =>TGraph.ReadJSON.EdgeTypes[graph.edges[idx].style].type == "hierarchic" && graph.edges[idx].active).ToList().Count > 0)
                                 {
                                     rootIndices.Add(i);
 
@@ -662,7 +662,7 @@ namespace TGraph
 
             for (var k = 0; k < n.edgeIndicesIn.Count; k++)
             {
-                if (TGraph.ReadJSON.EdgeTypes[graph.edges[edgeIndices[k]].style].type == "include")
+                if (TGraph.ReadJSON.EdgeTypes[graph.edges[edgeIndices[k]].style].type == "hierarchic")
                 {
 
                     var u = graph.nodes[n.connectedNodes[k]];
@@ -685,7 +685,7 @@ namespace TGraph
             for (var m = 0; m < n.edgeIndicesOut.Count; m++)
             {
                 int k = m + n.edgeIndicesIn.Count;
-                if (TGraph.ReadJSON.EdgeTypes[graph.edges[edgeIndices[k]].style].type == "include")
+                if (TGraph.ReadJSON.EdgeTypes[graph.edges[edgeIndices[k]].style].type == "hierarchic")
                 {
 
                     var u = graph.nodes[n.connectedNodes[k]];
@@ -741,7 +741,7 @@ namespace TGraph
             var hierarchyDisp = 0f;
             for (var k = 0; k < n.edgeIndicesIn.Count; k++)
             {
-                if (TGraph.ReadJSON.EdgeTypes[graph.edges[edgeIndices[k]].style].type == "include")
+                if (TGraph.ReadJSON.EdgeTypes[graph.edges[edgeIndices[k]].style].type == "hierarchic")
                 {
 
                     var u = graph.nodes[n.connectedNodes[k]];
@@ -762,7 +762,7 @@ namespace TGraph
             for (var m = 0; m < n.edgeIndicesOut.Count; m++)
             {
                 int k = m + n.edgeIndicesIn.Count;
-                if (TGraph.ReadJSON.EdgeTypes[graph.edges[edgeIndices[k]].style].type == "include")
+                if (TGraph.ReadJSON.EdgeTypes[graph.edges[edgeIndices[k]].style].type == "hierarchic")
                 {
 
                     var u = graph.nodes[n.connectedNodes[k]];
@@ -816,7 +816,7 @@ namespace TGraph
 
             for (var k = 0; k < n.edgeIndicesIn.Count; k++)
             {
-                if (TGraph.ReadJSON.EdgeTypes[graph.edges[edgeIndices[k]].style].type == "include")
+                if (TGraph.ReadJSON.EdgeTypes[graph.edges[edgeIndices[k]].style].type == "hierarchic")
                 {
 
                     var u = graph.nodes[n.connectedNodes[k]];
@@ -841,7 +841,7 @@ namespace TGraph
             for (var m = 0; m < n.edgeIndicesOut.Count; m++)
             {
                 int k = m + n.edgeIndicesIn.Count;
-                if (TGraph.ReadJSON.EdgeTypes[graph.edges[edgeIndices[k]].style].type == "include")
+                if (TGraph.ReadJSON.EdgeTypes[graph.edges[edgeIndices[k]].style].type == "hierarchic")
                 {
 
                     var u = graph.nodes[n.connectedNodes[k]];
@@ -884,7 +884,7 @@ namespace TGraph
             float better = 0;
             for (var k = 0; k < n.edgeIndicesIn.Count; k++)
             {
-                if (TGraph.ReadJSON.EdgeTypes[graph.edges[edgeIndices[k]].style].type == "include" && graph.edges[edgeIndices[k]].active)
+                if (TGraph.ReadJSON.EdgeTypes[graph.edges[edgeIndices[k]].style].type == "hierarchic" && graph.edges[edgeIndices[k]].active)
                 {
                     //nodes u that have edges that go to n are above n
                     var u = graph.nodes[n.connectedNodes[k]];
@@ -906,7 +906,7 @@ namespace TGraph
             for (var m = 0; m < n.edgeIndicesOut.Count; m++)
             {
                 int k = m + n.edgeIndicesIn.Count;
-                if (TGraph.ReadJSON.EdgeTypes[graph.edges[edgeIndices[k]].style].type == "include"&& graph.edges[edgeIndices[k]].active)
+                if (TGraph.ReadJSON.EdgeTypes[graph.edges[edgeIndices[k]].style].type == "hierarchic"&& graph.edges[edgeIndices[k]].active)
                 {
 
                     var u = graph.nodes[n.connectedNodes[k]];
@@ -1053,7 +1053,7 @@ namespace TGraph
                                 n.disp += (differenceNodes / lengthDiff) *attractiveForce;
                                 
                                 /*
-                                if (TGraph.ReadJSON.EdgeTypes[graph.edges[edgeIndices[k]].style].type == "include")
+                                if (TGraph.ReadJSON.EdgeTypes[graph.edges[edgeIndices[k]].style].type == "hierarchic")
                                 {
                                    
                                     if (k < n.edgeIndicesIn.Count)

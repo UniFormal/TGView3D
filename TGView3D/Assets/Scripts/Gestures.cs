@@ -83,10 +83,10 @@ public class Gestures : MonoBehaviour {
         }
         mesh.vertices = vertices;
         mesh.RecalculateBounds();
-      //  var mC = graph.edgeObject.AddComponent<MeshCollider>();
-       // mC.sharedMesh = graph.edgeObject.GetComponent<MeshFilter>().sharedMesh;
+        //  var mC = graph.edgeObject.AddComponent<MeshCollider>();
+        // mC.sharedMesh = graph.edgeObject.GetComponent<MeshFilter>().sharedMesh;
         // TGraph.GlobalVariables.Recalculate = true;
-
+    
     }
 
 
