@@ -100,12 +100,13 @@ namespace TGraph
             if (GlobalVariables.Init)
             {
                 //for gestures
-                /*
+                
                 if (GlobalVariables.Recalculate)
                 {
+
                     UpdateSelected();
                     GlobalVariables.Recalculate = false;
-                }*/
+                }
 
 
                 if (Graph.movingNodes.Count > 0)
@@ -1375,12 +1376,22 @@ namespace TGraph
 
         private void UpdateSelected()
         {
+            Debug.LogWarning("selected");
             foreach (int n in Graph.selectedNodes)
             {
                 if (n == -1) continue; //TODO: change this
                 var node = Graph.nodes[n];
+                Debug.Log(node.nodeEdgeObject);
                 UpdateEdges(node);
             }
+            if (Graph.latestSelection!=-1)
+            {
+             
+                var node = Graph.nodes[Graph.latestSelection];
+                Debug.Log(node.nodeEdgeObject);
+                UpdateEdges(node);
+            }
+
         }
 
 

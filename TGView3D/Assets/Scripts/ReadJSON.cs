@@ -873,7 +873,7 @@ namespace TGraph
                     //Debug.Log("no static style "+node.color);  
                     if (ColorUtility.TryParseHtmlString(node.color, out Color color))
                     {
-                        Debug.Log(color);
+                    //    Debug.Log(color);
                         if (materialDict.ContainsKey(node.color))
                         {
                             node.nodeObject.GetComponent<Renderer>().sharedMaterial = materialDict[node.color];
@@ -881,7 +881,7 @@ namespace TGraph
                         }
                         else
                         {
-                            Debug.LogWarning("weird color? " + color);
+                           // Debug.LogWarning("weird color? " + color);
                             var genMat = new Material(mat1);
                             node.nodeObject.GetComponent<Renderer>().sharedMaterial = genMat;
                             node.nodeObject.GetComponent<Renderer>().sharedMaterial.color = color;
