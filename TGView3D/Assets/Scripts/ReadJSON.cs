@@ -333,7 +333,7 @@ namespace TGraph
 #if UNITY_WEBGL
             Debug.Log("#################WEBGLBUILD###############################");
 
-        /*    int pm = Application.absoluteURL.IndexOf("?");
+            int pm = Application.absoluteURL.IndexOf("?");
             if (pm != -1)
             {
                 //var url = "https://mmt.mathhub.info/:jgraph/json?" + Application.absoluteURL.Split("?"[0])[1];
@@ -350,7 +350,7 @@ namespace TGraph
                     // URLObject.GetComponent<InputField>().DeactivateInputField();
                 }
 
-            }*/
+            }
 #endif
 
 
