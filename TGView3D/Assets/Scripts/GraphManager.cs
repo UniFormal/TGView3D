@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using Unity.Collections;
 using Unity.Jobs;
 using UnityEngine;
@@ -568,8 +569,8 @@ namespace TGraph
             GameObject text = (GameObject)Instantiate(NodeText);
 
             text.transform.parent = parent;
-            text.GetComponent<TextMesh>().text = label;
-            if (type == "o") text.GetComponent<TextMesh>().color = Color.gray;
+            text.GetComponent<TextMeshPro>().text = label;
+            if (type == "o") text.GetComponent<TextMeshPro>().color = Color.gray;
             text.transform.localPosition = Vector3.zero + new Vector3(0, 0, 1f);
             text.name = label;
 

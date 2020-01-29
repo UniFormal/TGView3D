@@ -616,18 +616,26 @@ namespace TGraph
             }
             else if (www != null)
             {
-                Debug.Log(www.error);
+               
 #if (UNITY_WEBGL)
+
                 if (!Cors)
                 {
+                    Debug.Log(www.error + " retry with proxy "+("https://cors-anywhere.herokuapp.com/" + www.url) );
                     Cors = true;
-                    StartCoroutine(new WWW("https://cors-anywhere.herokuapp.com/" + www.url));
+                    StartCoroutine(ProcessURL(new WWW("https://cors-anywhere.herokuapp.com/" + www.url)));
+                    yield break;
+                }
+                else
+                {
+                    Cors = false;
+                    var cols = URLObject.GetComponent<InputField>().colors;
+                    cols.normalColor = cols.disabledColor = Color.red;
+                    URLObject.GetComponent<InputField>().colors = cols;
                 }
 
 #endif
-                var cols = URLObject.GetComponent<InputField>().colors;
-                cols.normalColor = cols.disabledColor = Color.red;
-                URLObject.GetComponent<InputField>().colors = cols;
+
             }
 
         }

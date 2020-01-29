@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Reflection;
+using TMPro;
 
 public class FlyCamera : MonoBehaviour
 {
@@ -638,14 +639,14 @@ if (m_Plane.Raycast(ray, out enter))
         Camera.main.backgroundColor = Color.white - Camera.main.backgroundColor;
 
         var tcol = new Color();
-        tcol = TGraph.GlobalVariables.GraphManager.NodeText.GetComponent<TextMesh>().color;
+        tcol = TGraph.GlobalVariables.GraphManager.NodeText.GetComponent<TextMeshPro>().color;
         Debug.Log(tcol);
 
         tcol = Color.white - tcol;
         tcol.a = 1;
         Debug.Log(tcol);
 
-        TGraph.GlobalVariables.GraphManager.NodeText.GetComponent<TextMesh>().color = tcol;
+        TGraph.GlobalVariables.GraphManager.NodeText.GetComponent<TextMeshPro>().color = tcol;
 
         List<string> keys = new List<string>(TGraph.ReadJSON.ColorDict.Keys);
 
@@ -665,7 +666,7 @@ if (m_Plane.Raycast(ray, out enter))
         Debug.Log(no);
         if (no != null)
         {
-            var textMs = no.GetComponentsInChildren<TextMesh>();
+            var textMs = no.GetComponentsInChildren<TextMeshPro>();
 
             foreach (var text in textMs)
             {
@@ -713,7 +714,7 @@ if (m_Plane.Raycast(ray, out enter))
     private void Start()
     {
         if(TGraph.GlobalVariables.GraphManager!=null)
-        TGraph.GlobalVariables.GraphManager.NodeText.GetComponent<TextMesh>().color = nodeText.GetComponent<TextMesh>().color;
+        TGraph.GlobalVariables.GraphManager.NodeText.GetComponent<TextMeshPro>().color = nodeText.GetComponent<TextMesh>().color;
         if (VR.activeSelf)
             VR.SetActive(false);
 
