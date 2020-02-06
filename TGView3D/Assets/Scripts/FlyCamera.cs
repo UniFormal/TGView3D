@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Reflection;
 using TMPro;
+using TGraph;
 
 public class FlyCamera : MonoBehaviour
 {
@@ -99,12 +100,12 @@ public class FlyCamera : MonoBehaviour
         var graph = TGraph.GlobalVariables.Graph;
         var graphNode = graph.nodes[nodeId];
 
-        graphNode.labelObject.GetComponent<TextMesh>().color = TGraph.ReadJSON.BaseColor;
+        graphNode.labelObject.GetComponent<TextMeshPro>().color = TGraph.ReadJSON.BaseColor;
         graphNode.labelObject.layer = 18;
         foreach (int nidx in graphNode.connectedNodes)
         {
             graph.nodes[nidx].labelObject.layer = 18;
-            graph.nodes[nidx].labelObject.GetComponent<TextMesh>().color = TGraph.ReadJSON.BaseColor;
+            graph.nodes[nidx].labelObject.GetComponent<TextMeshPro>().color = TGraph.ReadJSON.BaseColor;
         }
         GameObject.Destroy(graphNode.nodeEdgeObject);
         graphNode.nodeEdgeObject = null;
@@ -149,6 +150,8 @@ public class FlyCamera : MonoBehaviour
         var graph = TGraph.GlobalVariables.Graph;
         TGraph.ReadJSON.MyNode node = graph.nodes[nodeId];
 
+ 
+        //edge drawing
         if (Startid != "")
         {
             Debug.Log(Startid);
@@ -157,7 +160,11 @@ public class FlyCamera : MonoBehaviour
             return true;
         }
 
+
+
+
         Debug.Log(graph.latestSelection);
+        //TODO: look into this
         if (graph.selectedNodes.Contains(nodeId))
         {
             DeselectNode(nodeId);
@@ -166,10 +173,9 @@ public class FlyCamera : MonoBehaviour
         }
 
 
+        //new node selected
         Debug.Log(nodeId);
         if (graph.latestSelection != -1 && graph.latestSelection != nodeId) DeselectNode(graph.latestSelection);
-
-
 
 
 
@@ -210,17 +216,32 @@ public class FlyCamera : MonoBehaviour
 
         //select node and highlight accordingly
         //if (nodeId != graph.selectedNodes[(handIndex + 1) % 2])
+
+
         if (graph.latestSelection != nodeId)
         {
 
+            //Activate hidden chapters
+
+            if (ReadJSON.ChapterDict.ContainsKey(graph.nodes[nodeId].id))
+            {
+                var chapter = ReadJSON.ChapterDict[graph.nodes[nodeId].id];
+
+                ReadJSON.RootList.Add(chapter.id);
+            }
+    
+  
+
+
+
             var edges = new List<TGraph.ReadJSON.MyEdge>();
-            node.labelObject.GetComponent<TextMesh>().color = TGraph.ReadJSON.SelectedColor;
+            node.labelObject.GetComponent<TextMeshPro>().color = TGraph.ReadJSON.SelectedColor;
             node.labelObject.layer = 0;
             foreach (int nidx in node.connectedNodes)
             {
                 graph.nodes[nidx].labelObject.layer = 0;
 
-                if (graph.nodes[nidx].labelObject.GetComponent<TextMesh>().color != TGraph.ReadJSON.SelectedColor) graph.nodes[nidx].labelObject.GetComponent<TextMesh>().color = TGraph.ReadJSON.ConnectedColor;
+                if (graph.nodes[nidx].labelObject.GetComponent<TextMeshPro>().color != TGraph.ReadJSON.SelectedColor) graph.nodes[nidx].labelObject.GetComponent<TextMeshPro>().color = TGraph.ReadJSON.ConnectedColor;
             }
             foreach (int idx in node.edgeIndicesIn)
             {
@@ -404,8 +425,9 @@ public class FlyCamera : MonoBehaviour
             Debug.Log("shoot");
             RaycastHit hit;
             Physics.queriesHitBackfaces = true;
-            var mC = TGraph.GlobalVariables.Graph.edgeObject.AddComponent<MeshCollider>();
-            mC.sharedMesh = TGraph.GlobalVariables.Graph.edgeObject.GetComponent<MeshFilter>().sharedMesh;
+           // var mC = TGraph.GlobalVariables.Graph.edgeObject.AddComponent<MeshCollider>();
+            //TODO: activate this for edge collision
+          //  mC.sharedMesh = TGraph.GlobalVariables.Graph.edgeObject.GetComponent<MeshFilter>().sharedMesh;
             Physics.autoSimulation = true;
             LastMou = Input.mousePosition;
             //  Debug.Log(LastMou);

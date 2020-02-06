@@ -21,7 +21,7 @@ public class GlobalAlignText : MonoBehaviour {
 
 
     //s    Debug.LogWarning(TGraph.GlobalVariables.Init);
-        if (TGraph.GlobalVariables.Init)
+      //  if (TGraph.GlobalVariables.Init)
         {
 
             Vector3 camPos = CamTransform.position;

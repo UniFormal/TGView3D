@@ -162,7 +162,7 @@ namespace TGraph
                     handles[i - 1]);
                 handles[i] = handle;
                 handle = updateEnergies.Schedule(handles[i]);
-
+             
 
                 // Reduce the temperature as the layout approaches a better configuration
             }
@@ -189,10 +189,10 @@ namespace TGraph
 
         public static JobHandle BaseLayout(int iterations, float globalWeight, float spaceScale, NativeArray<float> energies)
         {
-            currTemperature = 0.90f;
+            currTemperature = 0.97f;
             energyBefore = 0;
             energy = 1000000f;
-            step = 3.0f;// initialStep;
+            step = 2.5f;// initialStep;
             success = 0;
             Init();
             Spiral();
@@ -651,6 +651,7 @@ namespace TGraph
                     step *= currTemperature;
                 }
                 energyBefore = energy;
+            //    Debug.Log(energy);
             }
 
         }

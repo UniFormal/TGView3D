@@ -97,8 +97,8 @@ public class SubMenu : MonoBehaviour
     public void RemoveEdge()
     {
         var edge = Gm.Graph.edges[ID];
-        graph.edges.Remove(edge);
-        var json = JsonUtility.ToJson(graph);
+        Graph.edges.Remove(edge);
+        var json = JsonUtility.ToJson(Graph);
 
         CurrentJSON = json;
         GlobalVariables.JsonManager.UpdateLayout();
@@ -109,15 +109,15 @@ public class SubMenu : MonoBehaviour
     {
         //TODO: fix
         GlobalVariables.JsonManager.UpdateLayout();
-        MyNode pNode = graph.nodes[transform.parent.GetSiblingIndex()];
+        MyNode pNode = Graph.nodes[transform.parent.GetSiblingIndex()];
 
         pNode.nodeObject.SetActive(false);
 
         GameObject.Destroy(pNode.nodeEdgeObject);
 
-        MyGraph tmpGraph = graph;// MyGraph.CreateFromJSON(JsonUtility.ToJson(graph));
+        MyGraph tmpGraph = Graph;// MyGraph.CreateFromJSON(JsonUtility.ToJson(Graph));
 
-         MyNode node = graph.nodes[transform.parent.GetSiblingIndex()];
+         MyNode node = Graph.nodes[transform.parent.GetSiblingIndex()];
 
         List<MyEdge> edges = new List<MyEdge>();
         
@@ -128,7 +128,7 @@ public class SubMenu : MonoBehaviour
             var edge = tmpGraph.edges[edgeidx];
             edges.Add(edge);
          
-            GlobalVariables.GraphManager.BlendEdge(pNode,graph.nodes[graph.nodeDict[edge.from]]);
+            GlobalVariables.GraphManager.BlendEdge(pNode,Graph.nodes[Graph.nodeDict[edge.from]]);
             
 
         }
@@ -136,17 +136,17 @@ public class SubMenu : MonoBehaviour
         {
             var edge = tmpGraph.edges[edgeidx];
             edges.Add(edge);
-            GlobalVariables.GraphManager.BlendEdge(pNode, graph.nodes[graph.nodeDict[edge.to]]);
+            GlobalVariables.GraphManager.BlendEdge(pNode, Graph.nodes[Graph.nodeDict[edge.to]]);
            
         }
         foreach(var edge in edges)
         {
-            graph.edges.Remove(edge);
+            Graph.edges.Remove(edge);
         }
 
 
-        graph.nodes.Remove(node);
-        var json = JsonUtility.ToJson(graph);
+        Graph.nodes.Remove(node);
+        var json = JsonUtility.ToJson(Graph);
 
 
         CurrentJSON = json;

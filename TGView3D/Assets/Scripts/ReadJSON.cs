@@ -74,7 +74,7 @@ namespace TGraph
         private static extern void download(string data, string strFileName, string strMimeType);
 
         public GameObject Percent;
-        public static MyGraph graph;
+        public static MyGraph Graph;
         public Material mat;
         public Material lineMat;
         public GameObject grabbable;
@@ -92,7 +92,7 @@ namespace TGraph
         public GameObject ArgSolverSelect;
         int si = 0;
         public float time = 0;
-        public string url;//http://neuralocean.de/graph/test/nasa.json";
+        public string url;//http://neuralocean.de/Graph/test/nasa.json";
         public string path;
         public int vol = 100;
         private static string LayoutFile = "";
@@ -112,11 +112,12 @@ namespace TGraph
         private GameObject Aura;
         public static Dictionary<string, EdgeType> EdgeTypes = new Dictionary<string, EdgeType>();
         public static Dictionary<string, Color> ColorDict;
+        public static Dictionary<string, MyChapter> ChapterDict = new Dictionary<string, MyChapter>();
 
         List<int> countNodesInGraph = new List<int>();
         public Dropdown EdgeTypeSelector;
         public Dropdown EdgeAttributeSelector;
-
+        public static List<string> RootList = new List<string>();
 
         //TODO: throw out ugly indexing!!!!! + cleanup class variables
         [System.Serializable]
@@ -125,6 +126,7 @@ namespace TGraph
 
             public List<MyNode> nodes;
             public List<MyEdge> edges;
+            public List<MyChapter> chapters;
 
             [NonSerialized]
             public ReadJSON GraphParser;
@@ -163,7 +165,7 @@ namespace TGraph
             [NonSerialized]
             public GameObject subObject;
             [NonSerialized]
-            public float lineWidth = 0.005f;
+            public float lineWidth = 0.0075f;
             [NonSerialized]
             public bool UseForces = true;
             [NonSerialized]
@@ -300,7 +302,17 @@ namespace TGraph
 
         }
 
-        void Start()
+
+        [System.Serializable]
+        public class MyChapter
+        {
+            public string id;
+            public List<string> chapters;
+            public List<string> nodes;
+            public string label;
+        }
+
+            void Start()
         {
 
 
@@ -320,10 +332,10 @@ namespace TGraph
 
 
 
-            graph = new MyGraph();
-            graph.nodes = new List<MyNode>();
-            graph.edges = new List<MyEdge>();
-            var tmpGraph = MyGraph.CreateFromJSON(JsonUtility.ToJson(graph));
+            Graph = new MyGraph();
+            Graph.nodes = new List<MyNode>();
+            Graph.edges = new List<MyEdge>();
+            var tmpGraph = MyGraph.CreateFromJSON(JsonUtility.ToJson(Graph));
 
             var json = JsonUtility.ToJson(tmpGraph);
             CurrentJSON = json;
@@ -336,7 +348,7 @@ namespace TGraph
             int pm = Application.absoluteURL.IndexOf("?");
             if (pm != -1)
             {
-                //var url = "https://mmt.mathhub.info/:jgraph/json?" + Application.absoluteURL.Split("?"[0])[1];
+                //var url = "https://mmt.mathhub.info/:jGraph/json?" + Application.absoluteURL.Split("?"[0])[1];
                 var url = Application.absoluteURL.Split("?"[0])[1];
 
                 if (url != "")
@@ -355,7 +367,7 @@ namespace TGraph
 
 
             // AddNode(false);
-            //AddEdge(graph.nodes[0], graph.nodes[1],false);
+            //AddEdge(Graph.nodes[0], Graph.nodes[1],false);
 
 
             //BuildFromJSON();
@@ -379,7 +391,7 @@ namespace TGraph
         }
 
 
-        //build graph depending on json file
+        //build Graph depending on json file
 
 
 
@@ -409,7 +421,7 @@ namespace TGraph
                 }
 
             }
-            var json = JsonUtility.ToJson(graph);
+            var json = JsonUtility.ToJson(Graph);
             CurrentJSON = json;
         }
 
@@ -418,7 +430,7 @@ namespace TGraph
 
             transform.eulerAngles = Vector3.zero;
             nodePosDict = new Dictionary<string, Vector3>();
-            foreach (var node in graph.nodes)
+            foreach (var node in Graph.nodes)
             {
                 nodePosDict.Add(node.id, node.nodeObject.transform.localPosition);
             }
@@ -528,14 +540,14 @@ namespace TGraph
             var node = new MyNode();
             node.label = "test";
             node.style = "rejected";
-            node.id = graph.nodes.Count.ToString();
-            graph.nodes.Add(node);
-            var json = JsonUtility.ToJson(graph);
+            node.id = Graph.nodes.Count.ToString();
+            Graph.nodes.Add(node);
+            var json = JsonUtility.ToJson(Graph);
             CurrentJSON = json;
             Debug.Log(node.id);
             int i = 0;
 
-            while ((graph.nodeDict.ContainsKey(node.id)))
+            while ((Graph.nodeDict.ContainsKey(node.id)))
             {
                 node.id = i.ToString();
                 i++;
@@ -575,13 +587,13 @@ namespace TGraph
             edge.style = "include";
             edge.label = "boom";
             edge.id = "customedge";
-            Debug.Log(graph.edges.Count);
-            graph.edges.Add(edge);
-            Debug.Log(graph.edges.Count);
-            var json = JsonUtility.ToJson(graph);
+            Debug.Log(Graph.edges.Count);
+            Graph.edges.Add(edge);
+            Debug.Log(Graph.edges.Count);
+            var json = JsonUtility.ToJson(Graph);
             CurrentJSON = json;
-            // from.edgeIndicesOut.Add(graph.edges.Count-1);
-            // to.edgeIndicesIn.Add(graph.edges.Count-1);
+            // from.edgeIndicesOut.Add(Graph.edges.Count-1);
+            // to.edgeIndicesIn.Add(Graph.edges.Count-1);
 
             if (build) GlobalVariables.GraphManager.AddEdge(from, to);
 
@@ -646,7 +658,7 @@ namespace TGraph
             var json = "";
             if (SwapRoots)
             {
-                MyGraph tmpGraph = MyGraph.CreateFromJSON(JsonUtility.ToJson(graph));
+                MyGraph tmpGraph = MyGraph.CreateFromJSON(JsonUtility.ToJson(Graph));
                 foreach (var edge in tmpGraph.edges)
                 {
 
@@ -659,18 +671,18 @@ namespace TGraph
             else
             {
 
-                json = JsonUtility.ToJson(graph);
+                json = JsonUtility.ToJson(Graph);
             }
 
 
 
 #if UNITY_WEBGL && !UNITY_EDITOR
 
-            download(json, "graph.json", "text/plain");
+            download(json, "Graph.json", "text/plain");
 
 #else
 
-            string filePath = Application.dataPath + "/graphExp.json";
+            string filePath = Application.dataPath + "/GraphExp.json";
             File.WriteAllText(filePath, json);
 
 #endif
@@ -711,7 +723,7 @@ namespace TGraph
 
                 if (mode == 0)
                 {
-                    url = "https://mmt.mathhub.info/:jgraph/json?key=archivegraph&uri=" + URLObject.GetComponent<InputField>().text
+                    url = "https://mmt.mathhub.info/:jGraph/json?key=archiveGraph&uri=" + URLObject.GetComponent<InputField>().text
                      + "&semantic=" + SemanticSelect.GetComponent<Dropdown>().options[SemanticSelect.GetComponent<Dropdown>().value].text
                      + "&comp=" + ArgSolverSelect.GetComponent<Dropdown>().options[ArgSolverSelect.GetComponent<Dropdown>().value].text;
 
@@ -719,7 +731,7 @@ namespace TGraph
                 else if (mode == 1)
                 {
 
-                    url = "localhost:8080/:jgraph/json?key=archivegraph&uri=" + URLObject.GetComponent<InputField>().text
+                    url = "localhost:8080/:jGraph/json?key=archiveGraph&uri=" + URLObject.GetComponent<InputField>().text
                      + "&semantic=" + SemanticSelect.GetComponent<Dropdown>().options[SemanticSelect.GetComponent<Dropdown>().value].text
                      + "&comp=" + ArgSolverSelect.GetComponent<Dropdown>().options[ArgSolverSelect.GetComponent<Dropdown>().value].text;
                 }
@@ -767,21 +779,274 @@ namespace TGraph
 
 
 
+        void FindRootChapters()
+        {
+
+            if (ChapterDict.Count == 0)
+            {
+                foreach (var chapter in Graph.chapters)
+                {
+                    RootList.Add(chapter.id);
+                }
+                Debug.Log("rootchapters");
+                foreach (var chapter in Graph.chapters)
+                {
+                    ChapterDict.Add(chapter.id, chapter);
+                }
+                /*
+                foreach (var chapter in Graph.chapters)
+                {
+                    foreach (var toChapter in chapter.chapters)
+                    {
+                        if (RootList.Contains(toChapter))
+                            RootList.Remove(toChapter);
+                    }
+                }*/
+
+            }
+
+        }
+
+
+        public static void ChaptersToNodes()
+        {
+            Debug.Log("chapter conversion");
+         //   Graph.edges.Clear();
+         //   Graph.nodes.Clear();
+            //add nodes
+            foreach (var chapter in Graph.chapters)
+            {
+                if (Graph.nodes.FindIndex( node => node.id == chapter.id) <0)
+                {
+                    Graph.nodes.Add(new MyNode
+                    {
+                        color = "#800080",
+                        label = chapter.label,
+                        id = chapter.id
+                    });
+                }
+           
+                /*
+                foreach (var chapterId in chapter.chapters)
+                {
+                    var toChapter = ChapterDict[chapterId];
+                    Graph.nodes.Add(new MyNode
+                    {
+                        color = "#800080",
+                        label = toChapter.label,
+                        id = toChapter.id
+                    });
+                }*/
+            }
+            //add edges
+            Debug.Log("rootcount "+ RootList.Count);
+            foreach (var chapter in Graph.chapters)
+            {
+                if (!RootList.Contains(chapter.id)) continue;
+                foreach (var toChapter in chapter.chapters)
+                {
+                    if (Graph.edges.FindIndex(edge => edge.id == chapter.id + toChapter) < 0)
+                    {
+                 //       Debug.Log("add edge to "+toChapter);
+                        Graph.edges.Add(new MyEdge
+                        {
+                            style = "chapter",
+                            from = chapter.id,
+                            to = toChapter,
+                            id = chapter.id + toChapter,
+                        });
+                    }
+                }
+/*
+                foreach (var toChapter in chapter.nodes)
+                {
+                    Graph.edges.Add(new MyEdge
+                    {
+                        style = "tmp",
+                        from = chapter.id,
+                        to = toChapter,
+                        id = chapter.id + toChapter,
+                    });
+                }*/
+                
+            }
+        }
+
+        void ProcessChapters()
+        {
+
+            FindRootChapters();
+            ChaptersToNodes();
+        }
+
+
+        public void ClusterChapters()
+        {
+            List<KeyValuePair<MyNode, List<MyNode>>> chapterNodes = new List<KeyValuePair<MyNode, List<MyNode>>>();
+
+            foreach (var chapter in Graph.chapters)
+            {
+                
+                //if(chapter.chapters.Count == 0)
+                {
+
+                    var chapterNode = new MyNode
+                    {
+                        color = "#800080",
+                        label = chapter.label,
+                        id = chapter.id
+                    };
+
+                    List<MyNode> collectedNodes = new List<MyNode>();
+                    foreach (var nodeId in chapter.nodes)
+                    {
+                        var node = Graph.nodes.Find(n => n.id == nodeId);
+                        if (node != null)
+                        {
+                            collectedNodes.Add(node);
+                            chapterNode.radius += .15f * (1 + node.radius);
+                        }
+       
+
+                    }
+                    foreach (var nodeId in chapter.chapters)
+                    {
+                        var node = Graph.nodes.Find(n => n.id == nodeId);
+                        if (node != null)
+                        {
+                            collectedNodes.Add(node);
+                            chapterNode.radius += .15f * (1 + node.radius);
+                        }
+
+
+                    }
+
+                    if (collectedNodes.Count > 0)
+                    {
+                        Graph.nodes.Add(chapterNode);
+                        chapterNodes.Add(new KeyValuePair<MyNode, List<MyNode>>(chapterNode, collectedNodes));
+                    }
+
+                }
+            }
+
+
+    
+
+            for (int i = 0; i < Graph.edges.Count; i++)
+            {
+                foreach (var chapterNode in chapterNodes)
+                {
+                    foreach (var collectedNode in chapterNode.Value)
+                    {
+                        var edge = Graph.edges[i];
+                        /*  if(edge.from == collectedNode.id)
+                          {
+                              Graph.edges.Add(new MyEdge
+                              {
+                                  style = "chapter",
+                                  from = chapterNode.Key.id,
+                                  to = edge.to,
+                                  id = edge.id,
+                              });
+                          }*/
+                        if (edge.from == collectedNode.id)
+                        {
+                            edge.from = chapterNode.Key.id;
+                           // edge.style = "tmp";
+                            // Graph.edges.Remove(edge);
+                            // i--;
+                        }
+                        if (edge.to == collectedNode.id)
+                        {
+                            edge.to = chapterNode.Key.id;
+                         //   edge.style = "tmp";
+                            // Graph.edges.Remove(edge);
+                            // i--;
+                        }
+
+                    }
+                }
+            }
+
+            foreach (var chapterNode in chapterNodes)
+            {
+                foreach (var collectedNode in chapterNode.Value)
+                {
+                    Graph.nodes.Remove(collectedNode);
+                }
+            }
+
+
+
+        }
+
+        void KillEdges()
+        {
+            for (int i = 0; i < Graph.edges.Count; i++)
+            {
+                var edge = Graph.edges[i];
+                if (edge.style != "chapter")
+                {
+                    Graph.edges.Remove(edge);
+                    i--;
+                }
+            }
+        }
+        void KillNodes()
+        {
+
+            for (int i = 0; i < Graph.nodes.Count; i++)
+            {
+                var node = Graph.nodes[i];
+                if (!ChapterDict.ContainsKey(node.id))
+                {
+                    Graph.nodes.Remove(node);
+                    i--;
+                }
+            }
+        }
 
         private void InitGraph(bool keepLayout = false)
         {
-            graph = GlobalVariables.Graph;
+            Graph = GlobalVariables.Graph;
 
-            /*  graph.nodes = graph.nodes
+
+            // KillEdges();
+            // KillNodes();
+            Debug.Log(Graph.nodes.Count);
+            for(int i = 0; i < 2; i++)
+            {
+                ClusterChapters();
+                Debug.Log(Graph.nodes.Count);
+
+            }
+
+
+            for (int i = 0; i < Graph.edges.Count; i++)
+            {
+                var edge = Graph.edges[i];
+                if(edge.from == edge.to)
+                {
+                    Graph.edges.Remove(edge);
+                    i--;
+                }
+            }
+
+             ProcessChapters();
+            GlobalVariables.Graph = Graph;
+       
+
+            /*  Graph.nodes = Graph.nodes
               .GroupBy(customer => customer.id)
               .Select(group => group.First()).ToList();*/
             GlobalVariables.Vol = vol;
 
-            Debug.Log("Init Graph, nodes edges " + graph.nodes.Count + " " + graph.edges.Count +" SwapRoots "+SwapRoots);
+            Debug.Log("Init Graph, nodes edges " + Graph.nodes.Count + " " + Graph.edges.Count +" SwapRoots "+SwapRoots);
 
             if (SwapRoots)
             {
-                foreach (var edge in graph.edges)
+                foreach (var edge in Graph.edges)
                 {
                    // Debug.Log(edge.from + " to " + edge.to);
                     var tmp = edge.from;
@@ -791,19 +1056,43 @@ namespace TGraph
 
             }
 
-
-
-            graph.movingNodes = new List<int>();
-            graph.selectedNodes = new List<int>();
-            //     graph.selectedNodes.Add(-1);
-            //     graph.selectedNodes.Add(-1);
+            Graph.movingNodes = new List<int>();
+            Graph.selectedNodes = new List<int>();
+            //     Graph.selectedNodes.Add(-1);
+            //     Graph.selectedNodes.Add(-1);
 
 
             EdgeTypes.Clear();
             EdgeTypes.Add("include", new EdgeType("hierarchic"));
+            EdgeTypes.Add("chapter", new EdgeType("hierarchic"));
+            EdgeTypes.Add("nondir", new EdgeType(""));
             //   EdgeTypes.Add("dontselect", new EdgeType(""));
 
-            foreach (var edge in graph.edges)
+
+            if (!ColorDict.ContainsKey("chapter"))
+            {
+
+                var col = Color.blue;
+                col.a = 0;
+
+
+                ColorDict.Add("nondir", col * 255);
+            }
+
+
+            if (!ColorDict.ContainsKey("chapter"))
+            {
+
+                var col = Color.red;
+                col.a = 0;
+
+
+                ColorDict.Add("chapter", col*255);
+            }
+
+
+            //analyze edge types
+            foreach (var edge in Graph.edges)
             {
                 if (!EdgeTypes.ContainsKey(edge.style))
                 {
@@ -846,17 +1135,19 @@ namespace TGraph
             }
 
             EdgeAttributeSelector.AddOptions((typeStrings.Distinct<string>().ToList()));
-
-
-            graph.nodeDict = new Dictionary<string, int>();
-
-
-
+            Graph.nodeDict = new Dictionary<string, int>();
             GlobalVariables.GraphManager.Graph = GlobalVariables.Graph;
+
+
+
+
+
+
+
             Debug.Log("init time " + (Time.realtimeSinceStartup - time));
             time = Time.realtimeSinceStartup;
             GlobalVariables.GraphManager.ProcessGraph();
-
+            Debug.Log("process time " + (Time.realtimeSinceStartup - time));
 
             Material mat1 = new Material(mat);
             mat1.color = Color.red;
@@ -867,7 +1158,9 @@ namespace TGraph
 
             Dictionary<string, Material> materialDict = new Dictionary<string, Material>();
              
-            foreach (var node in graph.nodes)
+
+            //set node materials
+            foreach (var node in Graph.nodes)
             {
                 //Debug.Log(node.id+" "+node.color + " " + node.style);
                 if (node.style == "skeptically_accepted" || node.style == "sceptically_accepted")
@@ -905,13 +1198,12 @@ namespace TGraph
             }
             /*
          int ec = 0;
-         foreach (var edge in graph.edges)
+         foreach (var edge in Graph.edges)
          {
              if (edge.active) ec++;
          }*/
 
-            Debug.Log("prep time " + (Time.realtimeSinceStartup - time));
-            //  Debug.Log(graph.nodes.Count + " " + ec + "-----------------------------------------------------");
+            //  Debug.Log(Graph.nodes.Count + " " + ec + "-----------------------------------------------------");
             //    GraphManager.Init();
 
 

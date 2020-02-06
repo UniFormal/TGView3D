@@ -22,6 +22,8 @@ namespace TGraph
 
 
         public  ReadJSON.MyGraph Graph;
+
+
         public GameObject Percent;
         public Material mat;
         public Material lineMat;
@@ -568,7 +570,7 @@ namespace TGraph
         {
             GameObject text = (GameObject)Instantiate(NodeText);
 
-            text.transform.parent = parent;
+            text.transform.SetParent(parent);
             text.GetComponent<TextMeshPro>().text = label;
             if (type == "o") text.GetComponent<TextMeshPro>().color = Color.gray;
             text.transform.localPosition = Vector3.zero + new Vector3(0, 0, 1f);
@@ -624,12 +626,12 @@ namespace TGraph
             var node = Graph.nodes[Graph.nodeDict[name]];
             // Debug.Log(node.label+" "+name);
             GameObject nodeObject;
-            if (node.style == "model")
+           /* if (node.style == "model")
             {
                 nodeObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 nodeObject.transform.localScale *= 0.1f;// 0.070f;
             }
-            else nodeObject = Instantiate(grabbable);
+            else*/ nodeObject = Instantiate(grabbable);
         
 
             Vector3 pos = Random.insideUnitSphere * vol;
@@ -644,9 +646,9 @@ namespace TGraph
             Graph.nodes[Graph.nodeDict[name]].pos = pos;
             Graph.nodes[Graph.nodeDict[name]].nodeObject = nodeObject;
             nodeObject.transform.parent = transform.GetChild(0).GetChild(0);
-      
-            //node.transform.localScale = new Vector3(20, 20, 20);
 
+            //node.transform.localScale = new Vector3(20, 20, 20);
+            node.nodeObject.transform.localScale *= (1 + node.radius);
 
         }
 
@@ -660,21 +662,19 @@ namespace TGraph
             //dictionary for converting name to true id
             Graph.nodeDict.Add(name, id);
 
-
-
             if (edge != null)
             {
                 //Add Nodes that are not already present in orginal data
                 //TODO: use label of id
                 MyNode tmp = new MyNode();
                 tmp.id = name;
-                tmp.label = name;
+                tmp.label = name+"(generated)";
                 tmp.nr = Graph.nodes.Count;
                 tmp.generated = true;
                 tmp.radius = edge.targetCount * 10;
                 //      Debug.Log(tmp.radius);
                 Graph.nodes.Add(tmp);
-
+                Debug.Log("from edge " + edge.id);
 
                 // Debug.Log(name + "  " + tmp.nr);
             }
@@ -685,6 +685,10 @@ namespace TGraph
 
         }
 
+       
+
+
+
         void ProcessNodes()
         {
 
@@ -692,7 +696,10 @@ namespace TGraph
             {
                 //check not required
 
-                if (ProcessNode(Graph.nodes[i].id, Graph.nodeDict.Count, null))
+                //    if (
+                ProcessNode(Graph.nodes[i].id, Graph.nodeDict.Count, null);
+                   
+              //     )
                 {
                     Graph.nodes[i].nr = i;
                     // Debug.Log(Graph.nodes[i].label + " " + i);
@@ -851,7 +858,7 @@ namespace TGraph
                        // Debug.LogWarning(k / dnum + "----" + node.id + " " + duplicateGroup.Count() + " " + duplicate.Index + " " + node.edgeIndicesIn.Count);
 
 
-                        Debug.Log(Graph.edges[edgeIndices[duplicate.Index]].localIdx);
+                 //       Debug.Log(Graph.edges[edgeIndices[duplicate.Index]].localIdx);
 
                     }
                     // Debug.Log(node.label +" "+Graph.nodes[duplicate.Nid].label + " " + duplicate.Index + " " + Graph.edges[edgeIndices[duplicate.Index]].localIdx + " " + Graph.edges[edgeIndices[duplicate.Index]].from + " " + Graph.edges[edgeIndices[duplicate.Index]].to);
@@ -1045,7 +1052,7 @@ namespace TGraph
             Energies.Dispose();
 
             UpdateAllEdges();
-            Debug.Log(Time.realtimeSinceStartup - stime);
+           // Debug.Log(Time.realtimeSinceStartup - stime);
            
             
             
@@ -1121,17 +1128,19 @@ namespace TGraph
  
         }
 
-
+        //the main graph creation function
         public void ProcessGraph()
         {
+            float time = Time.realtimeSinceStartup;
             ProcessNodes();
+            Debug.Log(Graph.nodes.Count +" nodes, time: " + (Time.realtimeSinceStartup - time));
+            time = Time.realtimeSinceStartup;
             ProcessEdges();
-
-            /*
-         
-            */
+            Debug.Log(Graph.edges.Count + "edges, time: " + (Time.realtimeSinceStartup - time));
+            time = Time.realtimeSinceStartup;
             identifySubGraphs();
-        
+
+
         }
 
         public void AddNode(string uri)
