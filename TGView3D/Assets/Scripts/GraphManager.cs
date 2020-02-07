@@ -674,7 +674,7 @@ namespace TGraph
                 tmp.radius = edge.targetCount * 10;
                 //      Debug.Log(tmp.radius);
                 Graph.nodes.Add(tmp);
-                Debug.Log("from edge " + edge.id);
+           //     Debug.Log("from edge " + edge.id);
 
                 // Debug.Log(name + "  " + tmp.nr);
             }
