@@ -1058,7 +1058,7 @@ namespace TGraph
                     {
                         Layouts.Normalize(spaceScale, true);
                         //Debug.Log((Time.realtimeSinceStartup-time));
-                        UpdateAllEdges();
+                      //  UpdateAllEdges();
                     }
 
 
