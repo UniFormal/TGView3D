@@ -34,7 +34,7 @@ public class Gestures : MonoBehaviour {
     float factor;
 
   
-    public void Init()
+    public void Init(float scale = 1f)
     {
         graph = TGraph.GlobalVariables.Graph;
         nodeCount = graph.nodes.Count;
@@ -42,6 +42,9 @@ public class Gestures : MonoBehaviour {
         vertexCount = mesh.vertexCount;
         vertices = mesh.vertices;
         vertexCopies = (Vector3[])vertices.Clone();
+
+        RescaleSlider(scale);
+
     }
 
 

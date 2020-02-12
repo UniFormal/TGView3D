@@ -112,12 +112,13 @@ namespace TGraph
         private GameObject Aura;
         public static Dictionary<string, EdgeType> EdgeTypes = new Dictionary<string, EdgeType>();
         public static Dictionary<string, Color> ColorDict;
-        public static Dictionary<string, MyChapter> ChapterDict = new Dictionary<string, MyChapter>();
+        public static Dictionary<string, int> ChapterDict = new Dictionary<string, int>();
 
         List<int> countNodesInGraph = new List<int>();
         public Dropdown EdgeTypeSelector;
         public Dropdown EdgeAttributeSelector;
-        public static List<string> RootList = new List<string>();
+        public static List<string> OpenList = new List<string>();
+        public static string Root;
 
         //TODO: throw out ugly indexing!!!!! + cleanup class variables
         [System.Serializable]
@@ -165,7 +166,7 @@ namespace TGraph
             [NonSerialized]
             public GameObject subObject;
             [NonSerialized]
-            public float lineWidth = 0.0075f;
+            public float lineWidth = 0.005f;
             [NonSerialized]
             public bool UseForces = true;
             [NonSerialized]
@@ -259,6 +260,11 @@ namespace TGraph
             public bool selected = false;
             [NonSerialized]
             public int nr;
+            [NonSerialized]
+            public bool active = true;
+            [NonSerialized]
+            public string parentId;
+
 
             public GameObject GetObject()
             {
@@ -268,6 +274,9 @@ namespace TGraph
 
 
         }
+
+  
+
         [System.Serializable]
         public class MyEdge
         {
@@ -309,8 +318,14 @@ namespace TGraph
             public string id;
             public List<string> chapters;
             public List<string> nodes;
+            public List<string> ogNodes;
             public string label;
             public bool highlevel;
+            [NonSerialized]
+            public string parentId;
+            internal bool isLeaf=false;
+            // [NonSerialized]
+            // public bool isRoot = false;
         }
 
             void Start()
@@ -450,13 +465,14 @@ namespace TGraph
 
 
                 }
-                else
+                else //if (GlobalVariables.JSON != CurrentJSON)
                 {
                     Debug.Log(CurrentJSON);
                     GlobalVariables.JSON = CurrentJSON;
                     CleanupScene();
                     LoadGraph(true);
                 }
+             
 
 
 
@@ -472,7 +488,7 @@ namespace TGraph
             GlobalVariables.JSON = CurrentJSON;
             CleanupScene();
             LoadGraph();
-            GameObject.Find("Slider").GetComponent<Slider>().value = GameObject.Find("Slider").GetComponent<Slider>().maxValue * .5f;
+            GameObject.Find("Slider").GetComponent<Slider>().value = 1;// GameObject.Find("Slider").GetComponent<Slider>().maxValue * .5f;
         }
 
 
@@ -486,7 +502,7 @@ namespace TGraph
 
             if (CurrentJSON != null)
             {
-                transform.eulerAngles = GlobalVariables.Rotation = Vector3.zero;
+               
                 if (!GlobalVariables.Init)
                 {
                     Debug.Log("first load");
@@ -502,7 +518,7 @@ namespace TGraph
 
                 else if (GlobalVariables.JSON != CurrentJSON)
                 {
-
+                    transform.eulerAngles = GlobalVariables.Rotation = Vector3.zero;
                     ResetLayout();
                     Camera.main.transform.parent.localPosition = new Vector3(0, 0, -20);
 
@@ -526,10 +542,15 @@ namespace TGraph
 
         public IEnumerator AfterSmallUpdate()
         {
-            yield return StartCoroutine(GlobalVariables.GraphManager.SmallUpdate());
-            GlobalVariables.Gestures.Init();
-            GameObject.Find("Slider").GetComponent<Slider>().value = GameObject.Find("Slider").GetComponent<Slider>().maxValue * .5f;
-            transform.GetChild(0).eulerAngles = Vector3.zero;
+        
+            yield return StartCoroutine(GlobalVariables.GraphManager.SmallUpdate(50));
+            var scale = GameObject.Find("Slider").GetComponent<Slider>().value;
+            GlobalVariables.Gestures.Init(scale);
+            Debug.Log(scale);
+
+            
+          //  GameObject.Find("Slider").GetComponent<Slider>().value = GameObject.Find("Slider").GetComponent<Slider>().maxValue * .5f;
+          //   transform.GetChild(0).eulerAngles = Vector3.zero;
         }
 
 
@@ -778,83 +799,190 @@ namespace TGraph
 
         }
 
+        public string LastOpened;
+        public bool OpenChapter(string id)
+        {
+            LastOpened = id;
+            if (!ChapterDict.ContainsKey(id)) return false;
+
+            int remaining = 0;
+
+            foreach (var cid in Graph.chapters[ChapterDict[id]].chapters)
+            {
+                Debug.Log(cid + " "+Graph.chapters[ChapterDict[cid]].highlevel);
+                if (Graph.chapters[ChapterDict[cid]].highlevel)
+                {
+                    remaining++;
+                    break;
+                }
+            }
+
+            if (remaining == 0) return false;
+
+                foreach (var cid in Graph.chapters[ChapterDict[id]].chapters)
+            {
+                if (!OpenList.Contains(cid) && Graph.chapters[ChapterDict[cid]].highlevel)
+                {
+                
+                    OpenList.Add(cid);
+                }
+                else if(OpenList.Contains(cid))
+                {
+                    return false;
+                }
+
+      
+            }
+                UpdateLayout();
+            
+                Debug.Log("update layout");
+                StartCoroutine(AfterSmallUpdate());
+            return true;
+        }
+
+
+        internal static void CloseChapter(string id)
+        {
+            foreach (var cid in Graph.chapters[ChapterDict[id]].chapters)
+            {
+                if (OpenList.Contains(cid))
+                {
+                    OpenList.Remove(cid);
+                }
+
+            }
+        }
 
 
         void FindRootChapters()
         {
 
-            if (ChapterDict.Count == 0)
+      
             {
+        
+               
+
+                List<string> RootList = new List<string>();
                 foreach (var chapter in Graph.chapters)
                 {
                     RootList.Add(chapter.id);
+                  
+
                 }
-                Debug.Log("rootchapters");
-                foreach (var chapter in Graph.chapters)
-                {
-                    ChapterDict.Add(chapter.id, chapter);
-                }
-                
                 foreach (var chapter in Graph.chapters)
                 {
                     foreach (var toChapter in chapter.chapters)
                     {
+                        //remove only if present
                         if (RootList.Contains(toChapter))
                             RootList.Remove(toChapter);
+
+
+                        
                     }
                 }
-
+                if(RootList.Count>0)
+                Root = RootList[0];  
             }
+            
 
         }
+  
 
-        public static void PruneLowLevel()
+        public static void CrawlChaptersRec()
         {
-            foreach (var chapter in Graph.chapters)
-            {
-                // if (!chapter.highlevel) continue;
-                for (int i = 0; i < chapter.chapters.Count; i++)
-                {
 
-                    string subChapterId = chapter.chapters[i];
-                    var subChapter = ChapterDict[subChapterId];
-                    if (!subChapter.highlevel)
+            CrawlChapter(Root);
+            
+        }
+
+        public static void CrawlChapter(string chapterId)
+        {
+            var chapter = ChapterDict[chapterId];
+            int startChapterCount = Graph.chapters[chapter].chapters.Count;
+            for(int i = 0; i< startChapterCount;i++)
+            {
+                var cid = Graph.chapters[chapter].chapters[i];
+                CrawlChapter(cid);
+                Graph.chapters[ChapterDict[cid]].parentId = chapterId;
+                /*
+                foreach (var subNid in Graph.chapters[ChapterDict[cid]].nodes)
+                {
+                    
+                }*/
+                Graph.chapters[chapter].isLeaf = false;
+                if (!OpenList.Contains(cid))
+                {
+                    //add nodes of child chapters cid to chapter chapter, only if child chapters cid are hidden ( = not in openlist) => only to leaves
+                    Graph.chapters[chapter].nodes.AddRange(Graph.chapters[ChapterDict[cid]].nodes);
+                    Graph.chapters[chapter].isLeaf = true;
+                    if (!Graph.chapters[ChapterDict[cid]].highlevel)
+                        Graph.chapters[chapter].ogNodes.AddRange(Graph.chapters[ChapterDict[cid]].nodes);
+                    /*
+                    foreach (var subNid in Graph.chapters[ChapterDict[cid]].nodes)
                     {
-                        foreach (var subSubChapter in subChapter.chapters)
-                        {
-                            chapter.chapters.Add(subSubChapter);
-                        }
-                        foreach (var subChapterNode in subChapter.nodes)
-                        {
-                            chapter.nodes.Add(subChapterNode);
-                        }
-                    }
-                    if (chapter.highlevel) Debug.Log(chapter.id + " " + i + " /" + chapter.chapters.Count + " nodes in chapter: " + chapter.nodes.Count);
+
+                            Graph.chapters[chapter].nodes.Add(subNid);
+                    }*/
                 }
             }
         }
+
+
+
+
+       
 
         public static void ChaptersToNodes(bool keepNodeEdges)
         {
-            Debug.Log("chapter conversion");
+            Debug.Log("chapter conversion, total chapters: " +Graph.chapters.Count);
          //   Graph.edges.Clear();
          //   Graph.nodes.Clear();
             //add nodes
-            foreach (var chapter in Graph.chapters)
+      
+            foreach (var cid in OpenList)
             {
-                if (Graph.nodes.FindIndex( node => node.id == chapter.id) <0)
+                var chapter = Graph.chapters[ChapterDict[cid]];
+                //not yet converted => not needed graph is rebuilt
+               // if (Graph.nodes.FindIndex( node => node.id == chapter.id) <0)
                 {
-                    string col;
-                    if (chapter.highlevel) col = "#800080";
-                    else continue;// col = "#E9DA89";
+                    string col = "#e6ae25";
 
-                    Debug.Log(col);
+         /*
+                    if (chapter.highlevel)// && chapter.isRoot)
+                    {
+                        col = "#800080";
+                    }
+                  //  else if (chapter.highlevel) col = "#000000";//#E9DA89";
+                    else col = "505000";
+                    //continue;// 
+                    */
+
+                    foreach (var child in chapter.chapters)
+                    {
+                  
+                        if (Graph.chapters[ChapterDict[child]].highlevel)
+                        {
+                            col = "#800080";
+                            continue;
+                        }
+                        else
+                        {
+                            col = "c54245";
+                        }
+                     
+                    }
+
+               
 
                     Graph.nodes.Add(new MyNode
                     {
                         color = col,
                         label = chapter.label,
-                        id = chapter.id
+                        id = chapter.id,
+                        radius = Mathf.Sqrt(chapter.nodes.Count) * 0.05f,
+                        parentId = chapter.parentId,
+                        active = true
                     });
                 }
            
@@ -871,46 +999,89 @@ namespace TGraph
                 }*/
             }
             //add edges
-            Debug.Log("rootcount "+ RootList.Count);
 
 
 
-
-
-            foreach (var chapter in Graph.chapters)
+            foreach (var cid in OpenList)
             {
-                if (!RootList.Contains(chapter.id)||!chapter.highlevel) continue;
+                var chapter = Graph.chapters[ChapterDict[cid]];
+
+                //  if (!chapter.highlevel) continue;
                 foreach (var toChapter in chapter.chapters)
                 {
-                    
-                    if (ChapterDict[toChapter].highlevel && Graph.edges.FindIndex(edge => edge.id == chapter.id + toChapter) < 0)
+                    if (OpenList.Contains(toChapter))
                     {
-                 //       Debug.Log("add edge to "+toChapter);
-                        Graph.edges.Add(new MyEdge
+                        //if (!Graph.chapters[ChapterDict[toChapter]].highlevel) continue;
                         {
-                            style = "chapter",
-                            from = chapter.id,
-                            to = toChapter,
-                            id = chapter.id + toChapter,
-                        });
+                            //       Debug.Log("add edge to "+toChapter);
+
+                            //    if (chapter.isRoot&&ChapterDict[toChapter].isRoot)
+                            {
+                                Graph.edges.Add(new MyEdge
+                                {
+                                    style = "chapter",
+                                    from = chapter.id,
+                                    to = toChapter,
+                                    id = chapter.id + toChapter,
+                                    // active = RootList.Contains(chapter.id)
+                                });
+                            }
+                            /*
+                            else
+                            {
+                                Graph.edges.Add(new MyEdge
+                                {
+                                    style = "dark",
+                                    from = chapter.id,
+                                    to = toChapter,
+                                    id = chapter.id + toChapter,
+                                    // active = RootList.Contains(chapter.id)
+                                });
+                            }*/
+
+
+                        }
+
                     }
                 }
-                //edges between chapter and node
-                if (keepNodeEdges)
+
+
+                keepNodeEdges = !true;
+
+                    //edges between chapter and node
+                    if (keepNodeEdges)
                 {
                     foreach (var toChapter in chapter.nodes)
                     {
-                        if (Graph.edges.FindIndex(edge => edge.id == chapter.id + toChapter) < 0)
+                        //graph is  rebuilt anyway
+                       // if (Graph.edges.FindIndex(edge => edge.id == chapter.id + toChapter) < 0)
                         {
                             //       Debug.Log("add edge to "+toChapter);
                             Graph.edges.Add(new MyEdge
                             {
-                                style = "chapter",
+                                style = "dark",
                                 from = chapter.id,
                                 to = toChapter,
                                 id = chapter.id + toChapter,
                             });
                         }
+                    }
+                }
+                else
+                {
+                    Debug.Log(chapter.id + " " + chapter.ogNodes.Count);
+                    if(!chapter.isLeaf)
+                    foreach (var toChapter in chapter.ogNodes)
+                    {
+
+                        Graph.edges.Add(new MyEdge
+                        {
+                            style = "dark",
+                            from = chapter.id,
+                            to = toChapter,
+                            id = chapter.id + toChapter,
+                        });
+
                     }
                 }
           
@@ -919,115 +1090,6 @@ namespace TGraph
             }
         }
 
-        void ProcessChapters(bool keepNodeEdges)
-        {
-
-        
-            ChaptersToNodes(keepNodeEdges);
-        }
-
-
-        public void ClusterChapters()
-        {
-            List<KeyValuePair<MyNode, List<MyNode>>> chapterNodes = new List<KeyValuePair<MyNode, List<MyNode>>>();
-
-            foreach (var chapter in Graph.chapters)
-            {
-                
-                //if(chapter.chapters.Count == 0)
-                {
-
-                    var chapterNode = new MyNode
-                    {
-                        color = "#800080",
-                        label = chapter.label,
-                        id = chapter.id
-                    };
-
-                    List<MyNode> collectedNodes = new List<MyNode>();
-                    foreach (var nodeId in chapter.nodes)
-                    {
-                        var node = Graph.nodes.Find(n => n.id == nodeId);
-                        if (node != null)
-                        {
-                            collectedNodes.Add(node);
-                            chapterNode.radius += .15f * (1 + node.radius);
-                        }
-       
-
-                    }
-                    foreach (var nodeId in chapter.chapters)
-                    {
-                        var node = Graph.nodes.Find(n => n.id == nodeId);
-                        if (node != null)
-                        {
-                            collectedNodes.Add(node);
-                            chapterNode.radius += .15f * (1 + node.radius);
-                        }
-
-
-                    }
-
-                    if (collectedNodes.Count > 0)
-                    {
-                        Graph.nodes.Add(chapterNode);
-                        chapterNodes.Add(new KeyValuePair<MyNode, List<MyNode>>(chapterNode, collectedNodes));
-                    }
-
-                }
-            }
-
-
-    
-
-            for (int i = 0; i < Graph.edges.Count; i++)
-            {
-                
-                foreach (var chapterNode in chapterNodes)
-                {
-                    foreach (var collectedNode in chapterNode.Value)
-                    {
-                        var edge = Graph.edges[i];
-                        /*  if(edge.from == collectedNode.id)
-                          {
-                              Graph.edges.Add(new MyEdge
-                              {
-                                  style = "chapter",
-                                  from = chapterNode.Key.id,
-                                  to = edge.to,
-                                  id = edge.id,
-                              });
-                          }*/
-                        if (edge.from == collectedNode.id)
-                        {
-                            edge.from = chapterNode.Key.id;
-                           // edge.style = "tmp";
-                            // Graph.edges.Remove(edge);
-                            // i--;
-                        }
-                        if (edge.to == collectedNode.id)
-                        {
-                            edge.to = chapterNode.Key.id;
-                         //   edge.style = "tmp";
-                            // Graph.edges.Remove(edge);
-                            // i--;
-                        }
-
-                    }
-                }
-            }
-
-            foreach (var chapterNode in chapterNodes)
-            {
-                foreach (var collectedNode in chapterNode.Value)
-                {
-                    Graph.nodes.Remove(collectedNode);
-                }
-            }
-
-
-
-        }
 
         void KillEdges()
         {
@@ -1059,21 +1121,124 @@ namespace TGraph
         {
             Graph = GlobalVariables.Graph;
 
-
-            // KillEdges();
-            // KillNodes();
-            FindRootChapters();
-            PruneLowLevel();
-            Debug.Log(Graph.nodes.Count);
-            for(int i = 0; i < 1; i++)
+   
+            foreach(var chapter in Graph.chapters)
             {
-                //collects nodes into chapters
-                ClusterChapters();
-                Debug.Log(Graph.nodes.Count);
+                chapter.ogNodes = new List<string>(chapter.nodes);
+            }
+   
+                        
+            /*
+
+            int num = Graph.chapters.Count;
+            for (int i = 0; i < num; i++)
+            {
+                var chapter = Graph.chapters[i];
+                foreach(var node in chapter.nodes)
+                {
+                    chapter.chapters.Add(node);
+                    Graph.chapters.Add(new MyChapter
+                    {
+                        id = node,
+                        label = node,
+                        highlevel = false,
+                        nodes = new List<string>(),
+                        chapters = new List<string>()
+                    });
+              
+                }
+
+            }*/
+
+            if (ChapterDict.Count == 0)
+            {
+                Debug.Log("only initial load");
+                int k = 0;
+                foreach (var chapter in Graph.chapters)
+                {
+                    ChapterDict.Add(chapter.id, k++);
+                }
+
+                FindRootChapters();
+                if (Root != null)
+                {
+                    OpenList.Add(Root);
+                    foreach(var chapter in Graph.chapters)
+                    {
+                       // if(chapter.highlevel)    OpenList.Add(chapter.id);
+                    }
+
+
+                    foreach (var chapter in Graph.chapters[ChapterDict[Root]].chapters)
+                    {
+                        OpenList.Add(chapter);
+                      /*  foreach (var subChapter in Graph.chapters[ChapterDict[chapter]].chapters)
+                        {
+                            OpenList.Add(subChapter);
+                        }*/
+                    }
+                }
+        
 
             }
 
 
+            //rework graph.chapters
+       
+
+            if (Root!=null)   CrawlChaptersRec();
+
+            /*
+            for (int i = 0; i < Graph.chapters.Count; i++)
+            {
+                var chapter = Graph.chapters[i];
+                if (!OpenList.Contains(chapter.id))
+                {
+                    Graph.chapters.Remove(chapter);
+                    i--;
+                }
+            }*/
+
+     
+
+
+            KillEdges();
+          //  KillNodes();
+
+            //bend edges
+            
+            for (int i = 0; i < Graph.edges.Count; i++)
+            {
+                var edge = Graph.edges[i];
+                foreach (var chapter in Graph.chapters)
+                {
+                    
+                    foreach(var node in chapter.nodes)
+                    {
+                        if (chapter.ogNodes.Contains(node)) continue;
+
+                        if (edge.from == node)// && !chapter.nodes.Contains(edge.to))
+                        {
+                            edge.from = chapter.id;
+                            // edge.style = "tmp";
+                            // Graph.edges.Remove(edge);
+                            // i--;
+                        }
+                        if (edge.to == node)// && !chapter.nodes.Contains(edge.from))
+                        {
+                            edge.to = chapter.id;
+                            //   edge.style = "tmp";
+                            // Graph.edges.Remove(edge);
+                            // i--;
+                        }
+                    }
+            
+
+                    
+                }
+            }
+
+            //remove self edges
             for (int i = 0; i < Graph.edges.Count; i++)
             {
                 var edge = Graph.edges[i];
@@ -1083,8 +1248,13 @@ namespace TGraph
                     i--;
                 }
             }
-            //transforms chapters to nodes
-             ProcessChapters(false);
+            //transforms chapters to nodes and optionally include edges to nodes
+            ChaptersToNodes(false);
+
+
+         
+
+
             GlobalVariables.Graph = Graph;
        
 
@@ -1117,6 +1287,7 @@ namespace TGraph
             EdgeTypes.Add("include", new EdgeType("hierarchic"));
             EdgeTypes.Add("chapter", new EdgeType("hierarchic"));
             EdgeTypes.Add("nondir", new EdgeType(""));
+            EdgeTypes.Add("dark", new EdgeType("hierarchic"));
             //   EdgeTypes.Add("dontselect", new EdgeType(""));
 
 
@@ -1140,6 +1311,17 @@ namespace TGraph
 
                 ColorDict.Add("chapter", col*255);
             }
+
+            if (!ColorDict.ContainsKey("dark"))
+            {
+
+                var col = Color.black;
+                col.a = 0;
+
+
+                ColorDict.Add("dark", col * 255);
+            }
+
 
 
             //analyze edge types
@@ -1213,6 +1395,7 @@ namespace TGraph
             //set node materials
             foreach (var node in Graph.nodes)
             {
+               
                 //Debug.Log(node.id+" "+node.color + " " + node.style);
                 if (node.style == "skeptically_accepted" || node.style == "sceptically_accepted")
                     node.nodeObject.GetComponent<Renderer>().material = mat3;
@@ -1258,13 +1441,20 @@ namespace TGraph
             //    GraphManager.Init();
 
 
-            StartCoroutine(GlobalVariables.GraphManager.FinishInit(keepLayout));
 
+            StartCoroutine(StartGraphManager(keepLayout));
 
 
         }
 
+        public IEnumerator StartGraphManager(bool keepLayout)
+        {
+            yield return StartCoroutine(GlobalVariables.GraphManager.FinishInit(keepLayout));
 
+            if (LastOpened != null && Graph.nodeDict.ContainsKey(LastOpened)) 
+            GlobalVariables.MouseManager.SelectNode(Graph.nodeDict[LastOpened]);
+
+        }
 
 
 

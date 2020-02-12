@@ -37,7 +37,9 @@ namespace TGraph
             if (GlobalVariables.Graph != null)
             {
                 graph = GlobalVariables.Graph;
-                VolumeWidth = diameter * 2 * Scaler * Mathf.Sqrt(graph.nodes.Count) / 20;
+
+
+                VolumeWidth = (diameter) * 2 * Scaler * Mathf.Sqrt(graph.nodes.Count) / 20;
             }
 
             
@@ -252,16 +254,26 @@ namespace TGraph
 
                 //if (!temp) node.pos = node.nodeObject.transform.localPosition;
             }
-
+            
             Vector3 avgPos = Vector3.zero;
+            Vector3 desiredgPos = Vector3.zero;
+            int rn = 0;
             foreach (ReadJSON.MyNode node in graph.nodes)
             {
-                avgPos += node.nodeObject.transform.localPosition;
+                if (node.active)
+                {
+                    desiredgPos += node.nodeObject.transform.localPosition;
+                    rn++;
+                }
+
+                avgPos +=   node.nodeObject.transform.localPosition;
             }
             avgPos /= graph.nodes.Count;
+
+            desiredgPos /= rn;
             foreach (ReadJSON.MyNode node in graph.nodes)
             {
-                node.nodeObject.transform.localPosition -= avgPos;
+                node.nodeObject.transform.localPosition -= avgPos-desiredgPos;
             }
 
 
@@ -618,7 +630,8 @@ namespace TGraph
                         var neo = ApplyConstraints(n, disp.y);
                         disp.y = neo;
                     }
-                    n.pos += disp;
+                    //if(n.active)
+                        n.pos += disp;
                     Energies[j] = dispLength * dispLength;
                     /*  if (n.weight == -1 || n.height == -1||graph.UseForces)
    {
@@ -749,7 +762,7 @@ namespace TGraph
                     {
                         var differenceNodesY = u.pos.y - n.pos.y;
                         //s
-                        upDist += kSquared/ Mathf.Max(epsilon, differenceNodesY - diameter);
+                        upDist += kSquared/ Mathf.Max(epsilon, differenceNodesY - (diameter+u.radius+n.radius));
                         //      if (epsilon>=differenceNodesY) if (n.id.Contains("_dec") || n.id.Contains("_nat")) Debug.Log(n.id + " " + u.id + " " );
 
                     }
@@ -769,7 +782,7 @@ namespace TGraph
                     var u = graph.nodes[n.connectedNodes[k]];
                     {
                         var differenceNodesY = u.pos.y - n.pos.y;
-                        downDist += kSquared/Mathf.Min(-epsilon, differenceNodesY + diameter);
+                        downDist += kSquared/Mathf.Min(-epsilon, differenceNodesY + (diameter+u.radius+n.radius));
                         //  if (-epsilon<=differenceNodesY) if (n.id.Contains("_dec") || n.id.Contains("_nat")) Debug.Log(n.id + " " + u.id+" ");
                     }
 
@@ -1041,7 +1054,7 @@ namespace TGraph
                                     continue;
                                 var differenceNodes = u.pos - n.pos; ;
 
-                                var lengthDiff = Mathf.Max(0, differenceNodes.magnitude - diameter) + epsilon;
+                                var lengthDiff = Mathf.Max(0, differenceNodes.magnitude - (diameter+n.radius+u.radius)) + epsilon;
                                 maxDist = Mathf.Max(maxDist, lengthDiff);
 
                                 var attractiveForce = (lengthDiff * lengthDiff / kVal);
@@ -1091,7 +1104,7 @@ namespace TGraph
                                 if (u.GraphNumber == n.GraphNumber && n != u && (u.edgeIndicesIn != null || u.edgeIndicesOut != null))
                                 {
                                     var differenceNodes = u.pos - n.pos;
-                                    var lengthDiff = Mathf.Max(0, differenceNodes.magnitude - diameter) + epsilon;
+                                    var lengthDiff = Mathf.Max(0, differenceNodes.magnitude - (diameter+n.radius+u.radius)) + epsilon;
 
                                     var repulsiveForce = -(kSquared / lengthDiff);
                                     if (graph.PushLimit > 0.01f)

@@ -27,6 +27,7 @@ namespace TGraph
         public static Dictionary<string, Vector3> IdToPosition = new Dictionary<string, Vector3>();
         public static Gestures Gestures;
         public static Vector3 Rotation;
+        public static FlyCamera MouseManager;
         /*
 public static string Url = "";
 

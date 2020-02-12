@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -181,7 +182,7 @@ namespace TGraph
                     }
                     GraphNumber++;
                     curMaterial = new Material(curMaterial);
-                    randColor = Random.ColorHSV();
+                    randColor = UnityEngine.Random.ColorHSV();
 
                 }
             }
@@ -369,7 +370,7 @@ namespace TGraph
                     Aura = Instantiate(Resources.Load("Aura")) as GameObject;
                     Debug.Log(Aura);
                     Aura.transform.parent = node.nodeObject.transform;
-                    Aura.transform.position = node.pos;
+                    Aura.transform.position = node.nodeObject.transform.position;
 
                     //if (GameObject.Find("VR") == null)
                     //    Camera.main.transform.LookAt(node.pos);
@@ -426,14 +427,29 @@ namespace TGraph
             vertices[6 + i * 8] = sourcePos - offset + offsetOrtho;
             vertices[7 + i * 8] = targetPos - offset + offsetOrtho;
         }
-
+        
         public static void createEdge(List<ReadJSON.MyEdge> edges, int i, Vector3[] vertices, Vector3 sourcePos, Vector3 targetPos, Vector3 offset, Vector3 offsetOrtho)
         {
 
-            Vector3 next = 2 * (Quaternion.AngleAxis((360 * edges[i].localIdx), targetPos - sourcePos) * offset);
+            Vector3 next = 2*  (Quaternion.AngleAxis((360 * edges[i].localIdx), targetPos - sourcePos) * offset);
             if (edges[i].localIdx <= 0) next *= 0;
             createStraightEdge(i, vertices, sourcePos + next, targetPos + next, offset, offsetOrtho);
 
+        }
+
+        public static void createEdge(List<ReadJSON.MyEdge> edges, int i, Vector3[] vertices, Vector3 sourcePos, Vector3 targetPos, Vector3 offset, Vector3 offsetOrtho, MyNode source, MyNode target)
+        {
+
+            Vector3 from = (1+source.radius)* 2 * (Quaternion.AngleAxis((360 * edges[i].localIdx), target.pos - source.pos) * offset);
+            Vector3 to= (1+source.radius)* 2 * (Quaternion.AngleAxis((360 * edges[i].localIdx), target.pos - source.pos) * offset);
+
+            if (edges[i].localIdx <= 0)
+            {
+                from *= 0;
+                to *= 0;
+            }
+
+            createStraightEdge(i, vertices, source.pos + from, target.pos + to, offset, offsetOrtho);
         }
 
 
@@ -525,7 +541,8 @@ namespace TGraph
                     if (edges[i].localIdx > 0)
                         createEdge(Graph.edges,i, vertices, source.pos+next, target.pos+next, offset, offsetOrtho);
                     else*/
-                    createEdge(Graph.edges, i, vertices, source.pos, target.pos, offset, offsetOrtho);
+                    // createEdge(Graph.edges, i, vertices, source.pos, target.pos, offset, offsetOrtho);
+                    createEdge(Graph.edges, i, vertices, source.pos, target.pos, offset, offsetOrtho,source,target);
                     SetTriangles(i, triangles);
 
 
@@ -563,8 +580,7 @@ namespace TGraph
 
         }
 
-
-
+  
 
         public GameObject GenLabel(Transform parent, string label, string type)
         {
@@ -634,9 +650,22 @@ namespace TGraph
             else*/ nodeObject = Instantiate(grabbable);
         
 
-            Vector3 pos = Random.insideUnitSphere * vol;
+            Vector3 pos = UnityEngine.Random.insideUnitSphere * vol;
 
-            if (GlobalVariables.IdToPosition.ContainsKey(name) && GlobalVariables.IdToPosition[name] != null) pos = GlobalVariables.IdToPosition[name];
+           // if (!GlobalVariables.IdToPosition.ContainsKey(name)) Debug.Log(node.label +" "+node.parentId);
+
+            if (GlobalVariables.IdToPosition.ContainsKey(name) && GlobalVariables.IdToPosition[name] != null)
+                pos = GlobalVariables.IdToPosition[name];
+            else if(node.parentId!=null&& GlobalVariables.IdToPosition.ContainsKey(node.parentId))
+            {
+                Debug.Log(node.id+" "+node.parentId);
+                pos = GlobalVariables.IdToPosition[node.parentId] + UnityEngine.Random.insideUnitSphere*.1f;
+            }
+            else if(GlobalVariables.IdToPosition.Count>1)
+            {
+                Debug.LogError(node.id+ node.parentId);
+            }
+
             node.labelObject = GenLabel(nodeObject.transform, node.label, node.style);
             nodeObject.name = node.label;
 
@@ -648,7 +677,7 @@ namespace TGraph
             nodeObject.transform.parent = transform.GetChild(0).GetChild(0);
 
             //node.transform.localScale = new Vector3(20, 20, 20);
-            node.nodeObject.transform.localScale *= (1 + node.radius);
+            node.nodeObject.transform.localScale *= (1 + node.radius*2);
 
         }
 
@@ -1079,17 +1108,25 @@ namespace TGraph
 
 
 
-        public IEnumerator SmallUpdate()
+        public IEnumerator SmallUpdate(int iterations=4)
         {
-            Layouts.VolumeWidth /= Layouts.Scaler;
-            Layouts.ToTwoD(GlobalVariables.TwoD);
-            Layouts.Scaler = 1;
-            Layouts.step = .1f; Mathf.Max(Layouts.step,(.5f+Layouts.step/2));
-            NativeArray<float> Energies = new NativeArray<float>(Graph.nodes.Count, Allocator.Persistent);
-            Layouts.InitEnergies(Energies);
+            
+            for(int i = 0; i < iterations; i++)
+            {
+                Layouts.VolumeWidth /= Layouts.Scaler;
+                Debug.LogWarning(Layouts.VolumeWidth);
+                Layouts.ToTwoD(GlobalVariables.TwoD);
+                Layouts.Scaler = 1;
+               // Layouts.Init();
+                Layouts.step = .05f;// Mathf.Max(Layouts.step, (.5f + Layouts.step / 2));
+
+                NativeArray<float> Energies = new NativeArray<float>(Graph.nodes.Count, Allocator.Persistent);
+                Layouts.InitEnergies(Energies);
 
 
-            yield return StartCoroutine(UpdateLoop(4,Energies));
+                yield return StartCoroutine(UpdateLoop(2, Energies));
+            }
+          
 
 
         }
@@ -1114,8 +1151,9 @@ namespace TGraph
             Graph.edgeObject.transform.parent = transform.GetChild(0);
             Graph.edgeObject.name = "EdgeMesh";
             UIInteracton.SEnableEdgeType("meta");
-       
-            if(!keepLayout) yield return FinishUpdate();
+
+
+            if (!keepLayout) yield return FinishUpdate();
 
 
             GlobalVariables.Solved = true;
@@ -1124,6 +1162,7 @@ namespace TGraph
             GlobalVariables.NodeCount = this.transform.childCount;
             if (!XRSettings.enabled) GameObject.Find("CameraMain").GetComponent<Gestures>().Init();
 
+          //  UIInteracton.SEnableEdgeType("dark");
             Debug.Log("Finished init " + ((Time.realtimeSinceStartup - time)));
  
         }
@@ -1211,12 +1250,15 @@ namespace TGraph
             Vector3[] bigVertices = bigMesh.vertices;
             for (int i = 0; i < Graph.edges.Count; i++)
             {
-                var sourcePos = Graph.nodes[Graph.nodeDict[Graph.edges[i].from]].nodeObject.transform.localPosition;
-                var targetPos = Graph.nodes[Graph.nodeDict[Graph.edges[i].to]].nodeObject.transform.localPosition;
+                var source = Graph.nodes[Graph.nodeDict[Graph.edges[i].from]];
+                var target= Graph.nodes[Graph.nodeDict[Graph.edges[i].to]];
+
+                var sourcePos = source.nodeObject.transform.localPosition;
+                var targetPos = target.nodeObject.transform.localPosition;
                 Vector3 dir = targetPos - sourcePos;
                 Vector3 offset = Vector3.Cross(dir, Vector3.up).normalized * Graph.lineWidth;
                 Vector3 offsetOrtho = Vector3.Cross(dir, offset).normalized * Graph.lineWidth;
-                GraphManager.createEdge(Graph.edges, i, bigVertices, sourcePos, targetPos, offset, offsetOrtho);
+                GraphManager.createEdge(Graph.edges, i, bigVertices, source.pos, target.pos, offset, offsetOrtho,source,target);
             }
             bigMesh.vertices = bigVertices;
             bigMesh.RecalculateBounds();
@@ -1226,7 +1268,7 @@ namespace TGraph
         }
 
 
-
+        
         public static void UpdateEdgesLite(MyNode node, ReadJSON.MyGraph Graph)
         {
 
@@ -1284,7 +1326,7 @@ namespace TGraph
 
         }
 
-
+            
         private void UpdateEdgesFull(MyNode node)
         {
 

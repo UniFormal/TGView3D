@@ -55,6 +55,7 @@ public class FlyCamera : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity) && hit.transform.tag == "Node")
             {
+                if (GlobalVariables.JsonManager.OpenChapter(GlobalVariables.Graph.nodes[hit.transform.GetSiblingIndex()].id)) return;
 
 #if UNITY_WEBGL && !UNITY_EDITOR
                      
@@ -223,13 +224,9 @@ public class FlyCamera : MonoBehaviour
 
             //Activate hidden chapters
 
-            if (ReadJSON.ChapterDict.ContainsKey(graph.nodes[nodeId].id))
-            {
-                var chapter = ReadJSON.ChapterDict[graph.nodes[nodeId].id];
+         
 
-                ReadJSON.RootList.Add(chapter.id);
-            }
-    
+
   
 
 
@@ -436,7 +433,7 @@ public class FlyCamera : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
-                Debug.Log("Did Hit" + hit.transform.gameObject);
+                Debug.Log("Did Hit " + hit.transform.gameObject+ " id: "+ TGraph.GlobalVariables.Graph.nodes[hit.transform.GetSiblingIndex()].id+" parent: "+ TGraph.GlobalVariables.Graph.nodes[hit.transform.GetSiblingIndex()].parentId);
                 // Debug.Log(ray.origin + " " + hit.point + " " + (ray.origin + ray.direction.normalized * hit.distance)+" " + Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,Input.mousePosition.y,Camera.main.nearClipPlane)));
 
                 //  Debug.Log(Startid);
@@ -735,6 +732,7 @@ if (m_Plane.Raycast(ray, out enter))
 
     private void Start()
     {
+        GlobalVariables.MouseManager = this;
         if(TGraph.GlobalVariables.GraphManager!=null)
         TGraph.GlobalVariables.GraphManager.NodeText.GetComponent<TextMeshPro>().color = nodeText.GetComponent<TextMesh>().color;
         if (VR.activeSelf)

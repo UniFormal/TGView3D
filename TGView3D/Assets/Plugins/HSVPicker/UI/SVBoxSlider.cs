@@ -55,7 +55,7 @@ public class SVBoxSlider : MonoBehaviour
     {
         if ( renderTexture == null )
         {
-            renderTexture = new RenderTexture (textureWidth, textureHeight, 0, RenderTextureFormat.RGB111110Float);
+            renderTexture = new RenderTexture(textureWidth, textureHeight,16,RenderTextureFormat.DefaultHDR);//, RenderTextureFormat.RGB111110Float);
             renderTexture.enableRandomWrite = true;
             renderTexture.Create ();
         }
