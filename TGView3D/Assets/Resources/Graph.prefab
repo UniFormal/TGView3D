@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childCount: 0
+  CamTransform: {fileID: 0}
 --- !u!1 &8009289940398372967
 GameObject:
   m_ObjectHideFlags: 0

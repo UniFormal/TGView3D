@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.Collections;
 using Unity.Jobs;
@@ -58,7 +59,7 @@ namespace TGraph
         public static List<MyNode> FoundNodes;
         public bool Gen = false;
         private GameObject Aura;
-        public float[] GlobalEnergies;
+       // public float[] GlobalEnergies;
         List<int> countNodesInGraph = new List<int>();
         public GameObject NodeText;
 
@@ -585,12 +586,7 @@ namespace TGraph
         public GameObject GenLabel(Transform parent, string label, string type)
         {
             GameObject text = (GameObject)Instantiate(NodeText);
-
-            text.transform.SetParent(parent);
-            text.GetComponent<TextMeshPro>().text = label;
-            if (type == "o") text.GetComponent<TextMeshPro>().color = Color.gray;
-            text.transform.localPosition = Vector3.zero + new Vector3(0, 0, 1f);
-            text.name = label;
+            StartCoroutine(SetText(text, parent, label, type));
 
             return text;
 
@@ -631,58 +627,26 @@ namespace TGraph
 
         }
 
-
-        void RandomSphere(string name)
+        IEnumerator SetText(GameObject text, Transform parent, string label, string type)
         {
-            //  GameObject node = GameObject.CreatePrimitive(PrimitiveType.Quad);
-            //  node.transform.localScale = new Vector3(4, 1, 1);
-            // GameObject node = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 
-
-            var node = Graph.nodes[Graph.nodeDict[name]];
-            // Debug.Log(node.label+" "+name);
-            GameObject nodeObject;
-           /* if (node.style == "model")
-            {
-                nodeObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                nodeObject.transform.localScale *= 0.1f;// 0.070f;
-            }
-            else*/ nodeObject = Instantiate(grabbable);
-        
-
-            Vector3 pos = UnityEngine.Random.insideUnitSphere * vol;
-
-           // if (!GlobalVariables.IdToPosition.ContainsKey(name)) Debug.Log(node.label +" "+node.parentId);
-
-            if (GlobalVariables.IdToPosition.ContainsKey(name) && GlobalVariables.IdToPosition[name] != null)
-                pos = GlobalVariables.IdToPosition[name];
-            else if(node.parentId!=null&& GlobalVariables.IdToPosition.ContainsKey(node.parentId))
-            {
-                Debug.Log(node.id+" "+node.parentId);
-                pos = GlobalVariables.IdToPosition[node.parentId] + UnityEngine.Random.insideUnitSphere*.1f;
-            }
-            else if(GlobalVariables.IdToPosition.Count>1)
-            {
-                Debug.LogError(node.id+ node.parentId);
-            }
-
-            node.labelObject = GenLabel(nodeObject.transform, node.label, node.style);
-            nodeObject.name = node.label;
-
-
-            nodeObject.transform.localPosition = pos;
-            //node.transform.GetComponent<Renderer>().sharedMaterial = mat;
-            Graph.nodes[Graph.nodeDict[name]].pos = pos;
-            Graph.nodes[Graph.nodeDict[name]].nodeObject = nodeObject;
-            nodeObject.transform.parent = transform.GetChild(0).GetChild(0);
-
-            //node.transform.localScale = new Vector3(20, 20, 20);
-            node.nodeObject.transform.localScale *= (1 + node.radius*2);
-
+            yield return null;
+            text.transform.SetParent(parent);
+            yield return null;
+            text.GetComponent<TextMeshPro>().text = label;
+            // if (type == "o") text.GetComponent<TextMeshPro>().color = Color.gray;
+            yield return null;
+            text.transform.localPosition = Vector3.zero + new Vector3(0, 0, 1f);
+            text.name = label;
+            yield return null;
         }
 
 
-        bool ProcessNode(string name, int id, MyEdge edge)
+
+
+
+
+        bool  ProcessNode(string name, int id, MyEdge edge)
         {
 
             if (Graph.nodeDict.ContainsKey(name)) return false;
@@ -709,12 +673,105 @@ namespace TGraph
             }
             // Graph.nodes[id].edgeIndicesIn = new List<int>();
 
-            RandomSphere(name);
+            //  GameObject node = GameObject.CreatePrimitive(PrimitiveType.Quad);
+            //  node.transform.localScale = new Vector3(4, 1, 1);
+            // GameObject node = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+
+
+            var node = Graph.nodes[id];
+            // Debug.Log(node.label+" "+name);
+            GameObject nodeObject;
+            /* if (node.style == "model")
+             {
+                 nodeObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                 nodeObject.transform.localScale *= 0.1f;// 0.070f;
+             }
+             else*/
+            nodeObject = Instantiate(grabbable);
+
+
+            Vector3 pos = UnityEngine.Random.insideUnitSphere * vol;
+
+            // if (!GlobalVariables.IdToPosition.ContainsKey(name)) Debug.Log(node.label +" "+node.parentId);
+
+            if (GlobalVariables.IdToPosition.ContainsKey(name) && GlobalVariables.IdToPosition[name] != null)
+                pos = GlobalVariables.IdToPosition[name];
+            else if (node.parentId != null && GlobalVariables.IdToPosition.ContainsKey(node.parentId))
+            {
+                //   Debug.Log(node.id+" "+node.parentId);
+                pos = GlobalVariables.IdToPosition[node.parentId] + UnityEngine.Random.insideUnitSphere * .1f + Vector3.up;
+            }
+            else if (GlobalVariables.IdToPosition.Count > 1)
+            {
+                Debug.LogError(node.id + node.parentId);
+            }
+
+            node.labelObject = GenLabel(nodeObject.transform, node.label, node.style);
+            nodeObject.name = node.label;
+
+
+            nodeObject.transform.localPosition = pos;
+            //node.transform.GetComponent<Renderer>().sharedMaterial = mat;
+            Graph.nodes[Graph.nodeDict[name]].pos = pos;
+            Graph.nodes[Graph.nodeDict[name]].nodeObject = nodeObject;
+            nodeObject.transform.parent = transform.GetChild(0).GetChild(0);
+
+            //node.transform.localScale = new Vector3(20, 20, 20);
+            node.nodeObject.transform.localScale *= (1 + node.radius * 2);
+
             return true;
 
         }
 
-       
+        IEnumerator SpawnNodeRoutine(MyNode node)
+        {
+
+
+    
+            GameObject nodeObject = Instantiate(grabbable);
+            node.nodeObject = nodeObject;
+            nodeObject.transform.parent = transform.GetChild(0).GetChild(0);
+            node.labelObject = GenLabel(nodeObject.transform, node.label, node.style);
+
+            Vector3 pos = UnityEngine.Random.insideUnitSphere * vol;
+            // if (!GlobalVariables.IdToPosition.ContainsKey(name)) Debug.Log(node.label +" "+node.parentId);
+
+            if (GlobalVariables.IdToPosition.ContainsKey(name) && GlobalVariables.IdToPosition[name] != null)
+                pos = GlobalVariables.IdToPosition[name];
+            else if (node.parentId != null && GlobalVariables.IdToPosition.ContainsKey(node.parentId))
+            {
+                //   Debug.Log(node.id+" "+node.parentId);
+                pos = GlobalVariables.IdToPosition[node.parentId] + UnityEngine.Random.insideUnitSphere * .1f + Vector3.up;
+            }
+            /*
+            else if (GlobalVariables.IdToPosition.Count > 1)
+            {
+                Debug.LogError(node.id + node.parentId);
+            }*/
+
+
+
+            nodeObject.transform.localPosition = pos;
+
+
+            nodeObject.name = node.label;
+
+
+
+
+
+
+
+            //node.transform.GetComponent<Renderer>().sharedMaterial = mat;
+            node.pos = pos;
+
+
+            //node.transform.localScale = new Vector3(20, 20, 20);
+            node.nodeObject.transform.localScale *= (1 + node.radius * 2);
+
+            yield return null; 
+
+        }
 
 
 
@@ -726,16 +783,76 @@ namespace TGraph
                 //check not required
 
                 //    if (
-                ProcessNode(Graph.nodes[i].id, Graph.nodeDict.Count, null);
-                   
-              //     )
+
+                var node = Graph.nodes[i];
+                string name =node.id;
+                int id = i;
+
+
+                //dictionary for converting name to true id
+                Graph.nodeDict.Add(name, id);
+
+           
+                // Debug.Log(node.label+" "+name);
+  
+
+                node.nr = i;
+
+
+                    GameObject nodeObject = Instantiate(grabbable);
+            node.nodeObject = nodeObject;
+            nodeObject.transform.parent = transform.GetChild(0).GetChild(0);
+            node.labelObject = GenLabel(nodeObject.transform, node.label, node.style);
+
+            Vector3 pos = UnityEngine.Random.insideUnitSphere * vol;
+            // if (!GlobalVariables.IdToPosition.ContainsKey(name)) Debug.Log(node.label +" "+node.parentId);
+
+            if (GlobalVariables.IdToPosition.ContainsKey(name) && GlobalVariables.IdToPosition[name] != null)
+                pos = GlobalVariables.IdToPosition[name];
+            else if (node.parentId != null && GlobalVariables.IdToPosition.ContainsKey(node.parentId))
+            {
+                //   Debug.Log(node.id+" "+node.parentId);
+                pos = GlobalVariables.IdToPosition[node.parentId] + UnityEngine.Random.insideUnitSphere * .1f + Vector3.up;
+            }
+            /*
+            else if (GlobalVariables.IdToPosition.Count > 1)
+            {
+                Debug.LogError(node.id + node.parentId);
+            }*/
+
+
+
+            nodeObject.transform.localPosition = pos;
+
+
+            nodeObject.name = node.label;
+
+
+
+
+
+
+
+            //node.transform.GetComponent<Renderer>().sharedMaterial = mat;
+            node.pos = pos;
+
+
+            //node.transform.localScale = new Vector3(20, 20, 20);
+            node.nodeObject.transform.localScale *= (1 + node.radius * 2);
+
+
+
+
+
+                //     )
                 {
-                    Graph.nodes[i].nr = i;
+                  
                     // Debug.Log(Graph.nodes[i].label + " " + i);
                 }
 
 
             }
+
 
             /*
             string json = SVGFile.text;//;
@@ -1028,12 +1145,12 @@ namespace TGraph
         public IEnumerator UpdateLoop(int iterations, NativeArray<float> Energies)
         {
             var stime = Time.realtimeSinceStartup;
-            int k = iterations;
-
+            int k =  iterations;
             JobHandle handle = new JobHandle();
 
 #if UNITY_WEBGL && !UNITY_EDITOR
-                k = iterations;
+               // k = iterations;
+            k=1;
                 
 #endif
             for (int p = 0; p < iterations; p += k)
@@ -1047,6 +1164,7 @@ namespace TGraph
                 //   while (!handle.IsCompleted)
 
                 GlobalVariables.Percent.text = Graph.fin.ToString();
+                Layouts.Normalize(spaceScale, true);
 #if !UNITY_WEBGL || UNITY_EDITOR
 
                 do
@@ -1076,9 +1194,11 @@ namespace TGraph
             handle.Complete();
             Layouts.Normalize(spaceScale);
 
-            GlobalEnergies = new float[Energies.Length];
-            Energies.CopyTo(GlobalEnergies);
+           // GlobalEnergies = new float[Energies.Length];
+           // Energies.CopyTo(GlobalEnergies);
             Energies.Dispose();
+
+
 
             UpdateAllEdges();
            // Debug.Log(Time.realtimeSinceStartup - stime);
@@ -1110,21 +1230,21 @@ namespace TGraph
 
         public IEnumerator SmallUpdate(int iterations=4)
         {
-            
+            iterations = 2;
             for(int i = 0; i < iterations; i++)
             {
-                Layouts.VolumeWidth /= Layouts.Scaler;
-                Debug.LogWarning(Layouts.VolumeWidth);
+               // Layouts.VolumeWidth /= Layouts.Scaler;
+             //   Debug.LogWarning(Layouts.VolumeWidth);
                 Layouts.ToTwoD(GlobalVariables.TwoD);
-                Layouts.Scaler = 1;
+               // Layouts.Scaler = 1;
                // Layouts.Init();
-                Layouts.step = .05f;// Mathf.Max(Layouts.step, (.5f + Layouts.step / 2));
+                Layouts.step =.1f;// Mathf.Max(Layouts.step, (.5f + Layouts.step / 2));
 
                 NativeArray<float> Energies = new NativeArray<float>(Graph.nodes.Count, Allocator.Persistent);
                 Layouts.InitEnergies(Energies);
 
 
-                yield return StartCoroutine(UpdateLoop(2, Energies));
+                yield return StartCoroutine(UpdateLoop(5, Energies));
             }
           
 
@@ -1142,18 +1262,58 @@ namespace TGraph
                 Layouts.Spiral();
               
             }
-          
 
-            Graph.edgeObject = BuildEdges(Graph.edges, ref Graph, lineMat);
-            Graph.edgeObject.tag = "Edge";
-           
-            
-            Graph.edgeObject.transform.parent = transform.GetChild(0);
-            Graph.edgeObject.name = "EdgeMesh";
-            UIInteracton.SEnableEdgeType("meta");
+
+
+            //UIInteracton.SEnableEdgeType("meta");
+            string type = "meta";
+            if (ReadJSON.EdgeTypes.ContainsKey(type))
+                ReadJSON.EdgeTypes[type].active = !ReadJSON.EdgeTypes[type].active;
+            Debug.Log(type);
+            var graph = GlobalVariables.Graph;
+            var edges = graph.edges;
+
+            for (int i = 0; i < edges.Count; i++)
+            {
+
+                if (edges[i].style == type)
+                {
+                     edges[i].active = false;
+                }
+
+            }
 
 
             if (!keepLayout) yield return FinishUpdate();
+
+
+            Graph.edgeObject = BuildEdges(Graph.edges, ref Graph, lineMat);
+            Graph.edgeObject.tag = "Edge";
+
+
+            Graph.edgeObject.transform.parent = transform.GetChild(0);
+            Graph.edgeObject.name = "EdgeMesh";
+
+            var mesh = graph.edgeObject.GetComponent<MeshFilter>().mesh;
+            Color[] vertexColors = mesh.colors;
+
+
+            for (int i = 0; i < edges.Count; i++)
+            {
+
+                if (edges[i].style == type)
+                {
+
+                        vertexColors[0 + i * 8] = vertexColors[2 + i * 8] = vertexColors[4 + i * 8] = vertexColors[6 + i * 8] =
+                        vertexColors[1 + i * 8] = vertexColors[3 + i * 8] = vertexColors[5 + i * 8] = vertexColors[7 + i * 8] = new Color(0, 0, 0, 0);
+                    
+            
+                }
+
+            }
+
+
+            mesh.colors = vertexColors;
 
 
             GlobalVariables.Solved = true;
@@ -1246,6 +1406,7 @@ namespace TGraph
         //efficient
         private void UpdateAllEdges()
         {
+            if (Graph.edgeObject == null) return;
             Mesh bigMesh = Graph.edgeObject.GetComponent<MeshFilter>().sharedMesh;
             Vector3[] bigVertices = bigMesh.vertices;
             for (int i = 0; i < Graph.edges.Count; i++)

@@ -24,7 +24,7 @@ namespace TGraph
         //   static float minHeight = 10;
 
         //this does not really do much, we cancle it out later
-        public static float Scaler = 100f;
+        public static float Scaler = 1;//00f;
 
         static float epsilon = 0.00001f;
         static float diameter = 1*0.05f;//2.5f;
@@ -191,10 +191,10 @@ namespace TGraph
 
         public static JobHandle BaseLayout(int iterations, float globalWeight, float spaceScale, NativeArray<float> energies)
         {
-            currTemperature = 0.97f;
+            currTemperature = 0.95f;
             energyBefore = 0;
             energy = 1000000f;
-            step = 2.5f;// initialStep;
+            step = .3f;// initialStep;
             success = 0;
             Init();
             Spiral();
@@ -260,9 +260,10 @@ namespace TGraph
             int rn = 0;
             foreach (ReadJSON.MyNode node in graph.nodes)
             {
+
                 if (node.active)
                 {
-                    desiredgPos += node.nodeObject.transform.localPosition;
+                   // desiredgPos += node.nodeObject.transform.localPosition;
                     rn++;
                 }
 
@@ -270,7 +271,7 @@ namespace TGraph
             }
             avgPos /= graph.nodes.Count;
 
-            desiredgPos /= rn;
+     
             foreach (ReadJSON.MyNode node in graph.nodes)
             {
                 node.nodeObject.transform.localPosition -= avgPos-desiredgPos;
@@ -755,9 +756,10 @@ namespace TGraph
             var hierarchyDisp = 0f;
             for (var k = 0; k < n.edgeIndicesIn.Count; k++)
             {
+              //  Debug.Log(TGraph.ReadJSON.EdgeTypes[graph.edges[edgeIndices[k]].style].type + " " + graph.edges[edgeIndices[k]].style);
                 if (TGraph.ReadJSON.EdgeTypes[graph.edges[edgeIndices[k]].style].type == "hierarchic")
                 {
-
+                    
                     var u = graph.nodes[n.connectedNodes[k]];
                     {
                         var differenceNodesY = u.pos.y - n.pos.y;
@@ -776,6 +778,8 @@ namespace TGraph
             for (var m = 0; m < n.edgeIndicesOut.Count; m++)
             {
                 int k = m + n.edgeIndicesIn.Count;
+
+               // Debug.Log(TGraph.ReadJSON.EdgeTypes[graph.edges[edgeIndices[k]].style].type + " " + graph.edges[edgeIndices[k]].style);
                 if (TGraph.ReadJSON.EdgeTypes[graph.edges[edgeIndices[k]].style].type == "hierarchic")
                 {
 
@@ -790,6 +794,7 @@ namespace TGraph
                 }
             }
             hierarchyDisp = (-downDist - upDist);
+
 
             if (Mathf.Sign(n.disp.y) == Mathf.Sign(hierarchyDisp))
             {

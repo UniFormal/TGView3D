@@ -55,7 +55,23 @@ public class FlyCamera : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity) && hit.transform.tag == "Node")
             {
-                if (GlobalVariables.JsonManager.OpenChapter(GlobalVariables.Graph.nodes[hit.transform.GetSiblingIndex()].id)) return;
+                GlobalVariables.JsonManager.Spin();
+                StartCoroutine(CheckDoubleClick(hit));
+
+            }
+        }
+    }
+
+
+    IEnumerator CheckDoubleClick(RaycastHit hit)
+    {
+
+        yield return new WaitForSeconds(.1f);
+                if (GlobalVariables.JsonManager.OpenChapter(GlobalVariables.Graph.nodes[hit.transform.GetSiblingIndex()].id))
+                {
+                    GlobalVariables.JsonManager.UnSpin();
+                    yield break;
+                }
 
 #if UNITY_WEBGL && !UNITY_EDITOR
                      
@@ -64,10 +80,15 @@ public class FlyCamera : MonoBehaviour
                 Application.OpenURL("https://mmt.mathhub.info" + TGraph.GlobalVariables.Graph.nodes[hit.transform.GetSiblingIndex()].url);
 #endif
 
-            }
-        }
+                GlobalVariables.JsonManager.UnSpin();
+            
+        
 
+
+
+        yield return null;
     }
+
 
     public virtual void OnPointerClick(PointerEventData eventData)
     {
@@ -635,17 +656,19 @@ if (m_Plane.Raycast(ray, out enter))
 
     public IEnumerator ZoomIn()
     {
-        for (int i = 0; i < 40; i++)
+        GlobalVariables.JsonManager.Spin();
+        for (int i = 0; i < 60; i++)
         {
-            transform.parent.position += transform.forward * 0.5f;
+           
+            transform.parent.position += transform.forward*.5f ;
             yield return new WaitForEndOfFrame();
         }
-        for (int i = 0; i < 30; i++)
+        for (int i = 0; i < 60; i++)
         {
-            transform.parent.position -= transform.forward * 0.5f;
+            transform.parent.position -= transform.forward*.5f ;
             yield return new WaitForEndOfFrame();
         }
-
+        GlobalVariables.JsonManager.UnSpin();
     }
 
 

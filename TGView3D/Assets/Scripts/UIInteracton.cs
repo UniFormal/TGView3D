@@ -222,8 +222,16 @@ public class UIInteracton : MonoBehaviour {
             targetUI.GetComponent<Canvas>().enabled = true;
     }
 
+    public void EnableUIScale(GameObject targetUI)
+    {
+        if (targetUI == null) targetUI = UIOverlay;
+        if (targetUI.GetComponent<RectTransform>().localScale.x == 1)
+            targetUI.GetComponent<RectTransform>().localScale = Vector3.zero;
+        else
+            targetUI.GetComponent<RectTransform>().localScale = Vector3.one;
+    }
 
-    public void EnableBeam()
+        public void EnableBeam()
     {
         var grabbers = transform.parent.GetComponentsInChildren<DistanceGrabber>();
         //TODO: better solution
@@ -328,6 +336,9 @@ public class UIInteracton : MonoBehaviour {
     
        if(ReadJSON.EdgeTypes.ContainsKey(type))
             ReadJSON.EdgeTypes[type].active = !ReadJSON.EdgeTypes[type].active;
+
+
+
         Debug.Log(type);
         var graph = GlobalVariables.Graph;
         var edges = graph.edges;
