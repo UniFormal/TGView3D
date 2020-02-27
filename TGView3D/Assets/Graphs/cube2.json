@@ -1,0 +1,4005 @@
+{
+  "@context": {
+    "dcterms": "http://purl.org/dc/terms/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "ulo": "https://mathhub.info/ulo",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LPomega.intro|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "LPomega.intro",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#3109.131.0:3114.131.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LPomega|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LPomega_def|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionI|thm"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega2_def|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "Lomega2_def",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#3023.123.0:3028.123.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunction|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?prop"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega2|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Abs_Prod_Trueprop_MT_context_Context_star_box_app_Has_type|specification",
+      "https://mathhub.info/uloname": "Cube.Abs_Prod_Trueprop_MT_context_Context_star_box_app_Has_type",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#267.18.0:280.18.13"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LPomega|const",
+      "https://mathhub.info/uloname": "LPomega",
+      "https://mathhub.info/ulopredicate": "",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#3116.131.7:3122.131.13"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": {
+        "@id": "http://cds.omdoc.org/urtheories?Isabelle?prop"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.CC_def|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "CC_def",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#3195.139.0:3200.139.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?prop"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunction|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.CC|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP.intro|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "LP.intro",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2727.104.0:2732.104.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Abs|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.box|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionI|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP_def|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.star|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Prod|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.all|const"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.LP2|locale?axioms(2)",
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.LP2|locale"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.6|locale_dependency",
+      "https://mathhub.info/uloname": "6",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#3109.131.0:3114.131.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.LP2|locale?axioms(1)",
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.LP2|locale"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP2_def|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "LP2_def",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2945.115.0:2950.115.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP2|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?prop"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunction|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP|const"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.CC|locale?axioms(2)",
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.CC|locale"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP.lam_sb|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "LP.lam_sb",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2804.106.8:2809.106.13"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.all|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.box|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP_def|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Abs|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.star|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Prod|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD2|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.typing|type",
+      "https://mathhub.info/uloname": "typing",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#259.16.9:264.16.14"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulotype": "",
+      "https://mathhub.info/ulouses": {
+        "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.Lomega2|locale?axioms(1)",
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.Lomega2|locale"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega|const",
+      "https://mathhub.info/uloname": "Lomega",
+      "https://mathhub.info/ulopredicate": "",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2508.92.7:2513.92.12"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": {
+        "@id": "http://cds.omdoc.org/urtheories?Isabelle?prop"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega.pi_bb|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "Lomega.pi_bb",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2531.94.4:2535.94.8"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Prod|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.box|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega_def|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.all|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD1|thm"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LPomega_def|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "LPomega_def",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#3109.131.0:3114.131.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LPomega|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?prop"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunction|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP|const"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.3|locale_dependency",
+      "https://mathhub.info/uloname": "3",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#3023.123.0:3028.123.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.1|proof_text",
+      "https://mathhub.info/ulojustifies": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.imp_elim|thm"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2.lam_bs|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "L2.lam_bs",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2360.83.8:2365.83.13"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.star|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Abs|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.box|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Prod|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD2|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.all|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2_def|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2_def|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "L2_def",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2283.81.0:2288.81.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.star|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.all|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Abs|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.box|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Prod|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunction|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?prop"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.8|locale_dependency",
+      "https://mathhub.info/uloname": "8",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#3195.139.0:3200.139.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega.intro|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "Lomega.intro",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2501.92.0:2506.92.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.all|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Abs|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.box|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Prod|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionI|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega_def|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega|const"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.4|locale_dependency",
+      "https://mathhub.info/uloname": "4",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#3023.123.0:3028.123.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.L2|locale",
+      "https://mathhub.info/ulospecifies": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.L2|locale?axioms(1)"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.L2|locale?axioms(2)"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.5|locale_dependency",
+      "https://mathhub.info/uloname": "5",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#3109.131.0:3114.131.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP|locale",
+      "https://mathhub.info/uloname": "LP",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2734.104.7:2735.104.8"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulotheory": ""
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.s_b_strip_s_strip_b_app_pi_ss_lam_ss_beta|specification",
+      "https://mathhub.info/uloname": "Cube.s_b_strip_s_strip_b_app_pi_ss_lam_ss_beta",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#1634.55.0:1647.55.13"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.CC|locale?axioms(1)",
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.CC|locale"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega2|const",
+      "https://mathhub.info/uloname": "Lomega2",
+      "https://mathhub.info/ulopredicate": "",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#3030.123.7:3036.123.13"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": {
+        "@id": "http://cds.omdoc.org/urtheories?Isabelle?prop"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2_def|axiom",
+      "https://mathhub.info/ulodefines": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2|const"
+      },
+      "https://mathhub.info/uloname": "L2_def",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2283.81.0:2288.81.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunction|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.box|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Abs|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?prop"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Prod|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.all|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.star|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.Lomega|locale?axioms(2)",
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.Lomega|locale"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.beta|thm",
+      "https://mathhub.info/uloname": "beta",
+      "https://mathhub.info/ulopara": "",
+      "https://mathhub.info/uloparatype": "axiomatization",
+      "https://mathhub.info/uloprimitive": "",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#1983.68.2:1986.68.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.app|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Abs|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.CC_def|axiom",
+      "https://mathhub.info/ulodefines": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.CC|const"
+      },
+      "https://mathhub.info/uloname": "CC_def",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#3195.139.0:3200.139.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?prop"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunction|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.CC|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.CC.axioms(2)|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "CC.axioms(2)",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#3195.139.0:3200.139.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD1|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.CC_def|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD2|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.CC|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.CC.intro|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "CC.intro",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#3195.139.0:3200.139.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionI|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.CC_def|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.CC|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega|const"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.app|thm",
+      "https://mathhub.info/uloname": "app",
+      "https://mathhub.info/ulopara": "",
+      "https://mathhub.info/uloparatype": "axiomatization",
+      "https://mathhub.info/uloprimitive": "",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#1782.61.2:1784.61.4"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.app|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Prod|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LPomega.axioms(1)|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "LPomega.axioms(1)",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#3109.131.0:3114.131.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LPomega_def|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LPomega|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD1|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LPomega|locale",
+      "https://mathhub.info/uloname": "LPomega",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#3116.131.7:3122.131.13"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulotheory": ""
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega_def|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "Lomega_def",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2501.92.0:2506.92.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Prod|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?prop"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Abs|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.box|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.all|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunction|const"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega|locale",
+      "https://mathhub.info/uloname": "Lomega",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2508.92.7:2513.92.12"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulotheory": ""
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.1|document_heading",
+      "https://mathhub.info/uloname": "Cube.1",
+      "https://mathhub.info/ulosection": "",
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.2|proof_text",
+      "https://mathhub.info/ulojustifies": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.pi_elim|thm"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.LPomega|locale?axioms(2)",
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.LPomega|locale"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.LP2|locale",
+      "https://mathhub.info/uloinstance-of": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.LP|locale"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.L2|locale"
+        }
+      ],
+      "https://mathhub.info/ulospecifies": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.LP2|locale?axioms(1)"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.LP2|locale?axioms(2)"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.Lomega|locale",
+      "https://mathhub.info/ulospecifies": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.Lomega|locale?axioms(2)"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.Lomega|locale?axioms(1)"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Context|const",
+      "https://mathhub.info/ulofunction": "",
+      "https://mathhub.info/uloname": "Context",
+      "https://mathhub.info/uloprimitive": "",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#444.23.2:450.23.8"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.context|type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.typing|type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.1|locale_dependency",
+      "https://mathhub.info/uloname": "1",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2945.115.0:2950.115.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP2|locale",
+      "https://mathhub.info/uloname": "LP2",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2952.115.7:2954.115.9"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulotheory": ""
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.LP|locale?axioms(1)",
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.LP|locale"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.Lomega2|locale",
+      "https://mathhub.info/uloinstance-of": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.Lomega|locale"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.L2|locale"
+        }
+      ],
+      "https://mathhub.info/ulospecifies": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.Lomega2|locale?axioms(1)"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.Lomega2|locale?axioms(2)"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.CC.axioms(1)|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "CC.axioms(1)",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#3195.139.0:3200.139.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.CC|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD1|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.CC_def|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.strip_s|thm",
+      "https://mathhub.info/uloname": "strip_s",
+      "https://mathhub.info/ulopara": "",
+      "https://mathhub.info/uloparatype": "axiomatization",
+      "https://mathhub.info/uloprimitive": "",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#1677.58.2:1683.58.8"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Context|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.context|type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.star|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP_def|axiom",
+      "https://mathhub.info/ulodefines": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP|const"
+      },
+      "https://mathhub.info/uloname": "LP_def",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2727.104.0:2732.104.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?prop"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.star|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.all|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Abs|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunction|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Prod|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.box|const"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega2_def|axiom",
+      "https://mathhub.info/ulodefines": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega2|const"
+      },
+      "https://mathhub.info/uloname": "Lomega2_def",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#3023.123.0:3028.123.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega2|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?prop"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunction|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2|const"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.beta|axiom",
+      "https://mathhub.info/uloname": "beta",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#1983.68.2:1986.68.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.all|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.app|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Abs|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube",
+      "dcterms:license": "BSD",
+      "https://mathhub.info/ulocheck-time": [
+        "60",
+        "1"
+      ],
+      "https://mathhub.info/uloexternal-size": "4650",
+      "https://mathhub.info/ulospecifies": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2|locale"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.6|locale_dependency"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.lam_ss|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega2.axioms(2)|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.CC.axioms(3)|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.app|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.typing|type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.imp_elim|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega2_def|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LPomega|locale"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Prod|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.CC.axioms(2)|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.lam_ss|axiom"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega2.axioms(1)|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.beta|axiom"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.7|locale_dependency"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega2|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega|locale"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP_def|axiom"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.app|axiom"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LPomega.axioms(2)|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega2_def|axiom"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.3|locale_dependency"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2.pi_bs|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.star|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.s_b|axiom"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega.intro|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LPomega_def|axiom"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.1|document_heading"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2.intro|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega_def|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.pi_ss|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega2.intro|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LPomega_def|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP|locale"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP2|locale"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.strip_s|axiom"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Abs_Prod_Trueprop_MT_context_Context_star_box_app_Has_type|specification"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.9|locale_dependency"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.CC|locale"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.s_b_strip_s_strip_b_app_pi_ss_lam_ss_beta|specification"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP.pi_sb|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.4|locale_dependency"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Context|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2_def|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.pi_elim|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.strip_s|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LPomega.axioms(1)|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2.lam_bs|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.CC.intro|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.pi_ss|axiom"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP2|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.s_b|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP2.axioms(1)|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Abs|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega_def|axiom"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.strip_b|axiom"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.box|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP2_def|axiom"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.5|locale_dependency"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LPomega.intro|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.CC|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.1|locale_dependency"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.context|type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP.lam_sb|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP2.axioms(2)|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.beta|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.app|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP2_def|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.CC_def|axiom"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.8|locale_dependency"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega.lam_bb|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.CC.axioms(1)|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.2|locale_dependency"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP_def|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.strip_b|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2_def|axiom"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.CC_def|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP2.intro|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP.intro|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega2|locale"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega.pi_bb|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LPomega|const"
+        }
+      ],
+      "https://mathhub.info/ulotheory": ""
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.imp_elim|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "imp_elim",
+      "https://mathhub.info/ulopara": "",
+      "https://mathhub.info/uloparatype": "lemma",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2072.72.6:2079.72.13"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.app|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Prod|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.app|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?prop"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP.pi_sb|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "LP.pi_sb",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2749.105.10:2753.105.14"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.box|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.star|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Prod|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.all|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD1|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP_def|thm"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.app|axiom",
+      "https://mathhub.info/uloname": "app",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#1782.61.2:1784.61.4"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.app|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.all|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Prod|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.2|locale_dependency",
+      "https://mathhub.info/uloname": "2",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2945.115.0:2950.115.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.CC|const",
+      "https://mathhub.info/uloname": "CC",
+      "https://mathhub.info/ulopredicate": "",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#3202.139.7:3203.139.8"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": {
+        "@id": "http://cds.omdoc.org/urtheories?Isabelle?prop"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.lam_ss|axiom",
+      "https://mathhub.info/uloname": "lam_ss",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#1883.65.2:1888.65.7"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.all|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.star|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Prod|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Abs|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.strip_b|axiom",
+      "https://mathhub.info/uloname": "strip_b",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#1729.59.2:1735.59.8"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.context|type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Context|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.box|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.all|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.L2|locale?axioms(2)",
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.L2|locale"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.star|const",
+      "https://mathhub.info/ulofunction": "",
+      "https://mathhub.info/uloname": "star",
+      "https://mathhub.info/uloprimitive": "",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#491.24.2:494.24.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2|const",
+      "https://mathhub.info/uloname": "L2",
+      "https://mathhub.info/ulopredicate": "",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2290.81.7:2291.81.8"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": {
+        "@id": "http://cds.omdoc.org/urtheories?Isabelle?prop"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const",
+      "https://mathhub.info/ulofunction": "",
+      "https://mathhub.info/uloname": "MT_context",
+      "https://mathhub.info/uloprimitive": "",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#414.22.2:423.22.11"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.context|type"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega2.axioms(1)|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "Lomega2.axioms(1)",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#3023.123.0:3028.123.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD1|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega2_def|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega2|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.strip_b|thm",
+      "https://mathhub.info/uloname": "strip_b",
+      "https://mathhub.info/ulopara": "",
+      "https://mathhub.info/uloparatype": "axiomatization",
+      "https://mathhub.info/uloprimitive": "",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#1729.59.2:1735.59.8"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.context|type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.box|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Context|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const",
+      "https://mathhub.info/ulofunction": "",
+      "https://mathhub.info/uloname": "Has_type",
+      "https://mathhub.info/uloprimitive": "",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#598.27.2:605.27.9"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.typing|type"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Prod|const",
+      "https://mathhub.info/ulofunction": "",
+      "https://mathhub.info/uloname": "Prod",
+      "https://mathhub.info/uloprimitive": "",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#326.20.2:329.20.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP_def|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "LP_def",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2727.104.0:2732.104.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.box|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?prop"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.star|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.all|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Abs|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunction|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Prod|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega_def|axiom",
+      "https://mathhub.info/ulodefines": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega|const"
+      },
+      "https://mathhub.info/uloname": "Lomega_def",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2501.92.0:2506.92.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunction|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?prop"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.box|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Prod|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Abs|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.all|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega|const"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP|const",
+      "https://mathhub.info/uloname": "LP",
+      "https://mathhub.info/ulopredicate": "",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2734.104.7:2735.104.8"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": {
+        "@id": "http://cds.omdoc.org/urtheories?Isabelle?prop"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP2.axioms(2)|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "LP2.axioms(2)",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2945.115.0:2950.115.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD2|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP2_def|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP2|const"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.LPomega|locale",
+      "https://mathhub.info/uloinstance-of": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.Lomega|locale"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.LP|locale"
+        }
+      ],
+      "https://mathhub.info/ulospecifies": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.LPomega|locale?axioms(1)"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.LPomega|locale?axioms(2)"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LPomega_def|axiom",
+      "https://mathhub.info/ulodefines": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LPomega|const"
+      },
+      "https://mathhub.info/uloname": "LPomega_def",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#3109.131.0:3114.131.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunction|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LPomega|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?prop"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.L2|locale?axioms(1)",
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.L2|locale"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type",
+      "https://mathhub.info/uloname": "term",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#225.14.10:228.14.13"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulotype": "",
+      "https://mathhub.info/ulouses": {
+        "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2|locale",
+      "https://mathhub.info/uloname": "L2",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2290.81.7:2291.81.8"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulotheory": ""
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega2|locale",
+      "https://mathhub.info/uloname": "Lomega2",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#3030.123.7:3036.123.13"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulotheory": ""
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.LP|locale?axioms(2)",
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.LP|locale"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.s_b|axiom",
+      "https://mathhub.info/uloname": "s_b",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#1657.56.2:1659.56.4"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.box|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.star|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.context|type",
+      "https://mathhub.info/uloname": "context",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#241.15.10:247.15.16"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulotype": "",
+      "https://mathhub.info/ulouses": {
+        "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const",
+      "https://mathhub.info/uloname": "Trueprop",
+      "https://mathhub.info/ulopredicate": "",
+      "https://mathhub.info/uloprimitive": "",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#369.21.2:376.21.9"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?prop"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.context|type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.typing|type"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.pi_ss|thm",
+      "https://mathhub.info/uloname": "pi_ss",
+      "https://mathhub.info/ulopara": "",
+      "https://mathhub.info/uloparatype": "axiomatization",
+      "https://mathhub.info/uloprimitive": "",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#1828.63.2:1832.63.6"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.all|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.star|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Prod|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.9|locale_dependency",
+      "https://mathhub.info/uloname": "9",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#3195.139.0:3200.139.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2.pi_bs|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "L2.pi_bs",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2305.82.10:2309.82.14"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.all|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2_def|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD1|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.box|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Prod|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.star|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP2_def|axiom",
+      "https://mathhub.info/ulodefines": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP2|const"
+      },
+      "https://mathhub.info/uloname": "LP2_def",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2945.115.0:2950.115.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunction|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP2|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?prop"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.LPomega|locale?axioms(1)",
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.LPomega|locale"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.Lomega|locale?axioms(1)",
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.Lomega|locale"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.pi_elim|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "pi_elim",
+      "https://mathhub.info/ulopara": "",
+      "https://mathhub.info/uloparatype": "lemma",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2176.76.6:2182.76.12"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.app|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.app|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?prop"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Prod|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.7|locale_dependency",
+      "https://mathhub.info/uloname": "7",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#3195.139.0:3200.139.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.CC|locale",
+      "https://mathhub.info/uloname": "CC",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#3202.139.7:3203.139.8"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulotheory": ""
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP2|const",
+      "https://mathhub.info/uloname": "LP2",
+      "https://mathhub.info/ulopredicate": "",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2952.115.7:2954.115.9"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": {
+        "@id": "http://cds.omdoc.org/urtheories?Isabelle?prop"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.pi_ss|axiom",
+      "https://mathhub.info/uloname": "pi_ss",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#1828.63.2:1832.63.6"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.all|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.star|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Prod|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.box|const",
+      "https://mathhub.info/ulofunction": "",
+      "https://mathhub.info/uloname": "box",
+      "https://mathhub.info/uloprimitive": "",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#519.25.2:521.25.4"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP2.intro|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "LP2.intro",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2945.115.0:2950.115.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionI|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP2|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP2_def|thm"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.LP|locale",
+      "https://mathhub.info/ulospecifies": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.LP|locale?axioms(2)"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.LP|locale?axioms(1)"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Abs|const",
+      "https://mathhub.info/ulofunction": "",
+      "https://mathhub.info/uloname": "Abs",
+      "https://mathhub.info/uloprimitive": "",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#284.19.2:286.19.4"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.strip_s|axiom",
+      "https://mathhub.info/uloname": "strip_s",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#1677.58.2:1683.58.8"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.all|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.context|type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Context|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.star|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega.lam_bb|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "Lomega.lam_bb",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2586.95.8:2591.95.13"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega_def|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.box|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.all|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Abs|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Prod|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD2|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.s_b|thm",
+      "https://mathhub.info/uloname": "s_b",
+      "https://mathhub.info/ulopara": "",
+      "https://mathhub.info/uloparatype": "axiomatization",
+      "https://mathhub.info/uloprimitive": "",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#1657.56.2:1659.56.4"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.box|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.star|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2.intro|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "L2.intro",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2283.81.0:2288.81.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.star|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionI|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Abs|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Prod|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.all|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2_def|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.box|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega2.axioms(2)|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "Lomega2.axioms(2)",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#3023.123.0:3028.123.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega2_def|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD2|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega2|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega|const"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.Lomega2|locale?axioms(2)",
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.Lomega2|locale"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.CC|locale?axioms(3)",
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.CC|locale"
+      }
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.CC.axioms(3)|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "CC.axioms(3)",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#3195.139.0:3200.139.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.CC|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD2|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.CC_def|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega2.intro|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "Lomega2.intro",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#3023.123.0:3028.123.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega2_def|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega2|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.L2|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionI|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LPomega.axioms(2)|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "LPomega.axioms(2)",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#3109.131.0:3114.131.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD2|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LPomega_def|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Lomega|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LPomega|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.app|const",
+      "https://mathhub.info/ulofunction": "",
+      "https://mathhub.info/uloname": "app",
+      "https://mathhub.info/uloprimitive": "",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#546.26.2:548.26.4"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.lam_ss|thm",
+      "https://mathhub.info/uloname": "lam_ss",
+      "https://mathhub.info/ulopara": "",
+      "https://mathhub.info/uloparatype": "axiomatization",
+      "https://mathhub.info/uloprimitive": "",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#1883.65.2:1888.65.7"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Has_type|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Prod|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.star|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Abs|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.term|type"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.Trueprop|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.all|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.MT_context|const"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP2.axioms(1)|thm",
+      "https://mathhub.info/uloderived": "",
+      "https://mathhub.info/uloname": "LP2.axioms(1)",
+      "https://mathhub.info/ulosourceref": {
+        "@id": "https://isabelle.in.tum.de/source/Cube/Cube/Cube.Cube.theory#2945.115.0:2950.115.5"
+      },
+      "https://mathhub.info/ulospecified-in": {
+        "@id": "https://isabelle.in.tum.de?Cube.Cube"
+      },
+      "https://mathhub.info/ulostatement": "",
+      "https://mathhub.info/ulouses": [
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP2_def|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP|const"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube?Cube.LP2|const"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD1|thm"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+        },
+        {
+          "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+        }
+      ]
+    },
+    {
+      "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.CC|locale",
+      "https://mathhub.info/uloinstance-of": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.L2|locale"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.LP|locale"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.Lomega|locale"
+        }
+      ],
+      "https://mathhub.info/ulospecifies": [
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.CC|locale?axioms(1)"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.CC|locale?axioms(3)"
+        },
+        {
+          "@id": "https://isabelle.in.tum.de?Cube.Cube/Cube.CC|locale?axioms(2)"
+        }
+      ]
+    }
+  ]
+}

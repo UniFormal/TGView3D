@@ -67,17 +67,22 @@ public class FlyCamera : MonoBehaviour
     {
 
         yield return new WaitForSeconds(.1f);
-                if (GlobalVariables.JsonManager.OpenChapter(GlobalVariables.Graph.nodes[hit.transform.GetSiblingIndex()].id))
-                {
-                    GlobalVariables.JsonManager.UnSpin();
-                    yield break;
-                }
+        if (GlobalVariables.JsonManager.OpenChapter(GlobalVariables.Graph.nodes[hit.transform.GetSiblingIndex()].id))
+        {
+            GlobalVariables.JsonManager.UnSpin();
+            yield break;
+        }
+        else if (GlobalVariables.JsonManager.CloseChapter(GlobalVariables.Graph.nodes[hit.transform.GetSiblingIndex()].id))
+        {
+            GlobalVariables.JsonManager.UnSpin();
+            yield break;
+        }
 
 #if UNITY_WEBGL && !UNITY_EDITOR
                      
                 openWindow("https://mmt.mathhub.info" + TGraph.GlobalVariables.Graph.nodes[hit.transform.GetSiblingIndex()].url);
 #else
-                Application.OpenURL("https://mmt.mathhub.info" + TGraph.GlobalVariables.Graph.nodes[hit.transform.GetSiblingIndex()].url);
+            Application.OpenURL("https://mmt.mathhub.info" + TGraph.GlobalVariables.Graph.nodes[hit.transform.GetSiblingIndex()].url);
 #endif
 
                 GlobalVariables.JsonManager.UnSpin();
@@ -391,8 +396,9 @@ public class FlyCamera : MonoBehaviour
 
     void Update()
     {
-
-
+        #if UNITY_WEBGL && !UNITY_EDITOR
+        if (GlobalVariables.JsonManager.Spinning) return;
+        #endif
         Transform transform = this.transform.parent.transform;
 
         if (Input.GetMouseButton(2))
@@ -644,8 +650,26 @@ if (m_Plane.Raycast(ray, out enter))
                 p_Velocity += new Vector3(0, -1, 0);
             }
         }
-        Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition + Vector3.forward * Screen.width);
-        p_Velocity += Input.mouseScrollDelta.y * (target - Camera.main.transform.position).normalized * 10;
+        else
+        {
+            Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition + Vector3.forward * Screen.width);
+
+   
+
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                p_Velocity +=  (target - Camera.main.transform.position).normalized *2;
+            }
+            if ( Input.GetKey(KeyCode.DownArrow))
+            {
+                p_Velocity -=  (target - Camera.main.transform.position).normalized * 2;
+            }
+            p_Velocity += Input.mouseScrollDelta.y * (target - Camera.main.transform.position).normalized * 8;
+        }
+      
+
+
+
         //  p_Velocity += Input.mouseScrollDelta.x * Vector3.right * 4;
 
 
@@ -656,19 +680,29 @@ if (m_Plane.Raycast(ray, out enter))
 
     public IEnumerator ZoomIn()
     {
+#if UNITY_WEBGL && !UNITY_EDITOR
+
         GlobalVariables.JsonManager.Spin();
-        for (int i = 0; i < 60; i++)
+
+        if (!GlobalVariables.TwoD)
         {
-           
-            transform.parent.position += transform.forward*.5f ;
-            yield return new WaitForEndOfFrame();
+            for (int i = 0; i < 60; i++)
+            {
+
+                transform.parent.position += transform.forward * .5f;
+                yield return new WaitForEndOfFrame();
+            }
+            for (int i = 0; i < 60; i++)
+            {
+                transform.parent.position -= transform.forward * .5f;
+                yield return new WaitForEndOfFrame();
+            }
         }
-        for (int i = 0; i < 60; i++)
-        {
-            transform.parent.position -= transform.forward*.5f ;
-            yield return new WaitForEndOfFrame();
-        }
+  
+       
+#endif
         GlobalVariables.JsonManager.UnSpin();
+        yield return null;
     }
 
 

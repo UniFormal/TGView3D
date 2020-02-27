@@ -1,0 +1,2458 @@
+{
+    "nodes": [
+        {
+            "id": "MiKoMH/AI?course/notes/notes?Getting-Started-with-AI:-A-Conceptual-Framework",
+            "style": "theory",
+            "label": "Getting Started with AI: A Conceptual Framework",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?prolog/fragments/prolog-programming?prolog",
+            "style": "theory",
+            "label": "Logic Programming",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?prolog/fragments/intro?programming-search",
+            "style": "theory",
+            "label": "Introduction to Logic Programming and PROLOG",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?prolog/fragments/programming-as-search?Programming-as-Search",
+            "style": "theory",
+            "label": "Programming as Search",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?complexity/fragments/why-complexity-analysis?Recap:--Complexity-Analysis-in-AI?",
+            "style": "theory",
+            "label": "Recap:  Complexity Analysis in AI?",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-agents/fragments/rational-agents?sec.rational-agents",
+            "style": "theory",
+            "label": "Intelligent Agents: a Unifying Framework for AI",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-agents/fragments/intro?Introduction:-Rationality-in-Artificial-Intelligence",
+            "style": "theory",
+            "label": "Introduction: Rationality in Artificial Intelligence",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-agents/fragments/agentenv-framework?Agents-and-Environments-as-a-Framework-for-AI",
+            "style": "theory",
+            "label": "Agents and Environments as a Framework for AI",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-agents/fragments/rationality?Good-Behavior-\\ergo-Rationality",
+            "style": "theory",
+            "label": "Good Behavior \\ergo Rationality",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-agents/fragments/envtypes?Classifying-Environments",
+            "style": "theory",
+            "label": "Classifying Environments",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-agents/fragments/agenttypes?Types-of-Agents",
+            "style": "theory",
+            "label": "Types of Agents",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-agents/fragments/agent-states?Representing-the-Environment-in-Agents",
+            "style": "theory",
+            "label": "Representing the Environment in Agents",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?part.gps",
+            "style": "theory",
+            "label": "General Problem Solving",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?search/fragments/search?search",
+            "style": "theory",
+            "label": "Problem Solving and Search",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?search/fragments/problem-solving?problem-solving",
+            "style": "theory",
+            "label": "Problem Solving",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?search/fragments/treesearch?treesearch",
+            "style": "theory",
+            "label": "Search",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?search/fragments/uninformed-search?uninformed-search",
+            "style": "theory",
+            "label": "Uninformed Search Strategies",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?search/fragments/informed-search?informed-search",
+            "style": "theory",
+            "label": "Informed Search Strategies",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?search/fragments/greedy-search?greedy-search",
+            "style": "theory",
+            "label": "Greedy Search",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?search/fragments/heuristics?heuristics",
+            "style": "theory",
+            "label": "Heuristics and their Properties",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?search/fragments/a-star?a-star",
+            "style": "theory",
+            "label": "A-Star Search",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?search/fragments/finding-heuristics?finding-heuristics",
+            "style": "theory",
+            "label": "Finding Good Heuristics",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?search/fragments/local-search?local-search",
+            "style": "theory",
+            "label": "Local Search",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?game-play/fragments/game-play?adv-search",
+            "style": "theory",
+            "label": "Adversarial Search for Game Playing",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?game-play/fragments/gameplay-intro?Introduction",
+            "style": "theory",
+            "label": "Introduction",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?game-play/fragments/minimax?Minimax-Search",
+            "style": "theory",
+            "label": "Minimax Search",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?game-play/fragments/evaluation-functions?Evaluation-Functions",
+            "style": "theory",
+            "label": "Evaluation Functions",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?game-play/fragments/alphabeta?Alpha-Beta-Search",
+            "style": "theory",
+            "label": "Alpha-Beta Search",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?game-play/fragments/mcts?Monte-Carlo-Tree-Search-(MCTS)",
+            "style": "theory",
+            "label": "Monte-Carlo Tree Search (MCTS)",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?csp/fragments/csp?csp",
+            "style": "theory",
+            "label": "Constraint Satisfaction Problems",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?csp/fragments/csp-motivation?Constraint-Satisfaction-Problems:-Motivation",
+            "style": "theory",
+            "label": "Constraint Satisfaction Problems: Motivation",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?csp/fragments/waltz-algorithm?The-Waltz-Algorithm",
+            "style": "theory",
+            "label": "The Waltz Algorithm",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?csp/fragments/csp-def?CSP:-Towards-a-Formal-Definition",
+            "style": "theory",
+            "label": "CSP: Towards a Formal Definition",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?csp/fragments/csp-search?CSP-as-Search",
+            "style": "theory",
+            "label": "CSP as Search",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?csp/fragments/cspropagation?cspropagation",
+            "style": "theory",
+            "label": "Constraint Propagation",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?csp/fragments/csprop-inference?Inference",
+            "style": "theory",
+            "label": "Inference",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?csp/fragments/csprop-fwdcheck?Forward-Checking",
+            "style": "theory",
+            "label": "Forward Checking",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?csp/fragments/csprop-arc-consistency?Arc-Consistency",
+            "style": "theory",
+            "label": "Arc Consistency",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?csp/fragments/csprop-decomposition?Decomposition:-Constraint-Graphs,-and-Two-Simple-Cases",
+            "style": "theory",
+            "label": "Decomposition: Constraint Graphs, and Two Simple Cases",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?csp/fragments/csprop-cutset?Cutset-Conditioning",
+            "style": "theory",
+            "label": "Cutset Conditioning",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?csp/fragments/csprop-localsearch?Constraint-Propagation-with-Local-Search",
+            "style": "theory",
+            "label": "Constraint Propagation with Local Search",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?part.krinf",
+            "style": "theory",
+            "label": "Knowledge and Inference",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/proplog?proplog",
+            "style": "theory",
+            "label": "Propositional Reasoning, Part I: Principles",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/proplog-intro?Introduction",
+            "style": "theory",
+            "label": "Introduction",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/proplog-formal?Propositional-Logic-(Syntax/Semantics)",
+            "style": "theory",
+            "label": "Propositional Logic (Syntax/Semantics)",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/formal-systems?sec.calculi",
+            "style": "theory",
+            "label": "Formal Systems (Syntax and Semantics in General)",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/GenCS?pl0/fragments/nd?Propositional-Natural-Deduction-Calculus",
+            "style": "theory",
+            "label": "Propositional Natural Deduction Calculus",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/atp0?pl0-machine-calculi",
+            "style": "theory",
+            "label": "Machine-Oriented Calculi for Propositional Logic",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/GenCS?atp0/fragments/tableaux?atp0-tableuau-calculi",
+            "style": "theory",
+            "label": "Calculi for Automated Theorem Proving: Analytical Tableaux",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/GenCS?atp0/fragments/tableaux-intro?atp0-tableaux",
+            "style": "theory",
+            "label": "Analytical Tableaux",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/GenCS?atp0/fragments/tableaux-derived?tableaux-pracenh",
+            "style": "theory",
+            "label": "Practical Enhancements for Tableaux",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/GenCS?atp0/fragments/soundness-termination?tableaux0-sound-term",
+            "style": "theory",
+            "label": "Soundness and Termination of Tableaux",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/GenCS?atp0/fragments/resolution?atp0-resolution",
+            "style": "theory",
+            "label": "Resolution for Propositional Logic",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/wumpus-resolution?wumpus-resolution",
+            "style": "theory",
+            "label": "Killing a Wumpus with Propositional Inference",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/propsat?propsat",
+            "style": "theory",
+            "label": "Propositional Reasoning: SAT Solvers",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/propsat-intro?Introduction",
+            "style": "theory",
+            "label": "Introduction",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/dpll-intro?The-Davis-Putnam-(Logemann-Loveland)-Procedure",
+            "style": "theory",
+            "label": "The Davis-Putnam (Logemann-Loveland) Procedure",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/dpll-resolution?DPLL-=-(A-Restricted-Form-of)-Resolution",
+            "style": "theory",
+            "label": "DPLL = (A Restricted Form of) Resolution",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/dpll-conflict-analysis?{\\em-Why}-Did-Unit-Propagation-Yield-a-Conflict?",
+            "style": "theory",
+            "label": "{\\em Why} Did Unit Propagation Yield a Conflict?",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/dpll-clause-learning?Clause-Learning",
+            "style": "theory",
+            "label": "Clause Learning",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/SAT-phase-transitions?Phase-Transitions:-Where-the-\\emph{Really}-Hard-Problems-Are",
+            "style": "theory",
+            "label": "Phase Transitions: Where the \\emph{Really} Hard Problems Are",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/pl1?predlog",
+            "style": "theory",
+            "label": "First Order Predicate Logic",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/pl1-intro?Introduction",
+            "style": "theory",
+            "label": "Introduction",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/CompLog?pl1/fragments/fol-alpha-implicit?sec.fol-alpha-implicit",
+            "style": "theory",
+            "label": "First-Order Logic",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/CompLog?pl1/fragments/basics-alpha-implicit?fol-basics",
+            "style": "theory",
+            "label": "First-Order Logic: Syntax and Semantics",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/CompLog?pl1/fragments/substitutions-alpha-implicit?fosubst",
+            "style": "theory",
+            "label": "First-Order Substitutions",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/CompLog?pl1/fragments/nd?fond",
+            "style": "theory",
+            "label": "First-Order Calculi",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/pl1-conclusion?First-Order-Predicate-Logic-(Conclusion)",
+            "style": "theory",
+            "label": "First-Order Predicate Logic (Conclusion)",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/atp1?atp1",
+            "style": "theory",
+            "label": "First-Order Inference",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/fol-tableaux?ATP1-tableaux",
+            "style": "theory",
+            "label": "First-Order Inference with Tableaux",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/CompLog?atp1/fragments/fotab?fotab",
+            "style": "theory",
+            "label": "First-Order Tableaux",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/CompLog?atp1/fragments/fotab-freevars?tableaux-frevars",
+            "style": "theory",
+            "label": "Free Variable Tableaux",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/CompLog?unif/fragments/founif?founif",
+            "style": "theory",
+            "label": "First-Order Unification",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/resolution?First-Order-Resolution",
+            "style": "theory",
+            "label": "First-Order Resolution",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/CompLog?atp1/fragments/resolution-examples?Resolution-Examples",
+            "style": "theory",
+            "label": "Resolution Examples",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?prolog/fragments/prolog-inference?logprog-resolution",
+            "style": "theory",
+            "label": "Logic Programming as Resolution Theorem Proving",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?part.planact",
+            "style": "theory",
+            "label": "Planning \\& Acting",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?planning/fragments/framework?planning-framework",
+            "style": "theory",
+            "label": "Planning, Part I: Framework",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?planning/fragments/framework-intro?Planning:-Introduction",
+            "style": "theory",
+            "label": "Planning: Introduction",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?planning/fragments/strips?The-STRIPS-Planning-Formalism",
+            "style": "theory",
+            "label": "The STRIPS Planning Formalism",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?planning/fragments/pddl?The-PDDL-Language",
+            "style": "theory",
+            "label": "The PDDL Language",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?planning/fragments/complexity?Planning-Complexity",
+            "style": "theory",
+            "label": "Planning Complexity",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?planning/fragments/algorithms?planning-algorithms",
+            "style": "theory",
+            "label": "Planning, Part II: Algorithms",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?planning/fragments/algorithms-intro?Introduction",
+            "style": "theory",
+            "label": "Introduction",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?planning/fragments/relaxing?How-to-Relax-in-Planning",
+            "style": "theory",
+            "label": "How to Relax in Planning",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?planning/fragments/delete-relaxation?The-Delete-Relaxation",
+            "style": "theory",
+            "label": "The Delete Relaxation",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?planning/fragments/hplus?hplus",
+            "style": "theory",
+            "label": "The $h^+$Heuristic",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?planning/fragments/acting?Planning-and-Acting-in-the-Real-World",
+            "style": "theory",
+            "label": "Planning and Acting in the Real World",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?planning/fragments/realworld-intro?Introduction",
+            "style": "theory",
+            "label": "Introduction",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-agents/fragments/belief-state-agents?sec.belief-state-agents",
+            "style": "theory",
+            "label": "Agent Architectures based on Belief States",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?planning/fragments/conformant-planning?Conformant-Planning",
+            "style": "theory",
+            "label": "Conformant Planning",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?planning/fragments/conditional-planning?Conditional-Planning",
+            "style": "theory",
+            "label": "Conditional Planning",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?Semester-Change-Over",
+            "style": "theory",
+            "label": "Semester Change-Over",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/fragments/concl1?What-did-we-learn-in-AI-1?",
+            "style": "theory",
+            "label": "What did we learn in AI 1?",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/fragments/admin2?AI-admin2",
+            "style": "theory",
+            "label": "Administrativa",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/fragments/lecturing?About-My-Lecturing-\\dots",
+            "style": "theory",
+            "label": "About My Lecturing \\dots",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/fragments/overview2?AI-plot",
+            "style": "theory",
+            "label": "Overview over AI and Topics of AI-II",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?intro/fragments/whatisai?What-is-Articifial-Initelligence?",
+            "style": "theory",
+            "label": "What is Articifial Initelligence?",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?intro/fragments/aiexists?Artificial-Intelligence-is-here-today!",
+            "style": "theory",
+            "label": "Artificial Intelligence is here today!",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/fragments/two-attacks?Two-Ways-to-Attack-the-AI-Problem",
+            "style": "theory",
+            "label": "Two Ways to Attack the AI Problem",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?intro/fragments/ai2?AI-II:-Advanced-Rational-Agents",
+            "style": "theory",
+            "label": "AI-II: Advanced Rational Agents",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?Uncertain-Knowledge-and-Reasoning",
+            "style": "theory",
+            "label": "Uncertain Knowledge and Reasoning",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/probabilities?probabilities",
+            "style": "theory",
+            "label": "Quantifying Uncertainty",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/prob-intro?sec.prob-intro",
+            "style": "theory",
+            "label": "Dealing with Uncertainty: Probabilities",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/uncert-sources?sec.uncert-sources",
+            "style": "theory",
+            "label": "Sources of Uncertainty",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-agents/fragments/agents-recap?Recap:-Rational-Agents-as-a-Conceptual-Framework",
+            "style": "theory",
+            "label": "Recap: Rational Agents as a Conceptual Framework",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/prob-modeling?sec.prob-modeling",
+            "style": "theory",
+            "label": "Modeling Uncertainty",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/prob-acting?sec.prob-intro",
+            "style": "theory",
+            "label": "Acting under Uncertainty",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/prob-agenda?Agenda-for-this-Chapter:-Basics-of-Probability-Theory",
+            "style": "theory",
+            "label": "Agenda for this Chapter: Basics of Probability Theory",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/prob-unconditional?sec.prob-unconditional",
+            "style": "theory",
+            "label": "Unconditional Probabilities",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/condprob?Conditional-Probabilities",
+            "style": "theory",
+            "label": "Conditional Probabilities",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/independence?Independence",
+            "style": "theory",
+            "label": "Independence",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/basic-bayes-reasoning?Basic-Probabilistic-Reasoning-Methods",
+            "style": "theory",
+            "label": "Basic Probabilistic Reasoning Methods",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/bayes-rule?Bayes'-Rule",
+            "style": "theory",
+            "label": "Bayes' Rule",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/conditional-independence?Conditional-Independence",
+            "style": "theory",
+            "label": "Conditional Independence",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/wumpus-revisited?wumpus-revisited",
+            "style": "theory",
+            "label": "The Wumpus World Revisited",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/prob-conclusion?Conclusion",
+            "style": "theory",
+            "label": "Conclusion",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/bayesian-networks?Bayesian-networks",
+            "style": "theory",
+            "label": "Probabilistic Reasoning, Part II: Bayesian Networks",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/BN-intro?Introduction",
+            "style": "theory",
+            "label": "Introduction",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/BN-syntax?What-is-a-Bayesian-Network?",
+            "style": "theory",
+            "label": "What is a Bayesian Network?",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/BN-semantics?What-is-the-Meaning-of-a-Bayesian-Network?",
+            "style": "theory",
+            "label": "What is the Meaning of a Bayesian Network?",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/BN-construct?Constructing-Bayesian-Networks",
+            "style": "theory",
+            "label": "Constructing Bayesian Networks",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/BN-inference?Inference-in-Bayesian-Networks",
+            "style": "theory",
+            "label": "Inference in Bayesian Networks",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/BN-concl?Conclusion",
+            "style": "theory",
+            "label": "Conclusion",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-decisions/fragments/simple-decisions?sec.simple-decisions",
+            "style": "theory",
+            "label": "Making Simple Decisions Rationally",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-decisions/fragments/simple-decisions-intro?Introduction",
+            "style": "theory",
+            "label": "Introduction",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-decisions/fragments/rational-preferences?Rational-Preferences",
+            "style": "theory",
+            "label": "Rational Preferences",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-decisions/fragments/utilities?Utilities-and-Money",
+            "style": "theory",
+            "label": "Utilities and Money",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-decisions/fragments/multi-attribute-utility?Multi-Attribute-Utility",
+            "style": "theory",
+            "label": "Multi-Attribute Utility",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-decisions/fragments/decision-networks?Decision-Networks",
+            "style": "theory",
+            "label": "Decision Networks",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-decisions/fragments/vpi?The-Value-of-Information",
+            "style": "theory",
+            "label": "The Value of Information",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/temporal-models?chap.tempprobmod",
+            "style": "theory",
+            "label": "Temporal Probability Models",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/time-uncertainty?Modeling-Time-and-Uncertainty",
+            "style": "theory",
+            "label": "Modeling Time and Uncertainty",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/temporal-inference?Inference:-Filtering,-Prediction,-and-Smoothing",
+            "style": "theory",
+            "label": "Inference: Filtering, Prediction, and Smoothing",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/HMM?Hidden-Markov-Models",
+            "style": "theory",
+            "label": "Hidden Markov Models",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/DBN?Dynamic-Bayesian-Networks",
+            "style": "theory",
+            "label": "Dynamic Bayesian Networks",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-decisions/fragments/complex-decisions?sec.complex-decisions",
+            "style": "theory",
+            "label": "Making Complex decisions",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-decisions/fragments/sequential-decision-problems?sec.sequential-decision-problems",
+            "style": "theory",
+            "label": "Sequential Decision Problems",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-decisions/fragments/utilities-time?Utilities-over-Time",
+            "style": "theory",
+            "label": "Utilities over Time",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-decisions/fragments/valpol-iteration?Value/Policy-Iteration",
+            "style": "theory",
+            "label": "Value/Policy Iteration",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-decisions/fragments/POMDP?Partially-Observable-MDPs",
+            "style": "theory",
+            "label": "Partially Observable MDPs",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-decisions/fragments/POMDP-agent?POMDP-agent",
+            "style": "theory",
+            "label": "Online Agents with POMDPs",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?Machine-Learning",
+            "style": "theory",
+            "label": "Machine Learning",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/ml-observations?Learning-from-Observations",
+            "style": "theory",
+            "label": "Learning from Observations",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/ml-forms?Forms-of-Learning",
+            "style": "theory",
+            "label": "Forms of Learning",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/inductive-learning?Inductive-Learning",
+            "style": "theory",
+            "label": "Inductive Learning",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/ml-decision-trees?Learning-Decision-Trees",
+            "style": "theory",
+            "label": "Learning Decision Trees",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/information-theory?Using-Information-Theory",
+            "style": "theory",
+            "label": "Using Information Theory",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/evaluation?Evaluating-and-Choosing-the-Best-Hypothesis",
+            "style": "theory",
+            "label": "Evaluating and Choosing the Best Hypothesis",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/clt?Computational-Learning-Theory",
+            "style": "theory",
+            "label": "Computational Learning Theory",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/linear-regression?Regression-and-Classification-with-Linear-Models",
+            "style": "theory",
+            "label": "Regression and Classification with Linear Models",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/neural-networks?Artificial-Neural-networks",
+            "style": "theory",
+            "label": "Artificial Neural networks",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/support-vector-machines?Support-Vector-Machines",
+            "style": "theory",
+            "label": "Support Vector Machines",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/ml-knowledge?Knowledge-in-Learning",
+            "style": "theory",
+            "label": "Knowledge in Learning",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/learning-logical?Logical-Formulations-of-Learning",
+            "style": "theory",
+            "label": "Logical Formulations of Learning",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/EBL?Explanation-Based-Learning",
+            "style": "theory",
+            "label": "Explanation-Based Learning",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/RBL?Relevance-Based-Learning",
+            "style": "theory",
+            "label": "Relevance-Based Learning",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/ILP?sec.ILP",
+            "style": "theory",
+            "label": "Inductive Logic Programming",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/ILPEX?An-Example",
+            "style": "theory",
+            "label": "An Example",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/FOIL?Top-Down-Inductive-Learning:-FOIL",
+            "style": "theory",
+            "label": "Top-Down Inductive Learning: FOIL",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/IR?Inverse-Resolution",
+            "style": "theory",
+            "label": "Inverse Resolution",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/statistical-learning?Statistical-Learning",
+            "style": "theory",
+            "label": "Statistical Learning",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/full-Bayesian-learning?Full-Bayesian-Learning",
+            "style": "theory",
+            "label": "Full Bayesian Learning",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/Bayesian-learning-approx?Approximations-of-Bayesian-Learning",
+            "style": "theory",
+            "label": "Approximations of Bayesian Learning",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/BN-parameter-learning?Parameter-Learning-for-Bayesian-Networks",
+            "style": "theory",
+            "label": "Parameter Learning for Bayesian Networks",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/naive-bayes-models?Naive-Bayes-Models",
+            "style": "theory",
+            "label": "Naive Bayes Models",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/reinforcement?sec.reinforcement",
+            "style": "theory",
+            "label": "Reinforcement Learning",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/reinforcement-intro?Reinforcement-Learning:-Introduction-\\&-Motivation",
+            "style": "theory",
+            "label": "Reinforcement Learning: Introduction \\& Motivation",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/passive-learning?Passive-Learning",
+            "style": "theory",
+            "label": "Passive Learning",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?root",
+            "style": "theory",
+            "label": "AI Lecture",
+            "url": "None"
+        }
+    ],
+    "edges": [
+        {
+            "id": "MiKoMH/AI?course/notes/notes?Getting-Started-with-AI:-A-Conceptual-Framework?MiKoMH/AI?prolog/fragments/prolog-programming?prolog",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?Getting-Started-with-AI:-A-Conceptual-Framework",
+            "to": "MiKoMH/AI?prolog/fragments/prolog-programming?prolog",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?Getting-Started-with-AI:-A-Conceptual-Framework?MiKoMH/AI?complexity/fragments/why-complexity-analysis?Recap:--Complexity-Analysis-in-AI?",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?Getting-Started-with-AI:-A-Conceptual-Framework",
+            "to": "MiKoMH/AI?complexity/fragments/why-complexity-analysis?Recap:--Complexity-Analysis-in-AI?",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?Getting-Started-with-AI:-A-Conceptual-Framework?MiKoMH/AI?rational-agents/fragments/rational-agents?sec.rational-agents",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?Getting-Started-with-AI:-A-Conceptual-Framework",
+            "to": "MiKoMH/AI?rational-agents/fragments/rational-agents?sec.rational-agents",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?prolog/fragments/prolog-programming?prolog?MiKoMH/AI?prolog/fragments/intro?programming-search",
+            "style": "include",
+            "from": "MiKoMH/AI?prolog/fragments/prolog-programming?prolog",
+            "to": "MiKoMH/AI?prolog/fragments/intro?programming-search",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?prolog/fragments/prolog-programming?prolog?MiKoMH/AI?prolog/fragments/programming-as-search?Programming-as-Search",
+            "style": "include",
+            "from": "MiKoMH/AI?prolog/fragments/prolog-programming?prolog",
+            "to": "MiKoMH/AI?prolog/fragments/programming-as-search?Programming-as-Search",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-agents/fragments/rational-agents?sec.rational-agents?MiKoMH/AI?rational-agents/fragments/intro?Introduction:-Rationality-in-Artificial-Intelligence",
+            "style": "include",
+            "from": "MiKoMH/AI?rational-agents/fragments/rational-agents?sec.rational-agents",
+            "to": "MiKoMH/AI?rational-agents/fragments/intro?Introduction:-Rationality-in-Artificial-Intelligence",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-agents/fragments/rational-agents?sec.rational-agents?MiKoMH/AI?rational-agents/fragments/agentenv-framework?Agents-and-Environments-as-a-Framework-for-AI",
+            "style": "include",
+            "from": "MiKoMH/AI?rational-agents/fragments/rational-agents?sec.rational-agents",
+            "to": "MiKoMH/AI?rational-agents/fragments/agentenv-framework?Agents-and-Environments-as-a-Framework-for-AI",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-agents/fragments/rational-agents?sec.rational-agents?MiKoMH/AI?rational-agents/fragments/rationality?Good-Behavior-\\ergo-Rationality",
+            "style": "include",
+            "from": "MiKoMH/AI?rational-agents/fragments/rational-agents?sec.rational-agents",
+            "to": "MiKoMH/AI?rational-agents/fragments/rationality?Good-Behavior-\\ergo-Rationality",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-agents/fragments/rational-agents?sec.rational-agents?MiKoMH/AI?rational-agents/fragments/envtypes?Classifying-Environments",
+            "style": "include",
+            "from": "MiKoMH/AI?rational-agents/fragments/rational-agents?sec.rational-agents",
+            "to": "MiKoMH/AI?rational-agents/fragments/envtypes?Classifying-Environments",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-agents/fragments/rational-agents?sec.rational-agents?MiKoMH/AI?rational-agents/fragments/agenttypes?Types-of-Agents",
+            "style": "include",
+            "from": "MiKoMH/AI?rational-agents/fragments/rational-agents?sec.rational-agents",
+            "to": "MiKoMH/AI?rational-agents/fragments/agenttypes?Types-of-Agents",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-agents/fragments/rational-agents?sec.rational-agents?MiKoMH/AI?rational-agents/fragments/agent-states?Representing-the-Environment-in-Agents",
+            "style": "include",
+            "from": "MiKoMH/AI?rational-agents/fragments/rational-agents?sec.rational-agents",
+            "to": "MiKoMH/AI?rational-agents/fragments/agent-states?Representing-the-Environment-in-Agents",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?part.gps?MiKoMH/AI?search/fragments/search?search",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?part.gps",
+            "to": "MiKoMH/AI?search/fragments/search?search",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?part.gps?MiKoMH/AI?game-play/fragments/game-play?adv-search",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?part.gps",
+            "to": "MiKoMH/AI?game-play/fragments/game-play?adv-search",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?part.gps?MiKoMH/AI?csp/fragments/csp?csp",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?part.gps",
+            "to": "MiKoMH/AI?csp/fragments/csp?csp",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?part.gps?MiKoMH/AI?csp/fragments/cspropagation?cspropagation",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?part.gps",
+            "to": "MiKoMH/AI?csp/fragments/cspropagation?cspropagation",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?search/fragments/search?search?MiKoMH/AI?search/fragments/problem-solving?problem-solving",
+            "style": "include",
+            "from": "MiKoMH/AI?search/fragments/search?search",
+            "to": "MiKoMH/AI?search/fragments/problem-solving?problem-solving",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?search/fragments/search?search?MiKoMH/AI?search/fragments/treesearch?treesearch",
+            "style": "include",
+            "from": "MiKoMH/AI?search/fragments/search?search",
+            "to": "MiKoMH/AI?search/fragments/treesearch?treesearch",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?search/fragments/search?search?MiKoMH/AI?search/fragments/uninformed-search?uninformed-search",
+            "style": "include",
+            "from": "MiKoMH/AI?search/fragments/search?search",
+            "to": "MiKoMH/AI?search/fragments/uninformed-search?uninformed-search",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?search/fragments/search?search?MiKoMH/AI?search/fragments/informed-search?informed-search",
+            "style": "include",
+            "from": "MiKoMH/AI?search/fragments/search?search",
+            "to": "MiKoMH/AI?search/fragments/informed-search?informed-search",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?search/fragments/search?search?MiKoMH/AI?search/fragments/local-search?local-search",
+            "style": "include",
+            "from": "MiKoMH/AI?search/fragments/search?search",
+            "to": "MiKoMH/AI?search/fragments/local-search?local-search",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?search/fragments/informed-search?informed-search?MiKoMH/AI?search/fragments/greedy-search?greedy-search",
+            "style": "include",
+            "from": "MiKoMH/AI?search/fragments/informed-search?informed-search",
+            "to": "MiKoMH/AI?search/fragments/greedy-search?greedy-search",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?search/fragments/informed-search?informed-search?MiKoMH/AI?search/fragments/heuristics?heuristics",
+            "style": "include",
+            "from": "MiKoMH/AI?search/fragments/informed-search?informed-search",
+            "to": "MiKoMH/AI?search/fragments/heuristics?heuristics",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?search/fragments/informed-search?informed-search?MiKoMH/AI?search/fragments/a-star?a-star",
+            "style": "include",
+            "from": "MiKoMH/AI?search/fragments/informed-search?informed-search",
+            "to": "MiKoMH/AI?search/fragments/a-star?a-star",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?search/fragments/informed-search?informed-search?MiKoMH/AI?search/fragments/finding-heuristics?finding-heuristics",
+            "style": "include",
+            "from": "MiKoMH/AI?search/fragments/informed-search?informed-search",
+            "to": "MiKoMH/AI?search/fragments/finding-heuristics?finding-heuristics",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?game-play/fragments/game-play?adv-search?MiKoMH/AI?game-play/fragments/gameplay-intro?Introduction",
+            "style": "include",
+            "from": "MiKoMH/AI?game-play/fragments/game-play?adv-search",
+            "to": "MiKoMH/AI?game-play/fragments/gameplay-intro?Introduction",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?game-play/fragments/game-play?adv-search?MiKoMH/AI?game-play/fragments/minimax?Minimax-Search",
+            "style": "include",
+            "from": "MiKoMH/AI?game-play/fragments/game-play?adv-search",
+            "to": "MiKoMH/AI?game-play/fragments/minimax?Minimax-Search",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?game-play/fragments/game-play?adv-search?MiKoMH/AI?game-play/fragments/evaluation-functions?Evaluation-Functions",
+            "style": "include",
+            "from": "MiKoMH/AI?game-play/fragments/game-play?adv-search",
+            "to": "MiKoMH/AI?game-play/fragments/evaluation-functions?Evaluation-Functions",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?game-play/fragments/game-play?adv-search?MiKoMH/AI?game-play/fragments/alphabeta?Alpha-Beta-Search",
+            "style": "include",
+            "from": "MiKoMH/AI?game-play/fragments/game-play?adv-search",
+            "to": "MiKoMH/AI?game-play/fragments/alphabeta?Alpha-Beta-Search",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?game-play/fragments/game-play?adv-search?MiKoMH/AI?game-play/fragments/mcts?Monte-Carlo-Tree-Search-(MCTS)",
+            "style": "include",
+            "from": "MiKoMH/AI?game-play/fragments/game-play?adv-search",
+            "to": "MiKoMH/AI?game-play/fragments/mcts?Monte-Carlo-Tree-Search-(MCTS)",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?game-play/fragments/game-play?adv-search?MiKoMH/AI?game-play/fragments/soa?State-of-the-Art",
+            "style": "include",
+            "from": "MiKoMH/AI?game-play/fragments/game-play?adv-search",
+            "to": "MiKoMH/AI?game-play/fragments/soa?State-of-the-Art",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?csp/fragments/csp?csp?MiKoMH/AI?csp/fragments/csp-motivation?Constraint-Satisfaction-Problems:-Motivation",
+            "style": "include",
+            "from": "MiKoMH/AI?csp/fragments/csp?csp",
+            "to": "MiKoMH/AI?csp/fragments/csp-motivation?Constraint-Satisfaction-Problems:-Motivation",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?csp/fragments/csp?csp?MiKoMH/AI?csp/fragments/waltz-algorithm?The-Waltz-Algorithm",
+            "style": "include",
+            "from": "MiKoMH/AI?csp/fragments/csp?csp",
+            "to": "MiKoMH/AI?csp/fragments/waltz-algorithm?The-Waltz-Algorithm",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?csp/fragments/csp?csp?MiKoMH/AI?csp/fragments/csp-def?CSP:-Towards-a-Formal-Definition",
+            "style": "include",
+            "from": "MiKoMH/AI?csp/fragments/csp?csp",
+            "to": "MiKoMH/AI?csp/fragments/csp-def?CSP:-Towards-a-Formal-Definition",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?csp/fragments/csp?csp?MiKoMH/AI?csp/fragments/csp-search?CSP-as-Search",
+            "style": "include",
+            "from": "MiKoMH/AI?csp/fragments/csp?csp",
+            "to": "MiKoMH/AI?csp/fragments/csp-search?CSP-as-Search",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?csp/fragments/cspropagation?cspropagation?MiKoMH/AI?csp/fragments/csprop-intro?Introduction",
+            "style": "include",
+            "from": "MiKoMH/AI?csp/fragments/cspropagation?cspropagation",
+            "to": "MiKoMH/AI?csp/fragments/csprop-intro?Introduction",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?csp/fragments/cspropagation?cspropagation?MiKoMH/AI?csp/fragments/csprop-inference?Inference",
+            "style": "include",
+            "from": "MiKoMH/AI?csp/fragments/cspropagation?cspropagation",
+            "to": "MiKoMH/AI?csp/fragments/csprop-inference?Inference",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?csp/fragments/cspropagation?cspropagation?MiKoMH/AI?csp/fragments/csprop-fwdcheck?Forward-Checking",
+            "style": "include",
+            "from": "MiKoMH/AI?csp/fragments/cspropagation?cspropagation",
+            "to": "MiKoMH/AI?csp/fragments/csprop-fwdcheck?Forward-Checking",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?csp/fragments/cspropagation?cspropagation?MiKoMH/AI?csp/fragments/csprop-arc-consistency?Arc-Consistency",
+            "style": "include",
+            "from": "MiKoMH/AI?csp/fragments/cspropagation?cspropagation",
+            "to": "MiKoMH/AI?csp/fragments/csprop-arc-consistency?Arc-Consistency",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?csp/fragments/cspropagation?cspropagation?MiKoMH/AI?csp/fragments/csprop-decomposition?Decomposition:-Constraint-Graphs,-and-Two-Simple-Cases",
+            "style": "include",
+            "from": "MiKoMH/AI?csp/fragments/cspropagation?cspropagation",
+            "to": "MiKoMH/AI?csp/fragments/csprop-decomposition?Decomposition:-Constraint-Graphs,-and-Two-Simple-Cases",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?csp/fragments/cspropagation?cspropagation?MiKoMH/AI?csp/fragments/csprop-cutset?Cutset-Conditioning",
+            "style": "include",
+            "from": "MiKoMH/AI?csp/fragments/cspropagation?cspropagation",
+            "to": "MiKoMH/AI?csp/fragments/csprop-cutset?Cutset-Conditioning",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?csp/fragments/cspropagation?cspropagation?MiKoMH/AI?csp/fragments/csprop-localsearch?Constraint-Propagation-with-Local-Search",
+            "style": "include",
+            "from": "MiKoMH/AI?csp/fragments/cspropagation?cspropagation",
+            "to": "MiKoMH/AI?csp/fragments/csprop-localsearch?Constraint-Propagation-with-Local-Search",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?csp/fragments/cspropagation?cspropagation?MiKoMH/AI?csp/fragments/csprop-concl?Conclusion-\\&-Summary",
+            "style": "include",
+            "from": "MiKoMH/AI?csp/fragments/cspropagation?cspropagation",
+            "to": "MiKoMH/AI?csp/fragments/csprop-concl?Conclusion-\\&-Summary",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?part.krinf?MiKoMH/AI?logic/fragments/proplog?proplog",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?part.krinf",
+            "to": "MiKoMH/AI?logic/fragments/proplog?proplog",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?part.krinf?MiKoMH/AI?logic/fragments/propsat?propsat",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?part.krinf",
+            "to": "MiKoMH/AI?logic/fragments/propsat?propsat",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?part.krinf?MiKoMH/AI?logic/fragments/pl1?predlog",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?part.krinf",
+            "to": "MiKoMH/AI?logic/fragments/pl1?predlog",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?part.krinf?MiKoMH/AI?logic/fragments/atp1?atp1",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?part.krinf",
+            "to": "MiKoMH/AI?logic/fragments/atp1?atp1",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?part.krinf?MiKoMH/AI?prolog/fragments/prolog-inference?logprog-resolution",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?part.krinf",
+            "to": "MiKoMH/AI?prolog/fragments/prolog-inference?logprog-resolution",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/proplog?proplog?MiKoMH/AI?logic/fragments/proplog-intro?Introduction",
+            "style": "include",
+            "from": "MiKoMH/AI?logic/fragments/proplog?proplog",
+            "to": "MiKoMH/AI?logic/fragments/proplog-intro?Introduction",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/proplog?proplog?MiKoMH/AI?logic/fragments/proplog-formal?Propositional-Logic-(Syntax/Semantics)",
+            "style": "include",
+            "from": "MiKoMH/AI?logic/fragments/proplog?proplog",
+            "to": "MiKoMH/AI?logic/fragments/proplog-formal?Propositional-Logic-(Syntax/Semantics)",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/proplog?proplog?MiKoMH/AI?logic/fragments/formal-systems?sec.calculi",
+            "style": "include",
+            "from": "MiKoMH/AI?logic/fragments/proplog?proplog",
+            "to": "MiKoMH/AI?logic/fragments/formal-systems?sec.calculi",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/proplog?proplog?MiKoMH/GenCS?pl0/fragments/nd?Propositional-Natural-Deduction-Calculus",
+            "style": "include",
+            "from": "MiKoMH/AI?logic/fragments/proplog?proplog",
+            "to": "MiKoMH/GenCS?pl0/fragments/nd?Propositional-Natural-Deduction-Calculus",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/proplog?proplog?MiKoMH/AI?logic/fragments/atp0?pl0-machine-calculi",
+            "style": "include",
+            "from": "MiKoMH/AI?logic/fragments/proplog?proplog",
+            "to": "MiKoMH/AI?logic/fragments/atp0?pl0-machine-calculi",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/proplog?proplog?MiKoMH/AI?logic/fragments/wumpus-resolution?wumpus-resolution",
+            "style": "include",
+            "from": "MiKoMH/AI?logic/fragments/proplog?proplog",
+            "to": "MiKoMH/AI?logic/fragments/wumpus-resolution?wumpus-resolution",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/proplog?proplog?MiKoMH/AI?logic/fragments/proplog-concl?Conclusion",
+            "style": "include",
+            "from": "MiKoMH/AI?logic/fragments/proplog?proplog",
+            "to": "MiKoMH/AI?logic/fragments/proplog-concl?Conclusion",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/atp0?pl0-machine-calculi?MiKoMH/GenCS?atp0/fragments/tableaux?atp0-tableuau-calculi",
+            "style": "include",
+            "from": "MiKoMH/AI?logic/fragments/atp0?pl0-machine-calculi",
+            "to": "MiKoMH/GenCS?atp0/fragments/tableaux?atp0-tableuau-calculi",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/atp0?pl0-machine-calculi?MiKoMH/GenCS?atp0/fragments/resolution?atp0-resolution",
+            "style": "include",
+            "from": "MiKoMH/AI?logic/fragments/atp0?pl0-machine-calculi",
+            "to": "MiKoMH/GenCS?atp0/fragments/resolution?atp0-resolution",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/GenCS?atp0/fragments/tableaux?atp0-tableuau-calculi?MiKoMH/GenCS?atp0/fragments/tableaux-intro?atp0-tableaux",
+            "style": "include",
+            "from": "MiKoMH/GenCS?atp0/fragments/tableaux?atp0-tableuau-calculi",
+            "to": "MiKoMH/GenCS?atp0/fragments/tableaux-intro?atp0-tableaux",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/GenCS?atp0/fragments/tableaux?atp0-tableuau-calculi?MiKoMH/GenCS?atp0/fragments/tableaux-derived?tableaux-pracenh",
+            "style": "include",
+            "from": "MiKoMH/GenCS?atp0/fragments/tableaux?atp0-tableuau-calculi",
+            "to": "MiKoMH/GenCS?atp0/fragments/tableaux-derived?tableaux-pracenh",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/GenCS?atp0/fragments/tableaux?atp0-tableuau-calculi?MiKoMH/GenCS?atp0/fragments/soundness-termination?tableaux0-sound-term",
+            "style": "include",
+            "from": "MiKoMH/GenCS?atp0/fragments/tableaux?atp0-tableuau-calculi",
+            "to": "MiKoMH/GenCS?atp0/fragments/soundness-termination?tableaux0-sound-term",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/propsat?propsat?MiKoMH/AI?logic/fragments/propsat-intro?Introduction",
+            "style": "include",
+            "from": "MiKoMH/AI?logic/fragments/propsat?propsat",
+            "to": "MiKoMH/AI?logic/fragments/propsat-intro?Introduction",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/propsat?propsat?MiKoMH/AI?logic/fragments/dpll-intro?The-Davis-Putnam-(Logemann-Loveland)-Procedure",
+            "style": "include",
+            "from": "MiKoMH/AI?logic/fragments/propsat?propsat",
+            "to": "MiKoMH/AI?logic/fragments/dpll-intro?The-Davis-Putnam-(Logemann-Loveland)-Procedure",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/propsat?propsat?MiKoMH/AI?logic/fragments/dpll-resolution?DPLL-=-(A-Restricted-Form-of)-Resolution",
+            "style": "include",
+            "from": "MiKoMH/AI?logic/fragments/propsat?propsat",
+            "to": "MiKoMH/AI?logic/fragments/dpll-resolution?DPLL-=-(A-Restricted-Form-of)-Resolution",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/propsat?propsat?MiKoMH/AI?logic/fragments/dpll-conflict-analysis?{\\em-Why}-Did-Unit-Propagation-Yield-a-Conflict?",
+            "style": "include",
+            "from": "MiKoMH/AI?logic/fragments/propsat?propsat",
+            "to": "MiKoMH/AI?logic/fragments/dpll-conflict-analysis?{\\em-Why}-Did-Unit-Propagation-Yield-a-Conflict?",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/propsat?propsat?MiKoMH/AI?logic/fragments/dpll-clause-learning?Clause-Learning",
+            "style": "include",
+            "from": "MiKoMH/AI?logic/fragments/propsat?propsat",
+            "to": "MiKoMH/AI?logic/fragments/dpll-clause-learning?Clause-Learning",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/propsat?propsat?MiKoMH/AI?logic/fragments/SAT-phase-transitions?Phase-Transitions:-Where-the-\\emph{Really}-Hard-Problems-Are",
+            "style": "include",
+            "from": "MiKoMH/AI?logic/fragments/propsat?propsat",
+            "to": "MiKoMH/AI?logic/fragments/SAT-phase-transitions?Phase-Transitions:-Where-the-\\emph{Really}-Hard-Problems-Are",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/propsat?propsat?MiKoMH/AI?logic/fragments/propsat-concl?Conclusion",
+            "style": "include",
+            "from": "MiKoMH/AI?logic/fragments/propsat?propsat",
+            "to": "MiKoMH/AI?logic/fragments/propsat-concl?Conclusion",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/pl1?predlog?MiKoMH/AI?logic/fragments/pl1-intro?Introduction",
+            "style": "include",
+            "from": "MiKoMH/AI?logic/fragments/pl1?predlog",
+            "to": "MiKoMH/AI?logic/fragments/pl1-intro?Introduction",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/pl1?predlog?MiKoMH/CompLog?pl1/fragments/fol-alpha-implicit?sec.fol-alpha-implicit",
+            "style": "include",
+            "from": "MiKoMH/AI?logic/fragments/pl1?predlog",
+            "to": "MiKoMH/CompLog?pl1/fragments/fol-alpha-implicit?sec.fol-alpha-implicit",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/pl1?predlog?MiKoMH/CompLog?pl1/fragments/nd?fond",
+            "style": "include",
+            "from": "MiKoMH/AI?logic/fragments/pl1?predlog",
+            "to": "MiKoMH/CompLog?pl1/fragments/nd?fond",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/pl1?predlog?MiKoMH/AI?logic/fragments/pl1-conclusion?First-Order-Predicate-Logic-(Conclusion)",
+            "style": "include",
+            "from": "MiKoMH/AI?logic/fragments/pl1?predlog",
+            "to": "MiKoMH/AI?logic/fragments/pl1-conclusion?First-Order-Predicate-Logic-(Conclusion)",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/CompLog?pl1/fragments/fol-alpha-implicit?sec.fol-alpha-implicit?MiKoMH/CompLog?pl1/fragments/basics-alpha-implicit?fol-basics",
+            "style": "include",
+            "from": "MiKoMH/CompLog?pl1/fragments/fol-alpha-implicit?sec.fol-alpha-implicit",
+            "to": "MiKoMH/CompLog?pl1/fragments/basics-alpha-implicit?fol-basics",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/CompLog?pl1/fragments/fol-alpha-implicit?sec.fol-alpha-implicit?MiKoMH/CompLog?pl1/fragments/substitutions-alpha-implicit?fosubst",
+            "style": "include",
+            "from": "MiKoMH/CompLog?pl1/fragments/fol-alpha-implicit?sec.fol-alpha-implicit",
+            "to": "MiKoMH/CompLog?pl1/fragments/substitutions-alpha-implicit?fosubst",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/CompLog?pl1/fragments/nd?fond?MiKoMH/GenCS?pl0/fragments/nd?Propositional-Natural-Deduction-Calculus",
+            "style": "include",
+            "from": "MiKoMH/CompLog?pl1/fragments/nd?fond",
+            "to": "MiKoMH/GenCS?pl0/fragments/nd?Propositional-Natural-Deduction-Calculus",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/atp1?atp1?MiKoMH/AI?logic/fragments/fol-tableaux?ATP1-tableaux",
+            "style": "include",
+            "from": "MiKoMH/AI?logic/fragments/atp1?atp1",
+            "to": "MiKoMH/AI?logic/fragments/fol-tableaux?ATP1-tableaux",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/atp1?atp1?MiKoMH/AI?logic/fragments/resolution?First-Order-Resolution",
+            "style": "include",
+            "from": "MiKoMH/AI?logic/fragments/atp1?atp1",
+            "to": "MiKoMH/AI?logic/fragments/resolution?First-Order-Resolution",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/fol-tableaux?ATP1-tableaux?MiKoMH/CompLog?atp1/fragments/fotab?fotab",
+            "style": "include",
+            "from": "MiKoMH/AI?logic/fragments/fol-tableaux?ATP1-tableaux",
+            "to": "MiKoMH/CompLog?atp1/fragments/fotab?fotab",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/fol-tableaux?ATP1-tableaux?MiKoMH/CompLog?atp1/fragments/fotab-freevars?tableaux-frevars",
+            "style": "include",
+            "from": "MiKoMH/AI?logic/fragments/fol-tableaux?ATP1-tableaux",
+            "to": "MiKoMH/CompLog?atp1/fragments/fotab-freevars?tableaux-frevars",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/fol-tableaux?ATP1-tableaux?MiKoMH/CompLog?unif/fragments/founif?founif",
+            "style": "include",
+            "from": "MiKoMH/AI?logic/fragments/fol-tableaux?ATP1-tableaux",
+            "to": "MiKoMH/CompLog?unif/fragments/founif?founif",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?logic/fragments/resolution?First-Order-Resolution?MiKoMH/CompLog?atp1/fragments/resolution-examples?Resolution-Examples",
+            "style": "include",
+            "from": "MiKoMH/AI?logic/fragments/resolution?First-Order-Resolution",
+            "to": "MiKoMH/CompLog?atp1/fragments/resolution-examples?Resolution-Examples",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?part.planact?MiKoMH/AI?planning/fragments/framework?planning-framework",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?part.planact",
+            "to": "MiKoMH/AI?planning/fragments/framework?planning-framework",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?part.planact?MiKoMH/AI?planning/fragments/algorithms?planning-algorithms",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?part.planact",
+            "to": "MiKoMH/AI?planning/fragments/algorithms?planning-algorithms",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?part.planact?MiKoMH/AI?planning/fragments/acting?Planning-and-Acting-in-the-Real-World",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?part.planact",
+            "to": "MiKoMH/AI?planning/fragments/acting?Planning-and-Acting-in-the-Real-World",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?planning/fragments/framework?planning-framework?MiKoMH/AI?planning/fragments/framework-intro?Planning:-Introduction",
+            "style": "include",
+            "from": "MiKoMH/AI?planning/fragments/framework?planning-framework",
+            "to": "MiKoMH/AI?planning/fragments/framework-intro?Planning:-Introduction",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?planning/fragments/framework?planning-framework?MiKoMH/AI?planning/fragments/planning-history?The-History-of-Planning",
+            "style": "include",
+            "from": "MiKoMH/AI?planning/fragments/framework?planning-framework",
+            "to": "MiKoMH/AI?planning/fragments/planning-history?The-History-of-Planning",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?planning/fragments/framework?planning-framework?MiKoMH/AI?planning/fragments/strips?The-STRIPS-Planning-Formalism",
+            "style": "include",
+            "from": "MiKoMH/AI?planning/fragments/framework?planning-framework",
+            "to": "MiKoMH/AI?planning/fragments/strips?The-STRIPS-Planning-Formalism",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?planning/fragments/framework?planning-framework?MiKoMH/AI?planning/fragments/pddl?The-PDDL-Language",
+            "style": "include",
+            "from": "MiKoMH/AI?planning/fragments/framework?planning-framework",
+            "to": "MiKoMH/AI?planning/fragments/pddl?The-PDDL-Language",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?planning/fragments/framework?planning-framework?MiKoMH/AI?planning/fragments/complexity?Planning-Complexity",
+            "style": "include",
+            "from": "MiKoMH/AI?planning/fragments/framework?planning-framework",
+            "to": "MiKoMH/AI?planning/fragments/complexity?Planning-Complexity",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?planning/fragments/framework?planning-framework?MiKoMH/AI?planning/fragments/framework-concl?Conclusion",
+            "style": "include",
+            "from": "MiKoMH/AI?planning/fragments/framework?planning-framework",
+            "to": "MiKoMH/AI?planning/fragments/framework-concl?Conclusion",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?planning/fragments/algorithms?planning-algorithms?MiKoMH/AI?planning/fragments/algorithms-intro?Introduction",
+            "style": "include",
+            "from": "MiKoMH/AI?planning/fragments/algorithms?planning-algorithms",
+            "to": "MiKoMH/AI?planning/fragments/algorithms-intro?Introduction",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?planning/fragments/algorithms?planning-algorithms?MiKoMH/AI?planning/fragments/relaxing?How-to-Relax-in-Planning",
+            "style": "include",
+            "from": "MiKoMH/AI?planning/fragments/algorithms?planning-algorithms",
+            "to": "MiKoMH/AI?planning/fragments/relaxing?How-to-Relax-in-Planning",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?planning/fragments/algorithms?planning-algorithms?MiKoMH/AI?planning/fragments/delete-relaxation?The-Delete-Relaxation",
+            "style": "include",
+            "from": "MiKoMH/AI?planning/fragments/algorithms?planning-algorithms",
+            "to": "MiKoMH/AI?planning/fragments/delete-relaxation?The-Delete-Relaxation",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?planning/fragments/algorithms?planning-algorithms?MiKoMH/AI?planning/fragments/hplus?hplus",
+            "style": "include",
+            "from": "MiKoMH/AI?planning/fragments/algorithms?planning-algorithms",
+            "to": "MiKoMH/AI?planning/fragments/hplus?hplus",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?planning/fragments/algorithms?planning-algorithms?MiKoMH/AI?planning/fragments/algo-concl?Conclusion",
+            "style": "include",
+            "from": "MiKoMH/AI?planning/fragments/algorithms?planning-algorithms",
+            "to": "MiKoMH/AI?planning/fragments/algo-concl?Conclusion",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?planning/fragments/acting?Planning-and-Acting-in-the-Real-World?MiKoMH/AI?planning/fragments/realworld-intro?Introduction",
+            "style": "include",
+            "from": "MiKoMH/AI?planning/fragments/acting?Planning-and-Acting-in-the-Real-World",
+            "to": "MiKoMH/AI?planning/fragments/realworld-intro?Introduction",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?planning/fragments/acting?Planning-and-Acting-in-the-Real-World?MiKoMH/AI?rational-agents/fragments/belief-state-agents?sec.belief-state-agents",
+            "style": "include",
+            "from": "MiKoMH/AI?planning/fragments/acting?Planning-and-Acting-in-the-Real-World",
+            "to": "MiKoMH/AI?rational-agents/fragments/belief-state-agents?sec.belief-state-agents",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?planning/fragments/acting?Planning-and-Acting-in-the-Real-World?MiKoMH/AI?planning/fragments/conformant-planning?Conformant-Planning",
+            "style": "include",
+            "from": "MiKoMH/AI?planning/fragments/acting?Planning-and-Acting-in-the-Real-World",
+            "to": "MiKoMH/AI?planning/fragments/conformant-planning?Conformant-Planning",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?planning/fragments/acting?Planning-and-Acting-in-the-Real-World?MiKoMH/AI?planning/fragments/conditional-planning?Conditional-Planning",
+            "style": "include",
+            "from": "MiKoMH/AI?planning/fragments/acting?Planning-and-Acting-in-the-Real-World",
+            "to": "MiKoMH/AI?planning/fragments/conditional-planning?Conditional-Planning",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?Semester-Change-Over?MiKoMH/AI?course/fragments/concl1?What-did-we-learn-in-AI-1?",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?Semester-Change-Over",
+            "to": "MiKoMH/AI?course/fragments/concl1?What-did-we-learn-in-AI-1?",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?Semester-Change-Over?MiKoMH/AI?course/fragments/admin2?AI-admin2",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?Semester-Change-Over",
+            "to": "MiKoMH/AI?course/fragments/admin2?AI-admin2",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?Semester-Change-Over?MiKoMH/AI?course/fragments/lecturing?About-My-Lecturing-\\dots",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?Semester-Change-Over",
+            "to": "MiKoMH/AI?course/fragments/lecturing?About-My-Lecturing-\\dots",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?Semester-Change-Over?MiKoMH/AI?course/fragments/overview2?AI-plot",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?Semester-Change-Over",
+            "to": "MiKoMH/AI?course/fragments/overview2?AI-plot",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/fragments/overview2?AI-plot?MiKoMH/AI?intro/fragments/whatisai?What-is-Articifial-Initelligence?",
+            "style": "include",
+            "from": "MiKoMH/AI?course/fragments/overview2?AI-plot",
+            "to": "MiKoMH/AI?intro/fragments/whatisai?What-is-Articifial-Initelligence?",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/fragments/overview2?AI-plot?MiKoMH/AI?intro/fragments/aiexists?Artificial-Intelligence-is-here-today!",
+            "style": "include",
+            "from": "MiKoMH/AI?course/fragments/overview2?AI-plot",
+            "to": "MiKoMH/AI?intro/fragments/aiexists?Artificial-Intelligence-is-here-today!",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/fragments/overview2?AI-plot?MiKoMH/AI?course/fragments/two-attacks?Two-Ways-to-Attack-the-AI-Problem",
+            "style": "include",
+            "from": "MiKoMH/AI?course/fragments/overview2?AI-plot",
+            "to": "MiKoMH/AI?course/fragments/two-attacks?Two-Ways-to-Attack-the-AI-Problem",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/fragments/overview2?AI-plot?MiKoMH/AI?intro/fragments/ai2?AI-II:-Advanced-Rational-Agents",
+            "style": "include",
+            "from": "MiKoMH/AI?course/fragments/overview2?AI-plot",
+            "to": "MiKoMH/AI?intro/fragments/ai2?AI-II:-Advanced-Rational-Agents",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?Uncertain-Knowledge-and-Reasoning?MiKoMH/AI?probabilistic-reasoning/fragments/probabilities?probabilities",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?Uncertain-Knowledge-and-Reasoning",
+            "to": "MiKoMH/AI?probabilistic-reasoning/fragments/probabilities?probabilities",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?Uncertain-Knowledge-and-Reasoning?MiKoMH/AI?probabilistic-reasoning/fragments/bayesian-networks?Bayesian-networks",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?Uncertain-Knowledge-and-Reasoning",
+            "to": "MiKoMH/AI?probabilistic-reasoning/fragments/bayesian-networks?Bayesian-networks",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?Uncertain-Knowledge-and-Reasoning?MiKoMH/AI?rational-decisions/fragments/simple-decisions?sec.simple-decisions",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?Uncertain-Knowledge-and-Reasoning",
+            "to": "MiKoMH/AI?rational-decisions/fragments/simple-decisions?sec.simple-decisions",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?Uncertain-Knowledge-and-Reasoning?MiKoMH/AI?probabilistic-reasoning/fragments/temporal-models?chap.tempprobmod",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?Uncertain-Knowledge-and-Reasoning",
+            "to": "MiKoMH/AI?probabilistic-reasoning/fragments/temporal-models?chap.tempprobmod",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?Uncertain-Knowledge-and-Reasoning?MiKoMH/AI?rational-decisions/fragments/complex-decisions?sec.complex-decisions",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?Uncertain-Knowledge-and-Reasoning",
+            "to": "MiKoMH/AI?rational-decisions/fragments/complex-decisions?sec.complex-decisions",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/probabilities?probabilities?MiKoMH/AI?probabilistic-reasoning/fragments/prob-intro?sec.prob-intro",
+            "style": "include",
+            "from": "MiKoMH/AI?probabilistic-reasoning/fragments/probabilities?probabilities",
+            "to": "MiKoMH/AI?probabilistic-reasoning/fragments/prob-intro?sec.prob-intro",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/probabilities?probabilities?MiKoMH/AI?probabilistic-reasoning/fragments/prob-unconditional?sec.prob-unconditional",
+            "style": "include",
+            "from": "MiKoMH/AI?probabilistic-reasoning/fragments/probabilities?probabilities",
+            "to": "MiKoMH/AI?probabilistic-reasoning/fragments/prob-unconditional?sec.prob-unconditional",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/probabilities?probabilities?MiKoMH/AI?probabilistic-reasoning/fragments/condprob?Conditional-Probabilities",
+            "style": "include",
+            "from": "MiKoMH/AI?probabilistic-reasoning/fragments/probabilities?probabilities",
+            "to": "MiKoMH/AI?probabilistic-reasoning/fragments/condprob?Conditional-Probabilities",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/probabilities?probabilities?MiKoMH/AI?probabilistic-reasoning/fragments/independence?Independence",
+            "style": "include",
+            "from": "MiKoMH/AI?probabilistic-reasoning/fragments/probabilities?probabilities",
+            "to": "MiKoMH/AI?probabilistic-reasoning/fragments/independence?Independence",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/probabilities?probabilities?MiKoMH/AI?probabilistic-reasoning/fragments/basic-bayes-reasoning?Basic-Probabilistic-Reasoning-Methods",
+            "style": "include",
+            "from": "MiKoMH/AI?probabilistic-reasoning/fragments/probabilities?probabilities",
+            "to": "MiKoMH/AI?probabilistic-reasoning/fragments/basic-bayes-reasoning?Basic-Probabilistic-Reasoning-Methods",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/probabilities?probabilities?MiKoMH/AI?probabilistic-reasoning/fragments/bayes-rule?Bayes'-Rule",
+            "style": "include",
+            "from": "MiKoMH/AI?probabilistic-reasoning/fragments/probabilities?probabilities",
+            "to": "MiKoMH/AI?probabilistic-reasoning/fragments/bayes-rule?Bayes'-Rule",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/probabilities?probabilities?MiKoMH/AI?probabilistic-reasoning/fragments/conditional-independence?Conditional-Independence",
+            "style": "include",
+            "from": "MiKoMH/AI?probabilistic-reasoning/fragments/probabilities?probabilities",
+            "to": "MiKoMH/AI?probabilistic-reasoning/fragments/conditional-independence?Conditional-Independence",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/probabilities?probabilities?MiKoMH/AI?probabilistic-reasoning/fragments/wumpus-revisited?wumpus-revisited",
+            "style": "include",
+            "from": "MiKoMH/AI?probabilistic-reasoning/fragments/probabilities?probabilities",
+            "to": "MiKoMH/AI?probabilistic-reasoning/fragments/wumpus-revisited?wumpus-revisited",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/probabilities?probabilities?MiKoMH/AI?probabilistic-reasoning/fragments/prob-conclusion?Conclusion",
+            "style": "include",
+            "from": "MiKoMH/AI?probabilistic-reasoning/fragments/probabilities?probabilities",
+            "to": "MiKoMH/AI?probabilistic-reasoning/fragments/prob-conclusion?Conclusion",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/prob-intro?sec.prob-intro?MiKoMH/AI?probabilistic-reasoning/fragments/uncert-sources?sec.uncert-sources",
+            "style": "include",
+            "from": "MiKoMH/AI?probabilistic-reasoning/fragments/prob-intro?sec.prob-intro",
+            "to": "MiKoMH/AI?probabilistic-reasoning/fragments/uncert-sources?sec.uncert-sources",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/prob-intro?sec.prob-intro?MiKoMH/AI?rational-agents/fragments/agents-recap?Recap:-Rational-Agents-as-a-Conceptual-Framework",
+            "style": "include",
+            "from": "MiKoMH/AI?probabilistic-reasoning/fragments/prob-intro?sec.prob-intro",
+            "to": "MiKoMH/AI?rational-agents/fragments/agents-recap?Recap:-Rational-Agents-as-a-Conceptual-Framework",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/prob-intro?sec.prob-intro?MiKoMH/AI?rational-agents/fragments/belief-state-agents?sec.belief-state-agents",
+            "style": "include",
+            "from": "MiKoMH/AI?probabilistic-reasoning/fragments/prob-intro?sec.prob-intro",
+            "to": "MiKoMH/AI?rational-agents/fragments/belief-state-agents?sec.belief-state-agents",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/prob-intro?sec.prob-intro?MiKoMH/AI?probabilistic-reasoning/fragments/prob-modeling?sec.prob-modeling",
+            "style": "include",
+            "from": "MiKoMH/AI?probabilistic-reasoning/fragments/prob-intro?sec.prob-intro",
+            "to": "MiKoMH/AI?probabilistic-reasoning/fragments/prob-modeling?sec.prob-modeling",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/prob-intro?sec.prob-intro?MiKoMH/AI?probabilistic-reasoning/fragments/prob-acting?sec.prob-intro",
+            "style": "include",
+            "from": "MiKoMH/AI?probabilistic-reasoning/fragments/prob-intro?sec.prob-intro",
+            "to": "MiKoMH/AI?probabilistic-reasoning/fragments/prob-acting?sec.prob-intro",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/prob-intro?sec.prob-intro?MiKoMH/AI?probabilistic-reasoning/fragments/prob-agenda?Agenda-for-this-Chapter:-Basics-of-Probability-Theory",
+            "style": "include",
+            "from": "MiKoMH/AI?probabilistic-reasoning/fragments/prob-intro?sec.prob-intro",
+            "to": "MiKoMH/AI?probabilistic-reasoning/fragments/prob-agenda?Agenda-for-this-Chapter:-Basics-of-Probability-Theory",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/bayesian-networks?Bayesian-networks?MiKoMH/AI?probabilistic-reasoning/fragments/BN-intro?Introduction",
+            "style": "include",
+            "from": "MiKoMH/AI?probabilistic-reasoning/fragments/bayesian-networks?Bayesian-networks",
+            "to": "MiKoMH/AI?probabilistic-reasoning/fragments/BN-intro?Introduction",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/bayesian-networks?Bayesian-networks?MiKoMH/AI?probabilistic-reasoning/fragments/BN-syntax?What-is-a-Bayesian-Network?",
+            "style": "include",
+            "from": "MiKoMH/AI?probabilistic-reasoning/fragments/bayesian-networks?Bayesian-networks",
+            "to": "MiKoMH/AI?probabilistic-reasoning/fragments/BN-syntax?What-is-a-Bayesian-Network?",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/bayesian-networks?Bayesian-networks?MiKoMH/AI?probabilistic-reasoning/fragments/BN-semantics?What-is-the-Meaning-of-a-Bayesian-Network?",
+            "style": "include",
+            "from": "MiKoMH/AI?probabilistic-reasoning/fragments/bayesian-networks?Bayesian-networks",
+            "to": "MiKoMH/AI?probabilistic-reasoning/fragments/BN-semantics?What-is-the-Meaning-of-a-Bayesian-Network?",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/bayesian-networks?Bayesian-networks?MiKoMH/AI?probabilistic-reasoning/fragments/BN-construct?Constructing-Bayesian-Networks",
+            "style": "include",
+            "from": "MiKoMH/AI?probabilistic-reasoning/fragments/bayesian-networks?Bayesian-networks",
+            "to": "MiKoMH/AI?probabilistic-reasoning/fragments/BN-construct?Constructing-Bayesian-Networks",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/bayesian-networks?Bayesian-networks?MiKoMH/AI?probabilistic-reasoning/fragments/BN-inference?Inference-in-Bayesian-Networks",
+            "style": "include",
+            "from": "MiKoMH/AI?probabilistic-reasoning/fragments/bayesian-networks?Bayesian-networks",
+            "to": "MiKoMH/AI?probabilistic-reasoning/fragments/BN-inference?Inference-in-Bayesian-Networks",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/bayesian-networks?Bayesian-networks?MiKoMH/AI?probabilistic-reasoning/fragments/BN-concl?Conclusion",
+            "style": "include",
+            "from": "MiKoMH/AI?probabilistic-reasoning/fragments/bayesian-networks?Bayesian-networks",
+            "to": "MiKoMH/AI?probabilistic-reasoning/fragments/BN-concl?Conclusion",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-decisions/fragments/simple-decisions?sec.simple-decisions?MiKoMH/AI?rational-decisions/fragments/simple-decisions-intro?Introduction",
+            "style": "include",
+            "from": "MiKoMH/AI?rational-decisions/fragments/simple-decisions?sec.simple-decisions",
+            "to": "MiKoMH/AI?rational-decisions/fragments/simple-decisions-intro?Introduction",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-decisions/fragments/simple-decisions?sec.simple-decisions?MiKoMH/AI?rational-decisions/fragments/rational-preferences?Rational-Preferences",
+            "style": "include",
+            "from": "MiKoMH/AI?rational-decisions/fragments/simple-decisions?sec.simple-decisions",
+            "to": "MiKoMH/AI?rational-decisions/fragments/rational-preferences?Rational-Preferences",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-decisions/fragments/simple-decisions?sec.simple-decisions?MiKoMH/AI?rational-decisions/fragments/utilities?Utilities-and-Money",
+            "style": "include",
+            "from": "MiKoMH/AI?rational-decisions/fragments/simple-decisions?sec.simple-decisions",
+            "to": "MiKoMH/AI?rational-decisions/fragments/utilities?Utilities-and-Money",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-decisions/fragments/simple-decisions?sec.simple-decisions?MiKoMH/AI?rational-decisions/fragments/multi-attribute-utility?Multi-Attribute-Utility",
+            "style": "include",
+            "from": "MiKoMH/AI?rational-decisions/fragments/simple-decisions?sec.simple-decisions",
+            "to": "MiKoMH/AI?rational-decisions/fragments/multi-attribute-utility?Multi-Attribute-Utility",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-decisions/fragments/simple-decisions?sec.simple-decisions?MiKoMH/AI?rational-decisions/fragments/decision-networks?Decision-Networks",
+            "style": "include",
+            "from": "MiKoMH/AI?rational-decisions/fragments/simple-decisions?sec.simple-decisions",
+            "to": "MiKoMH/AI?rational-decisions/fragments/decision-networks?Decision-Networks",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-decisions/fragments/simple-decisions?sec.simple-decisions?MiKoMH/AI?rational-decisions/fragments/vpi?The-Value-of-Information",
+            "style": "include",
+            "from": "MiKoMH/AI?rational-decisions/fragments/simple-decisions?sec.simple-decisions",
+            "to": "MiKoMH/AI?rational-decisions/fragments/vpi?The-Value-of-Information",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/temporal-models?chap.tempprobmod?MiKoMH/AI?probabilistic-reasoning/fragments/time-uncertainty?Modeling-Time-and-Uncertainty",
+            "style": "include",
+            "from": "MiKoMH/AI?probabilistic-reasoning/fragments/temporal-models?chap.tempprobmod",
+            "to": "MiKoMH/AI?probabilistic-reasoning/fragments/time-uncertainty?Modeling-Time-and-Uncertainty",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/temporal-models?chap.tempprobmod?MiKoMH/AI?probabilistic-reasoning/fragments/temporal-inference?Inference:-Filtering,-Prediction,-and-Smoothing",
+            "style": "include",
+            "from": "MiKoMH/AI?probabilistic-reasoning/fragments/temporal-models?chap.tempprobmod",
+            "to": "MiKoMH/AI?probabilistic-reasoning/fragments/temporal-inference?Inference:-Filtering,-Prediction,-and-Smoothing",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/temporal-models?chap.tempprobmod?MiKoMH/AI?probabilistic-reasoning/fragments/HMM?Hidden-Markov-Models",
+            "style": "include",
+            "from": "MiKoMH/AI?probabilistic-reasoning/fragments/temporal-models?chap.tempprobmod",
+            "to": "MiKoMH/AI?probabilistic-reasoning/fragments/HMM?Hidden-Markov-Models",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?probabilistic-reasoning/fragments/temporal-models?chap.tempprobmod?MiKoMH/AI?probabilistic-reasoning/fragments/DBN?Dynamic-Bayesian-Networks",
+            "style": "include",
+            "from": "MiKoMH/AI?probabilistic-reasoning/fragments/temporal-models?chap.tempprobmod",
+            "to": "MiKoMH/AI?probabilistic-reasoning/fragments/DBN?Dynamic-Bayesian-Networks",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-decisions/fragments/complex-decisions?sec.complex-decisions?MiKoMH/AI?rational-decisions/fragments/sequential-decision-problems?sec.sequential-decision-problems",
+            "style": "include",
+            "from": "MiKoMH/AI?rational-decisions/fragments/complex-decisions?sec.complex-decisions",
+            "to": "MiKoMH/AI?rational-decisions/fragments/sequential-decision-problems?sec.sequential-decision-problems",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-decisions/fragments/complex-decisions?sec.complex-decisions?MiKoMH/AI?rational-decisions/fragments/utilities-time?Utilities-over-Time",
+            "style": "include",
+            "from": "MiKoMH/AI?rational-decisions/fragments/complex-decisions?sec.complex-decisions",
+            "to": "MiKoMH/AI?rational-decisions/fragments/utilities-time?Utilities-over-Time",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-decisions/fragments/complex-decisions?sec.complex-decisions?MiKoMH/AI?rational-decisions/fragments/valpol-iteration?Value/Policy-Iteration",
+            "style": "include",
+            "from": "MiKoMH/AI?rational-decisions/fragments/complex-decisions?sec.complex-decisions",
+            "to": "MiKoMH/AI?rational-decisions/fragments/valpol-iteration?Value/Policy-Iteration",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-decisions/fragments/complex-decisions?sec.complex-decisions?MiKoMH/AI?rational-decisions/fragments/POMDP?Partially-Observable-MDPs",
+            "style": "include",
+            "from": "MiKoMH/AI?rational-decisions/fragments/complex-decisions?sec.complex-decisions",
+            "to": "MiKoMH/AI?rational-decisions/fragments/POMDP?Partially-Observable-MDPs",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?rational-decisions/fragments/complex-decisions?sec.complex-decisions?MiKoMH/AI?rational-decisions/fragments/POMDP-agent?POMDP-agent",
+            "style": "include",
+            "from": "MiKoMH/AI?rational-decisions/fragments/complex-decisions?sec.complex-decisions",
+            "to": "MiKoMH/AI?rational-decisions/fragments/POMDP-agent?POMDP-agent",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?Machine-Learning?MiKoMH/AI?ml/fragments/ml-observations?Learning-from-Observations",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?Machine-Learning",
+            "to": "MiKoMH/AI?ml/fragments/ml-observations?Learning-from-Observations",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?Machine-Learning?MiKoMH/AI?ml/fragments/ml-knowledge?Knowledge-in-Learning",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?Machine-Learning",
+            "to": "MiKoMH/AI?ml/fragments/ml-knowledge?Knowledge-in-Learning",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?Machine-Learning?MiKoMH/AI?ml/fragments/statistical-learning?Statistical-Learning",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?Machine-Learning",
+            "to": "MiKoMH/AI?ml/fragments/statistical-learning?Statistical-Learning",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?Machine-Learning?MiKoMH/AI?ml/fragments/reinforcement?sec.reinforcement",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?Machine-Learning",
+            "to": "MiKoMH/AI?ml/fragments/reinforcement?sec.reinforcement",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/ml-observations?Learning-from-Observations?MiKoMH/AI?ml/fragments/ml-forms?Forms-of-Learning",
+            "style": "include",
+            "from": "MiKoMH/AI?ml/fragments/ml-observations?Learning-from-Observations",
+            "to": "MiKoMH/AI?ml/fragments/ml-forms?Forms-of-Learning",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/ml-observations?Learning-from-Observations?MiKoMH/AI?ml/fragments/inductive-learning?Inductive-Learning",
+            "style": "include",
+            "from": "MiKoMH/AI?ml/fragments/ml-observations?Learning-from-Observations",
+            "to": "MiKoMH/AI?ml/fragments/inductive-learning?Inductive-Learning",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/ml-observations?Learning-from-Observations?MiKoMH/AI?ml/fragments/ml-decision-trees?Learning-Decision-Trees",
+            "style": "include",
+            "from": "MiKoMH/AI?ml/fragments/ml-observations?Learning-from-Observations",
+            "to": "MiKoMH/AI?ml/fragments/ml-decision-trees?Learning-Decision-Trees",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/ml-observations?Learning-from-Observations?MiKoMH/AI?ml/fragments/information-theory?Using-Information-Theory",
+            "style": "include",
+            "from": "MiKoMH/AI?ml/fragments/ml-observations?Learning-from-Observations",
+            "to": "MiKoMH/AI?ml/fragments/information-theory?Using-Information-Theory",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/ml-observations?Learning-from-Observations?MiKoMH/AI?ml/fragments/evaluation?Evaluating-and-Choosing-the-Best-Hypothesis",
+            "style": "include",
+            "from": "MiKoMH/AI?ml/fragments/ml-observations?Learning-from-Observations",
+            "to": "MiKoMH/AI?ml/fragments/evaluation?Evaluating-and-Choosing-the-Best-Hypothesis",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/ml-observations?Learning-from-Observations?MiKoMH/AI?ml/fragments/clt?Computational-Learning-Theory",
+            "style": "include",
+            "from": "MiKoMH/AI?ml/fragments/ml-observations?Learning-from-Observations",
+            "to": "MiKoMH/AI?ml/fragments/clt?Computational-Learning-Theory",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/ml-observations?Learning-from-Observations?MiKoMH/AI?ml/fragments/linear-regression?Regression-and-Classification-with-Linear-Models",
+            "style": "include",
+            "from": "MiKoMH/AI?ml/fragments/ml-observations?Learning-from-Observations",
+            "to": "MiKoMH/AI?ml/fragments/linear-regression?Regression-and-Classification-with-Linear-Models",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/ml-observations?Learning-from-Observations?MiKoMH/AI?ml/fragments/neural-networks?Artificial-Neural-networks",
+            "style": "include",
+            "from": "MiKoMH/AI?ml/fragments/ml-observations?Learning-from-Observations",
+            "to": "MiKoMH/AI?ml/fragments/neural-networks?Artificial-Neural-networks",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/ml-observations?Learning-from-Observations?MiKoMH/AI?ml/fragments/support-vector-machines?Support-Vector-Machines",
+            "style": "include",
+            "from": "MiKoMH/AI?ml/fragments/ml-observations?Learning-from-Observations",
+            "to": "MiKoMH/AI?ml/fragments/support-vector-machines?Support-Vector-Machines",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/ml-knowledge?Knowledge-in-Learning?MiKoMH/AI?ml/fragments/learning-logical?Logical-Formulations-of-Learning",
+            "style": "include",
+            "from": "MiKoMH/AI?ml/fragments/ml-knowledge?Knowledge-in-Learning",
+            "to": "MiKoMH/AI?ml/fragments/learning-logical?Logical-Formulations-of-Learning",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/ml-knowledge?Knowledge-in-Learning?MiKoMH/AI?ml/fragments/EBL?Explanation-Based-Learning",
+            "style": "include",
+            "from": "MiKoMH/AI?ml/fragments/ml-knowledge?Knowledge-in-Learning",
+            "to": "MiKoMH/AI?ml/fragments/EBL?Explanation-Based-Learning",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/ml-knowledge?Knowledge-in-Learning?MiKoMH/AI?ml/fragments/RBL?Relevance-Based-Learning",
+            "style": "include",
+            "from": "MiKoMH/AI?ml/fragments/ml-knowledge?Knowledge-in-Learning",
+            "to": "MiKoMH/AI?ml/fragments/RBL?Relevance-Based-Learning",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/ml-knowledge?Knowledge-in-Learning?MiKoMH/AI?ml/fragments/ILP?sec.ILP",
+            "style": "include",
+            "from": "MiKoMH/AI?ml/fragments/ml-knowledge?Knowledge-in-Learning",
+            "to": "MiKoMH/AI?ml/fragments/ILP?sec.ILP",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/ILP?sec.ILP?MiKoMH/AI?ml/fragments/ILPEX?An-Example",
+            "style": "include",
+            "from": "MiKoMH/AI?ml/fragments/ILP?sec.ILP",
+            "to": "MiKoMH/AI?ml/fragments/ILPEX?An-Example",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/ILP?sec.ILP?MiKoMH/AI?ml/fragments/FOIL?Top-Down-Inductive-Learning:-FOIL",
+            "style": "include",
+            "from": "MiKoMH/AI?ml/fragments/ILP?sec.ILP",
+            "to": "MiKoMH/AI?ml/fragments/FOIL?Top-Down-Inductive-Learning:-FOIL",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/ILP?sec.ILP?MiKoMH/AI?ml/fragments/IR?Inverse-Resolution",
+            "style": "include",
+            "from": "MiKoMH/AI?ml/fragments/ILP?sec.ILP",
+            "to": "MiKoMH/AI?ml/fragments/IR?Inverse-Resolution",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/statistical-learning?Statistical-Learning?MiKoMH/AI?ml/fragments/full-Bayesian-learning?Full-Bayesian-Learning",
+            "style": "include",
+            "from": "MiKoMH/AI?ml/fragments/statistical-learning?Statistical-Learning",
+            "to": "MiKoMH/AI?ml/fragments/full-Bayesian-learning?Full-Bayesian-Learning",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/statistical-learning?Statistical-Learning?MiKoMH/AI?ml/fragments/Bayesian-learning-approx?Approximations-of-Bayesian-Learning",
+            "style": "include",
+            "from": "MiKoMH/AI?ml/fragments/statistical-learning?Statistical-Learning",
+            "to": "MiKoMH/AI?ml/fragments/Bayesian-learning-approx?Approximations-of-Bayesian-Learning",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/statistical-learning?Statistical-Learning?MiKoMH/AI?ml/fragments/BN-parameter-learning?Parameter-Learning-for-Bayesian-Networks",
+            "style": "include",
+            "from": "MiKoMH/AI?ml/fragments/statistical-learning?Statistical-Learning",
+            "to": "MiKoMH/AI?ml/fragments/BN-parameter-learning?Parameter-Learning-for-Bayesian-Networks",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/statistical-learning?Statistical-Learning?MiKoMH/AI?ml/fragments/naive-bayes-models?Naive-Bayes-Models",
+            "style": "include",
+            "from": "MiKoMH/AI?ml/fragments/statistical-learning?Statistical-Learning",
+            "to": "MiKoMH/AI?ml/fragments/naive-bayes-models?Naive-Bayes-Models",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/reinforcement?sec.reinforcement?MiKoMH/AI?ml/fragments/reinforcement-intro?Reinforcement-Learning:-Introduction-\\&-Motivation",
+            "style": "include",
+            "from": "MiKoMH/AI?ml/fragments/reinforcement?sec.reinforcement",
+            "to": "MiKoMH/AI?ml/fragments/reinforcement-intro?Reinforcement-Learning:-Introduction-\\&-Motivation",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?ml/fragments/reinforcement?sec.reinforcement?MiKoMH/AI?ml/fragments/passive-learning?Passive-Learning",
+            "style": "include",
+            "from": "MiKoMH/AI?ml/fragments/reinforcement?sec.reinforcement",
+            "to": "MiKoMH/AI?ml/fragments/passive-learning?Passive-Learning",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?root?MiKoMH/AI?course/notes/notes?Getting-Started-with-AI:-A-Conceptual-Framework",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?root",
+            "to": "MiKoMH/AI?course/notes/notes?Getting-Started-with-AI:-A-Conceptual-Framework",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?root?MiKoMH/AI?course/notes/notes?part.gps",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?root",
+            "to": "MiKoMH/AI?course/notes/notes?part.gps",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?root?MiKoMH/AI?course/notes/notes?part.krinf",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?root",
+            "to": "MiKoMH/AI?course/notes/notes?part.krinf",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?root?MiKoMH/AI?course/notes/notes?part.planact",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?root",
+            "to": "MiKoMH/AI?course/notes/notes?part.planact",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?root?MiKoMH/AI?course/notes/notes?Semester-Change-Over",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?root",
+            "to": "MiKoMH/AI?course/notes/notes?Semester-Change-Over",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?root?MiKoMH/AI?course/notes/notes?Uncertain-Knowledge-and-Reasoning",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?root",
+            "to": "MiKoMH/AI?course/notes/notes?Uncertain-Knowledge-and-Reasoning",
+            "label": "mhincluderef",
+            "url": "None"
+        },
+        {
+            "id": "MiKoMH/AI?course/notes/notes?root?MiKoMH/AI?course/notes/notes?Machine-Learning",
+            "style": "include",
+            "from": "MiKoMH/AI?course/notes/notes?root",
+            "to": "MiKoMH/AI?course/notes/notes?Machine-Learning",
+            "label": "mhincluderef",
+            "url": "None"
+        }
+    ]
+}

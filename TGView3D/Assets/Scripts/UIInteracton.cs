@@ -14,20 +14,25 @@ public class UIInteracton : MonoBehaviour {
     public GameObject Desktop;
     public GameObject UIOverlay;
     public TextAsset[] GraphFiles;
+    public TextAsset[] GraphDescriptions;
     public ColorPicker ColorPicker;
     public UnityEngine.UI.Dropdown Left;
     public UnityEngine.UI.Dropdown Right;
     public Toggle CustomToggle;
-  
+    public TMPro.TextMeshProUGUI GraphDescription;
+    public TMPro.TextMeshProUGUI GraphData;
+
 
     void Start()
     {
-     
-        //if(ReadJSON.CurrentJSON == null)
-            ReadJSON.CurrentJSON = GraphFiles[GameObject.Find("UIDropdown").GetComponent<Dropdown>().value].text;
-        GlobalVariables.UIInteractonManager =  GetComponent<UIInteracton>();
-    }
 
+        //if(ReadJSON.CurrentJSON == null)
+        ReadJSON.CurrentJSON = GraphFiles[GameObject.Find("UIDropdown").GetComponent<Dropdown>().value].text;
+        GlobalVariables.UIInteractonManager = GetComponent<UIInteracton>();
+        GraphDescription.text = GraphDescriptions[GameObject.Find("UIDropdown").GetComponent<Dropdown>().value].text;
+        var tmpGraph = JsonUtility.FromJson<ReadJSON.MyGraph>(ReadJSON.CurrentJSON);
+        GraphData.text = "#nodes: " + tmpGraph.nodes.Count + ", #edges: " + tmpGraph.edges.Count + ", #clusters: " + tmpGraph.chapters.Count;
+    }
     public void Init()
     {
         ChainAttribute();
@@ -46,13 +51,17 @@ public class UIInteracton : MonoBehaviour {
     public void ChainAttribute()
     {
         var left = Left;
+        if (left.options.Count == 0) return;
         CustomToggle.isOn = ReadJSON.EdgeTypes[left.options[left.value].text].active;
        
         Dropdown right = Right;
-        right.value = right.options.FindIndex((i) => { return i.text.Equals(ReadJSON.EdgeTypes[left.options[left.value].text].type); }); 
-        var col = TGraph.ReadJSON.ColorDict[left.options[left.value].text] / 255f;
-        col.a = col.a*255f/4;
-        ColorPicker.CurrentColor = col;
+        right.value = right.options.FindIndex((i) => { return i.text.Equals(ReadJSON.EdgeTypes[left.options[left.value].text].type); });
+        if (TGraph.ReadJSON.ColorDict.ContainsKey(left.options[left.value].text)){
+            var col = TGraph.ReadJSON.ColorDict[left.options[left.value].text] / 255f;
+            col.a = col.a * 255f / 4;
+            ColorPicker.CurrentColor = col;
+        }
+ 
    
     }
 
@@ -80,12 +89,13 @@ public class UIInteracton : MonoBehaviour {
     {
         var left = Left;
         Dropdown right = Right;
+        if(left.options.Count>0)
         ReadJSON.EdgeTypes[left.options[left.value].text].type = right.options[right.value].text;
     }
 
     public void ChangeColor()
     {
-        if (GlobalVariables.Graph != null)
+        if (GlobalVariables.Graph != null&&Left.options.Count>0)
         {
             var cp = ColorPicker;
             var type = Left.options[Left.value].text;
@@ -108,7 +118,7 @@ public class UIInteracton : MonoBehaviour {
         if (GlobalVariables.Init&&GlobalVariables.Graph.nodes.Count>0) { 
             Layouts.Init(GlobalVariables.TwoD);
     
-                GlobalVariables.JsonManager.ResetLayout();
+                GlobalVariables.JsonManager.SoftResetLayout();
         }
     }
 
@@ -188,9 +198,10 @@ public class UIInteracton : MonoBehaviour {
         //  GlobalVariables.Url = "file:///" + Application.dataPath + "/" + d.captionText.text + ".json";
         //GlobalVariables.SelectionIndex = d.value;
         //GlobalVariables.Url = "";
-
+        GraphDescription.text = GraphDescriptions[GameObject.Find("UIDropdown").GetComponent<Dropdown>().value].text;
         ReadJSON.CurrentJSON = GraphFiles[d.value].text;
         Debug.Log("select "+d.value);
+
 
     }
 
@@ -327,7 +338,6 @@ public class UIInteracton : MonoBehaviour {
 
 
     }
-
 
 
     public static void SEnableEdgeType(string type)

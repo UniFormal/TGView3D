@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MoveAway : MonoBehaviour
 {
@@ -36,13 +37,13 @@ public class MoveAway : MonoBehaviour
     }
     IEnumerator MoveBackRoutine()
     {
-        while (transform.position.x > 500)
+        while (transform.position.x > Screen.height * .5f)
         {
             transform.parent.position -= Vector3.right * 100f;
             yield return new WaitForSeconds(.01f);
         }
         
-        while (transform.position.x > Screen.height*.3f)
+        while (transform.position.x > Screen.height*.35f)
         {
             transform.parent.position -= Vector3.right * .1f;
 
@@ -54,14 +55,19 @@ public class MoveAway : MonoBehaviour
         StartCoroutine(MoveRoutine());
     }
 
-    public void Move()
+    public void Move(Image img)
     {
         if (transform.position.x >= Screen.width - 16)
         {
             StartCoroutine(MoveBackRoutine());
+            img.transform.localScale += Vector3.right * 2;
         }
         else
-        StartCoroutine(MoveRoutine());
+        {
+            StartCoroutine(MoveRoutine());
+            img.transform.localScale -= Vector3.right * 2;
+        }
+     
     }
 
 

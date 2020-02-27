@@ -201,6 +201,7 @@ namespace TGraph
             {
 
                 Graph.latestSelection = result;
+                GlobalVariables.MouseManager.SelectNode(result);
             }
             else
             {
@@ -218,6 +219,7 @@ namespace TGraph
                     {
                         Graph.latestSelection = Graph.nodeDict[pair.Key];
                         Debug.Log("found " + Graph.latestSelection);
+                        GlobalVariables.MouseManager.SelectNode(Graph.nodeDict[pair.Key]);
                         return;
                     }
 
@@ -240,7 +242,11 @@ namespace TGraph
                             Graph.latestSelection = Graph.nodeDict[pair.Key];
                             Debug.Log("found " + Graph.latestSelection);
                             if (!FoundNodes.Contains(Graph.nodes[Graph.nodeDict[pair.Key]]))
+                            {
                                 FoundNodes.Add(Graph.nodes[Graph.nodeDict[pair.Key]]);
+                                GlobalVariables.MouseManager.SelectNode(Graph.nodeDict[pair.Key]);
+                            }
+                                
                             return;
                         }
 
@@ -659,6 +665,7 @@ namespace TGraph
             {
                 //Add Nodes that are not already present in orginal data
                 //TODO: use label of id
+
                 MyNode tmp = new MyNode();
                 tmp.id = name;
                 tmp.label = name+"(generated)";
@@ -1028,13 +1035,14 @@ namespace TGraph
                     GameObject torus = GameObject.Instantiate(Resources.Load("Torus")) as GameObject;
                     node.nodeObject.transform.Rotate(Vector3.up, 360 * -1f * same / count);
                     torus.transform.parent = node.nodeObject.transform;
+
                     torus.transform.localPosition = new Vector3(1, 0, 0);
                     torus.transform.localScale = new Vector3(100, 100, 100);
                     torus.GetComponent<Renderer>().material = new Material(mat);
                     torus.GetComponent<Renderer>().material.color =
                     // new Color(20/255f,20/255f,140/255f);
                    TGraph.ReadJSON.ColorDict[Graph.edges[edgeIndices[idx]].style] / 255f;
-
+                    torus.transform.localEulerAngles = new Vector3(0, 0, 0);
 
                     Graph.edges[edgeIndices[idx]].localIdx = (same-- / count);
 
@@ -1047,6 +1055,49 @@ namespace TGraph
         void ProcessEdges()
         {
             Graph.tmpEdges = Graph.edges;
+            /*
+            MyNode tmp = new MyNode();
+            tmp.id = "out";
+            tmp.label = "outside";
+            tmp.nr = Graph.nodes.Count;
+            tmp.generated = true;
+           
+            //      Debug.Log(tmp.radius);
+            Graph.nodes.Add(tmp);
+
+            ProcessNode(tmp.id, Graph.nodeDict.Count,null);
+
+            foreach (var edge in Graph.edges)
+            {
+               if(!Graph.nodeDict.ContainsKey(edge.from))
+                {
+                    edge.from = tmp.id;
+                }
+                if (!Graph.nodeDict.ContainsKey(edge.to))
+                {
+                    edge.to = tmp.id;
+                }
+
+            }*/
+            
+            for (int i = 0; i < Graph.edges.Count; i++)
+            {
+                var edge = Graph.edges[i];
+                if (!Graph.nodeDict.ContainsKey(edge.from))
+                {
+                    Graph.edges.Remove(edge);
+                    i--;
+                    continue;
+                }
+                if (!Graph.nodeDict.ContainsKey(edge.to))
+                {
+                    Graph.edges.Remove(edge);
+                    i--;
+                    continue;
+                }
+
+            }
+
             for (int i = 0; i < Graph.edges.Count; i++)
             {
                 //add nodes if not already present
@@ -1073,7 +1124,7 @@ namespace TGraph
                         target.edgeIndicesIn.Add(i);
 
                         float weight = 1;
-                   
+                   /*
                         if (Graph.edges[i].style != "Graphinclude" && Graph.edges[i].style != "include")
                         {
                             weight = 0.8f;
@@ -1082,7 +1133,7 @@ namespace TGraph
                                 weight = .2f;
                          
                             }
-                        }
+                        }*/
                         source.weights.Add(weight);
                         target.weights.Add(weight);
                         source.outWeights.Add(weight);
@@ -1211,7 +1262,8 @@ namespace TGraph
 
         public IEnumerator FinishUpdate()
         {
-           
+
+            
             NativeArray<float> Energies = new NativeArray<float>(Graph.nodes.Count, Allocator.Persistent);
             for(int i = 0; i< Energies.Length;++i)
             {
@@ -1220,6 +1272,7 @@ namespace TGraph
             var handle = Layouts.BaseLayout(0, globalWeight, spaceScale, Energies);
             handle.Complete();
 
+  
             yield return StartCoroutine(UpdateLoop(Iterations,Energies));
 
  
@@ -1230,6 +1283,7 @@ namespace TGraph
 
         public IEnumerator SmallUpdate(int iterations=4)
         {
+            Layouts.EnTree();
             iterations = 2;
             for(int i = 0; i < iterations; i++)
             {
@@ -1246,7 +1300,9 @@ namespace TGraph
 
                 yield return StartCoroutine(UpdateLoop(5, Energies));
             }
-          
+
+            //Layouts.EnTree();
+           // UpdateAllEdges();
 
 
         }
@@ -1263,8 +1319,7 @@ namespace TGraph
               
             }
 
-
-
+      
             //UIInteracton.SEnableEdgeType("meta");
             string type = "meta";
             if (ReadJSON.EdgeTypes.ContainsKey(type))
