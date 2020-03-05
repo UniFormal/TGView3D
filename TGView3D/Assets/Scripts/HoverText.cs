@@ -22,9 +22,9 @@ public class HoverText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     IEnumerator DelayedEnable()
     {
-        yield return new WaitForSeconds(.4f);
+        yield return new WaitForSeconds(.25f);
         Text.enabled = true;
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(15f);
         Text.enabled = false;
 
     }

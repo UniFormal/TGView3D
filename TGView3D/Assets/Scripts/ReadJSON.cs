@@ -524,7 +524,7 @@ namespace TGraph
                 foreach (var node in tmpGraph.nodes)
                 {
                     node.color = col;
-                    Debug.Log(node.radius);
+                 //   Debug.Log(node.radius);
                 }
 
                 megaGraph.nodes.AddRange(tmpGraph.nodes);
@@ -1585,11 +1585,11 @@ namespace TGraph
             }
 
 
-            string style = "zombie";
+            string style = "transitivelyReduced";
 
             if (!EdgeTypes.ContainsKey(style))
             {
-                EdgeTypes.Add(style, new EdgeType(""));
+                EdgeTypes.Add(style, new EdgeType("hierarchic"));
 
                 if (!ColorDict.ContainsKey(style))
                 {
@@ -1656,7 +1656,7 @@ namespace TGraph
                         cNode.visited = true;
                         cNode.height = tNode.height + 1;
                         if(cNode.fastestEdge!=null)
-                            cNode.fastestEdge.style = "zombie";
+                            cNode.fastestEdge.style = "transitivelyReduced";
                         cNode.fastestEdge = edge;
                     }
                     transitiveNodes.Push(cNode);
@@ -1664,7 +1664,62 @@ namespace TGraph
                 }
             }*/
 
- 
+
+           
+            foreach (var node in Graph.nodes)
+            {
+                List<MyNode> directNodes = new List<MyNode>();
+                foreach (var eid in node.edgeIndicesOut)
+                {
+                    
+                    var edge = Graph.edges[eid];
+                    if (edge.style == "uses" || edge.style == "include")
+                    {
+                        int nid = Graph.nodeDict[edge.to];
+                        var cNode = Graph.nodes[nid];
+                        cNode.fastestEdge = edge;
+                        directNodes.Add(cNode);
+                    }
+             
+                }
+                int directCount = directNodes.Count;
+                foreach(var dNode in directNodes)
+                {
+                    Stack<MyNode> reachableNodes = new Stack<MyNode>();
+                    reachableNodes.Push(dNode);
+                    while (reachableNodes.Count > 0)
+                    {
+                        var rNode = reachableNodes.Pop();
+                        foreach (var eid in rNode.edgeIndicesOut)
+                        {
+                            var edge = Graph.edges[eid];
+                            if (edge.style == "uses" || edge.style == "include")
+                            {
+                                int nid = Graph.nodeDict[edge.to];
+                                var cNode = Graph.nodes[nid];
+                                reachableNodes.Push(cNode);
+                                if (directNodes.Contains(cNode) && cNode.fastestEdge.style != "transitivelyReduced")
+                                {
+                                    cNode.fastestEdge.style = "transitivelyReduced";
+                                    directCount--;
+                                    if (directCount == 0)
+                                    {
+                                        reachableNodes.Clear();
+                                        break;
+                                    }
+
+                                }
+                            }
+                 
+                        }
+                    }
+                 
+                }
+         
+            }
+
+     
+
 
             Material mat1 = new Material(mat);
             mat1.color = Color.red;

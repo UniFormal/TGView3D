@@ -27,6 +27,8 @@ public class UIInteracton : MonoBehaviour {
     void Start()
     {
         UIDropdown = GameObject.Find("UIDropdown");
+
+        /*
         UIDropdown.GetComponent<Dropdown>().options.Clear();
         string demoGraphPath = Application.dataPath + "/DemoGraphs/";
  
@@ -55,7 +57,7 @@ public class UIInteracton : MonoBehaviour {
                 GraphDescriptions[i] = new TextAsset(file);
             }
                
-        }
+        }*/
 
 
         //if(ReadJSON.CurrentJSON == null)

@@ -1412,7 +1412,10 @@ namespace TGraph
             string type = "meta";
             if (ReadJSON.EdgeTypes.ContainsKey(type))
                 ReadJSON.EdgeTypes[type].active = !ReadJSON.EdgeTypes[type].active;
-            Debug.Log(type);
+            /*
+            type = "transitivelyReduced";
+            if (ReadJSON.EdgeTypes.ContainsKey(type))
+                ReadJSON.EdgeTypes[type].active = !ReadJSON.EdgeTypes[type].active;*/
             var graph = GlobalVariables.Graph;
             var edges = graph.edges;
 

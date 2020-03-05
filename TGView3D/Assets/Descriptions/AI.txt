@@ -1,0 +1,2 @@
+The course notes of https://kwarc.info/teaching/AI/ converted into a graph.
+The relations between theories "sit on top of the chapter hierarchy"
