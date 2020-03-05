@@ -1,0 +1,259 @@
+{
+    "nodes": [
+        {
+            "id": "Flyspeck-Tame.Generator",
+            "style": "",
+            "label": "Flyspeck-Tame.Generator",
+            "url": "",
+            "mathml": "",
+            "color": "",
+            "radius": 0.497493714094162
+        }
+    ],
+    "edges": [
+        {
+            "id": "Flyspeck-Tame.GeneratorHOL.Product_Type",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Generator",
+            "to": "HOL.Product_Type",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GeneratorHOL.HOL",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Generator",
+            "to": "HOL.HOL",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GeneratorLambdaPi",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Generator",
+            "to": "LambdaPi",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GeneratorTyped",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Generator",
+            "to": "Typed",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GeneratorHOL.Nat",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Generator",
+            "to": "HOL.Nat",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GeneratorHOL.List",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Generator",
+            "to": "HOL.List",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GeneratorPure",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Generator",
+            "to": "Pure",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GeneratorIsabelle",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Generator",
+            "to": "Isabelle",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GeneratorFlyspeck-Tame.Graph",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Generator",
+            "to": "Flyspeck-Tame.Graph",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GeneratorHOL.Set",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Generator",
+            "to": "HOL.Set",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GeneratorHOL.Orderings",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Generator",
+            "to": "HOL.Orderings",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GeneratorHOL.BNF_Composition",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Generator",
+            "to": "HOL.BNF_Composition",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GeneratorHOL.Inductive",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Generator",
+            "to": "HOL.Inductive",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GeneratorHOL.Complete_Lattices",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Generator",
+            "to": "HOL.Complete_Lattices",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GeneratorHOL.Wellfounded",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Generator",
+            "to": "HOL.Wellfounded",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GeneratorHOL.Fun_Def",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Generator",
+            "to": "HOL.Fun_Def",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GeneratorHOL.Groups",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Generator",
+            "to": "HOL.Groups",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GeneratorFlyspeck-Tame.Plane1",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Generator",
+            "to": "Flyspeck-Tame.Plane1",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GeneratorHOL.Num",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Generator",
+            "to": "HOL.Num",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GeneratorFlyspeck-Tame.Plane",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Generator",
+            "to": "Flyspeck-Tame.Plane",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GeneratorFlyspeck-Tame.Tame",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Generator",
+            "to": "Flyspeck-Tame.Tame",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GeneratorFlyspeck-Tame.FaceDivision",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Generator",
+            "to": "Flyspeck-Tame.FaceDivision",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GeneratorFlyspeck-Tame.Enumerator",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Generator",
+            "to": "Flyspeck-Tame.Enumerator",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GeneratorHOL.Option",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Generator",
+            "to": "HOL.Option",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GeneratorFlyspeck-Tame.ListAux",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Generator",
+            "to": "Flyspeck-Tame.ListAux",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GeneratorFlyspeck-Tame.ListSum",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Generator",
+            "to": "Flyspeck-Tame.ListSum",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GeneratorHOL.Lattices",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Generator",
+            "to": "HOL.Lattices",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        }
+    ],
+    "chapters": []
+}

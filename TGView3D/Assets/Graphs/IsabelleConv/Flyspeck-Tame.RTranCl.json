@@ -1,0 +1,133 @@
+{
+    "nodes": [
+        {
+            "id": "Flyspeck-Tame.RTranCl",
+            "style": "",
+            "label": "Flyspeck-Tame.RTranCl",
+            "url": "",
+            "mathml": "",
+            "color": "",
+            "radius": 0.3278719186782837
+        }
+    ],
+    "edges": [
+        {
+            "id": "Flyspeck-Tame.RTranClHOL.HOL",
+            "style": "uses",
+            "from": "Flyspeck-Tame.RTranCl",
+            "to": "HOL.HOL",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RTranClHOL.List",
+            "style": "uses",
+            "from": "Flyspeck-Tame.RTranCl",
+            "to": "HOL.List",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RTranClLambdaPi",
+            "style": "uses",
+            "from": "Flyspeck-Tame.RTranCl",
+            "to": "LambdaPi",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RTranClTyped",
+            "style": "uses",
+            "from": "Flyspeck-Tame.RTranCl",
+            "to": "Typed",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RTranClIsabelle",
+            "style": "uses",
+            "from": "Flyspeck-Tame.RTranCl",
+            "to": "Isabelle",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RTranClPure",
+            "style": "uses",
+            "from": "Flyspeck-Tame.RTranCl",
+            "to": "Pure",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RTranClHOL.Set",
+            "style": "uses",
+            "from": "Flyspeck-Tame.RTranCl",
+            "to": "HOL.Set",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RTranClHOL.Product_Type",
+            "style": "uses",
+            "from": "Flyspeck-Tame.RTranCl",
+            "to": "HOL.Product_Type",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RTranClHOL.Orderings",
+            "style": "uses",
+            "from": "Flyspeck-Tame.RTranCl",
+            "to": "HOL.Orderings",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RTranClHOL.Inductive",
+            "style": "uses",
+            "from": "Flyspeck-Tame.RTranCl",
+            "to": "HOL.Inductive",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RTranClHOL.BNF_Composition",
+            "style": "uses",
+            "from": "Flyspeck-Tame.RTranCl",
+            "to": "HOL.BNF_Composition",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RTranClHOL.Complete_Lattices",
+            "style": "uses",
+            "from": "Flyspeck-Tame.RTranCl",
+            "to": "HOL.Complete_Lattices",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RTranClHOL.Lattices",
+            "style": "uses",
+            "from": "Flyspeck-Tame.RTranCl",
+            "to": "HOL.Lattices",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        }
+    ],
+    "chapters": []
+}

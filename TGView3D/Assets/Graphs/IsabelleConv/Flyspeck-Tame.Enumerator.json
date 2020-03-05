@@ -1,0 +1,142 @@
+{
+    "nodes": [
+        {
+            "id": "Flyspeck-Tame.Enumerator",
+            "style": "",
+            "label": "Flyspeck-Tame.Enumerator",
+            "url": "",
+            "mathml": "",
+            "color": "",
+            "radius": 0.3082207143306732
+        }
+    ],
+    "edges": [
+        {
+            "id": "Flyspeck-Tame.EnumeratorLambdaPi",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Enumerator",
+            "to": "LambdaPi",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorHOL.Nat",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Enumerator",
+            "to": "HOL.Nat",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorHOL.List",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Enumerator",
+            "to": "HOL.List",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorHOL.Groups",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Enumerator",
+            "to": "HOL.Groups",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorHOL.HOL",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Enumerator",
+            "to": "HOL.HOL",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorHOL.Num",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Enumerator",
+            "to": "HOL.Num",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorIsabelle",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Enumerator",
+            "to": "Isabelle",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorPure",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Enumerator",
+            "to": "Pure",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorTyped",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Enumerator",
+            "to": "Typed",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorFlyspeck-Tame.IArray_Syntax",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Enumerator",
+            "to": "Flyspeck-Tame.IArray_Syntax",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorHOL-Library.IArray",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Enumerator",
+            "to": "HOL-Library.IArray",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorHOL.Option",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Enumerator",
+            "to": "HOL.Option",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorFlyspeck-Tame.Graph",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Enumerator",
+            "to": "Flyspeck-Tame.Graph",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorHOL.Orderings",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Enumerator",
+            "to": "HOL.Orderings",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        }
+    ],
+    "chapters": []
+}

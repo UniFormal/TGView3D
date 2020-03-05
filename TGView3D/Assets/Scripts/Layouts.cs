@@ -132,7 +132,18 @@ namespace TGraph
                 Vector3 pos = Random.insideUnitSphere * VolumeWidth * Mathf.Pow(graph.nodes.Count, 1 / 3f) / 2;
                 if (graph.FlatInit) pos.y = 0;
                 if (TwoD) pos.z = 0;// Random.Range(-.01f,.01f);
-                if (graph.RootLeaves) pos.y = Stretch(i);
+
+                bool hasHierarchy = false;
+                foreach(var type in ReadJSON.EdgeTypes)
+                {
+                    if(type.Value.type == "hierarchic")
+                    {
+                        hasHierarchy = true;
+                        break;
+                    }
+                }
+
+                if (graph.RootLeaves&&hasHierarchy ) pos.y = Stretch(i);
                 graph.nodes[i].pos = pos;
                 graph.nodes[i].nodeObject.transform.localPosition = pos;
             }
@@ -266,6 +277,7 @@ namespace TGraph
                 //if (!temp) node.pos = node.nodeObject.transform.localPosition;
             }
             
+            /*
             Vector3 avgPos = Vector3.zero;
             Vector3 desiredgPos = Vector3.zero;
             int rn = 0;
@@ -286,7 +298,7 @@ namespace TGraph
             foreach (ReadJSON.MyNode node in graph.nodes)
             {
                 node.nodeObject.transform.localPosition -= avgPos-desiredgPos;
-            }
+            }*/
 
 
             if (temp)
@@ -609,7 +621,8 @@ namespace TGraph
                         Debug.Log(y);
                         // y = Mathf.Sign(y) * (Mathf.Sqrt(Mathf.Sqrt(Mathf.Abs(y * graph.nodes.Count / 100))));
                         // Debug.Log(node.weight + " " + node.height + " " + y);
-                        node.style = "chapter";
+                      
+      
 
                         Vector3 pos = new Vector3(node.pos.x, y, node.pos.z);// / Mathf.Max(1, (graph.nodes.Count / 200.0f));
 
@@ -619,7 +632,7 @@ namespace TGraph
                     else
                     {
                   //      Debug.Log(node.id);
-                        node.style = "";
+                       // node.style = "";
                     }
              
                 }
@@ -790,7 +803,7 @@ namespace TGraph
                     {
                         var differenceNodesY = u.pos.y - n.pos.y;
                         //s
-                        upDist += kSquared/ Mathf.Max(epsilon, differenceNodesY - (diameter+u.radius+n.radius));
+                        upDist += kSquared/ Mathf.Max(epsilon, differenceNodesY - (diameter+u.radius*0.01f+n.radius*0.01f));
                         //      if (epsilon>=differenceNodesY) if (n.id.Contains("_dec") || n.id.Contains("_nat")) Debug.Log(n.id + " " + u.id + " " );
 
                     }
@@ -812,7 +825,7 @@ namespace TGraph
                     var u = graph.nodes[n.connectedNodes[k]];
                     {
                         var differenceNodesY = u.pos.y - n.pos.y;
-                        downDist += kSquared/Mathf.Min(-epsilon, differenceNodesY + (diameter+u.radius+n.radius));
+                        downDist += kSquared/Mathf.Min(-epsilon, differenceNodesY + (diameter+u.radius*0.01f+n.radius*0.01f));
                         //  if (-epsilon<=differenceNodesY) if (n.id.Contains("_dec") || n.id.Contains("_nat")) Debug.Log(n.id + " " + u.id+" ");
                     }
 
@@ -1085,7 +1098,7 @@ namespace TGraph
                                     continue;
                                 var differenceNodes = u.pos - n.pos; ;
 
-                                var lengthDiff = Mathf.Max(0, differenceNodes.magnitude - (diameter+n.radius+u.radius)) + epsilon;
+                                var lengthDiff = Mathf.Max(0, differenceNodes.magnitude - (diameter+n.radius*0.01f+u.radius*0.01f)) + epsilon;
                                 maxDist = Mathf.Max(maxDist, lengthDiff);
 
                                 var attractiveForce = (lengthDiff * lengthDiff / kVal);
@@ -1115,7 +1128,7 @@ namespace TGraph
                             }
                             n.range = maxDist;
                             /*
-                            var upos = Vector3.right*n.GraphNumber*3;
+                            var upos = Vector3.zero;// Vector3.right*n.GraphNumber*3;
                             var diffVec = upos - n.pos;
                             var lD = Mathf.Max(0, diffVec.magnitude - diameter) + epsilon;
                             var aF = (lD * lD / kVal);
@@ -1169,7 +1182,7 @@ namespace TGraph
                               //  if (u.GraphNumber == n.GraphNumber && n != u && (u.edgeIndicesIn != null || u.edgeIndicesOut != null))
                                 {
                                     var differenceNodes = u.pos - n.pos;
-                                    var lengthDiff = Mathf.Max(0, differenceNodes.magnitude - (diameter+n.radius+u.radius)) + epsilon;
+                                    var lengthDiff = Mathf.Max(0, differenceNodes.magnitude - (diameter+n.radius*0.01f+u.radius*0.01f)) + epsilon;
 
                                     var repulsiveForce = -(kSquared / lengthDiff);
                                     if (graph.PushLimit > 0.01f)
@@ -1177,7 +1190,7 @@ namespace TGraph
                                         if (//n.GraphNumber == u.GraphNumber&&
                                             graph.fin > iterations*.2f && maxDist > 0 && lengthDiff > graph.PushLimit * (maxDist + n.range))
                                         {
-                                            repulsiveForce = 0;
+                                            repulsiveForce *= .1f;
                                             //    limit++;
                                         }
                                         else //increase it to even out zeroing
@@ -1211,7 +1224,7 @@ namespace TGraph
                             if (TwoD) n.disp.z = 0;//*= 0.001f;
                             if (graph.HeightInit&&!graph.UseConstraint) n.disp.y = 0;
 
-                            if (n.style == "chapter") n.disp.y = 0;
+                            if (n.height >= 0 || n.weight >= 0) n.disp.y = 0;
                         
 
                         }

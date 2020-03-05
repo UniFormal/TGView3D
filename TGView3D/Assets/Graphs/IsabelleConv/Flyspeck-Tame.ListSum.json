@@ -1,0 +1,160 @@
+{
+    "nodes": [
+        {
+            "id": "Flyspeck-Tame.ListSum",
+            "style": "",
+            "label": "Flyspeck-Tame.ListSum",
+            "url": "",
+            "mathml": "",
+            "color": "",
+            "radius": 0.2828427255153656
+        }
+    ],
+    "edges": [
+        {
+            "id": "Flyspeck-Tame.ListSumHOL.Groups",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListSum",
+            "to": "HOL.Groups",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListSumHOL.HOL",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListSum",
+            "to": "HOL.HOL",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListSumHOL.Nat",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListSum",
+            "to": "HOL.Nat",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListSumHOL.Rings",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListSum",
+            "to": "HOL.Rings",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListSumPure",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListSum",
+            "to": "Pure",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListSumHOL.Orderings",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListSum",
+            "to": "HOL.Orderings",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListSumHOL.List",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListSum",
+            "to": "HOL.List",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListSumHOL.Numeral_Simprocs",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListSum",
+            "to": "HOL.Numeral_Simprocs",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListSumHOL.Int",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListSum",
+            "to": "HOL.Int",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListSumHOL.Set",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListSum",
+            "to": "HOL.Set",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListSumHOL.Num",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListSum",
+            "to": "HOL.Num",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListSumLambdaPi",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListSum",
+            "to": "LambdaPi",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListSumIsabelle",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListSum",
+            "to": "Isabelle",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListSumTyped",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListSum",
+            "to": "Typed",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListSumHOL.Groups_Big",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListSum",
+            "to": "HOL.Groups_Big",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListSumHOL.Lattices",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListSum",
+            "to": "HOL.Lattices",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        }
+    ],
+    "chapters": []
+}

@@ -1,0 +1,1221 @@
+[
+  {
+    "@graph": [
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.PlaneGraphs_def|thm",
+        "https://mathhub.info/ulodefinition": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "PlaneGraphs_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Plane1.theory#989.31.0:998.31.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Complete_Lattices?Complete_Lattices.Sup_class.Sup|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.PlaneGraphsP|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Orderings?Orderings.top_class.top|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.set|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.PlaneGraphs|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.graph|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.image|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.minimalVertex|const",
+        "https://mathhub.info/ulofunction": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "minimalVertex"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Plane1.theory#481.18.11:493.18.23"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.graph|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.face|type"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.PlaneGraphsP|const",
+        "https://mathhub.info/ulofunction": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "PlaneGraphsP"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Plane1.theory#867.28.11:878.28.22"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.set|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.graph|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.next_plane_def|thm",
+        "https://mathhub.info/ulodefinition": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "next_plane_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Plane1.theory#585.21.0:594.21.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.Suc|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.minimalVertex|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.concat|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane?Plane.maxGon|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.minimalFace|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.If|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.upt|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.One|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.Bit1|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Let|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.nonFinals|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.map|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.graph|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.next_plane|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.face|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane?Plane.generatePolygon|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Nil|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.numeral_class.numeral|const"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.minimalVertex_def|definition",
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "Plane1.minimalVertex_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Plane1.theory#470.18.0:479.18.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.next_plane_def|definition",
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "Plane1.next_plane_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Plane1.theory#585.21.0:594.21.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.minimalVertex_def|thm",
+        "https://mathhub.info/ulodefinition": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "minimalVertex_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Plane1.theory#470.18.0:479.18.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.graph|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ListAux?ListAux.minimal|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.height|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.minimalVertex|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.vertices|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.face|type"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1",
+        "http://purl.org/dc/terms/creator": [
+          {
+            "@value": "Gertrud Bauer"
+          },
+          {
+            "@value": "Tobias Nipkow"
+          }
+        ],
+        "http://purl.org/dc/terms/license": [
+          {
+            "@value": "BSD"
+          }
+        ],
+        "https://mathhub.info/ulocheck-time": [
+          {
+            "@value": "97"
+          }
+        ],
+        "https://mathhub.info/uloexternal-size": [
+          {
+            "@value": "1348"
+          }
+        ],
+        "https://mathhub.info/ulospecifies": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.minimalVertex_def|definition"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.minimalVertex_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.PlaneGraphsP_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.minimalFace_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.next_plane|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.PlaneGraphs|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.next_plane_def_raw|axiom"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.PlaneGraphsP_def_raw|axiom"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.PlaneGraphsP|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.minimalFace_def_raw|axiom"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.minimalVertex|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.PlaneGraphs_def_raw|axiom"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.minimalFace_def|definition"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.next_plane_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.PlaneGraphs_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.minimalFace|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.PlaneGraphsP_def|definition"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.minimalVertex_def_raw|axiom"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.next_plane_def|definition"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.PlaneGraphs_def|definition"
+          }
+        ],
+        "https://mathhub.info/ulotheory": [
+          {
+            "@value": ""
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.next_plane|const",
+        "https://mathhub.info/ulofunction": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "next_plane"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Plane1.theory#596.21.11:605.21.20"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.graph|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.minimalFace|const",
+        "https://mathhub.info/ulofunction": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "minimalFace"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Plane1.theory#384.15.11:394.15.21"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.face|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.minimalFace_def_raw|axiom",
+        "https://mathhub.info/ulodefines": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.minimalFace|const"
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "minimalFace_def_raw"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Plane1.theory#373.15.0:382.15.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Fun?Fun.comp|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.face|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ListAux?ListAux.minimal|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.size_class.size|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.minimalFace|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.vertices|const"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.minimalFace_def|definition",
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "Plane1.minimalFace_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Plane1.theory#373.15.0:382.15.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.minimalFace_def|thm",
+        "https://mathhub.info/ulodefinition": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "minimalFace_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Plane1.theory#373.15.0:382.15.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.size_class.size|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.vertices|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.face|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ListAux?ListAux.minimal|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.minimalFace|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Fun?Fun.comp|const"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.PlaneGraphs|const",
+        "https://mathhub.info/ulofunction": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "PlaneGraphs"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Plane1.theory#1000.31.11:1010.31.21"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.set|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.graph|type"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.PlaneGraphs_def|definition",
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "Plane1.PlaneGraphs_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Plane1.theory#989.31.0:998.31.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.next_plane_def_raw|axiom",
+        "https://mathhub.info/ulodefines": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.next_plane|const"
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "next_plane_def_raw"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Plane1.theory#585.21.0:594.21.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.minimalVertex|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.nonFinals|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.Suc|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.face|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.concat|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.map|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.Bit1|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.One|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.minimalFace|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Nil|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Let|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.numeral_class.numeral|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.If|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.upt|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane?Plane.generatePolygon|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.graph|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane?Plane.maxGon|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.next_plane|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.PlaneGraphsP_def|definition",
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "Plane1.PlaneGraphsP_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Plane1.theory#856.28.0:865.28.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.PlaneGraphsP_def_raw|axiom",
+        "https://mathhub.info/ulodefines": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.PlaneGraphsP|const"
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "PlaneGraphsP_def_raw"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Plane1.theory#856.28.0:865.28.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.graph|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.conj|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.member|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.final|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.next_plane|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.set|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.Collect|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.PlaneGraphsP|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.RTranCl?RTranCl.RTranCl|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Product_Type?Product_Type.Pair|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Product_Type?Product_Type.prod|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane?Plane.Seed|const"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.PlaneGraphsP_def|thm",
+        "https://mathhub.info/ulodefinition": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "PlaneGraphsP_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Plane1.theory#856.28.0:865.28.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.RTranCl?RTranCl.RTranCl|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.PlaneGraphsP|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane?Plane.Seed|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Product_Type?Product_Type.prod|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.next_plane|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.conj|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.graph|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.member|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.set|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.final|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Product_Type?Product_Type.Pair|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.Collect|const"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.minimalVertex_def_raw|axiom",
+        "https://mathhub.info/ulodefines": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.minimalVertex|const"
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "minimalVertex_def_raw"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Plane1.theory#470.18.0:479.18.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ListAux?ListAux.minimal|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.graph|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.vertices|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.height|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.minimalVertex|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.face|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.PlaneGraphs_def_raw|axiom",
+        "https://mathhub.info/ulodefines": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.PlaneGraphs|const"
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "PlaneGraphs_def_raw"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Plane1.theory#989.31.0:998.31.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.graph|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.set|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Orderings?Orderings.top_class.top|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.PlaneGraphs|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.PlaneGraphsP|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Complete_Lattices?Complete_Lattices.Sup_class.Sup|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.image|const"
+          }
+        ]
+      }
+    ],
+    "@id": "file:///D:/mlibs/AFP/rdf/Flyspeck-Tame/Flyspeck-Tame.Plane1.rdf"
+  }
+]

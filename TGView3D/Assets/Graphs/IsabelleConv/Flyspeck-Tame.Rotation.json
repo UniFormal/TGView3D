@@ -1,0 +1,214 @@
+{
+    "nodes": [
+        {
+            "id": "Flyspeck-Tame.Rotation",
+            "style": "",
+            "label": "Flyspeck-Tame.Rotation",
+            "url": "",
+            "mathml": "",
+            "color": "",
+            "radius": 0.22360680997371674
+        }
+    ],
+    "edges": [
+        {
+            "id": "Flyspeck-Tame.RotationPure",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Rotation",
+            "to": "Pure",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RotationLambdaPi",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Rotation",
+            "to": "LambdaPi",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RotationFlyspeck-Tame.ListAux",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Rotation",
+            "to": "Flyspeck-Tame.ListAux",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RotationIsabelle",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Rotation",
+            "to": "Isabelle",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RotationTyped",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Rotation",
+            "to": "Typed",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RotationHOL.Product_Type",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Rotation",
+            "to": "HOL.Product_Type",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RotationHOL.List",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Rotation",
+            "to": "HOL.List",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RotationHOL.HOL",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Rotation",
+            "to": "HOL.HOL",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RotationHOL.Nat",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Rotation",
+            "to": "HOL.Nat",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RotationHOL.Set",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Rotation",
+            "to": "HOL.Set",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RotationHOL.Orderings",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Rotation",
+            "to": "HOL.Orderings",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RotationFlyspeck-Tame.PlaneGraphIso",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Rotation",
+            "to": "Flyspeck-Tame.PlaneGraphIso",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RotationHOL.Fun",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Rotation",
+            "to": "HOL.Fun",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RotationHOL.Equiv_Relations",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Rotation",
+            "to": "HOL.Equiv_Relations",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RotationHOL.Lattices_Big",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Rotation",
+            "to": "HOL.Lattices_Big",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RotationHOL.Groups",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Rotation",
+            "to": "HOL.Groups",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RotationHOL.Rings",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Rotation",
+            "to": "HOL.Rings",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RotationHOL.Num",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Rotation",
+            "to": "HOL.Num",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RotationHOL.Numeral_Simprocs",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Rotation",
+            "to": "HOL.Numeral_Simprocs",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RotationHOL.Int",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Rotation",
+            "to": "HOL.Int",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RotationHOL.Euclidean_Division",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Rotation",
+            "to": "HOL.Euclidean_Division",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.RotationHOL.Lattices",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Rotation",
+            "to": "HOL.Lattices",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        }
+    ],
+    "chapters": []
+}

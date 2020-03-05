@@ -1,0 +1,349 @@
+{
+    "nodes": [
+        {
+            "id": "Flyspeck-Tame.ScoreProps",
+            "style": "",
+            "label": "Flyspeck-Tame.ScoreProps",
+            "url": "",
+            "mathml": "",
+            "color": "",
+            "radius": 0.5454356074333191
+        }
+    ],
+    "edges": [
+        {
+            "id": "Flyspeck-Tame.ScorePropsPure",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "Pure",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsHOL.Nat",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "HOL.Nat",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsHOL.List",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "HOL.List",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsLambdaPi",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "LambdaPi",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsHOL.HOL",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "HOL.HOL",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsFlyspeck-Tame.Generator",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "Flyspeck-Tame.Generator",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsHOL.Orderings",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "HOL.Orderings",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsIsabelle",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "Isabelle",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsHOL.Product_Type",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "HOL.Product_Type",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsTyped",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "Typed",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsHOL.Groups",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "HOL.Groups",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsFlyspeck-Tame.Graph",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "Flyspeck-Tame.Graph",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsHOL.Inductive",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "HOL.Inductive",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsHOL.Set",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "HOL.Set",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsFlyspeck-Tame.Invariants",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "Flyspeck-Tame.Invariants",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsFlyspeck-Tame.GraphProps",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "Flyspeck-Tame.GraphProps",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsHOL.Complete_Lattices",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "HOL.Complete_Lattices",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsFlyspeck-Tame.ListAux",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "Flyspeck-Tame.ListAux",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsHOL.BNF_Composition",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "HOL.BNF_Composition",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsHOL.Fun_Def",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "HOL.Fun_Def",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsHOL.Wellfounded",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "HOL.Wellfounded",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsHOL.Num",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "HOL.Num",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsHOL.Rings",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "HOL.Rings",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsFlyspeck-Tame.ListSum",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "Flyspeck-Tame.ListSum",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsFlyspeck-Tame.Tame",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "Flyspeck-Tame.Tame",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsFlyspeck-Tame.PlaneProps",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "Flyspeck-Tame.PlaneProps",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsHOL.Int",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "HOL.Int",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsHOL.Numeral_Simprocs",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "HOL.Numeral_Simprocs",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsFlyspeck-Tame.FaceDivisionProps",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "Flyspeck-Tame.FaceDivisionProps",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsHOL.Lattices",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "HOL.Lattices",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsHOL.Option",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "HOL.Option",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsFlyspeck-Tame.TameProps",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "Flyspeck-Tame.TameProps",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsHOL.Presburger",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "HOL.Presburger",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsHOL.Set_Interval",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "HOL.Set_Interval",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsHOL.Groups_Big",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "HOL.Groups_Big",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsHOL.Finite_Set",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "HOL.Finite_Set",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ScorePropsHOL.Fun",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ScoreProps",
+            "to": "HOL.Fun",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        }
+    ],
+    "chapters": []
+}

@@ -1,0 +1,97 @@
+{
+    "nodes": [
+        {
+            "id": "Flyspeck-Tame.Arch",
+            "style": "",
+            "label": "Flyspeck-Tame.Arch",
+            "url": "",
+            "mathml": "",
+            "color": "",
+            "radius": 0.25495097041130068
+        }
+    ],
+    "edges": [
+        {
+            "id": "Flyspeck-Tame.ArchLambdaPi",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Arch",
+            "to": "LambdaPi",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchHOL.List",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Arch",
+            "to": "HOL.List",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchHOL.Nat",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Arch",
+            "to": "HOL.Nat",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchHOL.HOL",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Arch",
+            "to": "HOL.HOL",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchIsabelle",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Arch",
+            "to": "Isabelle",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchHOL.Code_Numeral",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Arch",
+            "to": "HOL.Code_Numeral",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchTyped",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Arch",
+            "to": "Typed",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchPure",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Arch",
+            "to": "Pure",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchHOL.Fun",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Arch",
+            "to": "HOL.Fun",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        }
+    ],
+    "chapters": []
+}

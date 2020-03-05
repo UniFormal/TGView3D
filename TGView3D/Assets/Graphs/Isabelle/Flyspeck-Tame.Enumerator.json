@@ -1,0 +1,2415 @@
+[
+  {
+    "@graph": [
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumerator|const",
+        "https://mathhub.info/ulofunction": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "enumerator"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#1582.49.11:1591.49.20"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumAppend_def|definition",
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "Enumerator.enumAppend_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#1427.46.0:1436.46.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator",
+        "http://purl.org/dc/terms/creator": [
+          {
+            "@value": "Gertrud Bauer"
+          },
+          {
+            "@value": "Tobias Nipkow"
+          }
+        ],
+        "http://purl.org/dc/terms/license": [
+          {
+            "@value": "BSD"
+          }
+        ],
+        "https://mathhub.info/ulocheck-time": [
+          {
+            "@value": "432"
+          }
+        ],
+        "https://mathhub.info/uloexternal-size": [
+          {
+            "@value": "3088"
+          }
+        ],
+        "https://mathhub.info/ulospecifies": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumBase_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumBase|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDups.simps(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumTab_def|definition"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumAppend_def|definition"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumBase_def_raw|axiom"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumTab_def_raw|axiom"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumerator_def|definition"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumAppend_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumerator_def_raw|axiom"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enum|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDupsRec.simps(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDupsRec_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDups.simps(2)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.indexToVertexList_def|definition"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enum_def_raw|axiom"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDups|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.indexToVertexList|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumTab_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumTab|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDupsRec_def|axiom"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDups|recursive_definition"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.1|document_heading"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDups_def|axiom"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDups_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumBase_def|definition"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDupsRec|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumAppend_def_raw|axiom"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumAppend|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enum_def|definition"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumerator_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.indexToVertexList_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.indexToVertexList_def_raw|axiom"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enum_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDupsRec.simps(2)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDupsRec|recursive_definition"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumerator|const"
+          }
+        ],
+        "https://mathhub.info/ulotheory": [
+          {
+            "@value": ""
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumerator_def|definition",
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "Enumerator.enumerator_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#1571.49.0:1580.49.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumAppend|const",
+        "https://mathhub.info/ulofunction": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "enumAppend"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#1438.46.11:1447.46.20"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumerator_def_raw|axiom",
+        "https://mathhub.info/ulodefines": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumerator|const"
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "enumerator_def_raw"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#1571.49.0:1580.49.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.minus_class.minus|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Let|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.Bit1|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.compow|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.one_class.one|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumerator|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumAppend|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.Bit0|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Cons|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.One|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumBase|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Nil|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.zero_class.zero|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.map|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.numeral_class.numeral|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.append|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enum|const",
+        "https://mathhub.info/ulofunction": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "enum"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#1989.58.11:1992.58.14"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.indexToVertexList_def|definition",
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "Enumerator.indexToVertexList_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#2527.74.0:2536.74.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumAppend_def|thm",
+        "https://mathhub.info/ulodefinition": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "enumAppend_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#1427.46.0:1436.46.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Nil|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.Suc|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.last|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.append|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.upt|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.concat|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Cons|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumAppend|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.map|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumTab_def_raw|axiom",
+        "https://mathhub.info/ulodefines": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumTab|const"
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "enumTab_def_raw"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#1812.54.0:1821.54.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumTab|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.IArray_Syntax?IArray_Syntax.tabulate2|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.numeral_class.numeral|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.One|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL-Library.IArray?IArray.iarray|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.Bit0|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumerator|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.Bit1|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.indexToVertexList_def_raw|axiom",
+        "https://mathhub.info/ulodefines": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.indexToVertexList|const"
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "indexToVertexList_def_raw"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#2527.74.0:2536.74.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Option?Option.option|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.map|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.face|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.nextVertices|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.indexToVertexList|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDups|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enum_def_raw|axiom",
+        "https://mathhub.info/ulodefines": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enum|const"
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "enum_def_raw"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#1978.58.0:1987.58.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL-Library.IArray?IArray.iarray|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumTab|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL-Library.IArray?IArray.sub|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.Bit0|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.If|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.Bit1|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.conj|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enum|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.One|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.numeral_class.numeral|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Orderings?Orderings.ord_class.less|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumerator|const"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDups.simps(1)|thm",
+        "https://mathhub.info/ulodefinition": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "hideDups.simps(1)"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#2404.70.0:2410.70.6"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDups_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Nil|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Option?Option.option|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Trueprop|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.arity_type_list|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.refl|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.type|class"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDups|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.rec(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.trans|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Option?Option.arity_type_option|thm"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDupsRec_def|axiom",
+        "https://mathhub.info/ulodefines": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDupsRec|const"
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "hideDupsRec_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#2202.64.0:2208.64.6"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Option?Option.option|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Option?Option.option.Some|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.rec_list|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Cons|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDupsRec|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Nil|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Option?Option.option.None|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.If|const"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumTab_def|definition",
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "Enumerator.enumTab_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#1812.54.0:1821.54.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumBase|const",
+        "https://mathhub.info/ulofunction": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "enumBase"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#1339.43.11:1346.43.18"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.indexToVertexList_def|thm",
+        "https://mathhub.info/ulodefinition": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "indexToVertexList_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#2527.74.0:2536.74.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.indexToVertexList|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDups|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.nextVertices|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.face|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.map|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Option?Option.option|type"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDupsRec_def|thm",
+        "https://mathhub.info/ulodefinition": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "hideDupsRec_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#2202.64.0:2208.64.6"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.rec_list|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.type|class"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Cons|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDupsRec|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Option?Option.option.None|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Nil|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Option?Option.option|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.If|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Option?Option.option.Some|const"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDups.simps(2)|thm",
+        "https://mathhub.info/ulodefinition": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "hideDups.simps(2)"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#2404.70.0:2410.70.6"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Trueprop|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.refl|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.type|class"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDups|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.arity_type_list|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.trans|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Cons|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Option?Option.arity_type_option|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.rec(2)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDups_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDupsRec|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Option?Option.option|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Option?Option.option.Some|const"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.indexToVertexList|const",
+        "https://mathhub.info/ulofunction": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "indexToVertexList"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#2538.74.11:2554.74.27"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Option?Option.option|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.face|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDups_def|axiom",
+        "https://mathhub.info/ulodefines": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDups|const"
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "hideDups_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#2404.70.0:2410.70.6"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDupsRec|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Cons|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Option?Option.option|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Nil|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDups|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.rec_list|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Option?Option.option.Some|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.1|document_heading",
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "Enumerator.1"
+          }
+        ],
+        "https://mathhub.info/ulosection": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumTab|const",
+        "https://mathhub.info/ulofunction": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "enumTab"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#1823.54.11:1829.54.17"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL-Library.IArray?IArray.iarray|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDupsRec|recursive_definition",
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "Enumerator.hideDupsRec"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#2202.64.0:2208.64.6"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDups|recursive_definition",
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "Enumerator.hideDups"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#2404.70.0:2410.70.6"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumTab_def|thm",
+        "https://mathhub.info/ulodefinition": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "enumTab_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#1812.54.0:1821.54.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumTab|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumerator|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.numeral_class.numeral|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.One|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.IArray_Syntax?IArray_Syntax.tabulate2|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.Bit1|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL-Library.IArray?IArray.iarray|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.Bit0|const"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumAppend_def_raw|axiom",
+        "https://mathhub.info/ulodefines": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumAppend|const"
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "enumAppend_def_raw"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#1427.46.0:1436.46.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.concat|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumAppend|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Cons|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.upt|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.Suc|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.last|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.map|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.append|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Nil|const"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDups_def|thm",
+        "https://mathhub.info/ulodefinition": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "hideDups_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#2404.70.0:2410.70.6"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDupsRec|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Cons|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Option?Option.option|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Nil|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDups|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.type|class"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.rec_list|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Option?Option.option.Some|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enum_def|thm",
+        "https://mathhub.info/ulodefinition": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "enum_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#1978.58.0:1987.58.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.Bit0|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL-Library.IArray?IArray.iarray|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enum|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.Bit1|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.If|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.One|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Orderings?Orderings.ord_class.less|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.conj|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.numeral_class.numeral|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumerator|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumTab|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL-Library.IArray?IArray.sub|const"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDupsRec|const",
+        "https://mathhub.info/ulofunction": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloinductive-on": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "hideDupsRec"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#2210.64.8:2220.64.18"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Option?Option.option|type"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDups|const",
+        "https://mathhub.info/ulofunction": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloinductive-on": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "hideDups"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#2412.70.8:2419.70.15"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Option?Option.option|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumBase_def|definition",
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "Enumerator.enumBase_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#1328.43.0:1337.43.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumBase_def_raw|axiom",
+        "https://mathhub.info/ulodefines": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumBase|const"
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "enumBase_def_raw"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#1328.43.0:1337.43.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.Suc|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.zero_class.zero|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.upt|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Cons|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumBase|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Nil|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.map|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumBase_def|thm",
+        "https://mathhub.info/ulodefinition": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "enumBase_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#1328.43.0:1337.43.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.upt|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.zero_class.zero|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumBase|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.Suc|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Nil|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.map|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Cons|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumerator_def|thm",
+        "https://mathhub.info/ulodefinition": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "enumerator_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#1571.49.0:1580.49.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.map|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.Bit0|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.One|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Cons|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Let|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.minus_class.minus|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumAppend|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.one_class.one|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.append|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.numeral_class.numeral|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Nil|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumBase|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.zero_class.zero|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.Bit1|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.compow|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enumerator|const"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.enum_def|definition",
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "Enumerator.enum_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#1978.58.0:1987.58.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDupsRec.simps(2)|thm",
+        "https://mathhub.info/ulodefinition": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "hideDupsRec.simps(2)"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#2202.64.0:2208.64.6"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.trans|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.refl|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.If|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.arity_type_fun|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Option?Option.option.None|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Option?Option.arity_type_option|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.fun_cong|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.arity_type_list|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.type|class"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Option?Option.option.Some|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDupsRec_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Option?Option.option|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Trueprop|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDupsRec|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.rec(2)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Cons|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDupsRec.simps(1)|thm",
+        "https://mathhub.info/ulodefinition": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "hideDupsRec.simps(1)"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Enumerator.theory#2202.64.0:2208.64.6"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Trueprop|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Nil|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDupsRec|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.arity_type_fun|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Option?Option.arity_type_option|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.fun_cong|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.arity_type_list|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.refl|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.type|class"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.rec(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.trans|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Enumerator?Enumerator.hideDupsRec_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Option?Option.option|type"
+          }
+        ]
+      }
+    ],
+    "@id": "file:///D:/mlibs/AFP/rdf/Flyspeck-Tame/Flyspeck-Tame.Enumerator.rdf"
+  }
+]

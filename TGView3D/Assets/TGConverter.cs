@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using Unity.Collections;
+using Unity.Jobs;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -13,8 +15,8 @@ public class TGConverter : MonoBehaviour
     static string Path; 
     // Start is called before the first frame update
     public string Rdf =  "https://gl.mathhub.info/Coq/mathcomp-bigenough/raw/master/triples.rdf";
-
-
+    public static List<string> FileContents = new List<string>();
+    public static List<string> FileNames= new List<string>();
 
 
     [System.Serializable]
@@ -82,10 +84,10 @@ public class TGConverter : MonoBehaviour
         public List<RDFID> uses;
         public List<RDFID> instanceof;
         public List<RDFID> justifies;
-        //string specifiedin;
-        public string name;
-        public string paratype;
-        public string sourceref;
+        public List<RDFID> specifiedin;
+        public List<RDFID> name;
+        public List<RDFID> paratype;
+        public List<RDFID> sourceref;
 
 
         public RDFNode(string id, List<string> specifies, List<string> uses, List<string> instanceof, string name, string justifies, string paratype, string sourceref)
@@ -116,12 +118,13 @@ public class TGConverter : MonoBehaviour
         text = text.Replace("tmpuri:/", "");
         //text.Replace("?", "/");
         text = text.Replace("dcterms:", "");
+        if (text[0] == '[') text = text.Remove(0, 1);
+        if (text[text.Length - 1] == ']') text = text.Remove(text.Length - 1, 1);
         var gSingle = JsonUtility.FromJson<CoqGraphSingle>(text);
-       // var gDeclares = JsonUtility.FromJson<CoqGraphDeclares>(text);
-
+       
+        // var gDeclares = JsonUtility.FromJson<CoqGraphDeclares>(text);
 
         CoqGraph g = JsonUtility.FromJson<CoqGraph>(text);
-
 
         for (int i = 0; i < g.graph.Count; ++i)
         {
@@ -144,6 +147,7 @@ public class TGConverter : MonoBehaviour
                 at.Add(gSingle.graph[i].declares);
                 node.declares = at;
             }
+            /*
             if (node.HasMainHypothesis == null)
             {
                 var at = new List<RDFID>();
@@ -162,16 +166,13 @@ public class TGConverter : MonoBehaviour
                 var at = new List<RDFID>();
                 at.Add(gSingle.graph[i].HasMainConclusion);
                 node.HasMainConclusion = at;
-            }
+            }*/
         }
 
         var rdfEdges = new List<TGraph.ReadJSON.MyEdge>();
         var rdfNodes = new List<TGraph.ReadJSON.MyNode>();
         var rdfChapters = new List<TGraph.ReadJSON.MyChapter>();
 
-
-
-  
 
         foreach (var node in g.graph)
         {
@@ -217,16 +218,16 @@ public class TGConverter : MonoBehaviour
                 foreach (var d in node.declares)
                 {
                     var s = d.id;
-            
+
                     if (g.graph.Find(n => n.id == s).declares.Count == 0) // rdf node has no other chapters = > isNode
-                         specifiedNodes.Add(s);
+                        specifiedNodes.Add(s);
                     else
                     {
-                        Debug.Log("chapter "+s+" of "+node.id);
+                        Debug.Log("chapter " + s + " of " + node.id);
                         specifiedChapters.Add(s);
 
                     }
-                        
+
                 }
                 var splitted = node.id.Split('/');
                 var name = splitted[splitted.Length - 1];
@@ -250,7 +251,7 @@ public class TGConverter : MonoBehaviour
                 });
             }
 
-            
+
             foreach (var to in node.uses)
             {
                 rdfEdges.Add(new TGraph.ReadJSON.MyEdge
@@ -260,6 +261,7 @@ public class TGConverter : MonoBehaviour
                     style = "uses"
                 });
             }
+            /*
             foreach (var to in node.HasMainHypothesis)
             {
                 rdfEdges.Add(new TGraph.ReadJSON.MyEdge
@@ -268,33 +270,39 @@ public class TGConverter : MonoBehaviour
                     to = g.graph.Find(n=>n.id==to.id).Target.id,
                     style = "HasMainHypthesis"
                 });
-            }
+            }*/
 
-
-            var tGraph = new TGraph.ReadJSON.MyGraph
-            {
-                nodes = rdfNodes,
-                edges = rdfEdges,
-                chapters = rdfChapters
-            };
-
-            string json = JsonUtility.ToJson(tGraph, true);
-
-            File.WriteAllText(Path, json);
         }
+        var tGraph = new TGraph.ReadJSON.MyGraph
+        {
+            nodes = rdfNodes,
+            edges = rdfEdges,
+            chapters = rdfChapters
+        };
+
+        string json = JsonUtility.ToJson(tGraph, true);
+
+        File.WriteAllText(Path, json);
+        
     }
 
-    public static void Convert(TextAsset file)
+    public static void Convert(string s, string name)
     {
-        Path = Application.dataPath + "/Graphs/conv" + file.name + ".json";
-        var text = file.text.Replace("@", "");
-        text = text.Replace("-", "");
+
+        var text = s.Replace("@value", "id");
+        text = text.Replace("@", "");
+        text = text.Replace("specified-in", "specified");
+        text = text.Replace("instance-of", "instanceof");
         text = text.Replace("https://mathhub.info/ulo", "");
         text = text.Replace("tmpuri:/", "");
+        if (text[0] == '[') text = text.Remove(0, 1);
+        if (text[text.Length - 1] == ']') text = text.Remove(text.Length - 1, 1);
         //text.Replace("?", "/");
-        var gSingle = JsonUtility.FromJson<RDFGraphSingle>(text);
-        RDFGraph g = JsonUtility.FromJson<RDFGraph>(text);
+      //  Debug.Log(text);
 
+       // var gSingle = JsonUtility.FromJson<RDFGraphSingle>(text);
+        RDFGraph g = JsonUtility.FromJson<RDFGraph>(text);
+        /*
         for (int i = 0; i < g.graph.Count; ++i)
         {
             var node = g.graph[i];
@@ -332,29 +340,64 @@ public class TGConverter : MonoBehaviour
     
 
 
-        }
+        }*/
 
         var rdfEdges = new List<TGraph.ReadJSON.MyEdge>();
         var rdfNodes = new List<TGraph.ReadJSON.MyNode>();
         var rdfChapters = new List<TGraph.ReadJSON.MyChapter>();
 
-
-
         List<string> sourceRefs = new List<string>();
 
-        foreach (var node in g.graph)
+        var mainNode = new TGraph.ReadJSON.MyNode
         {
-            /*
-foreach (var to in node.specifies)
-{
-    rdfEdges.Add(new TGraph.ReadJSON.MyEdge
-    {
-        from = node.id,
-        to = to,
-        style = "specifies"
-    });
-}*/
+            label = name,
+            id = name,
+            radius = Mathf.Sqrt(g.graph.Count) * 0.05f,
+        };
 
+        rdfNodes.Add(mainNode);
+
+        for (int i = 0; i<g.graph.Count;i++)
+        {
+            var node = g.graph[i];
+
+           // Debug.Log(node.name.id +" "+node.id);
+            if ( node.name.Count == 0 )
+            {
+                node.name = new List<RDFID>
+                {
+                    new RDFID(node.id)
+                };
+            }
+
+
+            if (node.specifies.Count == 0 && node.uses.Count == 0) continue;
+
+           // Debug.Log(node.specifies.Count);
+           /*
+            rdfNodes.Add(new TGraph.ReadJSON.MyNode
+            {
+                label = node.name[0].id,
+                id = node.id,
+                radius = Mathf.Sqrt(node.specifies.Count) * 0.05f,
+                
+                // style = node.paratype[0].id
+            });*/
+            
+         
+            /*
+            foreach (var to in node.specifies)
+            {
+                rdfEdges.Add(new TGraph.ReadJSON.MyEdge
+                {
+                    from = node.id,
+                    to = to.id,
+                    style = "specifies"
+                });
+            }*/
+
+
+            /*
             if (node.specifies.Count > 0)
             {
                 var specifiedNodes = new List<string>();
@@ -384,20 +427,42 @@ foreach (var to in node.specifies)
                     id = node.id,
                     style = node.paratype
                 });
-            }
+            }*/
+            /*
+            string origin = node.id;
+            if (node.specifiedin.Count > 0)
+            {
+                origin = node.specifiedin[0].id;
+            }*/
 
- 
-            
+            string origin = mainNode.id;
+
             foreach (var to in node.uses)
             {
+                
+                string target = to.id;
+                var toNode = g.graph.Find(n => n.id == target);
+                if (toNode != null) target = mainNode.id;// if (toNode != null) target =toNode.specifiedin[0].id;
+                else
+                {
+                    var splitted = target.Split('?');
+                    target = splitted[1];
+                  //  Debug.Log(target);
+                }
+           
+
+                if (target!=origin&&rdfEdges.Find(e=>e.id == (origin+target))==null)
                 rdfEdges.Add(new TGraph.ReadJSON.MyEdge
                 {
-                    from = node.id,
-                    to = to.id,
-                    style = "uses"
+                    from = origin,
+                    to = target,
+                    style = "uses",
+                    id = origin+target
+
                 });
             }
 
+            /*
             foreach (var to in node.instanceof)
             {
                 rdfEdges.Add(new TGraph.ReadJSON.MyEdge
@@ -430,14 +495,12 @@ foreach (var to in node.specifies)
                     });
                 }
                 rdfChapters.Find(c => c.id == node.sourceref).nodes.Add(node.id);
-              */
-
-
-            }
-
-            foreach (var to in node.instanceof)
+              /
+              
+            }*/
+            /*
+            foreach (var to in node.justifies)
             {
-
                 rdfEdges.Add(new TGraph.ReadJSON.MyEdge
                 {
                     from = node.id,
@@ -445,33 +508,87 @@ foreach (var to in node.specifies)
                     style = "justifies"
                 });
 
-            }
-
-            var tGraph = new TGraph.ReadJSON.MyGraph
-            {
-                nodes = rdfNodes,
-                edges = rdfEdges,
-                chapters = rdfChapters
-            };
-
-            string json = JsonUtility.ToJson(tGraph,true);
-
-            File.WriteAllText(Path, json);
+            }*/
+     
         }
+        var tGraph = new TGraph.ReadJSON.MyGraph
+        {
+            nodes = rdfNodes,
+            edges = rdfEdges,
+            chapters = rdfChapters
+        };
+
+        string json = JsonUtility.ToJson(tGraph,true);
+
+        File.WriteAllText(Path + name + ".json", json);
+       // Debug.Log("completed " + Path+ name + ".json");
+       
     }
     void Start()
     {
-        if(RDFFile!=null) Convert(RDFFile);
+        if (RDFFile != null) Convert(RDFFile.text, RDFFile.name);
         else 
             if (CoqFile!= null) ConvertCoq(CoqFile);
-        else
+        else if( Rdf!="")
         {
             string prefix = "http://rdf-translator.appspot.com/convert/xml/json-ld/";
            
             StartCoroutine(GetRequest(prefix + Rdf));
         }
+        else
+        {
+            string manyPath = "D:/mlibs/AFP/rdf/";//Application.dataPath + " / Graphs/Isabelle/";
+
+            int emergencyCounter = 0;
+            foreach ( var file in Directory.GetFiles(manyPath, "*.json"))
+            {
+                if (emergencyCounter++ <= 3000)
+                    continue;
+                if (emergencyCounter > 4000) break;
+                string content = File.ReadAllText(file);
+                
+                string name = System.IO.Path.GetFileNameWithoutExtension(file);
+                FileNames.Add(name);
+                FileContents.Add(content);
+               
+            }
+            Path = "D:/mlibs/AFP/json/";//Application.dataPath + "/Graphs/IsabelleConv/"; 
+            int k = 0;
+            List<JobHandle> handles = new List<JobHandle>();
+            foreach(var file in FileNames)
+            {
+                var j = new MyIsabelleJob{
+                    idx = k++
+                };
+            //    Debug.Log(k);
+                handles.Add(j.Schedule());
+               
+            }
+            foreach( var handle in handles)
+            {
+                handle.Complete();
+            }
+        }
 
     }
+
+
+    public static void MultiConvert(int idx)
+    {
+        Convert(FileContents[idx], FileNames[idx]);
+    }
+
+    // Job adding two floating point values together
+    public struct MyIsabelleJob : IJob
+    {
+        public int idx;
+        public void Execute()
+        {
+            MultiConvert(idx);
+        }
+
+    }
+
 
 
     IEnumerator GetRequest(string uri)

@@ -1,0 +1,1626 @@
+[
+  {
+    "@graph": [
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_to_def|thm",
+        "https://mathhub.info/ulodefinition": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "rotate_to_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Rotation.theory#112.9.0:121.9.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ListAux?ListAux.splitAt|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Product_Type?Product_Type.prod.snd|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Cons|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Product_Type?Product_Type.prod.fst|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.append|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_to|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.type|class"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.1|document_heading",
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "Rotation.1"
+          }
+        ],
+        "https://mathhub.info/ulosection": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.3|proof_text",
+        "https://mathhub.info/ulojustifies": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.norm_eq_if_face_cong|thm"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_min_def|definition",
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "Rotation.rotate_min_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Rotation.theory#232.12.0:241.12.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_min_def|thm",
+        "https://mathhub.info/ulodefinition": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "rotate_min_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Rotation.theory#232.12.0:241.12.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ListAux?ListAux.min_list|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_min|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_to|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.4|proof_text",
+        "https://mathhub.info/ulojustifies": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.norm_eq_iff_face_cong|thm"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.inj_on_rotate_min_iff|thm",
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "inj_on_rotate_min_iff"
+          }
+        ],
+        "https://mathhub.info/ulopara": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloparatype": [
+          {
+            "@value": "lemma"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Rotation.theory#2587.64.6:2607.64.26"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.simp_thms(6)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Eq_TrueI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.simp_implies_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.notI|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Not|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.bool|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.subst|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.ball_cong_simp|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.simp_implies_cong|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Nil|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.TrueI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.rev_mp|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.conjunct2|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.insert|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.bspec|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Orderings?Orderings.bot_class.bot|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.norm_eq_iff_face_cong|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.PlaneGraphIso?PlaneGraphIso.singleton_list_cong_eq_iff|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.arity_type_bool|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.sym|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_min|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.simp_thms(8)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.arity_type_set|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.notE|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Trueprop|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.distinct|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Fun?Fun.inj_on_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.arity_type_list|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.set|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.conjunct1|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.member|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Eq_FalseI|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.eq_reflection|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Fun?Fun.inj_on|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Equiv_Relations?Equiv_Relations.quotient|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.implies_True_equals|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.simp_impliesI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.impI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.arity_type_nat|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.imp_cong|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.Ball|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.meta_eq_to_obj_eq|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.PlaneGraphIso?PlaneGraphIso.Iso|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.conjI|thm"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_to_def|definition",
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "Rotation.rotate_to_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Rotation.theory#112.9.0:121.9.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.norm_eq_iff_face_cong|thm",
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "norm_eq_iff_face_cong"
+          }
+        ],
+        "https://mathhub.info/ulopara": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloparatype": [
+          {
+            "@value": "lemma"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Rotation.theory#2413.59.6:2433.59.26"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.face_cong_if_norm_eq|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Trueprop|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.bool|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Not|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.norm_eq_if_face_cong|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.PlaneGraphIso?PlaneGraphIso.pr_isomorphic|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Nil|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.ccontr|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_min|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.distinct|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.swap|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.iffI|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.2|proof_text",
+        "https://mathhub.info/ulojustifies": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.face_cong_if_norm_eq|thm"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_min_def_raw|axiom",
+        "https://mathhub.info/ulodefines": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_min|const"
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "rotate_min_def_raw"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Rotation.theory#232.12.0:241.12.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_min|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ListAux?ListAux.min_list|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_to|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.5|proof_text",
+        "https://mathhub.info/ulojustifies": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.inj_on_rotate_min_iff|thm"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_min|const",
+        "https://mathhub.info/ulofunction": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "rotate_min"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Rotation.theory#243.12.11:252.12.20"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.1|proof_text",
+        "https://mathhub.info/ulojustifies": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.cong_rotate_to|thm"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation",
+        "http://purl.org/dc/terms/creator": [
+          {
+            "@value": "Tobias Nipkow"
+          },
+          {
+            "@value": "Gertrud Bauer"
+          }
+        ],
+        "http://purl.org/dc/terms/license": [
+          {
+            "@value": "BSD"
+          }
+        ],
+        "https://mathhub.info/ulocheck-time": [
+          {
+            "@value": "25"
+          },
+          {
+            "@value": "10"
+          },
+          {
+            "@value": "227"
+          },
+          {
+            "@value": "2"
+          },
+          {
+            "@value": "513"
+          },
+          {
+            "@value": "11"
+          }
+        ],
+        "https://mathhub.info/uloexternal-size": [
+          {
+            "@value": "3341"
+          }
+        ],
+        "https://mathhub.info/ulospecifies": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_to_def|definition"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.norm_eq_if_face_cong|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_min|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_min_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_to_def_raw|axiom"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_min_def|definition"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_min_def_raw|axiom"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.norm_eq_iff_face_cong|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_to|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.cong_rotate_to|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_to_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.inj_on_rotate_min_iff|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.face_cong_if_norm_eq|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.1|document_heading"
+          }
+        ],
+        "https://mathhub.info/ulotheory": [
+          {
+            "@value": ""
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.norm_eq_if_face_cong|thm",
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "norm_eq_if_face_cong"
+          }
+        ],
+        "https://mathhub.info/ulopara": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloparatype": [
+          {
+            "@value": "lemma"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Rotation.theory#2220.54.6:2239.54.25"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.arity_linorder_nat|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.set_rotate|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Nil|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.eq_reflection|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.exE|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.simp_thms(8)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.conjI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.implies_True_equals|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.impI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.inject|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ListAux?ListAux.splitAt_rotate_pair_conv|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.arity_type_bool|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.rev_mp|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.finite_set|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.rotate_is_Nil_conv|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_to_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.distinct|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Eq_TrueI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ListAux?ListAux.min_list_conv_Min|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.PlaneGraphIso?PlaneGraphIso.congs_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Eq_FalseI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_min|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.TrueI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_min_def|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Trueprop|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.simp_thms(6)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.arity_type_list|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.set_empty|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.arity_type_nat|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Not|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.arity_type_set|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Lattices_Big?Lattices_Big.linorder_class.Min_in|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.PlaneGraphIso?PlaneGraphIso.pr_isomorphic|const"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_to_def_raw|axiom",
+        "https://mathhub.info/ulodefines": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_to|const"
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "rotate_to_def_raw"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Rotation.theory#112.9.0:121.9.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_to|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.append|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Product_Type?Product_Type.prod.fst|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Cons|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Product_Type?Product_Type.prod.snd|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ListAux?ListAux.splitAt|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.face_cong_if_norm_eq|thm",
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "face_cong_if_norm_eq"
+          }
+        ],
+        "https://mathhub.info/ulopara": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloparatype": [
+          {
+            "@value": "lemma"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Rotation.theory#1844.43.6:1863.43.25"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.arity_type_bool|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.simp_thms(8)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.TrueI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.arity_type_list|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.ccontr|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.arity_linorder_nat|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.Nil|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Trueprop|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.swap|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_min|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.PlaneGraphIso?PlaneGraphIso.congs_sym|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.finite_set|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Eq_TrueI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.cong_rotate_to|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.PlaneGraphIso?PlaneGraphIso.pr_isomorphic|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.arity_type_nat|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Not|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.implies_True_equals|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.set_empty|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.eq_reflection|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.PlaneGraphIso?PlaneGraphIso.congs_trans|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_min_def|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Eq_FalseI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ListAux?ListAux.min_list_conv_Min|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Lattices_Big?Lattices_Big.linorder_class.Min_in|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.sym|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_to|const",
+        "https://mathhub.info/ulofunction": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "rotate_to"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Rotation.theory#123.9.11:131.9.19"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?arrow"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.cong_rotate_to|thm",
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "cong_rotate_to"
+          }
+        ],
+        "https://mathhub.info/ulopara": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloparatype": [
+          {
+            "@value": "lemma"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Rotation.theory#338.16.6:351.16.19"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.plus_class.super|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Rings?Rings.classrel_semiring_0_cancel_semiring_0|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.add_mono_thms_linordered_semiring(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.Suc_eq_plus1_left|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.append.append_Nil|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.plus_nat.add_0|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.classrel_comm_monoid_add_monoid_add|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.append_eq_append_conv|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.id_take_nth_drop|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.PlaneGraphIso?PlaneGraphIso.pr_isomorphic|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.ab_semigroup_add_class.super|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.numeral_class.super(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.monoid_add_class.super(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Rings?Rings.linordered_comm_semiring_strict_class.super(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.member|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.minus_class.super|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.arith_simps(16)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.ccontr|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Rings?Rings.dioid_class.super(2)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.notE|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.same_append_eq|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.eq_cong2|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.de_Morgan_conj|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.cancel_comm_monoid_add_class.super(2)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_to_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.conjE|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Numeral_Simprocs?Numeral_Simprocs.nat_less_add_iff1|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Rotation?Rotation.rotate_to|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.classrel_semiring_1_semiring_numeral|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Eq_FalseI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.type|class"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Rings?Rings.semiring_0_class.super(2)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.plus_nat.add_Suc|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.rotate_drop_take|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.classrel_semiring_numeral_numeral|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.arity_linordered_semidom_nat|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD1|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Rings?Rings.classrel_linordered_semidom_linordered_nonzero_semiring|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Eq_TrueI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.classrel_ring_1_neg_numeral|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.append_take_drop_id|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.conjunct2|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.semigroup_add_class.super|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.arith_simps(52)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.not_not|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.swap|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.trans|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.arity_comm_monoid_diff_nat|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.simp_thms(6)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Int?Int.arity_comm_ring_1_int|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.classical|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.arity_comm_semiring_1_cancel_nat|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.comm_monoid_diff_class.super|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.arity_type_nat|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.length_drop|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.monoid_add_class.add.right_neutral|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.sym|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.rel_simps(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Rings?Rings.mult_zero_class.super(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Int?Int.diff_nat_numeral|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.numeral_class.numeral.numeral_One|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.PlaneGraphIso?PlaneGraphIso.congs_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.imp_conv_disj|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Rings?Rings.classrel_comm_ring_1_ring_1|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.times_nat.mult_0|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.TrueI|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.rel_simps(24)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Rings?Rings.classrel_semiring_1_cancel_semiring_0_cancel|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Euclidean_Division?Euclidean_Division.mod_less|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.ab_semigroup_add_class.add.left_commute|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.add_Suc_right|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.meta_eq_to_obj_eq|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Int?Int.nat_0|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.linorder_neqE_nat|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.ordered_cancel_ab_semigroup_add_class.super(2)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.ab_semigroup_add_class.add.commute|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.times_class.super|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.eq_reflection|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Rings?Rings.classrel_comm_semiring_1_cancel_semiring_1_cancel|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Trueprop|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.arity_linorder_nat|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat_mult_1|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.size(4)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.arity_type_list|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.neg_numeral_class.super(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.rel_simps(28)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ListAux?ListAux.splitAt_ram|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.one_class.super|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.Suc_leI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.arith_simps(62)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.simp_thms(30)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Lattices?Lattices.linorder_class.split_min|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.Suc_not_Zero|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat.inject|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.group_add_class.super(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.add_0_right|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Numeral_Simprocs?Numeral_Simprocs.nat_le_add_iff1|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.conjI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.linordered_cancel_ab_semigroup_add_class.super(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.cancel_comm_monoid_add_class.super(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.arity_dioid_nat|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.set|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.de_Morgan_disj|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.arity_type_bool|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD2|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.inject|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.cancel_ab_semigroup_add_class.super(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.append.append_Cons|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.le_0_eq|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.disjE|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.atomize_eq|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.exI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.numeral_1_eq_Suc_0|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.iffD2|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.implies_True_equals|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.length_append|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.conjunct1|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.refl|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.zero_less_Suc|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.length_take|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.rev_mp|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Rings?Rings.linordered_semidom_class.super(1)|thm"
+          }
+        ]
+      }
+    ],
+    "@id": "file:///D:/mlibs/AFP/rdf/Flyspeck-Tame/Flyspeck-Tame.Rotation.rdf"
+  }
+]

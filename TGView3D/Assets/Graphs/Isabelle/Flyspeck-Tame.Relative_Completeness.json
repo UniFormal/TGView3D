@@ -1,0 +1,2835 @@
+[
+  {
+    "@graph": [
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness/Relative_Completeness.archive_by_computation|locale?axioms(3)",
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness/Relative_Completeness.archive_by_computation|locale"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.1|document_heading",
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "Relative_Completeness.1"
+          }
+        ],
+        "https://mathhub.info/ulosection": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness/Relative_Completeness.archive_by_computation|locale?axioms(7)",
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness/Relative_Completeness.archive_by_computation|locale"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation|locale",
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "archive_by_computation"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Relative_Completeness.theory#249.11.7:270.11.28"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness"
+          }
+        ],
+        "https://mathhub.info/ulotheory": [
+          {
+            "@value": ""
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness/Relative_Completeness.archive_by_computation|locale?axioms(8)",
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness/Relative_Completeness.archive_by_computation|locale"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness/Relative_Completeness.archive_by_computation|locale?axioms(4)",
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness/Relative_Completeness.archive_by_computation|locale"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.Archive|const",
+        "https://mathhub.info/ulofunction": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "Archive"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Relative_Completeness.theory#163.8.11:169.8.17"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.set|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness/Relative_Completeness.archive_by_computation|locale?axioms(6)",
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness/Relative_Completeness.archive_by_computation|locale"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.pre_iso_test3|thm",
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "archive_by_computation.pre_iso_test3"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Relative_Completeness.theory#284.12.10:296.12.22"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation_def|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ArchCompAux?ArchCompAux.pre_iso_test|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Arch?Arch.Tri|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.atomize_conj|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.Ball|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Trueprop|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.set|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD1|thm"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.4|proof_text",
+        "https://mathhub.info/ulojustifies": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.completeness|thm"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.Archive_def|thm",
+        "https://mathhub.info/ulodefinition": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "Archive_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Relative_Completeness.theory#152.8.0:161.8.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.set|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Arch?Arch.Quad|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Arch?Arch.Hex|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.Archive|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Arch?Arch.Pent|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Arch?Arch.Tri|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.set|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.append|const"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation_def|thm",
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "archive_by_computation_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Relative_Completeness.theory#242.11.0:247.11.5"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.conj|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Arch?Arch.Tri|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.numeral_class.numeral|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.Ball|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Arch?Arch.Pent|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.Bit1|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ArchCompAux?ArchCompAux.samet|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ArchCompProps?ArchCompProps.tameEnumFilter|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Arch?Arch.Quad|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.Bit0|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.One|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.one_class.one|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.bool|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.set|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Arch?Arch.Hex|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.zero_class.zero|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ArchCompAux?ArchCompAux.pre_iso_test|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation_def|axiom",
+        "https://mathhub.info/ulodefines": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation|const"
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "archive_by_computation_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Relative_Completeness.theory#242.11.0:247.11.5"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ArchCompAux?ArchCompAux.pre_iso_test|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.bool|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.one_class.one|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.Bit0|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ArchCompAux?ArchCompAux.samet|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.One|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Arch?Arch.Quad|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ArchCompProps?ArchCompProps.tameEnumFilter|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.zero_class.zero|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.Bit1|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Arch?Arch.Pent|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.numeral_class.numeral|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.Ball|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Arch?Arch.Hex|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.conj|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.set|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Arch?Arch.Tri|const"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.pre_iso_test5|thm",
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "archive_by_computation.pre_iso_test5"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Relative_Completeness.theory#397.14.10:409.14.22"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD1|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Trueprop|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.set|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.Ball|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Arch?Arch.Pent|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ArchCompAux?ArchCompAux.pre_iso_test|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD2|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.atomize_conj|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation_def|thm"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.intro|thm",
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "archive_by_computation.intro"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Relative_Completeness.theory#242.11.0:247.11.5"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Arch?Arch.Tri|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Trueprop|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.zero_class.zero|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Arch?Arch.Hex|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.one_class.one|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.set|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ArchCompAux?ArchCompAux.samet|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.One|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Arch?Arch.Quad|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ArchCompProps?ArchCompProps.tameEnumFilter|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.Bit0|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.Bit1|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.atomize_conj|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.numeral_class.numeral|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.Ball|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Arch?Arch.Pent|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ArchCompAux?ArchCompAux.pre_iso_test|const"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness/Relative_Completeness.archive_by_computation|locale?axioms(1)",
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness/Relative_Completeness.archive_by_computation|locale"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.completeness|thm",
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "archive_by_computation.completeness"
+          }
+        ],
+        "https://mathhub.info/ulopara": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloparatype": [
+          {
+            "@value": "theorem"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Relative_Completeness.theory#1961.56.8:1972.56.19"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1Props?Plane1Props.inv_inv_next_plane|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.arity_type_set|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.notE|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Invariants?Invariants.inv_mgp|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Tame?Tame.tame|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.conjE|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.conjunct2|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.True_implies_equals|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.ccontr|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.bex_UNIV|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.ball_simps(8)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.TameEnum?TameEnum.TameEnum_def|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.imp_cong|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.ballE|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.RTranCl?RTranCl.RTranCl_inv|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.subsetI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.allE|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.classical|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Trueprop|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.tame5|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.RTranCl?RTranCl.RTranCl_subset2|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.atomize_all|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.graph|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.FaceDivisionProps?FaceDivisionProps.pre_between_r2|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.iffD2|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Orderings?Orderings.order_class.super|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.simp_impliesI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.PlaneGraphs_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Quasi_Order?Quasi_Order.quasi_order.in_qle|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.UNIV_I|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.TameEnum_comp|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.member|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.PlaneGraphsP_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.bex_simps(7)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ArchCompAux?ArchCompAux.fgraph|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.exE|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.PlaneGraphIso?PlaneGraphIso.qle_gr.defs(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1Props?Plane1Props.mgp_next_plane0_if_next_plane|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.arity_type_bool|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.PlaneGraphIso?PlaneGraphIso.iso_fgraph|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Complete_Lattices?Complete_Lattices.Union_iff|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.arity_linorder_nat|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.simp_implies_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.PlaneGraphs|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.bex_cong_simp|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.mem_Collect_eq|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.ball_cong_simp|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.conjI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.image_cong_simp|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.arity_type_graph|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.impCE|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.swap|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.eq_reflection|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.TameEnum_Archive|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.atomize_imp|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.ball_simps(9)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.bex_simps(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.TameEnum?TameEnum.TameEnumP_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Orderings?Orderings.preorder_class.super|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.arity_type_list|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.PlaneGraphIso?PlaneGraphIso.qle_gr.defs(2)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.meta_eq_to_obj_eq|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.PlaneGraphIso?PlaneGraphIso.qle_gr.qle_refl|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.bexI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Orderings?Orderings.linorder_class.super|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Complete_Lattices?Complete_Lattices.UN_ball_bex_simps(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.arity_type_nat|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.simp_implies_cong|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Invariants?Invariants.inv_Seed|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Eq_TrueI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set_Interval?Set_Interval.ord_class.atMost_iff|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.Archive|const"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.Archive_def|definition",
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "Relative_Completeness.Archive_def"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Relative_Completeness.theory#152.8.0:161.8.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.TameEnum_Archive|thm",
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "archive_by_computation.TameEnum_Archive"
+          }
+        ],
+        "https://mathhub.info/ulopara": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloparatype": [
+          {
+            "@value": "theorem"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Relative_Completeness.theory#709.22.8:724.22.23"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.semigroup_add_class.axioms|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Rings?Rings.dioid_class.super(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.numeral_class.super(2)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.arity_type_bool|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.allI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.refl|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.arity_type_num|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Complete_Lattices?Complete_Lattices.Union_iff|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.arity_linorder_nat|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.Archive_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.simp_implies_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.ball_simps(8)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.TameEnum?TameEnum.TameEnum_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Orderings?Orderings.order_class.super|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.pre_iso_test4|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.one_class.super|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.mem_Collect_eq|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.pre_iso_test5|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.image|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.UnCI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set_Interval?Set_Interval.ord_class.atMost_iff|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.exE|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.PlaneGraphIso?PlaneGraphIso.qle_gr.defs(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.pre_iso_test3|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.allE|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Quasi_Order?Quasi_Order.quasi_order.subseteq_qle|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.disjE|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Trueprop|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Orderings?Orderings.preorder_class.super|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.Un_iff|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.iffD1|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.graph|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Rings?Rings.dioid_class.super(2)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.same4|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.same3|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.numeral_class.super(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.impCE|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.imp_cong|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.classrel_semiring_numeral_numeral|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.arity_type_graph|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.eq_reflection|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.set_append|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.image_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.TameEnum?TameEnum.TameEnum|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.bex_simps(6)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Complete_Lattices?Complete_Lattices.UN_ball_bex_simps(3)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.same6|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.conjE|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.One_nat_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.bex_cong_simp|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.bexI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.arity_type_nat|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.class.numeral.intro|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.ball_cong_simp|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.trans|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.image_cong_simp|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.simp_implies_cong|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.rec(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.bex_simps(8)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.arity_type_set|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.numeral.numeral.numeral_One|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.Archive|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.pre_iso_test6|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.canonically_ordered_monoid_add_class.le_zero_eq|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ArchCompAux?ArchCompAux.fgraph|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.notE|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.bexE|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.bspec|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.PlaneGraphIso?PlaneGraphIso.iso_fgraph|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.arity_dioid_nat|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.classical|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.eval_nat_numeral(3)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ArchCompProps?ArchCompProps.combine_evals_filter|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.disj_assoc|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.PlaneGraphIso?PlaneGraphIso.qle_gr.defs(2)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.meta_eq_to_obj_eq|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.impI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.arity_type_list|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.classrel_semiring_1_semiring_numeral|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.same5|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.le_Suc_eq|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.eval_nat_numeral(2)|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Orderings?Orderings.linorder_class.super|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.simp_impliesI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.BitM_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.swap|thm"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.pre_iso_test4|thm",
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "archive_by_computation.pre_iso_test4"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Relative_Completeness.theory#340.13.10:352.13.22"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Arch?Arch.Quad|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.set|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Trueprop|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD1|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.atomize_conj|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ArchCompAux?ArchCompAux.pre_iso_test|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD2|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.Ball|const"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness/Relative_Completeness.archive_by_computation|locale?axioms(2)",
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness/Relative_Completeness.archive_by_computation|locale"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.1|proof_text",
+        "https://mathhub.info/ulojustifies": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.TameEnum_Archive|thm"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.same3|thm",
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "archive_by_computation.same3"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Relative_Completeness.theory#510.16.10:514.16.14"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ArchCompProps?ArchCompProps.tameEnumFilter|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD1|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation_def|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Arch?Arch.Tri|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.atomize_conj|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD2|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Trueprop|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.zero_class.zero|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ArchCompAux?ArchCompAux.samet|const"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.3|proof_text",
+        "https://mathhub.info/ulojustifies": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.tame5|thm"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.2|proof_text",
+        "https://mathhub.info/ulojustifies": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.TameEnum_comp|thm"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.TameEnum_comp|thm",
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "archive_by_computation.TameEnum_comp"
+          }
+        ],
+        "https://mathhub.info/ulopara": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloparatype": [
+          {
+            "@value": "lemma"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Relative_Completeness.theory#1071.30.6:1083.30.18"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Trueprop|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane1?Plane1.next_plane|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.graph|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.GeneratorProps?GeneratorProps.next_tame0_comp|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.RTranCl?RTranCl.RTranCl|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.TameEnum?TameEnum.next_tame|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane?Plane.Seed|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.member|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.TameEnumProps?TameEnumProps.next_tame_comp|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.final|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Tame?Tame.tame|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.ccontr|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Product_Type?Product_Type.Pair|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.swap|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Product_Type?Product_Type.prod|type"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness",
+        "http://purl.org/dc/terms/creator": [
+          {
+            "@value": "Tobias Nipkow"
+          },
+          {
+            "@value": "Gertrud Bauer"
+          }
+        ],
+        "http://purl.org/dc/terms/license": [
+          {
+            "@value": "BSD"
+          }
+        ],
+        "https://mathhub.info/ulocheck-time": [
+          {
+            "@value": "21"
+          },
+          {
+            "@value": "1198"
+          },
+          {
+            "@value": "45"
+          },
+          {
+            "@value": "1"
+          },
+          {
+            "@value": "1018"
+          }
+        ],
+        "https://mathhub.info/uloexternal-size": [
+          {
+            "@value": "3149"
+          }
+        ],
+        "https://mathhub.info/ulospecifies": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.tame5|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.intro|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.Archive_def_raw|axiom"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.same6|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation_def|axiom"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.TameEnum_Archive|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation|locale"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.same4|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.pre_iso_test3|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.same5|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.completeness|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.same3|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.pre_iso_test4|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.pre_iso_test6|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.1|document_heading"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.Archive_def|definition"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.TameEnum_comp|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.Archive|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.Archive_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.pre_iso_test5|thm"
+          }
+        ],
+        "https://mathhub.info/ulotheory": [
+          {
+            "@value": ""
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness/Relative_Completeness.archive_by_computation|locale",
+        "https://mathhub.info/ulospecifies": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness/Relative_Completeness.archive_by_computation|locale?axioms(6)"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness/Relative_Completeness.archive_by_computation|locale?axioms(1)"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness/Relative_Completeness.archive_by_computation|locale?axioms(3)"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness/Relative_Completeness.archive_by_computation|locale?axioms(5)"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness/Relative_Completeness.archive_by_computation|locale?axioms(2)"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness/Relative_Completeness.archive_by_computation|locale?axioms(8)"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness/Relative_Completeness.archive_by_computation|locale?axioms(7)"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness/Relative_Completeness.archive_by_computation|locale?axioms(4)"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.Archive_def_raw|axiom",
+        "https://mathhub.info/ulodefines": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.Archive|const"
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "Archive_def_raw"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Relative_Completeness.theory#152.8.0:161.8.9"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.append|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.set|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Arch?Arch.Pent|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.Archive|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Arch?Arch.Quad|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Arch?Arch.Hex|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Arch?Arch.Tri|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.set|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.eq|const"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation|const",
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "archive_by_computation"
+          }
+        ],
+        "https://mathhub.info/ulopredicate": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Relative_Completeness.theory#249.11.7:270.11.28"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness"
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.bool|type"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.same6|thm",
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "archive_by_computation.same6"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Relative_Completeness.theory#656.19.10:660.19.14"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.One|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ArchCompProps?ArchCompProps.tameEnumFilter|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ArchCompAux?ArchCompAux.samet|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD2|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.Bit1|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.atomize_conj|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Trueprop|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Arch?Arch.Hex|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.numeral_class.numeral|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.same4|thm",
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "archive_by_computation.same4"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Relative_Completeness.theory#558.17.10:562.17.14"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD1|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Trueprop|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Arch?Arch.Quad|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.one_class.one|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD2|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ArchCompAux?ArchCompAux.samet|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.atomize_conj|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ArchCompProps?ArchCompProps.tameEnumFilter|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation_def|thm"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.pre_iso_test6|thm",
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "archive_by_computation.pre_iso_test6"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Relative_Completeness.theory#454.15.10:466.15.22"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ArchCompAux?ArchCompAux.pre_iso_test|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD2|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.atomize_conj|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.Ball|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Arch?Arch.Hex|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Trueprop|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?lambda"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.list.set|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD1|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation_def|thm"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness/Relative_Completeness.archive_by_computation|locale?axioms(5)",
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness/Relative_Completeness.archive_by_computation|locale"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.tame5|thm",
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "archive_by_computation.tame5"
+          }
+        ],
+        "https://mathhub.info/ulopara": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloparatype": [
+          {
+            "@value": "lemma"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Relative_Completeness.theory#1421.39.6:1425.39.10"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.rel_simps(8)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.arity_type_nat|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.bexE|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.imp_conv_disj|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.arith_simps(7)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.numeral_class.numeral|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.ab_semigroup_mult_class.super|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.sym|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.arith_simps(6)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.add_0_right|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.times_nat.mult_0|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.final|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.semiring_numeral_class.super(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.not_not|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.eq_cong2|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.numeral_class.numeral_plus_numeral|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Rings?Rings.linordered_semidom_class.super(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.monoid_add_class.super(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.Suc_numeral|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.impCE|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Eq_FalseI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.cancel_ab_semigroup_add_class.super(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Rings?Rings.mult_zero_class.super(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.arity_linordered_semidom_nat|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.arith_simps(62)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.de_Morgan_disj|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.arith_simps(10)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.rev_mp|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.one_class.super|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.arity_type_face|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.Bit1|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.numeral_class.numeral.numeral_One|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.arity_comm_monoid_diff_nat|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.arity_type_bool|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.refl|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.simp_implies_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.add_mono_thms_linordered_semiring(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.plus_nat.add_0|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.PlaneProps?PlaneProps.max_face_ex|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.One|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Orderings?Orderings.ord_class.less_eq|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.ab_semigroup_add_class.add.left_commute|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.arith_simps(16)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.linordered_cancel_ab_semigroup_add_class.super(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.ab_semigroup_add_class.super|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Int?Int.arity_comm_ring_1_int|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.ab_semigroup_mult_class.mult.commute|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane?Plane.Seed|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.classrel_semiring_1_semiring_numeral|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.member|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Rings?Rings.classrel_comm_semiring_1_cancel_semiring_1_cancel|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.disjE|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Numeral_Simprocs?Numeral_Simprocs.nat_le_add_iff1|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Trueprop|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.iffD1|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.allE|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.monoid_mult_class.super(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.semigroup_add_class.super|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.arity_comm_semiring_1_cancel_nat|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.minus_class.super|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.de_Morgan_conj|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.implies_True_equals|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Rings?Rings.comm_semiring_1_cancel_class.super(2)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.monoid_add_class.add_0_right|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.FaceDivisionProps?FaceDivisionProps.pre_splitFace_oldF|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.True_implies_equals|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.numeral_class.super(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Tame?Tame.tame|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.numeral_1_eq_Suc_0|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.mult_Suc_right|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Rings?Rings.linordered_comm_semiring_strict_class.super(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.arity_type_set|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.neg_numeral_class.super(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.conjunct1|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.conjE|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.ordered_cancel_ab_semigroup_add_class.super(2)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.comm_monoid_diff_class.super|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.notE|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.cancel_comm_monoid_add_class.super(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.meta_eq_to_obj_eq|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.List?List.arity_type_list|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.simp_implies_cong|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Rings?Rings.semiring_0_class.super(2)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Product_Type?Product_Type.prod|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.arith_simps(52)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.rel_simps(13)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Orderings?Orderings.linorder_class.super|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.atomize_imp|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Orderings?Orderings.linorder_not_less|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.arity_dioid_nat|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.semigroup_mult_class.super|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.eq_reflection|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.impI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.arith_simps(63)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.ball_triv|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.classrel_semiring_numeral_numeral|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane?Plane.next_plane0|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.bex_cong_simp|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Rings?Rings.classrel_comm_ring_1_ring_1|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.semiring_numeral_class.numeral_times_numeral|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.swap|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.classrel_ring_1_neg_numeral|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.conjI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.arity_linorder_nat|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.ball_cong_simp|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.rel_simps(7)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.rel_simps(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.arith_simps(4)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.ab_semigroup_add_class.add.commute|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.cancel_comm_monoid_add_class.super(2)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.notI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.simp_thms(6)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.plus_class.super|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Rings?Rings.classrel_semiring_0_cancel_semiring_0|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Set?Set.bspec|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.arith_simps(1)|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.comm_monoid_mult_class.super(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Orderings?Orderings.order_class.super|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Int?Int.nat_0|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.atomize_all|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Orderings?Orderings.order_trans_rules(14)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.Suc_leI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.simp_thms(17)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.arity_linorder_num|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.TrueI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.simp_impliesI|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Plane?Plane.maxGon_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.graph|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Rings?Rings.classrel_semiring_1_cancel_semiring_0_cancel|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat_mult_1|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Int?Int.diff_nat_numeral|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Product_Type?Product_Type.Pair|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.times_class.super|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Graph?Graph.finalGraph_faces|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.arity_type_num|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Rings?Rings.dioid_class.super(2)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Tame?Tame.tame9a_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Tame?Tame.tame_def|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.conjunct2|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Rings?Rings.classrel_linordered_semidom_linordered_nonzero_semiring|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.rel_simps(24)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Orderings?Orderings.order_less_irrefl|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.ccontr|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.add_mono_thms_linordered_semiring(3)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.group_add_class.super(1)|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.RTranCl?RTranCl.RTranCl|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.trans|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Eq_TrueI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Orderings?Orderings.linorder_not_le|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Groups?Groups.classrel_comm_monoid_add_monoid_add|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Numeral_Simprocs?Numeral_Simprocs.left_add_mult_distrib|thm"
+          }
+        ]
+      },
+      {
+        "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation.same5|thm",
+        "https://mathhub.info/uloderived": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/uloname": [
+          {
+            "@value": "archive_by_computation.same5"
+          }
+        ],
+        "https://mathhub.info/ulosourceref": [
+          {
+            "@id": "https://isabelle.in.tum.de/source/Flyspeck-Tame/Flyspeck-Tame.Relative_Completeness.theory#607.18.10:611.18.14"
+          }
+        ],
+        "https://mathhub.info/ulospecified-in": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness"
+          }
+        ],
+        "https://mathhub.info/ulostatement": [
+          {
+            "@value": ""
+          }
+        ],
+        "https://mathhub.info/ulouses": [
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.Bit0|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectD|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ArchCompAux?ArchCompAux.samet|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.ArchCompProps?ArchCompProps.tameEnumFilter|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Nat?Nat.nat|type"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.num.One|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD1|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.Trueprop|const"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Typed?type"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?ded"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?Isabelle?unknown"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.HOL?HOL.atomize_conj|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?apply"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Arch?Arch.Pent|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.conjunctionD2|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.protectI|thm"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?HOL.Num?Num.numeral_class.numeral|const"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Flyspeck-Tame.Relative_Completeness?Relative_Completeness.archive_by_computation_def|thm"
+          },
+          {
+            "@id": "http://cds.omdoc.org/urtheories?LambdaPi?Pi"
+          },
+          {
+            "@id": "https://isabelle.in.tum.de?Pure?Pure.imp|const"
+          }
+        ]
+      }
+    ],
+    "@id": "file:///D:/mlibs/AFP/rdf/Flyspeck-Tame/Flyspeck-Tame.Relative_Completeness.rdf"
+  }
+]

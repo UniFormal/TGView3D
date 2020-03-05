@@ -746,7 +746,7 @@ if (m_Plane.Raycast(ray, out enter))
 
             foreach (var text in textMs)
             {
-
+                if (text.transform.GetSiblingIndex() != 0) continue;
                 var col = Color.white - new Color(text.color.r, text.color.g, text.color.b, 0);
                 col.a = text.color.a;
                 text.color = col;

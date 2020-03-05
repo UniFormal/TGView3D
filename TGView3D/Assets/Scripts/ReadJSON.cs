@@ -127,9 +127,9 @@ namespace TGraph
         public class MyGraph
         {
 
-            public List<MyNode> nodes;
-            public List<MyEdge> edges;
-            public List<MyChapter> chapters;
+            public List<MyNode> nodes = new List<MyNode>();
+            public List<MyEdge> edges = new List<MyEdge>();
+            public List<MyChapter> chapters = new List<MyChapter>();
 
             [NonSerialized]
             public ReadJSON GraphParser;
@@ -203,7 +203,7 @@ namespace TGraph
 
 
             public string id;
-            public string style;
+            public string style ="none";
             public string label;
             public string url;
             public string mathml;
@@ -214,10 +214,12 @@ namespace TGraph
             [NonSerialized]
             public bool alive = true;
 
-            [NonSerialized]
+
             public float radius = 0;
             [NonSerialized]
             public string svg;
+            [NonSerialized]
+            public MyEdge fastestEdge;
             [NonSerialized]
             public Vector3 pos;
             [NonSerialized]
@@ -510,6 +512,31 @@ namespace TGraph
            
         }
 
+        public void MergeGraphs()
+        {
+            var mergePath = "D:/mlibs/AFP/json/";//Application.dataPath + "/Graphs/IsabelleConv/";
+            MyGraph megaGraph = new MyGraph();
+            foreach (var file in Directory.GetFiles(mergePath, "*.json"))
+            {
+                string content = File.ReadAllText(file);
+                var tmpGraph = MyGraph.CreateFromJSON(content);
+                string col = "#" + ColorUtility.ToHtmlStringRGB(Random.ColorHSV());
+                foreach (var node in tmpGraph.nodes)
+                {
+                    node.color = col;
+                    Debug.Log(node.radius);
+                }
+
+                megaGraph.nodes.AddRange(tmpGraph.nodes);
+                megaGraph.edges.AddRange(tmpGraph.edges);
+                megaGraph.chapters.AddRange(tmpGraph.chapters);
+            }
+
+
+
+
+            CurrentJSON = JsonUtility.ToJson(megaGraph);
+        }
 
         public void RecalculateLayout()
         {
@@ -1065,10 +1092,13 @@ namespace TGraph
                     Color avgCol = Color.black;
                     avgCol.a = 0;
                     int nn = 0;
+                    Color chapterCol = Random.ColorHSV();
                     foreach(var node in chapter.nodes)
                     {
 
-                        ColorUtility.TryParseHtmlString(Graph.nodes.Find(n => n.id == node).color, out Color tmpCol);
+                        var realNode = Graph.nodes.Find(n => n.id == node);
+                        realNode.color = "#" + ColorUtility.ToHtmlStringRGB(chapterCol); 
+                        ColorUtility.TryParseHtmlString(realNode.color, out Color tmpCol);
                      //   Debug.Log((nn++).ToString() + " "+avgCol+ " "+ tmpCol);
                         avgCol += tmpCol;
                     }
@@ -1077,7 +1107,7 @@ namespace TGraph
 
                 
 
-                    Debug.Log(avgCol+ " #"+ ColorUtility.ToHtmlStringRGB(avgCol));
+                    //Debug.Log(avgCol+ " #"+ ColorUtility.ToHtmlStringRGB(avgCol));
 
                
 
@@ -1114,7 +1144,7 @@ namespace TGraph
                         radius = Mathf.Sqrt(chapter.nodes.Count) * 0.05f,
                         parentId = chapter.parentId,
                         active = true,
-                      //  style = "chapter"
+                        style = "chapter"
                     });
                 }
            
@@ -1207,7 +1237,7 @@ namespace TGraph
                 var chapter = Graph.chapters[ChapterDict[cid]];
                 //    Debug.Log(chapter.id + " " + chapter.ogNodes.Count+" "+OpenList.Count);
                 //  if(!chapter.isLeaf)
-                Debug.Log(chapter.highlevel);
+            //    Debug.Log(chapter.highlevel);
                     foreach (var toChapter in chapter.ogNodes)
                     {
                     Graph.nodes.Find(n => n.id == toChapter).parentId = chapter.id;
@@ -1306,7 +1336,7 @@ namespace TGraph
                 foreach(var Root in RootList)
               //  if (Root != null)
                 {
-                    VisibleList.Add(Root);
+                  //  VisibleList.Add(Root);
             
                     foreach (var chapter in Graph.chapters[ChapterDict[Root]].chapters)
                     {
@@ -1320,7 +1350,7 @@ namespace TGraph
 
                 foreach (var chapter in Graph.chapters)
                 {
-                   // if (chapter.highlevel) { VisibleList.Add(chapter.id); OpenList.Add(chapter.id); }
+                    if (chapter.highlevel) { VisibleList.Add(chapter.id); OpenList.Add(chapter.id); }
 
                 }
 
@@ -1432,7 +1462,9 @@ namespace TGraph
                 if (Graph.chapters.Count > 0)
                     for (int i = 0; i < Graph.nodes.Count; i++)
                     {
+                
                         var node = Graph.nodes[i];
+                   //     if(node.style!="chapter") Debug.Log(node.id);
                         if (!node.active)
                         {
                             i--;
@@ -1521,7 +1553,9 @@ namespace TGraph
                 if (!EdgeTypes.ContainsKey(edge.style))
                 {
                     string type;
-                    if (edge.style == "include" || edge.style == "meta" || edge.style == "structure" || edge.style == "uses" || edge.style == "chapter")
+                    if (edge.style == "include" || edge.style == "meta" || edge.style == "structure" 
+                        //|| edge.style == "uses" 
+                        || edge.style == "chapter"|| edge.style == "specifies")
                     {
                         type = "hierarchic";
                     }
@@ -1550,6 +1584,20 @@ namespace TGraph
 
             }
 
+
+            string style = "zombie";
+
+            if (!EdgeTypes.ContainsKey(style))
+            {
+                EdgeTypes.Add(style, new EdgeType(""));
+
+                if (!ColorDict.ContainsKey(style))
+                {
+                    var rndcol = Color.black;
+                    rndcol.a = 0;
+                    ColorDict.Add(style, rndcol);
+                }
+            }
             EdgeTypeSelector.ClearOptions();
             EdgeAttributeSelector.ClearOptions();
             EdgeTypeSelector.AddOptions((EdgeTypes.Keys).ToList<string>());
@@ -1582,6 +1630,41 @@ namespace TGraph
             GlobalVariables.GraphManager.ProcessGraph();
             Debug.Log("process time " + (Time.realtimeSinceStartup - time));
             time = Time.realtimeSinceStartup;
+
+
+            /*
+           Stack<MyNode> transitiveNodes = new Stack<MyNode>();
+            foreach(var node in Graph.nodes)
+            {
+                if(node.edgeIndicesIn.Count == 0)
+                {
+                    node.height = 0;
+                    transitiveNodes.Push(node);
+                }
+            }
+
+            while (transitiveNodes.Count > 0)
+            {
+                var tNode = transitiveNodes.Pop();
+                foreach(var eid in tNode.edgeIndicesOut)
+                {
+                    var edge = Graph.edges[eid];
+                    int nid = Graph.nodeDict[edge.to];
+                    var cNode = Graph.nodes[nid];
+                    if (!cNode.visited||cNode.height < tNode.height + 1)
+                    {
+                        cNode.visited = true;
+                        cNode.height = tNode.height + 1;
+                        if(cNode.fastestEdge!=null)
+                            cNode.fastestEdge.style = "zombie";
+                        cNode.fastestEdge = edge;
+                    }
+                    transitiveNodes.Push(cNode);
+                    
+                }
+            }*/
+
+ 
 
             Material mat1 = new Material(mat);
             mat1.color = Color.red;

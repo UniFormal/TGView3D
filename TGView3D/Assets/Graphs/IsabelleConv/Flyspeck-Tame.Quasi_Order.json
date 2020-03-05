@@ -1,0 +1,106 @@
+{
+    "nodes": [
+        {
+            "id": "Flyspeck-Tame.Quasi_Order",
+            "style": "",
+            "label": "Flyspeck-Tame.Quasi_Order",
+            "url": "",
+            "mathml": "",
+            "color": "",
+            "radius": 0.3201562166213989
+        }
+    ],
+    "edges": [
+        {
+            "id": "Flyspeck-Tame.Quasi_OrderTyped",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Quasi_Order",
+            "to": "Typed",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.Quasi_OrderLambdaPi",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Quasi_Order",
+            "to": "LambdaPi",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.Quasi_OrderPure",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Quasi_Order",
+            "to": "Pure",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.Quasi_OrderIsabelle",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Quasi_Order",
+            "to": "Isabelle",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.Quasi_OrderHOL.HOL",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Quasi_Order",
+            "to": "HOL.HOL",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.Quasi_OrderHOL.Set",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Quasi_Order",
+            "to": "HOL.Set",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.Quasi_OrderHOL.Meson",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Quasi_Order",
+            "to": "HOL.Meson",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.Quasi_OrderHOL.Metis",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Quasi_Order",
+            "to": "HOL.Metis",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.Quasi_OrderHOL.Orderings",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Quasi_Order",
+            "to": "HOL.Orderings",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.Quasi_OrderHOL.Hilbert_Choice",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Quasi_Order",
+            "to": "HOL.Hilbert_Choice",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        }
+    ],
+    "chapters": []
+}

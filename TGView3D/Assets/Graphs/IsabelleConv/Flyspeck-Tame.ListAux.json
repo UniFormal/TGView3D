@@ -1,0 +1,349 @@
+{
+    "nodes": [
+        {
+            "id": "Flyspeck-Tame.ListAux",
+            "style": "",
+            "label": "Flyspeck-Tame.ListAux",
+            "url": "",
+            "mathml": "",
+            "color": "",
+            "radius": 0.9604687094688416
+        }
+    ],
+    "edges": [
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.HOL",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.HOL",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.Rings",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.Rings",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.List",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.List",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.Groups",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.Groups",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.Nat",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.Nat",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.Num",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.Num",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxIsabelle",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "Isabelle",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxTyped",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "Typed",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxPure",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "Pure",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxLambdaPi",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "LambdaPi",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.Orderings",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.Orderings",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.Set",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.Set",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.Lattices",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.Lattices",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.Int",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.Int",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.Numeral_Simprocs",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.Numeral_Simprocs",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.Product_Type",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.Product_Type",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.Euclidean_Division",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.Euclidean_Division",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.Fun",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.Fun",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.Lattices_Big",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.Lattices_Big",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.Set_Interval",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.Set_Interval",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.Meson",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.Meson",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.Metis",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.Metis",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.BNF_Wellorder_Relation",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.BNF_Wellorder_Relation",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.BNF_Composition",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.BNF_Composition",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.BNF_Fixpoint_Base",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.BNF_Fixpoint_Base",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.BNF_Least_Fixpoint",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.BNF_Least_Fixpoint",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.Complete_Lattices",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.Complete_Lattices",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.BNF_Cardinal_Arithmetic",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.BNF_Cardinal_Arithmetic",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.BNF_Wellorder_Constructions",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.BNF_Wellorder_Constructions",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.BNF_Cardinal_Order_Relation",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.BNF_Cardinal_Order_Relation",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.Sum_Type",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.Sum_Type",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.Basic_BNFs",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.Basic_BNFs",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.Hilbert_Choice",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.Hilbert_Choice",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.Finite_Set",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.Finite_Set",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.BNF_Def",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.BNF_Def",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.Typedef",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.Typedef",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ListAuxHOL.Relation",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ListAux",
+            "to": "HOL.Relation",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        }
+    ],
+    "chapters": []
+}

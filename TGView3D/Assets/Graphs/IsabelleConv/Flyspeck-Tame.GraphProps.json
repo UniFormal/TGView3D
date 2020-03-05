@@ -1,0 +1,358 @@
+{
+    "nodes": [
+        {
+            "id": "Flyspeck-Tame.GraphProps",
+            "style": "",
+            "label": "Flyspeck-Tame.GraphProps",
+            "url": "",
+            "mathml": "",
+            "color": "",
+            "radius": 0.4821825623512268
+        }
+    ],
+    "edges": [
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.HOL",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.HOL",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.Rings",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.Rings",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.Groups",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.Groups",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsLambdaPi",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "LambdaPi",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.Divides",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.Divides",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.Orderings",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.Orderings",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.Presburger",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.Presburger",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.Num",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.Num",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.Set",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.Set",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.Nat",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.Nat",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.Euclidean_Division",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.Euclidean_Division",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.Int",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.Int",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.Numeral_Simprocs",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.Numeral_Simprocs",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.List",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.List",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsPure",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "Pure",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.Product_Type",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.Product_Type",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsFlyspeck-Tame.Graph",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "Flyspeck-Tame.Graph",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.Set_Interval",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.Set_Interval",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsTyped",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "Typed",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsIsabelle",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "Isabelle",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.Lattices",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.Lattices",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsFlyspeck-Tame.ListAux",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "Flyspeck-Tame.ListAux",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.BNF_Cardinal_Arithmetic",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.BNF_Cardinal_Arithmetic",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.Complete_Lattices",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.Complete_Lattices",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.Sum_Type",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.Sum_Type",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.BNF_Composition",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.BNF_Composition",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.BNF_Fixpoint_Base",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.BNF_Fixpoint_Base",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.Fun",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.Fun",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.BNF_Least_Fixpoint",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.BNF_Least_Fixpoint",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.BNF_Def",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.BNF_Def",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.Basic_BNFs",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.Basic_BNFs",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.Relation",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.Relation",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.BNF_Cardinal_Order_Relation",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.BNF_Cardinal_Order_Relation",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.Finite_Set",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.Finite_Set",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.Hilbert_Choice",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.Hilbert_Choice",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.BNF_Wellorder_Constructions",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.BNF_Wellorder_Constructions",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.BNF_Wellorder_Relation",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.BNF_Wellorder_Relation",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.GraphPropsHOL.Typedef",
+            "style": "uses",
+            "from": "Flyspeck-Tame.GraphProps",
+            "to": "HOL.Typedef",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        }
+    ],
+    "chapters": []
+}

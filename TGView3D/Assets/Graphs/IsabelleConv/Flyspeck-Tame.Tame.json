@@ -1,0 +1,151 @@
+{
+    "nodes": [
+        {
+            "id": "Flyspeck-Tame.Tame",
+            "style": "",
+            "label": "Flyspeck-Tame.Tame",
+            "url": "",
+            "mathml": "",
+            "color": "",
+            "radius": 0.45276927947998049
+        }
+    ],
+    "edges": [
+        {
+            "id": "Flyspeck-Tame.TameHOL.HOL",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Tame",
+            "to": "HOL.HOL",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameFlyspeck-Tame.Graph",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Tame",
+            "to": "Flyspeck-Tame.Graph",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameLambdaPi",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Tame",
+            "to": "LambdaPi",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameHOL.Set",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Tame",
+            "to": "HOL.Set",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameHOL.Nat",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Tame",
+            "to": "HOL.Nat",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameHOL.Groups",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Tame",
+            "to": "HOL.Groups",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameFlyspeck-Tame.ListSum",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Tame",
+            "to": "Flyspeck-Tame.ListSum",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameIsabelle",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Tame",
+            "to": "Isabelle",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameHOL.Orderings",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Tame",
+            "to": "HOL.Orderings",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameHOL.List",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Tame",
+            "to": "HOL.List",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TamePure",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Tame",
+            "to": "Pure",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameTyped",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Tame",
+            "to": "Typed",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameHOL.Num",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Tame",
+            "to": "HOL.Num",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameHOL.Lattices",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Tame",
+            "to": "HOL.Lattices",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameHOL.Product_Type",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Tame",
+            "to": "HOL.Product_Type",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        }
+    ],
+    "chapters": []
+}

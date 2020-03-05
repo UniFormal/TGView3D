@@ -1,0 +1,223 @@
+{
+    "nodes": [
+        {
+            "id": "Flyspeck-Tame.EnumeratorProps",
+            "style": "",
+            "label": "Flyspeck-Tame.EnumeratorProps",
+            "url": "",
+            "mathml": "",
+            "color": "",
+            "radius": 0.5074445605278015
+        }
+    ],
+    "edges": [
+        {
+            "id": "Flyspeck-Tame.EnumeratorPropsHOL.Num",
+            "style": "uses",
+            "from": "Flyspeck-Tame.EnumeratorProps",
+            "to": "HOL.Num",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorPropsHOL.HOL",
+            "style": "uses",
+            "from": "Flyspeck-Tame.EnumeratorProps",
+            "to": "HOL.HOL",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorPropsHOL.Nat",
+            "style": "uses",
+            "from": "Flyspeck-Tame.EnumeratorProps",
+            "to": "HOL.Nat",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorPropsHOL.Orderings",
+            "style": "uses",
+            "from": "Flyspeck-Tame.EnumeratorProps",
+            "to": "HOL.Orderings",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorPropsHOL.Lattices",
+            "style": "uses",
+            "from": "Flyspeck-Tame.EnumeratorProps",
+            "to": "HOL.Lattices",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorPropsHOL.Int",
+            "style": "uses",
+            "from": "Flyspeck-Tame.EnumeratorProps",
+            "to": "HOL.Int",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorPropsHOL.List",
+            "style": "uses",
+            "from": "Flyspeck-Tame.EnumeratorProps",
+            "to": "HOL.List",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorPropsHOL.Rings",
+            "style": "uses",
+            "from": "Flyspeck-Tame.EnumeratorProps",
+            "to": "HOL.Rings",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorPropsHOL.Groups",
+            "style": "uses",
+            "from": "Flyspeck-Tame.EnumeratorProps",
+            "to": "HOL.Groups",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorPropsPure",
+            "style": "uses",
+            "from": "Flyspeck-Tame.EnumeratorProps",
+            "to": "Pure",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorPropsIsabelle",
+            "style": "uses",
+            "from": "Flyspeck-Tame.EnumeratorProps",
+            "to": "Isabelle",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorPropsFlyspeck-Tame.Enumerator",
+            "style": "uses",
+            "from": "Flyspeck-Tame.EnumeratorProps",
+            "to": "Flyspeck-Tame.Enumerator",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorPropsLambdaPi",
+            "style": "uses",
+            "from": "Flyspeck-Tame.EnumeratorProps",
+            "to": "LambdaPi",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorPropsHOL.Numeral_Simprocs",
+            "style": "uses",
+            "from": "Flyspeck-Tame.EnumeratorProps",
+            "to": "HOL.Numeral_Simprocs",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorPropsHOL.Set",
+            "style": "uses",
+            "from": "Flyspeck-Tame.EnumeratorProps",
+            "to": "HOL.Set",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorPropsHOL.Set_Interval",
+            "style": "uses",
+            "from": "Flyspeck-Tame.EnumeratorProps",
+            "to": "HOL.Set_Interval",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorPropsTyped",
+            "style": "uses",
+            "from": "Flyspeck-Tame.EnumeratorProps",
+            "to": "Typed",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorPropsHOL.Fun",
+            "style": "uses",
+            "from": "Flyspeck-Tame.EnumeratorProps",
+            "to": "HOL.Fun",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorPropsHOL-Library.IArray",
+            "style": "uses",
+            "from": "Flyspeck-Tame.EnumeratorProps",
+            "to": "HOL-Library.IArray",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorPropsFlyspeck-Tame.IArray_Syntax",
+            "style": "uses",
+            "from": "Flyspeck-Tame.EnumeratorProps",
+            "to": "Flyspeck-Tame.IArray_Syntax",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorPropsHOL.Complete_Lattices",
+            "style": "uses",
+            "from": "Flyspeck-Tame.EnumeratorProps",
+            "to": "HOL.Complete_Lattices",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorPropsHOL.Option",
+            "style": "uses",
+            "from": "Flyspeck-Tame.EnumeratorProps",
+            "to": "HOL.Option",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.EnumeratorPropsFlyspeck-Tame.Graph",
+            "style": "uses",
+            "from": "Flyspeck-Tame.EnumeratorProps",
+            "to": "Flyspeck-Tame.Graph",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        }
+    ],
+    "chapters": []
+}

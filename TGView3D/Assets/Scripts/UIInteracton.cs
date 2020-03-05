@@ -1,6 +1,7 @@
 ﻿using OVRTouchSample;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using TGraph;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -21,15 +22,46 @@ public class UIInteracton : MonoBehaviour {
     public Toggle CustomToggle;
     public TMPro.TextMeshProUGUI GraphDescription;
     public TMPro.TextMeshProUGUI GraphData;
-
+    public GameObject UIDropdown;
 
     void Start()
     {
+        UIDropdown = GameObject.Find("UIDropdown");
+        UIDropdown.GetComponent<Dropdown>().options.Clear();
+        string demoGraphPath = Application.dataPath + "/DemoGraphs/";
+ 
+        var files = Directory.GetFiles(demoGraphPath, "*.json");
+        GraphFiles = new TextAsset[files.Length];
+        for (int i = 0; i < files.Length; i++)
+        {
+            var file = files[i];
+            string name = System.IO.Path.GetFileNameWithoutExtension(file);
+            GraphFiles[i] = new TextAsset(File.ReadAllText(file));
+            UIDropdown.GetComponent<Dropdown>().options.Add(new Dropdown.OptionData { text = name });
+        }
+        string demoDescriptionPath = Application.dataPath + "/Descriptions/";
+        var descriptionFiles = Directory.GetFiles(demoDescriptionPath, "*.txt");
+        GraphDescriptions = new TextAsset[files.Length];
+        for (int i = 0; i < files.Length; i++)
+        {
+            var file = "enter description in the repository";
+            if (i < descriptionFiles.Length)
+            {
+                file = descriptionFiles[i];
+                GraphDescriptions[i] = new TextAsset(File.ReadAllText(file));
+            }
+            else
+            {
+                GraphDescriptions[i] = new TextAsset(file);
+            }
+               
+        }
+
 
         //if(ReadJSON.CurrentJSON == null)
-        ReadJSON.CurrentJSON = GraphFiles[GameObject.Find("UIDropdown").GetComponent<Dropdown>().value].text;
+        ReadJSON.CurrentJSON = GraphFiles[UIDropdown.GetComponent<Dropdown>().value].text;
         GlobalVariables.UIInteractonManager = GetComponent<UIInteracton>();
-        GraphDescription.text = GraphDescriptions[GameObject.Find("UIDropdown").GetComponent<Dropdown>().value].text;
+        GraphDescription.text = GraphDescriptions[UIDropdown.GetComponent<Dropdown>().value].text;
         var tmpGraph = JsonUtility.FromJson<ReadJSON.MyGraph>(ReadJSON.CurrentJSON);
         GraphData.text = "#nodes: " + tmpGraph.nodes.Count + ", #edges: " + tmpGraph.edges.Count + ", #clusters: " + tmpGraph.chapters.Count;
     }
@@ -198,10 +230,11 @@ public class UIInteracton : MonoBehaviour {
         //  GlobalVariables.Url = "file:///" + Application.dataPath + "/" + d.captionText.text + ".json";
         //GlobalVariables.SelectionIndex = d.value;
         //GlobalVariables.Url = "";
-        GraphDescription.text = GraphDescriptions[GameObject.Find("UIDropdown").GetComponent<Dropdown>().value].text;
+        GraphDescription.text = GraphDescriptions[UIDropdown.GetComponent<Dropdown>().value].text;
         ReadJSON.CurrentJSON = GraphFiles[d.value].text;
         Debug.Log("select "+d.value);
-
+        var tmpGraph = JsonUtility.FromJson<ReadJSON.MyGraph>(ReadJSON.CurrentJSON);
+        GraphData.text = "#nodes: " + tmpGraph.nodes.Count + ", #edges: " + tmpGraph.edges.Count + ", #clusters: " + tmpGraph.chapters.Count;
 
     }
 

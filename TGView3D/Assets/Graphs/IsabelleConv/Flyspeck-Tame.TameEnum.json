@@ -1,0 +1,178 @@
+{
+    "nodes": [
+        {
+            "id": "Flyspeck-Tame.TameEnum",
+            "style": "",
+            "label": "Flyspeck-Tame.TameEnum",
+            "url": "",
+            "mathml": "",
+            "color": "",
+            "radius": 0.2121320217847824
+        }
+    ],
+    "edges": [
+        {
+            "id": "Flyspeck-Tame.TameEnumHOL.HOL",
+            "style": "uses",
+            "from": "Flyspeck-Tame.TameEnum",
+            "to": "HOL.HOL",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameEnumFlyspeck-Tame.Graph",
+            "style": "uses",
+            "from": "Flyspeck-Tame.TameEnum",
+            "to": "Flyspeck-Tame.Graph",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameEnumLambdaPi",
+            "style": "uses",
+            "from": "Flyspeck-Tame.TameEnum",
+            "to": "LambdaPi",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameEnumFlyspeck-Tame.Tame",
+            "style": "uses",
+            "from": "Flyspeck-Tame.TameEnum",
+            "to": "Flyspeck-Tame.Tame",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameEnumPure",
+            "style": "uses",
+            "from": "Flyspeck-Tame.TameEnum",
+            "to": "Pure",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameEnumFlyspeck-Tame.Generator",
+            "style": "uses",
+            "from": "Flyspeck-Tame.TameEnum",
+            "to": "Flyspeck-Tame.Generator",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameEnumIsabelle",
+            "style": "uses",
+            "from": "Flyspeck-Tame.TameEnum",
+            "to": "Isabelle",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameEnumHOL.List",
+            "style": "uses",
+            "from": "Flyspeck-Tame.TameEnum",
+            "to": "HOL.List",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameEnumHOL.Nat",
+            "style": "uses",
+            "from": "Flyspeck-Tame.TameEnum",
+            "to": "HOL.Nat",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameEnumHOL.Fun",
+            "style": "uses",
+            "from": "Flyspeck-Tame.TameEnum",
+            "to": "HOL.Fun",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameEnumFlyspeck-Tame.RTranCl",
+            "style": "uses",
+            "from": "Flyspeck-Tame.TameEnum",
+            "to": "Flyspeck-Tame.RTranCl",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameEnumHOL.Product_Type",
+            "style": "uses",
+            "from": "Flyspeck-Tame.TameEnum",
+            "to": "HOL.Product_Type",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameEnumHOL.Set",
+            "style": "uses",
+            "from": "Flyspeck-Tame.TameEnum",
+            "to": "HOL.Set",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameEnumFlyspeck-Tame.Plane",
+            "style": "uses",
+            "from": "Flyspeck-Tame.TameEnum",
+            "to": "Flyspeck-Tame.Plane",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameEnumTyped",
+            "style": "uses",
+            "from": "Flyspeck-Tame.TameEnum",
+            "to": "Typed",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameEnumHOL.Num",
+            "style": "uses",
+            "from": "Flyspeck-Tame.TameEnum",
+            "to": "HOL.Num",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameEnumHOL.Complete_Lattices",
+            "style": "uses",
+            "from": "Flyspeck-Tame.TameEnum",
+            "to": "HOL.Complete_Lattices",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.TameEnumHOL.Set_Interval",
+            "style": "uses",
+            "from": "Flyspeck-Tame.TameEnum",
+            "to": "HOL.Set_Interval",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        }
+    ],
+    "chapters": []
+}

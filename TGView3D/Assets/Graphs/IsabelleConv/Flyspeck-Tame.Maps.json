@@ -1,0 +1,115 @@
+{
+    "nodes": [
+        {
+            "id": "Flyspeck-Tame.Maps",
+            "style": "",
+            "label": "Flyspeck-Tame.Maps",
+            "url": "",
+            "mathml": "",
+            "color": "",
+            "radius": 0.36742347478866579
+        }
+    ],
+    "edges": [
+        {
+            "id": "Flyspeck-Tame.MapsHOL.List",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Maps",
+            "to": "HOL.List",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.MapsIsabelle",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Maps",
+            "to": "Isabelle",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.MapsTyped",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Maps",
+            "to": "Typed",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.MapsLambdaPi",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Maps",
+            "to": "LambdaPi",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.MapsHOL.HOL",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Maps",
+            "to": "HOL.HOL",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.MapsFlyspeck-Tame.Quasi_Order",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Maps",
+            "to": "Flyspeck-Tame.Quasi_Order",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.MapsPure",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Maps",
+            "to": "Pure",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.MapsHOL.Set",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Maps",
+            "to": "HOL.Set",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.MapsHOL.Complete_Lattices",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Maps",
+            "to": "HOL.Complete_Lattices",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.MapsHOL.Orderings",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Maps",
+            "to": "HOL.Orderings",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.MapsHOL.Fun",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Maps",
+            "to": "HOL.Fun",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        }
+    ],
+    "chapters": []
+}

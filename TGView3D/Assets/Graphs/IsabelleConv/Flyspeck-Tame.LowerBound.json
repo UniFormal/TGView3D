@@ -1,0 +1,241 @@
+{
+    "nodes": [
+        {
+            "id": "Flyspeck-Tame.LowerBound",
+            "style": "",
+            "label": "Flyspeck-Tame.LowerBound",
+            "url": "",
+            "mathml": "",
+            "color": "",
+            "radius": 0.20000000298023225
+        }
+    ],
+    "edges": [
+        {
+            "id": "Flyspeck-Tame.LowerBoundHOL.Rings",
+            "style": "uses",
+            "from": "Flyspeck-Tame.LowerBound",
+            "to": "HOL.Rings",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.LowerBoundHOL.Groups",
+            "style": "uses",
+            "from": "Flyspeck-Tame.LowerBound",
+            "to": "HOL.Groups",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.LowerBoundHOL.HOL",
+            "style": "uses",
+            "from": "Flyspeck-Tame.LowerBound",
+            "to": "HOL.HOL",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.LowerBoundIsabelle",
+            "style": "uses",
+            "from": "Flyspeck-Tame.LowerBound",
+            "to": "Isabelle",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.LowerBoundHOL.Num",
+            "style": "uses",
+            "from": "Flyspeck-Tame.LowerBound",
+            "to": "HOL.Num",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.LowerBoundHOL.Int",
+            "style": "uses",
+            "from": "Flyspeck-Tame.LowerBound",
+            "to": "HOL.Int",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.LowerBoundHOL.Nat",
+            "style": "uses",
+            "from": "Flyspeck-Tame.LowerBound",
+            "to": "HOL.Nat",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.LowerBoundHOL.Numeral_Simprocs",
+            "style": "uses",
+            "from": "Flyspeck-Tame.LowerBound",
+            "to": "HOL.Numeral_Simprocs",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.LowerBoundHOL.Orderings",
+            "style": "uses",
+            "from": "Flyspeck-Tame.LowerBound",
+            "to": "HOL.Orderings",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.LowerBoundLambdaPi",
+            "style": "uses",
+            "from": "Flyspeck-Tame.LowerBound",
+            "to": "LambdaPi",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.LowerBoundPure",
+            "style": "uses",
+            "from": "Flyspeck-Tame.LowerBound",
+            "to": "Pure",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.LowerBoundTyped",
+            "style": "uses",
+            "from": "Flyspeck-Tame.LowerBound",
+            "to": "Typed",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.LowerBoundHOL.Set",
+            "style": "uses",
+            "from": "Flyspeck-Tame.LowerBound",
+            "to": "HOL.Set",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.LowerBoundFlyspeck-Tame.ListAux",
+            "style": "uses",
+            "from": "Flyspeck-Tame.LowerBound",
+            "to": "Flyspeck-Tame.ListAux",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.LowerBoundFlyspeck-Tame.Graph",
+            "style": "uses",
+            "from": "Flyspeck-Tame.LowerBound",
+            "to": "Flyspeck-Tame.Graph",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.LowerBoundFlyspeck-Tame.Tame",
+            "style": "uses",
+            "from": "Flyspeck-Tame.LowerBound",
+            "to": "Flyspeck-Tame.Tame",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.LowerBoundFlyspeck-Tame.ListSum",
+            "style": "uses",
+            "from": "Flyspeck-Tame.LowerBound",
+            "to": "Flyspeck-Tame.ListSum",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.LowerBoundFlyspeck-Tame.Generator",
+            "style": "uses",
+            "from": "Flyspeck-Tame.LowerBound",
+            "to": "Flyspeck-Tame.Generator",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.LowerBoundHOL.List",
+            "style": "uses",
+            "from": "Flyspeck-Tame.LowerBound",
+            "to": "HOL.List",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.LowerBoundFlyspeck-Tame.ScoreProps",
+            "style": "uses",
+            "from": "Flyspeck-Tame.LowerBound",
+            "to": "Flyspeck-Tame.ScoreProps",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.LowerBoundHOL.Lattices",
+            "style": "uses",
+            "from": "Flyspeck-Tame.LowerBound",
+            "to": "HOL.Lattices",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.LowerBoundHOL.Product_Type",
+            "style": "uses",
+            "from": "Flyspeck-Tame.LowerBound",
+            "to": "HOL.Product_Type",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.LowerBoundFlyspeck-Tame.PlaneProps",
+            "style": "uses",
+            "from": "Flyspeck-Tame.LowerBound",
+            "to": "Flyspeck-Tame.PlaneProps",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.LowerBoundFlyspeck-Tame.Invariants",
+            "style": "uses",
+            "from": "Flyspeck-Tame.LowerBound",
+            "to": "Flyspeck-Tame.Invariants",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.LowerBoundFlyspeck-Tame.FaceDivisionProps",
+            "style": "uses",
+            "from": "Flyspeck-Tame.LowerBound",
+            "to": "Flyspeck-Tame.FaceDivisionProps",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        }
+    ],
+    "chapters": []
+}

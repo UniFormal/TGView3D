@@ -1,0 +1,169 @@
+{
+    "nodes": [
+        {
+            "id": "Flyspeck-Tame-Computation.ArchComp",
+            "style": "",
+            "label": "Flyspeck-Tame-Computation.ArchComp",
+            "url": "",
+            "mathml": "",
+            "color": "",
+            "radius": 0.21794496476650239
+        }
+    ],
+    "edges": [
+        {
+            "id": "Flyspeck-Tame-Computation.ArchCompHOL.HOL",
+            "style": "uses",
+            "from": "Flyspeck-Tame-Computation.ArchComp",
+            "to": "HOL.HOL",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame-Computation.ArchCompHOL.Transfer",
+            "style": "uses",
+            "from": "Flyspeck-Tame-Computation.ArchComp",
+            "to": "HOL.Transfer",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame-Computation.ArchCompFlyspeck-Tame.Arch",
+            "style": "uses",
+            "from": "Flyspeck-Tame-Computation.ArchComp",
+            "to": "Flyspeck-Tame.Arch",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame-Computation.ArchCompHOL.Rings",
+            "style": "uses",
+            "from": "Flyspeck-Tame-Computation.ArchComp",
+            "to": "HOL.Rings",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame-Computation.ArchCompFlyspeck-Tame.ArchCompAux",
+            "style": "uses",
+            "from": "Flyspeck-Tame-Computation.ArchComp",
+            "to": "Flyspeck-Tame.ArchCompAux",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame-Computation.ArchCompHOL.Nat",
+            "style": "uses",
+            "from": "Flyspeck-Tame-Computation.ArchComp",
+            "to": "HOL.Nat",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame-Computation.ArchCompLambdaPi",
+            "style": "uses",
+            "from": "Flyspeck-Tame-Computation.ArchComp",
+            "to": "LambdaPi",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame-Computation.ArchCompHOL.Code_Numeral",
+            "style": "uses",
+            "from": "Flyspeck-Tame-Computation.ArchComp",
+            "to": "HOL.Code_Numeral",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame-Computation.ArchCompIsabelle",
+            "style": "uses",
+            "from": "Flyspeck-Tame-Computation.ArchComp",
+            "to": "Isabelle",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame-Computation.ArchCompPure",
+            "style": "uses",
+            "from": "Flyspeck-Tame-Computation.ArchComp",
+            "to": "Pure",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame-Computation.ArchCompTyped",
+            "style": "uses",
+            "from": "Flyspeck-Tame-Computation.ArchComp",
+            "to": "Typed",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame-Computation.ArchCompHOL.Groups",
+            "style": "uses",
+            "from": "Flyspeck-Tame-Computation.ArchComp",
+            "to": "HOL.Groups",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame-Computation.ArchCompHOL.Num",
+            "style": "uses",
+            "from": "Flyspeck-Tame-Computation.ArchComp",
+            "to": "HOL.Num",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame-Computation.ArchCompHOL.Int",
+            "style": "uses",
+            "from": "Flyspeck-Tame-Computation.ArchComp",
+            "to": "HOL.Int",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame-Computation.ArchCompFlyspeck-Tame.ArchCompProps",
+            "style": "uses",
+            "from": "Flyspeck-Tame-Computation.ArchComp",
+            "to": "Flyspeck-Tame.ArchCompProps",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame-Computation.ArchCompHOL.List",
+            "style": "uses",
+            "from": "Flyspeck-Tame-Computation.ArchComp",
+            "to": "HOL.List",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame-Computation.ArchCompHOL.Set",
+            "style": "uses",
+            "from": "Flyspeck-Tame-Computation.ArchComp",
+            "to": "HOL.Set",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        }
+    ],
+    "chapters": []
+}

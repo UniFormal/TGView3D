@@ -1,0 +1,187 @@
+{
+    "nodes": [
+        {
+            "id": "Flyspeck-Tame.Worklist",
+            "style": "",
+            "label": "Flyspeck-Tame.Worklist",
+            "url": "",
+            "mathml": "",
+            "color": "",
+            "radius": 0.5244044661521912
+        }
+    ],
+    "edges": [
+        {
+            "id": "Flyspeck-Tame.WorklistHOL.HOL",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Worklist",
+            "to": "HOL.HOL",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.WorklistHOL.List",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Worklist",
+            "to": "HOL.List",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.WorklistHOL.Set",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Worklist",
+            "to": "HOL.Set",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.WorklistTyped",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Worklist",
+            "to": "Typed",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.WorklistPure",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Worklist",
+            "to": "Pure",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.WorklistHOL.Option",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Worklist",
+            "to": "HOL.Option",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.WorklistLambdaPi",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Worklist",
+            "to": "LambdaPi",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.WorklistIsabelle",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Worklist",
+            "to": "Isabelle",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.WorklistHOL.Product_Type",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Worklist",
+            "to": "HOL.Product_Type",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.WorklistHOL-Library.While_Combinator",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Worklist",
+            "to": "HOL-Library.While_Combinator",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.WorklistFlyspeck-Tame.Quasi_Order",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Worklist",
+            "to": "Flyspeck-Tame.Quasi_Order",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.WorklistHOL.Relation",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Worklist",
+            "to": "HOL.Relation",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.WorklistHOL.Transitive_Closure",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Worklist",
+            "to": "HOL.Transitive_Closure",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.WorklistHOL.Orderings",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Worklist",
+            "to": "HOL.Orderings",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.WorklistHOL.Lattices",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Worklist",
+            "to": "HOL.Lattices",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.WorklistFlyspeck-Tame.RTranCl",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Worklist",
+            "to": "Flyspeck-Tame.RTranCl",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.WorklistHOL.Meson",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Worklist",
+            "to": "HOL.Meson",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.WorklistHOL.Hilbert_Choice",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Worklist",
+            "to": "HOL.Hilbert_Choice",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.WorklistHOL.Metis",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Worklist",
+            "to": "HOL.Metis",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        }
+    ],
+    "chapters": []
+}

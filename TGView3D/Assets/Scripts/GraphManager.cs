@@ -74,6 +74,7 @@ namespace TGraph
             GlobalVariables.Beam = true;
             camera.farClipPlane = 100;
             distances[18] = 4;
+            distances[10] = 12;
             camera.layerCullDistances = distances;
             if (XRSettings.enabled) camera.layerCullSpherical = true;
             //camera.clearFlags = CameraClearFlags.SolidColor;
@@ -450,6 +451,9 @@ namespace TGraph
             Vector3 from = (1+source.radius)* 2 * (Quaternion.AngleAxis((360 * edges[i].localIdx), target.pos - source.pos) * offset);
             Vector3 to= (1+source.radius)* 2 * (Quaternion.AngleAxis((360 * edges[i].localIdx), target.pos - source.pos) * offset);
 
+            Vector3 next = 2 * (Quaternion.AngleAxis((360 * edges[i].localIdx), targetPos - sourcePos) * offset);
+            from = to = next;
+
             if (edges[i].localIdx <= 0)
             {
                 from *= 0;
@@ -512,6 +516,7 @@ namespace TGraph
             MeshRenderer mr = line.AddComponent<MeshRenderer>();
             MeshFilter mf = line.AddComponent<MeshFilter>();
             Mesh mesh = new Mesh();
+            if (vertices.Length > 60000) mesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
             //  Debug.Log(triangles.Length);
 
 
@@ -637,13 +642,104 @@ namespace TGraph
         {
 
             yield return null;
-            text.transform.SetParent(parent);
-            yield return null;
-            text.GetComponent<TextMeshPro>().text = label;
-            // if (type == "o") text.GetComponent<TextMeshPro>().color = Color.gray;
-            yield return null;
-            text.transform.localPosition = Vector3.zero + new Vector3(0, 0, 1f);
-            text.name = label;
+
+            bool isCluster = false;
+            var nodet = Graph.nodes[parent.GetSiblingIndex()];
+        //    Debug.Log("style " + nodet.style+" "+nodet.label+" "+type);
+
+
+            if (type == "chapter")
+            {
+                var InEdges = Graph.nodes[parent.GetSiblingIndex()].edgeIndicesIn;
+                foreach (var edgeId in InEdges)
+                {
+                    var edge = Graph.edges[edgeId];
+                    if (edge.style == "partof" || edge.style == "chapter")
+                    {
+                        var node = Graph.nodes[Graph.nodeDict[edge.from]];
+                        int cECount = 0;
+                        foreach (var edgeId2 in node.edgeIndicesIn)
+                        {
+                            var edge2 = Graph.edges[edgeId2];
+                        
+                            if (edge2.style == "partof" || edge.style == "chapter")
+                            {
+                                cECount++;
+                                
+                            }
+                        }
+                        if (cECount == 0)
+                        {
+                            isCluster = true;
+                            break;
+                        }
+
+                    }
+
+                }
+          
+            }
+
+            Debug.Log(isCluster);
+            if (isCluster)
+            {
+            
+
+                // yield return null;
+                text.GetComponent<TextMeshPro>().text = label;
+                // yield return null;
+                var clusterText = GameObject.Instantiate(text);
+
+                text.transform.SetParent(parent);
+                text.transform.localPosition = Vector3.zero + new Vector3(0, 0, 1f);
+                text.name = label;
+          
+                clusterText.transform.SetParent(parent);
+                clusterText.GetComponent<TextMeshPro>().text = label;
+
+                clusterText.GetComponent<TextMeshPro>().fontSize *= 3f;
+                //clusterText.transform.localPosition = Vector3.zero + new Vector3(0, 1f, 1f);
+         
+                clusterText.name = "cluster "+label;
+                clusterText.layer = 10;
+
+                var InEdges = Graph.nodes[parent.GetSiblingIndex()].edgeIndicesIn;
+                List<MyNode> nodes = new List<MyNode>();
+                Color col = Color.black;
+                foreach (var edgeId in InEdges)
+                {
+                    var edge = Graph.edges[edgeId];
+                    if (edge.style == "partof" || edge.style == "chapter"){
+                        var node = Graph.nodes[Graph.nodeDict[edge.from]];
+                        nodes.Add(node);
+               
+                        if (col == Color.black && node.style != "chapter")
+                        {
+                            
+                            col = node.nodeObject.GetComponent<MeshRenderer>().material.color;
+                        }
+                    }
+              
+                  
+                }
+                clusterText.GetComponent<TextMeshPro>().color = col;
+                var cT = clusterText.AddComponent<ClusterText>();
+                cT.Nodes = nodes;
+
+            }
+            else
+            {
+                text.transform.SetParent(parent);
+                // yield return null;
+                text.GetComponent<TextMeshPro>().text = label;
+                // yield return null;
+                text.transform.localPosition = Vector3.zero + new Vector3(0, 0, 1f);
+                text.name = label;
+
+            }
+
+
+
             yield return null;
         }
 
@@ -724,12 +820,13 @@ namespace TGraph
             nodeObject.transform.parent = transform.GetChild(0).GetChild(0);
 
             //node.transform.localScale = new Vector3(20, 20, 20);
+            Debug.Log(node.radius);
             node.nodeObject.transform.localScale *= (1 + node.radius * 2);
 
             return true;
 
         }
-
+        /*
         IEnumerator SpawnNodeRoutine(MyNode node)
         {
 
@@ -754,7 +851,8 @@ namespace TGraph
             else if (GlobalVariables.IdToPosition.Count > 1)
             {
                 Debug.LogError(node.id + node.parentId);
-            }*/
+            }*
+
 
 
 
@@ -779,7 +877,7 @@ namespace TGraph
             yield return null; 
 
         }
-
+    */
 
 
         void ProcessNodes()
@@ -792,9 +890,12 @@ namespace TGraph
                 //    if (
 
                 var node = Graph.nodes[i];
+
+     
+
                 string name =node.id;
                 int id = i;
-
+         
 
                 //dictionary for converting name to true id
                 Graph.nodeDict.Add(name, id);
@@ -806,81 +907,69 @@ namespace TGraph
                 node.nr = i;
 
 
-                    GameObject nodeObject = Instantiate(grabbable);
-            node.nodeObject = nodeObject;
-            nodeObject.transform.parent = transform.GetChild(0).GetChild(0);
-            node.labelObject = GenLabel(nodeObject.transform, node.label, node.style);
+                GameObject nodeObject = Instantiate(grabbable);
+                node.nodeObject = nodeObject;
+                nodeObject.transform.parent = transform.GetChild(0).GetChild(0);
+                node.labelObject = GenLabel(nodeObject.transform, node.label, node.style);
 
-            Vector3 pos = UnityEngine.Random.insideUnitSphere * vol;
-            // if (!GlobalVariables.IdToPosition.ContainsKey(name)) Debug.Log(node.label +" "+node.parentId);
+                Vector3 pos = UnityEngine.Random.insideUnitSphere * vol;
+                // if (!GlobalVariables.IdToPosition.ContainsKey(name)) Debug.Log(node.label +" "+node.parentId);
 
-            if (GlobalVariables.IdToPosition.ContainsKey(name) && GlobalVariables.IdToPosition[name] != null)
-                pos = GlobalVariables.IdToPosition[name];
-            else if (node.parentId != null && GlobalVariables.IdToPosition.ContainsKey(node.parentId))
-            {
-                //   Debug.Log(node.id+" "+node.parentId);
-                pos = GlobalVariables.IdToPosition[node.parentId] + UnityEngine.Random.insideUnitSphere * .1f + Vector3.up;
-            }
-            /*
-            else if (GlobalVariables.IdToPosition.Count > 1)
-            {
-                Debug.LogError(node.id + node.parentId);
-            }*/
-
-
-
-            nodeObject.transform.localPosition = pos;
-
-
-            nodeObject.name = node.label;
-
-
-
-
-
-
-
-            //node.transform.GetComponent<Renderer>().sharedMaterial = mat;
-            node.pos = pos;
-
-
-            //node.transform.localScale = new Vector3(20, 20, 20);
-            node.nodeObject.transform.localScale *= (1 + node.radius * 2);
-
-
-
-
-
-                //     )
+                if (GlobalVariables.IdToPosition.ContainsKey(name) && GlobalVariables.IdToPosition[name] != null)
+                    pos = GlobalVariables.IdToPosition[name];
+                else if (node.parentId != null && GlobalVariables.IdToPosition.ContainsKey(node.parentId))
                 {
+                    //   Debug.Log(node.id+" "+node.parentId);
+                    pos = GlobalVariables.IdToPosition[node.parentId] + UnityEngine.Random.insideUnitSphere * .1f + Vector3.up;
+                }
+                /*
+                else if (GlobalVariables.IdToPosition.Count > 1)
+                {
+                    Debug.LogError(node.id + node.parentId);
+                }*/
+
+                nodeObject.transform.localPosition = pos;
+                nodeObject.name = node.label;
+
+                //node.transform.GetComponent<Renderer>().sharedMaterial = mat;
+                node.pos = pos;
+                    //node.transform.localScale = new Vector3(20, 20, 20);
+                //    Debug.Log(node.radius);
+ 
+               node.nodeObject.transform.localScale *= (1 + node.radius * 2);
+
+
+
+                    //     )
+                    {
                   
-                    // Debug.Log(Graph.nodes[i].label + " " + i);
+                        // Debug.Log(Graph.nodes[i].label + " " + i);
+                    }
+
+
                 }
 
 
-            }
+                /*
+                string json = SVGFile.text;//;
+                string[] svgs = JsonUtility.FromJson<SVGCollection>(json).svgs;
 
-
-            /*
-            string json = SVGFile.text;//;
-            string[] svgs = JsonUtility.FromJson<SVGCollection>(json).svgs;
-
-            // List<string> tmpMathMLs = new List<string>();
-            for (int i = 0; i < Graph.nodes.Count; i++)
-            {
-                if (Graph.nodes[i].mathml != null && Graph.nodes[i].mathml != "")
+                // List<string> tmpMathMLs = new List<string>();
+                for (int i = 0; i < Graph.nodes.Count; i++)
                 {
-                    //tmpMathMLs.Add(Graph.nodes[i].mathml);
-                    // PData data = new PData();
-                    //   data.math = Graph.nodes[i].mathml;
-                    // StartCoroutine(TestRequest(data, i));
-                    Debug.Log(Graph.nodes[i].mathml);
-                    Graph.nodes[i].svg = svgs[i];
-                    CreateMathObject(i);
-                }
+                    if (Graph.nodes[i].mathml != null && Graph.nodes[i].mathml != "")
+                    {
+                        //tmpMathMLs.Add(Graph.nodes[i].mathml);
+                        // PData data = new PData();
+                        //   data.math = Graph.nodes[i].mathml;
+                        // StartCoroutine(TestRequest(data, i));
+                        Debug.Log(Graph.nodes[i].mathml);
+                        Graph.nodes[i].svg = svgs[i];
+                        CreateMathObject(i);
+                    }
 
-            }*/
-            // JsonUtility.ToJson(tmpMathMLs);
+                }*/
+                // JsonUtility.ToJson(tmpMathMLs);
 
 
 
@@ -1318,8 +1407,7 @@ namespace TGraph
                 Layouts.Spiral();
               
             }
-
-      
+  
             //UIInteracton.SEnableEdgeType("meta");
             string type = "meta";
             if (ReadJSON.EdgeTypes.ContainsKey(type))

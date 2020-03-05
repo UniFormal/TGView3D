@@ -1,0 +1,241 @@
+{
+    "nodes": [
+        {
+            "id": "Flyspeck-Tame.ArchCompAux",
+            "style": "",
+            "label": "Flyspeck-Tame.ArchCompAux",
+            "url": "",
+            "mathml": "",
+            "color": "",
+            "radius": 0.41231057047843935
+        }
+    ],
+    "edges": [
+        {
+            "id": "Flyspeck-Tame.ArchCompAuxHOL.HOL",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ArchCompAux",
+            "to": "HOL.HOL",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchCompAuxHOL.Groups",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ArchCompAux",
+            "to": "HOL.Groups",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchCompAuxPure",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ArchCompAux",
+            "to": "Pure",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchCompAuxHOL.Nat",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ArchCompAux",
+            "to": "HOL.Nat",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchCompAuxHOL.List",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ArchCompAux",
+            "to": "HOL.List",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchCompAuxHOL.Wellfounded",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ArchCompAux",
+            "to": "HOL.Wellfounded",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchCompAuxLambdaPi",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ArchCompAux",
+            "to": "LambdaPi",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchCompAuxIsabelle",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ArchCompAux",
+            "to": "Isabelle",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchCompAuxHOL.Orderings",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ArchCompAux",
+            "to": "HOL.Orderings",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchCompAuxHOL.Fun",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ArchCompAux",
+            "to": "HOL.Fun",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchCompAuxHOL.Product_Type",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ArchCompAux",
+            "to": "HOL.Product_Type",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchCompAuxTyped",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ArchCompAux",
+            "to": "Typed",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchCompAuxHOL.Set",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ArchCompAux",
+            "to": "HOL.Set",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchCompAuxHOL.Inductive",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ArchCompAux",
+            "to": "HOL.Inductive",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchCompAuxHOL.BNF_Composition",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ArchCompAux",
+            "to": "HOL.BNF_Composition",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchCompAuxHOL.Option",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ArchCompAux",
+            "to": "HOL.Option",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchCompAuxHOL.Fun_Def",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ArchCompAux",
+            "to": "HOL.Fun_Def",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchCompAuxTrie.Trie",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ArchCompAux",
+            "to": "Trie.Trie",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchCompAuxHOL.Complete_Lattices",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ArchCompAux",
+            "to": "HOL.Complete_Lattices",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchCompAuxTrie.Tries",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ArchCompAux",
+            "to": "Trie.Tries",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchCompAuxFlyspeck-Tame.Maps",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ArchCompAux",
+            "to": "Flyspeck-Tame.Maps",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchCompAuxFlyspeck-Tame.Rotation",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ArchCompAux",
+            "to": "Flyspeck-Tame.Rotation",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchCompAuxFlyspeck-Tame.Graph",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ArchCompAux",
+            "to": "Flyspeck-Tame.Graph",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchCompAuxHOL.Lattices",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ArchCompAux",
+            "to": "HOL.Lattices",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.ArchCompAuxFlyspeck-Tame.PlaneGraphIso",
+            "style": "uses",
+            "from": "Flyspeck-Tame.ArchCompAux",
+            "to": "Flyspeck-Tame.PlaneGraphIso",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        }
+    ],
+    "chapters": []
+}

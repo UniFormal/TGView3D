@@ -1,0 +1,331 @@
+{
+    "nodes": [
+        {
+            "id": "Flyspeck-Tame.Invariants",
+            "style": "",
+            "label": "Flyspeck-Tame.Invariants",
+            "url": "",
+            "mathml": "",
+            "color": "",
+            "radius": 0.972111165523529
+        }
+    ],
+    "edges": [
+        {
+            "id": "Flyspeck-Tame.InvariantsHOL.HOL",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "HOL.HOL",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsPure",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "Pure",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsFlyspeck-Tame.Graph",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "Flyspeck-Tame.Graph",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsIsabelle",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "Isabelle",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsTyped",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "Typed",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsHOL.List",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "HOL.List",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsLambdaPi",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "LambdaPi",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsHOL.Nat",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "HOL.Nat",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsHOL.Set",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "HOL.Set",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsHOL.Rings",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "HOL.Rings",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsHOL.Relation",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "HOL.Relation",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsHOL.Finite_Set",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "HOL.Finite_Set",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsHOL.Product_Type",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "HOL.Product_Type",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsHOL.Lattices",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "HOL.Lattices",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsFlyspeck-Tame.FaceDivision",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "Flyspeck-Tame.FaceDivision",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsHOL.Complete_Lattices",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "HOL.Complete_Lattices",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsHOL.Num",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "HOL.Num",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsHOL.Groups",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "HOL.Groups",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsHOL.Orderings",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "HOL.Orderings",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsFlyspeck-Tame.ListAux",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "Flyspeck-Tame.ListAux",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsFlyspeck-Tame.FaceDivisionProps",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "Flyspeck-Tame.FaceDivisionProps",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsHOL.Int",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "HOL.Int",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsFlyspeck-Tame.GraphProps",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "Flyspeck-Tame.GraphProps",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsHOL.Numeral_Simprocs",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "HOL.Numeral_Simprocs",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsHOL.Option",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "HOL.Option",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsFlyspeck-Tame.Plane",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "Flyspeck-Tame.Plane",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsHOL.Set_Interval",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "HOL.Set_Interval",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsHOL.Fun",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "HOL.Fun",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsFlyspeck-Tame.EnumeratorProps",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "Flyspeck-Tame.EnumeratorProps",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsFlyspeck-Tame.Enumerator",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "Flyspeck-Tame.Enumerator",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsFlyspeck-Tame.PlaneGraphIso",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "Flyspeck-Tame.PlaneGraphIso",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsHOL.Meson",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "HOL.Meson",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsHOL.Metis",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "HOL.Metis",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsFlyspeck-Tame.RTranCl",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "Flyspeck-Tame.RTranCl",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        },
+        {
+            "id": "Flyspeck-Tame.InvariantsHOL.Lattices_Big",
+            "style": "uses",
+            "from": "Flyspeck-Tame.Invariants",
+            "to": "HOL.Lattices_Big",
+            "label": "",
+            "url": "",
+            "clickText": ""
+        }
+    ],
+    "chapters": []
+}
