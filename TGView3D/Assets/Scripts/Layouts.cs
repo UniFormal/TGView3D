@@ -1127,14 +1127,14 @@ namespace TGraph
 
                             }
                             n.range = maxDist;
-                            /*
+                            
                             var upos = Vector3.zero;// Vector3.right*n.GraphNumber*3;
                             var diffVec = upos - n.pos;
                             var lD = Mathf.Max(0, diffVec.magnitude - diameter) + epsilon;
                             var aF = (lD * lD / kVal);
 
                             //if (graph.fin % 5 == 0)
-                            n.disp += (diffVec / lD) * 0.003f*  aF;*/
+                            n.disp += (diffVec / lD) * 0.003f*  aF;
 
                             /*
                             if (TwoD)

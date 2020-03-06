@@ -680,7 +680,7 @@ namespace TGraph
           
             }
 
-            Debug.Log(isCluster);
+       //     Debug.Log(isCluster);
             if (isCluster)
             {
             
@@ -937,7 +937,7 @@ namespace TGraph
                 //    Debug.Log(node.radius);
  
                node.nodeObject.transform.localScale *= (1 + node.radius * 2);
-
+            //    Debug.Log(node.radius);
 
 
                     //     )
@@ -1391,7 +1391,8 @@ namespace TGraph
             }
 
             //Layouts.EnTree();
-           // UpdateAllEdges();
+          //  UpdateAllEdges();
+
 
 
         }
@@ -1481,7 +1482,7 @@ namespace TGraph
             Debug.Log(Graph.nodes.Count +" nodes, time: " + (Time.realtimeSinceStartup - time));
             time = Time.realtimeSinceStartup;
             ProcessEdges();
-            Debug.Log(Graph.edges.Count + "edges, time: " + (Time.realtimeSinceStartup - time));
+            Debug.Log(Graph.edges.Count + " edges, time: " + (Time.realtimeSinceStartup - time));
             time = Time.realtimeSinceStartup;
             identifySubGraphs();
 

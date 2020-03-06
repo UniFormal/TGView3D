@@ -5821,13 +5821,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 433715902}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e29823c38b7fe240965d1296f998406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   RDFFile: {fileID: 0}
-  CoqFile: {fileID: 4900000, guid: 34cd41a6b7115994499cacd9b3fb82d8, type: 3}
+  CoqFile: {fileID: 4900000, guid: 9c067ee8521693947847ba987bc886d4, type: 3}
   Rdf: https://gl.mathhub.info/Coq/disel/raw/master/triples.rdf
 --- !u!114 &433715905
 MonoBehaviour:
@@ -14887,6 +14887,7 @@ MonoBehaviour:
   EventSystem: {fileID: 869398359}
   recursive: 0
   globalWeight: 0.01
+  ScaleSlider: {fileID: 610047618}
   SemanticSelect: {fileID: 1754190972}
   ArgSolverSelect: {fileID: 47209743}
   time: 0

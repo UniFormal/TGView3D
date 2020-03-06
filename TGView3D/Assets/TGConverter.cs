@@ -111,8 +111,10 @@ public class TGConverter : MonoBehaviour
 
     public static void ConvertCoq(TextAsset file)
     {
-        Path = Application.dataPath + "/Graphs/conv" + file.name + ".json";
+        Path = Application.dataPath + "/Graphs/coqConv" + file.name + ".json";
+
         var text = file.text.Replace("@", "");
+        text = text.Replace("https://mathhub.info/ulo#", "");
         text = text.Replace("-", "");
         text = text.Replace("ulo:", "");
         text = text.Replace("tmpuri:/", "");
@@ -244,9 +246,11 @@ public class TGConverter : MonoBehaviour
 
             else
             {
+                var splitted = node.title.id.Split('/');
+                var name = splitted[splitted.Length - 1];
                 rdfNodes.Add(new TGraph.ReadJSON.MyNode
                 {
-                    label = node.title.id,
+                    label = name,
                     id = node.id,
                 });
             }
