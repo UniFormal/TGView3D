@@ -12,6 +12,7 @@ Demo Builds are available now (see Releases)
 
 [VR-Demo Video](https://www.youtube.com/watch?v=Mx7HSWD5dwg)
 
+![](TGView3D/Gallery/zoom.gif)
 ![](TGView3D/Gallery/ki.gif)
 ![](TGView3D/Gallery/words.gif)
 ![](TGView3D/Gallery/bw.gif)
