@@ -17,6 +17,10 @@
 
 ## git-lfs ##
 
+#Graph-Files
+
+*.json filter=lfs diff=lfs merge=lfs -text
+
 #Image
 *.jpg filter=lfs diff=lfs merge=lfs -text
 *.jpeg filter=lfs diff=lfs merge=lfs -text
