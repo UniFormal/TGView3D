@@ -1400,12 +1400,12 @@ namespace TGraph
                 foreach(var Root in RootList)
               //  if (Root != null)
                 {
-                    VisibleList.Add(Root);
+                  //  VisibleList.Add(Root);
 
-                    OpenList.Add(Root);
+                  //  OpenList.Add(Root);
                     foreach (var chapter in Graph.chapters[ChapterDict[Root]].chapters)
                     {
-                        VisibleList.Add(chapter);
+                       // VisibleList.Add(chapter);
                       /*  foreach (var subChapter in Graph.chapters[ChapterDict[chapter]].chapters)
                         {
                             VisibleList.Add(subChapter);
@@ -1415,7 +1415,7 @@ namespace TGraph
 
                 foreach (var chapter in Graph.chapters)
                 {
-                   // if (chapter.highlevel) { VisibleList.Add(chapter.id); OpenList.Add(chapter.id); }
+                    if (chapter.highlevel) { VisibleList.Add(chapter.id); OpenList.Add(chapter.id); }
 
                 }
 

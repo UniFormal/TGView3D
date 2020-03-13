@@ -60,12 +60,12 @@ public class MoveAway : MonoBehaviour
         if (transform.position.x >= Screen.width - 16)
         {
             StartCoroutine(MoveBackRoutine());
-            img.transform.localScale += Vector3.right * 2;
+            if(img.transform.localScale.x <0) img.transform.localScale *= -1;
         }
         else
         {
             StartCoroutine(MoveRoutine());
-            img.transform.localScale -= Vector3.right * 2;
+            if (img.transform.localScale.x > 0) img.transform.localScale *=-1 ;
         }
      
     }

@@ -435,10 +435,25 @@ public class FlyCamera : MonoBehaviour
             var graphTransform = TGraph.GlobalVariables.JsonManager.transform;
             lastMouse = -(Input.mousePosition - lastMouse);
             lastMouse = new Vector3(-lastMouse.y * camSens, lastMouse.x * camSens, 0);
-            lastMouse = new Vector3(graphTransform.eulerAngles.x + lastMouse.x, graphTransform.eulerAngles.y + lastMouse.y, 0);
-            graphTransform.eulerAngles = TGraph.GlobalVariables.Rotation = lastMouse;
+            //  lastMouse = new Vector3(graphTransform.eulerAngles.x + lastMouse.x, graphTransform.eulerAngles.y + lastMouse.y, 0);
+            //  graphTransform.eulerAngles = TGraph.GlobalVariables.Rotation = lastMouse;
+         //   if (Mathf.Abs(lastMouse.y) > Mathf.Abs(lastMouse.x))
+            {
+                //  lastMouse = new Vector3(graphTransform.eulerAngles.x , graphTransform.eulerAngles.y + lastMouse.y, 0);
+                // graphTransform.eulerAngles = lastMouse;
+                graphTransform.Rotate(Vector3.up, lastMouse.y, Space.World);
+            }
+  
 
+        //    else
+            {
+                //  lastMouse = new Vector3(graphTransform.eulerAngles.x + lastMouse.x, graphTransform.eulerAngles.y, 0);
+                // graphTransform.eulerAngles = lastMouse;
+                graphTransform.Rotate(Vector3.right, lastMouse.x, Space.World);
+            }
+              
 
+            TGraph.GlobalVariables.Rotation = graphTransform.eulerAngles;
 
             //Mouse  camera angle done.  
         }

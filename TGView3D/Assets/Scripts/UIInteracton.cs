@@ -276,8 +276,12 @@ public class UIInteracton : MonoBehaviour {
         else
             targetUI.GetComponent<RectTransform>().localScale = Vector3.one;
     }
+    public void EnableObject(GameObject targetUI)
+    {
+        targetUI.SetActive(!targetUI.activeSelf);
+    }
 
-        public void EnableBeam()
+    public void EnableBeam()
     {
         var grabbers = transform.parent.GetComponentsInChildren<DistanceGrabber>();
         //TODO: better solution
