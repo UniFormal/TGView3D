@@ -369,8 +369,12 @@ namespace TGraph
             if (pm != -1)
             {
                 //var url = "https://mmt.mathhub.info/:jGraph/json?" + Application.absoluteURL.Split("?"[0])[1];
-                var url = Application.absoluteURL.Split("?"[0])[1];
-
+                var splitted=  Application.absoluteURL.Split("?"[0]);
+                string url = "";
+                for(int i = 1; i < splitted.Length; ++i)
+                {
+                    url += splitted[i];
+                }
                 if (url != "")
                 {
 
@@ -767,8 +771,8 @@ namespace TGraph
             }
             else if (www != null)
             {
-
-#if (UNITY_WEBGL)
+                Debug.Log(www.text);
+#if (UNITY_WEBGL && !UNITY_EDITOR)
 
                 if (!Cors)
                 {
@@ -862,17 +866,17 @@ namespace TGraph
 
                 if (mode == 0)
                 {
-                    url = "https://mmt.mathhub.info/:jGraph/json?key=archiveGraph&uri=" + URLObject.GetComponent<InputField>().text
-                     + "&semantic=" + SemanticSelect.GetComponent<Dropdown>().options[SemanticSelect.GetComponent<Dropdown>().value].text
-                     + "&comp=" + ArgSolverSelect.GetComponent<Dropdown>().options[ArgSolverSelect.GetComponent<Dropdown>().value].text;
+                    url = "https://mmt.mathhub.info/:jgraph/json?key=archivegraph&uri=" + URLObject.GetComponent<InputField>().text;
+                //     + "&semantic=" + SemanticSelect.GetComponent<Dropdown>().options[SemanticSelect.GetComponent<Dropdown>().value].text
+                 //    + "&comp=" + ArgSolverSelect.GetComponent<Dropdown>().options[ArgSolverSelect.GetComponent<Dropdown>().value].text;
 
                 }
                 else if (mode == 1)
                 {
 
-                    url = "localhost:8080/:jGraph/json?key=archiveGraph&uri=" + URLObject.GetComponent<InputField>().text
-                     + "&semantic=" + SemanticSelect.GetComponent<Dropdown>().options[SemanticSelect.GetComponent<Dropdown>().value].text
-                     + "&comp=" + ArgSolverSelect.GetComponent<Dropdown>().options[ArgSolverSelect.GetComponent<Dropdown>().value].text;
+                    url = "localhost:8080/:jgraph/json?key=archivegraph&uri=" + URLObject.GetComponent<InputField>().text;
+                   //  + "&semantic=" + SemanticSelect.GetComponent<Dropdown>().options[SemanticSelect.GetComponent<Dropdown>().value].text
+                    // + "&comp=" + ArgSolverSelect.GetComponent<Dropdown>().options[ArgSolverSelect.GetComponent<Dropdown>().value].text;
                 }
                 else
                 {
