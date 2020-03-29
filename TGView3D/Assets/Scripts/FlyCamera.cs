@@ -81,8 +81,9 @@ public class FlyCamera : MonoBehaviour
 #if UNITY_WEBGL && !UNITY_EDITOR
                      
                 openWindow("https://mmt.mathhub.info" + TGraph.GlobalVariables.Graph.nodes[hit.transform.GetSiblingIndex()].url);
-#else
-            Application.OpenURL("https://mmt.mathhub.info" + TGraph.GlobalVariables.Graph.nodes[hit.transform.GetSiblingIndex()].url);
+#else 
+
+            Application.OpenURL("https://localhost:8080" + TGraph.GlobalVariables.Graph.nodes[hit.transform.GetSiblingIndex()].url);
 #endif
 
                 GlobalVariables.JsonManager.UnSpin();
@@ -124,6 +125,8 @@ public class FlyCamera : MonoBehaviour
 
     public void DeselectNode(int nodeId)
     {
+
+        if (nodeId < 0) return;
         var graph = TGraph.GlobalVariables.Graph;
         var graphNode = graph.nodes[nodeId];
 
@@ -140,7 +143,9 @@ public class FlyCamera : MonoBehaviour
         int idx = graph.selectedNodes.FindIndex(x => x == nodeId);
         if (idx >= 0) graph.selectedNodes.RemoveAt(idx);
 
+        if (!EditToggle.isOn) return;
         DestroySubMenu(graphNode);
+        graph.latestSelection = -1;
 
     }
 
@@ -173,7 +178,7 @@ public class FlyCamera : MonoBehaviour
 
     public bool SelectNode(int nodeId)
     {
-
+        Debug.Log("select " + nodeId);
         var graph = TGraph.GlobalVariables.Graph;
         TGraph.ReadJSON.MyNode node = graph.nodes[nodeId];
 
@@ -382,7 +387,7 @@ public class FlyCamera : MonoBehaviour
 
     public void DestroySubMenu(TGraph.ReadJSON.MyNode node)
     {
-        if (!EditToggle.isOn) return;
+        if (!EditToggle.isOn || EditToggle == null|| node.nodeObject.GetComponentInChildren<SubMenu>()==null) return;
         GameObject.Destroy(node.nodeObject.GetComponentInChildren<SubMenu>().gameObject);
     }
 
@@ -489,6 +494,7 @@ public class FlyCamera : MonoBehaviour
                 }
                 else if (hit.transform.tag == "Edge")
                 {
+                    if (TGraph.GlobalVariables.Graph.latestSelection != -1) DeselectNode(TGraph.GlobalVariables.Graph.latestSelection);
                     var edge = TGraph.GlobalVariables.Graph.edges[hit.triangleIndex / 8];
                     //   TGraph.GlobalVariables.Graph.edges.Remove(edge);
                     if (edge.active)
@@ -522,6 +528,7 @@ public class FlyCamera : MonoBehaviour
             }
             else
             {
+               
                 /*
                 Debug.Log("miss");
                 if (Physics.SphereCast(ray, .1f, out hit, Mathf.Infinity))
@@ -725,6 +732,14 @@ if (m_Plane.Raycast(ray, out enter))
 
     public void InvertColors()
     {
+        var wCol = Color.white;
+        wCol.a = 2;
+        TGraph.ReadJSON.BaseColor = wCol - TGraph.ReadJSON.BaseColor;
+        TGraph.ReadJSON.SelectedColor = wCol - TGraph.ReadJSON.SelectedColor;
+        TGraph.ReadJSON.ConnectedColor = wCol- TGraph.ReadJSON.ConnectedColor;
+     //   DeselectNode(GlobalVariables.Graph.latestSelection);
+
+
         var texts = GetComponentsInChildren<Text>();
 
         Camera.main.backgroundColor = Color.white - Camera.main.backgroundColor;

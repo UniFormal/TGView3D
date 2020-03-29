@@ -352,7 +352,7 @@ public class TGConverter : MonoBehaviour
 
         List<string> sourceRefs = new List<string>();
 
-        var mainNode = new TGraph.ReadJSON.MyNode
+       /* var mainNode = new TGraph.ReadJSON.MyNode
         {
             label = name,
             id = name,
@@ -360,7 +360,7 @@ public class TGConverter : MonoBehaviour
         };
 
         rdfNodes.Add(mainNode);
-
+        */
         for (int i = 0; i<g.graph.Count;i++)
         {
             var node = g.graph[i];
@@ -378,7 +378,7 @@ public class TGConverter : MonoBehaviour
             if (node.specifies.Count == 0 && node.uses.Count == 0) continue;
 
            // Debug.Log(node.specifies.Count);
-           /*
+           
             rdfNodes.Add(new TGraph.ReadJSON.MyNode
             {
                 label = node.name[0].id,
@@ -386,10 +386,10 @@ public class TGConverter : MonoBehaviour
                 radius = Mathf.Sqrt(node.specifies.Count) * 0.05f,
                 
                 // style = node.paratype[0].id
-            });*/
+            });
             
          
-            /*
+            
             foreach (var to in node.specifies)
             {
                 rdfEdges.Add(new TGraph.ReadJSON.MyEdge
@@ -398,7 +398,17 @@ public class TGConverter : MonoBehaviour
                     to = to.id,
                     style = "specifies"
                 });
-            }*/
+            }
+
+            foreach (var to in node.uses)
+            {
+                rdfEdges.Add(new TGraph.ReadJSON.MyEdge
+                {
+                    from = node.id,
+                    to = to.id,
+                    style = "uses"
+                });
+            }
 
 
             /*
@@ -439,6 +449,8 @@ public class TGConverter : MonoBehaviour
                 origin = node.specifiedin[0].id;
             }*/
 
+            /*
+             * //other variant
             string origin = mainNode.id;
 
             foreach (var to in node.uses)
@@ -464,7 +476,7 @@ public class TGConverter : MonoBehaviour
                     id = origin+target
 
                 });
-            }
+            }*/
 
             /*
             foreach (var to in node.instanceof)
@@ -513,7 +525,7 @@ public class TGConverter : MonoBehaviour
                 });
 
             }*/
-     
+
         }
         var tGraph = new TGraph.ReadJSON.MyGraph
         {
@@ -524,8 +536,10 @@ public class TGConverter : MonoBehaviour
 
         string json = JsonUtility.ToJson(tGraph,true);
 
+        if (Path == ""||Path == null) Path = Application.dataPath+"/";
+
         File.WriteAllText(Path + name + ".json", json);
-       // Debug.Log("completed " + Path+ name + ".json");
+        Debug.Log("completed " + Path+ name + ".json");
        
     }
     void Start()

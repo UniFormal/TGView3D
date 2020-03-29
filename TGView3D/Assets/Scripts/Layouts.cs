@@ -114,7 +114,7 @@ namespace TGraph
         }
         public static void Spiral()
         {
-            Random.InitState(10);
+            //Random.InitState(10);
            // if (!graph.WaterMode) graph.FlatInit = false;
             for (var i = 0; i < graph.nodes.Count; i++)
             {
@@ -196,7 +196,7 @@ namespace TGraph
            
             //step=1f;
             Layouts.Energies = energies;
-            Debug.Log(currTemperature + " " + step + " " + energy + " " + energyBefore);
+          //  Debug.Log(currTemperature + " " + step + " " + energy + " " + energyBefore);
         }
 
 
@@ -560,6 +560,21 @@ namespace TGraph
                                         if (n == 0)
                                         {
                                             childNodeIndex = graph.nodeDict[graph.edges[curNode.edgeIndicesIn[j]].from];
+
+                                          /*  int furtherH = 0;
+                                            foreach(var edgeId in graph.nodes[childNodeIndex].edgeIndicesIn)
+                                            {
+                                                if(TGraph.ReadJSON.EdgeTypes[graph.edges[edgeId].style].type == hType)
+                                                {
+                                                    furtherH++;
+                                                }
+                                            }
+                                            if (furtherH == 0)
+                                            {
+                                                graph.edges[edgeIndex].style = "include";
+                                                continue;
+                                            }*/
+                                            
                                             // graph.nodes[childNodeIndex].height -=curHeight;
                                             if (graph.nodes[childNodeIndex].weight < curHeight)
                                                 graph.nodes[childNodeIndex].weight = curHeight;// Mathf.Max(curHeight, graph.nodes[childNodeIndex].weight);//+= curHeight;
@@ -575,6 +590,21 @@ namespace TGraph
                                         else
                                         {
                                             childNodeIndex = graph.nodeDict[graph.edges[curNode.edgeIndicesOut[j]].to];
+/*
+                                            int furtherH = 0;
+                                            foreach (var edgeId in graph.nodes[childNodeIndex].edgeIndicesOut)
+                                            {
+                                                if (TGraph.ReadJSON.EdgeTypes[graph.edges[edgeId].style].type == hType)
+                                                {
+                                                    furtherH++;
+                                                }
+                                            }
+                                            if (furtherH == 0)
+                                            {
+                                                graph.edges[edgeIndex].style = "include";
+                                                continue;
+                                            }*/
+
                                             if (graph.nodes[childNodeIndex].height < curHeight)
                                                 graph.nodes[childNodeIndex].height = curHeight;//Mathf.Max(curHeight, graph.nodes[childNodeIndex].height);//+= curHeight;
                                             else
@@ -803,7 +833,7 @@ namespace TGraph
                     {
                         var differenceNodesY = u.pos.y - n.pos.y;
                         //s
-                        upDist += kSquared/ Mathf.Max(epsilon, differenceNodesY - (diameter+u.radius*0.01f+n.radius*0.01f));
+                        upDist += kSquared/ Mathf.Max(epsilon, differenceNodesY - (diameter+u.radius*.1f+n.radius*.1f));
                         //      if (epsilon>=differenceNodesY) if (n.id.Contains("_dec") || n.id.Contains("_nat")) Debug.Log(n.id + " " + u.id + " " );
 
                     }
@@ -825,7 +855,7 @@ namespace TGraph
                     var u = graph.nodes[n.connectedNodes[k]];
                     {
                         var differenceNodesY = u.pos.y - n.pos.y;
-                        downDist += kSquared/Mathf.Min(-epsilon, differenceNodesY + (diameter+u.radius*0.01f+n.radius*0.01f));
+                        downDist += kSquared/Mathf.Min(-epsilon, differenceNodesY + (diameter+u.radius*.1f+n.radius*.1f));
                         //  if (-epsilon<=differenceNodesY) if (n.id.Contains("_dec") || n.id.Contains("_nat")) Debug.Log(n.id + " " + u.id+" ");
                     }
 
@@ -1042,7 +1072,7 @@ namespace TGraph
                 {
                     Energies[i] = 0;
                 }
-                Debug.Log(kVal + " k.. " + kSquared);
+              //  Debug.Log(kVal + " k.. " + kSquared);
 
 
             }
@@ -1098,7 +1128,7 @@ namespace TGraph
                                     continue;
                                 var differenceNodes = u.pos - n.pos; ;
 
-                                var lengthDiff = Mathf.Max(0, differenceNodes.magnitude - (diameter+n.radius*0.01f+u.radius*0.01f)) + epsilon;
+                                var lengthDiff = Mathf.Max(0, differenceNodes.magnitude - (diameter+n.radius*.1f+u.radius*.1f)) + epsilon;
                                 maxDist = Mathf.Max(maxDist, lengthDiff);
 
                                 var attractiveForce = (lengthDiff * lengthDiff / kVal);
@@ -1182,7 +1212,7 @@ namespace TGraph
                               //  if (u.GraphNumber == n.GraphNumber && n != u && (u.edgeIndicesIn != null || u.edgeIndicesOut != null))
                                 {
                                     var differenceNodes = u.pos - n.pos;
-                                    var lengthDiff = Mathf.Max(0, differenceNodes.magnitude - (diameter+n.radius*0.01f+u.radius*0.01f)) + epsilon;
+                                    var lengthDiff = Mathf.Max(0, differenceNodes.magnitude - (diameter+n.radius*.1f+u.radius*.1f)) + epsilon;
 
                                     var repulsiveForce = -(kSquared / lengthDiff);
                                     if (graph.PushLimit > 0.01f)

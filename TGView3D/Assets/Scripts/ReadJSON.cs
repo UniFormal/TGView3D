@@ -335,16 +335,17 @@ namespace TGraph
         void Start()
         {
 
-
+            Random.InitState(10);
             Physics.autoSimulation = false;
             GlobalVariables.JsonManager = this;
             ColorDict = new Dictionary<string, Color>();
             ColorDict.Add("include", new Color(0, 255, 0));
-            ColorDict.Add("meta", new Color(255, 20, 0));
+            ColorDict.Add("meta", new Color(255, 120, 0));
             ColorDict.Add("alignment", new Color(200, 200, 0));
             ColorDict.Add("view", new Color(0, 0, 255));
             ColorDict.Add("structure", new Color(200, 0, 250));
-
+            ColorDict.Add("chapter", new Color(255, 20, 0));
+            ColorDict.Add("partof", new Color(255, 0, 20));
 
             ColorDict.Add("attack", new Color(220, 0, 200));
             ColorDict.Add("b", new Color(255, 20, 0));
@@ -371,10 +372,12 @@ namespace TGraph
                 //var url = "https://mmt.mathhub.info/:jGraph/json?" + Application.absoluteURL.Split("?"[0])[1];
                 var splitted=  Application.absoluteURL.Split("?"[0]);
                 string url = "";
-                for(int i = 1; i < splitted.Length; ++i)
+                for(int i = 1; i < splitted.Length-1; ++i)
                 {
-                    url += splitted[i];
+                    url += splitted[i]+"?";
                 }
+                if (splitted.Length > 1)
+                    url += splitted[splitted.Length - 1];
                 if (url != "")
                 {
 
@@ -529,7 +532,7 @@ namespace TGraph
                 string col = "#" + ColorUtility.ToHtmlStringRGB(Random.ColorHSV());
 
 
-                 if (k++ > 2000) break;
+                 //if (k++ > 2000) break;
 
                 if (tmpGraph.nodes.Count > 1)
                 {
@@ -920,8 +923,7 @@ namespace TGraph
         public string LastOpened;
 
         public static List<string> OpenList = new List<string>();
-
-
+        private bool TReduce = true;
 
         public void Spin()
         {
@@ -974,7 +976,7 @@ namespace TGraph
 
             }
             UpdateLayout();
-            UIInteracton.SEnableEdgeType("include");
+           // UIInteracton.SEnableEdgeType("include");
             GlobalVariables.UIInteractonManager.ChainAttribute();
 
             Debug.Log("update layout");
@@ -1009,7 +1011,7 @@ namespace TGraph
                 LastOpened = null;
 
                 UpdateLayout();
-                UIInteracton.SEnableEdgeType("include");
+            //    UIInteracton.SEnableEdgeType("include");
                 GlobalVariables.UIInteractonManager.ChainAttribute();
 
                 Debug.Log("update layout");
@@ -1195,7 +1197,7 @@ namespace TGraph
                         color = col,
                         label = chapter.label,
                         id = chapter.id,
-                        radius = Mathf.Sqrt(chapter.nodes.Count) * 0.05f,
+                        radius = Mathf.Sqrt(chapter.nodes.Count+chapter.chapters.Count) * 0.1f,
                         parentId = chapter.parentId,
                         active = true,
                         style = "chapter"
@@ -1358,6 +1360,80 @@ namespace TGraph
 
          
             Graph = GlobalVariables.Graph;
+
+            List<string> chapters = new List<string>();
+            if (Graph.chapters.Count == 0 && Graph.nodes.Count<3000)
+            {
+              /*  for (int i = 0; i < Graph.nodes.Count; i++)
+                {
+                    var node = Graph.nodes[i];
+                    if (!node.id.Contains("zfc"))
+                    {
+                        i--;
+                        Graph.nodes.Remove(node);
+                    }
+                }*/
+                foreach (var node in Graph.nodes)
+                {
+                    var splitted = node.id.Split('/');
+
+                    var splitted2 = splitted[splitted.Length - 1].Split('?');
+                    string chapterName = splitted2[0];
+                    string chapterId = node.id.Split('?')[0];
+                    if (!chapters.Contains(chapterId))
+                    {
+                        chapters.Add(chapterId);
+                        Graph.chapters.Add(new MyChapter
+                        {
+                            id = chapterId,
+                            label = chapterName,
+                            highlevel = true,
+                            nodes = new List<string>(),
+                            chapters = new List<string>()
+                        });
+                    }
+                   var chapter = Graph.chapters.Find(c => c.id == chapterId);
+                    chapter.nodes.Add(node.id);
+                }
+
+                for (int i = 0; i<Graph.chapters.Count;i++)
+                {
+                    var chapter = Graph.chapters[i];
+              //      Debug.Log(chapter.id);
+                    var splitted = chapter.id.Split('/');
+                    if (splitted.Length <= 2) continue;
+                    string chapterName = splitted[splitted.Length-2];
+
+                    string chapterId = "";
+                    for(int j= 0; j < splitted.Length - 2; j++)
+                    {
+                        chapterId += splitted[j] + "/";
+                    }
+                        
+                    chapterId+=chapterName;
+                    if (!chapters.Contains(chapterId))
+                    {
+                        chapters.Add(chapterId);
+                        Graph.chapters.Add(new MyChapter
+                        {
+                            id = chapterId,
+                            label = chapterName,
+                            highlevel = true,
+                            nodes = new List<string>(),
+                            chapters = new List<string>()
+                        });
+                    }
+                    var chapter2 = Graph.chapters.Find(c => c.id == chapterId);
+                    chapter2.chapters.Add(chapter.id);
+                }
+
+        
+
+            }
+
+       
+
+            
             if (Graph.nodes.Count > 0||Graph.chapters.Count>0) Spin();
 
 
@@ -1407,20 +1483,20 @@ namespace TGraph
                   //  VisibleList.Add(Root);
 
                   //  OpenList.Add(Root);
-                    foreach (var chapter in Graph.chapters[ChapterDict[Root]].chapters)
-                    {
-                       // VisibleList.Add(chapter);
-                      /*  foreach (var subChapter in Graph.chapters[ChapterDict[chapter]].chapters)
-                        {
-                            VisibleList.Add(subChapter);
-                        }*/
-                    }
+                    /*     foreach (var chapter in Graph.chapters[ChapterDict[Root]].chapters)
+                         {
+                             VisibleList.Add(chapter);
+                             foreach (var subChapter in Graph.chapters[ChapterDict[chapter]].chapters)
+                             {
+                                 VisibleList.Add(subChapter);
+                             }
+                         }*/
                 }
 
                 foreach (var chapter in Graph.chapters)
                 {
-                    if (chapter.highlevel) { VisibleList.Add(chapter.id); OpenList.Add(chapter.id); }
-
+                   if (chapter.highlevel) { VisibleList.Add(chapter.id); OpenList.Add(chapter.id); }
+                    //if (chapter.highlevel && chapter.chapters.Count > 0) { VisibleList.Add(chapter.id); OpenList.Add(chapter.id); } else if (chapter.highlevel) VisibleList.Add(chapter.id);
                 }
 
 
@@ -1642,7 +1718,7 @@ namespace TGraph
 
                     if (!ColorDict.ContainsKey(edge.style))
                     {
-                        Random.InitState(edge.style.Length + edge.style[0]);
+                      //  Random.InitState(edge.style.Length + edge.style[0]);
                         var rndcol = Random.ColorHSV(0f, 1f, .9f, 1f) * 255;
                         rndcol.a = 0;
                         ColorDict.Add(edge.style, rndcol);
@@ -1694,116 +1770,88 @@ namespace TGraph
 
 
 
-            Debug.Log("init time " + (Time.realtimeSinceStartup - time));
+            Debug.Log("preprocess time " + (Time.realtimeSinceStartup - time));
             time = Time.realtimeSinceStartup;
             GlobalVariables.GraphManager.ProcessGraph();
-            Debug.Log("process time " + (Time.realtimeSinceStartup - time));
+            Debug.Log("object creation time " + (Time.realtimeSinceStartup - time));
             time = Time.realtimeSinceStartup;
 
 
-            /*
-           Stack<MyNode> transitiveNodes = new Stack<MyNode>();
-            foreach(var node in Graph.nodes)
-            {
-                if(node.edgeIndicesIn.Count == 0)
-                {
-                    node.height = 0;
-                    transitiveNodes.Push(node);
-                }
-            }
 
-            while (transitiveNodes.Count > 0)
+            if (TReduce)
             {
-                var tNode = transitiveNodes.Pop();
-                foreach(var eid in tNode.edgeIndicesOut)
+                foreach (var node in Graph.nodes)
                 {
-                    var edge = Graph.edges[eid];
-                    int nid = Graph.nodeDict[edge.to];
-                    var cNode = Graph.nodes[nid];
-                    if (!cNode.visited||cNode.height < tNode.height + 1)
+                    foreach (var n in Graph.nodes)
                     {
-                        cNode.visited = true;
-                        cNode.height = tNode.height + 1;
-                        if(cNode.fastestEdge!=null)
-                            cNode.fastestEdge.style = "transitivelyReduced";
-                        cNode.fastestEdge = edge;
+                        n.visited = false;
                     }
-                    transitiveNodes.Push(cNode);
-                    
-                }
-            }*/
+                    node.visited = true;
+                    List<MyNode> directNodes = new List<MyNode>();
+                    foreach (var eid in node.edgeIndicesOut)
+                    {
 
-
-           
-            foreach (var node in Graph.nodes)
-            {
-                foreach (var n in Graph.nodes)
-                {
-                    n.visited = false;
-                }
-                node.visited = true;
-                List<MyNode> directNodes = new List<MyNode>();
-                foreach (var eid in node.edgeIndicesOut)
-                {
-                    
-                    var edge = Graph.edges[eid];
-                    if (edge.style == "uses" || edge.style == "include")
-                    {
-                        int nid = Graph.nodeDict[edge.to];
-                        var cNode = Graph.nodes[nid];
-                        cNode.fastestEdge = edge;
-                        directNodes.Add(cNode);
-                    }
-             
-                }
-                int directCount = directNodes.Count;
-                foreach(var dNode in directNodes)
-                {
-                   
-                    Stack<MyNode> reachableNodes = new Stack<MyNode>();
-                    if (!dNode.visited)
-                    {
-                        dNode.visited = true;
-                        reachableNodes.Push(dNode);
-                    }
-                     
-                    while (reachableNodes.Count > 0)
-                    {
-                        var rNode = reachableNodes.Pop();
-                        rNode.visited = true;
-                        foreach (var eid in rNode.edgeIndicesOut)
+                        var edge = Graph.edges[eid];
+                        if (edge.style == "uses" || edge.style == "include" || edge.style == "structure")
                         {
-                            var edge = Graph.edges[eid];
-                            if (edge.style == "uses" || edge.style == "include")
-                            {
-                                int nid = Graph.nodeDict[edge.to];
-                                var cNode = Graph.nodes[nid];
-                                if (!cNode.visited)
-                                {
-                                    cNode.visited = true;
-                                    reachableNodes.Push(cNode);
-                                    if (directNodes.Contains(cNode) && cNode.fastestEdge.style != "transitivelyReduced")
-                                    {
-                                        cNode.fastestEdge.style = "transitivelyReduced";
-                                        directCount--;
-                                        if (directCount == 0)
-                                        {
-                                            reachableNodes.Clear();
-                                            break;
-                                        }
-
-                                    }
-                                }
-                               
-                             
-                            }
-                 
+                            int nid = Graph.nodeDict[edge.to];
+                            var cNode = Graph.nodes[nid];
+                            cNode.fastestEdge = edge;
+                            directNodes.Add(cNode);
                         }
+
                     }
-                 
+                    int directCount = directNodes.Count;
+                    foreach (var dNode in directNodes)
+                    {
+
+                        Stack<MyNode> reachableNodes = new Stack<MyNode>();
+                        if (!dNode.visited)
+                        {
+                            dNode.visited = true;
+                            reachableNodes.Push(dNode);
+                        }
+
+                        while (reachableNodes.Count > 0)
+                        {
+                            var rNode = reachableNodes.Pop();
+                            rNode.visited = true;
+                            foreach (var eid in rNode.edgeIndicesOut)
+                            {
+                                var edge = Graph.edges[eid];
+                                if (edge.style == "uses" || edge.style == "include" || edge.style == "structure")
+                                {
+                                    int nid = Graph.nodeDict[edge.to];
+                                    var cNode = Graph.nodes[nid];
+                                    if (!cNode.visited)
+                                    {
+                                        cNode.visited = true;
+                                        reachableNodes.Push(cNode);
+                                        if (directNodes.Contains(cNode) && cNode.fastestEdge.style != "transitivelyReduced")
+                                        {
+                                            cNode.fastestEdge.style = "transitivelyReduced";
+                                            directCount--;
+                                            if (directCount == 0)
+                                            {
+                                                reachableNodes.Clear();
+                                                break;
+                                            }
+
+                                        }
+                                    }
+
+
+                                }
+
+                            }
+                        }
+
+                    }
+
                 }
-         
             }
+           
+           
 
      
 
@@ -1870,7 +1918,7 @@ namespace TGraph
             //    GraphManager.Init();
 
 
-            Debug.Log("last steps time " + (Time.realtimeSinceStartup - time));
+          //  Debug.Log("last steps time " + (Time.realtimeSinceStartup - time));
 
             StartCoroutine(StartGraphManager(keepLayout));
 

@@ -42,7 +42,7 @@ namespace TGraph
         public GameObject SemanticSelect;
         public GameObject ArgSolverSelect;
         int si = 0;
-        public float time = 0;
+        //public float time = 0;
         public string url;//http://neuralocean.de/graph/test/nasa.json";
         public string path;
         public int vol = 100;
@@ -99,7 +99,7 @@ namespace TGraph
 
             if (Input.GetKeyDown(KeyCode.Keypad5))
             {
-                ScreenCapture.CaptureScreenshot("Screenshot__" + System.DateTime.Now.ToString("MM-dd_HH-mm-ss") + ".png");
+                ScreenCapture.CaptureScreenshot("Screenshot__" + System.DateTime.Now.ToString("MM-dd_HH-mm-ss") + ".png",4);
                 Debug.Log("pic");
             }
 
@@ -130,7 +130,7 @@ namespace TGraph
         void identifySubGraphs()
         {
 
-            Debug.Log("Identify SubGraphs... for node count of " + Graph.nodes.Count);
+            //Debug.Log("Identify SubGraphs... for node count of " + Graph.nodes.Count);
             for (var i = 0; i < Graph.nodes.Count; i++)
             {
                 /* if (Graph.nodes[i].connectedNodes.Count == 0)
@@ -218,7 +218,7 @@ namespace TGraph
 
 
                     {
-                        Graph.latestSelection = Graph.nodeDict[pair.Key];
+                     //   Graph.latestSelection = Graph.nodeDict[pair.Key];
                         Debug.Log("found " + Graph.latestSelection);
                         GlobalVariables.MouseManager.SelectNode(Graph.nodeDict[pair.Key]);
                         return;
@@ -240,7 +240,7 @@ namespace TGraph
                     {
                         if (p[startIdx] == p.ToUpper()[startIdx] || (startIdx > 0 && p[startIdx - 1] == '_'))
                         {
-                            Graph.latestSelection = Graph.nodeDict[pair.Key];
+                         //   Graph.latestSelection = Graph.nodeDict[pair.Key];
                             Debug.Log("found " + Graph.latestSelection);
                             if (!FoundNodes.Contains(Graph.nodes[Graph.nodeDict[pair.Key]]))
                             {
@@ -594,10 +594,10 @@ namespace TGraph
 
   
 
-        public GameObject GenLabel(Transform parent, string label, string type)
+        public GameObject GenLabel(Transform parent, string label, string type, bool isCluster)
         {
             GameObject text = (GameObject)Instantiate(NodeText);
-            StartCoroutine(SetText(text, parent, label, type));
+            StartCoroutine(SetText(text, parent, label, type, isCluster));
 
             return text;
 
@@ -638,47 +638,17 @@ namespace TGraph
 
         }
 
-        IEnumerator SetText(GameObject text, Transform parent, string label, string type)
+        IEnumerator SetText(GameObject text, Transform parent, string label, string type, bool isCluster)
         {
 
             yield return null;
 
-            bool isCluster = false;
-            var nodet = Graph.nodes[parent.GetSiblingIndex()];
+
+            //var nodet = Graph.nodes[parent.GetSiblingIndex()];
         //    Debug.Log("style " + nodet.style+" "+nodet.label+" "+type);
 
 
-            if (type == "chapter")
-            {
-                var InEdges = Graph.nodes[parent.GetSiblingIndex()].edgeIndicesIn;
-                foreach (var edgeId in InEdges)
-                {
-                    var edge = Graph.edges[edgeId];
-                    if (edge.style == "partof" || edge.style == "chapter")
-                    {
-                        var node = Graph.nodes[Graph.nodeDict[edge.from]];
-                        int cECount = 0;
-                        foreach (var edgeId2 in node.edgeIndicesIn)
-                        {
-                            var edge2 = Graph.edges[edgeId2];
-                        
-                            if (edge2.style == "partof" || edge.style == "chapter")
-                            {
-                                cECount++;
-                                
-                            }
-                        }
-                        if (cECount == 0)
-                        {
-                            isCluster = true;
-                            break;
-                        }
-
-                    }
-
-                }
-          
-            }
+   
 
        //     Debug.Log(isCluster);
             if (isCluster)
@@ -696,6 +666,8 @@ namespace TGraph
           
                 clusterText.transform.SetParent(parent);
                 clusterText.GetComponent<TextMeshPro>().text = label;
+                clusterText.GetComponent<TextMeshPro>().fontStyle = FontStyles.Bold;
+                clusterText.GetComponent<TextMeshPro>().fontStyle = FontStyles.Underline;
 
                 clusterText.GetComponent<TextMeshPro>().fontSize *= 3f;
                 //clusterText.transform.localPosition = Vector3.zero + new Vector3(0, 1f, 1f);
@@ -722,7 +694,9 @@ namespace TGraph
               
                   
                 }
-                clusterText.GetComponent<TextMeshPro>().color = col;
+                clusterText.GetComponent<TextMeshPro>().color = clusterText.GetComponent<TextMeshPro>().color * .8f + col * .2f;
+                clusterText.GetComponent<TextMeshPro>().outlineWidth = .25f;
+              clusterText.GetComponent<TextMeshPro>().outlineColor = col;
                 var cT = clusterText.AddComponent<ClusterText>();
                 cT.Nodes = nodes;
 
@@ -809,7 +783,11 @@ namespace TGraph
                 Debug.LogError(node.id + node.parentId);
             }
 
-            node.labelObject = GenLabel(nodeObject.transform, node.label, node.style);
+
+            bool isCluster = false;
+
+
+            node.labelObject = GenLabel(nodeObject.transform, node.label, node.style, isCluster);
             nodeObject.name = node.label;
 
 
@@ -897,8 +875,6 @@ namespace TGraph
                 int id = i;
          
 
-                //dictionary for converting name to true id
-                Graph.nodeDict.Add(name, id);
 
            
                 // Debug.Log(node.label+" "+name);
@@ -907,10 +883,59 @@ namespace TGraph
                 node.nr = i;
 
 
-                GameObject nodeObject = Instantiate(grabbable);
+         
+
+                bool isCluster = false;
+                var type = node.style;
+                if (type == "chapter")
+                {
+                    var InEdges = node.edgeIndicesIn;
+                    Debug.Log("boom "+node.id);
+                    foreach (var edgeId in InEdges)
+                    {
+                        var eedge = Graph.edges[edgeId];
+                        if (eedge.style == "partof" || eedge.style == "chapter")
+                        {
+                            var fnode = Graph.nodes[Graph.nodeDict[eedge.from]];
+                            int cECount = 0;
+                   
+                            foreach (var edgeId2 in fnode.edgeIndicesIn)
+                            {
+                                var edge2 = Graph.edges[edgeId2];
+
+                                if (edge2.style == "partof" || eedge.style == "chapter")
+                                {
+                                    cECount++;
+
+                                }
+                            }
+                            if (cECount == 0)
+                            {
+                                isCluster = true;
+                                break;
+                            }
+
+                        }
+
+                    }
+
+                }
+                GameObject nodeObject;
+                if (type!="chapter")
+                    nodeObject = Instantiate(grabbable);
+                else
+                {
+                    nodeObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                    nodeObject.tag = "Node";
+                    nodeObject.transform.localScale *= 0.05f;
+                }
+                    
+
                 node.nodeObject = nodeObject;
                 nodeObject.transform.parent = transform.GetChild(0).GetChild(0);
-                node.labelObject = GenLabel(nodeObject.transform, node.label, node.style);
+
+
+                node.labelObject = GenLabel(nodeObject.transform, node.label, node.style, isCluster);
 
                 Vector3 pos = UnityEngine.Random.insideUnitSphere * vol;
                 // if (!GlobalVariables.IdToPosition.ContainsKey(name)) Debug.Log(node.label +" "+node.parentId);
@@ -933,15 +958,27 @@ namespace TGraph
 
                 //node.transform.GetComponent<Renderer>().sharedMaterial = mat;
                 node.pos = pos;
-                    //node.transform.localScale = new Vector3(20, 20, 20);
+                //node.transform.localScale = new Vector3(20, 20, 20);
                 //    Debug.Log(node.radius);
- 
-               node.nodeObject.transform.localScale *= (1 + node.radius * 2);
-            //    Debug.Log(node.radius);
+
+                if (isCluster)
+                {
+                    node.nodeObject.transform.localScale *= (1 + node.radius * .5f);
+                    node.labelObject.transform.localScale *= (1 + node.radius * .5f);
+                }else
+                if (node.style == "chapter"&&node.edgeIndicesIn.Count>1)
+                {
+                    node.nodeObject.transform.localScale *= (1 + node.radius * 2);
+                  //  node.labelObject.transform.localScale *= (1 + node.radius * .5f);
+                    node.labelObject.transform.localScale *= 2;
+                    node.labelObject.layer = 10;
+                }
+
+                //    Debug.Log(node.radius);
 
 
-                    //     )
-                    {
+                //     )
+                {
                   
                         // Debug.Log(Graph.nodes[i].label + " " + i);
                     }
@@ -1120,7 +1157,7 @@ namespace TGraph
                 if (idx != -1)
                 {
 
-                    Debug.Log("SAME");
+                    //Debug.Log("SAME");
                     GameObject torus = GameObject.Instantiate(Resources.Load("Torus")) as GameObject;
                     node.nodeObject.transform.Rotate(Vector3.up, 360 * -1f * same / count);
                     torus.transform.parent = node.nodeObject.transform;
@@ -1168,7 +1205,7 @@ namespace TGraph
                 }
 
             }*/
-            
+          
             for (int i = 0; i < Graph.edges.Count; i++)
             {
                 var edge = Graph.edges[i];
@@ -1236,11 +1273,7 @@ namespace TGraph
                 }
             }
 
-            foreach (MyNode node in Graph.nodes)
-            {
-                PlaceEdge(node);
-            }
-
+     
 
 
         }
@@ -1298,7 +1331,7 @@ namespace TGraph
                 handle = Layouts.UpdateLayout(k, globalWeight, spaceScale);
 
 
-                Debug.Log("Begin Layout " + ((Time.realtimeSinceStartup - time)));
+              //  Debug.Log("Begin Layout " + ((Time.realtimeSinceStartup - time)));
 
 
                 //   while (!handle.IsCompleted)
@@ -1400,7 +1433,7 @@ namespace TGraph
 
         public IEnumerator FinishInit(bool keepLayout = false)
         {
-            time = Time.realtimeSinceStartup;
+            float time = Time.realtimeSinceStartup;
             Layouts.Init(GlobalVariables.TwoD);
             if (!keepLayout)
             {
@@ -1470,19 +1503,36 @@ namespace TGraph
             if (!XRSettings.enabled) GameObject.Find("CameraMain").GetComponent<Gestures>().Init();
 
           //  UIInteracton.SEnableEdgeType("dark");
-            Debug.Log("Finished init " + ((Time.realtimeSinceStartup - time)));
+            Debug.Log("Layout Time " + ((Time.realtimeSinceStartup - time)));
  
         }
 
         //the main graph creation function
         public void ProcessGraph()
         {
+
+
+            //dictionary for converting name to true id
+            int k = 0;
+            foreach(var node in Graph.nodes)
+                Graph.nodeDict.Add(node.id, k++);
+
+            ProcessEdges();
+
+
             float time = Time.realtimeSinceStartup;
             ProcessNodes();
-            Debug.Log(Graph.nodes.Count +" nodes, time: " + (Time.realtimeSinceStartup - time));
+         //   Debug.Log(Graph.nodes.Count +" nodes, time: " + (Time.realtimeSinceStartup - time));
             time = Time.realtimeSinceStartup;
-            ProcessEdges();
-            Debug.Log(Graph.edges.Count + " edges, time: " + (Time.realtimeSinceStartup - time));
+
+
+            foreach (MyNode node in Graph.nodes)
+            {
+                PlaceEdge(node);
+            }
+
+
+            //   Debug.Log(Graph.edges.Count + " edges, time: " + (Time.realtimeSinceStartup - time));
             time = Time.realtimeSinceStartup;
             identifySubGraphs();
 

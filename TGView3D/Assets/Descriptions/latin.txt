@@ -1,0 +1,1 @@
+LATIN aims at developing methods, techniques, and tools for interfacing logics and proof systems
