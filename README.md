@@ -1,7 +1,7 @@
 # TGView3D
 
 The TGView3D System is a 3D-theory graph viewer developed at the [KWARC group](http://kwarc.info) at [FAU Erlangen-Nürnberg](http://www.fau.de) in the Unity Engine.
-Different layouts and highlighting settings are available, to visualize the complex theory graphs efficiently.
+Different layouts and highlighting settings are available to visualize the complex theory graphs efficiently.
 
 Visit the web version at https://tgview3d.mathhub.info/ 
 
