@@ -4,7 +4,6 @@ The TGView3D System is a 3D-theory graph viewer developed at the [KWARC group](h
 Different layouts and highlighting settings are available to visualize the complex theory graphs efficiently.
 
 Visit the web version at https://tgview3d.mathhub.info/ 
-There is a problem with Google Chrome (at least with Version 84.0.4147.89).
 
 There is an experimental version that supports VR Hardware to offer an immersive experience of the represented data.
 
