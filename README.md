@@ -9,6 +9,8 @@ There is an experimental version that supports VR Hardware to offer an immersive
 
 Demo Builds are available now (see Releases)
 
+Visit the [Wiki](https://github.com/UniFormal/TGView3D/wiki/) for more information.
+
 [VR-Demo Video](https://www.youtube.com/watch?v=Mx7HSWD5dwg)
 
 ![](TGView3D/Gallery/zoom.gif)
